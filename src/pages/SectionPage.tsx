@@ -5,11 +5,11 @@ import type { SectionId } from '../data/sections'
 import { getSection } from '../data/sections'
 import { useArticlesBySection, useArticle } from '../data/articleHooks'
 import { sectionImages, sectionImageAlt } from '../data/sectionImages'
-import { SectionHero } from '../components/layout/SectionHero'
+import { MediaHero } from '../components/layout/MediaHero'
 import { ArticleCard } from '../components/ui/ArticleCard'
 import { CommentBubbles } from '../components/features/CommentBubbles'
 import { useApp } from '../context/AppContext'
-import { useFeed } from '../context/FeedContext'
+import { useFeed, useSectionVideo } from '../context/FeedContext'
 import { sectionThemes } from '../styles/tokens'
 import { X, ExternalLink } from 'lucide-react'
 
@@ -35,6 +35,7 @@ export function SectionPage({ sectionId }: SectionPageProps) {
   const selectedArticle = useArticle(selectedId ?? undefined)
   const { addXP } = useApp()
   const { isLive } = useFeed()
+  const sectionVideo = useSectionVideo(sectionId)
   const [xpFlash, setXpFlash] = useState(false)
 
   const openArticle = (id: string) => {
@@ -52,7 +53,12 @@ export function SectionPage({ sectionId }: SectionPageProps) {
   return (
     <div className="relative min-h-screen">
       <div className="absolute inset-0 h-[420px] md:h-[480px]">
-        <SectionHero image={sectionImages[sectionId]} alt={sectionImageAlt[sectionId]} />
+        <MediaHero
+          image={sectionImages[sectionId]}
+          alt={sectionImageAlt[sectionId]}
+          video={sectionVideo?.url}
+          videoPoster={sectionVideo?.poster}
+        />
       </div>
 
       <div className="relative z-10 pt-32 pb-20">
@@ -125,12 +131,23 @@ export function SectionPage({ sectionId }: SectionPageProps) {
             >
               {(selectedArticle.image ?? sectionImages[selectedArticle.section]) && (
                 <div className="relative h-48 shrink-0">
-                  <img
-                    src={selectedArticle.image ?? sectionImages[selectedArticle.section]}
-                    alt=""
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-void to-transparent" />
+                  {selectedArticle.video ? (
+                    <video
+                      controls
+                      playsInline
+                      poster={selectedArticle.videoPoster ?? selectedArticle.image}
+                      className="w-full h-full object-cover"
+                    >
+                      <source src={selectedArticle.video} type="video/mp4" />
+                    </video>
+                  ) : (
+                    <img
+                      src={selectedArticle.image ?? sectionImages[selectedArticle.section]}
+                      alt=""
+                      className="w-full h-full object-cover"
+                    />
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-void to-transparent pointer-events-none" />
                 </div>
               )}
 

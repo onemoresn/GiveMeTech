@@ -14,6 +14,8 @@ export interface Article {
   /** Live feed fields */
   url?: string
   image?: string
+  video?: string
+  videoPoster?: string
   source?: string
   isLive?: boolean
 }

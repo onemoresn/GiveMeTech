@@ -1,8 +1,9 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import type { Article } from '../../data/articles'
 import { sectionImages } from '../../data/sectionImages'
 import { Badge } from './Badge'
-import { ExternalLink } from 'lucide-react'
+import { Play } from 'lucide-react'
 
 type CardVariant = 'node' | 'encrypted' | 'terminal' | 'mission' | 'portal' | 'default'
 
@@ -14,7 +15,10 @@ interface ArticleCardProps {
 }
 
 export function ArticleCard({ article, variant = 'default', index = 0, onClick }: ArticleCardProps) {
+  const [videoActive, setVideoActive] = useState(false)
   const imageSrc = article.image ?? sectionImages[article.section]
+  const poster = article.videoPoster ?? imageSrc
+  const hasVideo = Boolean(article.video)
 
   const variantStyles: Record<CardVariant, string> = {
     node: 'border-neon-purple/30 hover:border-neon-purple',
@@ -33,6 +37,8 @@ export function ArticleCard({ article, variant = 'default', index = 0, onClick }
       transition={{ delay: index * 0.1, duration: 0.5 }}
       whileHover={{ y: -4 }}
       onClick={onClick}
+      onMouseEnter={() => hasVideo && setVideoActive(true)}
+      onMouseLeave={() => setVideoActive(false)}
       className={`
         glass-panel group relative cursor-pointer overflow-hidden transition-all duration-300
         ${variantStyles[variant]}
@@ -42,14 +48,32 @@ export function ArticleCard({ article, variant = 'default', index = 0, onClick }
       onKeyDown={(e) => e.key === 'Enter' && onClick?.()}
       aria-label={`Read article: ${article.title}`}
     >
-      <div className="relative h-40 overflow-hidden">
-        <img
-          src={imageSrc}
-          alt=""
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-          loading="lazy"
-        />
+      <div className="relative h-40 overflow-hidden bg-void-elevated">
+        {hasVideo && videoActive ? (
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            poster={poster}
+            className="w-full h-full object-cover"
+          >
+            <source src={article.video} type="video/mp4" />
+          </video>
+        ) : (
+          <img
+            src={imageSrc}
+            alt=""
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            loading="lazy"
+          />
+        )}
         <div className="absolute inset-0 bg-gradient-to-t from-void via-void/30 to-transparent" />
+        {hasVideo && !videoActive && (
+          <span className="absolute bottom-3 right-3 flex items-center gap-1 px-2 py-1 rounded bg-void/70 text-[10px] font-mono text-text-primary border border-glass-border">
+            <Play size={10} fill="currentColor" /> Preview
+          </span>
+        )}
         {article.isLive && (
           <span className="absolute top-3 left-3 px-2 py-0.5 rounded text-[10px] font-mono uppercase bg-neon-cyan/20 text-neon-cyan border border-neon-cyan/30">
             Live
@@ -60,6 +84,7 @@ export function ArticleCard({ article, variant = 'default', index = 0, onClick }
       <div className="p-5">
         <div className="flex items-center gap-2 mb-3">
           {article.featured && <Badge label="Featured" variant="magenta" pulse />}
+          {hasVideo && <Badge label="Video" variant="purple" />}
           <Badge label={`+${article.xpReward} XP`} variant="green" />
         </div>
 
@@ -95,20 +120,4 @@ export function ArticleCard({ article, variant = 'default', index = 0, onClick }
       </div>
     </motion.article>
   )
-}
-
-export function ArticleCardLink({ article }: { article: Article }) {
-  if (article.url) {
-    return (
-      <a
-        href={article.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center gap-1 text-sm font-mono text-neon-cyan hover:underline"
-      >
-        Read full story <ExternalLink size={14} />
-      </a>
-    )
-  }
-  return null
 }

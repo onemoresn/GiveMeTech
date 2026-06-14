@@ -7,6 +7,7 @@ import { useFeed } from '../context/FeedContext'
 import { sections } from '../data/sections'
 import { sectionImages, sectionImageAlt } from '../data/sectionImages'
 import { ArticleCard } from '../components/ui/ArticleCard'
+import { FeaturedVideos } from '../components/features/FeaturedVideos'
 import { Button } from '../components/ui/Button'
 
 export function HomePage() {
@@ -136,6 +137,8 @@ export function HomePage() {
           ))}
         </div>
       </section>
+
+      <FeaturedVideos />
 
       {/* Featured Articles */}
       <section className="relative z-10 max-w-7xl mx-auto px-6 py-16">

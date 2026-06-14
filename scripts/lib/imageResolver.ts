@@ -2,8 +2,9 @@ import { createHash } from 'node:crypto'
 import { writeFile, mkdir } from 'node:fs/promises'
 import path from 'node:path'
 import type { SectionId } from '../../src/data/sections'
-import { SECTION_FALLBACK_IMAGES, SECTION_IMAGE_QUERIES } from '../feed-config'
+import { SECTION_FALLBACK_IMAGES } from '../feed-config'
 import { FEED_IMAGES_DIR } from '../feed-types'
+import { buildPhotoQuery, searchPexelsPhoto } from './pexelsMedia'
 
 function stripHtml(html: string): string {
   return html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim()
@@ -42,23 +43,6 @@ export function extractImageFromItem(item: Record<string, unknown>): string | nu
   return null
 }
 
-async function fetchPexelsImage(query: string): Promise<string | null> {
-  const apiKey = process.env.PEXELS_API_KEY
-  if (!apiKey) return null
-
-  try {
-    const res = await fetch(
-      `https://api.pexels.com/v1/search?query=${encodeURIComponent(query)}&per_page=1&orientation=landscape`,
-      { headers: { Authorization: apiKey } }
-    )
-    if (!res.ok) return null
-    const data = (await res.json()) as { photos?: { src?: { large?: string } }[] }
-    return data.photos?.[0]?.src?.large ?? null
-  } catch {
-    return null
-  }
-}
-
 async function downloadImage(url: string, id: string): Promise<string | null> {
   try {
     const res = await fetch(url, { redirect: 'follow' })
@@ -94,9 +78,7 @@ export async function resolveArticleImage(
     if (rssImage.startsWith('http')) return rssImage
   }
 
-  const titleWords = title.split(/\s+/).slice(0, 4).join(' ')
-  const pexelsQuery = `${SECTION_IMAGE_QUERIES[section]} ${titleWords}`.trim()
-  const pexelsUrl = await fetchPexelsImage(pexelsQuery)
+  const pexelsUrl = await searchPexelsPhoto(buildPhotoQuery(section, title))
   if (pexelsUrl) {
     const local = await downloadImage(pexelsUrl, articleId)
     if (local) return local

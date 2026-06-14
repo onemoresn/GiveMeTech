@@ -1,11 +1,9 @@
 #!/usr/bin/env npx tsx
 /**
  * Fetches latest tech stories from RSS feeds, categorizes them,
- * resolves topic-appropriate images, and writes public/data/feed.json.
- *
- * Run manually:  npm run fetch-feeds
- * Schedule daily: see .github/workflows/update-feed.yml
+ * resolves topic-appropriate images/videos, and writes public/data/feed.json.
  */
+import 'dotenv/config'
 import { writeFile, mkdir } from 'node:fs/promises'
 import Parser from 'rss-parser'
 import type { SectionId } from '../src/data/sections'
@@ -26,6 +24,12 @@ import {
   slugify,
 } from './lib/categorize'
 import { cleanExcerpt, makeArticleId, resolveArticleImage } from './lib/imageResolver'
+import {
+  fetchSectionVideos,
+  fetchArticleVideo,
+  hasPexelsKey,
+  ARTICLE_VIDEO_SECTIONS,
+} from './lib/pexelsMedia'
 
 const parser = new Parser({
   requestOptions: {
@@ -163,6 +167,31 @@ async function buildFeedArticles(stories: RawStory[]): Promise<FeedArticle[]> {
   return articles
 }
 
+async function attachArticleVideos(articles: FeedArticle[]): Promise<void> {
+  if (!hasPexelsKey()) return
+
+  const sectionVideoAdded = new Set<SectionId>()
+
+  for (const article of articles) {
+    const isFeatured = article.featured === true
+    const isSectionLead =
+      ARTICLE_VIDEO_SECTIONS.has(article.section) && !sectionVideoAdded.has(article.section)
+
+    if (!isFeatured && !isSectionLead) continue
+
+    if (isSectionLead) sectionVideoAdded.add(article.section)
+
+    console.log(`  🎬 Article video: ${article.title.slice(0, 50)}…`)
+    const video = await fetchArticleVideo(article.section, article.title)
+    if (video) {
+      article.video = video.url
+      article.videoPoster = video.poster || undefined
+    }
+
+    await new Promise((r) => setTimeout(r, 400))
+  }
+}
+
 function buildBreakingNews(articles: FeedArticle[]): string[] {
   return articles.slice(0, 10).map((a) => `${a.source.toUpperCase()}: ${a.title}`)
 }
@@ -196,10 +225,21 @@ async function main() {
   console.log('\n🖼  Resolving images…')
   const articles = await buildFeedArticles(selected)
 
+  let sectionVideos = {}
+  if (hasPexelsKey()) {
+    console.log('\n🎬 Fetching section hero videos…')
+    sectionVideos = await fetchSectionVideos()
+    console.log('\n🎬 Fetching article preview videos…')
+    await attachArticleVideos(articles)
+  } else {
+    console.log('\n⚠  No PEXELS_API_KEY — skipping Pexels images/videos beyond RSS')
+  }
+
   const feed: FeedData = {
     fetchedAt: new Date().toISOString(),
     articles,
     breakingNews: buildBreakingNews(articles),
+    sectionVideos,
   }
 
   await mkdir('public/data', { recursive: true })
