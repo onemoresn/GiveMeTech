@@ -21,13 +21,13 @@ npm run fetch-feeds          # Fetch latest stories now
 
 See [docs/FEED_READER.md](docs/FEED_READER.md) for sources and categorization.
 
-## Deploy (GitHub Pages)
+## Deploy (GitHub Pages + Custom Domain)
 
-Hosted at **https://onemoresn.github.io/GiveMeTech/** — auto-deploys on every push to `main`.
+**Production:** [https://give-me-tech.com](https://give-me-tech.com)
 
-News refresh runs every hour (UTC), commits new stories, then triggers a redeploy.
+Auto-deploys on every push to `main`. News refresh runs every hour (UTC).
 
-See [docs/DEPLOY.md](docs/DEPLOY.md) for one-time setup (enable Pages → GitHub Actions source).
+See [docs/DEPLOY.md](docs/DEPLOY.md) for Squarespace DNS setup (`give-me-tech.com`).
 
 ## Quick Start
 
