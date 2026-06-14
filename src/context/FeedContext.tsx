@@ -149,8 +149,3 @@ export function useArticle(id: string | null) {
   const { articles } = useFeed()
   return useMemo(() => (id ? articles.find((a) => a.id === id) : undefined), [articles, id])
 }
-
-export function useVideoArticles() {
-  const { articles } = useFeed()
-  return useMemo(() => articles.filter((a) => a.video), [articles])
-}

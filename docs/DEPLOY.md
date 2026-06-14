@@ -4,23 +4,23 @@ GiveMeTech is configured for **onemoresn/GiveMeTech** at:
 
 **https://onemoresn.github.io/GiveMeTech/**
 
-## Daily loop
+## Hourly update loop
 
 Two GitHub Actions workflows run the full cycle:
 
 ```
-6:00 AM UTC  →  update-feed.yml
-              →  Fetches RSS + images
-              →  Commits feed.json to main
+Every hour (:00 UTC)  →  update-feed.yml
+                     →  Fetches RSS + images
+                     →  Commits feed.json to main
 
-              →  deploy-pages.yml (triggered by push)
-              →  Builds site with /GiveMeTech/ base path
-              →  Publishes to GitHub Pages
+                     →  deploy-pages.yml (triggered by push)
+                     →  Builds site with /GiveMeTech/ base path
+                     →  Publishes to GitHub Pages
 ```
 
 | Workflow | Trigger | What it does |
 |----------|---------|--------------|
-| `update-feed.yml` | Daily cron + manual | Fetch feeds, commit `public/data/feed.json` |
+| `update-feed.yml` | Hourly cron + manual | Fetch feeds, commit `public/data/feed.json` |
 | `deploy-pages.yml` | Every push to `main` | Build & deploy to GitHub Pages |
 
 ## One-time setup

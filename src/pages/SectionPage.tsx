@@ -78,7 +78,7 @@ export function SectionPage({ sectionId }: SectionPageProps) {
             <p className="text-text-secondary text-lg max-w-2xl">{section.description}</p>
             {isLive && (
               <p className="text-neon-cyan text-xs font-mono mt-3">
-                ● Live stories from RSS — updated daily
+                ● Live stories from RSS — updated hourly
               </p>
             )}
           </motion.div>

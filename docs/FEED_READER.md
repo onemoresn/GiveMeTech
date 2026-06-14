@@ -52,9 +52,9 @@ npm run fetch-feeds
 
 ## Daily automation
 
-See [DEPLOY.md](./DEPLOY.md) for the full GitHub Pages daily loop.
+See [DEPLOY.md](./DEPLOY.md) for the full GitHub Pages hourly loop.
 
-- **`update-feed.yml`** — Runs at 6:00 AM UTC, commits feed changes
+- **`update-feed.yml`** — Runs every hour at :00 UTC, commits feed changes
 - **`deploy-pages.yml`** — Redeploys on every push to `main`
 
 ## File locations

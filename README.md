@@ -13,7 +13,7 @@ An immersive, fully 3D interactive technology blog built with React, Three.js, a
 
 ## RSS Feed (Daily News)
 
-Live tech stories are pulled from RSS feeds and updated daily.
+Live tech stories are pulled from RSS feeds and updated hourly.
 
 ```bash
 npm run fetch-feeds          # Fetch latest stories now
@@ -25,7 +25,7 @@ See [docs/FEED_READER.md](docs/FEED_READER.md) for sources and categorization.
 
 Hosted at **https://onemoresn.github.io/GiveMeTech/** — auto-deploys on every push to `main`.
 
-Daily news refresh runs at 6:00 AM UTC, commits new stories, then triggers a redeploy.
+News refresh runs every hour (UTC), commits new stories, then triggers a redeploy.
 
 See [docs/DEPLOY.md](docs/DEPLOY.md) for one-time setup (enable Pages → GitHub Actions source).
 
