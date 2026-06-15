@@ -275,6 +275,8 @@ async function main() {
   const gemini = getGeminiUsage()
   if (gemini.enabled && gemini.calls > 0) {
     console.log(`   Gemini: ${gemini.calls}/${gemini.maxCalls} summaries generated this run`)
+  } else if (gemini.enabled) {
+    console.log('   Gemini: enabled but 0 summaries generated (API errors or no short excerpts)')
   }
 }
 

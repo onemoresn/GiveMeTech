@@ -4,6 +4,11 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  # Feed workflow pushes with GITHUB_TOKEN — those pushes do not trigger push workflows
+  workflow_run:
+    workflows: [Update News Feed]
+    types: [completed]
+    branches: [main]
 
 permissions:
   contents: read
@@ -16,6 +21,9 @@ concurrency:
 
 jobs:
   deploy:
+    if: >-
+      github.event_name != 'workflow_run' ||
+      github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
@@ -23,6 +31,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          # workflow_run fires on the triggering SHA; checkout latest main for feed bot commits
+          ref: ${{ github.event_name == 'workflow_run' && 'main' || github.ref }}
 
       - uses: actions/setup-node@v4
         with:
