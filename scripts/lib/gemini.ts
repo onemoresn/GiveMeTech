@@ -1,8 +1,5 @@
 import type { SectionId } from '../../src/data/sections'
 
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY?.trim()
-const GEMINI_ENABLED = process.env.GEMINI_ENABLED?.trim().toLowerCase() === 'true'
-const GEMINI_MAX_CALLS = parsePositiveInt(process.env.GEMINI_MAX_CALLS, 12)
 const GEMINI_URL =
   'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent'
 
@@ -13,18 +10,31 @@ function parsePositiveInt(value: string | undefined, fallback: number): number {
   return Number.isFinite(n) && n > 0 ? n : fallback
 }
 
+/** Read at call time so dotenv has loaded before fetch-feeds runs. */
+function getApiKey(): string | undefined {
+  return process.env.GEMINI_API_KEY?.trim() || undefined
+}
+
+function isEnabled(): boolean {
+  return process.env.GEMINI_ENABLED?.trim().toLowerCase() === 'true'
+}
+
+function getMaxCalls(): number {
+  return parsePositiveInt(process.env.GEMINI_MAX_CALLS, 12)
+}
+
 /** Key is present — does not mean Gemini will run (see isGeminiActive). */
 export function hasGeminiKey(): boolean {
-  return Boolean(GEMINI_API_KEY)
+  return Boolean(getApiKey())
 }
 
 /** Key + GEMINI_ENABLED=true and under per-run call cap. */
 export function isGeminiActive(): boolean {
-  return Boolean(GEMINI_API_KEY) && GEMINI_ENABLED && callCount < GEMINI_MAX_CALLS
+  return Boolean(getApiKey()) && isEnabled() && callCount < getMaxCalls()
 }
 
 export function getGeminiUsage(): { calls: number; maxCalls: number; enabled: boolean } {
-  return { calls: callCount, maxCalls: GEMINI_MAX_CALLS, enabled: GEMINI_ENABLED }
+  return { calls: callCount, maxCalls: getMaxCalls(), enabled: isEnabled() }
 }
 
 /** 5 s gap between calls → max 12 req/min, safely under the 15 req/min free-tier limit */
@@ -89,10 +99,12 @@ export async function generateSummary(
   section: SectionId,
   source: string,
 ): Promise<string | null> {
-  if (!GEMINI_API_KEY) return null
-  if (!GEMINI_ENABLED) return null
-  if (callCount >= GEMINI_MAX_CALLS) {
-    console.warn(`  ⚠ Gemini cap reached (${GEMINI_MAX_CALLS}/run) — using template summary`)
+  const apiKey = getApiKey()
+  if (!apiKey) return null
+  if (!isEnabled()) return null
+  const maxCalls = getMaxCalls()
+  if (callCount >= maxCalls) {
+    console.warn(`  ⚠ Gemini cap reached (${maxCalls}/run) — using template summary`)
     return null
   }
 
@@ -101,7 +113,7 @@ export async function generateSummary(
   const prompt = buildSummaryPrompt(title, excerpt, section, source)
 
   try {
-    const res = await fetch(`${GEMINI_URL}?key=${GEMINI_API_KEY}`, {
+    const res = await fetch(`${GEMINI_URL}?key=${apiKey}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
