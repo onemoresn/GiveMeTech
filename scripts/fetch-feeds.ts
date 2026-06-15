@@ -23,7 +23,7 @@ import {
   estimateReadTime,
   slugify,
 } from './lib/categorize'
-import { cleanExcerpt, makeArticleId, resolveArticleImage } from './lib/imageResolver'
+import { cleanExcerpt, makeArticleId, resolveArticleImage, cleanBody, expandBody } from './lib/imageResolver'
 import {
   fetchSectionVideos,
   fetchArticleVideo,
@@ -146,15 +146,25 @@ async function buildFeedArticles(stories: RawStory[]): Promise<FeedArticle[]> {
 
     const image = await resolveArticleImage(story.item, story.section, id, story.title)
 
+    const rawBody = (story.item['content:encoded'] || story.item.content || story.item.contentSnippet || '') as string
+    const cleanedBody = cleanBody(rawBody)
+    const tags = extractTags(story.title, story.section)
+
+    // If RSS gave us substantially more than the excerpt, use it; otherwise expand from metadata
+    const body = cleanedBody.length > story.excerpt.length + 80
+      ? cleanedBody
+      : expandBody(story.title, story.excerpt, story.section, story.source, tags)
+
     articles.push({
       id,
       title: story.title,
       excerpt: story.excerpt,
+      body,
       author: story.author,
       date: story.date.toISOString().split('T')[0],
       readTime: estimateReadTime(story.excerpt),
       section: story.section,
-      tags: extractTags(story.title, story.section),
+      tags,
       featured: articles.length < 6,
       xpReward: 30 + Math.floor(Math.random() * 25),
       url: story.url,

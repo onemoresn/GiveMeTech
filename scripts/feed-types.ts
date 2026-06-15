@@ -20,6 +20,7 @@ export interface FeedArticle {
   image: string
   source: string
   isLive: true
+  body?: string
   video?: string
   videoPoster?: string
 }

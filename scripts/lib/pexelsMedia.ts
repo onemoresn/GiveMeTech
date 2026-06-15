@@ -29,18 +29,20 @@ export function hasPexelsKey(): boolean {
   return Boolean(getApiKey())
 }
 
-export async function searchPexelsPhoto(query: string): Promise<string | null> {
+export async function searchPexelsPhoto(query: string, pickIndex = 0): Promise<string | null> {
   const headers = pexelsHeaders()
   if (!headers) return null
 
   try {
     const res = await fetch(
-      `https://api.pexels.com/v1/search?query=${encodeURIComponent(query)}&per_page=1&orientation=landscape`,
+      `https://api.pexels.com/v1/search?query=${encodeURIComponent(query)}&per_page=15&orientation=landscape`,
       { headers }
     )
     if (!res.ok) return null
     const data = (await res.json()) as { photos?: { src?: { large?: string; large2x?: string } }[] }
-    const photo = data.photos?.[0]?.src
+    const photos = data.photos ?? []
+    if (!photos.length) return null
+    const photo = photos[pickIndex % photos.length]?.src
     return photo?.large2x ?? photo?.large ?? null
   } catch {
     return null
@@ -120,9 +122,13 @@ export const SECTION_VIDEO_QUERIES: Record<SectionId, string> = {
   gaming: 'video gaming esports virtual reality',
 }
 
-export function buildPhotoQuery(section: SectionId, title: string): string {
+export function buildPhotoQuery(section: SectionId, title: string): { query: string; pickIndex: number } {
   const titleWords = title.split(/\s+/).slice(0, 4).join(' ')
-  return `${SECTION_IMAGE_QUERIES[section]} ${titleWords}`.trim()
+  const query = `${SECTION_IMAGE_QUERIES[section]} ${titleWords}`.trim()
+  // Deterministic pick index from title so every article consistently gets a different photo
+  let hash = 0
+  for (let i = 0; i < title.length; i++) hash = (hash * 31 + title.charCodeAt(i)) >>> 0
+  return { query, pickIndex: hash % 15 }
 }
 
 /** Sections where article cards get video previews when possible */

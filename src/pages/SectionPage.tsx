@@ -4,7 +4,7 @@ import { useState } from 'react'
 import type { SectionId } from '../data/sections'
 import { getSection } from '../data/sections'
 import { useArticlesBySection, useArticle } from '../data/articleHooks'
-import { sectionImages, sectionImageAlt } from '../data/sectionImages'
+import { sectionImages, sectionImageAlt, getArticleImage } from '../data/sectionImages'
 import { MediaHero } from '../components/layout/MediaHero'
 import { ArticleCard } from '../components/ui/ArticleCard'
 import { CommentBubbles } from '../components/features/CommentBubbles'
@@ -20,6 +20,24 @@ const cardVariants: Record<SectionId, 'node' | 'encrypted' | 'default' | 'termin
   software: 'terminal',
   space: 'mission',
   gaming: 'portal',
+}
+
+/** Splits a body string into readable paragraphs at sentence boundaries */
+function formatArticleBody(text: string): string[] {
+  const explicit = text.split(/\n\n+/).map((s) => s.trim()).filter(Boolean)
+  if (explicit.length > 1) return explicit
+  const sentences = text.match(/[^.!?]+[.!?]+["']?/g) ?? [text]
+  const paragraphs: string[] = []
+  let current = ''
+  for (const s of sentences) {
+    current += s
+    if (current.length >= 180) {
+      paragraphs.push(current.trim())
+      current = ''
+    }
+  }
+  if (current.trim()) paragraphs.push(current.trim())
+  return paragraphs.length ? paragraphs : [text]
 }
 
 interface SectionPageProps {
@@ -129,20 +147,20 @@ export function SectionPage({ sectionId }: SectionPageProps) {
               className="w-full max-w-2xl glass-panel overflow-hidden max-h-[85vh] flex flex-col border-glass-border"
               style={{ borderColor: `${theme.primary}40` }}
             >
-              {(selectedArticle.image ?? sectionImages[selectedArticle.section]) && (
+              {getArticleImage(selectedArticle) && (
                 <div className="relative h-48 shrink-0">
                   {selectedArticle.video ? (
                     <video
                       controls
                       playsInline
-                      poster={selectedArticle.videoPoster ?? selectedArticle.image}
+                      poster={selectedArticle.videoPoster ?? getArticleImage(selectedArticle)}
                       className="w-full h-full object-cover"
                     >
                       <source src={selectedArticle.video} type="video/mp4" />
                     </video>
                   ) : (
                     <img
-                      src={selectedArticle.image ?? sectionImages[selectedArticle.section]}
+                      src={getArticleImage(selectedArticle)}
                       alt=""
                       className="w-full h-full object-cover"
                     />
@@ -171,10 +189,21 @@ export function SectionPage({ sectionId }: SectionPageProps) {
                 <p className="text-text-secondary text-lg leading-relaxed mb-6">{selectedArticle.excerpt}</p>
 
                 {selectedArticle.isLive && selectedArticle.url ? (
-                  <div className="space-y-4">
-                    <p className="text-text-secondary text-sm">
-                      This story is sourced from {selectedArticle.source}. Read the full report for complete coverage.
-                    </p>
+                  <div className="space-y-6">
+                    {selectedArticle.body && (
+                      <div className="space-y-4">
+                        {formatArticleBody(selectedArticle.body).map((para, i) => (
+                          <p key={i} className="text-text-secondary leading-relaxed text-[15px]">{para}</p>
+                        ))}
+                      </div>
+                    )}
+                    <div className="flex items-start gap-3 p-4 rounded-lg bg-glass border border-glass-border">
+                      <span className="text-neon-cyan text-lg shrink-0">📰</span>
+                      <p className="text-text-muted text-sm leading-relaxed">
+                        This story is reported by <span className="text-text-secondary font-medium">{selectedArticle.source}</span>.
+                        Head to the full article for in-depth analysis, additional context, and reader discussion.
+                      </p>
+                    </div>
                     <a
                       href={selectedArticle.url}
                       target="_blank"

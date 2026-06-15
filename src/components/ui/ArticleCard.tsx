@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import type { Article } from '../../data/articles'
-import { sectionImages } from '../../data/sectionImages'
+import { getArticleImage } from '../../data/sectionImages'
 import { Badge } from './Badge'
 import { Play } from 'lucide-react'
 
@@ -16,7 +16,7 @@ interface ArticleCardProps {
 
 export function ArticleCard({ article, variant = 'default', index = 0, onClick }: ArticleCardProps) {
   const [videoActive, setVideoActive] = useState(false)
-  const imageSrc = article.image ?? sectionImages[article.section]
+  const imageSrc = getArticleImage(article)
   const poster = article.videoPoster ?? imageSrc
   const hasVideo = Boolean(article.video)
 

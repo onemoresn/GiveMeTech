@@ -10,20 +10,70 @@ function stripHtml(html: string): string {
   return html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim()
 }
 
-/** Clean Hacker News / aggregator boilerplate from excerpts */
-export function cleanExcerpt(raw: string, maxLength = 200): string {
-  let text = stripHtml(raw)
-
-  text = text
+function cleanText(raw: string): string {
+  return stripHtml(raw)
     .replace(/Article URL:\s*\S+/gi, '')
     .replace(/Comments URL:\s*\S+/gi, '')
     .replace(/Points:\s*\d+/gi, '')
     .replace(/#\s*Comments:\s*\d+/gi, '')
     .replace(/\s+/g, ' ')
     .trim()
+}
 
+/** Clean Hacker News / aggregator boilerplate from excerpts */
+export function cleanExcerpt(raw: string, maxLength = 200): string {
+  const text = cleanText(raw)
   if (text.length <= maxLength) return text
   return `${text.slice(0, maxLength).trim()}…`
+}
+
+/** Longer version of cleanExcerpt for the article body, broken at sentence boundaries */
+export function cleanBody(raw: string, maxLength = 800): string {
+  const text = cleanText(raw)
+  if (text.length <= maxLength) return text
+  const truncated = text.slice(0, maxLength)
+  const lastBreak = Math.max(
+    truncated.lastIndexOf('. '),
+    truncated.lastIndexOf('! '),
+    truncated.lastIndexOf('? '),
+  )
+  if (lastBreak > maxLength * 0.5) return truncated.slice(0, lastBreak + 1).trim()
+  return `${truncated.trim()}…`
+}
+
+const SECTION_CONTEXT: Record<SectionId, string> = {
+  ai: 'artificial intelligence and machine learning',
+  cybersecurity: 'cybersecurity and digital privacy',
+  gadgets: 'consumer technology and devices',
+  software: 'software development and engineering',
+  space: 'space exploration and astronomy',
+  gaming: 'gaming and interactive entertainment',
+}
+
+/**
+ * When an RSS feed only supplies a short one-liner excerpt (no full content),
+ * build a structured 3-paragraph summary from the available metadata so the
+ * modal has something meaningful to show.
+ */
+export function expandBody(
+  title: string,
+  excerpt: string,
+  section: SectionId,
+  source: string,
+  tags: string[],
+): string {
+  const sectionCtx = SECTION_CONTEXT[section]
+  const tagLine = tags.length > 0 ? `Key areas highlighted include ${tags.join(', ')}.` : ''
+
+  const p1 = excerpt.endsWith('…') || excerpt.endsWith('...')
+    ? `${excerpt.replace(/[.…]+$/, '')} — a development drawing significant attention in the ${sectionCtx} space.`
+    : excerpt
+
+  const p2 = `This report, published by ${source}, touches on a topic that has been gaining momentum across the industry. ${tagLine} As the situation continues to evolve, professionals and enthusiasts in the ${sectionCtx} field are closely watching for downstream effects.`
+
+  const p3 = `For the full breakdown, analysis, and expert commentary, head to ${source} using the link below. GiveMeTech will continue tracking this story as more details emerge.`
+
+  return [p1, p2, p3].filter(Boolean).join('\n\n')
 }
 
 export function extractImageFromItem(item: Record<string, unknown>): string | null {
@@ -78,7 +128,8 @@ export async function resolveArticleImage(
     if (rssImage.startsWith('http')) return rssImage
   }
 
-  const pexelsUrl = await searchPexelsPhoto(buildPhotoQuery(section, title))
+  const { query, pickIndex } = buildPhotoQuery(section, title)
+  const pexelsUrl = await searchPexelsPhoto(query, pickIndex)
   if (pexelsUrl) {
     const local = await downloadImage(pexelsUrl, articleId)
     if (local) return local
