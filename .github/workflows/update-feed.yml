@@ -36,4 +36,15 @@ jobs:
           git diff --staged --quiet || git commit -m "chore: update hourly tech news feed"
           git push
 
+      - name: Notify SiteCommand feed update (optional)
+        env:
+          SITECOMMAND_WEBHOOK_URL: ${{ secrets.SITECOMMAND_WEBHOOK_URL }}
+        run: |
+          if [ -n "$SITECOMMAND_WEBHOOK_URL" ]; then
+            curl -sf -X POST "$SITECOMMAND_WEBHOOK_URL" \
+              -H "Content-Type: application/json" \
+              -d "{\"event\":\"feed_update\",\"site\":\"give-me-tech.com\",\"repo\":\"${{ github.repository }}\",\"sha\":\"${{ github.sha }}\"}" \
+              || true
+          fi
+
       # Push to main triggers deploy-pages.yml automatically

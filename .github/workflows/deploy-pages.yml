@@ -42,3 +42,14 @@ jobs:
 
       - id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Notify SiteCommand deploy (optional)
+        env:
+          SITECOMMAND_WEBHOOK_URL: ${{ secrets.SITECOMMAND_WEBHOOK_URL }}
+        run: |
+          if [ -n "$SITECOMMAND_WEBHOOK_URL" ]; then
+            curl -sf -X POST "$SITECOMMAND_WEBHOOK_URL" \
+              -H "Content-Type: application/json" \
+              -d "{\"event\":\"deploy\",\"site\":\"give-me-tech.com\",\"repo\":\"${{ github.repository }}\",\"sha\":\"${{ github.sha }}\",\"ref\":\"${{ github.ref }}\"}" \
+              || true
+          fi

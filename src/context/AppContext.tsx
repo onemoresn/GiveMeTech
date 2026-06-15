@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useCallback, useEffect, type ReactNode } from 'react'
+import { trackSiteCommandEvent } from '../lib/sitecommand'
 
 interface UserProfile {
   name: string
@@ -60,9 +61,14 @@ export function AppProvider({ children }: { children: ReactNode }) {
     setProfile((prev) => {
       let xp = prev.xp + amount
       let level = prev.level
-      const readArticles = articleId && !prev.readArticles.includes(articleId)
+      const isNewRead = articleId && !prev.readArticles.includes(articleId)
+      const readArticles = isNewRead
         ? [...prev.readArticles, articleId]
         : prev.readArticles
+
+      if (isNewRead && articleId) {
+        trackSiteCommandEvent('article_read', { articleId, xp: amount })
+      }
 
       while (xp >= XP_PER_LEVEL) {
         xp -= XP_PER_LEVEL
