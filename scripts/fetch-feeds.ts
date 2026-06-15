@@ -24,6 +24,7 @@ import {
   slugify,
 } from './lib/categorize'
 import { cleanExcerpt, makeArticleId, resolveArticleImage, cleanBody, expandBody } from './lib/imageResolver'
+import { generateSummary, hasGeminiKey, isGeminiActive, getGeminiUsage } from './lib/gemini'
 import {
   fetchSectionVideos,
   fetchArticleVideo,
@@ -150,10 +151,14 @@ async function buildFeedArticles(stories: RawStory[]): Promise<FeedArticle[]> {
     const cleanedBody = cleanBody(rawBody)
     const tags = extractTags(story.title, story.section)
 
-    // If RSS gave us substantially more than the excerpt, use it; otherwise expand from metadata
-    const body = cleanedBody.length > story.excerpt.length + 80
-      ? cleanedBody
-      : expandBody(story.title, story.excerpt, story.section, story.source, tags)
+    // If RSS gave us substantially more than the excerpt, use it; otherwise ask Gemini or expand from metadata
+    let body: string
+    if (cleanedBody.length > story.excerpt.length + 80) {
+      body = cleanedBody
+    } else {
+      const geminiBody = await generateSummary(story.title, story.excerpt, story.section, story.source)
+      body = geminiBody ?? expandBody(story.title, story.excerpt, story.section, story.source, tags)
+    }
 
     articles.push({
       id,
@@ -162,7 +167,7 @@ async function buildFeedArticles(stories: RawStory[]): Promise<FeedArticle[]> {
       body,
       author: story.author,
       date: story.date.toISOString().split('T')[0],
-      readTime: estimateReadTime(story.excerpt),
+      readTime: estimateReadTime(body),
       section: story.section,
       tags,
       featured: articles.length < 6,
@@ -232,6 +237,15 @@ async function main() {
   console.log(`✓ ${selected.length} stories selected`)
   printSectionBreakdown(selected)
 
+  if (hasGeminiKey() && isGeminiActive()) {
+    const { maxCalls } = getGeminiUsage()
+    console.log(`\n✨ Gemini enabled — up to ${maxCalls} summaries per run`)
+  } else if (hasGeminiKey()) {
+    console.log('\n⚠  GEMINI_API_KEY set but GEMINI_ENABLED is not true — using template summaries')
+  } else {
+    console.log('\n⚠  No GEMINI_API_KEY — using template summaries for short excerpts')
+  }
+
   console.log('\n🖼  Resolving images…')
   const articles = await buildFeedArticles(selected)
 
@@ -257,6 +271,11 @@ async function main() {
 
   console.log(`\n✅ Wrote ${articles.length} articles to ${FEED_DATA_PATH}`)
   console.log(`   Last updated: ${feed.fetchedAt}`)
+
+  const gemini = getGeminiUsage()
+  if (gemini.enabled && gemini.calls > 0) {
+    console.log(`   Gemini: ${gemini.calls}/${gemini.maxCalls} summaries generated this run`)
+  }
 }
 
 main().catch((err) => {
