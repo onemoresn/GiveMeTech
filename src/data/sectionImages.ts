@@ -9,6 +9,7 @@ const paths: Record<SectionId, string> = {
   software: 'images/topics/topic-software.png',
   space: 'images/topics/topic-space.png',
   gaming: 'images/topics/topic-gaming.png',
+  cars: 'images/topics/topic-cars.png',
 }
 
 export const sectionImages: Record<SectionId, string> = {
@@ -18,6 +19,7 @@ export const sectionImages: Record<SectionId, string> = {
   software: assetPath(paths.software),
   space: assetPath(paths.space),
   gaming: assetPath(paths.gaming),
+  cars: assetPath(paths.cars),
 }
 
 export const sectionImageAlt: Record<SectionId, string> = {
@@ -27,6 +29,7 @@ export const sectionImageAlt: Record<SectionId, string> = {
   software: 'Software developer working with code on a large monitor',
   space: 'Earth viewed from space with satellite in orbit',
   gaming: 'Person using a virtual reality headset in a modern setup',
+  cars: 'Electric vehicle charging at a modern station with dashboard technology',
 }
 
 const BASE = 'https://images.unsplash.com'
@@ -93,6 +96,16 @@ export const sectionImagePools: Record<SectionId, string[]> = {
     `${BASE}/photo-1556438064-2d7646166914${Q}`,
     `${BASE}/photo-1509198397868-475647b2a1e5${Q}`,
     `${BASE}/photo-1580234811497-9df7fd2f357e${Q}`,
+  ],
+  cars: [
+    `${BASE}/photo-1593941707874-efdd9bc59830${Q}`,
+    `${BASE}/photo-1617788138017-80ad40651399${Q}`,
+    `${BASE}/photo-1619642751034-765df036d329${Q}`,
+    `${BASE}/photo-1558618666-fcd25c85cd64${Q}`,
+    `${BASE}/photo-1492144534655-ae79ace964ab${Q}`,
+    `${BASE}/photo-1503376780353-7ebb9c286caf${Q}`,
+    `${BASE}/photo-1549317661-bd32c8ce0db2${Q}`,
+    `${BASE}/photo-1619767886558-efdc259cde1a${Q}`,
   ],
 }
 

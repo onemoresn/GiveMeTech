@@ -5,6 +5,7 @@ export type SectionId =
   | 'software'
   | 'space'
   | 'gaming'
+  | 'cars'
 
 export interface Section {
   id: SectionId
@@ -13,7 +14,7 @@ export interface Section {
   description: string
   icon: string
   path: string
-  theme: 'neural' | 'vault' | 'devices' | 'terminal' | 'cosmos' | 'portal'
+  theme: 'neural' | 'vault' | 'devices' | 'terminal' | 'cosmos' | 'portal' | 'drive'
 }
 
 export const sections: Section[] = [
@@ -70,6 +71,15 @@ export const sections: Section[] = [
     icon: '🎮',
     path: '/gaming',
     theme: 'portal',
+  },
+  {
+    id: 'cars',
+    title: 'Cars & Auto Tech',
+    subtitle: 'EV Horizon',
+    description: 'Electric and hybrid vehicles, charging, autonomy, and in-car technology.',
+    icon: '🚗',
+    path: '/cars',
+    theme: 'drive',
   },
 ]
 

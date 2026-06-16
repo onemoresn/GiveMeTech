@@ -153,6 +153,26 @@ export const RSS_SOURCES: RssSource[] = [
     sectionBoost: 'gaming',
     defaultSection: 'gaming',
   },
+
+  // ── Cars & Auto Tech (EV, hybrid, in-car technology) ──
+  {
+    name: 'Electrek',
+    url: 'https://electrek.co/feed/',
+    sectionBoost: 'cars',
+    defaultSection: 'cars',
+  },
+  {
+    name: 'InsideEVs',
+    url: 'https://insideevs.com/feed/',
+    sectionBoost: 'cars',
+    defaultSection: 'cars',
+  },
+  {
+    name: 'CleanTechnica',
+    url: 'https://cleantechnica.com/feed/',
+    sectionBoost: 'cars',
+    defaultSection: 'cars',
+  },
 ]
 
 /**
@@ -288,6 +308,34 @@ export const SECTION_KEYWORDS: Record<SectionId, Record<string, number>> = {
     'metaverse': 2,
     'game': 1,
   },
+  cars: {
+    'electric vehicle': 4,
+    'electric car': 4,
+    'plug-in hybrid': 4,
+    'hybrid vehicle': 4,
+    'battery pack': 3,
+    'fast charging': 3,
+    'charging station': 3,
+    'ev charging': 4,
+    'autonomous driving': 4,
+    'self-driving': 4,
+    'driver assist': 3,
+    'adas': 3,
+    'over-the-air': 3,
+    'infotainment': 3,
+    'cybertruck': 3,
+    'rivian': 3,
+    'lucid motors': 3,
+    'tesla': 2,
+    'ev range': 3,
+    'solid-state battery': 4,
+    'electric motor': 3,
+    'hybrid': 2,
+    'automotive': 2,
+    'car software': 3,
+    'vehicle': 1,
+    'ev': 2,
+  },
 }
 
 /** Demote miscategorization from broad keyword matches */
@@ -301,6 +349,9 @@ export const CROSS_SECTION_PENALTIES: { keyword: string; penalize: SectionId; am
   { keyword: 'kindle', penalize: 'software', amount: 2 },
   { keyword: 'world cup', penalize: 'software', amount: 3 },
   { keyword: 'world cup', penalize: 'gaming', amount: 2 },
+  { keyword: 'racing game', penalize: 'cars', amount: 4 },
+  { keyword: 'forza', penalize: 'cars', amount: 3 },
+  { keyword: 'gran turismo', penalize: 'cars', amount: 3 },
 ]
 
 export const MIN_CATEGORIZATION_SCORE = 2
@@ -312,6 +363,7 @@ export const SECTION_IMAGE_QUERIES: Record<SectionId, string> = {
   software: 'software developer workspace professional',
   space: 'space technology satellite earth professional',
   gaming: 'video game technology virtual reality professional',
+  cars: 'electric vehicle car technology charging professional',
 }
 
 export const SECTION_FALLBACK_IMAGES: Record<SectionId, string> = {
@@ -321,8 +373,9 @@ export const SECTION_FALLBACK_IMAGES: Record<SectionId, string> = {
   software: '/images/topics/topic-software.png',
   space: '/images/topics/topic-space.png',
   gaming: '/images/topics/topic-gaming.png',
+  cars: '/images/topics/topic-cars.png',
 }
 
-export const MAX_ARTICLES = 54
+export const MAX_ARTICLES = 63
 export const MAX_PER_SECTION = 9
 export const MAX_AGE_DAYS = 7

@@ -3,6 +3,11 @@ import type { SectionId } from '../../src/data/sections'
 const GEMINI_URL =
   'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent'
 
+/** Google AI Studio free tier — stay under this many requests per calendar day. */
+const GEMINI_DAILY_FREE_TIER = 1500
+/** Hourly feed workflow runs — used to cap per-run calls so daily total stays under limit. */
+const ESTIMATED_RUNS_PER_DAY = 24
+
 let callCount = 0
 
 function parsePositiveInt(value: string | undefined, fallback: number): number {
@@ -20,7 +25,9 @@ function isEnabled(): boolean {
 }
 
 function getMaxCalls(): number {
-  return parsePositiveInt(process.env.GEMINI_MAX_CALLS, 12)
+  const requested = parsePositiveInt(process.env.GEMINI_MAX_CALLS, 12)
+  const dailyCapPerRun = Math.floor(GEMINI_DAILY_FREE_TIER / ESTIMATED_RUNS_PER_DAY)
+  return Math.min(requested, dailyCapPerRun)
 }
 
 /** Key is present — does not mean Gemini will run (see isGeminiActive). */
@@ -49,6 +56,7 @@ const SECTION_TOPIC: Record<SectionId, string> = {
   software: 'software development and engineering',
   space: 'space exploration and astronomy',
   gaming: 'gaming and interactive entertainment',
+  cars: 'electric vehicles, hybrids, and automotive technology',
 }
 
 const SECTION_TONE: Record<SectionId, string> = {
@@ -58,6 +66,7 @@ const SECTION_TONE: Record<SectionId, string> = {
   space: 'Professional, precise, and measured — wonder is fine, but stay factual.',
   gadgets: 'Enthusiastic but grounded — excited about the hardware without overselling or hype.',
   gaming: 'Professional and playful — lighter word choice and energy, still factual and respectful.',
+  cars: 'Enthusiastic but grounded — excited about EV and auto tech without overselling specs or hype.',
 }
 
 function buildSummaryPrompt(

@@ -24,6 +24,7 @@ export const sectionThemes = {
   software: { primary: '#00f0ff', secondary: '#00ff88', accent: '#8b5cf6' },
   space: { primary: '#4fc3f7', secondary: '#8b5cf6', accent: '#ffd700' },
   gaming: { primary: '#ff00aa', secondary: '#8b5cf6', accent: '#00f0ff' },
+  cars: { primary: '#00ff88', secondary: '#00f0ff', accent: '#ff6b00' },
 } as const
 
 export const typography = {

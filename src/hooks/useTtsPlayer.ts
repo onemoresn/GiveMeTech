@@ -31,8 +31,8 @@ export function articleSpeechText(article: Article): string {
   return `${article.title}. ${trimmed}`
 }
 
-export function useTtsPlayer(voicePresetId: string) {
-  const useGeminiTts = hasGeminiTtsKey()
+export function useTtsPlayer(voicePresetId: string, options?: { browserOnly?: boolean }) {
+  const useGeminiTts = hasGeminiTtsKey() && !options?.browserOnly
   const [browserVoicesReady, setBrowserVoicesReady] = useState(false)
   const [playing, setPlaying] = useState(false)
   const [currentIndex, setCurrentIndex] = useState(-1)

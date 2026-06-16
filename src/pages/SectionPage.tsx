@@ -20,6 +20,7 @@ const cardVariants: Record<SectionId, 'node' | 'encrypted' | 'default' | 'termin
   software: 'terminal',
   space: 'mission',
   gaming: 'portal',
+  cars: 'default',
 }
 
 /** Splits a body string into readable paragraphs at sentence boundaries */

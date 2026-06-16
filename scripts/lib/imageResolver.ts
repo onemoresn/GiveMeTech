@@ -48,6 +48,7 @@ const SECTION_CONTEXT: Record<SectionId, string> = {
   software: 'software development and engineering',
   space: 'space exploration and astronomy',
   gaming: 'gaming and interactive entertainment',
+  cars: 'electric vehicles, hybrids, and automotive technology',
 }
 
 /**

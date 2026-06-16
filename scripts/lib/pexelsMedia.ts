@@ -120,6 +120,7 @@ export const SECTION_VIDEO_QUERIES: Record<SectionId, string> = {
   software: 'software developer coding computer screen',
   space: 'space earth orbit satellite nasa',
   gaming: 'video gaming esports virtual reality',
+  cars: 'electric vehicle charging automotive technology',
 }
 
 export function buildPhotoQuery(section: SectionId, title: string): { query: string; pickIndex: number } {
@@ -133,5 +134,5 @@ export function buildPhotoQuery(section: SectionId, title: string): { query: str
 
 /** Sections where article cards get video previews when possible */
 export const ARTICLE_VIDEO_SECTIONS = new Set<SectionId>([
-  'ai', 'gaming', 'space', 'gadgets', 'cybersecurity', 'software',
+  'ai', 'gaming', 'space', 'gadgets', 'cybersecurity', 'software', 'cars',
 ])

@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X, Award, Lock, ListMusic, UserCircle, LogOut, Upload } from 'lucide-react'
+import { X, Award, Lock, ListMusic, UserCircle, LogOut, Upload, Volume2 } from 'lucide-react'
 import { useApp, badgeInfo } from '../../context/AppContext'
 import { useSubscriber } from '../../context/SubscriberContext'
 import { Button } from '../ui/Button'
@@ -67,15 +67,30 @@ export function ProfilePanel({ open, onClose }: ProfilePanelProps) {
               <div className="space-y-6">
                 <div className="rounded-lg border border-neon-cyan/20 bg-neon-cyan/5 p-4">
                   <div className="flex items-center gap-2 text-neon-cyan mb-2">
+                    <Volume2 size={16} />
+                    <span className="font-display text-sm font-bold">Listen free</span>
+                  </div>
+                  <p className="text-text-muted text-xs mb-4">
+                    Build a playlist and play stories with your browser&apos;s built-in voices — no
+                    sign-in required.
+                  </p>
+                  <SubscriberPlaylist embedded />
+                </div>
+
+                <div className="rounded-lg border border-neon-purple/20 bg-neon-purple/5 p-4">
+                  <div className="flex items-center gap-2 text-neon-purple mb-2">
                     <Lock size={16} />
                     <span className="font-display text-sm font-bold">Subscriber sign-in</span>
                   </div>
+                  <p className="text-text-muted text-xs mb-3">
+                    Unlock custom avatars, Gemini AI Studio voices, and saved subscriber perks.
+                  </p>
                   <SubscriberSignIn compact />
                 </div>
 
                 <div className="relative rounded-lg border border-glass-border p-4 opacity-60 pointer-events-none select-none">
                   <p className="text-xs font-mono uppercase text-text-muted mb-3 flex items-center gap-2">
-                    <Lock size={12} /> Locked until sign-in
+                    <Lock size={12} /> Subscribers only
                   </p>
                   <div className="flex items-center gap-4">
                     <div
@@ -85,12 +100,9 @@ export function ProfilePanel({ open, onClose }: ProfilePanelProps) {
                     </div>
                     <div>
                       <p className="font-display font-bold text-text-muted">Custom avatar</p>
-                      <p className="text-text-muted text-xs">Colors, shapes, display name</p>
+                      <p className="text-text-muted text-xs">Cartoon presets, upload, colors &amp; shapes</p>
                     </div>
                   </div>
-                  <p className="text-text-muted text-xs mt-4 flex items-center gap-2">
-                    <ListMusic size={12} /> Playlist &amp; TTS voices also unlock after sign-in
-                  </p>
                 </div>
               </div>
             ) : (

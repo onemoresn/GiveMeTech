@@ -35,6 +35,7 @@ export default function App() {
       <Route path="/software" element={<AppLayout><SectionPage sectionId="software" /></AppLayout>} />
       <Route path="/space" element={<AppLayout><SectionPage sectionId="space" /></AppLayout>} />
       <Route path="/gaming" element={<AppLayout><SectionPage sectionId="gaming" /></AppLayout>} />
+      <Route path="/cars" element={<AppLayout><SectionPage sectionId="cars" /></AppLayout>} />
     </Routes>
   )
 }
