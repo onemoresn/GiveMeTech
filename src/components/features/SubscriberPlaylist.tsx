@@ -23,7 +23,9 @@ interface SubscriberPlaylistProps {
 
 export function SubscriberPlaylist({ embedded = false }: SubscriberPlaylistProps) {
   const {
+    isSubscriber,
     subscriber,
+    guestListen,
     toggleTopic,
     addToPlaylist,
     removeFromPlaylist,
@@ -34,7 +36,8 @@ export function SubscriberPlaylist({ embedded = false }: SubscriberPlaylistProps
   } = useSubscriber()
   const { articles } = useFeed()
 
-  const voicePresetId = subscriber?.voicePresetId ?? 'orion'
+  const listenState = isSubscriber && subscriber ? subscriber : guestListen
+  const voicePresetId = listenState.voicePresetId ?? 'orion'
   const {
     playing,
     currentIndex,
@@ -47,10 +50,10 @@ export function SubscriberPlaylist({ embedded = false }: SubscriberPlaylistProps
     ttsUsage,
     ttsRemaining,
     ttsLimit,
-  } = useTtsPlayer(voicePresetId)
+  } = useTtsPlayer(voicePresetId, { browserOnly: !isSubscriber })
 
-  const selectedTopics = subscriber?.topics ?? []
-  const playlistIds = subscriber?.playlist ?? []
+  const selectedTopics = listenState.topics
+  const playlistIds = listenState.playlist
 
   const pool = useMemo(
     () =>
@@ -76,8 +79,6 @@ export function SubscriberPlaylist({ embedded = false }: SubscriberPlaylistProps
     setPlaylist(ids)
   }
 
-  if (!subscriber) return null
-
   return (
     <motion.div
       initial={{ opacity: 0, y: embedded ? 0 : 16 }}
@@ -93,20 +94,30 @@ export function SubscriberPlaylist({ embedded = false }: SubscriberPlaylistProps
           <div>
             <h3 className="font-display text-lg font-bold text-text-primary flex items-center gap-2">
               <Sparkles size={18} className="text-neon-cyan" />
-              Your Signal Playlist
+              {isSubscriber ? 'Your Signal Playlist' : 'Listen with browser TTS'}
             </h3>
             <p className="text-text-muted text-xs font-mono mt-1">
-              {subscriber.email} · build a queue, pick a voice, press play
+              {isSubscriber
+                ? `${subscriber!.email} · Gemini voices + playlist saved to your account`
+                : 'Free browser voices for everyone — subscribe for Gemini AI Studio voices'}
             </p>
           </div>
-          <button
-            type="button"
-            onClick={clearSubscription}
-            className="text-text-muted hover:text-neon-magenta text-xs font-mono"
-          >
-            Sign out of perks
-          </button>
+          {isSubscriber && (
+            <button
+              type="button"
+              onClick={clearSubscription}
+              className="text-text-muted hover:text-neon-magenta text-xs font-mono"
+            >
+              Sign out of perks
+            </button>
+          )}
         </div>
+      )}
+
+      {embedded && !isSubscriber && (
+        <p className="text-text-muted text-xs font-mono mb-4">
+          Free browser text-to-speech — subscribe to unlock Gemini voices and full perks.
+        </p>
       )}
 
       {/* Topics */}

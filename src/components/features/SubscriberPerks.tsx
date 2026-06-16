@@ -12,15 +12,15 @@ const perks = [
   {
     icon: Mic,
     title: 'Listen with TTS',
-    description: 'Play your playlist hands-free with built-in text-to-speech.',
+    description: 'Free browser voices for all visitors — subscribers get Gemini AI Studio voices.',
     accent: 'text-neon-magenta',
     border: 'border-neon-magenta/25',
     bg: 'bg-neon-magenta/5',
   },
   {
     icon: Headphones,
-    title: 'Gemini TTS',
-    description: 'Listen with Orion, Lyra, Vector, or Pulse via Google AI Studio.',
+    title: 'Gemini TTS (subscribers)',
+    description: 'Orion, Lyra, Vector, or Pulse via Google AI Studio when you subscribe.',
     accent: 'text-neon-purple',
     border: 'border-neon-purple/25',
     bg: 'bg-neon-purple/5',

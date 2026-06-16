@@ -149,10 +149,13 @@ export function NewsletterSignup() {
               Get weekly tech intelligence delivered to your inbox. No noise, just the future.
             </p>
             <p className="text-text-muted text-xs font-mono max-w-lg mx-auto mb-6">
-              Subscribers also get topic playlists and listen-aloud with multiple TTS voices.
+              Everyone can listen with free browser TTS below. Subscribe for Gemini voices, playlists
+              saved to your account, and custom avatars.
             </p>
 
             <SubscriberPerks />
+
+            <SubscriberPlaylist />
 
             <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto mt-8">
               <input
