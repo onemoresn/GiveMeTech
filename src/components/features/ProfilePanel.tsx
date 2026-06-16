@@ -7,7 +7,7 @@ import { Button } from '../ui/Button'
 import { SubscriberSignIn } from './SubscriberSignIn'
 import { SubscriberPlaylist } from './SubscriberPlaylist'
 import { ProfileAvatar, avatarColors } from '../ui/ProfileAvatar'
-import { DEFAULT_AVATARS } from '../../data/avatarDefaults'
+import { AVATAR_PRESET_LABELS, AVATAR_PRESET_MODES, DEFAULT_AVATARS } from '../../data/avatarDefaults'
 import { compressAvatarFile } from '../../utils/avatarImage'
 
 interface ProfilePanelProps {
@@ -142,30 +142,21 @@ export function ProfilePanel({ open, onClose }: ProfilePanelProps) {
                         Avatar style
                       </label>
                       <div className="flex flex-wrap gap-3 items-center">
-                        <button
-                          type="button"
-                          onClick={() => updateProfile({ avatarMode: 'male', avatarUpload: undefined })}
-                          className={`rounded-xl overflow-hidden border-2 transition-transform hover:scale-105 ${
-                            profile.avatarMode === 'male'
-                              ? 'border-neon-cyan ring-2 ring-neon-cyan/40'
-                              : 'border-glass-border'
-                          }`}
-                          aria-label="Male CGI avatar"
-                        >
-                          <img src={DEFAULT_AVATARS.male} alt="" className="w-14 h-14 object-cover" />
-                        </button>
-                        <button
-                          type="button"
-                          onClick={() => updateProfile({ avatarMode: 'female', avatarUpload: undefined })}
-                          className={`rounded-xl overflow-hidden border-2 transition-transform hover:scale-105 ${
-                            profile.avatarMode === 'female'
-                              ? 'border-neon-magenta ring-2 ring-neon-magenta/40'
-                              : 'border-glass-border'
-                          }`}
-                          aria-label="Female CGI avatar"
-                        >
-                          <img src={DEFAULT_AVATARS.female} alt="" className="w-14 h-14 object-cover" />
-                        </button>
+                        {AVATAR_PRESET_MODES.map((preset) => (
+                          <button
+                            key={preset}
+                            type="button"
+                            onClick={() => updateProfile({ avatarMode: preset, avatarUpload: undefined })}
+                            className={`rounded-xl overflow-hidden border-2 transition-transform hover:scale-105 ${
+                              profile.avatarMode === preset
+                                ? 'border-neon-cyan ring-2 ring-neon-cyan/40'
+                                : 'border-glass-border'
+                            }`}
+                            aria-label={AVATAR_PRESET_LABELS[preset]}
+                          >
+                            <img src={DEFAULT_AVATARS[preset]} alt="" className="w-14 h-14 object-cover" />
+                          </button>
+                        ))}
                         <button
                           type="button"
                           onClick={() => updateProfile({ avatarMode: 'glyph', avatarUpload: undefined })}
@@ -218,7 +209,7 @@ export function ProfilePanel({ open, onClose }: ProfilePanelProps) {
                         <p className="text-neon-magenta text-xs font-mono mt-2">{uploadError}</p>
                       )}
                       <p className="text-text-muted text-[10px] font-mono mt-2">
-                        Pick a CGI avatar, neon glyph, or upload your own photo (stored on this device).
+                        Pick a cartoon avatar, neon glyph, or upload your own photo (stored on this device).
                       </p>
                     </div>
 

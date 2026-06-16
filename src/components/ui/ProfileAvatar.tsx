@@ -1,4 +1,4 @@
-import { DEFAULT_AVATARS } from '../../data/avatarDefaults'
+import { DEFAULT_AVATARS, isAvatarPresetMode } from '../../data/avatarDefaults'
 import type { UserProfile } from '../../context/AppContext'
 
 const avatarColors = ['#00f0ff', '#ff00aa', '#8b5cf6', '#00ff88', '#ff6b00', '#ffd700']
@@ -29,11 +29,10 @@ export function ProfileAvatar({ profile, size = 'md', className = '' }: ProfileA
     )
   }
 
-  if (mode === 'male' || mode === 'female') {
-    const src = mode === 'male' ? DEFAULT_AVATARS.male : DEFAULT_AVATARS.female
+  if (isAvatarPresetMode(mode)) {
     return (
       <img
-        src={src}
+        src={DEFAULT_AVATARS[mode]}
         alt=""
         className={`${dim} object-cover border-2 border-neon-purple/40 shadow-[0_0_20px_rgba(139,92,246,0.3)] ${className}`}
       />

@@ -6,9 +6,11 @@ import {
   Search, User, Menu, X, Zap,
 } from 'lucide-react'
 import { sections } from '../../data/sections'
+import { useApp } from '../../context/AppContext'
 import { useSubscriber } from '../../context/SubscriberContext'
 import { HolographicSearch } from '../features/HolographicSearch'
 import { ProfilePanel } from '../features/ProfilePanel'
+import { ProfileAvatar } from '../ui/ProfileAvatar'
 import { HighContrastToggle, XPBar } from '../ui/Accessibility'
 
 const navIcons: Record<string, typeof Brain> = {
@@ -25,6 +27,7 @@ export function NavBar() {
   const [searchOpen, setSearchOpen] = useState(false)
   const [profileOpen, setProfileOpen] = useState(false)
   const location = useLocation()
+  const { profile } = useApp()
   const { isSubscriber } = useSubscriber()
 
   return (
@@ -94,17 +97,23 @@ export function NavBar() {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={() => setProfileOpen(true)}
-              className={`p-2 rounded-lg transition-colors relative ${
+              className={`rounded-lg transition-colors relative ${
+                isSubscriber ? 'p-0.5' : 'p-2'
+              } ${
                 isSubscriber
                   ? 'text-neon-cyan hover:text-neon-cyan'
                   : 'text-text-secondary hover:text-neon-purple'
               }`}
               aria-label={isSubscriber ? 'Open subscriber profile' : 'Sign in to profile'}
             >
-              <User size={18} />
+              {isSubscriber ? (
+                <ProfileAvatar profile={profile} size="sm" />
+              ) : (
+                <User size={18} />
+              )}
               {isSubscriber && (
                 <span
-                  className="absolute top-1 right-1 w-2 h-2 rounded-full bg-neon-green shadow-[0_0_6px_#00ff88]"
+                  className="absolute top-0 right-0 w-2 h-2 rounded-full bg-neon-green shadow-[0_0_6px_#00ff88]"
                   aria-hidden
                 />
               )}
