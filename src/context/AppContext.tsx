@@ -1,10 +1,14 @@
 import { createContext, useContext, useState, useCallback, useEffect, type ReactNode } from 'react'
 import { trackSiteCommandEvent } from '../lib/sitecommand'
+import type { AvatarMode } from '../data/avatarDefaults'
 
 interface UserProfile {
   name: string
   avatarColor: string
   avatarShape: 'sphere' | 'cube' | 'torus'
+  avatarMode: AvatarMode
+  /** Data URL when avatarMode is upload */
+  avatarUpload?: string
   level: number
   xp: number
   badges: string[]
@@ -25,6 +29,7 @@ const defaultProfile: UserProfile = {
   name: 'Explorer',
   avatarColor: '#00f0ff',
   avatarShape: 'sphere',
+  avatarMode: 'glyph',
   level: 1,
   xp: 0,
   badges: [],
@@ -40,7 +45,9 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const [profile, setProfile] = useState<UserProfile>(() => {
     try {
       const saved = localStorage.getItem('gmt-profile')
-      return saved ? JSON.parse(saved) : defaultProfile
+      if (!saved) return defaultProfile
+      const parsed = JSON.parse(saved) as UserProfile
+      return { ...defaultProfile, ...parsed, avatarMode: parsed.avatarMode ?? 'glyph' }
     } catch {
       return defaultProfile
     }
@@ -111,6 +118,8 @@ export function useApp() {
   if (!ctx) throw new Error('useApp must be used within AppProvider')
   return ctx
 }
+
+export type { UserProfile }
 
 export const badgeInfo: Record<string, { label: string; icon: string }> = {
   'first-read': { label: 'First Contact', icon: '📡' },
