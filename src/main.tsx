@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import { AppProvider } from './context/AppContext'
 import { FeedProvider } from './context/FeedContext'
+import { SubscriberProvider } from './context/SubscriberContext'
 import App from './App'
 import './index.css'
 
@@ -24,9 +25,11 @@ function Root() {
     <StrictMode>
       <BrowserRouter basename={basename}>
         <AppProvider>
-          <FeedProvider>
-            <App />
-          </FeedProvider>
+          <SubscriberProvider>
+            <FeedProvider>
+              <App />
+            </FeedProvider>
+          </SubscriberProvider>
         </AppProvider>
       </BrowserRouter>
     </StrictMode>
