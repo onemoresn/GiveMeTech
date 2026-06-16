@@ -290,8 +290,8 @@ export function ProfilePanel({ open, onClose }: ProfilePanelProps) {
                 {tab === 'playlist' && (
                   <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
                     <p className="text-text-secondary text-sm mb-4">
-                      Pick topics, build your queue, and listen with Google Neural2 voices (free tier ~1M
-                      chars/month).
+                      Pick topics, build your queue, and listen with Gemini TTS voices from Google AI
+                      Studio.
                     </p>
                     <SubscriberPlaylist embedded />
                   </motion.div>

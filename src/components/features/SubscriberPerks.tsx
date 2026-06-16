@@ -19,8 +19,8 @@ const perks = [
   },
   {
     icon: Headphones,
-    title: 'Google Neural2 TTS',
-    description: 'Listen with Orion, Lyra, Vector, or Pulse — ~1M chars/month free tier.',
+    title: 'Gemini TTS',
+    description: 'Listen with Orion, Lyra, Vector, or Pulse via Google AI Studio.',
     accent: 'text-neon-purple',
     border: 'border-neon-purple/25',
     bg: 'bg-neon-purple/5',

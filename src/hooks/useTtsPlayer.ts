@@ -1,13 +1,13 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import type { Article } from '../data/articles'
 import {
-  GOOGLE_TTS_VOICE_PRESETS,
-  hasGoogleTtsKey,
+  GEMINI_TTS_VOICE_PRESETS,
+  hasGeminiTtsKey,
   getTtsUsageThisMonth,
   getTtsRemainingChars,
-  GOOGLE_TTS_MONTHLY_LIMIT,
-  synthesizeGoogleSpeech,
-} from '../lib/googleTts'
+  GEMINI_TTS_MONTHLY_LIMIT,
+  synthesizeGeminiSpeech,
+} from '../lib/geminiTts'
 
 export interface TtsVoicePreset {
   id: string
@@ -15,7 +15,7 @@ export interface TtsVoicePreset {
   description: string
 }
 
-export const TTS_VOICE_PRESETS: TtsVoicePreset[] = GOOGLE_TTS_VOICE_PRESETS
+export const TTS_VOICE_PRESETS: TtsVoicePreset[] = GEMINI_TTS_VOICE_PRESETS
 
 function pickBrowserVoice(presetId: string, voices: SpeechSynthesisVoice[]): SpeechSynthesisVoice | null {
   if (!voices.length) return null
@@ -32,7 +32,7 @@ export function articleSpeechText(article: Article): string {
 }
 
 export function useTtsPlayer(voicePresetId: string) {
-  const useGoogle = hasGoogleTtsKey()
+  const useGeminiTts = hasGeminiTtsKey()
   const [browserVoicesReady, setBrowserVoicesReady] = useState(false)
   const [playing, setPlaying] = useState(false)
   const [currentIndex, setCurrentIndex] = useState(-1)
@@ -44,7 +44,7 @@ export function useTtsPlayer(voicePresetId: string) {
   const stoppedRef = useRef(false)
 
   useEffect(() => {
-    if (useGoogle) {
+    if (useGeminiTts) {
       setBrowserVoicesReady(true)
       return
     }
@@ -55,7 +55,7 @@ export function useTtsPlayer(voicePresetId: string) {
     load()
     speechSynthesis.addEventListener('voiceschanged', load)
     return () => speechSynthesis.removeEventListener('voiceschanged', load)
-  }, [useGoogle])
+  }, [useGeminiTts])
 
   const stop = useCallback(() => {
     stoppedRef.current = true
@@ -72,7 +72,7 @@ export function useTtsPlayer(voicePresetId: string) {
     setTtsError(null)
   }, [])
 
-  const playNextGoogle = useCallback(async () => {
+  const playNextGemini = useCallback(async () => {
     if (stoppedRef.current) return
     const queue = queueRef.current
     if (indexRef.current >= queue.length) {
@@ -85,7 +85,7 @@ export function useTtsPlayer(voicePresetId: string) {
     const text = articleSpeechText(article)
 
     try {
-      const blob = await synthesizeGoogleSpeech(text, voicePresetId)
+      const blob = await synthesizeGeminiSpeech(text, voicePresetId)
       if (stoppedRef.current) return
 
       const url = URL.createObjectURL(blob)
@@ -95,18 +95,18 @@ export function useTtsPlayer(voicePresetId: string) {
       audio.onended = () => {
         URL.revokeObjectURL(url)
         indexRef.current += 1
-        playNextGoogle()
+        playNextGemini()
       }
       audio.onerror = () => {
         URL.revokeObjectURL(url)
         indexRef.current += 1
-        playNextGoogle()
+        playNextGemini()
       }
       await audio.play()
     } catch (err) {
       setTtsError(err instanceof Error ? err.message : 'TTS failed')
       indexRef.current += 1
-      playNextGoogle()
+      playNextGemini()
     }
   }, [voicePresetId, stop])
 
@@ -140,13 +140,13 @@ export function useTtsPlayer(voicePresetId: string) {
       queueRef.current = articles
       indexRef.current = 0
       setPlaying(true)
-      if (useGoogle) {
-        playNextGoogle()
+      if (useGeminiTts) {
+        playNextGemini()
       } else {
         speakNextBrowser()
       }
     },
-    [speakNextBrowser, playNextGoogle, stop, browserVoicesReady, useGoogle],
+    [speakNextBrowser, playNextGemini, stop, browserVoicesReady, useGeminiTts],
   )
 
   return {
@@ -156,10 +156,10 @@ export function useTtsPlayer(voicePresetId: string) {
     playQueue,
     stop,
     presets: TTS_VOICE_PRESETS,
-    useGoogle,
+    useGeminiTts,
     ttsError,
     ttsUsage: getTtsUsageThisMonth(),
     ttsRemaining: getTtsRemainingChars(),
-    ttsLimit: GOOGLE_TTS_MONTHLY_LIMIT,
+    ttsLimit: GEMINI_TTS_MONTHLY_LIMIT,
   }
 }

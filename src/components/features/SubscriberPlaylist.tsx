@@ -42,7 +42,7 @@ export function SubscriberPlaylist({ embedded = false }: SubscriberPlaylistProps
     stop,
     presets,
     voicesReady,
-    useGoogle,
+    useGeminiTts,
     ttsError,
     ttsUsage,
     ttsRemaining,
@@ -193,7 +193,7 @@ export function SubscriberPlaylist({ embedded = false }: SubscriberPlaylistProps
             <div className="flex-1 min-w-[140px]">
               <label className="text-[10px] font-mono uppercase text-text-muted block mb-1">
                 <Volume2 size={12} className="inline mr-1" />
-                Voice {useGoogle ? '(Google Neural2)' : '(browser)'}
+                Voice {useGeminiTts ? '(Gemini AI Studio)' : '(browser)'}
               </label>
               <select
                 value={voicePresetId}
@@ -231,7 +231,7 @@ export function SubscriberPlaylist({ embedded = false }: SubscriberPlaylistProps
             </p>
           )}
 
-          {useGoogle && (
+          {useGeminiTts && (
             <p className="text-text-muted text-[10px] font-mono mb-3">
               TTS this month: {(ttsUsage / 1000).toFixed(1)}k / {(ttsLimit / 1000).toFixed(0)}k chars
               · {(ttsRemaining / 1000).toFixed(0)}k remaining
