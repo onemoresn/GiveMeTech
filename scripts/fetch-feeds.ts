@@ -113,7 +113,7 @@ async function fetchSource(source: RssSource): Promise<RawStory[]> {
 function dedupeAndLimit(stories: RawStory[]): RawStory[] {
   const seen = new Set<string>()
   const sectionCounts: Record<SectionId, number> = {
-    ai: 0, cybersecurity: 0, gadgets: 0, software: 0, space: 0, gaming: 0,
+    ai: 0, cybersecurity: 0, gadgets: 0, software: 0, space: 0, gaming: 0, cars: 0,
   }
   const result: RawStory[] = []
 
@@ -213,7 +213,7 @@ function buildBreakingNews(articles: FeedArticle[]): string[] {
 
 function printSectionBreakdown(stories: RawStory[]) {
   const counts: Record<SectionId, number> = {
-    ai: 0, cybersecurity: 0, gadgets: 0, software: 0, space: 0, gaming: 0,
+    ai: 0, cybersecurity: 0, gadgets: 0, software: 0, space: 0, gaming: 0, cars: 0,
   }
   for (const s of stories) counts[s.section]++
   console.log('\n📊 Section breakdown:')

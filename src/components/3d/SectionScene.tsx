@@ -14,6 +14,7 @@ const sceneMap: Record<SectionId, React.ComponentType> = {
   software: TerminalScene,
   space: CosmosScene,
   gaming: PortalScene,
+  cars: DevicesScene,
 }
 
 interface SectionSceneProps {

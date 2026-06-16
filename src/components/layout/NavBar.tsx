@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
-  Brain, Shield, Smartphone, Code, Rocket, Gamepad2,
+  Brain, Shield, Smartphone, Code, Rocket, Gamepad2, Car,
   Search, User, Menu, X, Zap,
 } from 'lucide-react'
 import { sections } from '../../data/sections'
@@ -20,6 +20,7 @@ const navIcons: Record<string, typeof Brain> = {
   software: Code,
   space: Rocket,
   gaming: Gamepad2,
+  cars: Car,
 }
 
 export function NavBar() {
