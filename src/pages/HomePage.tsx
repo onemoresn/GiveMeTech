@@ -11,7 +11,13 @@ import { Button } from '../components/ui/Button'
 
 export function HomePage() {
   const featured = useFeaturedArticles()
-  const { isLive, lastUpdated } = useFeed()
+  const { isLive, lastUpdated, usingFallback, refreshFeed } = useFeed()
+
+  const formatFeedTime = (iso: string) =>
+    new Date(iso).toLocaleString(undefined, {
+      dateStyle: 'medium',
+      timeStyle: 'short',
+    })
 
   return (
     <div className="relative">
@@ -41,12 +47,26 @@ export function HomePage() {
             <p className="text-text-secondary text-lg md:text-xl max-w-2xl mx-auto mb-4 leading-relaxed">
               Professional tech news and analysis — AI, security, gadgets, and the stories shaping the industry.
             </p>
-            {isLive && lastUpdated && (
-              <p className="text-neon-cyan/80 text-xs font-mono mb-8">
-                Live feed updated {new Date(lastUpdated).toLocaleDateString(undefined, { dateStyle: 'medium' })}
+            {usingFallback && (
+              <p className="text-neon-orange/90 text-xs font-mono mb-4 max-w-xl mx-auto">
+                Showing demo stories — live feed unavailable. Check your connection or{' '}
+                <button
+                  type="button"
+                  onClick={() => refreshFeed()}
+                  className="text-neon-cyan hover:underline"
+                >
+                  retry
+                </button>
+                .
               </p>
             )}
-            {!isLive && <div className="mb-8" />}
+            {isLive && lastUpdated && (
+              <p className="text-neon-cyan/80 text-xs font-mono mb-8">
+                Live feed updated {formatFeedTime(lastUpdated)} · refreshes every 15 min
+              </p>
+            )}
+            {!isLive && !usingFallback && <div className="mb-8" />}
+            {usingFallback && <div className="mb-4" />}
             <div className="flex flex-wrap gap-4 justify-center">
               <Link to="/ai">
                 <Button size="lg" glow>

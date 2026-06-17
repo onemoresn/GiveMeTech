@@ -9,12 +9,20 @@ on:
 permissions:
   contents: write
 
+# Prevent overlapping hourly runs (long image/Gemini steps can exceed 1 hour).
+concurrency:
+  group: update-news-feed
+  cancel-in-progress: true
+
 jobs:
   fetch-feeds:
     runs-on: ubuntu-latest
+    timeout-minutes: 45
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
 
       - uses: actions/setup-node@v4
         with:
@@ -35,9 +43,14 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin main
           git add public/data/feed.json public/images/feed/
-          git diff --staged --quiet || git commit -m "chore: update hourly tech news feed"
-          git push
+          if git diff --staged --quiet; then
+            echo "No feed file changes — feed run still succeeded"
+          else
+            git commit -m "chore: update hourly tech news feed"
+            git push origin main
+          fi
 
       - name: Notify SiteCommand feed update (optional)
         env:
@@ -50,4 +63,4 @@ jobs:
               || true
           fi
 
-      # Push to main triggers deploy-pages.yml automatically
+      # deploy-pages.yml listens for this workflow completing successfully (workflow_run).

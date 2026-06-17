@@ -1,7 +1,9 @@
 import { useBreakingNews } from '../../data/articleHooks'
+import { useFeed } from '../../context/FeedContext'
 
 export function NewsTicker() {
   const breakingNews = useBreakingNews()
+  const { isLive, usingFallback } = useFeed()
   const items = [...breakingNews, ...breakingNews]
 
   return (
@@ -11,9 +13,19 @@ export function NewsTicker() {
       aria-label="Breaking tech news ticker"
     >
       <div className="flex items-center">
-        <div className="flex-shrink-0 px-4 py-2 bg-neon-magenta/20 border-r border-neon-magenta/30">
-          <span className="font-display text-xs font-bold text-neon-magenta uppercase tracking-widest animate-pulse">
-            Live
+        <div
+          className={`flex-shrink-0 px-4 py-2 border-r ${
+            usingFallback
+              ? 'bg-neon-orange/15 border-neon-orange/30'
+              : 'bg-neon-magenta/20 border-neon-magenta/30'
+          }`}
+        >
+          <span
+            className={`font-display text-xs font-bold uppercase tracking-widest ${
+              usingFallback ? 'text-neon-orange' : 'text-neon-magenta animate-pulse'
+            }`}
+          >
+            {usingFallback ? 'Demo' : isLive ? 'Live' : '…'}
           </span>
         </div>
         <div className="overflow-hidden flex-1">

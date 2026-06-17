@@ -1,4 +1,13 @@
-import { createContext, useContext, useState, useEffect, useMemo, type ReactNode } from 'react'
+import {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  useMemo,
+  useCallback,
+  useRef,
+  type ReactNode,
+} from 'react'
 import type { Article } from '../data/articles'
 import type { SectionId } from '../data/sections'
 import { articles as staticArticles, breakingNews as staticBreakingNews } from '../data/articles'
@@ -22,12 +31,17 @@ interface FeedContextType {
   sectionVideos: Partial<Record<SectionId, SectionVideo>>
   lastUpdated: string | null
   isLive: boolean
+  /** True when live feed.json could not be loaded — showing bundled demo articles */
+  usingFallback: boolean
   loading: boolean
   error: string | null
-  refreshFeed: () => Promise<void>
+  refreshFeed: (options?: { silent?: boolean }) => Promise<void>
 }
 
 const FeedContext = createContext<FeedContextType | null>(null)
+
+/** Poll for newer feed.json while the tab is open (matches hourly CI cadence). */
+const FEED_REFRESH_MS = 15 * 60 * 1000
 
 function normalizeAssetUrl(url: string | undefined): string | undefined {
   if (!url) return undefined
@@ -68,40 +82,73 @@ export function FeedProvider({ children }: { children: ReactNode }) {
   const [feedData, setFeedData] = useState<FeedData | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const feedDataRef = useRef<FeedData | null>(null)
 
-  const refreshFeed = async () => {
-    setLoading(true)
-    setError(null)
+  useEffect(() => {
+    feedDataRef.current = feedData
+  }, [feedData])
+
+  const refreshFeed = useCallback(async (options?: { silent?: boolean }) => {
+    const silent = options?.silent && feedDataRef.current !== null
+    if (!silent) {
+      setLoading(true)
+      setError(null)
+    }
     try {
       const data = await loadFeed()
-      setFeedData(data)
+      if (data?.articles?.length) {
+        setFeedData(data)
+        setError(null)
+      } else if (!silent) {
+        setFeedData(null)
+        setError('Could not load live feed')
+      }
     } catch {
-      setError('Could not load live feed')
+      if (!silent) {
+        setFeedData(null)
+        setError('Could not load live feed')
+      }
     } finally {
-      setLoading(false)
+      if (!silent) setLoading(false)
     }
-  }
+  }, [])
 
   useEffect(() => {
     refreshFeed()
-  }, [])
+  }, [refreshFeed])
+
+  useEffect(() => {
+    const onFocus = () => refreshFeed({ silent: true })
+    const onVisibility = () => {
+      if (document.visibilityState === 'visible') onFocus()
+    }
+
+    window.addEventListener('focus', onFocus)
+    document.addEventListener('visibilitychange', onVisibility)
+
+    const interval = window.setInterval(() => refreshFeed({ silent: true }), FEED_REFRESH_MS)
+
+    return () => {
+      window.removeEventListener('focus', onFocus)
+      document.removeEventListener('visibilitychange', onVisibility)
+      window.clearInterval(interval)
+    }
+  }, [refreshFeed])
 
   const isLive = (feedData?.articles.length ?? 0) > 0
+  const usingFallback = !loading && !isLive
 
   const articles = useMemo(
     () => (isLive ? feedData!.articles : staticArticles),
-    [isLive, feedData]
+    [isLive, feedData],
   )
 
   const breakingNews = useMemo(
     () => (isLive && feedData!.breakingNews.length > 0 ? feedData!.breakingNews : staticBreakingNews),
-    [isLive, feedData]
+    [isLive, feedData],
   )
 
-  const sectionVideos = useMemo(
-    () => feedData?.sectionVideos ?? {},
-    [feedData]
-  )
+  const sectionVideos = useMemo(() => feedData?.sectionVideos ?? {}, [feedData])
 
   return (
     <FeedContext.Provider
@@ -111,6 +158,7 @@ export function FeedProvider({ children }: { children: ReactNode }) {
         sectionVideos,
         lastUpdated: feedData?.fetchedAt ?? null,
         isLive,
+        usingFallback,
         loading,
         error,
         refreshFeed,
