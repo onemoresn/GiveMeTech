@@ -4,7 +4,7 @@
  * resolves topic-appropriate images/videos, and writes public/data/feed.json.
  */
 import 'dotenv/config'
-import { writeFile, mkdir } from 'node:fs/promises'
+import { writeFile, readFile, mkdir } from 'node:fs/promises'
 import Parser from 'rss-parser'
 import type { SectionId } from '../src/data/sections'
 import type { RssSource } from './feed-config'
@@ -215,7 +215,12 @@ async function buildFeedArticles(stories: RawStory[]): Promise<FeedArticle[]> {
   return articles
 }
 
-async function attachArticleVideos(articles: FeedArticle[]): Promise<void> {
+type CachedVideo = { video?: string; videoPoster?: string }
+
+async function attachArticleVideos(
+  articles: FeedArticle[],
+  cachedById: Map<string, CachedVideo>,
+): Promise<void> {
   if (!hasPexelsKey()) return
 
   const sectionVideoAdded = new Set<SectionId>()
@@ -228,6 +233,14 @@ async function attachArticleVideos(articles: FeedArticle[]): Promise<void> {
     if (!isFeatured && !isSectionLead) continue
 
     if (isSectionLead) sectionVideoAdded.add(article.section)
+
+    // Reuse the previous run's video for articles we've already seen — no Pexels call.
+    const cached = cachedById.get(article.id)
+    if (cached?.video) {
+      article.video = cached.video
+      article.videoPoster = cached.videoPoster
+      continue
+    }
 
     console.log(`  🎬 Article video: ${article.title.slice(0, 50)}…`)
     const video = await fetchArticleVideo(article.section, article.title)
@@ -252,6 +265,16 @@ function printSectionBreakdown(stories: RawStory[]) {
   console.log('\n📊 Section breakdown:')
   for (const [section, count] of Object.entries(counts)) {
     console.log(`   ${section.padEnd(14)} ${count}`)
+  }
+}
+
+/** Load the existing feed.json so we can reuse cached videos and avoid re-hitting Pexels. */
+async function loadPreviousFeed(): Promise<FeedData | null> {
+  try {
+    const raw = await readFile(FEED_DATA_PATH, 'utf8')
+    return JSON.parse(raw) as FeedData
+  } catch {
+    return null
   }
 }
 
@@ -284,10 +307,19 @@ async function main() {
 
   let sectionVideos = {}
   if (hasPexelsKey()) {
-    console.log('\n🎬 Fetching section hero videos…')
-    sectionVideos = await fetchSectionVideos()
-    console.log('\n🎬 Fetching article preview videos…')
-    await attachArticleVideos(articles)
+    const previousFeed = await loadPreviousFeed()
+    const cachedArticleVideos = new Map<string, CachedVideo>()
+    if (previousFeed) {
+      for (const a of previousFeed.articles) {
+        if (a.video) cachedArticleVideos.set(a.id, { video: a.video, videoPoster: a.videoPoster })
+      }
+    }
+    const forceRefreshVideos = process.env.REFRESH_VIDEOS?.trim().toLowerCase() === 'true'
+
+    console.log('\n🎬 Resolving section hero videos…')
+    sectionVideos = await fetchSectionVideos(previousFeed?.sectionVideos ?? {}, forceRefreshVideos)
+    console.log('\n🎬 Resolving article preview videos…')
+    await attachArticleVideos(articles, forceRefreshVideos ? new Map() : cachedArticleVideos)
   } else {
     console.log('\n⚠  No PEXELS_API_KEY — skipping Pexels images/videos beyond RSS')
   }

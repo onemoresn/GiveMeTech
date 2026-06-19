@@ -85,11 +85,24 @@ export async function searchPexelsVideo(query: string, maxWidth = 1920): Promise
   }
 }
 
-export async function fetchSectionVideos(): Promise<Partial<Record<SectionId, PexelsVideoResult>>> {
+/**
+ * Section hero videos are generic topic footage that rarely needs to change, so we
+ * reuse whatever the previous feed already had and only search Pexels for sections
+ * that are missing (or all of them when `forceRefresh` is set).
+ */
+export async function fetchSectionVideos(
+  cached: Partial<Record<SectionId, PexelsVideoResult>> = {},
+  forceRefresh = false,
+): Promise<Partial<Record<SectionId, PexelsVideoResult>>> {
   const sections = Object.keys(SECTION_VIDEO_QUERIES) as SectionId[]
   const result: Partial<Record<SectionId, PexelsVideoResult>> = {}
 
   for (const section of sections) {
+    if (!forceRefresh && cached[section]?.url) {
+      result[section] = cached[section]!
+      console.log(`  ♻️  Section video (cached): ${section}`)
+      continue
+    }
     console.log(`  🎬 Section video: ${section}`)
     const video = await searchPexelsVideo(SECTION_VIDEO_QUERIES[section], 1920)
     if (video) result[section] = video
