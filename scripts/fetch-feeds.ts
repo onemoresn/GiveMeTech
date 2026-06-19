@@ -171,7 +171,7 @@ async function buildFeedArticles(stories: RawStory[]): Promise<FeedArticle[]> {
   console.log(`  📷 Resolving ${stories.length} images (×${IMAGE_CONCURRENCY} parallel)…`)
   const images = await mapWithConcurrency(stories, IMAGE_CONCURRENCY, (story) => {
     const id = makeArticleId(story.url, story.title)
-    return resolveArticleImage(story.item, story.section, id, story.title)
+    return resolveArticleImage(story.item, story.section, id, story.title, story.url)
   })
 
   // Phase 2 — build bodies. Gemini stays sequential so we respect its rate limit.

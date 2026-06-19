@@ -77,6 +77,66 @@ export function expandBody(
   return [p1, p2, p3].filter(Boolean).join('\n\n')
 }
 
+function resolveUrl(maybeRelative: string, base: string): string | null {
+  try {
+    return new URL(maybeRelative.trim(), base).href
+  } catch {
+    return null
+  }
+}
+
+function decodeEntities(url: string): string {
+  return url
+    .replace(/&amp;/g, '&')
+    .replace(/&#0?38;/g, '&')
+    .replace(/&quot;/g, '"')
+    .replace(/&#0?39;/g, "'")
+}
+
+const OG_IMAGE_PATTERNS: RegExp[] = [
+  /<meta[^>]+(?:property|name)=["']og:image(?::secure_url)?["'][^>]+content=["']([^"']+)["']/i,
+  /<meta[^>]+content=["']([^"']+)["'][^>]+(?:property|name)=["']og:image(?::secure_url)?["']/i,
+  /<meta[^>]+name=["']twitter:image(?::src)?["'][^>]+content=["']([^"']+)["']/i,
+  /<meta[^>]+content=["']([^"']+)["'][^>]+name=["']twitter:image(?::src)?["']/i,
+]
+
+/**
+ * Fetch the article page and read its publicly-published social-share image
+ * (og:image / twitter:image). Free, no API key, and the exact image for the story —
+ * used before falling back to a generic stock search.
+ */
+export async function fetchOgImage(articleUrl: string): Promise<string | null> {
+  if (!articleUrl?.startsWith('http')) return null
+  try {
+    const res = await fetch(articleUrl, {
+      redirect: 'follow',
+      signal: AbortSignal.timeout(8000),
+      headers: {
+        'User-Agent':
+          'Mozilla/5.0 (compatible; GiveMeTechBot/1.0; +https://github.com/onemoresn/GiveMeTech)',
+        Accept: 'text/html,application/xhtml+xml',
+      },
+    })
+    if (!res.ok) return null
+    const contentType = res.headers.get('content-type') ?? ''
+    if (!contentType.includes('html')) return null
+
+    // og/twitter tags live in <head>, so the first slice is enough.
+    const html = (await res.text()).slice(0, 200_000)
+
+    for (const pattern of OG_IMAGE_PATTERNS) {
+      const match = html.match(pattern)
+      if (match?.[1]) {
+        const absolute = resolveUrl(decodeEntities(match[1]), articleUrl)
+        if (absolute) return absolute
+      }
+    }
+    return null
+  } catch {
+    return null
+  }
+}
+
 export function extractImageFromItem(item: Record<string, unknown>): string | null {
   const enclosure = item.enclosure as { url?: string; type?: string } | undefined
   if (enclosure?.url && enclosure.type?.startsWith('image')) return enclosure.url
@@ -130,8 +190,10 @@ export async function resolveArticleImage(
   item: Record<string, unknown>,
   section: SectionId,
   articleId: string,
-  title: string
+  title: string,
+  articleUrl?: string
 ): Promise<string> {
+  // 1. Image embedded directly in the RSS item.
   const rssImage = extractImageFromItem(item)
   if (rssImage) {
     const local = await downloadImage(rssImage, articleId)
@@ -139,6 +201,18 @@ export async function resolveArticleImage(
     if (rssImage.startsWith('http')) return rssImage
   }
 
+  // 2. The article's own public og:image / twitter:image (free, exact, no rate limit).
+  const pageUrl = articleUrl ?? (item.link as string | undefined)
+  if (pageUrl) {
+    const ogImage = await fetchOgImage(pageUrl)
+    if (ogImage) {
+      const local = await downloadImage(ogImage, articleId)
+      if (local) return local
+      if (ogImage.startsWith('http')) return ogImage
+    }
+  }
+
+  // 3. Stock-photo search (last network resort — keeps Pexels quota usage minimal).
   const { query, pickIndex } = buildPhotoQuery(section, title)
   const pexelsUrl = await searchPexelsPhoto(query, pickIndex)
   if (pexelsUrl) {
@@ -147,6 +221,7 @@ export async function resolveArticleImage(
     return pexelsUrl
   }
 
+  // 4. Bundled section placeholder.
   return SECTION_FALLBACK_IMAGES[section]
 }
 
