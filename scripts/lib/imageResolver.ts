@@ -94,16 +94,26 @@ export function extractImageFromItem(item: Record<string, unknown>): string | nu
   return null
 }
 
+/** Skip storing images larger than this — they bloat the repo and slow the bot push. */
+const MAX_IMAGE_BYTES = 4_000_000
+const IMAGE_FETCH_TIMEOUT_MS = 15000
+
 async function downloadImage(url: string, id: string): Promise<string | null> {
   try {
-    const res = await fetch(url, { redirect: 'follow' })
+    const res = await fetch(url, {
+      redirect: 'follow',
+      signal: AbortSignal.timeout(IMAGE_FETCH_TIMEOUT_MS),
+    })
     if (!res.ok) return null
 
     const contentType = res.headers.get('content-type') ?? 'image/jpeg'
+    if (!contentType.startsWith('image')) return null
     const ext = contentType.includes('png') ? 'png' : contentType.includes('webp') ? 'webp' : 'jpg'
     const buffer = Buffer.from(await res.arrayBuffer())
 
     if (buffer.length < 1000) return null
+    // Too heavy to commit — let the caller fall back to the remote URL.
+    if (buffer.length > MAX_IMAGE_BYTES) return null
 
     await mkdir(FEED_IMAGES_DIR, { recursive: true })
     const filename = `${id}.${ext}`

@@ -17,7 +17,9 @@ concurrency:
 jobs:
   fetch-feeds:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    # With per-request timeouts + parallel image downloads the run should finish in
+    # a few minutes; a tighter cap means a stuck run fails fast so the next hour succeeds.
+    timeout-minutes: 20
 
     steps:
       - uses: actions/checkout@v4

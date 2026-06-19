@@ -32,7 +32,13 @@ import {
   ARTICLE_VIDEO_SECTIONS,
 } from './lib/pexelsMedia'
 
+/** Cap a slow/hanging RSS feed so it can't stall the whole run. */
+const RSS_TIMEOUT_MS = 20000
+/** How many article images to download in parallel (network-bound). */
+const IMAGE_CONCURRENCY = 6
+
 const parser = new Parser({
+  timeout: RSS_TIMEOUT_MS,
   requestOptions: {
     headers: {
       'User-Agent': 'GiveMeTech/1.0 (RSS feed reader; +https://github.com/onemoresn/GiveMeTech)',
@@ -63,6 +69,28 @@ interface RawStory {
 function isRecent(date: Date): boolean {
   const cutoff = Date.now() - MAX_AGE_DAYS * 24 * 60 * 60 * 1000
   return date.getTime() >= cutoff
+}
+
+/** Run an async mapper over items with a fixed concurrency, preserving input order. */
+async function mapWithConcurrency<T, R>(
+  items: T[],
+  limit: number,
+  fn: (item: T, index: number) => Promise<R>,
+): Promise<R[]> {
+  const results = new Array<R>(items.length)
+  let cursor = 0
+
+  async function worker() {
+    while (true) {
+      const index = cursor++
+      if (index >= items.length) return
+      results[index] = await fn(items[index], index)
+    }
+  }
+
+  const workers = Array.from({ length: Math.min(limit, items.length) }, worker)
+  await Promise.all(workers)
+  return results
 }
 
 async function fetchSource(source: RssSource): Promise<RawStory[]> {
@@ -139,13 +167,18 @@ function dedupeAndLimit(stories: RawStory[]): RawStory[] {
 }
 
 async function buildFeedArticles(stories: RawStory[]): Promise<FeedArticle[]> {
-  const articles: FeedArticle[] = []
-
-  for (const story of stories) {
+  // Phase 1 — resolve images in parallel (network-bound, the main bottleneck).
+  console.log(`  📷 Resolving ${stories.length} images (×${IMAGE_CONCURRENCY} parallel)…`)
+  const images = await mapWithConcurrency(stories, IMAGE_CONCURRENCY, (story) => {
     const id = makeArticleId(story.url, story.title)
-    console.log(`  📷 [${story.section}] ${story.title.slice(0, 55)}…`)
+    return resolveArticleImage(story.item, story.section, id, story.title)
+  })
 
-    const image = await resolveArticleImage(story.item, story.section, id, story.title)
+  // Phase 2 — build bodies. Gemini stays sequential so we respect its rate limit.
+  const articles: FeedArticle[] = []
+  for (let i = 0; i < stories.length; i++) {
+    const story = stories[i]
+    const id = makeArticleId(story.url, story.title)
 
     const rawBody = (story.item['content:encoded'] || story.item.content || story.item.contentSnippet || '') as string
     const cleanedBody = cleanBody(rawBody)
@@ -173,7 +206,7 @@ async function buildFeedArticles(stories: RawStory[]): Promise<FeedArticle[]> {
       featured: articles.length < 6,
       xpReward: 30 + Math.floor(Math.random() * 25),
       url: story.url,
-      image,
+      image: images[i],
       source: story.source,
       isLive: true,
     })

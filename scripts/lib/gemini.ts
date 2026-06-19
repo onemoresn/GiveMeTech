@@ -44,7 +44,9 @@ export function getGeminiUsage(): { calls: number; maxCalls: number; enabled: bo
   return { calls: callCount, maxCalls: getMaxCalls(), enabled: isEnabled() }
 }
 
-/** 5 s gap between calls → max 12 req/min, safely under the 15 req/min free-tier limit */
+/** ~4.5 s gap between calls → ~13 req/min, safely under the 15 req/min free-tier limit */
+const GEMINI_CALL_GAP_MS = 4500
+
 function delay(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms))
 }
@@ -129,6 +131,7 @@ export async function generateSummary(
         contents: [{ parts: [{ text: prompt }] }],
         generationConfig: { temperature: 0.45, maxOutputTokens: 1200 },
       }),
+      signal: AbortSignal.timeout(30000),
     })
 
     if (!res.ok) {
@@ -145,6 +148,6 @@ export async function generateSummary(
     console.warn('  ⚠ Gemini request failed:', err instanceof Error ? err.message : err)
     return null
   } finally {
-    await delay(5000)
+    await delay(GEMINI_CALL_GAP_MS)
   }
 }

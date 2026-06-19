@@ -36,7 +36,7 @@ export async function searchPexelsPhoto(query: string, pickIndex = 0): Promise<s
   try {
     const res = await fetch(
       `https://api.pexels.com/v1/search?query=${encodeURIComponent(query)}&per_page=15&orientation=landscape`,
-      { headers }
+      { headers, signal: AbortSignal.timeout(10000) }
     )
     if (!res.ok) return null
     const data = (await res.json()) as { photos?: { src?: { large?: string; large2x?: string } }[] }
@@ -65,7 +65,7 @@ export async function searchPexelsVideo(query: string, maxWidth = 1920): Promise
   try {
     const res = await fetch(
       `https://api.pexels.com/videos/search?query=${encodeURIComponent(query)}&per_page=1&orientation=landscape`,
-      { headers }
+      { headers, signal: AbortSignal.timeout(10000) }
     )
     if (!res.ok) return null
 

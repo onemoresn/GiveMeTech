@@ -376,6 +376,6 @@ export const SECTION_FALLBACK_IMAGES: Record<SectionId, string> = {
   cars: '/images/topics/topic-cars.png',
 }
 
-export const MAX_ARTICLES = 63
-export const MAX_PER_SECTION = 9
+export const MAX_ARTICLES = 49
+export const MAX_PER_SECTION = 7
 export const MAX_AGE_DAYS = 7
