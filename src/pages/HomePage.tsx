@@ -1,7 +1,12 @@
+import { Suspense, lazy } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
-import { GlobeScene } from '../components/3d/GlobeScene'
+
+// three.js is heavy — load the 3D hero as a separate chunk so page text paints first.
+const GlobeScene = lazy(() =>
+  import('../components/3d/GlobeScene').then((m) => ({ default: m.GlobeScene })),
+)
 import { useFeaturedArticles } from '../data/articleHooks'
 import { useFeed } from '../context/FeedContext'
 import { sections } from '../data/sections'
@@ -23,12 +28,14 @@ export function HomePage() {
     <div className="relative">
       {/* Hero with 3D Globe */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden grid-bg">
-        <GlobeScene
-          articles={featured}
-          onHotspotClick={(article) => {
-            window.location.href = `/${article.section}?article=${article.id}`
-          }}
-        />
+        <Suspense fallback={null}>
+          <GlobeScene
+            articles={featured}
+            onHotspotClick={(article) => {
+              window.location.href = `/${article.section}?article=${article.id}`
+            }}
+          />
+        </Suspense>
 
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto pt-32">
           <motion.div

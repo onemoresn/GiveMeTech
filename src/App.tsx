@@ -1,17 +1,30 @@
+import { Suspense, lazy } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { NavBar } from './components/layout/NavBar'
 import { NewsTicker } from './components/layout/NewsTicker'
 import { Footer } from './components/layout/Footer'
 import { NewsletterSignup } from './components/features/NewsletterSignup'
-import { HomePage } from './pages/HomePage'
-import { SectionPage } from './pages/SectionPage'
+
+// Route-level code splitting — keep the initial bundle small (three.js loads with HomePage).
+const HomePage = lazy(() => import('./pages/HomePage').then((m) => ({ default: m.HomePage })))
+const SectionPage = lazy(() => import('./pages/SectionPage').then((m) => ({ default: m.SectionPage })))
+
+function PageFallback() {
+  return (
+    <div className="min-h-screen flex items-center justify-center">
+      <span className="font-mono text-neon-cyan text-sm animate-pulse">loading…</span>
+    </div>
+  )
+}
 
 function AppLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <NewsTicker />
       <NavBar />
-      <main id="main-content">{children}</main>
+      <main id="main-content">
+        <Suspense fallback={<PageFallback />}>{children}</Suspense>
+      </main>
       <NewsletterSignup />
       <Footer />
     </>

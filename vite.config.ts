@@ -8,4 +8,17 @@ const base = process.env.VITE_BASE_PATH ?? '/'
 export default defineConfig({
   base,
   plugins: [react(), tailwindcss()],
+  build: {
+    chunkSizeWarningLimit: 900,
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (!id.includes('node_modules')) return
+          if (id.includes('three') || id.includes('@react-three')) return 'three'
+          if (id.includes('framer-motion')) return 'motion'
+          if (id.includes('react') || id.includes('scheduler')) return 'react'
+        },
+      },
+    },
+  },
 })
