@@ -33,7 +33,9 @@ import {
 } from './lib/pexelsMedia'
 
 /** Cap a slow/hanging RSS feed so it can't stall the whole run. */
-const RSS_TIMEOUT_MS = 20000
+const RSS_TIMEOUT_MS = 15000
+/** How many RSS sources to fetch in parallel. */
+const RSS_CONCURRENCY = 8
 /** How many article images to download in parallel (network-bound). */
 const IMAGE_CONCURRENCY = 6
 
@@ -281,11 +283,8 @@ async function loadPreviousFeed(): Promise<FeedData | null> {
 async function main() {
   console.log('📡 Fetching tech RSS feeds…\n')
 
-  const allStories: RawStory[] = []
-  for (const source of RSS_SOURCES) {
-    const stories = await fetchSource(source)
-    allStories.push(...stories)
-  }
+  const storyLists = await mapWithConcurrency(RSS_SOURCES, RSS_CONCURRENCY, fetchSource)
+  const allStories: RawStory[] = storyLists.flat()
 
   console.log(`\n📰 ${allStories.length} raw stories → filtering…`)
 
@@ -307,19 +306,24 @@ async function main() {
 
   let sectionVideos = {}
   if (hasPexelsKey()) {
-    const previousFeed = await loadPreviousFeed()
-    const cachedArticleVideos = new Map<string, CachedVideo>()
-    if (previousFeed) {
-      for (const a of previousFeed.articles) {
-        if (a.video) cachedArticleVideos.set(a.id, { video: a.video, videoPoster: a.videoPoster })
+    // Video enrichment is best-effort — never let it abort the run and lose the feed.
+    try {
+      const previousFeed = await loadPreviousFeed()
+      const cachedArticleVideos = new Map<string, CachedVideo>()
+      if (previousFeed) {
+        for (const a of previousFeed.articles) {
+          if (a.video) cachedArticleVideos.set(a.id, { video: a.video, videoPoster: a.videoPoster })
+        }
       }
-    }
-    const forceRefreshVideos = process.env.REFRESH_VIDEOS?.trim().toLowerCase() === 'true'
+      const forceRefreshVideos = process.env.REFRESH_VIDEOS?.trim().toLowerCase() === 'true'
 
-    console.log('\n🎬 Resolving section hero videos…')
-    sectionVideos = await fetchSectionVideos(previousFeed?.sectionVideos ?? {}, forceRefreshVideos)
-    console.log('\n🎬 Resolving article preview videos…')
-    await attachArticleVideos(articles, forceRefreshVideos ? new Map() : cachedArticleVideos)
+      console.log('\n🎬 Resolving section hero videos…')
+      sectionVideos = await fetchSectionVideos(previousFeed?.sectionVideos ?? {}, forceRefreshVideos)
+      console.log('\n🎬 Resolving article preview videos…')
+      await attachArticleVideos(articles, forceRefreshVideos ? new Map() : cachedArticleVideos)
+    } catch (err) {
+      console.warn('  ⚠ Video enrichment failed — continuing without videos:', err instanceof Error ? err.message : err)
+    }
   } else {
     console.log('\n⚠  No PEXELS_API_KEY — skipping Pexels images/videos beyond RSS')
   }
@@ -345,7 +349,13 @@ async function main() {
   }
 }
 
-main().catch((err) => {
-  console.error('Feed fetch failed:', err)
-  process.exit(1)
-})
+main()
+  .then(() => {
+    // Force exit — lingering keep-alive sockets / AbortSignal timers from fetch can
+    // otherwise hold the event loop open and hang the CI step until it times out.
+    process.exit(0)
+  })
+  .catch((err) => {
+    console.error('Feed fetch failed:', err)
+    process.exit(1)
+  })

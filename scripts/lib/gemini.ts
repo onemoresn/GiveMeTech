@@ -1,7 +1,12 @@
 import type { SectionId } from '../../src/data/sections'
 
-const GEMINI_URL =
-  'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent'
+/** Override with GEMINI_MODEL if Google retires the default (1.5/2.0 flash were shut down). */
+const DEFAULT_GEMINI_MODEL = 'gemini-2.5-flash'
+
+function getGeminiUrl(): string {
+  const model = process.env.GEMINI_MODEL?.trim() || DEFAULT_GEMINI_MODEL
+  return `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`
+}
 
 /** Google AI Studio free tier — stay under this many requests per calendar day. */
 const GEMINI_DAILY_FREE_TIER = 1500
@@ -124,14 +129,14 @@ export async function generateSummary(
   const prompt = buildSummaryPrompt(title, excerpt, section, source)
 
   try {
-    const res = await fetch(`${GEMINI_URL}?key=${apiKey}`, {
+    const res = await fetch(`${getGeminiUrl()}?key=${apiKey}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         contents: [{ parts: [{ text: prompt }] }],
         generationConfig: { temperature: 0.45, maxOutputTokens: 1200 },
       }),
-      signal: AbortSignal.timeout(30000),
+      signal: AbortSignal.timeout(20000),
     })
 
     if (!res.ok) {
