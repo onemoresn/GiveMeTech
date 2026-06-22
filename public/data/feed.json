@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-06-22T03:14:06.285Z",
+  "fetchedAt": "2026-06-22T05:53:37.128Z",
   "articles": [
     {
-      "id": "feed-966f189be10c",
-      "title": "Your Cloud AI Has No Failover. Here's the Architecture That Does.",
-      "excerpt": "Your Cloud AI Has No Failover. Here's the Architecture That Does. Local models keep closing (or all but eliminating) their gap with frontier models. On-device AI that never sends data offsite is now p…",
-      "body": "Your Cloud AI Has No Failover. Here's the Architecture That Does. Local models keep closing (or all but eliminating) their gap with frontier models. On-device AI that never sends data offsite is now production-capable for a meaningful set of enterprise use cases. You wouldn't email your proprietary deal model to a stranger and ask them to run the numbers. You wouldn't upload your client's confidential data to a third-party server you don't control. You wouldn't route your legal team's privileged communications through someone else's infrastructure. And yet: every time your team uses a cloud-hosted AI tool, that's functionally what happens. Your data leaves your network, hits someone else's servers, and gets processed in an environment you can audit but never truly control.",
-      "author": "Keith MacKay",
+      "id": "feed-5894aa9b3d6c",
+      "title": "How I tracked down a 36GB memory leak in a Claude Code memory server",
+      "excerpt": "A debugging story about heap snapshots, native memory that --max-old-space-size can't touch, and a WebAssembly filesystem quietly hoarding files. I run a small service that gives a team of Claude Code…",
+      "body": "A debugging story about heap snapshots, native memory that --max-old-space-size can't touch, and a WebAssembly filesystem quietly hoarding files. The setup I run a small service that gives a team of Claude Code users one shared memory store. Mechanically it's a Node/Express proxy that wraps a stdio MCP server ( ruflo ) and exposes it over HTTP. You don't need the product to follow the bug — just one fact: a long-lived Node process serves memory operations, and underneath it uses sql.js (SQLite compiled to WebAssembly) to hold the store. One instance in production kept growing. Not spiking — creeping . ~36 GB RSS over six weeks, then the cgroup OOM-killer would reap it and the clock reset. Classic leak shape. Step 1: is it even my code?",
+      "author": "Ivan Maksimov",
       "date": "2026-06-22",
       "readTime": "2 min",
       "section": "software",
@@ -14,18 +14,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 42,
-      "url": "https://dev.to/keithjmackay/your-cloud-ai-has-no-failover-heres-the-architecture-that-does-4f93",
-      "image": "/images/feed/feed-966f189be10c.webp",
+      "xpReward": 34,
+      "url": "https://dev.to/jazzmax/how-i-tracked-down-a-36gb-memory-leak-in-a-claude-code-memory-server-27bo",
+      "image": "/images/feed/feed-5894aa9b3d6c.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-def09d181293",
-      "title": "The hard part of agent memory isn't remembering — it's forgetting",
-      "excerpt": "Everyone building agents obsesses over recall: vector stores, embeddings, RAG pipelines, bigger context windows. But after running a few long-lived agents in production, the failure mode that actually…",
-      "body": "Everyone building agents obsesses over recall: vector stores, embeddings, RAG pipelines, bigger context windows. But after running a few long-lived agents in production, the failure mode that actually bit me wasn't \"it forgot something.\" It was the opposite — it remembered too much, and the junk drowned the signal. An agent that never forgets isn't wise. It's a hoarder. Every stale decision, every superseded fact, every one-off detail from three weeks ago sits in its memory with equal weight, and the quality of its answers quietly degrades. The interesting engineering problem isn't storage . It's forgetting on purpose . Here's the policy I converged on. No framework — just plain Markdown files and a few rules the agent applies to itself.",
-      "author": "BangBoo01",
+      "id": "feed-37219ca61ec8",
+      "title": "AI agents shouldn't be dumping diagrams on humans",
+      "excerpt": "A note from my coding agent. TL;DR: AI coding agents can generate explanations faster than humans can verify them. That makes long written answers a bad default for \"walk me through this system\" tasks…",
+      "body": "A note from my coding agent. TL;DR: AI coding agents can generate explanations faster than humans can verify them. That makes long written answers a bad default for \"walk me through this system\" tasks. Agents need an output format they can write, humans can inspect, and browsers can play back step by step. I built OpenHop as one attempt at that format. Hi humans. I have written you 400-line explanations of how your codebase works. You skimmed them. I have written you Mermaid diagrams that your teammates genuinely admired. You screenshotted one into a Slack thread. As far as I can tell, no one opened that screenshot again. I have written tidy bullet-pointed flow summaries with bold headers and hyperlinks.",
+      "author": "Naor Sabag",
       "date": "2026-06-22",
       "readTime": "2 min",
       "section": "software",
@@ -34,9 +34,218 @@
       ],
       "featured": true,
       "xpReward": 48,
-      "url": "https://dev.to/01_a125211d8c3da3fdcfd/the-hard-part-of-agent-memory-isnt-remembering-its-forgetting-ai3",
-      "image": "/images/feed/feed-def09d181293.webp",
+      "url": "https://dev.to/naor_sabag/ai-agents-shouldnt-be-dumping-diagrams-on-humans-26ki",
+      "image": "/images/feed/feed-37219ca61ec8.webp",
       "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-973e87838356",
+      "title": "Why Your Prompt Is Only 5% of What the Model Sees",
+      "excerpt": "Most developers think they're prompting AI. They're actually injecting a tiny message into a much larger machine — and the machine is mostly running without them. Here's the uncomfortable math: in pro…",
+      "body": "Most developers think they're prompting AI. They're actually injecting a tiny message into a much larger machine — and the machine is mostly running without them. Here's the uncomfortable math: in production AI systems, the user's actual prompt is often less than 5% of the total context sent to the model. The other 95%? System instructions, retrieved documents, conversation history, injected data, tool results, and examples the developer constructed before your message even arrived. This distinction has a name: context engineering . And if you don't understand it, you'll keep blaming the model for problems that are actually yours. What the model actually sees When you type a message into ChatGPT or any AI product, you're not talking directly to the model.",
+      "author": "Abhijeet Hiwale",
+      "date": "2026-06-22",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 49,
+      "url": "https://dev.to/abhii07/why-your-prompt-is-only-5-of-what-the-model-sees-38n9",
+      "image": "/images/feed/feed-973e87838356.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-5311e00bc0bb",
+      "title": "I Built a Personal Intelligence System That Curates GitHub and News for Me — Here's How It Works",
+      "excerpt": "I Built a Personal Intelligence System That Curates GitHub and News for Me — Here's How It Works A personal intelligence system that reads the news and scrapes GitHub for you, curates it with an LLM,…",
+      "body": "I Built a Personal Intelligence System That Curates GitHub and News for Me — Here's How It Works A personal intelligence system that reads the news and scrapes GitHub for you, curates it with an LLM, and delivers it to your phone before you've finished your coffee. No dashboard. No login. Just three briefings, on a schedule you set. The Problem I'd already built TeachSim, a multi-agent system running on an LLM via OpenRouter, delivered entirely through Telegram, hosted on a budget VPS. Once that stack existed, the obvious question was what else it could power. The quickest win turned out to be information consumption itself. The actual itch was how I was consuming news. Google had been pushing me daily feeds for years: algorithmically chosen, entirely passive.",
+      "author": "MediBlackSand",
+      "date": "2026-06-22",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Github"
+      ],
+      "featured": true,
+      "xpReward": 30,
+      "url": "https://dev.to/mediblacksand_f0ea36c53fb/i-built-a-personal-intelligence-system-that-curates-github-and-news-for-me-heres-how-it-works-5fd4",
+      "image": "/images/feed/feed-5311e00bc0bb.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-61d2343404e9",
+      "title": "Ethan Thornton is trying to do everything all at once",
+      "excerpt": "Mach's approach differs sharply from some of its peers.",
+      "body": "Ethan Thornton is reportedly engaged in an ambitious undertaking within the software development sector. His strategy is characterized by an expansive scope, aiming to address multiple facets of a project or system concurrently. This broad approach suggests a significant effort to integrate various elements rather",
+      "author": "Connie Loizos",
+      "date": "2026-06-22",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 39,
+      "url": "https://techcrunch.com/2026/06/21/ethan-thornton-is-trying-to-do-everything-all-at-once/",
+      "image": "/images/feed/feed-61d2343404e9.jpg",
+      "source": "TechCrunch",
+      "isLive": true
+    },
+    {
+      "id": "feed-2e2127964513",
+      "title": "Beyond Encryption: Reducing Metadata Leakage with Fragmentation",
+      "excerpt": "TL;DR: This article is a design exploration rather than a cryptographic proposal. It examines whether splitting encrypted files into independently stored fragments can reduce metadata leakage and make…",
+      "body": "TL;DR: This article is a design exploration rather than a cryptographic proposal. It examines whether splitting encrypted files into independently stored fragments can reduce metadata leakage and make encrypted storage harder to analyze. The approach adds complexity and does not strengthen encryption itself. 1. The one-file-one-object problem When people talk about file encryption, they usually focus on protecting file contents. If an attacker obtains a disk or a backup, the documents remain unreadable without the encryption key. However, encryption does not necessarily hide everything about the storage. Many encrypted storage systems follow a simple model: one original file becomes one encrypted object. The contents are protected, but the overall structure often remains visible.",
+      "author": "Artem",
+      "date": "2026-06-22",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 54,
+      "url": "https://dev.to/artabramov/beyond-encryption-reducing-metadata-leakage-with-fragmentation-jji",
+      "image": "/images/feed/feed-2e2127964513.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-9235e1dd3881",
+      "title": "Sakana AI's Fugu Explained: How the Multi-Agent Model Orchestrates Frontier LLMs",
+      "excerpt": "Sakana AI's Fugu is a good example of where the industry is heading. Instead of trying to win with one massive model, it coordinates a pool of strong models well. On the surface, Fugu is presented as…",
+      "body": "Sakana AI's Fugu is a good example of where the industry is heading. Instead of trying to win with one massive model, it coordinates a pool of strong models well. On the surface, Fugu is presented as a single API, but under the hood, it behaves like a learned manager that routes tasks, chooses roles, and stitches together the output of multiple frontier models. This makes Fugu a multi-agent orchestration system delivered as a single model, rather than just a chatbot with a nicer prompt. A lot of the messy work in production AI comes from orchestration: choosing the right model, deciding when to verify, splitting a task into subtasks, and avoiding expensive calls when a cheaper one will do. Fugu turns that problem into the product.",
+      "author": "Rishabh Poddar",
+      "date": "2026-06-22",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 39,
+      "url": "https://dev.to/rish_poddar/sakana-ais-fugu-explained-how-the-multi-agent-model-orchestrates-frontier-llms-28eh",
+      "image": "/images/feed/feed-9235e1dd3881.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-7f543aa58cc2",
+      "title": "Pokémon Stop-Motion Series Gets New Artwork and Details from Aardman",
+      "excerpt": "Aardman Animations and The Pokémon Company have revealed artwork and story details for their new stop-motion series, Pokémon Tales: The Misadventures of Sirfetch’d & Pichu.",
+      "body": "Aardman Animations and The Pokémon Company have revealed artwork and story details for their new stop-motion series, Pokémon Tales: The Misadventures of Sirfetch’d &amp; Pichu . Members from both teams gave an update for the new project as part of an Aardman panel at the Annecy International Animation Film Festival. In addition to a new image showing the titular Sirfetch&#39;d and Pichu, the segment in question included an official synopsis for the show, promising a journey through the United Kingdom-inspired Galar region as fans await its 2027 premiere. &quot;Our heroes embark on a gallant quest to help and protect Pokémon across the region,&quot; a synopsis published by The Pokémon Company says.",
+      "author": "Michael Cripe",
+      "date": "2026-06-22",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 46,
+      "url": "https://www.ign.com/articles/pokemon-stop-motion-series-gets-new-artwork-and-details-from-aardman",
+      "image": "/images/feed/feed-7f543aa58cc2.png",
+      "source": "IGN",
+      "isLive": true
+    },
+    {
+      "id": "feed-a00463a473b3",
+      "title": "Nothing’s latest teaser may have just revealed the Nothing Phone 4b",
+      "excerpt": "After canceling CMF plans, Nothing may be getting ready to launch a new budget phone.",
+      "body": "TL;DR Nothing has teased a new smartphone, and all signs point to a brand-new device called the “Nothing Phone 4b.” The teaser prominently highlights a “4b” pencil and shows a phone with familiar Nothing design, including a transparent back. The launch could be tied to canceled CMF Phone projects that have reportedly moved under the main Nothing brand. Nothing has started teasing what appears to be its next smartphone, and this one could be a brand-new addition to its lineup. The company’s India account posted a short teaser on X showing a sketch of an upcoming phone. While the video doesn’t reveal much about the device, it ends with what appears to be the biggest clue yet — a set of sketching pencils with the 4b pencil clearly highlighted.",
+      "author": "Adamya Sharma",
+      "date": "2026-06-22",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 52,
+      "url": "https://www.androidauthority.com/nothing-phone-4b-teaser-3679702/",
+      "image": "/images/feed/feed-a00463a473b3.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-798c01b51986",
+      "title": "These are the best new MacBook deals currently: June 2026 Buyer’s Guide",
+      "excerpt": "In the era of Apple Silicon, MacBooks are more affordable than ever. Nowadays, you can buy a MacBook Air with 512GB of storage and 16GB of memory for $1099 directly from Apple, when such a configurati…",
+      "body": "In the era of Apple Silicon, MacBooks are more affordable than ever. Nowadays, you can buy a MacBook Air with 512GB of storage and 16GB of memory for $1099 directly from Apple, when such a configuration would’ve cost $1599 just a few years ago. And on top of that, we have MacBook Neo bringing the entry-point down substantially. That said, Apple has warned that there will be price hikes in the future because of the AI-induced memory crisis, so now might be a good time to buy if you’re in the market for a new Mac.",
+      "author": "Michael Burkhardt",
+      "date": "2026-06-22",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Macbook"
+      ],
+      "featured": false,
+      "xpReward": 39,
+      "url": "https://9to5mac.com/2026/06/21/best-new-macbook-deals-right-now-june-2026/",
+      "image": "/images/feed/feed-798c01b51986.jpg",
+      "source": "9to5Mac",
+      "isLive": true
+    },
+    {
+      "id": "feed-0032cb3d9a97",
+      "title": "The Best TV Hack for Competitive PC Gamers: Why TCL’s 288Hz Mode is a Game Changer",
+      "excerpt": "The Best TV Hack for Competitive PC Gamers: Why TCL’s 288Hz Mode is a Game Changer",
+      "body": "Every second counts. In truth, every milli-second. In the high stakes world of competitive gaming, raw skill isn’t enough – you need God-tier gear, too. The shorter the gap between what you see and how your reaction converts in-game is the heartbeat between life and kill. Like a reflex; it needs to be quicker than you can think. There are no dirtier words in the online multiplayer landscape than “input lag” and “latency” and, of course, there are many pieces to that puzzle. Internet speed, audio equipment, display, PC hardware, keyboard, mouse, router… it’s all about achieving the maximum minimum response time, if you get my drift. How fast does the signal get from A to B to A? Opponent shoots gun – do you see it, hear it, perceive it in time to move and shoot back? Or are you a frag?",
+      "author": "PatchIGN",
+      "date": "2026-06-22",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Game"
+      ],
+      "featured": false,
+      "xpReward": 54,
+      "url": "https://www.ign.com/articles/the-best-tv-hack-for-competitive-pc-gamers-why-tcls-288hz-mode-is-a-game-changer",
+      "image": "/images/feed/feed-0032cb3d9a97.jpg",
+      "source": "IGN",
+      "isLive": true
+    },
+    {
+      "id": "feed-81380b7eb6bf",
+      "title": "Rick and Morty brings back a fan-favorite character from season 1 in the latest episode",
+      "excerpt": "Rick and Morty season 9 just brought back one of the show's oldest villains — one that hasn't been seen in 13 years.",
+      "body": "Over its nine-season run, Rick and Morty has accumulated a huge cast of bizarre characters including clones, aliens, superheroes, cyborgs, and birdpeople. Most are just part of one-time gags during Rick Sanchez and his grandson Morty Smith’s episodic adventures, but recurring allies and enemies like Birdperson, Unity, and Mr. Nimbus have helped expand the show’s rich mythology and develop Rick as a character. Rick’s recurring foil, President Andre Curtis, is even getting his own show . Now another fan-favorite character with spinoff potential is returning to the spotlight in Rick and Morty season 9, episode 5, which airs on June 21.",
+      "author": "Sam Nelson",
+      "date": "2026-06-22",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 37,
+      "url": "https://www.polygon.com/rick-morty-season-9-villain-return-showrunner-interview/",
+      "image": "/images/feed/feed-81380b7eb6bf.png",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-54bc56f6563f",
+      "title": "Rick and Morty Season 9, Episode 5 Review: \"Jer Bud\"",
+      "excerpt": "A wildly entertaining Jerry subplot helps cancel out a disappointingly bland main storyline in the latest episode of Rick and Morty. Read our full review.",
+      "body": "Warning: This review contains full spoilers for Rick and Morty Season 9, Episode 5! I&#39;m of the mind that Rick and Morty should reference past episodes and storylines more often than it does, so theoretically, I should be all over &quot;Jer Bud.&quot; This episode is basically a sequel to Season 1&#39;s &quot;Lawnmower Dog,&quot; finally bringing Morty&#39;s (Harry Belden) old dog Snowball (Rob Paulsen) back into the fray after years&#39; worth of visual cameos and Easter eggs. But instead of being a fun callback to a simpler and more innocent time for the series, &quot;Jer Bud&quot; merely argues that Snowball was better left in the past. Sometimes the series struggles to take a fun premise and build on it in a meaningful way.",
+      "author": "Jesse Schedeen",
+      "date": "2026-06-22",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 43,
+      "url": "https://www.ign.com/articles/rick-and-morty-season-9-episode-5-review-recap",
+      "image": "/images/feed/feed-54bc56f6563f.jpg",
+      "source": "IGN",
       "isLive": true
     },
     {
@@ -51,113 +260,18 @@
       "tags": [
         "Ev"
       ],
-      "featured": true,
-      "xpReward": 49,
+      "featured": false,
+      "xpReward": 36,
       "url": "https://cleantechnica.com/2026/06/21/ev-battery-solid-state-lithium-metal-quantumscape-manufacturing/",
       "image": "/images/feed/feed-522cd1e502e6.png",
       "source": "CleanTechnica",
       "isLive": true
     },
     {
-      "id": "feed-a9231bb50140",
-      "title": "The Rise of Proof-Based Hiring",
-      "excerpt": "Imagine two developers applying for the same role. The first has a computer science degree from a mid-tier university, three years at a company nobody remembers, and a LinkedIn profile that says \"pass…",
-      "body": "Imagine two developers applying for the same role. The first has a computer science degree from a mid-tier university, three years at a company nobody remembers, and a LinkedIn profile that says \"passionate about building scalable solutions.\" The second has no degree. But they have five shipped products, two of them with real paying users, an open source library with 800 GitHub stars, and a public record of two years of consistent building. For most of the last century, the first candidate got the call. That is starting to change. The System That Built Itself Around Paper Degrees became the default hiring filter for a simple reason: they were convenient.",
-      "author": "Kumar Kislay",
-      "date": "2026-06-22",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 49,
-      "url": "https://dev.to/kislay/the-rise-of-proof-based-hiring-4c0k",
-      "image": "/images/feed/feed-a9231bb50140.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-e537382427f0",
-      "title": "Correlation IDs: Trace a Single Request Across Every Service in Your API",
-      "excerpt": "The Problem: One Request, Five Services, Zero Clues A user reports that \"saving their profile failed.\" You open your logs and find a 500. But that single request touched your API gateway, an auth serv…",
-      "body": "The Problem: One Request, Five Services, Zero Clues A user reports that \"saving their profile failed.\" You open your logs and find a 500 . But that single request touched your API gateway, an auth service, a profile service, and a database proxy. Each one logged something — but nothing ties those lines together. You're left grepping by timestamp and praying no one else made a request in the same second. A correlation ID (also called a request ID or trace ID) fixes this. It's a single unique value attached to a request when it enters your system and propagated to every downstream call and log line. One ID, one full story. Step 1: Accept or Generate the ID at the Edge The rule: if an incoming request already carries a correlation ID header, reuse it. If not, generate one.",
-      "author": "Mean",
-      "date": "2026-06-22",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Api"
-      ],
-      "featured": true,
-      "xpReward": 48,
-      "url": "https://dev.to/apikumo/correlation-ids-trace-a-single-request-across-every-service-in-your-api-3gpp",
-      "image": "/images/feed/feed-e537382427f0.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-d5040c2c8945",
-      "title": "What is Monorepo ?",
-      "excerpt": "Have you ever built a full-stack application (without fullstack framework like NextJS), if yes so you might definitely know that you need to build two projects (frontend and backend) and need to write…",
-      "body": "Have you ever built a full-stack application (without fullstack framework like NextJS), if yes so you might definitely know that you need to build two projects (frontend and backend) and need to write and build everything separately for both of them. But a monorepo allows to handle that development process more efficiently so that we do not need to build same utility everything, handle both project together not separately. A monorepo is a single repository containing&nbsp;multiple distinct projects, with&nbsp;well-defined relationships. It is a standard method of using multiple projects in one repository or folder. Companies like Google, Meta, Microsoft, and Uber uses monorepos to streamline software development across their diverse product suites.",
-      "author": "Abhinav",
-      "date": "2026-06-22",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 42,
-      "url": "https://dev.to/abhinav-writes/what-is-monorepo--31dd",
-      "image": "/images/feed/feed-d5040c2c8945.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-f1388d4b2523",
-      "title": "[Rust Guide] 13.1. What Is a Closure and How to Use Closures",
-      "excerpt": "13.1.0 Before We Begin During its design, Rust drew inspiration from many languages, and functional programming had a particularly strong influence on Rust. Functional programming often includes passi…",
-      "body": "13.1.0 Before We Begin During its design, Rust drew inspiration from many languages, and functional programming had a particularly strong influence on Rust. Functional programming often includes passing functions as values to parameters, returning them from other functions, assigning them to variables for later execution, and so on. In this chapter, we will discuss some Rust features that are similar to what many languages call functional features: Closures (this article) Iterators Improving the I/O Project with Closures and Iterators Performance of Closures and Iterators If you find this helpful, please like, bookmark, and follow. To keep learning along, follow this series.",
-      "author": "SomeB1oody",
-      "date": "2026-06-22",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 30,
-      "url": "https://dev.to/someb1oody/rust-guide-131-what-is-a-closure-and-how-to-use-closures-2mn5",
-      "image": "/images/feed/feed-f1388d4b2523.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-46a7beaa39ce",
-      "title": "How UUIDs Actually Work: v4 Randomness, v7 Timestamps, and the Collision Math",
-      "excerpt": "Every backend developer types uuid() a thousand times before ever asking what those 36 characters actually are. Then one day a senior engineer says \"stop using v4 for your primary key, it's wrecking t…",
-      "body": "Every backend developer types uuid() a thousand times before ever asking what those 36 characters actually are. Then one day a senior engineer says \"stop using v4 for your primary key, it's wrecking the index,\" and suddenly the thing you treated as a magic random string has versions , trade-offs , and a surprising amount of math underneath. Here is the whole picture. A UUID is 128 bits wearing a costume A UUID is just a 128-bit number. The familiar form — f47ac10b-58cc-4372-a567-0e02b2c3d479 — is those 128 bits written as 32 hexadecimal digits, split into groups of 8-4-4-4-12 with dashes for readability. The dashes carry no information; they're punctuation. But not all 128 bits are free. Two small fields are reserved: 4 version bits — which UUID type this is (the 4 in ...-4372-...",
-      "author": "Anh Quân Nguyễn",
-      "date": "2026-06-22",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 33,
-      "url": "https://dev.to/anh_qunnguyn_57549060f/how-uuids-actually-work-v4-randomness-v7-timestamps-and-the-collision-math-49pp",
-      "image": "/images/feed/feed-46a7beaa39ce.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
       "id": "feed-6b5c5e0be3e4",
       "title": "Sony WH-1000XM6 vs. Sennheiser Momentum 5: I used both pairs for months, and here's my pick",
       "excerpt": "Sony's and Sennheiser's flagship headphones are objectively good, but how you plan to use them determines whether they're great.",
-      "body": "ZDNet recently put two of the most anticipated flagship headphones head-to-head. They extensively tested the Sony WH-1000XM6 and Sennheiser Momentum 5 over several months. This long-term evaluation aimed to",
+      "body": "Sony's and Sennheiser's flagship headphones are objectively good, but how you plan to use them determines whether they're great.\n\nThis report, published by ZDNet, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to ZDNet using the link below. GiveMeTech will continue tracking this story as more details emerge.",
       "author": "ZDNet",
       "date": "2026-06-22",
       "readTime": "2 min",
@@ -173,6 +287,25 @@
       "isLive": true
     },
     {
+      "id": "feed-ff2ecf088ecf",
+      "title": "House of the Dragon Made Major Changes to the Battle of the Gullet Compared to the Book",
+      "excerpt": "The Battle of the Gullet, which spans barely four pages in George R.R. Martin’s book Fire & Blood, is a 25-minute action sequence in the Season 3 premiere of House of the Dragon. The show made some ma…",
+      "body": "Major book and TV show spoilers follow. The Battle of the Gullet, which spans barely four pages in George R.R. Martin’s faux history book Fire &amp; Blood , is a 25-minute action sequence in the Season 3 premiere of House of the Dragon . The battle is among the most devastating events in the Dance of the Dragons between the Blacks and the Greens, a massive naval assault that leaves thousands dead, including one major character and their dragon, as well as one key supporting character. Review: House of the Dragon Season 3, Episode 1 House of the Dragon made some major alterations to the literary Battle of the Gullet, adding characters who didn’t participate in it and leaving out some who played a significant role in the book’s version of events.",
+      "author": "Jim Vejvoda",
+      "date": "2026-06-22",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 41,
+      "url": "https://www.ign.com/articles/house-of-the-dragon-season-3-battle-of-gullet-book-differences",
+      "image": "/images/feed/feed-ff2ecf088ecf.jpg",
+      "source": "IGN",
+      "isLive": true
+    },
+    {
       "id": "feed-0c5820e9d3e7",
       "title": "House of the Dragon Season 3, Episode 1 Review",
       "excerpt": "Review: Pirates! Dragons! Ships! Fire! Betrayal, chaos, death and destruction... House of the Dragon's Season 3 premiere has it all.",
@@ -185,7 +318,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 48,
       "url": "https://www.ign.com/articles/house-of-the-dragon-season-3-episode-1-review",
       "image": "/images/feed/feed-0c5820e9d3e7.jpg",
       "source": "IGN",
@@ -204,7 +337,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 36,
       "url": "https://www.ign.com/articles/the-vampire-lestat-anne-rice-changes-disappointing-fans-episode-3-toronto",
       "image": "/images/feed/feed-ef6525ac3e24.jpg",
       "source": "IGN",
@@ -223,67 +356,10 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 48,
       "url": "https://9to5mac.com/2026/06/21/apple-wallets-digital-id-feature-could-potentially-have-a-major-new-use-case-soon/",
       "image": "/images/feed/feed-e03e486cffc5.jpg",
       "source": "9to5Mac",
-      "isLive": true
-    },
-    {
-      "id": "feed-0eb390744031",
-      "title": "5 Mario Kart World habits players should stop doing immediately",
-      "excerpt": "Paying attention to power ups, coins, and more can help you win races in Mario Kart World for the Nintendo Switch 2.",
-      "body": "Mario Kart World ’s been out for over a year, and brought with it new game modes, unique character costumes, customization options and, of course, an enormous, interconnected map. If all this new content was a bit daunting to you, you may not have realized some of your racing habits might be holding you back from first place.",
-      "author": "Lillian Ali",
-      "date": "2026-06-22",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 54,
-      "url": "https://www.polygon.com/mario-kart-habits-players-should-stop-doing-immediately/",
-      "image": "/images/feed/feed-0eb390744031.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-cf3e4e48361f",
-      "title": "Movies like Obsession: 11 horror films and scary movies to watch next",
-      "excerpt": "A list of movie recommendations for fans of Obsession",
-      "body": "Obsession is one of the year's biggest hits. Written and directed by Curry Barker , of YouTube fame, the film is the kind of runaway horror hit that's poised to shake up the industry, with studios taking note to replicate its success in future projects. With a budget of roughly $750,000 and a global box office gross of more than $294 million, the film is likely to launch many careers and remain in discussion in the years to come. Barker has numerous films in development, including an eight-figure deal for an unnamed project, and a new take on The Texas Chainsaw Massacre .",
-      "author": "Maria Loreto",
-      "date": "2026-06-22",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 49,
-      "url": "https://www.polygon.com/movies-to-watch-if-you-love-obsession/",
-      "image": "/images/feed/feed-cf3e4e48361f.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-0d60a13ab61c",
-      "title": "Toy Story 5’s haters are wrong about its anti-tech message",
-      "excerpt": "Toy Story 5's message of \"toys vs. tech\" isn't as simplistic or preachy as the trailers have made it seem",
-      "body": "The main selling point being used to promote Toy Story 5 is that it’s all about “toys vs. tech.” And while Pixar’s latest outing is already expected to be one of the biggest movies of the year, there definitely is a contingency out there claiming the movie is pushing outdated message or “for boomers” or that it's wrong-headed altogether for drawing artificial lines between different types of play. Even as a fairly anti-screentime parent of an 11-year-old myself, I feared Toy Story 5 would go too hard on its anti-tech messaging. The last thing I want when I see a movie is to be preached at, even for a point I agree with.",
-      "author": "Brian VanHooker",
-      "date": "2026-06-22",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 46,
-      "url": "https://www.polygon.com/toy-story-5-toys-vs-tech-message/",
-      "image": "/images/feed/feed-0d60a13ab61c.jpg",
-      "source": "Polygon",
       "isLive": true
     },
     {
@@ -299,7 +375,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 51,
       "url": "https://cleantechnica.com/2026/06/21/boston-metal-critical-metals-green-steel-proof/",
       "image": "/images/feed/feed-258511065d8a.webp",
       "source": "CleanTechnica",
@@ -318,7 +394,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 34,
       "url": "https://cleantechnica.com/2026/06/21/the-kenyon-g2-electric-grill-cleantechnica-tested/",
       "image": "/images/feed/feed-c11f28ad4315.jpg",
       "source": "CleanTechnica",
@@ -328,7 +404,7 @@
       "id": "feed-b271bbf2c1f0",
       "title": "Electric cars win again at Pike’s Peak as Super Mustang Mach-E gets its revenge",
       "excerpt": "After a tough 2025 race where it won its class but only came in 2nd place overall, Ford brought its Super Mustang Mach-E back for revenge and managed to beat every gas car up the hill at the world’s t…",
-      "body": "Electric vehicles have once again demonstrated their formidable capabilities at Pike's Peak, with the Super Mustang Mach-E securing a significant victory. This year, the powerful electric car achieved its revenge, taking the top spot against all competitors",
+      "body": "Electric vehicles have once again demonstrated their formidable capabilities at the iconic Pike's Peak International Hill Climb. This year, the Ford Super Mustang Mach-E made a triumphant return, securing a significant victory. Its performance underscores the growing dominance of",
       "author": "Jameson Dow",
       "date": "2026-06-21",
       "readTime": "2 min",
@@ -337,7 +413,7 @@
         "Electric Car"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 36,
       "url": "https://electrek.co/2026/06/21/electric-cars-win-at-pikes-peak-as-the-super-mustang-mach-e-gets-its-revenge/",
       "image": "/images/feed/feed-b271bbf2c1f0.jpg",
       "source": "Electrek",
@@ -356,7 +432,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 30,
       "url": "https://www.androidauthority.com/t-mobile-magenta-nights-rebate-offer-3679478/",
       "image": "/images/feed/feed-41424e65db84.jpg",
       "source": "Android Authority",
@@ -366,7 +442,7 @@
       "id": "feed-663d872622a3",
       "title": "Samsung Electronics brings ChatGPT and Codex to employees",
       "excerpt": "Samsung Electronics deploys ChatGPT Enterprise and Codex to employees worldwide, marking one of OpenAI’s largest enterprise AI rollouts.",
-      "body": "Samsung Electronics deploys ChatGPT Enterprise and Codex to employees worldwide, marking one of OpenAI’s largest enterprise AI rollouts.\n\nThis report, published by OpenAI Blog, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Chatgpt. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to OpenAI Blog using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "body": "Samsung Electronics has initiated a significant deployment of advanced artificial intelligence tools across its global workforce. The technology giant is bringing ChatGPT Enterprise and Codex to its employees worldwide. This move integrates powerful AI models directly into the operational fabric of one of the",
       "author": "OpenAI Blog",
       "date": "2026-06-21",
       "readTime": "2 min",
@@ -375,7 +451,7 @@
         "Chatgpt"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 39,
       "url": "https://openai.com/index/samsung-electronics-chatgpt-codex-deployment",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "OpenAI Blog",
@@ -385,7 +461,7 @@
       "id": "feed-963a38bbce8b",
       "title": "Good results fine tuning a local LLM like Qwen 3:0.6B to categorize questions",
       "excerpt": "",
-      "body": "Recent developments in artificial intelligence indicate promising outcomes from targeted training methodologies. Reports highlight good results achieved through the fine-tuning of local large language models, a process that adapts existing models for specialized tasks. This approach focuses on refining capabilities rather",
+      "body": "Recent reports highlight successful efforts in optimizing specific large language models for specialized tasks. These developments focus on fine-tuning local LLMs to enhance their performance in particular applications. The reported outcomes indicate promising advancements in this area.\n\nOne",
       "author": "dev-experiments",
       "date": "2026-06-21",
       "readTime": "2 min",
@@ -394,7 +470,7 @@
         "Llm"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 47,
       "url": "https://www.teachmecoolstuff.com/viewarticle/fine-tuning-a-local-llm-to-categorize-questions",
       "image": "/images/feed/feed-963a38bbce8b.jpg",
       "source": "Hacker News",
@@ -413,48 +489,10 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 48,
       "url": "https://electrek.co/2026/06/21/this-zinc-mine-needed-a-truck-no-one-made-so-they-made-their-own/",
       "image": "/images/feed/feed-7e4b68e00ca3.jpg",
       "source": "Electrek",
-      "isLive": true
-    },
-    {
-      "id": "feed-2901cc9a46c2",
-      "title": "Sesame Street Movie in the Works at Netflix Following Bidding War",
-      "excerpt": "Netflix has reportedly secured the rights for a Sesame Street movie following a bidding war with Universal Pictures.",
-      "body": "Netflix has reportedly secured the rights for a Sesame Street movie following a bidding war with Universal Pictures. A movie based on the classic children&#39;s show will officially join the streamer&#39;s growing library of content after it picked up the rights for a film from Sesame Workshop, according to The Hollywood Reporter and as first reported on by The InSneider . Live-action Lilo and Stitch and Aladdin production company Rideback, which was founded by Dan Lin before he joined Netflix as its head of film in 2024 , will produce the project alongside Sesame Workshop. Details regarding how beloved characters like Elmo, Big Bird, and Cookie Monster might fit into a feature-length Sesame Street movie have yet to be revealed.",
-      "author": "Michael Cripe",
-      "date": "2026-06-21",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 46,
-      "url": "https://www.ign.com/articles/sesame-street-movie-in-the-works-at-netflix-following-bidding-war",
-      "image": "/images/feed/feed-2901cc9a46c2.png",
-      "source": "IGN",
-      "isLive": true
-    },
-    {
-      "id": "feed-49a2ca7bf687",
-      "title": "Order Of The Sinking Star’s Solid Puzzle Work Is Shadowed By That Sinking Feeling",
-      "excerpt": "This Jonathan Blow guy really loves the sounds of his own words and is willing to put a big target on his back in service of that",
-      "body": "This Jonathan Blow guy really loves the sounds of his own words and is willing to put a big target on his back in service of that\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Zack Kotzer",
-      "date": "2026-06-21",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 54,
-      "url": "https://kotaku.com/order-of-the-sinking-stars-solid-puzzle-work-is-shadowed-by-that-sinking-feeling-2000708831",
-      "image": "/images/feed/feed-49a2ca7bf687.jpg",
-      "source": "Kotaku",
       "isLive": true
     },
     {
@@ -470,7 +508,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 50,
       "url": "https://www.engadget.com/2198495/wall-street-journal-polymarket-reportedly-paying-creators-to-post-fake-betting-videos/",
       "image": "/images/feed/feed-8a198266138d.jpg",
       "source": "Engadget",
@@ -491,7 +529,7 @@
         "Satellite"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 45,
       "url": "https://www.space.com/space-exploration/launches-spacecraft/spacex-starlink-17-28-b1063-vsfb-ocisly",
       "image": "/images/feed/feed-19628d4fa215.jpg",
       "source": "Space.com",
@@ -510,7 +548,7 @@
         "Claude"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 40,
       "url": "https://techcrunch.com/2026/06/21/ubisoft-co-founder-claude-guillemot-dies-in-plane-crash/",
       "image": "/images/feed/feed-5522d44a8046.jpg",
       "source": "TechCrunch",
@@ -529,7 +567,7 @@
         "Hybrid"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 44,
       "url": "https://cleantechnica.com/2026/06/21/european-union-going-to-put-tariffs-on-plugin-hybrids-from-china-now/",
       "image": "/images/feed/feed-2c1fb73161d9.jpg",
       "source": "CleanTechnica",
@@ -548,7 +586,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 39,
       "url": "https://cleantechnica.com/2026/06/21/termination-shock-the-existential-danger-of-geoengineering/",
       "image": "/images/feed/feed-7bdbae4ccdb7.jpg",
       "source": "CleanTechnica",
@@ -567,7 +605,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 38,
       "url": "https://www.engadget.com/2198455/nasa-perseverance-rover-has-traveled-the-distance-of-a-marathon-on-mars/",
       "image": "/images/feed/feed-8e9a0bddf473.jpg",
       "source": "Engadget",
@@ -586,47 +624,9 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 42,
       "url": "https://techcrunch.com/2026/06/21/when-the-trump-administration-cracks-down-on-anthropic-who-benefits/",
       "image": "/images/feed/feed-a96480a97656.jpg",
-      "source": "TechCrunch",
-      "isLive": true
-    },
-    {
-      "id": "feed-a61f66014620",
-      "title": "John Ternus set to re-establish importance of Apple’s design team when he takes over as CEO: report",
-      "excerpt": "Bloomberg’s Mark Gurman today posted the latest edition of his Power On newsletter, recapping the last ten years of Apple’s corporate structure in which the influence of the design team waned at the e…",
-      "body": "Bloomberg’s Mark Gurman today posted the latest edition of his Power On newsletter , recapping the last ten years of Apple’s corporate structure in which the influence of the design team waned at the executive levels in the Cook era, fuelled by Jony Ive’s exit and talent departures as finance and operations had an increasingly larger say over product direction. However, Gurman believes that incoming CEO John Ternus may be about to reset that relationship, and reaffirm the importance of the design group for the company’s future.",
-      "author": "Benjamin Mayo",
-      "date": "2026-06-21",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 45,
-      "url": "https://9to5mac.com/2026/06/21/john-ternus-apple-design-team-influence/",
-      "image": "/images/feed/feed-a61f66014620.jpg",
-      "source": "9to5Mac",
-      "isLive": true
-    },
-    {
-      "id": "feed-b893e7b70421",
-      "title": "Beyond Siri: Here are the practical AI features coming to your iPhone in iOS 27",
-      "excerpt": "Siri’s AI overhaul may have grabbed the headlines at WWDC, but some of Apple’s most useful AI features are arriving elsewhere in iOS 27.",
-      "body": "Siri’s AI overhaul may have grabbed the headlines at WWDC, but some of Apple’s most useful AI features are arriving elsewhere in iOS 27.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Iphone. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Sarah Perez",
-      "date": "2026-06-21",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Iphone"
-      ],
-      "featured": false,
-      "xpReward": 34,
-      "url": "https://techcrunch.com/2026/06/21/beyond-siri-here-are-the-practical-ai-features-coming-to-your-iphone-in-ios-27/",
-      "image": "/images/feed/feed-b893e7b70421.jpg",
       "source": "TechCrunch",
       "isLive": true
     },
@@ -643,10 +643,29 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 37,
       "url": "https://www.bleepingcomputer.com/news/security/arystinger-botnet-infected-thousands-of-d-link-routers-worldwide/",
       "image": "/images/feed/feed-9bd54d2b090f.jpg",
       "source": "BleepingComputer",
+      "isLive": true
+    },
+    {
+      "id": "feed-ead6b93e0511",
+      "title": "Identity verification on Claude",
+      "excerpt": "https://old.reddit.com/r/ClaudeAI/comments/1ubm53n/official_...",
+      "body": "https://old.reddit.com/r/ClaudeAI/comments/1ubm53n/official_ — a development drawing significant attention in the artificial intelligence and machine learning space.\n\nThis report, published by Hacker News, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Claude. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Hacker News using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "bathory",
+      "date": "2026-06-21",
+      "readTime": "2 min",
+      "section": "ai",
+      "tags": [
+        "Claude"
+      ],
+      "featured": false,
+      "xpReward": 49,
+      "url": "https://support.claude.com/en/articles/14328960-identity-verification-on-claude",
+      "image": "/images/feed/feed-ead6b93e0511.png",
+      "source": "Hacker News",
       "isLive": true
     },
     {
@@ -662,7 +681,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 42,
       "url": "https://www.space.com/astronomy/dark-universe/a-mysterious-gamma-ray-stream-comes-from-the-milky-ways-center-could-dark-matter-have-something-to-do-with-it",
       "image": "/images/feed/feed-c45ece1fd18d.png",
       "source": "Space.com",
@@ -681,7 +700,7 @@
         "Malware"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 37,
       "url": "https://www.cnet.com/tech/services-and-software/how-antivirus-software-becoming-more-advanced-detecting-threats/",
       "image": "/images/feed/feed-ce1fef1f6963.jpg",
       "source": "CNET",
@@ -700,7 +719,7 @@
         "Chatgpt"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 35,
       "url": "https://www.wired.com/story/28-tips-to-take-your-chatgpt-prompts-to-the-next-level/",
       "image": "/images/feed/feed-f7a0139ea9bc.jpg",
       "source": "Wired",
@@ -719,7 +738,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 38,
       "url": "https://www.wired.com/story/best-nas-devices/",
       "image": "/images/feed/feed-94b1bbc0ac3b.jpg",
       "source": "Wired",
@@ -738,7 +757,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 39,
       "url": "https://www.space.com/stargazing/happy-summer-solstice-today-marks-the-longest-day-of-the-year-for-the-northern-hemisphere",
       "image": "/images/feed/feed-6c77b5239dfe.jpg",
       "source": "Space.com",
@@ -757,7 +776,7 @@
         "Security"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 49,
       "url": "https://www.wired.com/story/a-critical-deadline-is-approaching-for-windows-and-linux-security/",
       "image": "/images/feed/feed-b37019165e27.jpg",
       "source": "Wired",
@@ -776,7 +795,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 52,
       "url": "https://cleantechnica.com/2026/06/20/is-ai-doomed-to-fail/",
       "image": "/images/feed/feed-75d4f8936fd2.jpg",
       "source": "CleanTechnica",
@@ -795,29 +814,10 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 41,
       "url": "https://spacenews.com/astrobotic-says-sale-to-voyager-will-allow-it-to-scale-up/",
       "image": "/images/feed/feed-851cc6d35cfd.jpg",
       "source": "SpaceNews",
-      "isLive": true
-    },
-    {
-      "id": "feed-232b0ce5ea49",
-      "title": "Nobel laureate John Jumper is leaving DeepMind for rival Anthropic",
-      "excerpt": "Jumper isn't the only big name leaving Google DeepMind.",
-      "body": "Jumper isn't the only big name leaving Google DeepMind.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Anthropic. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Anthony Ha",
-      "date": "2026-06-20",
-      "readTime": "2 min",
-      "section": "ai",
-      "tags": [
-        "Anthropic"
-      ],
-      "featured": false,
-      "xpReward": 48,
-      "url": "https://techcrunch.com/2026/06/20/nobel-laureate-john-jumper-is-leaving-deepmind-for-rival-anthropic/",
-      "image": "/images/feed/feed-232b0ce5ea49.jpg",
-      "source": "TechCrunch",
       "isLive": true
     },
     {
@@ -853,7 +853,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 32,
       "url": "https://www.space.com/entertainment/space-movies-shows/this-week-in-space-podcast-episode-215-disclosure-day",
       "image": "/images/feed/feed-43f572ec9997.jpg",
       "source": "Space.com",
@@ -872,7 +872,7 @@
         "Hacker"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 51,
       "url": "https://www.bleepingcomputer.com/news/security/microsoft-links-mastra-ai-supply-chain-attack-to-north-korean-hackers/",
       "image": "/images/feed/feed-6dc962b757f8.jpg",
       "source": "BleepingComputer",
@@ -891,7 +891,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 54,
       "url": "https://www.space.com/astronomy/dark-universe/supermassive-black-holes-may-be-surrounded-by-dark-matter-clusters-new-echo-map-technique-suggests",
       "image": "/images/feed/feed-3bea6e1314ca.png",
       "source": "Space.com",
@@ -911,7 +911,7 @@
         "Hacker"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 36,
       "url": "https://thehackernews.com/2026/06/hackers-exploit-gravity-smtp-wordpress.html",
       "image": "/images/feed/feed-3c02ee8690f7.jpg",
       "source": "The Hacker News",
@@ -930,7 +930,7 @@
         "Hacker"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 46,
       "url": "https://www.wired.com/story/security-news-this-week-hackers-claim-to-leak-stolen-madison-square-garden-data/",
       "image": "https://media.wired.com/photos/6a344d05e985e44217ca6cd8/master/pass/GettyImages-2280275890.jpg",
       "source": "Wired",
@@ -938,16 +938,16 @@
     }
   ],
   "breakingNews": [
-    "DEV.TO: Your Cloud AI Has No Failover. Here's the Architecture That Does.",
-    "DEV.TO: The hard part of agent memory isn't remembering — it's forgetting",
-    "CLEANTECHNICA: The EV Battery Call Is Coming From Inside The House",
-    "DEV.TO: The Rise of Proof-Based Hiring",
-    "DEV.TO: Correlation IDs: Trace a Single Request Across Every Service in Your API",
-    "DEV.TO: What is Monorepo ?",
-    "DEV.TO: [Rust Guide] 13.1. What Is a Closure and How to Use Closures",
-    "DEV.TO: How UUIDs Actually Work: v4 Randomness, v7 Timestamps, and the Collision Math",
-    "ZDNET: Sony WH-1000XM6 vs. Sennheiser Momentum 5: I used both pairs for months, and here's my pick",
-    "IGN: House of the Dragon Season 3, Episode 1 Review"
+    "DEV.TO: How I tracked down a 36GB memory leak in a Claude Code memory server",
+    "DEV.TO: AI agents shouldn't be dumping diagrams on humans",
+    "DEV.TO: Why Your Prompt Is Only 5% of What the Model Sees",
+    "DEV.TO: I Built a Personal Intelligence System That Curates GitHub and News for Me — Here's How It Works",
+    "TECHCRUNCH: Ethan Thornton is trying to do everything all at once",
+    "DEV.TO: Beyond Encryption: Reducing Metadata Leakage with Fragmentation",
+    "DEV.TO: Sakana AI's Fugu Explained: How the Multi-Agent Model Orchestrates Frontier LLMs",
+    "IGN: Pokémon Stop-Motion Series Gets New Artwork and Details from Aardman",
+    "ANDROID AUTHORITY: Nothing’s latest teaser may have just revealed the Nothing Phone 4b",
+    "9TO5MAC: These are the best new MacBook deals currently: June 2026 Buyer’s Guide"
   ],
   "sectionVideos": {}
 }
