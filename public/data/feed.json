@@ -1,80 +1,308 @@
 {
-  "fetchedAt": "2026-06-26T03:11:54.696Z",
+  "fetchedAt": "2026-06-26T05:30:07.172Z",
   "articles": [
     {
-      "id": "feed-7c46de5a011f",
-      "title": "MCP Server Auth: The API Is the Real Boundary",
-      "excerpt": "A single shared API key is fine right up until a second person uses it. intent-brain — the system, repo qmd-team-intent-kb, renamed to the intent-brain plugin v0.4.0 this day — is a team knowledge bas…",
-      "body": "A single shared API key is fine right up until a second person uses it. intent-brain — the system, repo qmd-team-intent-kb , renamed to the intent-brain plugin v0.4.0 this day — is a team knowledge base. A Fastify HTTP API sits over a governed memory corpus. In front of that API is an MCP server named teamkb , so a teammate doesn't open a dashboard or learn an endpoint. They ask in Claude Code and get a cited answer back with qmd:// citations. That's the whole pitch: institutional memory you query in the same place you write code. Up to this day it authenticated with one shared TEAMKB_API_KEY . The shared key has two failures that only show up once the tool has more than one user. First, every request looks identical, so the audit log can't say who asked.",
-      "author": "Jeremy Longshore",
+      "id": "feed-3891b1803135",
+      "title": "Ollama's Chinese Model Support Is Real — But Running Kimi and DeepSeek Locally Has a Hidden Cost",
+      "excerpt": "Your error rate just spiked 12%. Three weeks of debugging, $40k in developer hours, and the coffee's cold. The terminal is still red. You've been burning through API credits calling a US-based LLM, an…",
+      "body": "Your error rate just spiked 12%. Three weeks of debugging, $40k in developer hours, and the coffee's cold. The terminal is still red. You've been burning through API credits calling a US-based LLM, and every query that touches proprietary code feels like handing your competitor a roadmap. Now imagine you could run that same model locally. On your own GPU. Zero data leaving your infrastructure. That's the promise behind Ollama's recent expansion to support Chinese AI models — Kimi-K2.5, GLM-5, MiniMax, and DeepSeek. And the V2EX discussion around this is revealing something the Western dev community hasn't fully grasped yet: these models aren't just cheaper alternatives. They're a different paradigm for AI infrastructure — one that comes with trade-offs nobody's talking about.",
+      "author": "xu xu",
       "date": "2026-06-26",
       "readTime": "2 min",
       "section": "software",
       "tags": [
-        "Api"
+        "Software"
       ],
       "featured": true,
+      "xpReward": 50,
+      "url": "https://dev.to/xu_xu_b2179aa8fc958d531d1/ollamas-chinese-model-support-is-real-but-running-kimi-and-deepseek-locally-has-a-hidden-cost-1e8n",
+      "image": "/images/feed/feed-3891b1803135.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-dc357579f42e",
+      "title": "Adding one field to our CAPI payload moved match rate from 66% to 79% overnight",
+      "excerpt": "Adding hashed phone number to an already-live CAPI integration — nothing else — pushed match rate 13 points in a single day. That's the kind of result that makes you realize the integration being \"on\"…",
+      "body": "Adding hashed phone number to an already-live CAPI integration — nothing else — pushed match rate 13 points in a single day. That's the kind of result that makes you realize the integration being \"on\" and the integration actually working are two different things. Most accounts I audit have CAPI running. Most of them are only passing hashed email ( em ). That feels complete because email is the obvious identity field, but Meta's matching logic doesn't weight all parameters equally across all users. In Korean markets especially, a large share of accounts are tied to Kakao-linked emails — addresses users created for one service and never check. The phone number is the stronger identity anchor. When I added ph from checkout form data on one D2C account, match rate jumped from 66% to 79%.",
+      "author": "강해수",
+      "date": "2026-06-26",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 47,
+      "url": "https://dev.to/riversea/adding-one-field-to-our-capi-payload-moved-match-rate-from-66-to-79-overnight-22mo",
+      "image": "/images/feed/feed-dc357579f42e.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-ff49d2833a54",
+      "title": "Watch live: Rocket Lab launching 'Ten Owl of Ten' mission for Synspective today",
+      "excerpt": "Rocket Lab is poised to launch the \"Ten Owl of Ten\" mission from New Zealand today (June 26), adding to Japanese company Synspective's imaging constellation. Watch it live here.",
+      "body": "Rocket Lab is scheduled to launch another Strix satellite for Japanese company Synspective's imaging constellation, in orbit above the island nation. An Electron rocket will lift off from Rocket Lab's Launch Complex-1 (LC-1) in New Zealand today (June 26), during a window that opens at 12:45 p.m. EDT (1645 GMT; 4:45 a.m. on June 27 local New Zealand time). As its name suggests, the \"Ten Owl of Ten\" mission will launch Synspective's 10th synthetic aperture radar (SAR) satellite, which will expand the company's network above Japan to provide imaging data for use in city planning, monitoring infrastructure and responding to natural disasters. You can watch it here at Space.com, courtesy of Rocket Lab, as well as on the company's website .",
+      "author": " Josh Dinner ",
+      "date": "2026-06-26",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Space"
+      ],
+      "featured": true,
+      "xpReward": 48,
+      "url": "https://www.space.com/space-exploration/launches-spacecraft/rocket-lab-ten-owl-of-ten-mission-for-synspective-launch",
+      "image": "/images/feed/feed-ff49d2833a54.jpg",
+      "source": "Space.com",
+      "isLive": true
+    },
+    {
+      "id": "feed-fcbbb2308564",
+      "title": "Fan-Out/Fan-In and the Async HTTP Pattern",
+      "excerpt": "You have 500 order line items to process and no ordering dependency between them, so the question is why the workflow takes as long as 500 activities run back to back when nothing forces them to. The…",
+      "body": "You have 500 order line items to process and no ordering dependency between them, so the question is why the workflow takes as long as 500 activities run back to back when nothing forces them to. The chaining pattern from Part 1 awaits each activity before scheduling the next, which is exactly right when step two needs step one's output and exactly wasteful when the items are independent. The fix is fan-out/fan-in: schedule all the activities at once, then aggregate the results, and the only real trick is doing it in a way that survives the orchestrator replaying. There is also a one-character version of this code that compiles, runs, and silently throws the parallelism away, which is the bug this article spends the most time on.",
+      "author": "Martin Oehlert",
+      "date": "2026-06-26",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 39,
+      "url": "https://dev.to/martin_oehlert/fan-outfan-in-and-the-async-http-pattern-194j",
+      "image": "/images/feed/feed-fcbbb2308564.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-43537ed65dfd",
+      "title": "When Your Coding Agent Needs a Scribe, Not a Memory Engine",
+      "excerpt": "Over the past few weeks, I have had several conversations about the right way to give AI coding agents persistent memory. Some developers ask about AgentMemory. Others ask about Qiju, which I built an…",
+      "body": "Over the past few weeks, I have had several conversations about the right way to give AI coding agents persistent memory. Some developers ask about AgentMemory. Others ask about Qiju, which I built and maintain. My usual response is: they are not solving the same problem. But I have not written that distinction down clearly. This post is my attempt to do that. The same surface problem Both tools address the same frustration. Every new coding session starts without context. The agent does not know which file is authoritative. It does not know what was decided in the previous session. It does not know which approaches have already failed or which assumptions have been verified. The developer spends the opening minutes of every session reconstructing what the previous session established.",
+      "author": "Jason Shen",
+      "date": "2026-06-26",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 45,
+      "url": "https://dev.to/timetxt/when-your-coding-agent-needs-a-scribe-not-a-memory-engine-3bj",
+      "image": "/images/feed/feed-43537ed65dfd.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-959a3caebaa5",
+      "title": "The Day My Research Assistant Finally Got a Memory",
+      "excerpt": "I've spent the last few weeks wrestling with a problem that I suspect many AI builders share: my research assistant agent was smart, but it had the memory of a goldfish and the spending habits of a tr…",
+      "body": "I've spent the last few weeks wrestling with a problem that I suspect many AI builders share: my research assistant agent was smart, but it had the memory of a goldfish and the spending habits of a trust fund kid. Every time I asked it to help me find research papers on AI/ML topics, it would recommend articles I'd already read. It would suggest the same paper three times in a single conversation. And worse—it was using GPT-4 for every single query, even when a simpler model would have worked fine. So I built something better. A research assistant that actually remembers what I've read and thinks about how much each query costs before it runs. Here's how I did it. The Problem: Amnesia Is Expensive Let me show you what I mean.",
+      "author": "Sasidhar Prathipati",
+      "date": "2026-06-26",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 54,
+      "url": "https://dev.to/sasidhar_prathipati_/the-day-my-research-assistant-finally-got-a-memoryby-prathipati-sasidhar-2en4",
+      "image": "/images/feed/feed-959a3caebaa5.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-554d584fcd36",
+      "title": "# Treat: A Global Gifting Platform Empowering Local Businesses",
+      "excerpt": "This project was built for the purposes of entering the H0 Hackathon. 🚀 Live at: https://www.sendatreat.app/ Gifting is one of the most natural human expressions of connection. People love surprising…",
+      "body": "This project was built for the purposes of entering the H0 Hackathon. 🚀 Live at: https://www.sendatreat.app/ The Problem Gifting is one of the most natural human expressions of connection. People love surprising friends, family, and colleagues with food, gifts, services, and experiences. However, the current experience is fragmented: People rely on multiple apps and coordination tools Most gifting defaults to cash transfers, losing emotional intent Real-world fulfillment is disconnected from digital intent At the same time, millions of local businesses globally — from restaurants and food vendors to salons, hotels, and service providers — struggle to reach customers consistently without expensive marketing platforms or technical infrastructure.",
+      "author": "Seth David Gyimah",
+      "date": "2026-06-26",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 38,
+      "url": "https://dev.to/aws-builders/-treat-a-global-gifting-platform-empowering-local-businesses-i20",
+      "image": "/images/feed/feed-554d584fcd36.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-9b20cc10a931",
+      "title": "Stop Impossible States: State Machines in React ⚡",
+      "excerpt": "The \"Boolean Soup\" Disaster When building complex, multi-step interfaces at Smart Tech Devs—like an enterprise payment wizard or a data integration pipeline—developers naturally reach for React's useS…",
+      "body": "The \"Boolean Soup\" Disaster When building complex, multi-step interfaces at Smart Tech Devs—like an enterprise payment wizard or a data integration pipeline—developers naturally reach for React's useState . You define isLoading , isError , isSuccess , and isIdle . This creates a massive architectural flaw known as Boolean Soup . If you have four boolean variables, your component mathematically has 16 possible states (2^4). But in reality, a form can only be in one state at a time. Due to asynchronous race conditions or unhandled click events, it is incredibly easy to accidentally set both isLoading: true AND isError: true simultaneously. The UI glitches out, rendering a loading spinner overlapping a red error banner.",
+      "author": "Prajapati Paresh",
+      "date": "2026-06-26",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 40,
+      "url": "https://dev.to/iprajapatiparesh/stop-impossible-states-state-machines-in-react-3djn",
+      "image": "/images/feed/feed-9b20cc10a931.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-54823f017a92",
+      "title": "Nothing Phone 4b just lost a few more secrets ahead of its July 7 debut",
+      "excerpt": "Nothing's next mid-range phone is no longer much of a mystery.",
+      "body": "TL;DR Key specs of the Nothing Phone 4b have leaked courtesy of tipster Yogesh Brar. The phone is expected to come in three colorways and two storage configurations. It’s also expected to feature a 120Hz display and the mid-range Snapdragon 6 Gen 4 chipset. Just a day after Nothing officially revealed the design of the Nothing Phone 4b , tipster Yogesh Brar has now leaked the phone’s key specs and color options. According to Brar, the Phone 4b will feature a 6.7-inch AMOLED screen with a 120Hz refresh rate. The device will reportedly be powered by Qualcomm’s Snapdragon 6 Gen 4 chipset, suggesting it will firmly target the mid-range segment.",
+      "author": "Adamya Sharma",
+      "date": "2026-06-26",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 50,
+      "url": "https://www.androidauthority.com/nothing-phone-4b-specs-leak-3681699/",
+      "image": "/images/feed/feed-54823f017a92.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-2c78d94a32d9",
+      "title": "The Battle for Sullivan’s Island",
+      "excerpt": "Marshy, sandy terrain and an impassable inlet helped colonial forces repel British forces during a pivotal battle on the barrier island near Charleston, South Carolina, on June 28, 1776.",
+      "body": "Earth Observatory Science Earth Observatory The Battle for Sullivan’s… Earth Earth Observatory Image of the Day EO Explorer Topics All Topics Atmosphere Land Heat &#038; Radiation Life on Earth Human Dimensions Natural Events Oceans Remote Sensing Technology Snow &#038; Ice Water More Content Collections Global Maps World of Change Articles Earth Matters Blog Blue Marble: Next Generation EO Kids Mission: Biomes About About Us Subscribe 🛜 RSS Contact Us Search Signs of the marshy, sandy terrain that helped colonists repel invading British forces in a pivotal battle in June 1776 remain visible on Sullivan’s Island in this image acquired on June 3, 2026, by the OLI (Operational Land Imager) on Landsat 8 .",
+      "author": "NASA Breaking News",
+      "date": "2026-06-26",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Space"
+      ],
+      "featured": false,
+      "xpReward": 45,
+      "url": "https://science.nasa.gov/earth/earth-observatory/the-battle-for-sullivans-island/",
+      "image": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/the-battle-for-sullivan",
+      "source": "NASA Breaking News",
+      "isLive": true
+    },
+    {
+      "id": "feed-ebf3180b5863",
+      "title": "Waymo Launches in Nashville",
+      "excerpt": "Waymo has just begun robotaxi service in another city today. If you’re in Nashville, you can now hail a robotaxi from the USA’s #1 robotaxi company. Just start by downloading the Waymo app. “Since Apr…",
+      "body": "Waymo has just begun robotaxi service in another city today. If you&#8217;re in Nashville, you can now hail a robotaxi from the USA&#8217;s #1 robotaxi company. Just start by downloading the Waymo app. &#8220;Since April, we’ve welcomed tens of thousands of riders from our interest list to experience the safety, ... [continued] The post Waymo Launches in Nashville appeared first on CleanTechnica .",
+      "author": "Zachary Shahan",
+      "date": "2026-06-26",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Cars"
+      ],
+      "featured": false,
+      "xpReward": 54,
+      "url": "https://cleantechnica.com/2026/06/25/waymo-launches-in-nashville-2/",
+      "image": "/images/feed/feed-ebf3180b5863.png",
+      "source": "CleanTechnica",
+      "isLive": true
+    },
+    {
+      "id": "feed-dde58e3b7f0e",
+      "title": "Trump Tried To Open Public Lands To E-Bikes, But Officials Instead Showed Us All How Weak He Is",
+      "excerpt": "I don’t always agree with Donald Trump. In fact, regular readers of CleanTechnica know there’s plenty of daylight between his administration’s goals and clean transport advocacy. But, as they say, eve…",
+      "body": "I don&#8217;t always agree with Donald Trump. In fact, regular readers of CleanTechnica know there&#8217;s plenty of daylight between his administration&#8217;s goals and clean transport advocacy. But, as they say, even a broken clock is correct twice a day. When a policy makes complete sense, you have to give credit ... [continued] The post Trump Tried To Open Public Lands To E-Bikes, But Officials Instead Showed Us All How Weak He Is appeared first on CleanTechnica .",
+      "author": "Jennifer Sensiba",
+      "date": "2026-06-26",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Cars"
+      ],
+      "featured": false,
+      "xpReward": 38,
+      "url": "https://cleantechnica.com/2026/06/25/trump-tried-to-open-public-lands-to-e-bikes-but-officials-instead-showed-us-all-how-weak-he-is/",
+      "image": "/images/feed/feed-dde58e3b7f0e.jpg",
+      "source": "CleanTechnica",
+      "isLive": true
+    },
+    {
+      "id": "feed-1e32236f6516",
+      "title": "Surprise! Trump Mobile’s T1 Phone is now on open sale even as pre-order mess remains unresolved",
+      "excerpt": "You can now order the T1 Phone from Trump Mobile's website. Whether it actually arrives is another matter.",
+      "body": "Credit: Trump Mobile TL;DR Trump Mobile has quietly opened general sales of its $499 T1 Phone. The move comes despite many early pre-order customers reportedly still not receiving their devices or updates. Android Authority also placed a pre-order by paying the required $100 deposit, but has yet to receive any shipping information or communication. After months of delays and mounting controversy, the Trump Mobile’s T1 Phone is now seemingly available for anyone to buy.",
+      "author": "Adamya Sharma",
+      "date": "2026-06-26",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
       "xpReward": 43,
-      "url": "https://dev.to/jeremy_longshore/mcp-server-auth-the-api-is-the-real-boundary-2jhl",
-      "image": "/images/feed/feed-7c46de5a011f.webp",
-      "source": "Dev.to",
+      "url": "https://www.androidauthority.com/trump-mobile-t1-open-sale-3681693/",
+      "image": "/images/feed/feed-1e32236f6516.jpg",
+      "source": "Android Authority",
       "isLive": true
     },
     {
-      "id": "feed-3bcadca1d47b",
-      "title": "When --cap-drop ALL Broke the Gate Socket",
-      "excerpt": "The dogfood run went green. The gate had governed zero calls. That is the agent-governance-plane's entire job: run an AI coding agent inside a sandbox, route every tool call through a Unix-domain-sock…",
-      "body": "The dogfood run went green. The gate had governed zero calls. That is the agent-governance-plane's entire job: run an AI coding agent inside a sandbox, route every tool call through a Unix-domain-socket gateway, and write a signed, hash-chained journal of every allow/deny. A green run that gated nothing isn't a pass. It's a governance plane governing air. The gate that catches its own hollowness AGP's CI dogfood doesn't just check that the harness exits 0. evidence-bundle.sh fails on a 0-gated run — if the journal shows no decisions, the build is red regardless of process exit status. That guard is what surfaced this at all: the agent process came up, the harness reported success, but the bundle had no verdicts to verify. Red. That's the last I'll say about hollow-green detection here.",
-      "author": "Jeremy Longshore",
+      "id": "feed-d7d61c90b3b1",
+      "title": "LiTime Brings Off-Grid LiFePO4 Battery Solutions for Reliable, Low-Maintenance Outdoor Security Monitoring",
+      "excerpt": "As security monitoring systems expand into outdoor, mobile, and off-grid environments, more equipment is being deployed along highways, construction sites, parking areas, industrial parks, energy faci…",
+      "body": "As security monitoring systems expand into outdoor, mobile, and off-grid environments, more equipment is being deployed along highways, construction sites, parking areas, industrial parks, energy facilities, and remote regions. Unlike fixed, grid-tied systems, these applications demand true 24/7 uptime, widely distributed sites, and limited on-site maintenance, meaning any power instability ... [continued] The post LiTime Brings Off-Grid LiFePO4 Battery Solutions for Reliable, Low-Maintenance Outdoor Security Monitoring appeared first on CleanTechnica .",
+      "author": "Industry Sponsor",
       "date": "2026-06-26",
       "readTime": "2 min",
-      "section": "software",
+      "section": "cars",
       "tags": [
-        "Software"
+        "Cars"
       ],
-      "featured": true,
-      "xpReward": 52,
-      "url": "https://dev.to/jeremy_longshore/when-cap-drop-all-broke-the-gate-socket-1p6h",
-      "image": "/images/feed/feed-3bcadca1d47b.webp",
-      "source": "Dev.to",
+      "featured": false,
+      "xpReward": 54,
+      "url": "https://cleantechnica.com/2026/06/25/litime-brings-off-grid-lifepo4-battery-solutions-for-reliable-low-maintenance-outdoor-security-monitoring/",
+      "image": "/images/feed/feed-d7d61c90b3b1.png",
+      "source": "CleanTechnica",
       "isLive": true
     },
     {
-      "id": "feed-28394703444e",
-      "title": "2026 PDF Generation API Comprehensive Comparison Review: 13 Mainstream Solutions Benchmarked (HTML to PDF)",
-      "excerpt": "By 2026, the PDF generation API market has evolved from \"can it generate\" to \"does it generate well, fast, and securely.\" There are over 20 solutions on the market, ranging from a few euros per month…",
-      "body": "By 2026, the PDF generation API market has evolved from \"can it generate\" to \"does it generate well, fast, and securely.\" There are over 20 solutions on the market, ranging from a few euros per month for lightweight APIs to enterprise-grade SDKs, with price differences exceeding 100x. This article provides a horizontal comparison of 13 mainstream PDF Generation APIs across six core dimensions — rendering quality, developer experience, performance &amp; stability, data security, pricing, and additional features — to help technical teams make optimal selections. 💡 If you're evaluating PDF generation solutions, check out ComPDF Generation API for an enterprise-grade PDF SDK that integrates viewing, editing, generation, and conversion in one package.",
-      "author": "Derek",
+      "id": "feed-5b74b18bac1e",
+      "title": "The LEGO Polaroid OneStep SX-70 Camera Is on Sale for the Last Day of Prime Day",
+      "excerpt": "The LEGO Polaroid OneStep SX-70 Camera Is on Sale for the Last Day of Prime Day",
+      "body": "The LEGO Polaroid OneStep SX-70 Camera is currently on sale for 18% off. But act fast; that&#39;s only until the end of Prime Day, which ends tomorrow, Friday, June 26. The camera is a LEGO Ideas set , which means that it originated as a fan proposal that was later voted on, by the LEGO community, to be designed and built into an official set . LEGO Ideas Polaroid OneStep SX-70 First introduced in 1972, the actual Polaroid OneStep SX-70 Camera made instant photography a mainstream phenomenon. The LEGO model is 516 pieces, perfect for an afternoon of intensive building. It includes three &#39;photos&#39; (no shaking required!) that you load into the camera. When you push the shutter button, a mechanism will eject the photo out.",
+      "author": "Kevin Wong",
       "date": "2026-06-26",
       "readTime": "2 min",
-      "section": "software",
+      "section": "gaming",
       "tags": [
-        "Api"
+        "Gaming"
       ],
-      "featured": true,
-      "xpReward": 35,
-      "url": "https://dev.to/derek-compdf/2026-pdf-generation-api-comprehensive-comparison-review-13-mainstream-solutions-benchmarked-html-2l38",
-      "image": "/images/feed/feed-28394703444e.webp",
-      "source": "Dev.to",
+      "featured": false,
+      "xpReward": 31,
+      "url": "https://www.ign.com/articles/the-lego-polaroid-onestep-sx-70-camera-is-on-sale-for-the-last-day-of-prime-day",
+      "image": "/images/feed/feed-5b74b18bac1e.jpg",
+      "source": "IGN",
       "isLive": true
     },
     {
-      "id": "feed-eddc30af8da1",
-      "title": "🚀 Join the Omnia Community — Contributors Wanted",
-      "excerpt": "🚀 Join the Omnia Community — Contributors Wanted Hello everyone, I'm building Omnia, an open-source, privacy-first productivity workspace designed to combine notes, tasks, calendars, habits, goals, r…",
-      "body": "🚀 Join the Omnia Community — Contributors Wanted Hello everyone, I'm building Omnia , an open-source, privacy-first productivity workspace designed to combine notes, tasks, calendars, habits, goals, reminders, and AI assistance into a single desktop application. The vision is simple: Create the productivity app we all wish existed — fast, beautiful, extensible, local-first, and truly owned by its users.",
-      "author": "Anass",
+      "id": "feed-4106d62d2073",
+      "title": "EOFY 2026: Grab the Gigabyte A16 16-inch Gaming Laptop for $600 Off",
+      "excerpt": "EOFY 2026: Grab the Gigabyte A16 16-inch Gaming Laptop for $600 Off",
+      "body": "As part of the 2026 End of Financial Year (EOFY) Sales, Gigabyte has slashed the price of its current AI laptop lineup , with its 16-inch Gigabyte A16 gaming laptop reduced by an eyewatering $600. About the Gigabyte A16 16-inch Gaming Laptop When purchasing a gaming laptop, you’ll want to make sure it has the power and graphics to play a variety of games without issue. Fortunately, the Gigabyte A16 16&quot; Gaming Laptop (currently reduced to A$1,899 on mwave, originally $2,499) uses the horsepower of an AMD Ryzen 7 processor to smoothly run games, videos, and software. You also won’t be dealing with frustrating lag or buffering issues when running more than one application at a time – a huge relief for multitaskers, I’m sure.",
+      "author": "Sam Caldwell",
       "date": "2026-06-26",
       "readTime": "2 min",
-      "section": "software",
+      "section": "gaming",
       "tags": [
-        "Software"
+        "Gaming"
       ],
-      "featured": true,
+      "featured": false,
       "xpReward": 37,
-      "url": "https://dev.to/thpunisher/join-the-omnia-community-contributors-wanted-416g",
-      "image": "/images/feed/feed-eddc30af8da1.webp",
-      "source": "Dev.to",
+      "url": "https://www.ign.com/articles/eofy-2026-gigabyte-a16-16-inch-au-deals",
+      "image": "/images/feed/feed-4106d62d2073.jpg",
+      "source": "IGN",
       "isLive": true
     },
     {
@@ -89,49 +317,11 @@
       "tags": [
         "Cars"
       ],
-      "featured": true,
-      "xpReward": 54,
+      "featured": false,
+      "xpReward": 51,
       "url": "https://cleantechnica.com/2026/06/25/the-real-ai-safety-discussion-that-just-isnt-happening/",
       "image": "/images/feed/feed-4537f63c8a01.jpg",
       "source": "CleanTechnica",
-      "isLive": true
-    },
-    {
-      "id": "feed-1c54f079a796",
-      "title": "JavaScript String Methods",
-      "excerpt": "A String in JavaScript is a sequence of characters used to store text. let course = \"JavaScript\"; Returns the total number of characters in a string. string.length let company = \"OpenAI\"; console.log(…",
-      "body": "A String in JavaScript is a sequence of characters used to store text. let course = \" JavaScript \" ; 1. String length Purpose Returns the total number of characters in a string. Syntax string . length Example let company = \" OpenAI \" ; console . log ( company . length ); Output 6 Real-Time Example Checking password length before registration. 2. String charAt() Purpose Returns the character at a specified index. Syntax string . charAt ( index ) Example let city = \" Madurai \" ; console . log ( city . charAt ( 3 )); Output u Internal Logic M a d u r a i 0 1 2 3 4 5 6 Index 3 contains \"u\". 3. String charCodeAt() Purpose Returns the Unicode value (UTF-16 code) of a character. Example let letter = \" A \" ; console . log ( letter . charCodeAt ( 0 )); Output 65 More Examples console .",
-      "author": "Annapoorani Kadhiravan",
-      "date": "2026-06-26",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Javascript"
-      ],
-      "featured": true,
-      "xpReward": 34,
-      "url": "https://dev.to/annapoo/javascript-string-methods-3kll",
-      "image": "/images/feed/feed-1c54f079a796.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-6bd8e0406eae",
-      "title": "The Wrapper Got Heavy: Why ChatGPT Clones Are Runtime Problems Now",
-      "excerpt": "A year ago, \"it's just a ChatGPT wrapper\" was a dismissal. You'd hear it about a startup and know what it meant: an LLM API call, a little RAG, file upload, a chat box on top. Thin. Replaceable. Proba…",
-      "body": "A year ago, \"it's just a ChatGPT wrapper\" was a dismissal. You'd hear it about a startup and know what it meant: an LLM API call, a little RAG, file upload, a chat box on top. Thin. Replaceable. Probably dead the next time the base model shipped a feature. I keep coming back to that phrase, because it stopped being true in a way I didn't notice happening. The thing you'd be wrapping is no longer a model with a chat UI. It's a fast, stateful web application with its own agent loop, its own sandbox, its own artifact system. The wrapper didn't get easier to build as the models got better. It got heavier . The simple interface hides the hard part.",
-      "author": "Takafumi Endo",
-      "date": "2026-06-26",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 48,
-      "url": "https://dev.to/gyu07/the-wrapper-got-heavy-why-chatgpt-clones-are-runtime-problems-now-19h4",
-      "image": "/images/feed/feed-6bd8e0406eae.webp",
-      "source": "Dev.to",
       "isLive": true
     },
     {
@@ -147,29 +337,48 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 36,
       "url": "https://www.space.com/entertainment/space-toys-lego/turn-your-room-into-a-galaxy-the-best-prime-day-deals-on-star-projectors-for-aspiring-astronomers",
       "image": "/images/feed/feed-d04e34baa482.jpg",
       "source": "Space.com",
       "isLive": true
     },
     {
-      "id": "feed-12827a15eebe",
-      "title": "Why HTML-to-PDF Breaks in Production (and What to Use Instead)",
-      "excerpt": "Almost every \"generate a PDF\" feature starts the same way. You already have HTML. You already have CSS. So you reach for the obvious move: render the page, screenshot it to PDF, ship it. Puppeteer, Pl…",
-      "body": "Almost every \"generate a PDF\" feature starts the same way. You already have HTML. You already have CSS. So you reach for the obvious move: render the page, screenshot it to PDF, ship it. Puppeteer, Playwright, wkhtmltopdf, a hosted \"HTML to PDF API\" — pick your flavor. In an afternoon you have an invoice coming out the other end and it looks fine. Then it goes to production. And \"fine\" slowly turns into a backlog of weird, hard-to-reproduce bugs. This is not an argument that HTML-to-PDF is useless. For a one-off export or an internal report, it's great. The argument is narrower: the moment PDF generation becomes a real, automated, customer-facing part of your product, \"screenshot a web page\" is the wrong abstraction — and the failure modes are predictable enough to list in advance.",
-      "author": "Gerardo Barrera",
+      "id": "feed-e478fed23d17",
+      "title": "Stock Up on 6.6 Feet 240W USB Type-C Cables for Just $2.80 Each During Amazon Prime Day",
+      "excerpt": "Charges everything from to your iPhone or Nintendo Switch 2 to even your MacBook Pro.",
+      "body": "USB Type-C has become the standard for charging and data cables alike, so it&#39;s good to have extra on hand. Here&#39;s a great back to school deal where you can get some quality cables at a throwaway price. Amazon is offering a two-pack of Lisen 6.6ft 240W USB Type-C cables for just $5.60 after you apply coupon code &quot; T5AMP7YB &quot;. You do not need to be a Prime member to get this discount. This deal averages out to $2.80 per cable. USB Type-C cables typically go for about $10 per cable or more at your local big box store. 2-Pack of Lisen 6.6ft 240W USB Type-C Cables for $5.60 Keep your cable collection simple.",
+      "author": "Eric Song",
       "date": "2026-06-26",
       "readTime": "2 min",
-      "section": "software",
+      "section": "gaming",
       "tags": [
-        "Software"
+        "Gaming"
       ],
       "featured": false,
-      "xpReward": 46,
-      "url": "https://dev.to/gerardo_barrera_538fc60b7/why-html-to-pdf-breaks-in-production-and-what-to-use-instead-3ip8",
-      "image": "/images/feed/feed-12827a15eebe.webp",
-      "source": "Dev.to",
+      "xpReward": 41,
+      "url": "https://www.ign.com/articles/best-usb-cable-deals-amazon-prime-day-sale",
+      "image": "/images/feed/feed-e478fed23d17.jpg",
+      "source": "IGN",
+      "isLive": true
+    },
+    {
+      "id": "feed-8659a6f9b140",
+      "title": "The Apple Watch Series 11 Drops to Its Lowest Price Ever for Amazon Prime Day",
+      "excerpt": "The best Apple Watch model for most iPhone users.",
+      "body": "Apple Watch prices have dropped for Amazon Prime Day. Starting today, most colors and styles start at $279 for the 42mm size and $309 for the 46mm size. That&#39;s the lowest price I&#39;ve ever seen by $20 and currently $120 cheaper than buying directly from the Apple Store. The Series 11 is Apple&#39;s newest model. The Series 12 is expected to be announced sometime in September, but it will probably retail for $399 or more and come with minor incremental upgrades. Apple Watch Series 11 Starting at $279 for Prime Day The Apple Watch Series 11 is the best smartwatch for most iOS users . It&#39;s stylish, boasts excellent build quality, and seamlessly integrates with your iPhone.",
+      "author": "Eric Song",
+      "date": "2026-06-26",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 30,
+      "url": "https://www.ign.com/articles/the-apple-watch-series-11-drops-to-its-lowest-price-ever-for-amazon-prime-day",
+      "image": "/images/feed/feed-8659a6f9b140.jpg",
+      "source": "IGN",
       "isLive": true
     },
     {
@@ -185,7 +394,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 38,
       "url": "https://www.ign.com/articles/kpop-demon-hunters-squishmallow-deal-amazon-prime-day-sale",
       "image": "/images/feed/feed-7313f844aebc.jpg",
       "source": "IGN",
@@ -204,7 +413,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 53,
       "url": "https://www.ign.com/articles/lizzy-caplan-joins-fxs-far-cry-tv-series",
       "image": "/images/feed/feed-b0d5d5ab68fa.jpg",
       "source": "IGN",
@@ -233,7 +442,7 @@
       "id": "feed-a6a7481c3c2f",
       "title": "Apple adds Google Gemini coding assistant in Xcode 26.6 update",
       "excerpt": "Apple has released Xcode 26.6, adding support for a third coding assistant to the company’s integrated development environment software.",
-      "body": "Apple has rolled out an update for its integrated development environment, Xcode. This release, version 26.6, brings a significant new feature for developers. It introduces support for Google's Gemini coding assistant directly into the software",
+      "body": "Apple has rolled out an update to its integrated development environment (IDE) software, Xcode. This new version, Xcode 26.6, brings a notable addition for developers working within the company’s ecosystem. It now includes support for Google Gemini, a powerful coding assistant.\n\nThe inclusion of Google Gemini marks a significant expansion of Xcode's capabilities. Gemini is known for its advanced AI functions designed to aid in software development. Its integration could streamline various coding tasks and potentially speed up the development process for many.\n\nThis update is particularly interesting as Gemini represents the third coding assistant now supported within Xcode. While the specifics of the other two assistants aren't detailed, the growing number of such tools suggests Apple's commitment to",
       "author": "Zac Hall",
       "date": "2026-06-26",
       "readTime": "2 min",
@@ -242,87 +451,10 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 30,
       "url": "https://9to5mac.com/2026/06/25/apple-adds-google-gemini-coding-assistant-in-xcode-26-6-update/",
       "image": "/images/feed/feed-a6a7481c3c2f.jpg",
       "source": "9to5Mac",
-      "isLive": true
-    },
-    {
-      "id": "feed-4f443834b2ff",
-      "title": "Save $50 Off With the Meta Quest 3S VR Headset During the Amazon Prime Day Sale",
-      "excerpt": "The most accessible way to get into VR gaming.",
-      "body": "If you haven&#39;t experienced the world of immersive VR gaming, you&#39;re missing out. For Amazon Prime Day , Amazon is offering a Meta Quest 3S 128GB VR headset for just $296.79 after a $53 off instant discount. This particular bundle also includes 2,000 shiny rocks (in-game currency) and DLC items for the popular Gorilla Tag free-to-play VR game. I&#39;ve reviewed the Meta Quest and I&#39;ll be the first to admit that VR gaming isn&#39;t for everyone. That said, I wholeheartedly encourage any avid gamer to try it out, and the Meta Quest 3S is the most accessible way to do so. Save $50 Off the Meta Quest 3S VR Headset for Prime Day The Meta Quest 3S was the most affordable standalone consumer-oriented VR headset at its original retail price of $299.99.",
-      "author": "Eric Song",
-      "date": "2026-06-26",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Meta Quest",
-        "Vr Headset"
-      ],
-      "featured": false,
-      "xpReward": 46,
-      "url": "https://www.ign.com/articles/best-meta-quest-vr-headset-deal-amazon-prime-day-sale-updated",
-      "image": "/images/feed/feed-4f443834b2ff.jpg",
-      "source": "IGN",
-      "isLive": true
-    },
-    {
-      "id": "feed-260149de156e",
-      "title": "The Apple AirPods Pro 3 Noise Canceling Earbuds Are on Sale During Amazon Prime Day",
-      "excerpt": "$70 less than buying it from the Apple Store.",
-      "body": "iPhone users, don&#39;t miss this rare opportunity to score a great deal on Apple&#39;s best earbuds. For Prime Day , Amazon is offering the 3rd generation AirPods Pro noise canceling wireless earbuds for just $179 shipped after a 28% off instant discount. That&#39;s $70 less than getting it directly from the Apple Store. If you use an iPhone and the AirPods Pro 3 is within your budget, there&#39;s really no other earbud that you should consider. Save $80 off the New AirPods Pro 3 Noise Canceling Earbuds The AirPods Pro 3 launched on September 19 and is the newest generation AirPods Pro. Like its predecessor, this is easily the best earbuds for anyone who uses an iPhone. Although it looks pretty similar to the 2nd gen AirPods, there are some pretty significant improvements under the hood.",
-      "author": "Eric Song",
-      "date": "2026-06-26",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 39,
-      "url": "https://www.ign.com/articles/best-apple-airpods-pro-3-earbuds-deal-amazon-prime-day-sale-updated",
-      "image": "/images/feed/feed-260149de156e.jpg",
-      "source": "IGN",
-      "isLive": true
-    },
-    {
-      "id": "feed-eaf3c72b4973",
-      "title": "Save Over 50% Off the Renewable Jackery Solar Generator 1000 V2 Power Station Bundle for Prime Day",
-      "excerpt": "Save an extra $150 on top of Prime Day pricing by purchasing as a bundle.",
-      "body": "Jackery is a well known power station brand. It produces high quality yet affordable power stations and right now there&#39;s a fantastic bundle on sale during Prime Day . Amazon is offering a Jackery Solar Generator 1000 V2 Bundle , which includes: Jackery Explorer 1000 V2 1,070Wh 1,500W LiFePO4 Power Station Jackery SolarSaga 200W Foldable Solar Panel all for just $599.99 with free shipping. The normal retail price is $1300. This is an excellent deal if you look at the itemized discounts. The power station is on sale for $400 ($800 retail). The solar panel is on sale for $339 ($700 retail). That means, right now, you&#39;d be saving an extra $140 on top of Prime Day discounts by bundling them up. This is a quick and affordable way to starting up your own renewable off-grid power center.",
-      "author": "Eric Song",
-      "date": "2026-06-26",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 50,
-      "url": "https://www.ign.com/articles/jackery-solar-generator-1000-v2-power-station-deal-amazon-prime-day-sale",
-      "image": "/images/feed/feed-eaf3c72b4973.jpg",
-      "source": "IGN",
-      "isLive": true
-    },
-    {
-      "id": "feed-1e6485fd7827",
-      "title": "Save Up to 55% Off Amazon Fire TV Sticks for Prime Day",
-      "excerpt": "From cloud gaming to budget-friendly streaming, there's a deal for everyone.",
-      "body": "All of Amazon’s latest Fire TV Sticks are discounted by over 40% for Prime Day . Now, these top-tier streaming devices bring the smarts to just about any TV, allowing you to quickly and easily upgrade any setup for streaming. No matter which Fire TV Stick you choose, it’ll have no issue streaming from all major apps like Netflix, Disney+, Paramount+, and HBO Max The biggest highlight of the sale is the Fire TV Stick 4K Plus , and you can grab it back at the lowest price ever. It’s the best option for most users, striking the perfect balance of performance chops and features for the price. The Fire TV Stick 4K Max delivers the top overall experience and is $25 off right now.",
-      "author": "Danielle Abraham",
-      "date": "2026-06-26",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 37,
-      "url": "https://www.ign.com/articles/save-up-to-55-off-amazon-fire-tv-sticks-for-prime-day",
-      "image": "/images/feed/feed-1e6485fd7827.png",
-      "source": "IGN",
       "isLive": true
     },
     {
@@ -338,7 +470,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 44,
       "url": "https://9to5mac.com/2026/06/25/camp-snoopy-season-2-now-available-on-apple-tv/",
       "image": "/images/feed/feed-3c0b3ce0ad9b.jpg",
       "source": "9to5Mac",
@@ -348,7 +480,7 @@
       "id": "feed-3387a1dd2c38",
       "title": "Anthropic Thinks Its Own Success Is Key to Making AI Safe",
       "excerpt": "Anthropic's critics argue it's rapidly accumulating power. The company says that's what responsible AI development looks like.",
-      "body": "Anthropic posits that its continued success is fundamental to ensuring the safe development of artificial intelligence. This perspective, however, faces scrutiny from critics who contend the company is rapidly consolidating influence within the AI landscape.\n\nThe company asserts that its current",
+      "body": "Anthropic articulates a strategy where its organizational success is presented as fundamental to ensuring AI safety. The company contends that its operational growth and development trajectory are directly linked to establishing secure and responsible artificial intelligence systems. This perspective positions its expansion as an essential component of its safety mandate.\n\nThis approach, however, has drawn considerable attention from critics. These observers argue that Anthropic is rapidly accumulating significant power within the evolving AI landscape. Their concerns focus on the potential implications of such concentrated influence on the broader field of AI development and its future direction.\n\nIn response to these critiques, Anthropic asserts that its current scale and influence are precisely what responsible AI development necessitates. The company maintains that its methods and growth are not merely advantageous but are, in fact, crucial for effectively mitigating risks associated with advanced AI. This stance frames its expansion as a deliberate and responsible strategy.\n\nThe situation highlights a key divergence in how Anthropic's actions are interpreted. While some view its increasing power with apprehension, Anthropic itself frames this growth as a prerequisite for achieving",
       "author": "Maxwell Zeff",
       "date": "2026-06-26",
       "readTime": "2 min",
@@ -357,7 +489,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 30,
       "url": "https://www.wired.com/story/anthropic-thinks-ai-can-only-be-safe-under-its-control/",
       "image": "/images/feed/feed-3387a1dd2c38.jpg",
       "source": "Wired",
@@ -376,7 +508,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 44,
       "url": "https://www.zdnet.com/article/amazon-june-prime-day-live-blog-06-25-2026/",
       "image": "/images/feed/feed-fa52c4b5c5a3.jpg",
       "source": "ZDNet",
@@ -395,7 +527,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 44,
       "url": "https://cleantechnica.com/2026/06/25/distributed-solar-has-pushed-up-pakistans-electricity-demand-by-a-fifth-in-two-years/",
       "image": "/images/feed/feed-1bc115d3196a.png",
       "source": "CleanTechnica",
@@ -414,7 +546,7 @@
         "Macbook"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 54,
       "url": "https://www.zdnet.com/article/apple-macbook-neo-at-590-amazon-prime-day-2026/",
       "image": "/images/feed/feed-ed3dec852ba5.jpg",
       "source": "ZDNet",
@@ -433,7 +565,7 @@
         "Macbook"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 46,
       "url": "https://www.wired.com/story/apple-price-hikes-on-macbooks-on-prime-day/",
       "image": "/images/feed/feed-bb6b9d72a9a4.jpg",
       "source": "Wired",
@@ -443,7 +575,7 @@
       "id": "feed-7d96e7dab588",
       "title": "The White House is asking OpenAI to slow roll the release of its new model over safety concerns",
       "excerpt": "penAI reportedly plans to share its newest model, GPT 5.6, with a select group of partners instead of to the broader public. The reason: the Trump administration told it to.",
-      "body": "penAI reportedly plans to share its newest model, GPT 5.6, with a select group of partners instead of to the broader public. The reason: the Trump administration told it to.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Openai. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "body": "OpenAI is reportedly adjusting its release strategy for its latest model, GPT 5.6. The company intends to share this new iteration with a select group of partners rather than making it publicly available. This measured approach follows a direct request from the Trump administration.\n\nThe White House's intervention stems from expressed safety concerns regarding the model's broader release. This suggests a proactive stance from the administration on the potential implications of advanced AI technologies. The specific nature of these safety concerns has not been detailed in the available reporting.\n\nOpenAI's decision to \"slow roll\" the release to partners indicates a controlled deployment strategy. This approach allows for limited testing and feedback within a more contained environment before any potential wider distribution. For readers seeking more comprehensive details on this situation, the full story is available via TechCrunch.",
       "author": "Lucas Ropek",
       "date": "2026-06-25",
       "readTime": "2 min",
@@ -452,7 +584,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 32,
       "url": "https://techcrunch.com/2026/06/25/the-white-house-is-asking-openai-to-slow-roll-the-release-of-its-new-model-over-safety-concerns/",
       "image": "/images/feed/feed-7d96e7dab588.jpg",
       "source": "TechCrunch",
@@ -471,36 +603,17 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 36,
       "url": "https://www.wired.com/story/uncanny-valley-podcast-amazon-mgm-openai-movie-data-center-workers-fight-back-meta-leaks-employee-data/",
       "image": "/images/feed/feed-4b70fb3645c3.jpg",
       "source": "Wired",
       "isLive": true
     },
     {
-      "id": "feed-ba285c218a86",
-      "title": "Notion Mail is shutting down, but your Gmail inbox isn’t going anywhere",
-      "excerpt": "Notion is killing its email client because users prefer AI agents to an inbox.",
-      "body": "Credit: Dhruv Bhutani / Android Authority TL;DR Notion Mail is shutting down on September 22, 2026, ending the company’s AI-powered take on email. Users should export their Notion Mail settings before the shutdown, including inbox views, AI labels, snippets, and notification preferences. Notion is officially saying goodbye to Notion Mail. The company has announced that its AI-powered email client will shut down on September 22, 2026, bringing an end to an ambitious attempt to rethink Gmail with Notion’s database-inspired workflow. The move comes as a surprise, especially since Notion Mail launched with plenty of fanfare. With the email client, Notion wanted to turn your inbox into something closer to a productivity dashboard.",
-      "author": "Jay Bonggolto",
-      "date": "2026-06-25",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 50,
-      "url": "https://www.androidauthority.com/notion-mail-is-shutting-down-3681674/",
-      "image": "/images/feed/feed-ba285c218a86.jpg",
-      "source": "Android Authority",
-      "isLive": true
-    },
-    {
       "id": "feed-4f8b0a17f0bb",
       "title": "Your Windows 10 PC just quietly got another year of free support - but why?",
       "excerpt": "If you're still running Windows 10, Microsoft has some good news: it has extended the free Extended Security Update program for consumers by one full year. Here's everything you need to know.",
-      "body": "Microsoft has quietly extended its free Extended Security Update program for Windows 10 consumers. This decision grants users an additional year of crucial support for their operating systems. The extension provides continued protection against emerging digital threats.\n\nMaintaining up",
+      "body": "If you're still running Windows 10, Microsoft has some good news: it has extended the free Extended Security Update program for consumers by one full year. Here's everything you need to know.\n\nThis report, published by ZDNet, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cybersecurity. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to ZDNet using the link below. GiveMeTech will continue tracking this story as more details emerge.",
       "author": "ZDNet",
       "date": "2026-06-25",
       "readTime": "2 min",
@@ -509,7 +622,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 52,
       "url": "https://www.zdnet.com/article/microsoft-windows-10-esu-support-extension/",
       "image": "/images/feed/feed-4f8b0a17f0bb.jpg",
       "source": "ZDNet",
@@ -528,29 +641,10 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 43,
       "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/anthropic-is-testing-desktop-like-claude-cowork-for-mobile/",
       "image": "/images/feed/feed-e5f9119ef274.jpg",
       "source": "BleepingComputer",
-      "isLive": true
-    },
-    {
-      "id": "feed-305830d6e2fb",
-      "title": "OpenAI will initially only release ChatGPT 5.6 to government-approved customers",
-      "excerpt": "So much for voluntary review.",
-      "body": "So much for voluntary review.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Anna Washenko)",
-      "date": "2026-06-25",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 40,
-      "url": "https://www.engadget.com/2202129/openai-will-initially-only-release-chatgpt-5-6-to-government-approved-customers/",
-      "image": "/images/feed/feed-305830d6e2fb.jpg",
-      "source": "Engadget",
       "isLive": true
     },
     {
@@ -566,7 +660,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 34,
       "url": "https://www.bleepingcomputer.com/news/security/poland-busts-sim-swapping-gang-tied-to-millions-in-crypto-theft/",
       "image": "/images/feed/feed-33c3a0dd8bfc.jpg",
       "source": "BleepingComputer",
@@ -604,7 +698,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 41,
       "url": "https://cleantechnica.com/2026/06/25/governor-landrys-data-center-order-is-too-little-too-late/",
       "image": "/images/feed/feed-4408cbf76652.png",
       "source": "CleanTechnica",
@@ -623,7 +717,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 52,
       "url": "https://spacenews.com/rocket-lab-wins-nasa-award-for-three-electron-launches/",
       "image": "/images/feed/feed-b52cfe77681a.jpg",
       "source": "SpaceNews",
@@ -642,7 +736,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 32,
       "url": "https://spacenews.com/weather-stream-releases-first-light-imagery-from-gems2-microwave-radiometer/",
       "image": "/images/feed/feed-f4dda610499a.png",
       "source": "SpaceNews",
@@ -662,7 +756,7 @@
         "Gpt"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 38,
       "url": "https://www.theverge.com/ai-artificial-intelligence/957372/openai-will-delay-gpt-5-6-after-trump-administration-request",
       "image": "/images/feed/feed-cfac8b7094d3.jpg",
       "source": "The Verge",
@@ -683,48 +777,10 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 50,
       "url": "https://spacenews.com/space-forces-new-muos-satellites-to-use-boeings-702mp-spacecraft-platform/",
       "image": "/images/feed/feed-d2e8ae33502c.jpg",
       "source": "SpaceNews",
-      "isLive": true
-    },
-    {
-      "id": "feed-5b2f5dff0aa9",
-      "title": "Zoox Introduces Next-Generation Robotaxi",
-      "excerpt": "Zoox sort of feels like the robotaxi company that’s often forgotten. Or maybe that’s just me. You’ve got Waymo, which has been in this field for more than 15 years and is operating at the highest scal…",
-      "body": "Zoox sort of feels like the robotaxi company that&#8217;s often forgotten. Or maybe that&#8217;s just me. You&#8217;ve got Waymo, which has been in this field for more than 15 years and is operating at the highest scale in the US, you&#8217;ve got Tesla and all of the press it gets ... [continued] The post Zoox Introduces Next-Generation Robotaxi appeared first on CleanTechnica .",
-      "author": "Zachary Shahan",
-      "date": "2026-06-25",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Cars"
-      ],
-      "featured": false,
-      "xpReward": 38,
-      "url": "https://cleantechnica.com/2026/06/25/zoox-introduces-next-generation-robotaxi/",
-      "image": "/images/feed/feed-5b2f5dff0aa9.jpg",
-      "source": "CleanTechnica",
-      "isLive": true
-    },
-    {
-      "id": "feed-95da829e9da2",
-      "title": "How One Local Utility Is Relocating to Reduce Pollution For The Florida Community It Serves",
-      "excerpt": "In 2017 about 1.25 million gallons of wastewater were released into the Indian River Lagoon because of a power outage at Fort Pierce Utilities Authority’s Water Reclamation facility on South Hutchinso…",
-      "body": "In 2017 about 1.25 million gallons of wastewater were released into the Indian River Lagoon because of a power outage at Fort Pierce Utilities Authority&#8217;s Water Reclamation facility on South Hutchinson Island. The Florida Department of Environmental Protection did not issue a fine for the violations of the local utility&#8217;s ... [continued] The post How One Local Utility Is Relocating to Reduce Pollution For The Florida Community It Serves appeared first on CleanTechnica .",
-      "author": "Carolyn Fortuna",
-      "date": "2026-06-25",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Cars"
-      ],
-      "featured": false,
-      "xpReward": 51,
-      "url": "https://cleantechnica.com/2026/06/25/how-one-local-utility-is-relocating-to-reduce-pollution-for-the-florida-community-it-serves/",
-      "image": "/images/feed/feed-95da829e9da2.jpg",
-      "source": "CleanTechnica",
       "isLive": true
     },
     {
@@ -740,68 +796,10 @@
         "Orbit"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 33,
       "url": "https://www.nasa.gov/centers-and-facilities/johnson/expedition-73-crew-reflects-on-science-teamwork-and-life-in-orbit/",
       "image": "https://www.youtube.com/embed/BaDkHjfsOh8",
       "source": "NASA Breaking News",
-      "isLive": true
-    },
-    {
-      "id": "feed-afbce5174f55",
-      "title": "NASA, US Small Business Administration to Announce Partnership",
-      "excerpt": "NASA and the U.S. Small Business Administration will sign a memorandum of agreement during a ceremony at 1 p.m. EDT, Monday, June 29, at NASA Headquarters in Washington. The agreement will create a ne…",
-      "body": "Credit: NASA NASA and the U.S. Small Business Administration will sign a memorandum of agreement during a ceremony at 1 p.m. EDT, Monday, June 29, at NASA Headquarters in Washington. The agreement will create a new interagency initiative that directly responds to President Donald J. Trump’s National Space Policy and supports the growth of the American space economy. Participants include: NASA Administrator Jared Isaacman SBA Administrator Kelly Loeffler This event is in person only. Media interested in attending must RSVP no later than 10 a.m. on June 29 to: hq-media@mail.nasa.gov .",
-      "author": "Jessica Taveau",
-      "date": "2026-06-25",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Nasa"
-      ],
-      "featured": false,
-      "xpReward": 33,
-      "url": "https://www.nasa.gov/news-release/nasa-us-small-business-administration-to-announce-partnership/",
-      "image": "/images/feed/feed-afbce5174f55.jpg",
-      "source": "NASA Breaking News",
-      "isLive": true
-    },
-    {
-      "id": "feed-5ac2e67dba39",
-      "title": "NASA Welcomes Botswana as 68th Artemis Accords Signatory",
-      "excerpt": "The Republic of Botswana signed the Artemis Accords Thursday during a ceremony hosted by NASA at the agency’s headquarters in Washington, becoming the sixth African nation to join a growing community…",
-      "body": "From left to right, Senior Advisor on Space for the Bureau of Oceans and International Environmental and Scientific Affairs Greg Autry, NASA Deputy Administrator Matt Anderson, Minister of Communications and Innovation David Tshere, and Acting Ambassador of the Republic of Botswana to the United States Mabedi Ngwenya pose for a photo following an Artemis Accords signing ceremony with the Republic of Botswana Thursday, June 25, 2026, at the Mary W. Jackson NASA Headquarters building in Washington.",
-      "author": "Jennifer M. Dooren",
-      "date": "2026-06-25",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Artemis",
-        "Nasa"
-      ],
-      "featured": false,
-      "xpReward": 30,
-      "url": "https://www.nasa.gov/organizations/oiir/nasa-welcomes-botswana-as-68th-artemis-accords-signatory/",
-      "image": "/images/feed/feed-5ac2e67dba39.jpg",
-      "source": "NASA Breaking News",
-      "isLive": true
-    },
-    {
-      "id": "feed-937e780522d0",
-      "title": "Subaru’s new top-selling EV delivers over 300 miles of range for just $35,000",
-      "excerpt": "The Uncharted is now Subaru’s most popular and most affordable EV in the US. Subaru announced that prices for the 2027 Uncharted EV will start at $35,000.",
-      "body": "The Uncharted is now Subaru’s most popular and most affordable EV in the US. Subaru announced that prices for the 2027 Uncharted EV will start at $35,000.\n\nThis report, published by Electrek, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Ev. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Electrek using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Peter Johnson",
-      "date": "2026-06-25",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Ev"
-      ],
-      "featured": false,
-      "xpReward": 41,
-      "url": "https://electrek.co/2026/06/25/subarus-new-top-selling-ev-300-miles-range-for-35k/",
-      "image": "/images/feed/feed-937e780522d0.jpg",
-      "source": "Electrek",
       "isLive": true
     },
     {
@@ -817,7 +815,7 @@
         "Hacker"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 35,
       "url": "https://techcrunch.com/2026/06/25/polymarket-says-hackers-stole-users-funds/",
       "image": "/images/feed/feed-f2624d4e3142.jpg",
       "source": "TechCrunch",
@@ -836,7 +834,7 @@
         "Phishing"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 40,
       "url": "https://www.bleepingcomputer.com/news/security/order-tracking-app-shop-abused-to-push-callback-phishing-attacks/",
       "image": "/images/feed/feed-49381ecaf39d.jpg",
       "source": "BleepingComputer",
@@ -855,7 +853,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 34,
       "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-quietly-extends-free-windows-10-esu-support-to-october-2027/",
       "image": "/images/feed/feed-5888f2d8af8d.jpg",
       "source": "BleepingComputer",
@@ -876,7 +874,7 @@
         "Claude"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 50,
       "url": "https://techcrunch.com/2026/06/25/anthropics-claude-is-winning-over-paid-consumers-a-market-owned-by-chatgpt/",
       "image": "/images/feed/feed-8778afccd777.jpg",
       "source": "TechCrunch",
@@ -895,7 +893,7 @@
         "Hacker"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 42,
       "url": "https://techcrunch.com/2026/06/25/hacked-klue-says-criminals-are-deleting-stolen-customer-data-but-now-other-hackers-are-making-threats/",
       "image": "/images/feed/feed-d973260aac2c.jpg",
       "source": "TechCrunch",
@@ -914,7 +912,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 33,
       "url": "https://blog.google/products-and-platforms/products/search/google-finance-updates-june-2026/",
       "image": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Google_Finance_blog_image_June_.max-600x600.format-webp.webp",
       "source": "Google AI Blog",
@@ -933,7 +931,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 35,
       "url": "https://techcrunch.com/2026/06/25/parker-conrad-knows-which-employees-are-worth-their-ai-spend-and-says-rippling-can-help-you-too/",
       "image": "/images/feed/feed-42449801b046.jpg",
       "source": "TechCrunch",
@@ -941,16 +939,16 @@
     }
   ],
   "breakingNews": [
-    "DEV.TO: MCP Server Auth: The API Is the Real Boundary",
-    "DEV.TO: When --cap-drop ALL Broke the Gate Socket",
-    "DEV.TO: 2026 PDF Generation API Comprehensive Comparison Review: 13 Mainstream Solutions Benchmarked (HTML to PDF)",
-    "DEV.TO: 🚀 Join the Omnia Community — Contributors Wanted",
-    "CLEANTECHNICA: The Real AI Safety Discussion That Just Isn’t Happening",
-    "DEV.TO: JavaScript String Methods",
-    "DEV.TO: The Wrapper Got Heavy: Why ChatGPT Clones Are Runtime Problems Now",
-    "SPACE.COM: Turn your room into a galaxy: The best Prime Day deals on star projectors for aspiring astronomers",
-    "DEV.TO: Why HTML-to-PDF Breaks in Production (and What to Use Instead)",
-    "IGN: Buy One KPop Demon Hunters Squishmallow, Get a Second One for Half Off During Prime Day"
+    "DEV.TO: Ollama's Chinese Model Support Is Real — But Running Kimi and DeepSeek Locally Has a Hidden Cost",
+    "DEV.TO: Adding one field to our CAPI payload moved match rate from 66% to 79% overnight",
+    "SPACE.COM: Watch live: Rocket Lab launching 'Ten Owl of Ten' mission for Synspective today",
+    "DEV.TO: Fan-Out/Fan-In and the Async HTTP Pattern",
+    "DEV.TO: When Your Coding Agent Needs a Scribe, Not a Memory Engine",
+    "DEV.TO: The Day My Research Assistant Finally Got a Memory",
+    "DEV.TO: # Treat: A Global Gifting Platform Empowering Local Businesses",
+    "DEV.TO: Stop Impossible States: State Machines in React ⚡",
+    "ANDROID AUTHORITY: Nothing Phone 4b just lost a few more secrets ahead of its July 7 debut",
+    "NASA BREAKING NEWS: The Battle for Sullivan’s Island"
   ],
   "sectionVideos": {}
 }
