@@ -1,12 +1,50 @@
 {
-  "fetchedAt": "2026-07-05T15:29:30.690Z",
+  "fetchedAt": "2026-07-05T16:25:52.264Z",
   "articles": [
     {
-      "id": "feed-f6a2f7803bff",
-      "title": "The Helm Chart Is a Platform Contract — Not a Template",
-      "excerpt": "Early in building our cloud infrastructure, we had a problem nobody talks about — because it happens so slowly you almost don't notice it. We had eight separate Helm charts. One for services that need…",
-      "body": "Early in building our cloud infrastructure, we had a problem nobody talks about — because it happens so slowly you almost don't notice it. We had eight separate Helm charts. One for services that needed KEDA scaling. One for standard HPA. One for backends that exposed HTTP. One for workers that didn't. One for Azure Functions. One for frontends. Eight charts, all living in the same repository, all drifting apart from each other. The charts started as copies of each other. Over time each one picked up its own fixes, its own conventions, its own slightly-different take on security contexts and ServiceAccount annotations and rolling update strategy. Nobody made a decision to diverge. It just happened.",
-      "author": "sanjay sankhla",
+      "id": "feed-13f93a5d631a",
+      "title": "We shipped faster. The debt did too.",
+      "excerpt": "You open a file you have not touched in months and your first instinct is to read it like it belongs to someone else. Not because it is broken. Not because the tests are failing. Just because you do n…",
+      "body": "You open a file you have not touched in months and your first instinct is to read it like it belongs to someone else. Not because it is broken. Not because the tests are failing. Just because you do not immediately know where its edges are. You gotta believe me when I say I had that feeling recently, on a module I last touched roughly six months ago. The code ran. The logic held. But I had to re-read it like the way you re-read code you did not write: slowly, looking for the load-bearing pieces, rebuilding a picture of why it works before I could safely change it. I had written most of it. \"With help.\" The AI agent had generated large sections. I had reviewed, adjusted, and approved the diffs. At the time, the pace felt like a genuine unlock.",
+      "author": "Jeel Vankhede",
+      "date": "2026-07-05",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 32,
+      "url": "https://dev.to/jeelvankhede/we-shipped-faster-the-debt-did-too-49a4",
+      "image": "/images/feed/feed-13f93a5d631a.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-24497ab67f6c",
+      "title": "Your Kubernetes Controller Is Silently Dead and Nobody Knows",
+      "excerpt": "Kubernetes controllers built on client-go have a silent failure mode that's easy to miss. When a ServiceAccount token goes stale, your controller keeps running, passes health checks, shows Ready, and…",
+      "body": "Kubernetes controllers built on client-go have a silent failure mode that's easy to miss. When a ServiceAccount token goes stale, your controller keeps running, passes health checks, shows Ready, and does absolutely nothing. The Problem client-go retries every watch error with exponential backoff. Including 401 Unauthorized. // client-go's default: log and retry. Forever. func DefaultWatchErrorHandler ( ctx context . Context , r * Reflector , err error ) { // logs the error // returns (triggering a retry with backoff) } This makes sense for transient errors like network blips or 503s. But a 401 means your identity is invalid. No amount of retrying will fix it. Only a pod restart mounts a fresh token. This is the default behavior in client-go, which sits underneath controller-runtime.",
+      "author": "Rey Shazni",
+      "date": "2026-07-05",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Kubernetes"
+      ],
+      "featured": true,
+      "xpReward": 51,
+      "url": "https://dev.to/reyshazni17/your-kubernetes-controller-is-silently-dead-and-nobody-knows-2fml",
+      "image": "/images/feed/feed-24497ab67f6c.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-7499697036e9",
+      "title": "Why We Built a Browser-Based File Converter Instead of Another Cloud Service",
+      "excerpt": "When we started building applications that handled documents, images, videos, and audio files, we kept running into the same problem. Almost every file conversion service worked like this: Upload your…",
+      "body": "When we started building applications that handled documents, images, videos, and audio files, we kept running into the same problem. Almost every file conversion service worked like this: Upload your file. Wait while it reaches a remote server. The server processes it. Download the converted file. Hope your file is deleted afterward. At first, this didn't seem like a big deal. It's how most online converters have worked for years. But after integrating several of them into our workflow, we started asking ourselves a simple question: Why does every file have to leave my computer just to change its format?",
+      "author": "Arman Karapetyan",
       "date": "2026-07-05",
       "readTime": "2 min",
       "section": "software",
@@ -15,17 +53,56 @@
       ],
       "featured": true,
       "xpReward": 30,
-      "url": "https://dev.to/sanjay-sankhla/the-helm-chart-is-a-platform-contract-not-a-template-1df2",
-      "image": "/images/feed/feed-f6a2f7803bff.webp",
+      "url": "https://dev.to/arman_karapetyan_b118aa0d/why-we-built-a-browser-based-file-converter-instead-of-another-cloud-service-3gpe",
+      "image": "/images/feed/feed-7499697036e9.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-d262e945a9de",
-      "title": "Enterprise LLM Engineering Guide: Architecture To Interview Mastery",
-      "excerpt": "Enterprise teams no longer win by writing a clever prompt. They win by engineering reliable, observable, and secure systems around large language models. This guide is a practical, production-focused…",
-      "body": "Enterprise teams no longer win by writing a clever prompt. They win by engineering reliable, observable, and secure systems around large language models. This guide is a practical, production-focused walkthrough of how modern LLM systems are actually built, operated, and defended in interviews by senior engineers. Table of Contents Introduction Continue Your Learning What Is LLM Engineering Core Components of an Enterprise LLM Stack Enterprise LLM Architecture Production LLM Lifecycle Real Enterprise Use Cases Best Practices Common Mistakes Architecture Design Interview Tips 20 Advanced Enterprise Interview Questions Production Resources Further Learning Roadmap Conclusion Keep Building: Enterprise AI Engineering Resources Author Introduction For a short period, prompt engineering felt lik…",
-      "author": "Himanshu Agarwal",
+      "id": "feed-384c037f4811",
+      "title": "Building a Personal Learning Path Agent in typescript with HazelJS",
+      "excerpt": "Learning new skills is one of the most rewarding activities we can undertake, but it's also notoriously difficult to do effectively. The internet offers endless resources—courses, books, tutorials, vi…",
+      "body": "Learning new skills is one of the most rewarding activities we can undertake, but it's also notoriously difficult to do effectively. The internet offers endless resources—courses, books, tutorials, videos—but finding the right path through this abundance is overwhelming. Traditional learning platforms provide static curricula, but they struggle with personalization, adaptation, and motivation. This is where agentic AI can make a real difference. In this post, we'll build a personal learning path agent using HazelJS that demonstrates how multi-agent systems can solve the complex problem of personalized education. The Learning Challenge When someone decides to learn a new skill, they face multiple interconnected challenges: Goal definition : What does success look like? Career advancement?",
+      "author": "Nisa Fatima",
+      "date": "2026-07-05",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Typescript"
+      ],
+      "featured": true,
+      "xpReward": 50,
+      "url": "https://dev.to/nisa_fatima_bcd75fa085b76/building-a-personal-learning-path-agent-in-typescript-with-hazeljs-58d3",
+      "image": "/images/feed/feed-384c037f4811.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-7897505c74e0",
+      "title": "Stop Guessing: Real Numbers on Enterprise vs Startup AI API Costs",
+      "excerpt": "Stop Guessing: Real Numbers on Enterprise vs Startup AI API Costs I'll be honest — I used to be that person who just signed up for every AI API directly. OpenAI account here, Anthropic account there,…",
+      "body": "Stop Guessing: Real Numbers on Enterprise vs Startup AI API Costs I'll be honest — I used to be that person who just signed up for every AI API directly. OpenAI account here, Anthropic account there, DeepSeek for the cheap stuff. My spreadsheet looked like a disaster. Then one month I got the bill and nearly fell off my chair. That's the moment I started treating AI API spending like a real budget line. And once I started measuring, I realised the \"go direct to the source\" advice everyone gives startups is, frankly, terrible advice if you're watching your burn rate. Here's the thing: startups and enterprises don't just spend different amounts — they need completely different things. But they both end up at the same place when they get serious about cost optimization.",
+      "author": "Alex Chen",
+      "date": "2026-07-05",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Api",
+        "Startup"
+      ],
+      "featured": true,
+      "xpReward": 36,
+      "url": "https://dev.to/truelane/stop-guessing-real-numbers-on-enterprise-vs-startup-ai-api-costs-2g9f",
+      "image": "/images/feed/feed-7897505c74e0.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-72a459ade317",
+      "title": "RL Time Constant: The Coil Delay and Back-EMF Calculation Engineers Underestimate",
+      "excerpt": "An RL circuit looks harmless. A resistor, an inductor, a DC supply, and a switch. But that simple circuit explains a lot of real engineering problems: relay pickup delay, solenoid response, brake coil…",
+      "body": "An RL circuit looks harmless. A resistor, an inductor, a DC supply, and a switch. But that simple circuit explains a lot of real engineering problems: relay pickup delay, solenoid response, brake coil release time, MOSFET failures, contact arcing, and inductive kickback. The key number is the RL time constant: τ = L / R It tells you how fast current rises or decays in a series resistor-inductor circuit. That sounds simple. But the mistake is treating τ as just a classroom formula. In real circuits, τ affects timing, stored energy, heat, and switching stress. And when the circuit is turned off, the inductor does not politely stop conducting current. The stored magnetic energy has to go somewhere. That is where many failures begin.",
+      "author": "Evgenii Konkin",
       "date": "2026-07-05",
       "readTime": "2 min",
       "section": "software",
@@ -33,86 +110,162 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 53,
-      "url": "https://dev.to/himanshuai/enterprise-llm-engineering-guide-architecture-to-interview-mastery-447f",
-      "image": "/images/feed/feed-d262e945a9de.webp",
+      "xpReward": 51,
+      "url": "https://dev.to/evgeniikonkin/rl-time-constant-the-coil-delay-and-back-emf-calculation-engineers-underestimate-4994",
+      "image": "/images/feed/feed-72a459ade317.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-a1a53fa2b81b",
-      "title": "I Built a Coding Agent With the Manual Tool-Use Loop. Here's What It Taught Me",
-      "excerpt": "Everyone reaches for the SDK's tool runner because it hides the agentic loop. I wrote the loop by hand instead, for a small tool that edits files based on instructions. It was more code, and it taught…",
-      "body": "Everyone reaches for the SDK's tool runner because it hides the agentic loop. I wrote the loop by hand instead, for a small tool that edits files based on instructions. It was more code, and it taught me exactly what an agent is doing under the hood, which paid off the first time I needed human approval before a destructive action. Here is the manual loop, and what controlling it directly buys you. What the loop actually is An \"agent\" sounds mysterious. It is a while loop. The model responds, and either it is done ( end_turn ) or it wants to call a tool ( tool_use ). If it wants a tool, you run the tool, feed the result back, and call the model again. Repeat until done. import Anthropic from \" @anthropic-ai/sdk \" ; const client = new Anthropic (); const tools : Anthropic .",
-      "author": "Pavel Espitia",
+      "id": "feed-e5a9cf20011b",
+      "title": "Day 98 of Learning MERN Stack",
+      "excerpt": "Hello Dev Community! 👋 It is officially Day 98 of my 100-day full-stack engineering track! 🎯 We are just 48 hours away from finishing this incredible 100-day journey. Today, I built an interactive,…",
+      "body": "Hello Dev Community! 👋 It is officially Day 98 of my 100-day full-stack engineering track! 🎯 We are just 48 hours away from finishing this incredible 100-day journey. Today, I built an interactive, retrosport-style Hacker Terminal Simulator using absolutely zero external frameworks—just Pure HTML, CSS, and Vanilla JavaScript! 🖥️⚡ Many developers take terminal log animations for granted, but creating sequential execution text flows and writing real-time moving indicator text loops requires a strong grasp of asynchronous queue control and string runtime updates.",
+      "author": "Ali Hamza",
       "date": "2026-07-05",
       "readTime": "2 min",
       "section": "software",
       "tags": [
         "Software"
       ],
-      "featured": true,
-      "xpReward": 43,
-      "url": "https://dev.to/pavelespitia/i-built-a-coding-agent-with-the-manual-tool-use-loop-heres-what-it-taught-me-4gjn",
-      "image": "/images/feed/feed-a1a53fa2b81b.webp",
+      "featured": false,
+      "xpReward": 41,
+      "url": "https://dev.to/ali_hamza_589ec7b3eb6688d/day-98-of-learning-mern-stack-31ie",
+      "image": "/images/feed/feed-e5a9cf20011b.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-f46ed349f4a3",
-      "title": "Hurricanes, heat domes, and holding up the grid with home batteries [update]",
-      "excerpt": "It’s been a year since this piece on home batteries becoming one of the most important tools we have for keeping the lights on during hurricanes, heat waves, and other extreme weather events was publi…",
-      "body": "It’s been a year since this piece on home batteries becoming one of the most important tools we have for keeping the lights on during hurricanes, heat waves, and other extreme weather events was published. Since then, the case for VPPs has only gotten stronger , with more utilities than ever putting big money behind distributed batteries and virtual power plants to keep the grid stable during periods of record energy demands.",
-      "author": "Jo Borrás",
+      "id": "feed-6d8463724f6d",
+      "title": "How Sonic Mania Saved Sega’s Blue Hedgehog And The Series",
+      "excerpt": "Sega breaks down the making of the 2017 2D revival for the character's 35th anniversary",
+      "body": "Sega breaks down the making of the 2017 2D revival for the character's 35th anniversary\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "George Yang",
+      "date": "2026-07-05",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 45,
+      "url": "https://kotaku.com/how-sonic-mania-saved-segas-blue-hedgehog-and-the-series-2000712664",
+      "image": "/images/feed/feed-6d8463724f6d.jpg",
+      "source": "Kotaku",
+      "isLive": true
+    },
+    {
+      "id": "feed-c77802c8738b",
+      "title": "Ocarina of Time's most underrated character deserves more appreciation",
+      "excerpt": "We should be praising Ocarina of Time's helpful fairy instead of turning her into memes.",
+      "body": "These days, it seems like you can’t load an online storefront without finding a 3D adventure game of some sort featured. There was a time when they were considerably less familiar, though. Developers had to find compelling ways to usher players through intimidating environments while teaching them a different way to play. Innovation abounded, and almost everything was new, including a helpful fairy named Navi who guided players through the wonder that was The Legend of Zelda: Ocarina of Time . Nintendo announced a remake of the N64 classic last month, and the developers of that remake shouldn’t mess with perfection.",
+      "author": "Jason Venter",
+      "date": "2026-07-05",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 41,
+      "url": "https://www.polygon.com/zelda-ocarina-of-time-navi-underrated/",
+      "image": "/images/feed/feed-c77802c8738b.png",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-4dd16807f637",
+      "title": "Where to preorder Grand Theft Auto VI",
+      "excerpt": "A look at in-game cosmetics you’ll get with the Ultimate edition. | Image: Rockstar Games Rockstar's long-awaited Grand Theft Auto VI is launching November 19th, 2026 for PlayStation 5 and Xbox Series…",
+      "body": "A look at in-game cosmetics you’ll get with the Ultimate edition. | Image: Rockstar Games Rockstar's long-awaited Grand Theft Auto VI is launching November 19th, 2026 for PlayStation 5 and Xbox Series S/X consoles. The game will be available digitally at launch, with physical cases containing codes, not discs , so your options for preordering are straightforward. The preloading phase for the game begins on November 12th, which should give you plenty of time to install the game. There are two versions of the game to choose from, the $79.99 Standard and $99.99 Ultimate editions. Both include the same preorder perks. You'll get the Vintage Vice City Pack when the game launches. It's a set of in-game items that includes vehicles, we … Read the full story at The Verge.",
+      "author": "Brad Bourque",
+      "date": "2026-07-05",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 49,
+      "url": "https://www.theverge.com/gadgets/960838/grand-theft-auto-gta-6-vi-preorder-editions-buy",
+      "image": "/images/feed/feed-4dd16807f637.jpg",
+      "source": "The Verge",
+      "isLive": true
+    },
+    {
+      "id": "feed-6b53cd03ea3b",
+      "title": "This 2023 Model 3 Has Tesla’s Durable Battery. It Still Degraded",
+      "excerpt": "Its LFP pack had 90% health at 26,000 miles. That’s not a disaster, but it’s worse than the chemistry’s reputation suggests.",
+      "body": "Its LFP pack had 90% health at 26,000 miles. That’s not a disaster, but it’s worse than the chemistry’s reputation suggests.\n\nThis report, published by InsideEVs, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Tesla. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to InsideEVs using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "InsideEVs",
+      "date": "2026-07-05",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Tesla"
+      ],
+      "featured": false,
+      "xpReward": 31,
+      "url": "https://insideevs.com/news/800649/model-3-island-maui-battery/",
+      "image": "/images/feed/feed-6b53cd03ea3b.jpg",
+      "source": "InsideEVs",
+      "isLive": true
+    },
+    {
+      "id": "feed-115277377af4",
+      "title": "Battery Swapping Is Finally Coming To The USA, Two Wheels At A Time",
+      "excerpt": "New York City has become the focus of efforts to bring e-bike battery swapping to the US, with the aim of reducing fire hazards linked to home recharging while also benefiting deliveristas. The post B…",
+      "body": "New York City has become the focus of efforts to bring e-bike battery swapping to the US, with the aim of reducing fire hazards linked to home recharging while also benefiting deliveristas. The post Battery Swapping Is Finally Coming To The USA, Two Wheels At A Time appeared first on CleanTechnica .",
+      "author": "Tina Casey",
       "date": "2026-07-05",
       "readTime": "2 min",
       "section": "cars",
       "tags": [
         "Cars"
       ],
-      "featured": true,
-      "xpReward": 50,
-      "url": "https://electrek.co/2026/07/05/hurricanes-heat-domes-and-holding-up-the-grid-with-home-batteries/",
-      "image": "/images/feed/feed-f46ed349f4a3.jpg",
-      "source": "Electrek",
+      "featured": false,
+      "xpReward": 44,
+      "url": "https://cleantechnica.com/2026/07/05/battery-swapping-us-e-bikes-honda-nyc/",
+      "image": "/images/feed/feed-115277377af4.png",
+      "source": "CleanTechnica",
       "isLive": true
     },
     {
-      "id": "feed-7f8cf3702b3f",
-      "title": "The Less I Type, the Better the Output: A Context Framework I Had Claude Design for AI Coding",
-      "excerpt": "Fable 5, a Claude model, became available to me for a limited window. I could have spent that window shipping features. Instead I had it build something that would outlast the model itself: a context…",
-      "body": "Fable 5, a Claude model, became available to me for a limited window. I could have spent that window shipping features. Instead I had it build something that would outlast the model itself: a context framework for running AI coding across several models. The reason is a thing I keep circling back to when I work with coding agents. The less a human does by hand, the better the quality and the speed. Not because people are bad at the work, but because every manual step is a place to forget a constraint or approve something on autopilot. So this is a design write-up, not a benchmark post. I have not run this on a long project for long enough to put numbers on it. What I can tell you is that using it felt more efficient, and I can show you the exact failure modes it was built to kill.",
-      "author": "ty215",
+      "id": "feed-2409ac46fb69",
+      "title": "Cyberpunk: Edgerunners studio teases more Delicious in Dungeon, new project from Promare's creators",
+      "excerpt": "A second season of Delicious in Dungeon and a new project from Kill la Kill and Promare creators Hiroyuki Imaishi and Kazuki Nakashima are on the way",
+      "body": "There's a lot of hype around Studio Trigger's upcoming Cyberpunk: Edgerunners 2 series, but it's not the only project that the studio has in the works. We've also learned when we can expect more of Delicious in Dungeon and that some of Trigger's most prolific creators are working on something new.",
+      "author": "Tomas Franzese",
       "date": "2026-07-05",
       "readTime": "2 min",
-      "section": "software",
+      "section": "gaming",
       "tags": [
-        "Framework"
+        "Gaming"
       ],
-      "featured": true,
-      "xpReward": 47,
-      "url": "https://dev.to/ty215/the-less-i-type-the-better-the-output-a-context-framework-i-had-claude-design-for-ai-coding-534n",
-      "image": "/images/feed/feed-7f8cf3702b3f.webp",
-      "source": "Dev.to",
+      "featured": false,
+      "xpReward": 31,
+      "url": "https://www.polygon.com/delicious-in-dungeon-season-2-trigger-new-projects/",
+      "image": "/images/feed/feed-2409ac46fb69.png",
+      "source": "Polygon",
       "isLive": true
     },
     {
-      "id": "feed-1056171be0ab",
-      "title": "I Tested China's Top 4 AI Models for My Side Hustle — Here's What Won",
-      "excerpt": "I gotta say, i Tested China's Top 4 AI Models for My Side Hustle — Here's What Won Last Tuesday I was staring at a stack of client invoices and a Stripe dashboard that made me want to cry a little. I'…",
-      "body": "I gotta say, i Tested China's Top 4 AI Models for My Side Hustle — Here's What Won Last Tuesday I was staring at a stack of client invoices and a Stripe dashboard that made me want to cry a little. I'd just burned through $84 on OpenAI API calls in a single week, mostly because I was using GPT-4o for everything from blog post rewrites to code refactoring to translating a client's Mandarin product copy. $84 in one week. For a solo freelancer running a side hustle between contract gigs, that's not a rounding error. That's two client invoices worth of margin, gone. So I did what any 精打细算 freelancer would do. I went hunting for alternatives.",
-      "author": "purecast",
+      "id": "feed-f87c5bf5ee1e",
+      "title": "Telltale's Game of Thrones is the only game to match HBO's intensity",
+      "excerpt": "House of the Dragon viewers wanting more Game of Thrones in their life should look to Telltale's choice-based, episodic adventure from 2014.",
+      "body": "Game of Thrones is back in our lives with the return of House of the Dragon . But, instead of a new season, I have a hankering for a great Game of Thrones video game to get my high-fantasy-crossed-with-political-intrigue fix in. Unfortunately, there aren’t many great options ; Reigns: Game of Thrones might be the best GOT game around, but a “swipe ‘em up” strategy game isn’t exactly what I’m looking for.",
+      "author": "Austin Manchester",
       "date": "2026-07-05",
       "readTime": "2 min",
-      "section": "software",
+      "section": "gaming",
       "tags": [
-        "Software"
+        "Game"
       ],
-      "featured": true,
-      "xpReward": 49,
-      "url": "https://dev.to/purecast/i-tested-chinas-top-4-ai-models-for-my-side-hustle-heres-what-won-30co",
-      "image": "/images/feed/feed-1056171be0ab.webp",
-      "source": "Dev.to",
+      "featured": false,
+      "xpReward": 34,
+      "url": "https://www.polygon.com/telltale-game-of-thrones-recommendation/",
+      "image": "/images/feed/feed-f87c5bf5ee1e.jpg",
+      "source": "Polygon",
       "isLive": true
     },
     {
@@ -128,48 +281,10 @@
         "Satellite"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 43,
       "url": "https://spacenews.com/airbus-to-build-aeolus-2-wind-monitoring-satellite/",
       "image": "/images/feed/feed-fef69d07990c.jpg",
       "source": "SpaceNews",
-      "isLive": true
-    },
-    {
-      "id": "feed-b3c7bf82befb",
-      "title": "# Building a Multi-Agent A2A Architecture on Snowflake and Microsoft Fabric — Without Replacing Either",
-      "excerpt": "Every enterprise healthcare payer I work with has the same problem. They have years of investment in Snowflake — semantic models, claims analytics, carefully curated data products. They have Microsoft…",
-      "body": "Every enterprise healthcare payer I work with has the same problem. They have years of investment in Snowflake — semantic models, claims analytics, carefully curated data products. They have Microsoft Fabric rolling out across their organization — lakehouses, Delta tables, real-time intelligence. They have Azure OpenAI licenses and ambitious AI roadmaps. And they’re asking the same question: how do we put AI on top of all of this without ripping anything out? This is the story of how I built HealthIQ — a unified healthcare intelligence platform that answers that question with a working, production-grade architecture. — - The Problem With “AI on Your Data” Most “AI on your data” demos show a chatbot connected to a single database. Ask it a question, it writes SQL, returns an answer. Clean.",
-      "author": "Kartik Anand",
-      "date": "2026-07-05",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 39,
-      "url": "https://dev.to/kartikanand_45/-building-a-multi-agent-a2a-architecture-on-snowflake-and-microsoft-fabric-without-replacing-3m1g",
-      "image": "/images/feed/feed-b3c7bf82befb.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-abad64cc004e",
-      "title": "[In preview] Public Preview: Azure Migrate – GitHub Copilot Modernization integration for at scale code assessments",
-      "excerpt": "--- title: \"Azure Migrate + GitHub Copilot Modernization (Public Preview): It's a Remediation Accelerator, Not an Assessment Tool\" description: \"Azure Migrate + Copilot Modernization is in public prev…",
-      "body": "--- title: \"Azure Migrate + GitHub Copilot Modernization (Public Preview): It's a Remediation Accelerator, Not an Assessment Tool\" description: \"Azure Migrate + Copilot Modernization is in public preview. What it actually does, what it won't, and how to position it in your migration program.\" date: 2025-07-14 tags: [\"cloud-migration\", \"azure-migrate\", \"github-copilot\", \"modernization\", \"app-modernization\"] image: \"/images/blog/diagrams/azure-migrate-copilot-modernization-hero.webp\" draft: true --- import ComparisonTable from \"@techsites/theme/components/ComparisonTable.astro\"; import Callout from \"@techsites/theme/components/Callout.astro\"; import StepByStep from \"@techsites/theme/components/StepByStep.astro\"; The migration assessment problem is largely solved.",
-      "author": "Alex Pechenizkiy",
-      "date": "2026-07-05",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Github"
-      ],
-      "featured": false,
-      "xpReward": 38,
-      "url": "https://dev.to/az365ai/in-preview-public-preview-azure-migrate-github-copilot-modernization-integration-for-at-scale-2dec",
-      "image": "/images/feed/feed-abad64cc004e.webp",
-      "source": "Dev.to",
       "isLive": true
     },
     {
@@ -185,7 +300,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 33,
       "url": "https://kotaku.com/cyberpunk-edgerunners-returns-with-a-season-2-premier-thats-way-more-martin-scorsese-than-michael-bay-2000712575",
       "image": "/images/feed/feed-03e805611fb8.jpg",
       "source": "Kotaku",
@@ -204,7 +319,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 41,
       "url": "https://www.polygon.com/doctor-who-best-doctor-companion-clara-twelve/",
       "image": "/images/feed/feed-7943fca7f312.jpg",
       "source": "Polygon",
@@ -223,7 +338,7 @@
         "Gadget"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 32,
       "url": "https://techcrunch.com/2026/07/05/5-desk-gadgets-that-can-make-your-workday-better/",
       "image": "/images/feed/feed-7c17b3699d23.jpg",
       "source": "TechCrunch",
@@ -242,7 +357,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 41,
       "url": "https://cleantechnica.com/2026/07/05/a-day-at-the-rookery-visiting-the-sealion-5-6-7-and-8/",
       "image": "/images/feed/feed-8680ce46b4ea.jpg",
       "source": "CleanTechnica",
@@ -261,7 +376,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 47,
       "url": "https://cleantechnica.com/2026/07/05/final-energy-is-official-useful-energy-steers-the-transition/",
       "image": "/images/feed/feed-bd5e0afc18a3.webp",
       "source": "CleanTechnica",
@@ -270,8 +385,8 @@
     {
       "id": "feed-36403302f396",
       "title": "The grid was melting down in last week’s heat – until EVs came to the rescue",
-      "excerpt": "As last week’s relentless heat wave pushed power grids to their breaking points, critics feared that the record number of electric vehicles on the push them over the edge. Instead, the opposite happen…",
-      "body": "As last week’s relentless heat wave pushed power grids to their breaking points, critics feared that the record number of electric vehicles on the push them over the edge. Instead, the opposite happened: EVs helped utilities keep the lights on and the AC running by feeding the electricity stored in their batteries back into the grid.",
+      "excerpt": "As last week’s relentless heat wave strained power grids, critics feared that the record number of electric vehicles on the push them over the edge. Instead, the opposite happened: EVs helped utilitie…",
+      "body": "As last week’s relentless heat wave strained power grids, critics feared that the record number of electric vehicles on the push them over the edge. Instead, the opposite happened: EVs helped utilities keep the lights on and the AC running by feeding the electricity stored in their batteries back into the grid.",
       "author": "Jo Borrás",
       "date": "2026-07-05",
       "readTime": "2 min",
@@ -280,7 +395,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 39,
       "url": "https://electrek.co/2026/07/05/the-grid-was-melting-down-in-last-weeks-heat-until-evs-came-to-the-rescue/",
       "image": "/images/feed/feed-36403302f396.jpg",
       "source": "Electrek",
@@ -299,49 +414,10 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 45,
       "url": "https://cleantechnica.com/2026/07/05/upgrade-your-ride-quality-best-interior-exterior-car-mods-you-should-add/",
       "image": "/images/feed/feed-ecd0ae3026ae.jpg",
       "source": "CleanTechnica",
-      "isLive": true
-    },
-    {
-      "id": "feed-a69efda07995",
-      "title": "Crimson Desert's latest update makes it worth it to play as Damiane and Oongka",
-      "excerpt": "Damiane and Oongka can now access the Abyss and equip more outfits following Pearl Abyss' latest update for Crimson Desert",
-      "body": "Pearl Abyss' latest update for Crimson Desert follows through on a promise to make Damiane and Oongka more interesting to play as. Both characters now have access to many more outfits and can enter the Abyss.",
-      "author": "Tomas Franzese",
-      "date": "2026-07-05",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 46,
-      "url": "https://www.polygon.com/crimson-desert-damiane-oongka-update/",
-      "image": "/images/feed/feed-a69efda07995.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-1e698bdc13f2",
-      "title": "Hideo Kojima Finds It Really Sad That Sony Is Killing PlayStation Game Discs",
-      "excerpt": "The Death Stranding 2 director warns about a world without physical media",
-      "body": "The Death Stranding 2 director warns about a world without physical media\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Playstation, Game. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Ethan Gach",
-      "date": "2026-07-05",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Playstation",
-        "Game"
-      ],
-      "featured": false,
-      "xpReward": 52,
-      "url": "https://kotaku.com/hideo-kojima-finds-it-really-sad-that-sony-is-killing-playstation-game-discs-2000712659",
-      "image": "/images/feed/feed-1e698bdc13f2.jpg",
-      "source": "Kotaku",
       "isLive": true
     },
     {
@@ -357,48 +433,10 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 44,
       "url": "https://www.bleepingcomputer.com/news/security/flipper-zero-firmware-development-continues-with-community-help/",
       "image": "/images/feed/feed-c53cdb933007.jpg",
       "source": "BleepingComputer",
-      "isLive": true
-    },
-    {
-      "id": "feed-17bf1bdfb590",
-      "title": "Halo remake will be on physical disc 'so that you have tangible items to add to your collection'",
-      "excerpt": "Halo Studios defied PlayStation and Grand Theft Auto 6 with its latest reveal for Halo: Campaign Evolved",
-      "body": "Following concerning announcements about physical releases from PlayStation and Rockstar Games, Halo Studios has confirmed that Halo: Campaign Evolved will get a physical release on a disc when it launches later this month.",
-      "author": "Tomas Franzese",
-      "date": "2026-07-05",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 32,
-      "url": "https://www.polygon.com/halo-campaign-evolved-physical-disc-confirmation/",
-      "image": "/images/feed/feed-17bf1bdfb590.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-60b3c84b2868",
-      "title": "Expedition 33 and the Last of Us 2 have one thing in common most games lack",
-      "excerpt": "The best video game stories have a clear vision and purpose, like The Last of Us 2, instead of trying to be something for everybody",
-      "body": "The best video game stories have a clear vision and purpose, like The Last of Us 2, instead of trying to be something for everybody\n\nThis report, published by Polygon, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Polygon using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Josh Broadwell",
-      "date": "2026-07-05",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 51,
-      "url": "https://www.polygon.com/we-need-more-games-like-the-last-of-us-2/",
-      "image": "/images/feed/feed-60b3c84b2868.jpg",
-      "source": "Polygon",
       "isLive": true
     },
     {
@@ -414,29 +452,10 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 48,
       "url": "https://www.space.com/space-exploration/nasa-tests-advanced-new-mars-rover-prototype-in-the-california-desert-video",
       "image": "/images/feed/feed-de67c1bb9ff9.jpg",
       "source": "Space.com",
-      "isLive": true
-    },
-    {
-      "id": "feed-00f08b00c8f9",
-      "title": "GTA 6 reviews plan could throw GOTY race into chaos at The Game Awards",
-      "excerpt": "If Rockstar doesn't distribute review code for Grand Theft Auto 6, few if any jury members will play it in time for The Game Awards nominations",
-      "body": "Last year, I noted that Grand Theft Auto 6 's Nov. 19 release date, immediately before The Game Awards' eligibility cutoff, had the potential to throw the 2026 Awards into chaos. It's late enough to potentially play havoc with the TGA jury's usual nomination deadlines.",
-      "author": "Oli Welsh",
-      "date": "2026-07-05",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Game"
-      ],
-      "featured": false,
-      "xpReward": 30,
-      "url": "https://www.polygon.com/goty-watch-gta-6-reviews-the-game-awards/",
-      "image": "/images/feed/feed-00f08b00c8f9.jpg",
-      "source": "Polygon",
       "isLive": true
     },
     {
@@ -452,10 +471,29 @@
         "Smartphone"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 47,
       "url": "https://www.engadget.com/2206707/these-popular-smartphones-are-in-their-last-year-of-software-support/",
       "image": "/images/feed/feed-5fac7268b07d.jpg",
       "source": "Engadget",
+      "isLive": true
+    },
+    {
+      "id": "feed-f46ed349f4a3",
+      "title": "Hurricanes, heat domes, and holding up the grid with home batteries [update]",
+      "excerpt": "It’s been a year since this piece on home batteries becoming one of the most important tools we have for keeping the lights on during hurricanes, heat waves, and other extreme weather events was publi…",
+      "body": "It’s been a year since this piece on home batteries becoming one of the most important tools we have for keeping the lights on during hurricanes, heat waves, and other extreme weather events was published. Since then, the case for VPPs has only gotten stronger , with more utilities than ever putting big money behind distributed batteries and virtual power plants to keep the grid stable during periods of record energy demands.",
+      "author": "Jo Borrás",
+      "date": "2026-07-05",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Cars"
+      ],
+      "featured": false,
+      "xpReward": 37,
+      "url": "https://electrek.co/2026/07/05/hurricanes-heat-domes-and-holding-up-the-grid-with-home-batteries/",
+      "image": "/images/feed/feed-f46ed349f4a3.jpg",
+      "source": "Electrek",
       "isLive": true
     },
     {
@@ -471,7 +509,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 49,
       "url": "https://www.cnet.com/tech/mobile/the-weirdest-phones-ive-tested-in-14-years/",
       "image": "/images/feed/feed-5e7e6ce78884.jpg",
       "source": "CNET",
@@ -490,7 +528,7 @@
         "Galaxy S"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 31,
       "url": "https://www.androidauthority.com/galaxy-s26-ultra-user-what-i-want-from-s27-ultra-3683177/",
       "image": "/images/feed/feed-81a3c6367f52.jpg",
       "source": "Android Authority",
@@ -509,7 +547,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 51,
       "url": "https://www.space.com/entertainment/space-movies-shows/he-man-and-beyond-20-sci-fi-cartoons-some-iconic-some-weird-that-transported-80s-and-90s-kids-to-strange-new-worlds",
       "image": "/images/feed/feed-a29e61c1ec34.jpg",
       "source": "Space.com",
@@ -528,7 +566,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 37,
       "url": "https://www.androidauthority.com/sideload-apps-android-auto-hidden-feature-3681820/",
       "image": "/images/feed/feed-b841d09646c6.jpg",
       "source": "Android Authority",
@@ -547,7 +585,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 42,
       "url": "https://www.androidauthority.com/notesnook-open-source-notes-app-hands-on-3682208/",
       "image": "/images/feed/feed-82f578c1dc4b.jpg",
       "source": "Android Authority",
@@ -566,7 +604,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 52,
       "url": "https://www.androidauthority.com/android-sites-help-unbrick-google-pixel-how-3681441/",
       "image": "/images/feed/feed-4e918c0aa6c5.jpg",
       "source": "Android Authority",
@@ -585,67 +623,10 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 44,
       "url": "https://www.space.com/stargazing/solar-eclipses/10-best-spanish-cities-to-see-the-total-solar-eclipse-2026",
       "image": "/images/feed/feed-524ae4989a3b.jpg",
       "source": "Space.com",
-      "isLive": true
-    },
-    {
-      "id": "feed-6371e36537e6",
-      "title": "Claude Design System Prompt",
-      "excerpt": "",
-      "body": "This report, published by Hacker News, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Claude. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Hacker News using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "handfuloflight",
-      "date": "2026-07-05",
-      "readTime": "2 min",
-      "section": "ai",
-      "tags": [
-        "Claude"
-      ],
-      "featured": false,
-      "xpReward": 30,
-      "url": "https://github.com/Trystan-SA/claude-design-system-prompt",
-      "image": "/images/feed/feed-6371e36537e6.png",
-      "source": "Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-7949c0249a0c",
-      "title": "Happy Birthday, America! Hope You Find Your Way Back.",
-      "excerpt": "Happy Birthday, America! I cannot take America away from my life. My eldest son lives there. My sister is married to a Rolling Stones loving guy, who believes I am “awesome.” I need to visit my favori…",
-      "body": "Happy Birthday, America! I cannot take America away from my life. My eldest son lives there. My sister is married to a Rolling Stones loving guy, who believes I am &#8220;awesome.&#8221; I need to visit my favorite uncle annually. My aunt who gave me my first chemistry set, which started ... [continued] The post Happy Birthday, America! Hope You Find Your Way Back. appeared first on CleanTechnica .",
-      "author": "Raymond Tribdino",
-      "date": "2026-07-05",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Cars"
-      ],
-      "featured": false,
-      "xpReward": 35,
-      "url": "https://cleantechnica.com/2026/07/04/happy-birthday-america-hope-you-find-your-way-back/",
-      "image": "/images/feed/feed-7949c0249a0c.png",
-      "source": "CleanTechnica",
-      "isLive": true
-    },
-    {
-      "id": "feed-8b3de9907969",
-      "title": "Electric School Buses Put Batteries To Work To Stabilize Grids",
-      "excerpt": "Electric school bus batteries are the perfect candidates for vehicle to grid technology to help stabilize the grid. The post Electric School Buses Put Batteries To Work To Stabilize Grids appeared fir…",
-      "body": "Electric school bus batteries are the perfect candidates for vehicle to grid technology to help stabilize the grid. The post Electric School Buses Put Batteries To Work To Stabilize Grids appeared fir — a development drawing significant attention in the electric vehicles, hybrids, and automotive technology space.\n\nThis report, published by CleanTechnica, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cars. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to CleanTechnica using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Steve Hanley",
-      "date": "2026-07-05",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Cars"
-      ],
-      "featured": false,
-      "xpReward": 39,
-      "url": "https://cleantechnica.com/2026/07/04/electric-school-buses-put-batteries-to-work-to-stabilize-grids/",
-      "image": "/images/feed/feed-8b3de9907969.jpg",
-      "source": "CleanTechnica",
       "isLive": true
     },
     {
@@ -661,7 +642,7 @@
         "Gpt"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 51,
       "url": "https://github.com/openai/codex/issues/30364",
       "image": "/images/feed/feed-7887c5805612.png",
       "source": "Hacker News",
@@ -680,7 +661,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 31,
       "url": "https://www.theverge.com/science/961459/nasa-emergency-save-swift-observatory-katalyst-space-technologies",
       "image": "/images/feed/feed-b349f88a9f88.jpg",
       "source": "The Verge",
@@ -699,7 +680,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 43,
       "url": "https://www.space.com/space-exploration/america-250-from-1776-to-the-moon-and-beyond-a-space-com-series",
       "image": "/images/feed/feed-54d70e405c56.png",
       "source": "Space.com",
@@ -719,7 +700,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 50,
       "url": "https://www.eso.org/public/news/eso2607/",
       "image": "/images/feed/feed-7bd5b5baf3cf.jpg",
       "source": "Hacker News",
@@ -738,7 +719,7 @@
         "Claude"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 51,
       "url": "https://techcrunch.com/2026/07/04/alibaba-reportedly-bans-employees-from-using-claude-code/",
       "image": "/images/feed/feed-ffdf2d6e4cd4.jpg",
       "source": "TechCrunch",
@@ -757,7 +738,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 43,
       "url": "https://techcrunch.com/2026/07/04/what-is-mistral-ai-everything-to-know-about-the-openai-competitor/",
       "image": "/images/feed/feed-a00e4ef27862.jpg",
       "source": "TechCrunch",
@@ -776,7 +757,7 @@
         "Ransomware"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 51,
       "url": "https://www.bleepingcomputer.com/news/security/jadepuffer-ransomware-used-ai-agent-to-automate-entire-attack/",
       "image": "/images/feed/feed-0a4428d5fdfd.jpg",
       "source": "BleepingComputer",
@@ -795,7 +776,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 33,
       "url": "https://thehackernews.com/2026/07/us-government-entity-paid-kairos-group.html",
       "image": "/images/feed/feed-da3100ccc13c.jpg",
       "source": "The Hacker News",
@@ -814,7 +795,7 @@
         "Hacker"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 42,
       "url": "https://thehackernews.com/2026/07/north-korean-hackers-publish-108.html",
       "image": "/images/feed/feed-4475c81b7436.jpg",
       "source": "The Hacker News",
@@ -833,7 +814,7 @@
         "Security"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 45,
       "url": "https://www.wired.com/story/security-roundup-apples-hide-my-email-service-fails-to-hide-your-email/",
       "image": "/images/feed/feed-cdc4da452087.jpg",
       "source": "Wired",
@@ -852,7 +833,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 31,
       "url": "https://thehackernews.com/2026/07/unpatched-flaws-disclosed-in-filesystem.html",
       "image": "/images/feed/feed-05bf5e79981f.jpg",
       "source": "The Hacker News",
@@ -871,7 +852,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 36,
       "url": "https://thehackernews.com/2026/07/new-bad-epoll-linux-kernel-flaw-lets.html",
       "image": "/images/feed/feed-d8e23367fb10.jpg",
       "source": "The Hacker News",
@@ -890,7 +871,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 47,
       "url": "https://www.zdnet.com/article/anthropic-fable-5-freelance-work-performance-record/",
       "image": "/images/feed/feed-d8952c03ce5a.jpg",
       "source": "ZDNet",
@@ -910,7 +891,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 33,
       "url": "https://www.wired.com/story/can-cursor-remain-an-open-platform-inside-of-spacex/",
       "image": "/images/feed/feed-abe11bc28287.jpg",
       "source": "Wired",
@@ -929,24 +910,43 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 46,
       "url": "https://www.technologyreview.com/2026/07/02/1138433/teaching-ai-to-run-with-the-turbines/",
       "image": "/images/feed/feed-76da70e4f32f.png",
       "source": "MIT Tech Review",
       "isLive": true
+    },
+    {
+      "id": "feed-1f96c5e608ff",
+      "title": "The latest AI news we announced in June 2026",
+      "excerpt": "Here are Google’s latest AI updates from June 2026.",
+      "body": "Here are Google’s latest AI updates from June 2026.\n\nThis report, published by Google AI Blog, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Ai. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Google AI Blog using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Google AI Blog",
+      "date": "2026-07-01",
+      "readTime": "2 min",
+      "section": "ai",
+      "tags": [
+        "Ai"
+      ],
+      "featured": false,
+      "xpReward": 48,
+      "url": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-june-2026/",
+      "image": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/260701_ICYMI-June-AI_Thumb.max-600x600.format-webp.webp",
+      "source": "Google AI Blog",
+      "isLive": true
     }
   ],
   "breakingNews": [
-    "DEV.TO: The Helm Chart Is a Platform Contract — Not a Template",
-    "DEV.TO: Enterprise LLM Engineering Guide: Architecture To Interview Mastery",
-    "DEV.TO: I Built a Coding Agent With the Manual Tool-Use Loop. Here's What It Taught Me",
-    "ELECTREK: Hurricanes, heat domes, and holding up the grid with home batteries [update]",
-    "DEV.TO: The Less I Type, the Better the Output: A Context Framework I Had Claude Design for AI Coding",
-    "DEV.TO: I Tested China's Top 4 AI Models for My Side Hustle — Here's What Won",
-    "SPACENEWS: Airbus to build Aeolus-2 wind-monitoring satellite",
-    "DEV.TO: # Building a Multi-Agent A2A Architecture on Snowflake and Microsoft Fabric — Without Replacing Either",
-    "DEV.TO: [In preview] Public Preview: Azure Migrate – GitHub Copilot Modernization integration for at scale code assessments",
-    "KOTAKU: Cyberpunk: Edgerunners Returns With A Season 2 Premier That’s Way More Martin Scorsese Than Michael Bay"
+    "DEV.TO: We shipped faster. The debt did too.",
+    "DEV.TO: Your Kubernetes Controller Is Silently Dead and Nobody Knows",
+    "DEV.TO: Why We Built a Browser-Based File Converter Instead of Another Cloud Service",
+    "DEV.TO: Building a Personal Learning Path Agent in typescript with HazelJS",
+    "DEV.TO: Stop Guessing: Real Numbers on Enterprise vs Startup AI API Costs",
+    "DEV.TO: RL Time Constant: The Coil Delay and Back-EMF Calculation Engineers Underestimate",
+    "DEV.TO: Day 98 of Learning MERN Stack",
+    "KOTAKU: How Sonic Mania Saved Sega’s Blue Hedgehog And The Series",
+    "POLYGON: Ocarina of Time's most underrated character deserves more appreciation",
+    "THE VERGE: Where to preorder Grand Theft Auto VI"
   ],
   "sectionVideos": {}
 }
