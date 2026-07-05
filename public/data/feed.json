@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-07-05T05:22:37.071Z",
+  "fetchedAt": "2026-07-05T07:09:37.558Z",
   "articles": [
     {
-      "id": "feed-49b0e01bf815",
-      "title": "How to Validate a GTIN / EAN-13 Barcode Check Digit (GS1 Mod-10, explained)",
-      "excerpt": "If you have ever uploaded a product feed to Amazon, Google Merchant Center or Shopify and been rejected with \"invalid GTIN,\" the culprit is almost always the check digit — the last digit of the barcod…",
-      "body": "If you have ever uploaded a product feed to Amazon, Google Merchant Center or Shopify and been rejected with \"invalid GTIN,\" the culprit is almost always the check digit — the last digit of the barcode. It is not random: it is calculated from all the other digits, and if it does not match, the platform rejects the code. Here is exactly how the check digit works, with a worked example you can follow by hand. What is a GTIN check digit? GTIN (Global Trade Item Number) is the umbrella term for the barcodes on products: GTIN-8, UPC-A (12 digits), EAN-13 (13 digits) and GTIN-14 . The final digit of every one of them is a check digit computed with the GS1 Mod-10 algorithm. Its job is to catch typos: change one digit and the check digit almost always stops matching.",
-      "author": "rosario vitale",
+      "id": "feed-23ef2a615923",
+      "title": "Query one Apache Iceberg table from Trino, Spark, and DuckDB",
+      "excerpt": "Query one Apache Iceberg table from Trino, Spark, and DuckDB Iceberg is useful because it lets multiple engines read the same table without copying data into engine-specific storage. The table stays i…",
+      "body": "Query one Apache Iceberg table from Trino, Spark, and DuckDB Iceberg is useful because it lets multiple engines read the same table without copying data into engine-specific storage. The table stays in object storage. The engines differ only in how they reach the metadata. That is the part most posts skip. They explain Trino, Spark, or DuckDB in isolation, then leave you to infer how the same table behaves across all three. If you are working on a real lakehouse, that missing comparison is the whole problem. The short version: Trino usually reads Iceberg through a catalog. Spark reads Iceberg through a catalog plus Spark Iceberg extensions. DuckDB can read a single Iceberg table directly from metadata, or attach a REST catalog when you need more than read-only inspection.",
+      "author": "Databasin AI",
       "date": "2026-07-05",
       "readTime": "2 min",
       "section": "software",
@@ -14,56 +14,75 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 49,
-      "url": "https://dev.to/rosariov25/how-to-validate-a-gtin-ean-13-barcode-check-digit-gs1-mod-10-explained-5boh",
-      "image": "/images/feed/feed-49b0e01bf815.webp",
+      "xpReward": 36,
+      "url": "https://dev.to/databasin/query-one-apache-iceberg-table-from-trino-spark-and-duckdb-5c1k",
+      "image": "/images/feed/feed-23ef2a615923.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-d2147b35b6c8",
-      "title": "Binary chunk trees cut RAG latency",
-      "excerpt": "Binary chunking trees boost information efficiency by roughly 6 percent while delivering relevance on par with conventional RAG pipelines. The improvement comes without any extra LLM inference at retr…",
-      "body": "Binary chunking trees boost information efficiency by roughly 6 percent while delivering relevance on par with conventional RAG pipelines. The improvement comes without any extra LLM inference at retrieval time, making it a pure systems win [1] . Before SproutRAG, most long‑document retrievers leaned on external LLMs for chunking, fixed‑size context expansion, or hierarchical summarization, each adding latency or discarding signal.",
-      "author": "Papers Mache",
+      "id": "feed-2335369f2121",
+      "title": "Why v7 UUIDs beat v4 for database keys (and how to hand-roll both)",
+      "excerpt": "I build one small browser tool a day and write down what I learned. Day 25 was a UUID generator. What started as \"make some random IDs\" turned into a proper look at how the bits are laid out, and why…",
+      "body": "I build one small browser tool a day and write down what I learned. Day 25 was a UUID generator. What started as \"make some random IDs\" turned into a proper look at how the bits are laid out, and why the newer v7 format is quietly the better default for a primary key. Live tool: https://dev48v.infy.uk/solve/day25-uuid.html A UUID is just 16 bytes with a few fixed bits A UUID is a 128-bit number, written as 32 hex digits grouped 8-4-4-4-12 . That is about 3.4x10^38 possible values, which is the whole point: any machine can pick one and trust it will not clash with any other UUID minted anywhere, ever. It carries no meaning — it is an identifier, not data. The reason UUIDs exist at all is coordination. The classic database ID is 1, 2, 3...",
+      "author": "Devanshu Biswas",
       "date": "2026-07-05",
       "readTime": "2 min",
       "section": "software",
       "tags": [
-        "Software"
+        "Database"
+      ],
+      "featured": true,
+      "xpReward": 38,
+      "url": "https://dev.to/dev48v/why-v7-uuids-beat-v4-for-database-keys-and-how-to-hand-roll-both-3h4b",
+      "image": "/images/feed/feed-2335369f2121.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-b6e0f1121c19",
+      "title": "How we built KoshurLock Holmes: an AI detective for cyber attacks, and the night it almost broke me",
+      "excerpt": "The problem with a data breach is not finding evidence. It is connecting it. But let me start where I actually was: 4 AM, last day of the hackathon, staring at this in my terminal. RateLimitError: Gro…",
+      "body": "The problem with a data breach is not finding evidence. It is connecting it. But let me start where I actually was: 4 AM, last day of the hackathon, staring at this in my terminal. RateLimitError: GroqException - Rate limit reached for model `llama-3.3-70b-versatile` on tokens per day (TPD): Limit 100000, Used 99787, Requested 1616. Please try again in 20m12s. Used 99,787 out of 100,000. My deployment was half done, my demo graph was empty on the server, and the free tier had 213 tokens left. The submission deadline was hours away. I had not slept. I had not eaten. My friends were asleep and I was swapping API keys like a gambler swapping chips. This post is the story of how we got there, and how it ended at 7 in the morning with the best sigh of relief I have ever taken.",
+      "author": "MEHRAAN AMIN",
+      "date": "2026-07-05",
+      "readTime": "2 min",
+      "section": "cybersecurity",
+      "tags": [
+        "Cyber Attack"
+      ],
+      "featured": true,
+      "xpReward": 34,
+      "url": "https://dev.to/codewithmehru/how-we-built-koshurlock-holmes-an-ai-detective-for-cyber-attacks-and-the-night-it-almost-broke-me-509k",
+      "image": "/images/feed/feed-b6e0f1121c19.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-4016bce7f352",
+      "title": "How to Build an Unblockable AI Agent for Browser Automation with JavaScript, Bright Data, Gemini, and Playwright",
+      "excerpt": "In this full guide, you’ll learn: 📛 Why most AI browser agents fail on modern websites. 🧱 How browser fingerprinting and anti-bot systems work. ⛑️ How to build an AI browser agent using JavaScript (…",
+      "body": "In this full guide, you’ll learn: 📛 Why most AI browser agents fail on modern websites. 🧱 How browser fingerprinting and anti-bot systems work. ⛑️ How to build an AI browser agent using JavaScript (Node.js) that combines Gemini, Playwright , and Bright Data to browse real websites, extract live data, analyze, reason, and generate reports locally without maintaining fragile anti-bot infrastructure ourselves that breaks 5 days later. 🗃️ How to setup Bright Data production-ready browser sessions for AI agent automation without user’s assistance manually. 🪁Introduction Building unrestricted anonymous browser automation has developed far beyond writing Playwright scripts that click buttons and scrape HTML.",
+      "author": "Programming with Shahan",
+      "date": "2026-07-05",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Javascript"
       ],
       "featured": true,
       "xpReward": 37,
-      "url": "https://dev.to/olaughter/binary-chunk-trees-cut-rag-latency-41d9",
-      "image": "/images/feed/feed-d2147b35b6c8.webp",
+      "url": "https://dev.to/codewithshahan/how-to-build-a-production-ready-browser-automation-ai-agent-with-nodejs-bright-data-gemini-and-39ii",
+      "image": "/images/feed/feed-4016bce7f352.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-9cdec5520619",
-      "title": "The HTTP QUERY method (RFC 10008) is here — and caching it correctly is harder than it looks",
-      "excerpt": "HTTP got a new method: QUERY (RFC 10008, June 2026). It's a safe, idempotent, cacheable request that carries a body — \"GET with a body.\" It fixes a decade-old pain: complex reads (search/filter/graph…",
-      "body": "TL;DR HTTP got a new method: QUERY (RFC 10008, June 2026). It's a safe, idempotent, cacheable request that carries a body — \"GET with a body.\" It fixes a decade-old pain: complex reads (search/filter/graph queries) that don't fit in a URL, without abusing POST . The subtle part is caching : the RFC requires the request body to be part of the cache key. Get it wrong and one client gets another client's response. http-queryable is a small library that does this correctly for Express, Fastify, raw http , and the browser. What is the QUERY method? For decades HTTP forced a bad choice for \"reads with a big input\": GET — safe, idempotent, cacheable, but no body . Cram everything into the URL and hit length limits. POST — has a body, but it's unsafe and non-idempotent .",
-      "author": "Hardik Goel",
-      "date": "2026-07-05",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 53,
-      "url": "https://dev.to/hardikgoel/the-http-query-method-rfc-10008-is-here-and-caching-it-correctly-is-harder-than-it-looks-2he6",
-      "image": "/images/feed/feed-9cdec5520619.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-7310d09f3eaa",
-      "title": "I built sshpic because local screenshots stop at the SSH boundary",
-      "excerpt": "I often run coding agents inside a remote SSH session from iTerm2 on my Mac. The annoying part was not text input. It was screenshots. The screenshot is on my local Mac clipboard, but the coding agent…",
-      "body": "I often run coding agents inside a remote SSH session from iTerm2 on my Mac. The annoying part was not text input. It was screenshots. The screenshot is on my local Mac clipboard, but the coding agent is running inside a remote SSH terminal. So the normal flow became: screenshot → save file → scp somehow → copy remote path → return to the agent → paste path That felt too slow for a workflow that happens many times a day. I wanted this instead: copy local screenshot → focus remote coding agent in iTerm2 → Cmd+V → remote image path appears So I built sshpic . What sshpic does When you press Cmd+V inside an iTerm2 SSH session: It reads the local Mac clipboard. If the clipboard contains an image, it uploads the image to the remote SSH host.",
-      "author": "sshpic",
+      "id": "feed-3eb892b875c8",
+      "title": "wkhtmltopdf is archived. A straight .NET migration guide (Azure, Windows, and the Linux caveat)",
+      "excerpt": "If your .NET app still calls DinkToPdf, NReco.PdfGenerator, Rotativa, or WkHtmlToXSharp in production, you're shipping a wrapper around a binary that hasn't had a security patch in years — and one of…",
+      "body": "If your .NET app still calls DinkToPdf , NReco.PdfGenerator , Rotativa , or WkHtmlToXSharp in production, you're shipping a wrapper around a binary that hasn't had a security patch in years — and one of its open holes is a CVSS 9.8 . wkhtmltopdf's repository has been frozen and read-only since January 2023 , and the whole project org was archived by mid-2024. Development has stopped; nobody is accepting patches. The underlying QtWebKit engine forked from upstream around 2012 — no modern Flexbox, no Grid, no modern JavaScript, no ICU updates. And CVE-2022-35583 — an SSRF that lets an attacker reach your internal network by injecting an &lt;iframe&gt; pointing at an internal IP — sits at CVSS 9.8, unpatched, and permanently so.",
+      "author": "Florentin Badea",
       "date": "2026-07-05",
       "readTime": "2 min",
       "section": "software",
@@ -72,17 +91,17 @@
       ],
       "featured": true,
       "xpReward": 52,
-      "url": "https://dev.to/sshpic/i-built-sshpic-because-local-screenshots-stop-at-the-ssh-boundary-3oik",
-      "image": "/images/feed/feed-7310d09f3eaa.webp",
+      "url": "https://dev.to/florentin_badea/wkhtmltopdf-is-archived-a-straight-net-migration-guide-azure-windows-and-the-linux-caveat-2lc6",
+      "image": "/images/feed/feed-3eb892b875c8.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-4613b99025fe",
-      "title": "Shadcn/UI now defaults to Base UI instead of Radix",
-      "excerpt": "",
-      "body": "This report, published by Hacker News, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Software. As the situation continues to evolve, professionals and enthusiasts in the software development and engineering field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Hacker News using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "dabinat",
+      "id": "feed-8c71827edb77",
+      "title": "Meet Kalai, an AI coding partner inside VS Code. Read files, run commands, browse docs, and edit code without leaving your workspace. Built for devs who want to stay in flow.\r\nhttps://kalai.culustech.com",
+      "excerpt": "kalai.culustech.com",
+      "body": "kalai.culustech.com\n\nThis report, published by Dev.to, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Software. As the situation continues to evolve, professionals and enthusiasts in the software development and engineering field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Dev.to using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "kalculus ",
       "date": "2026-07-05",
       "readTime": "2 min",
       "section": "software",
@@ -90,37 +109,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 37,
-      "url": "https://ui.shadcn.com/docs/changelog",
-      "image": "/images/feed/feed-4613b99025fe.png",
-      "source": "Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-bf0945f1fc88",
-      "title": "The Subtraction Principle: Building a Meditation App Without Gamification",
-      "excerpt": "The Problem with Mindfulness Apps Last month I downloaded five meditation apps. Within a week, I was juggling three streak counters, two leaderboards, and seven daily notifications. I was more anxious…",
-      "body": "The Problem with Mindfulness Apps Last month I downloaded five meditation apps. Within a week, I was juggling three streak counters, two leaderboards, and seven daily notifications. I was more anxious than before I started. The Business Model Contradiction Meditation apps make money by keeping you engaged. The metric they optimize for is DAU, not your actual wellbeing. But engagement and meditation are fundamentally at odds. What We Removed When building OneZen, we asked: \"What if we removed everything?\" No streaks. Practice is not a chain. No badges. Calm is its own reward. No notifications. We will never ping you. No scores. No leaderboard for inner peace. What remained: one minute, one sound, one breath.",
-      "author": "Sophia",
-      "date": "2026-07-05",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 44,
-      "url": "https://dev.to/sophiacartvutw/the-subtraction-principle-building-a-meditation-app-without-gamification-2aej",
-      "image": "/images/feed/feed-bf0945f1fc88.webp",
+      "xpReward": 36,
+      "url": "https://dev.to/kalculus/meet-kalai-an-ai-coding-partner-inside-vs-code-read-files-run-commands-browse-docs-and-edit-1gkl",
+      "image": "/images/feed/feed-8c71827edb77.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-b4da1e29d5e5",
-      "title": "Operant Conditioning: Rewards, Punishments, and Behavior",
-      "excerpt": "Introduction Why do you check your phone obsessively? Why does your dog sit on command? Why do you study before exams? In each case, your behavior is shaped by consequences rewards and punishments tha…",
-      "body": "Introduction Why do you check your phone obsessively? Why does your dog sit on command? Why do you study before exams? In each case, your behavior is shaped by consequences rewards and punishments that follow your actions. This is operant conditioning: learning through the outcomes of your behavior. Key Concepts Operant Behavior : Behavior that is voluntarily emitted and can be shaped by consequences (unlike the automatic responses in classical conditioning) Reinforcement : Any consequence that increases the likelihood of a behavior being repeated Positive Reinforcement : Adding something desirable after a behavior (praise, money, food) Negative Reinforcement : Removing something undesirable after a behavior (turning off a siren when you buckle up) Punishment : Any consequence that decreas…",
-      "author": "Aditya",
+      "id": "feed-cad1a1c1e9f6",
+      "title": "Why I removed the tier list from my Honor of Kings Global build site",
+      "excerpt": "I have been building a small Honor of Kings Global site called HOKMeta: https://hokmeta.com/heroes/ At first, I built it like many game sites: hero pages, counters, tools, and a tier list. But after w…",
+      "body": "I have been building a small Honor of Kings Global site called HOKMeta: https://hokmeta.com/heroes/ At first, I built it like many game sites: hero pages, counters, tools, and a tier list. But after working on the site for a while, I removed the tier list as a main page. The reason is simple: a tier list looks useful, but it does not always match how players actually choose heroes. A Marco Polo player will still play Marco Polo even if people say he is weak. A Hou Yi player usually does not search for “is Hou Yi S tier?” first. They search for things like: Hou Yi build Hou Yi arcana Hou Yi counter what to build against tanks what to change against assassins best build for ranked That made me rethink the site structure.",
+      "author": "hokmeta",
       "date": "2026-07-05",
       "readTime": "2 min",
       "section": "software",
@@ -128,9 +128,28 @@
         "Software"
       ],
       "featured": false,
-      "xpReward": 34,
-      "url": "https://dev.to/extinctsion/operant-conditioning-rewards-punishments-and-behavior-4n89",
-      "image": "/images/feed/feed-b4da1e29d5e5.webp",
+      "xpReward": 53,
+      "url": "https://dev.to/hokmeta/why-i-removed-the-tier-list-from-my-honor-of-kings-global-build-site-3djh",
+      "image": "/images/feed/feed-cad1a1c1e9f6.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-22839d39626c",
+      "title": "I built NexRAG: a framework-agnostic RAG pipeline SDK.",
+      "excerpt": "Over the past few months, while building RAG applications, I kept noticing the same pattern. Every new project meant rebuilding the same pipeline from scratch: choosing an embedding model selecting a…",
+      "body": "Over the past few months, while building RAG applications, I kept noticing the same pattern. Every new project meant rebuilding the same pipeline from scratch: choosing an embedding model selecting a vector database experimenting with chunking strategies switching between LLMs adding rerankers integrating observability evaluating responses wiring it all together in code The business logic changes across projects, but the underlying RAG architecture is largely the same. Yet every team ends up re-solving it, and optimization always gets pushed to \"later.\" So I built NexRAG — an open-source framework that lets you build production-ready RAG pipelines using simple YAML configuration instead of rewriting orchestration code every time.",
+      "author": "kevinrawal",
+      "date": "2026-07-05",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Framework"
+      ],
+      "featured": false,
+      "xpReward": 48,
+      "url": "https://dev.to/kevinrawal/i-built-nexrag-a-framework-agnostic-rag-pipeline-sdk-4b2j",
+      "image": "/images/feed/feed-22839d39626c.webp",
       "source": "Dev.to",
       "isLive": true
     },
@@ -147,7 +166,7 @@
         "Iphone"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 32,
       "url": "https://9to5mac.com/2026/07/04/iphone-17-pro-max-included-in-america-250-time-capsule/",
       "image": "/images/feed/feed-896db720064f.jpg",
       "source": "9to5Mac",
@@ -166,7 +185,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 42,
       "url": "https://cleantechnica.com/2026/07/04/electric-school-buses-put-batteries-to-work-to-stabilize-grids/",
       "image": "/images/feed/feed-8b3de9907969.jpg",
       "source": "CleanTechnica",
@@ -185,7 +204,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 47,
       "url": "https://www.polygon.com/ghost-in-the-shell-new-anime-vision-anime-expo/",
       "image": "/images/feed/feed-f9ab85c5c234.jpg",
       "source": "Polygon",
@@ -206,7 +225,7 @@
         "Vehicle"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 40,
       "url": "https://cleantechnica.com/2026/07/04/for-the-us-auto-market-what-is-the-next-step-battery-electric-vehicles-or-hybrids/",
       "image": "/images/feed/feed-b72cecca861e.jpg",
       "source": "CleanTechnica",
@@ -225,7 +244,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 46,
       "url": "https://www.ign.com/articles/exclusive-first-details-and-trailer-revealed-for-beyond-borders-vol1-emerge-mode-miku-a-new-ep-featuring-hatsune-miku-singing-with-grimes-slayr-and-more",
       "image": "/images/feed/feed-3a21411e6bfe.png",
       "source": "IGN",
@@ -244,29 +263,10 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 50,
       "url": "https://cleantechnica.com/2026/07/04/why-kg-motors-suspended-reservations-for-its-tiny-mibot-ev/",
       "image": "/images/feed/feed-74164e247c46.png",
       "source": "CleanTechnica",
-      "isLive": true
-    },
-    {
-      "id": "feed-bea6ff745465",
-      "title": "Mapping with In-Memory Layers to Reduce LLM Overload",
-      "excerpt": "",
-      "body": "This report, published by Hacker News, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Llm. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Hacker News using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Buckwheat469",
-      "date": "2026-07-04",
-      "readTime": "2 min",
-      "section": "ai",
-      "tags": [
-        "Llm"
-      ],
-      "featured": false,
-      "xpReward": 43,
-      "url": "https://ridgetext.com/blog/mapbox-llm-composition",
-      "image": "/images/feed/feed-bea6ff745465.jpg",
-      "source": "Hacker News",
       "isLive": true
     },
     {
@@ -282,7 +282,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 45,
       "url": "https://www.polygon.com/how-does-helaena-die-in-house-of-the-dragon-fire-and-blood/",
       "image": "/images/feed/feed-858e70f84290.jpg",
       "source": "Polygon",
@@ -301,7 +301,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 53,
       "url": "https://cleantechnica.com/2026/07/04/heat-drought-fires-disrupt-usas-250th-anniversary-but-we-aint-seen-nothing-yet/",
       "image": "/images/feed/feed-26a40982f457.png",
       "source": "CleanTechnica",
@@ -320,7 +320,7 @@
         "Playstation"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 47,
       "url": "https://kotaku.com/seven-games-to-download-from-playstation-3s-storefront-before-it-closes-2000712600",
       "image": "/images/feed/feed-80a1478561db.jpg",
       "source": "Kotaku",
@@ -339,7 +339,7 @@
         "Gpt"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 35,
       "url": "https://github.com/openai/codex/issues/30364",
       "image": "/images/feed/feed-7887c5805612.png",
       "source": "Hacker News",
@@ -358,7 +358,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 54,
       "url": "https://cleantechnica.com/2026/07/04/the-250th-anniversary-of-the-declaration-of-independence-was-nothing-like-the-bicentennial-celebrations/",
       "image": "/images/feed/feed-3068b34aaef1.jpg",
       "source": "CleanTechnica",
@@ -377,7 +377,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 42,
       "url": "https://www.polygon.com/black-clover-season-2-preview-anime-expo/",
       "image": "/images/feed/feed-a3d2273a77ed.jpg",
       "source": "Polygon",
@@ -396,29 +396,10 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 30,
       "url": "https://www.polygon.com/evil-dead-trilogy-streaming-hbo-max-july-2026/",
       "image": "/images/feed/feed-bb96f9306fe6.jpg",
       "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-17643e5aa2f6",
-      "title": "Protocol Prying: Vulnerability Research in AirDrop and Quick Share",
-      "excerpt": "",
-      "body": "This report, published by Hacker News, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Vulnerability. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Hacker News using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "logickkk1",
-      "date": "2026-07-04",
-      "readTime": "2 min",
-      "section": "cybersecurity",
-      "tags": [
-        "Vulnerability"
-      ],
-      "featured": false,
-      "xpReward": 51,
-      "url": "https://arxiv.org/abs/2606.26967",
-      "image": "/images/feed/feed-17643e5aa2f6.png",
-      "source": "Hacker News",
       "isLive": true
     },
     {
@@ -434,7 +415,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 39,
       "url": "https://www.polygon.com/persona-4-revival-anime-expo/",
       "image": "/images/feed/feed-a675cd98332c.jpg",
       "source": "Polygon",
@@ -453,10 +434,29 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 53,
       "url": "https://www.engadget.com/2207998/vera-c-rubin-observatory-begins-cyborg-cockroaches-nasa-clps-moon-base-missions/",
       "image": "/images/feed/feed-8ed0728a7086.jpg",
       "source": "Engadget",
+      "isLive": true
+    },
+    {
+      "id": "feed-ec14e8ba0b48",
+      "title": "Command and Conquer Generals natively ported to macOS, iPhone, iPad using Fable",
+      "excerpt": "",
+      "body": "This report, published by Hacker News, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Iphone. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Hacker News using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "asronline",
+      "date": "2026-07-04",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Iphone"
+      ],
+      "featured": false,
+      "xpReward": 50,
+      "url": "https://github.com/ammaarreshi/Generals-Mac-iOS-iPad/tree/main",
+      "image": "/images/feed/feed-ec14e8ba0b48.png",
+      "source": "Hacker News",
       "isLive": true
     },
     {
@@ -472,7 +472,7 @@
         "Iphone"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 39,
       "url": "https://9to5mac.com/2026/07/04/indie-app-spotlight-pulsekit-makes-it-easy-to-monitor-all-of-your-key-analytics-on-iphone/",
       "image": "/images/feed/feed-72c2f7084ac7.png",
       "source": "9to5Mac",
@@ -510,7 +510,7 @@
         "Smartwatch"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 36,
       "url": "https://www.engadget.com/2206130/how-smartwatch-use-ai-to-detect-sickness/",
       "image": "/images/feed/feed-46e6f4a8c561.jpg",
       "source": "Engadget",
@@ -529,7 +529,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 45,
       "url": "https://www.space.com/space-exploration/america-250-from-1776-to-the-moon-and-beyond-a-space-com-series",
       "image": "/images/feed/feed-54d70e405c56.png",
       "source": "Space.com",
@@ -548,7 +548,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 52,
       "url": "https://electrek.co/2026/07/04/kalmar-is-building-and-selling-these-massive-electric-reach-stackers-in-china/",
       "image": "/images/feed/feed-2cf3b7c75481.png",
       "source": "Electrek",
@@ -567,7 +567,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 49,
       "url": "https://www.engadget.com/2207974/tesla-expands-robotaxi-service-to-small-section-of-miami/",
       "image": "/images/feed/feed-d1f50de955cf.jpg",
       "source": "Engadget",
@@ -586,7 +586,7 @@
         "Claude"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 39,
       "url": "https://techcrunch.com/2026/07/04/alibaba-reportedly-bans-employees-from-using-claude-code/",
       "image": "/images/feed/feed-ffdf2d6e4cd4.jpg",
       "source": "TechCrunch",
@@ -605,7 +605,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 53,
       "url": "https://www.space.com/entertainment/space-movies-shows/this-week-in-space-podcast-episode-217-america-in-space",
       "image": "/images/feed/feed-13b7ff5ac991.jpg",
       "source": "Space.com",
@@ -624,29 +624,10 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 52,
       "url": "https://www.engadget.com/2207959/nasa-boost-mission-rescue-falling-swift-observatory-launched/",
       "image": "/images/feed/feed-b08b2e31b0f5.jpg",
       "source": "Engadget",
-      "isLive": true
-    },
-    {
-      "id": "feed-d3ec816a25b7",
-      "title": "Apple @ Work: As Apple grows in the enterprise, these are the kind of update bugs it has to squash immediately",
-      "excerpt": "Apple @ Work is exclusively brought to you by Mosyle, the only Apple Unified Platform. Mosyle is the only solution that integrates in a single professional grade platform all the solutions necessary t…",
-      "body": "Apple @ Work is exclusively brought to you by Mosyle , the only Apple Unified Platform. Mosyle is the only solution that integrates in a single professional grade platform all the solutions necessary to seamlessly and automatically deploy, manage, and protect Apple devices at work. Over 45,000 organizations trust Mosyle to make millions of Apple devices work ready with no effort and at an affordable cost. Request your EXTENDED TRIAL today and understand why Mosyle is everything you need to work with Apple . Apple has had incredible success in the corporate world over the last decade. With Apple Business and modern device management tools, Macs are easier to deploy and manage than ever before.",
-      "author": "Bradley C",
-      "date": "2026-07-04",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 45,
-      "url": "https://9to5mac.com/2026/07/04/apple-work-as-apple-grows-in-the-enterprise-these-are-the-kind-of-update-bugs-it-has-to-squash-immediately/",
-      "image": "/images/feed/feed-d3ec816a25b7.jpg",
-      "source": "9to5Mac",
       "isLive": true
     },
     {
@@ -662,7 +643,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 52,
       "url": "https://techcrunch.com/2026/07/04/what-is-mistral-ai-everything-to-know-about-the-openai-competitor/",
       "image": "/images/feed/feed-a00e4ef27862.jpg",
       "source": "TechCrunch",
@@ -681,7 +662,7 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 50,
       "url": "https://cleantechnica.com/2026/07/04/byd-beats-tesla-again/",
       "image": "/images/feed/feed-731d263afd46.png",
       "source": "CleanTechnica",
@@ -700,7 +681,7 @@
         "Ransomware"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 52,
       "url": "https://www.bleepingcomputer.com/news/security/jadepuffer-ransomware-used-ai-agent-to-automate-entire-attack/",
       "image": "/images/feed/feed-0a4428d5fdfd.jpg",
       "source": "BleepingComputer",
@@ -719,7 +700,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 36,
       "url": "https://www.space.com/astronomy/moon/human-flight-was-still-7-years-away-in-1776-now-were-headed-back-to-the-moon",
       "image": "/images/feed/feed-164daf9dc661.jpg",
       "source": "Space.com",
@@ -738,7 +719,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 40,
       "url": "https://thehackernews.com/2026/07/us-government-entity-paid-kairos-group.html",
       "image": "/images/feed/feed-da3100ccc13c.jpg",
       "source": "The Hacker News",
@@ -757,7 +738,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 48,
       "url": "https://www.space.com/stargazing/what-did-the-night-sky-look-like-on-the-1st-independence-day-250-years-ago",
       "image": "/images/feed/feed-c262246da19d.jpg",
       "source": "Space.com",
@@ -776,10 +757,29 @@
         "Hacker"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 41,
       "url": "https://thehackernews.com/2026/07/north-korean-hackers-publish-108.html",
       "image": "/images/feed/feed-4475c81b7436.jpg",
       "source": "The Hacker News",
+      "isLive": true
+    },
+    {
+      "id": "feed-3e99fc8fbb40",
+      "title": "NASA’s Hubble Spies Stellar Sparkler for July 4th",
+      "excerpt": "Red, white, and blue stars glitter like a sparkler being waved on a dark night in this new image from NASA’s Hubble Space Telescope.",
+      "body": "Explore Hubble Hubble Home Overview About Hubble The History of Hubble Hubble Timeline Why Have a Telescope in Space? Hubble by the Numbers At the Museum FAQs Impact &#038; Benefits Hubble’s Impact &#038; Benefits Science Impacts Cultural Impact Technology Benefits Impact on Human Spaceflight Astro Community Impacts Science Hubble Science Science Themes Science Highlights Science Behind Discoveries Universe Uncovered Hubble’s Partners in Science Hubble &#038; Citizen Science AI &#038; Hubble Science Explore the Night Sky Observatory Hubble Observatory Hubble Design Mission Operations Science Operations Astronaut Missions to Hubble Hubble vs Webb Team Hubble Team Career Aspirations Hubble Astronauts Multimedia Images Videos Online Activities e-Books Sonifications Podcasts 3D Hubble Models L…",
+      "author": "NASA Breaking News",
+      "date": "2026-07-04",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Nasa"
+      ],
+      "featured": false,
+      "xpReward": 51,
+      "url": "https://science.nasa.gov/missions/hubble/nasas-hubble-spies-stellar-sparkler-for-july-4th/",
+      "image": "/images/feed/feed-3e99fc8fbb40.jpg",
+      "source": "NASA Breaking News",
       "isLive": true
     },
     {
@@ -795,30 +795,10 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 46,
       "url": "https://www.space.com/entertainment/space-movies-shows/30-years-on-independence-day-still-proves-the-versatility-of-the-original-the-war-of-the-worlds",
       "image": "/images/feed/feed-25db6e150f25.jpg",
       "source": "Space.com",
-      "isLive": true
-    },
-    {
-      "id": "feed-0e746aaf9e1b",
-      "title": "Where NASA Posts Its Best Space Photos, and How to Find Them",
-      "excerpt": "Explore decades of incredible images and videos of stars, planets, moons, and galaxies—most of which are free to use and share.",
-      "body": "Explore decades of incredible images and videos of stars, planets, moons, and galaxies—most of which are free to use and share.\n\nThis report, published by Wired, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Nasa, Space. As the situation continues to evolve, professionals and enthusiasts in the space exploration and astronomy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Wired using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "David Nield",
-      "date": "2026-07-04",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Nasa",
-        "Space"
-      ],
-      "featured": false,
-      "xpReward": 43,
-      "url": "https://www.wired.com/story/where-nasa-posts-its-best-space-photos/",
-      "image": "/images/feed/feed-0e746aaf9e1b.jpg",
-      "source": "Wired",
       "isLive": true
     },
     {
@@ -834,7 +814,7 @@
         "Security"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 39,
       "url": "https://www.wired.com/story/security-roundup-apples-hide-my-email-service-fails-to-hide-your-email/",
       "image": "/images/feed/feed-cdc4da452087.jpg",
       "source": "Wired",
@@ -853,7 +833,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 51,
       "url": "https://thehackernews.com/2026/07/unpatched-flaws-disclosed-in-filesystem.html",
       "image": "/images/feed/feed-05bf5e79981f.jpg",
       "source": "The Hacker News",
@@ -872,7 +852,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 31,
       "url": "https://thehackernews.com/2026/07/new-bad-epoll-linux-kernel-flaw-lets.html",
       "image": "/images/feed/feed-d8e23367fb10.jpg",
       "source": "The Hacker News",
@@ -891,7 +871,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 53,
       "url": "https://www.zdnet.com/article/anthropic-fable-5-freelance-work-performance-record/",
       "image": "/images/feed/feed-d8952c03ce5a.jpg",
       "source": "ZDNet",
@@ -910,7 +890,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 52,
       "url": "https://techcrunch.com/2026/07/02/anthropic-is-discussing-a-new-custom-chip-with-samsung/",
       "image": "/images/feed/feed-bb53a1477cfb.jpg",
       "source": "TechCrunch",
@@ -930,24 +910,43 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 37,
       "url": "https://www.wired.com/story/can-cursor-remain-an-open-platform-inside-of-spacex/",
       "image": "/images/feed/feed-abe11bc28287.jpg",
       "source": "Wired",
       "isLive": true
+    },
+    {
+      "id": "feed-76da70e4f32f",
+      "title": "Teaching AI to run with the turbines",
+      "excerpt": "Artificial intelligence may have captured the public imagination through chatbots and image generators, but some of its most consequential use cases are unfolding far from consumer-facing tools. In in…",
+      "body": "Artificial intelligence may have captured the public imagination through chatbots and image generators, but some of its most consequential use cases are unfolding far from consumer-facing tools. In industries where physical infrastructure, operational continuity, and safety are paramount, AI is becoming a core operating layer. With its sprawling industrial systems and constant stream of operational data, the energy sector offers a glimpse into what that future could look like. At Woodside Energy, AI adoption did not begin with generative models or enterprise copilots. The company has spent years building predictive analytics, optimization systems, and machine learning tools across exploration, drilling, maintenance, and plant operations.",
+      "author": "MIT Technology Review Insights",
+      "date": "2026-07-02",
+      "readTime": "2 min",
+      "section": "ai",
+      "tags": [
+        "Ai"
+      ],
+      "featured": false,
+      "xpReward": 53,
+      "url": "https://www.technologyreview.com/2026/07/02/1138433/teaching-ai-to-run-with-the-turbines/",
+      "image": "/images/feed/feed-76da70e4f32f.png",
+      "source": "MIT Tech Review",
+      "isLive": true
     }
   ],
   "breakingNews": [
-    "DEV.TO: How to Validate a GTIN / EAN-13 Barcode Check Digit (GS1 Mod-10, explained)",
-    "DEV.TO: Binary chunk trees cut RAG latency",
-    "DEV.TO: The HTTP QUERY method (RFC 10008) is here — and caching it correctly is harder than it looks",
-    "DEV.TO: I built sshpic because local screenshots stop at the SSH boundary",
-    "HACKER NEWS: Shadcn/UI now defaults to Base UI instead of Radix",
-    "DEV.TO: The Subtraction Principle: Building a Meditation App Without Gamification",
-    "DEV.TO: Operant Conditioning: Rewards, Punishments, and Behavior",
+    "DEV.TO: Query one Apache Iceberg table from Trino, Spark, and DuckDB",
+    "DEV.TO: Why v7 UUIDs beat v4 for database keys (and how to hand-roll both)",
+    "DEV.TO: How we built KoshurLock Holmes: an AI detective for cyber attacks, and the night it almost broke me",
+    "DEV.TO: How to Build an Unblockable AI Agent for Browser Automation with JavaScript, Bright Data, Gemini, and Playwright",
+    "DEV.TO: wkhtmltopdf is archived. A straight .NET migration guide (Azure, Windows, and the Linux caveat)",
+    "DEV.TO: Meet Kalai, an AI coding partner inside VS Code. Read files, run commands, browse docs, and edit code without leaving your workspace. Built for devs who want to stay in flow.\r\nhttps://kalai.culustech.com",
+    "DEV.TO: Why I removed the tier list from my Honor of Kings Global build site",
+    "DEV.TO: I built NexRAG: a framework-agnostic RAG pipeline SDK.",
     "9TO5MAC: iPhone 17 Pro Max buried in America’s 250th anniversary time capsule: to be opened in 2276",
-    "CLEANTECHNICA: Electric School Buses Put Batteries To Work To Stabilize Grids",
-    "POLYGON: The Ghost in the Shell is a true love letter to cyberpunk anime fans"
+    "CLEANTECHNICA: Electric School Buses Put Batteries To Work To Stabilize Grids"
   ],
   "sectionVideos": {}
 }
