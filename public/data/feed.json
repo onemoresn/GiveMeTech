@@ -1,12 +1,31 @@
 {
-  "fetchedAt": "2026-07-07T17:42:01.403Z",
+  "fetchedAt": "2026-07-07T18:44:25.544Z",
   "articles": [
     {
-      "id": "feed-6f8b9ad15a58",
-      "title": "A Practical QA Reading List for Modern Browser and AI Testing",
-      "excerpt": "Browser testing has quietly become more complicated. A few years ago, most teams were mainly worried about selectors, waits, flaky CI machines, and whether the test could log in reliably. Those proble…",
-      "body": "Browser testing has quietly become more complicated. A few years ago, most teams were mainly worried about selectors, waits, flaky CI machines, and whether the test could log in reliably. Those problems still exist, but they now sit next to newer ones: AI-assisted interfaces, streaming UI states, accessibility regressions, blue-green deploys, warm browser caches, model switches, prompt presets, third-party widgets, and test repair systems that can “fix” the wrong thing if nobody is watching closely. I’ve been collecting useful testing articles around these patterns, especially for teams that are trying to keep release speed high without turning the test suite into a noisy black box. Here are the ones I’d read.",
-      "author": "Simon Gerber",
+      "id": "feed-48d6b6cdd10c",
+      "title": "Google throws Voice a lifeline with addition of two new personal paid tiers",
+      "excerpt": "Voice quietly added two new personal paid plans — and nobody noticed.",
+      "body": "TL;DR Google Voice has added two new personal plan options. Voice Starter offers access to support and extra features for $10 a month. Voice Standard adds Gemini tools to what you get with Starter for $20 a month. Google Voice is easily one of the company’s most overlooked services. Updates are few and far between, it desperately needs to be modernized with RCS support , and it’s long felt like Google could be about to kill it off at any moment. Today we’ve got some good, if not potentially a little controversial news about Voice, as Google overhauls its offerings with two new personal paid Voice plans.",
+      "author": "Stephen Schenck",
+      "date": "2026-07-07",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": true,
+      "xpReward": 43,
+      "url": "https://www.androidauthority.com/google-voice-personal-paid-plans-3684963/",
+      "image": "/images/feed/feed-48d6b6cdd10c.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-1778ecf64e71",
+      "title": "Message Queue — Async Processing",
+      "excerpt": "Async processing qua message queue: vì sao đẩy việc nặng ra khỏi request path, và cái giá phải trả bằng eventual consistency Async processing là mô hình tách một request thành hai giai đoạn: request h…",
+      "body": "Async processing qua message queue: vì sao đẩy việc nặng ra khỏi request path, và cái giá phải trả bằng eventual consistency Async processing là mô hình tách một request thành hai giai đoạn: request handler nhận việc, xác nhận với client, rồi giao phần xử lý thật cho một worker chạy ngoài request path — thường qua một message queue (RabbitMQ, AWS SQS, Kafka, Redis Streams, hoặc queue trên nền Redis như BullMQ/Sidekiq). Lý do dev gặp nó trong việc thật rất cụ thể: một endpoint gọi payment provider mất 3s, gửi email confirm mất 1s, resize ảnh mất 5s — nếu làm tuần tự trong request, p99 latency của endpoint là tổng các con số đó, và một downstream chậm hoặc chết đủ để làm timeout hết thread pool của app server.",
+      "author": "Nghề không nhiều chẳng sắc",
       "date": "2026-07-07",
       "readTime": "2 min",
       "section": "software",
@@ -14,10 +33,527 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 45,
-      "url": "https://dev.to/orbitpickle307/a-practical-qa-reading-list-for-modern-browser-and-ai-testing-3fpl",
-      "image": "/images/feed/feed-6f8b9ad15a58.webp",
+      "xpReward": 50,
+      "url": "https://dev.to/nguoidungai/message-queue-async-processing-4g8h",
+      "image": "/images/feed/feed-1778ecf64e71.webp",
       "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-1a1beff8abd9",
+      "title": "Cache Invalidation — Stale Data",
+      "excerpt": "Stale data và cache stampede: vì sao TTL một mình không đủ và vì sao origin sập khi key hết hạn Stale data là dữ liệu trong cache đã lỗi thời so với source of truth. Nó xuất hiện vì cache và origin là…",
+      "body": "Stale data và cache stampede: vì sao TTL một mình không đủ và vì sao origin sập khi key hết hạn Stale data là dữ liệu trong cache đã lỗi thời so với source of truth. Nó xuất hiện vì cache và origin là hai bản sao, và bất kỳ cơ chế đồng bộ nào — TTL, event-based invalidation, versioning — đều có cửa sổ giữa lúc origin đổi và lúc cache biết chuyện. Cái giá phải trả trong production không chỉ là \"user nhìn thấy giá cũ vài giây\". Khi một key hot vừa hết hạn, hàng nghìn request cùng miss, cùng đâm xuống DB để tính lại — đó là cache stampede (dogpile, thundering herd), và nó đủ sức đưa origin xuống trong vài chục giây. Cơ chế hoạt động Có bốn cơ chế invalidation dùng thật: TTL (time-to-live). Mỗi entry gắn một hạn dùng. Hết hạn coi như miss, đọc lại từ origin.",
+      "author": "Nghề không nhiều chẳng sắc",
+      "date": "2026-07-07",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 48,
+      "url": "https://dev.to/nguoidungai/cache-invalidation-stale-data-5gb1",
+      "image": "/images/feed/feed-1a1beff8abd9.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-7753fe09b046",
+      "title": "CAP Theorem — Consistency vs Availability",
+      "excerpt": "CAP: khi network partition xảy ra, chỉ được chọn C hoặc A — không có \"cả ba\" CAP theorem là kết quả của Gilbert và Lynch (formal proof năm 2002 cho conjecture Brewer đưa ra ở PODC keynote 2000): một h…",
+      "body": "CAP: khi network partition xảy ra, chỉ được chọn C hoặc A — không có \"cả ba\" CAP theorem là kết quả của Gilbert và Lynch (formal proof năm 2002 cho conjecture Brewer đưa ra ở PODC keynote 2000): một hệ phân tán có shared state không thể đồng thời cung cấp cả linearizable Consistency , Availability (mọi request tới non-failing node đều trả lời không lỗi), và Partition tolerance khi có network partition. Trong thực tế, partition là thứ sẽ xảy ra — TCP retransmit, GC pause dài, switch chết, cross-region link flap — nên P là ràng buộc bắt buộc, không phải lựa chọn. Câu hỏi thật là: khi partition xảy ra, hệ thống hy sinh C hay A?",
+      "author": "Nghề không nhiều chẳng sắc",
+      "date": "2026-07-07",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 51,
+      "url": "https://dev.to/nguoidungai/cap-theorem-consistency-vs-availability-41ij",
+      "image": "/images/feed/feed-7753fe09b046.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-9340c42de777",
+      "title": "Redundancy & Replication — Data Redundancy",
+      "excerpt": "Data redundancy: một node lỗi là mất dữ liệu, và replica async không cứu được nếu không ai theo dõi lag Data redundancy là việc giữ nhiều bản copy của cùng một dataset trên các node khác nhau để khi m…",
+      "body": "Data redundancy: một node lỗi là mất dữ liệu, và replica async không cứu được nếu không ai theo dõi lag Data redundancy là việc giữ nhiều bản copy của cùng một dataset trên các node khác nhau để khi một node chết, dataset không đi theo nó. Cơ chế thực thi phổ biến nhất là replication: một node là source-of-truth (primary/leader), các node khác nhận và apply lại các thay đổi. Nghe đơn giản, nhưng phần lớn incident mất dữ liệu ở database không đến từ \"chưa có replica\" mà từ \"có replica nhưng không sync kịp lúc primary chết\", hoặc \"replica đã broken từ lâu mà không ai biết vì không có alert trên replication lag\".",
+      "author": "Nghề không nhiều chẳng sắc",
+      "date": "2026-07-07",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 41,
+      "url": "https://dev.to/nguoidungai/redundancy-replication-data-redundancy-2m3j",
+      "image": "/images/feed/feed-9340c42de777.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-1078d377f11a",
+      "title": "Load Balancing — Traffic Distribution",
+      "excerpt": "Traffic distribution: vì sao thuật toán chỉ là phần dễ, health check mới quyết định service có sập hay không Load balancer (LB) đứng trước một pool backend và quyết định request kế tiếp sẽ đi tới inst…",
+      "body": "Traffic distribution: vì sao thuật toán chỉ là phần dễ, health check mới quyết định service có sập hay không Load balancer (LB) đứng trước một pool backend và quyết định request kế tiếp sẽ đi tới instance nào. Về lý thuyết nó chỉ là một router có thuật toán chọn; trong thực tế nó là điểm sống chết của service, vì lỗi phổ biến nhất không phải \"thuật toán phân tải chưa tối ưu\" mà là LB tiếp tục route traffic vào một backend đã chết — process crash, port còn mở, hoặc app trả 500 mà LB không biết. Kết quả là một phần request (1/N nếu round-robin) đều 5xx trong khi dashboard vẫn xanh vì \"backend còn listen\". Bài này nói về cơ chế phân tải và cái quan trọng hơn: health check phải sâu tới đâu, và LB tự nó redundant thế nào. Cơ chế hoạt động Có hai tầng LB phổ biến.",
+      "author": "Nghề không nhiều chẳng sắc",
+      "date": "2026-07-07",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 36,
+      "url": "https://dev.to/nguoidungai/load-balancing-traffic-distribution-41f4",
+      "image": "/images/feed/feed-1078d377f11a.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-8da2ec5f8817",
+      "title": "SARGability — Index-friendly SQL",
+      "excerpt": "SARGable predicate: vì sao DATE(created_at) = ... giết index và bảng 50M row phải Seq Scan Một predicate được gọi là SARGable (Search ARGument Able) khi planner có thể ánh xạ nó thẳng xuống cấu trúc i…",
+      "body": "SARGable predicate: vì sao DATE(created_at) = ... giết index và bảng 50M row phải Seq Scan Một predicate được gọi là SARGable (Search ARGument Able) khi planner có thể ánh xạ nó thẳng xuống cấu trúc index — cụ thể với B-Tree là ánh xạ vào key của leaf entry để đi tree hoặc scan range trên sibling. Khi cột bị bọc trong function hay bị ép kiểu (cast) ở vế trái của WHERE, giá trị mà planner cần so khớp không còn là giá trị lưu trong index nữa; nó phải tính function cho từng row, tức là Seq Scan . Đây là dạng \"index có sẵn nhưng không dùng\" gặp thường xuyên nhất trong production Postgres, và cũng là loại chậm khó nhìn nhất trong code review vì query \"trông có filter\". Việc sửa thường không phải thêm index — mà là viết lại predicate .",
+      "author": "Nghề không nhiều chẳng sắc",
+      "date": "2026-07-07",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 48,
+      "url": "https://dev.to/nguoidungai/sargability-index-friendly-sql-20d7",
+      "image": "/images/feed/feed-8da2ec5f8817.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-b3d0efc62be2",
+      "title": "Incident — Deadlock Production",
+      "excerpt": "Deadlock production: đọc graph trong log để tìm thứ tự lock, và vì sao retry chỉ là giảm triệu chứng Một incident deadlock production hiếm khi là \"một transaction chết\". Nó là pattern lặp: pg_stat_dat…",
+      "body": "Deadlock production: đọc graph trong log để tìm thứ tự lock, và vì sao retry chỉ là giảm triệu chứng Một incident deadlock production hiếm khi là \"một transaction chết\". Nó là pattern lặp : pg_stat_database.deadlocks tăng đều mỗi phút, error tracker ngập SQLSTATE 40P01 , retry layer ăn hết capacity connection pool, latency P99 nhảy vì mỗi request phải đợi deadlock_timeout một lần trước khi được retry. Root cause gần như luôn là hai code path chạm cùng tập row (hoặc row + FK cha) theo thứ tự khác nhau — và team đã \"xử\" bằng cách bọc mọi transaction trong một wrapper retry_on_deadlock .",
+      "author": "Nghề không nhiều chẳng sắc",
+      "date": "2026-07-07",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 39,
+      "url": "https://dev.to/nguoidungai/incident-deadlock-production-4jpf",
+      "image": "/images/feed/feed-b3d0efc62be2.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-715062838b07",
+      "title": "The Devs Behind The Next Spyro Game Also Love Banjo-Kazooie And Would Totally Make A New One If Xbox Asked",
+      "excerpt": "Toys For Bob isn't working on a new Banjo game, but they sure sound ready and willing",
+      "body": "Toys For Bob isn't working on a new Banjo game, but they sure sound ready and willing\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Xbox, Game. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Zack Zwiezen",
+      "date": "2026-07-07",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Xbox",
+        "Game"
+      ],
+      "featured": false,
+      "xpReward": 39,
+      "url": "https://kotaku.com/the-devs-behind-the-next-spyro-game-also-love-banjo-kazooie-and-would-totally-make-a-new-one-if-xbox-asked-2000713401",
+      "image": "/images/feed/feed-715062838b07.jpg",
+      "source": "Kotaku",
+      "isLive": true
+    },
+    {
+      "id": "feed-e7e617f3e4c7",
+      "title": "Final Fantasy artist Yoshitaka Amano explains why AI can't replace human creativity",
+      "excerpt": "At Anime Expo, Polygon sat down with the legendary Final Fantasy artist to finish his thoughts on art, AI, anime, and his next big project, ZAN.",
+      "body": "Amano clarified that he sees AI as a tool, not an enemy. “Only humans can create the original,” he said. “Maybe AI can make zero and one in the future, like maybe 100 years.” Still, the point landed clearly. At a moment when generative AI and automated production are reshaping creative industries, Amano believes the irreplaceable part of art is the human spark that begins with nothing.",
+      "author": "Ryan Epps",
+      "date": "2026-07-07",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 43,
+      "url": "https://www.polygon.com/zan-anime-yoshitaka-amano-interview-final-fantasy-art/",
+      "image": "/images/feed/feed-e7e617f3e4c7.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-97bab50e491d",
+      "title": "Here's what the CE mark means on your electronics",
+      "excerpt": "Know when and why the CE mark appear on a label.",
+      "body": "Know when and why the CE mark appear on a label.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "staff@engadget.com (Anna Washenko)",
+      "date": "2026-07-07",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 44,
+      "url": "https://www.engadget.com/2209022/what-ce-marking-means-on-electronics/",
+      "image": "/images/feed/feed-97bab50e491d.jpg",
+      "source": "Engadget",
+      "isLive": true
+    },
+    {
+      "id": "feed-a4cf4ec29808",
+      "title": "I connected ChatGPT to my bank, and it's my go-to finance app now - here's how (and why)",
+      "excerpt": "With ChatGPT Finances, I can see all my money, investments, and debts in one place - and I can ask AI what it all means.",
+      "body": "With ChatGPT Finances, I can see all my money, investments, and debts in one place - and I can ask AI what it all means.\n\nThis report, published by ZDNet, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Chatgpt. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to ZDNet using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "ZDNet",
+      "date": "2026-07-07",
+      "readTime": "2 min",
+      "section": "ai",
+      "tags": [
+        "Chatgpt"
+      ],
+      "featured": false,
+      "xpReward": 46,
+      "url": "https://www.zdnet.com/article/how-to-use-chatgpt-finance-to-manage-money-investments-debts/",
+      "image": "/images/feed/feed-a4cf4ec29808.jpg",
+      "source": "ZDNet",
+      "isLive": true
+    },
+    {
+      "id": "feed-0160861e8035",
+      "title": "Apple releases new beta firmware for AirPods Pro 3 and more",
+      "excerpt": "Apple is rolling out a new round of beta firmware updates for several AirPods models, including AirPods Pro 3 and AirPods Max 2. Here are the details.",
+      "body": "Apple is rolling out a new round of beta firmware updates for several AirPods models, including AirPods Pro 3 and AirPods Max 2. Here are the details.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Marcus Mendes",
+      "date": "2026-07-07",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 40,
+      "url": "https://9to5mac.com/2026/07/07/apple-releases-new-beta-firmware-for-airpods-pro-3-and-more/",
+      "image": "/images/feed/feed-0160861e8035.jpg",
+      "source": "9to5Mac",
+      "isLive": true
+    },
+    {
+      "id": "feed-f638f15a2a96",
+      "title": "Apolink makes contact with first relay satellite",
+      "excerpt": "Apolink has made contact with its first satellite after launching on SpaceX’s July 7 rideshare mission, clearing the way for a data relay demonstration using a novel experimental license from the Fede…",
+      "body": "Apolink has made contact with its first satellite after launching on SpaceX’s July 7 rideshare mission, clearing the way for a data relay demonstration using a novel experimental license from the Federal Communications Commission. The post Apolink makes contact with first relay satellite appeared first on SpaceNews .",
+      "author": "Jason Rainbow",
+      "date": "2026-07-07",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Satellite"
+      ],
+      "featured": false,
+      "xpReward": 45,
+      "url": "https://spacenews.com/apolink-makes-contact-with-first-relay-satellite/",
+      "image": "/images/feed/feed-f638f15a2a96.jpg",
+      "source": "SpaceNews",
+      "isLive": true
+    },
+    {
+      "id": "feed-b076f2f38269",
+      "title": "Crowd Control season 2 trailer shows new additions Taylor Tomlinson, Nicole Byer, and more",
+      "excerpt": "Dropout's improvised stand-up show Crowd Control features a murderer's row of comedians for its second season, which premieres next month.",
+      "body": "Dropout's Game Changer is the streamer's flagship show, and has spun off a couple hits of its own. One of those returns when Crowd Control season 2 premieres next month, and its first trailer shows a murderer's row of comedians in action.",
+      "author": "Austin Manchester",
+      "date": "2026-07-07",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 46,
+      "url": "https://www.polygon.com/dropout-crowd-control-season-2-trailer-taylor-tomlinson-gianmarco-soresi/",
+      "image": "/images/feed/feed-b076f2f38269.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-0bb6b1f0ecb0",
+      "title": "Anker SOLIX F3800 power station exclusive $1,615 in Summer Power Sale, ECOVACS pool cleaner $299 low, Greenworks, more",
+      "excerpt": "This week’s Tuesday Green Deals are being led by Anker’s freshly launched Summer Power Sale with up to 49% power station discounts – plus, our exclusive bonus 5% savings code. You’ll also find ECOVACS…",
+      "body": "This week’s Tuesday Green Deals are being led by Anker’s freshly launched Summer Power Sale with up to 49% power station discounts – plus, our exclusive bonus 5% savings code. You’ll also find ECOVACS’ Ultramarine P1 Cordless Robotic Pool Cleaner back at its $299 low , two new Greenworks 2,200 and 2,400 PSI Medium-Duty Electric Pressure Washer first-ever discounts, the Worx 20V 20-inch 2-in-1 Attachment-Capable Cordless Electric Hedge Trimmer at its second-lowest price of the last 12 months, as well several last-chance July 4th deals that are ending soon, with a particular emphasis on e-bikes. As always, you can also find the latest hangover deals down at the bottom of the page.",
+      "author": "Reinette LeJeune",
+      "date": "2026-07-07",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Cars"
+      ],
+      "featured": false,
+      "xpReward": 47,
+      "url": "https://electrek.co/2026/07/07/anker-solix-f3800-power-station-ecovacs-pool-cleaner-greenworks-more/",
+      "image": "/images/feed/feed-0bb6b1f0ecb0.jpg",
+      "source": "Electrek",
+      "isLive": true
+    },
+    {
+      "id": "feed-7445dc0f579a",
+      "title": "Flighty update adds powerful new Connection Assistant feature",
+      "excerpt": "A big update to Flighty, the popular flight-tracking app, is available on the App Store today. The latest version of Flighty makes the app even more powerful, headlined by a powerful new Connection As…",
+      "body": "A big update to Flighty, the popular flight-tracking app, is available on the App Store today. The latest version of Flighty makes the app even more powerful, headlined by a powerful new Connection As — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Chance Miller",
+      "date": "2026-07-07",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 46,
+      "url": "https://9to5mac.com/2026/07/07/flighty-update-adds-powerful-new-connection-assistant-feature/",
+      "image": "/images/feed/feed-7445dc0f579a.jpg",
+      "source": "9to5Mac",
+      "isLive": true
+    },
+    {
+      "id": "feed-5ad0a873faf0",
+      "title": "Baki-dou The Invincible Samurai part 2 review: The series's most interesting character and the most disappointing fights",
+      "excerpt": "Baki-dou: The Invincible Samurai is a post-structuralist take on anime's fighting genre that doesn't need good fights to shine.",
+      "body": "Martial arts manga and anime have been in decline for the past 40 years, ever since Dragon Ball creator Akira Toriyama realized that the more energy beams and other supernatural feats one added to the template, the more people seemed to like it. While there have been “traditional” martial arts series that reached moderate levels of success (such as Holyland by Kouji Mori, the artist who took over Berserk after Kentaro Miura’s passing, or All Rounder Meguru by Hiroki Endo), they’re nowhere near as popular as supernatural battle series like Jujutsu Kaisen or Naruto .",
+      "author": "Francesco Cacciatore",
+      "date": "2026-07-07",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 53,
+      "url": "https://www.polygon.com/baki-invincible-samurai-musashi-reviewl/",
+      "image": "/images/feed/feed-5ad0a873faf0.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-3e41db5bb542",
+      "title": "Artemis 2's Jeremy Hansen stepping down from active astronaut duty after epic moon mission",
+      "excerpt": "The Canadian Space Agency's Jeremy Hansen will step back from active astronaut service in September for a new role.",
+      "body": "The first non-American to reach the moon is ready for a new mission. Canadian Space Agency (CSA) astronaut Jeremy Hansen , best known for his flight around the moon in April on NASA's Artemis 2 mission, will step back from active astronaut duty in September. Hansen, who's also a colonel in the Royal Canadian Air Force (RCAF), will next serve as a reservist to \"enable the vital work happening in Canada with respect to space,\" the astronaut wrote Monday (July 6) in a statement on X. \"Our future depends on a fierce continuation of Canadian innovation and exploration in space,\" Hansen added.",
+      "author": " Elizabeth Howell ",
+      "date": "2026-07-07",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Artemis",
+        "Astronaut"
+      ],
+      "featured": false,
+      "xpReward": 33,
+      "url": "https://www.space.com/space-exploration/artemis/artemis-2s-jeremy-hansen-stepping-down-from-active-astronaut-duty-after-epic-moon-mission",
+      "image": "/images/feed/feed-3e41db5bb542.png",
+      "source": "Space.com",
+      "isLive": true
+    },
+    {
+      "id": "feed-c0980c1110b3",
+      "title": "A bug in Discord's safety systems incorrectly banned accounts since May",
+      "excerpt": "A bug may have led to around 8,200 erroneous bans on Discord.",
+      "body": "A bug may have led to around 8,200 erroneous bans on Discord.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "staff@engadget.com (Anna Washenko)",
+      "date": "2026-07-07",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 43,
+      "url": "https://www.engadget.com/2209819/a-bug-in-discords-safety-systems-incorrectly-banned-accounts-since-may/",
+      "image": "/images/feed/feed-c0980c1110b3.jpg",
+      "source": "Engadget",
+      "isLive": true
+    },
+    {
+      "id": "feed-914bdbef5a2a",
+      "title": "This tiny EV is now on sale in the US for less than $14,000",
+      "excerpt": "The Topolino is about the size of a golf cart, but it’s actually a street-legal EV with an electric range of up to 46 miles.",
+      "body": "The Topolino is about the size of a golf cart, but it’s actually a street-legal EV with an electric range of up to 46 miles.\n\nThis report, published by Electrek, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Ev. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Electrek using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Peter Johnson",
+      "date": "2026-07-07",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Ev"
+      ],
+      "featured": false,
+      "xpReward": 44,
+      "url": "https://electrek.co/2026/07/07/tiny-ev-on-sale-less-than-14000/",
+      "image": "/images/feed/feed-914bdbef5a2a.jpg",
+      "source": "Electrek",
+      "isLive": true
+    },
+    {
+      "id": "feed-a22a83339a8f",
+      "title": "Arianespace opens door to GEO rideshare opportunities from 2029",
+      "excerpt": "MILAN — Arianespace has signed a Memorandum of Understanding with French in-orbit servicing company Infinite Orbits to explore future collaboration on multiple direct-to-GEO rideshare launch services,…",
+      "body": "MILAN — Arianespace has signed a Memorandum of Understanding with French in-orbit servicing company Infinite Orbits to explore future collaboration on multiple direct-to-GEO rideshare launch services, the companies announced July [&#8230;] The post Arianespace opens door to GEO rideshare opportunities from 2029 appeared first on SpaceNews .",
+      "author": "Emma Gatti",
+      "date": "2026-07-07",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Space"
+      ],
+      "featured": false,
+      "xpReward": 41,
+      "url": "https://spacenews.com/arianespace-opens-door-to-geo-rideshare-opportunities-from-2029/",
+      "image": "/images/feed/feed-a22a83339a8f.jpg",
+      "source": "SpaceNews",
+      "isLive": true
+    },
+    {
+      "id": "feed-322c9cd6c48d",
+      "title": "NASA’s New Horizons Spacecraft Wakes from Hibernation in Good Health",
+      "excerpt": "Following its longest hibernation period ever of nearly a year, NASA’s New Horizons spacecraft has emerged in good health and is ready to begin transmitting science data gathered in the distant Kuiper…",
+      "body": "3 min read NASA’s New Horizons Spacecraft Wakes from Hibernation in Good Health Following its longest hibernation period ever of nearly a year, NASA’s New Horizons spacecraft has emerged in good health and is ready to begin transmitting science data gathered in the distant Kuiper Belt far beyond Pluto. From left, flight controllers Mark Lahr and Josh Albers, and Mission Operations Manager Alice Bowman, monitor telemetry streaming from NASA’s New Horizons spacecraft to the mission operations center at the Johns Hopkins Applied Physics Laboratory in Laurel, Maryland, on June 24, 2026. Now approximately 5.9 billion miles (9.5 billion kilometers) from Earth, New Horizons is ready to begin transmitting science data after being awakened from its longest ever, nearly yearlong hibernation period.",
+      "author": "NASA Breaking News",
+      "date": "2026-07-07",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Nasa",
+        "Spacecraft"
+      ],
+      "featured": false,
+      "xpReward": 38,
+      "url": "https://science.nasa.gov/missions/new-horizons/nasas-new-horizons-spacecraft-wakes-from-hibernation-in-good-health/",
+      "image": "/images/feed/feed-322c9cd6c48d.jpg",
+      "source": "NASA Breaking News",
+      "isLive": true
+    },
+    {
+      "id": "feed-d05c6e7f5617",
+      "title": "Anthropic is launching Claude Cowork on mobile and web",
+      "excerpt": "Starting Tuesday, Anthropic's Claude Cowork AI platform will be available on mobile and web for the first time. The expanded access is rolling out first to Max subscribers and coming to Claude users o…",
+      "body": "Starting Tuesday, Anthropic's Claude Cowork AI platform will be available on mobile and web for the first time. The expanded access is rolling out first to Max subscribers and coming to Claude users on other plans \"in the coming weeks.\" Claude Cowork was previously only accessible through the Claude desktop app for macOS and Windows, but now users on iOS and Android can also use it. However, Anthropic says the \"full experience\" for Cowork will still be on the desktop app, including features like local file access. Cowork sessions will also now run in the cloud by default, so you can continue them across different devices or run Cowork ta … Read the full story at The Verge.",
+      "author": "Stevie Bonifield",
+      "date": "2026-07-07",
+      "readTime": "2 min",
+      "section": "ai",
+      "tags": [
+        "Anthropic",
+        "Claude"
+      ],
+      "featured": false,
+      "xpReward": 31,
+      "url": "https://www.theverge.com/ai-artificial-intelligence/961978/anthropic-claude-cowork-mobile-web",
+      "image": "/images/feed/feed-d05c6e7f5617.png",
+      "source": "The Verge",
+      "isLive": true
+    },
+    {
+      "id": "feed-2cc3b46614b1",
+      "title": "Overwatch Embraces Chaos And Turns The Cat Into A Heavy Artillery Drone",
+      "excerpt": "The ‘Community Created’ mode is cranking up absurdity at the expense of balance",
+      "body": "The ‘Community Created’ mode is cranking up absurdity at the expense of balance\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Kenneth Shepard",
+      "date": "2026-07-07",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 35,
+      "url": "https://kotaku.com/overwatch-community-created-april-fools-mode-patch-notes-2000713388",
+      "image": "/images/feed/feed-2cc3b46614b1.jpg",
+      "source": "Kotaku",
+      "isLive": true
+    },
+    {
+      "id": "feed-4e1e47de6cd0",
+      "title": "iRobot made a non-robot floor cleaner",
+      "excerpt": "iRobot's new floor cleaner isn't a robot at all.",
+      "body": "iRobot's new floor cleaner isn't a robot at all.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "staff@engadget.com (Matt Tate)",
+      "date": "2026-07-07",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 30,
+      "url": "https://www.engadget.com/2209802/irobot-made-a-non-robot-floor-cleaner/",
+      "image": "/images/feed/feed-4e1e47de6cd0.jpg",
+      "source": "Engadget",
+      "isLive": true
+    },
+    {
+      "id": "feed-34b823b4f557",
+      "title": "Save 36% Off the TP-Link Deco 7 Pro BE10000 Wi-Fi 7 Whole Home Mesh System",
+      "excerpt": "WiFi 7 wireless networking and four 2.5Gb ethernet ports.",
+      "body": "If you&#39;re ready to set your house up for Wi-Fi 7, have I found the deal for you. The TP-Link Deco 7 Pro BE63 BE10000 Whole Home Mesh System is Amazon&#39;s #1 best selling Wi-Fi 7 router and for good reason; for a limited time, the price has dropped from $499 to just $322.19 after a 36% off instant discount. I purchased this exact setup from Costco about a year ago for $400, and that was considered a great deal at the time. Compared to other brands, this is one of the more value-priced WiFi mesh systems that still offers premium features like 2.5Gbps ethernet ports.",
+      "author": "Eric Song",
+      "date": "2026-07-07",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 43,
+      "url": "https://www.ign.com/articles/tp-link-whole-home-mesh-system-wifi-7-router-deal-for-july",
+      "image": "/images/feed/feed-34b823b4f557.jpg",
+      "source": "IGN",
+      "isLive": true
+    },
+    {
+      "id": "feed-e075ae5a48fd",
+      "title": "I’ve Seen More Improvement In Two Years Of Reviewing EVs Than I Did In A Decade Testing Gas Cars",
+      "excerpt": "As EVs rapidly improve in every key area, it's getting harder and harder to imagine a future for gasoline engines. They just can't keep up.",
+      "body": "As EVs rapidly improve in every key area, it's getting harder and harder to imagine a future for gasoline engines. They just can't keep up.\n\nThis report, published by InsideEVs, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cars. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to InsideEVs using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "InsideEVs",
+      "date": "2026-07-07",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Cars"
+      ],
+      "featured": false,
+      "xpReward": 46,
+      "url": "https://insideevs.com/features/800779/evs-improving-faster-than-gas/",
+      "image": "/images/feed/feed-e075ae5a48fd.jpg",
+      "source": "InsideEVs",
+      "isLive": true
+    },
+    {
+      "id": "feed-a251452039ee",
+      "title": "Weibo leaker says iPhone 18 Pro thickness will be ‘surprising’",
+      "excerpt": "Days after materials from Apple supplier Tata surfaced online, prominent Weibo leaker “Fixed Focus Digital” doubled down on his earlier claim that the iPhone 18 Pro will be thicker than the iPhone 17…",
+      "body": "Days after materials from Apple supplier Tata surfaced online, prominent Weibo leaker “Fixed Focus Digital” doubled down on his earlier claim that the iPhone 18 Pro will be thicker than the iPhone 17 — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Iphone. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Marcus Mendes",
+      "date": "2026-07-07",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Iphone"
+      ],
+      "featured": false,
+      "xpReward": 40,
+      "url": "https://9to5mac.com/2026/07/07/weibo-leaker-says-iphone-18-pro-thickness-will-be-surprising/",
+      "image": "/images/feed/feed-a251452039ee.jpg",
+      "source": "9to5Mac",
       "isLive": true
     },
     {
@@ -32,106 +568,11 @@
       "tags": [
         "Gaming"
       ],
-      "featured": true,
-      "xpReward": 51,
+      "featured": false,
+      "xpReward": 44,
       "url": "https://www.polygon.com/terminator-2-judgement-day-rerelease-theaters-3d/",
       "image": "/images/feed/feed-ae7626a99936.jpg",
       "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-31fd6deb06be",
-      "title": "Master Git & GitHub in 2026 — The Easy Way ⚡",
-      "excerpt": "Stop Googling Git Commands in 2026 😅 I just dropped a free Git & GitHub Masterclass on ZabiTech Community. No fluff. No paywalls. Just everything you need. You’ll learn: It’s 100% free. No signup. No…",
-      "body": "Stop Googling Git Commands in 2026 😅 If git push --force still scares you, this is for you. I just dropped a free Git &amp; GitHub Masterclass on ZabiTech Community. No fluff. No paywalls. Just everything you need. You’ll learn: • Branches, merges, rebase — finally explained simply • Pull requests &amp; code reviews like teams at Netflix &amp; Uber use • Fixing \"oh no\" moments: undo commits, resolve conflicts, recover lost work • GitHub Actions + 2026 updates you should know For beginners, students, and devs who want clean Git history. It’s 100% free. No signup. No BS. 👉 Read it here: https://zabitechcommunity.netlify.app/post/git-github-complete-masterclass-2026.html What’s your #1 Git command you always forget? Mine’s git stash pop 🤝 I’m Zabi, 16, from Pakistan — building in public.",
-      "author": "Zabi ullah",
-      "date": "2026-07-07",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Github"
-      ],
-      "featured": true,
-      "xpReward": 40,
-      "url": "https://dev.to/zabi_ullah_5351519d5f6f39/master-git-github-in-2026-the-easy-way-62h",
-      "image": "/images/feed/feed-31fd6deb06be.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-5df4b1c97d8c",
-      "title": "Unity Foundational Architecture: Smart Bootstrapping",
-      "excerpt": "Table of Contents: Introduction Understanding the Unity Initialization Lifecycle The RuntimeInitializeOnLoadMethod Attribute (And Its Limitations) The Solution: The Bootstrap Scene Let’s face it: out-…",
-      "body": "Table of Contents: Introduction Understanding the Unity Initialization Lifecycle The RuntimeInitializeOnLoadMethod Attribute (And Its Limitations) The Solution: The Bootstrap Scene Introduction Let’s face it: out-of-the-box Unity is a fantastic engine, and it is built to cater to everyone. However, because of this it has a very basic out of the box workflow (press play to load the current scene). Any kind of logic that is related to bootstrapping (game setup, system initialization, etc.) or any specific control flow for your game is left in the hands of the developer and setting this up for every project you start can be a momentum killer.",
-      "author": "Daniel Rinaldi (TenaciousDan)",
-      "date": "2026-07-07",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 30,
-      "url": "https://dev.to/tenaciousdan/unity-foundational-architecture-smart-bootstrapping-52pf",
-      "image": "/images/feed/feed-5df4b1c97d8c.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-f57567175ac3",
-      "title": "Google's next Pixel event is on August 12",
-      "excerpt": "Google's next Pixel event will be August 12 at 6pm ET.",
-      "body": "Google's next Pixel event will be August 12 at 6pm ET.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Igor Bonifacic)",
-      "date": "2026-07-07",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": true,
-      "xpReward": 54,
-      "url": "https://www.engadget.com/2209791/googles-next-pixel-event-is-on-august-12/",
-      "image": "/images/feed/feed-f57567175ac3.jpg",
-      "source": "Engadget",
-      "isLive": true
-    },
-    {
-      "id": "feed-ee2d38c0e54e",
-      "title": "Frosthaven game director explains the challenges of adapting the hit dungeon-crawler board game",
-      "excerpt": "The Snapshot Games team spent months playing the board game to understand its complex rules, with help from designer Isaac Childres.",
-      "body": "When Snapshot Games began working on creating a digital version of Isaac Childres ’ hit dungeon-crawling board game Frosthaven , game director Hristo Petkov broke his team into groups of four so they could spend a few workdays each week playing through a Frosthaven campaign. Each group spent three to six months learning the complex rules, consulting with designer Isaac Childres when they had questions.",
-      "author": "Sam Nelson",
-      "date": "2026-07-07",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Game"
-      ],
-      "featured": true,
-      "xpReward": 41,
-      "url": "https://www.polygon.com/frosthaven-digital-adaptation-interview/",
-      "image": "/images/feed/feed-ee2d38c0e54e.png",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-90a96bfd0442",
-      "title": "I reverse-engineered Discord's profile banner color blend (and built a tool around it)",
-      "excerpt": "The problem Discord Nitro lets you set a profile theme color. Simple enough — except the banner Discord actually shows you isn't the hex you picked. It's blended roughly 40% toward black or white depe…",
-      "body": "The problem Discord Nitro lets you set a profile theme color. Simple enough — except the banner Discord actually shows you isn't the hex you picked. It's blended roughly 40% toward black or white depending on the color's brightness, and there's no documentation on the exact formula and no in-client preview. So people were doing the obvious thing: pick a color, upload, check, adjust, re-upload, repeat. Figuring out the blend I sampled a range of theme colors against their rendered banners and worked backward to the blend ratio and direction (toward black for brighter colors, toward white for darker ones, roughly a 40% mix). Once I had that matched, the rest was just wrapping it in something usable.",
-      "author": "blanco",
-      "date": "2026-07-07",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 51,
-      "url": "https://dev.to/blanco_6b2431420013d17885/i-reverse-engineered-discords-profile-banner-color-blend-and-built-a-tool-around-it-dmc",
-      "image": "/images/feed/feed-90a96bfd0442.webp",
-      "source": "Dev.to",
       "isLive": true
     },
     {
@@ -147,29 +588,10 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 46,
       "url": "https://cleantechnica.com/2026/07/07/10-massachusetts-nonprofits-get-solar-grants/",
       "image": "/images/feed/feed-7c335cfb4f41.jpg",
       "source": "CleanTechnica",
-      "isLive": true
-    },
-    {
-      "id": "feed-81e85cf1e144",
-      "title": "Ternary Semantic Brain Core — Zero Hard-Coding, Language-Independent Meaning Engine",
-      "excerpt": "Ternary Semantic Brain Core — Zero Hard-Coding, Language-Independent Meaning Engine I built a meaning-learning engine that works without LLMs, embeddings, or No hard-coded linguistic knowledge. No sto…",
-      "body": "Ternary Semantic Brain Core — Zero Hard-Coding, Language-Independent Meaning Engine I built a meaning-learning engine that works without LLMs, embeddings, or translation tables. Everything is stored as 2-bit ternary values {-1, 0, +1}. It learns meaning purely from word co-occurrence in plain text. What makes it different No hard-coded linguistic knowledge. No stoplists, POS tags, tokenizer, fixed vocabulary, or translation tables. All linguistic structure emerges from training data. Language-independent. Tested with English + Turkish. Same mechanism works for any language with letter-based writing. Ternary representation. {-1, 0, +1} — inhibition, unknown, excitation. 0 means \"I don't know\" — a first-class answer, not a failure. Single decision rule.",
-      "author": "Arif Kurnaz",
-      "date": "2026-07-07",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 30,
-      "url": "https://dev.to/arifkurnaz/ternary-semantic-brain-core-zero-hard-coding-language-independent-meaning-engine-30pe",
-      "image": "/images/feed/feed-81e85cf1e144.webp",
-      "source": "Dev.to",
       "isLive": true
     },
     {
@@ -185,48 +607,10 @@
         "Rivian"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 47,
       "url": "https://electrek.co/2026/07/07/rivian-r2-flip-80000-over-sticker/",
       "image": "/images/feed/feed-935baae32d1d.jpg",
       "source": "Electrek",
-      "isLive": true
-    },
-    {
-      "id": "feed-6476683350c2",
-      "title": "The AI Bill Grows in the Agent Loop",
-      "excerpt": "mcp2cli -> Save 96–99% of the tokens wasted on tool schemas every turn; caveman -> laude Code skill that cuts 65%. I keep coming accross many discussionions around context engineering and how that mig…",
-      "body": "mcp2cli -&gt; Save 96–99% of the tokens wasted on tool schemas every turn; caveman -&gt; laude Code skill that cuts 65%. I keep coming accross many discussionions around context engineering and how that might save you a fortune. It's either cheking the unprecedented claims from yet anotyher MCP/Skill/CLI pluggable into you agent harness. Or discussing some tricks and approaches. With all the heat arounbd AI costs going out of control those directions lool like a reasonable way forward. Yet I think focusing on token optimnization wouild be a detour and disctration. Not because those claims are not true... E.g.",
-      "author": "Maxim Saplin",
-      "date": "2026-07-07",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 33,
-      "url": "https://dev.to/maximsaplin/the-ai-bill-grows-in-the-agent-loop-87n",
-      "image": "/images/feed/feed-6476683350c2.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-3ccf30d7dc9e",
-      "title": "Agent Factory Recap: 100X engineering with AI agents in Google Antigravity 2.0",
-      "excerpt": "In this episode of the Agent Factory, I sat down with Rody Davis, one of Google's top agentic engineers. We dive into the massive shift from traditional IDEs to agent-first platforms, the reality of c…",
-      "body": "In this episode of the Agent Factory, I sat down with Rody Davis, one of Google's top agentic engineers. We dive into the massive shift from traditional IDEs to agent-first platforms, the reality of code reviews in an AI-driven world, and how to use \"skills\" to perform at a 100X level. This post guides you through the key ideas from our conversation. Use it to quickly recap topics or dive deeper into specific segments with links and timestamps. Google Antigravity 2.0 - What is it? Antigravity 2.0 has evolved from a simple agentic IDE into a full-scale agent-first platform. It now consists of four core pillars: a standalone desktop Agent Manager for orchestration, a robust CLI for server-side work, an SDK for custom Python-based workflows, and a specialized IDE .",
-      "author": "Shir Meir Lador",
-      "date": "2026-07-07",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 36,
-      "url": "https://dev.to/googleai/agent-factory-recap-100x-engineering-with-ai-agents-in-google-antigravity-20-4p4j",
-      "image": "/images/feed/feed-3ccf30d7dc9e.webp",
-      "source": "Dev.to",
       "isLive": true
     },
     {
@@ -242,105 +626,29 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 52,
       "url": "https://www.bleepingcomputer.com/news/security/hidden-backdoor-in-tenda-router-firmware-grants-admin-access/",
       "image": "/images/feed/feed-09b8d0df23c8.jpg",
       "source": "BleepingComputer",
       "isLive": true
     },
     {
-      "id": "feed-c1897dc0f5cb",
-      "title": "Xbox Family Settings for iPhone and iPad expands console parental control tools",
-      "excerpt": "Heads up, parents. Microsoft just released an update to their Xbox Family Settings app for iPhone and iPad that adds new console parental controls.",
-      "body": "Heads up, parents. Microsoft just released an update to their Xbox Family Settings app for iPhone and iPad that adds new console parental controls.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Iphone. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Zac Hall",
+      "id": "feed-375218aecbb4",
+      "title": "RedWing MaaS Packages Android Bank Fraud as a Telegram Rental Service",
+      "excerpt": "A new Android malware operation called RedWing is being rented out on Telegram as a ready-made bank-fraud service. It lets even low-skill criminals take over a victim's phone, steal their banking logi…",
+      "body": "A new Android malware operation called RedWing is being rented out on Telegram as a ready-made bank-fraud service. It lets even low-skill criminals take over a victim's phone, steal their banking logins, and capture the one-time codes that protect their accounts. Zimperium's zLabs, which found the operation, says it looks like a new variant of Oblivion, a $300-a-month rent-a-malware tool",
+      "author": "info@thehackernews.com (The Hacker News)",
       "date": "2026-07-07",
       "readTime": "2 min",
-      "section": "gadgets",
+      "section": "cybersecurity",
       "tags": [
-        "Iphone"
+        "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 47,
-      "url": "https://9to5mac.com/2026/07/07/xbox-family-settings-for-iphone-and-ipad-expands-console-parental-control-tools/",
-      "image": "/images/feed/feed-c1897dc0f5cb.jpg",
-      "source": "9to5Mac",
-      "isLive": true
-    },
-    {
-      "id": "feed-0bf5039fec3a",
-      "title": "The X app for iOS now has a built-in video editor",
-      "excerpt": "X now has a built-in video editor on iOS.",
-      "body": "X now has a built-in video editor on iOS.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Kris Holt)",
-      "date": "2026-07-07",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 43,
-      "url": "https://www.engadget.com/2209749/the-x-app-for-ios-now-has-a-built-in-video-editor/",
-      "image": "/images/feed/feed-0bf5039fec3a.jpg",
-      "source": "Engadget",
-      "isLive": true
-    },
-    {
-      "id": "feed-4b55fd257fcb",
-      "title": "Meta launches Pocket, an app for making games with generative AI",
-      "excerpt": "The company shut down multiple game companies earlier this year but is now jumping further into the world of AI-created games.",
-      "body": "If there isn’t enough AI-generated nonsense in the world, Meta is determined to make sure there’s a bit more. The company recently released Pocket on the Google Play Store, an app that lets users share small programs and games they created with generative AI.",
-      "author": "Elijah Gonzalez",
-      "date": "2026-07-07",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 34,
-      "url": "https://www.polygon.com/mark-zuckerberg-meta-new-app-pocket/",
-      "image": "/images/feed/feed-4b55fd257fcb.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-13bb4cf532d1",
-      "title": "Amazon cuts $171 off the Samsung Galaxy Tab S10 Lite in return to all-time low",
-      "excerpt": "The Galaxy Tab S10 Lite drops to $319 at Amazon, a 35% discount with 256GB storage, S Pen support, and a 10.9-inch display.",
-      "body": "Samsung’s Galaxy Tab S10 Lite is built for people who want a big-screen Android tablet without jumping to premium prices, and there’s a strong Amazon deal on it right now. This model gives you a 10.9-inch display, the Exynos 1380 chip, an 8,000mAh battery, and Android 15, which makes it a solid fit for streaming, web browsing, note-taking, and light work. See the deal at Amazon",
-      "author": "Matt Horne",
-      "date": "2026-07-07",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 54,
-      "url": "https://www.androidauthority.com/amazon-cuts-170-samsung-galaxy-tab-3684947/",
-      "image": "/images/feed/feed-13bb4cf532d1.jpg",
-      "source": "Android Authority",
-      "isLive": true
-    },
-    {
-      "id": "feed-529d8137d5a8",
-      "title": "The Great Ace Attorney Chronicles remains the series’ best game, five years later",
-      "excerpt": "After a worldwide release in 2021, Capcom's prequel to the Phoenix Wright games still hasn't been topped",
-      "body": "After a worldwide release in 2021, Capcom's prequel to the Phoenix Wright games still hasn't been topped\n\nThis report, published by Polygon, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Game. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Polygon using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Lillian Ali",
-      "date": "2026-07-07",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Game"
-      ],
-      "featured": false,
-      "xpReward": 49,
-      "url": "https://www.polygon.com/great-ace-attorney-5th-anniversary-north-america/",
-      "image": "/images/feed/feed-529d8137d5a8.jpg",
-      "source": "Polygon",
+      "xpReward": 52,
+      "url": "https://thehackernews.com/2026/07/redwing-maas-packages-android-bank.html",
+      "image": "/images/feed/feed-375218aecbb4.jpg",
+      "source": "The Hacker News",
       "isLive": true
     },
     {
@@ -356,7 +664,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 34,
       "url": "https://www.space.com/space-exploration/how-public-private-partnerships-can-turn-mars-into-an-economic-frontier-op-ed",
       "image": "/images/feed/feed-b95a0f2d757e.jpg",
       "source": "Space.com",
@@ -375,29 +683,10 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 40,
       "url": "https://electrek.co/2026/07/07/tesla-giga-berlin-cell-giga-challenge/",
       "image": "/images/feed/feed-e5aa14989bad.jpg",
       "source": "Electrek",
-      "isLive": true
-    },
-    {
-      "id": "feed-c9d0c9a08597",
-      "title": "Google sets the date for next month’s Pixel 11 launch event",
-      "excerpt": "We're just weeks away from the debut of the latest Pixel handsets!",
-      "body": "TL;DR Google just started sending out invites for its Pixel 11 launch event. The festivities will take place on August 12 in New York City. We’re expecting to see the Pixel 11, Pixel 11 Pro, Pixel 11 Pro XL, and Pixel 11 Pro Fold. With summer fully upon us, Google’s next Pixel smartphones feel closer than ever — but when will they actually debut? We’ve been asking ourselves that question for months now, and while we’ve been anticipating another August event based on recent trends, the actual date has so far been a mystery. Today we’re finally starting to get answers, as invites to the event begin going out. Over on X, it’s ironically Apple-news superstar Mark Gurman who we first spotted sharing the invite, where we see Google planning to show off the new Pixels on August 12 in New York.",
-      "author": "Stephen Schenck",
-      "date": "2026-07-07",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 48,
-      "url": "https://www.androidauthority.com/pixel-11-launch-date-3684941/",
-      "image": "/images/feed/feed-c9d0c9a08597.jpg",
-      "source": "Android Authority",
       "isLive": true
     },
     {
@@ -413,87 +702,29 @@
         "Breach"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 54,
       "url": "https://techcrunch.com/2026/07/07/the-worst-hacks-and-breaches-of-2026-so-far/",
       "image": "/images/feed/feed-a19f69f9d777.jpg",
       "source": "TechCrunch",
       "isLive": true
     },
     {
-      "id": "feed-561af9991902",
-      "title": "Avatar Aang: The Last Airbender finally has a trailer and a July 25 release date",
-      "excerpt": "If you want to (legally) watch Avatar Aang: The Last Airbender, it finally has a trailer and a July 25 release date.",
-      "body": "If you want to (legally) watch Avatar Aang: The Last Airbender, it finally has a trailer and a July 25 release date.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Lawrence Bonk)",
+      "id": "feed-916346ef42a3",
+      "title": "Rogue Agent Flaw Could Have Let Attackers Hijack Google Dialogflow CX Chatbots",
+      "excerpt": "A critical flaw in Google's Dialogflow CX could have let an attacker with edit rights on one Code Block-enabled agent compromise other Code Block-enabled agents in the same Google Cloud project. From…",
+      "body": "A critical flaw in Google's Dialogflow CX could have let an attacker with edit rights on one Code Block-enabled agent compromise other Code Block-enabled agents in the same Google Cloud project. From there, they could read live conversations, steal the data users shared, and make the bots send attacker-written messages, including requests to re-enter a password. Security firm Varonis found it",
+      "author": "info@thehackernews.com (The Hacker News)",
       "date": "2026-07-07",
       "readTime": "2 min",
-      "section": "gadgets",
+      "section": "cybersecurity",
       "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 43,
-      "url": "https://www.engadget.com/2209710/avatar-aang-the-last-airbender-finally-has-a-trailer-and-a-july-25-release-date/",
-      "image": "/images/feed/feed-561af9991902.jpg",
-      "source": "Engadget",
-      "isLive": true
-    },
-    {
-      "id": "feed-bd21cebfc0a8",
-      "title": "After Unprecedented Leak, The New Avatar Movie Looks Great In First Official Trailer",
-      "excerpt": "The animated sequel is finally debuting on Paramount+, even though many people have already seen it",
-      "body": "The animated sequel is finally debuting on Paramount+, even though many people have already seen it\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Kenneth Shepard",
-      "date": "2026-07-07",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
+        "Cybersecurity"
       ],
       "featured": false,
       "xpReward": 34,
-      "url": "https://kotaku.com/avatar-aang-last-airbender-movie-trailer-date-paramount-2000713384",
-      "image": "/images/feed/feed-bd21cebfc0a8.jpg",
-      "source": "Kotaku",
-      "isLive": true
-    },
-    {
-      "id": "feed-38161d612f22",
-      "title": "Xbox Game Pass loses Dungeons of Hinterberg and 9 other games this month",
-      "excerpt": "Amid flailing subscriber numbers, Xbox Game Pass is losing several great games in July, including Dungeons of Hinterberg.",
-      "body": "Xbox announced its \"most significant restructure\" in its history on Monday as 3,200 employees will be laid off by July 2027. In the same memo announcing the layoffs, Xbox CEO Asha Sharma said Xbox Game Pass \"did not grow at the pace we expected.\" A new report stated Game Pass' subscriber count was currently at 30 million — less than the 34 million reported in February 2024 , and well short of the 77 million subscribers Xbox had projected to reach by July 2026.",
-      "author": "Austin Manchester",
-      "date": "2026-07-07",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Xbox",
-        "Game"
-      ],
-      "featured": false,
-      "xpReward": 37,
-      "url": "https://www.polygon.com/xbox-game-pass-leaving-july-2026-dungeons-of-hinterberg/",
-      "image": "/images/feed/feed-38161d612f22.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-678fde75a01c",
-      "title": "Rise of the Lazy Gamemaster is the new essential D&D book you need in your collection",
-      "excerpt": "Sly Flourish is back with another book in the Lazy Dungeon Master series, showing how to make your games better by prepping less.",
-      "body": "If you were to ask a group of tabletop role-playing game enthusiasts the most important quality of a good Game Master, few would answer “laziness.” However, that’s exactly what Michael E. Shea has built his TTRPG career on. Mike is the creator of the Sly Flourish website, an invaluable resource for GMs, and the author of a dozen RPG books, including the Lazy Dungeon Master series. He’s also a member of the D&D Community Advisory Group established by Wizards of the Coast in June of this year.",
-      "author": "Francesco Cacciatore",
-      "date": "2026-07-07",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 31,
-      "url": "https://www.polygon.com/lazy-dungeon-master-sly-flourish-new-book-kickstarter/",
-      "image": "/images/feed/feed-678fde75a01c.jpg",
-      "source": "Polygon",
+      "url": "https://thehackernews.com/2026/07/rogue-agent-flaw-could-have-let.html",
+      "image": "/images/feed/feed-916346ef42a3.jpg",
+      "source": "The Hacker News",
       "isLive": true
     },
     {
@@ -509,29 +740,10 @@
         "Claude"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 53,
       "url": "https://techcrunch.com/2026/07/07/the-coding-agent-wars-are-spilling-into-the-rest-of-the-office-claude-cowork/",
       "image": "/images/feed/feed-ffc63549d918.png",
       "source": "TechCrunch",
-      "isLive": true
-    },
-    {
-      "id": "feed-e016418c1d07",
-      "title": "Anthropic expanding Claude Cowork to mobile and web, details here",
-      "excerpt": "Anthropic announced today that it is expanding Claude Cowork capabilities from the desktop app to the web and mobile. Claude Cowork on mobile and the web will start as a beta feature with a gradual ro…",
-      "body": "Anthropic announced today that it is expanding Claude Cowork capabilities from the desktop app to the web and mobile. Claude Cowork on mobile and the web will start as a beta feature with a gradual ro — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Zac Hall",
-      "date": "2026-07-07",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 54,
-      "url": "https://9to5mac.com/2026/07/07/anthropic-expanding-claude-cowork-to-mobile-and-web-details-here/",
-      "image": "/images/feed/feed-e016418c1d07.jpg",
-      "source": "9to5Mac",
       "isLive": true
     },
     {
@@ -547,7 +759,7 @@
         "Artemis"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 34,
       "url": "https://www.nasa.gov/image-article/artemis-ii-crew-and-apollo-14-moon-tree/",
       "image": "https://www.nasa.gov/wp-content/uploads/2026/07/jsc2026e396761orig.jpg",
       "source": "NASA Breaking News",
@@ -566,7 +778,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 52,
       "url": "https://electrek.co/2026/07/07/fords-30000-ev-pickup-makes-full-size-suv-look-massive/",
       "image": "/images/feed/feed-94361b0c7ec2.jpg",
       "source": "Electrek",
@@ -586,7 +798,7 @@
         "Claude"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 54,
       "url": "https://www.zdnet.com/article/anthropic-claude-cowork-comes-to-phone-web-cloud/",
       "image": "/images/feed/feed-b06be4b64699.jpg",
       "source": "ZDNet",
@@ -605,7 +817,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 45,
       "url": "https://www.space.com/space-exploration/asteroid-comet-missions/china-releases-1st-photo-of-earths-elusive-quasi-moon-kamooalewa",
       "image": "/images/feed/feed-0a9bd078958c.jpg",
       "source": "Space.com",
@@ -625,7 +837,7 @@
         "Claude"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 48,
       "url": "https://www.wired.com/story/shut-those-laptops-anthropic-puts-its-claude-cowork-agent-on-your-phone/",
       "image": "/images/feed/feed-55697d89ff59.png",
       "source": "Wired",
@@ -644,67 +856,10 @@
         "Ransomware"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 37,
       "url": "https://www.zdnet.com/article/jadepuffer-fully-agentic-ransomware-attack-researchers-nightmares/",
       "image": "/images/feed/feed-5424543154e9.jpg",
       "source": "ZDNet",
-      "isLive": true
-    },
-    {
-      "id": "feed-8703a62a4252",
-      "title": "July 2026 Satellite Puzzler",
-      "excerpt": "Your challenge is to tell us the location of the satellite image and why it is interesting.",
-      "body": "Earth Observatory Earth Earth Observatory Image of the Day EO Explorer Topics All Topics Atmosphere Land Heat &#038; Radiation Life on Earth Human Dimensions Natural Events Oceans Remote Sensing Technology Snow &#038; Ice Water More Content Collections Global Maps World of Change Articles Earth Matters Blog Blue Marble: Next Generation EO Kids Mission: Biomes About About Us Subscribe 🛜 RSS Contact Us Search Every month, NASA Earth Observatory features a puzzling satellite image. The July 2026 puzzler appears above. Your Challenge I dentify the location shown in this satellite image. Share what clues you see, where you think it is, and what makes this place interesting or unique to you. How to Answer Submit your response using this form and select “Puzzler Answer” as the topic.",
-      "author": "NASA Breaking News",
-      "date": "2026-07-07",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Satellite"
-      ],
-      "featured": false,
-      "xpReward": 49,
-      "url": "https://science.nasa.gov/earth/earth-observatory/july-2026-satellite-puzzler/",
-      "image": "/images/feed/feed-8703a62a4252.jpg",
-      "source": "NASA Breaking News",
-      "isLive": true
-    },
-    {
-      "id": "feed-901f80fa5eb2",
-      "title": "Ford is recalling over 42,000 Mustang Mach-E EVs",
-      "excerpt": "Ford is recalling nearly 43,000 Mustang Mach-E electric vehicles. This time, it’s due to a faulty differential unit that may fracture, resulting in a loss of drive power.",
-      "body": "Ford is recalling nearly 43,000 Mustang Mach-E electric vehicles. This time, it’s due to a faulty differential unit that may fracture, resulting in a loss of drive power.\n\nThis report, published by Electrek, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cars. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Electrek using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Peter Johnson",
-      "date": "2026-07-07",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Cars"
-      ],
-      "featured": false,
-      "xpReward": 36,
-      "url": "https://electrek.co/2026/07/07/ford-recalling-over-42000-mustang-mach-e-evs/",
-      "image": "/images/feed/feed-901f80fa5eb2.jpg",
-      "source": "Electrek",
-      "isLive": true
-    },
-    {
-      "id": "feed-0b6658130df7",
-      "title": "SpaceX launches Transporter-17 amid concerns about rideshare program’s future",
-      "excerpt": "SpaceX launched the latest in its Transporter series of rideshare missions July 7 as industry concerns about the program’s future reach what one rival company executive called a panic. The post SpaceX…",
-      "body": "SpaceX launched the latest in its Transporter series of rideshare missions July 7 as industry concerns about the program’s future reach what one rival company executive called a panic. The post SpaceX launches Transporter-17 amid concerns about rideshare program’s future appeared first on SpaceNews .",
-      "author": "Jeff Foust",
-      "date": "2026-07-07",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Spacex"
-      ],
-      "featured": false,
-      "xpReward": 32,
-      "url": "https://spacenews.com/spacex-launches-transporter-17-amid-concerns-about-rideshare-programs-future/",
-      "image": "/images/feed/feed-0b6658130df7.jpg",
-      "source": "SpaceNews",
       "isLive": true
     },
     {
@@ -720,7 +875,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 30,
       "url": "https://www.bleepingcomputer.com/news/security/spain-arrests-suspected-member-of-pro-russian-hacktivist-groups/",
       "image": "/images/feed/feed-e0177106d195.jpg",
       "source": "BleepingComputer",
@@ -739,126 +894,10 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 34,
       "url": "https://thehackernews.com/2026/07/debull-tooling-abuses-microsoft-device.html",
       "image": "/images/feed/feed-c246501a51cb.jpg",
       "source": "The Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-f017f6834a90",
-      "title": "7 Habits That Are More Important Than Using Antivirus on Your Phone",
-      "excerpt": "The biggest threat to your phone isn't malware, it's how you conduct yourself online.",
-      "body": "The biggest threat to your phone isn't malware, it's how you conduct yourself online.\n\nThis report, published by CNET, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cybersecurity. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to CNET using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Marshall Gunnell",
-      "date": "2026-07-07",
-      "readTime": "2 min",
-      "section": "cybersecurity",
-      "tags": [
-        "Cybersecurity"
-      ],
-      "featured": false,
-      "xpReward": 52,
-      "url": "https://www.cnet.com/tech/services-and-software/7-habits-more-important-than-antivirus-for-your-phone/",
-      "image": "/images/feed/feed-f017f6834a90.jpg",
-      "source": "CNET",
-      "isLive": true
-    },
-    {
-      "id": "feed-4b8722f12044",
-      "title": "'That's going to come back and bite us': Former NASA chief questions Artemis moon lander plans",
-      "excerpt": "Former NASA Administrator Jim Bridenstine questions the designs for NASA's commercial moon landers for its Artemis program.",
-      "body": "The former head of NASA is questioning the agency's plans to return astronauts to the moon, asking whether the crewed landers selected for the Artemis program are the right vehicles to get the job done. Jim Bridenstine, who served as NASA administrator during President Donald Trump's first term, joined Space.com's Tariq Malik and co-host Rod Pyle on the This Week in Space podcast on June 12 to discuss his recently appointed position as CEO of Quantum Space and current events in the space industry. During the show, Bridenstine voiced skepticism about the architecture of NASA's Artemis moon landers , both of which are trailing in development compared to the Orion spacecraft with which they're being designed to fly. \"The architecture is extraordinarily complicated,\" Bridenstine said.",
-      "author": " Josh Dinner ",
-      "date": "2026-07-07",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Artemis",
-        "Nasa"
-      ],
-      "featured": false,
-      "xpReward": 46,
-      "url": "https://www.space.com/space-exploration/artemis/thats-going-to-come-back-and-bite-us-former-nasa-chief-questions-artemis-moon-lander-plans",
-      "image": "/images/feed/feed-4b8722f12044.jpg",
-      "source": "Space.com",
-      "isLive": true
-    },
-    {
-      "id": "feed-a4ed1f6fda7b",
-      "title": "Ex-Tesla Optimus scientist unveils European humanoid robot startup",
-      "excerpt": "A scientist who worked on Tesla’s Optimus humanoid robot is now building a rival of his own — in Europe, not Silicon Valley. Rémi Cadène, co-founder and CEO of Paris-based startup UMA, unveiled plans…",
-      "body": "A scientist who worked on Tesla’s Optimus humanoid robot is now building a rival of his own — in Europe, not Silicon Valley. Rémi Cadène, co-founder and CEO of Paris-based startup UMA, unveiled plans for a lightweight humanoid robot called Northstar and says the company is already talking to 50 potential customers.",
-      "author": "Fred Lambert",
-      "date": "2026-07-07",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Tesla"
-      ],
-      "featured": false,
-      "xpReward": 53,
-      "url": "https://electrek.co/2026/07/07/tesla-optimus-scientist-uma-humanoid-robot/",
-      "image": "/images/feed/feed-a4ed1f6fda7b.jpg",
-      "source": "Electrek",
-      "isLive": true
-    },
-    {
-      "id": "feed-68f0204a7a1b",
-      "title": "The US Is Stuck With This Ninny For How Much Longer?",
-      "excerpt": "New \"Glass Half Full\" models indicate that renewable energy technology will continue to beat obstructionist policy. The post The US Is Stuck With This Ninny For How Much Longer? appeared first on Clea…",
-      "body": "New \"Glass Half Full\" models indicate that renewable energy technology will continue to beat obstructionist policy. The post The US Is Stuck With This Ninny For How Much Longer? appeared first on Clea — a development drawing significant attention in the electric vehicles, hybrids, and automotive technology space.\n\nThis report, published by CleanTechnica, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cars. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to CleanTechnica using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Tina Casey",
-      "date": "2026-07-07",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Cars"
-      ],
-      "featured": false,
-      "xpReward": 40,
-      "url": "https://cleantechnica.com/2026/07/07/renewable-energy-beats-trump-obstruction-us-policy/",
-      "image": "/images/feed/feed-68f0204a7a1b.png",
-      "source": "CleanTechnica",
-      "isLive": true
-    },
-    {
-      "id": "feed-abe9f09c818d",
-      "title": "Public GitHub Issue Could Trick GitHub Agentic Workflows Into Leaking Private Repo Data",
-      "excerpt": "A public issue can trick GitHub Agentic Workflows into leaking the contents of an organization's private repositories, researchers at Noma Security have shown. The attacker needs only to open a normal…",
-      "body": "A public issue can trick GitHub Agentic Workflows into leaking the contents of an organization's private repositories, researchers at Noma Security have shown. The attacker needs only to open a normal-looking issue on a public repository, with no stolen credentials and no access to the organization. If that organization has given the agent read access across its repositories, private ones",
-      "author": "info@thehackernews.com (The Hacker News)",
-      "date": "2026-07-07",
-      "readTime": "2 min",
-      "section": "cybersecurity",
-      "tags": [
-        "Cybersecurity"
-      ],
-      "featured": false,
-      "xpReward": 39,
-      "url": "https://thehackernews.com/2026/07/public-github-issue-could-trick-github.html",
-      "image": "/images/feed/feed-abe9f09c818d.jpg",
-      "source": "The Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-3236bd8cf9c9",
-      "title": "Astronaut flexes his muscles mid-spacewalk | Space photo of the day for July 7, 2026",
-      "excerpt": "NASA astronaut Chris Williams recently flexed his muscles for a photo while on a spacewalk with fellow astronaut Jessica Meir.",
-      "body": "NASA astronaut Chris Williams flexes his muscles while on a spacewalk in this image snapped by fellow astronaut Jessica Meir on June 30, 2026. (Image credit: NASA/Jessica Meir) Mid-spacewalk, one NASA astronaut had to take a moment to show off his muscles. What is it? NASA astronaut Chris Williams recently left the confines of the International Space Station for a 7-hour-and-20-minute spacewalk with fellow astronaut Jessica Meir . This was Williams' second spacewalk and Meir's fifth. In a moment of fun, Williams flexed his muscles for a photo snapped by Meir during the strenuous spacewalk. With a big grin on his face, visible even through his spacesuit helmet, Williams raised his arms in a classic Muscle Beach pose as planet Earth glowed hundreds of miles beneath him.",
-      "author": " Chelsea Gohd ",
-      "date": "2026-07-07",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Astronaut",
-        "Space"
-      ],
-      "featured": false,
-      "xpReward": 42,
-      "url": "https://www.space.com/space-exploration/human-spaceflight/astronaut-flexes-his-muscles-mid-spacewalk-space-photo-of-the-day-for-july-7-2026",
-      "image": "/images/feed/feed-3236bd8cf9c9.png",
-      "source": "Space.com",
       "isLive": true
     },
     {
@@ -874,7 +913,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 48,
       "url": "https://www.technologyreview.com/2026/07/07/1140197/the-download-your-openai-stake-treasury-ai-warning/",
       "image": "/images/feed/feed-0e5ebf4a584e.jpg",
       "source": "MIT Tech Review",
@@ -893,62 +932,24 @@
         "Gemini"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 47,
       "url": "https://blog.google/innovation-and-ai/technology/developers-tools/expanding-managed-agents-gemini-api/",
       "image": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Managed_agents_feature_bundle_l.max-600x600.format-webp.webp",
       "source": "Google AI Blog",
       "isLive": true
-    },
-    {
-      "id": "feed-0f64c66e0db7",
-      "title": "You can now customize Siri’s pace and expressivity in the latest iOS 27 beta",
-      "excerpt": "The update is part of Apple's broader effort to make Siri feel more natural and personal, as it rebuilds the assistant around generative AI.",
-      "body": "The update is part of Apple's broader effort to make Siri feel more natural and personal, as it rebuilds the assistant around generative AI.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Ai. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Sarah Perez",
-      "date": "2026-07-06",
-      "readTime": "2 min",
-      "section": "ai",
-      "tags": [
-        "Ai"
-      ],
-      "featured": false,
-      "xpReward": 45,
-      "url": "https://techcrunch.com/2026/07/06/you-can-now-customize-siris-pace-and-expressivity-in-the-latest-ios-27-beta/",
-      "image": "/images/feed/feed-0f64c66e0db7.jpg",
-      "source": "TechCrunch",
-      "isLive": true
-    },
-    {
-      "id": "feed-e930f63d2b61",
-      "title": "Your family’s $300 stake in OpenAI",
-      "excerpt": "This story originally appeared in The Algorithm, our weekly newsletter on AI. To get stories like this in your inbox first, sign up here. OpenAI CEO Sam Altman’s oft-discussed promise that Americans w…",
-      "body": "This story originally appeared in The Algorithm, our weekly newsletter on AI. To get stories like this in your inbox first, sign up here . OpenAI CEO Sam Altman’s oft-discussed promise that Americans will share in the wealth AI creates was in the news again last week. On Thursday, the Financial Times reported that Altman is in talks with President Trump about giving the US government a 5% stake in OpenAI. In some ways, Altman’s plan is old news. He wrote about a more radical version of this back in 2021 , proposing that all companies above a certain valuation (not just AI companies) pay 2.5% of their market value each year into a fund that sends Americans annual disbursements.",
-      "author": "James O'Donnell",
-      "date": "2026-07-06",
-      "readTime": "2 min",
-      "section": "ai",
-      "tags": [
-        "Openai"
-      ],
-      "featured": false,
-      "xpReward": 37,
-      "url": "https://www.technologyreview.com/2026/07/06/1140176/your-familys-300-stake-in-openai/",
-      "image": "/images/feed/feed-e930f63d2b61.jpg",
-      "source": "MIT Tech Review",
-      "isLive": true
     }
   ],
   "breakingNews": [
-    "DEV.TO: A Practical QA Reading List for Modern Browser and AI Testing",
-    "POLYGON: Terminator 2: Judgment Day is getting re-released in theaters for its 35th anniversary",
-    "DEV.TO: Master Git & GitHub in 2026 — The Easy Way ⚡",
-    "DEV.TO: Unity Foundational Architecture: Smart Bootstrapping",
-    "ENGADGET: Google's next Pixel event is on August 12",
-    "POLYGON: Frosthaven game director explains the challenges of adapting the hit dungeon-crawler board game",
-    "DEV.TO: I reverse-engineered Discord's profile banner color blend (and built a tool around it)",
-    "CLEANTECHNICA: 10 Massachusetts Nonprofits Get Solar Grants",
-    "DEV.TO: Ternary Semantic Brain Core — Zero Hard-Coding, Language-Independent Meaning Engine",
-    "ELECTREK: Someone is trying to flip a new Rivian R2 for $80,000 — $20K over MSRP"
+    "ANDROID AUTHORITY: Google throws Voice a lifeline with addition of two new personal paid tiers",
+    "DEV.TO: Message Queue — Async Processing",
+    "DEV.TO: Cache Invalidation — Stale Data",
+    "DEV.TO: CAP Theorem — Consistency vs Availability",
+    "DEV.TO: Redundancy & Replication — Data Redundancy",
+    "DEV.TO: Load Balancing — Traffic Distribution",
+    "DEV.TO: SARGability — Index-friendly SQL",
+    "DEV.TO: Incident — Deadlock Production",
+    "KOTAKU: The Devs Behind The Next Spyro Game Also Love Banjo-Kazooie And Would Totally Make A New One If Xbox Asked",
+    "POLYGON: Final Fantasy artist Yoshitaka Amano explains why AI can't replace human creativity"
   ],
   "sectionVideos": {}
 }
