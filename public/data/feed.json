@@ -1,6 +1,540 @@
 {
-  "fetchedAt": "2026-07-10T13:42:25.344Z",
+  "fetchedAt": "2026-07-10T14:58:12.094Z",
   "articles": [
+    {
+      "id": "feed-ed0954513ffc",
+      "title": "How Ticketmaster Sells Seats Without Double-Selling Them",
+      "excerpt": "A big show goes on sale. In the first minute, hundreds of thousands of people all want the same few good seats. Two people cannot buy seat 12A. The system has to pick a winner, tell the loser instantl…",
+      "body": "A big show goes on sale. In the first minute, hundreds of thousands of people all want the same few good seats. Two people cannot buy seat 12A. The system has to pick a winner, tell the loser instantly, and do it while absorbing a traffic spike that dwarfs its normal load. This is one of the cleanest examples of a concurrency problem in the wild, and the solution is a careful dance between locking, timeouts, and queues. The core problem A seat is a single unit of inventory that exactly one person can own. The moment you have shared mutable inventory and many concurrent buyers, you have a race. Two requests read \"seat available\", both proceed to buy, both succeed, and now two people are holding tickets to the same chair.",
+      "author": "RONI DAS",
+      "date": "2026-07-10",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 39,
+      "url": "https://dev.to/roni_das_b1b76c5ee6583027/how-ticketmaster-sells-seats-without-double-selling-them-l07",
+      "image": "/images/feed/feed-ed0954513ffc.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-5fe5c1d2d94e",
+      "title": "Proximity Search: How Yelp Finds Places Near You",
+      "excerpt": "Open Yelp, ask for coffee shops within a mile, and results come back instantly. Under that simple request is a genuinely hard database question: how do you efficiently find all points near a given poi…",
+      "body": "Open Yelp, ask for coffee shops within a mile, and results come back instantly. Under that simple request is a genuinely hard database question: how do you efficiently find all points near a given point when you have tens of millions of points and a globe to spread them across. A plain database index does not help here, because \"near\" is a two-dimensional idea and ordinary indexes are one-dimensional. The core problem Suppose every place is a row with a latitude and longitude. To find places near you, the brute-force approach computes the distance from you to every single place and keeps the close ones. That is a full scan on every search. It works for a thousand rows and dies at ten million.",
+      "author": "RONI DAS",
+      "date": "2026-07-10",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 39,
+      "url": "https://dev.to/roni_das_b1b76c5ee6583027/proximity-search-how-yelp-finds-places-near-you-4ab3",
+      "image": "/images/feed/feed-5fe5c1d2d94e.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-403700291941",
+      "title": "Coming up for Air",
+      "excerpt": "After the absolute gauntlet of the past few weeks, this week finally offered a little bit of breathing room. I'm not going to lie, I needed it. But \"lighter\" in the open-source world doesn't mean stop…",
+      "body": "After the absolute gauntlet of the past few weeks, this week finally offered a little bit of breathing room. I'm not going to lie, I needed it. But \"lighter\" in the open-source world doesn't mean stopping; it just means you finally have the time to sit back and actually think before you code. Writing .pyi Stub Files A good chunk of my time went into writing .pyi stub files. It sounds mundane on the surface, like just writing Python type hints, BUT it's actually this bizarre, highly precise exercise in translation. You are basically acting as a diplomat between the ruthless C-engine and Python's static type checkers. It's microscopic work. Every single argument has to align perfectly with how the C-level memory actually allocates it, otherwise the whole illusion shatters.",
+      "author": "Reem Hamraz",
+      "date": "2026-07-10",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 35,
+      "url": "https://dev.to/reemhamraz/coming-up-for-air-587f",
+      "image": "/images/feed/feed-403700291941.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-226ed9407aaa",
+      "title": "Netflix could be planning ‘always-on’ live TV channels",
+      "excerpt": "Amid signs of slowing engagement, Netflix is reportedly considering launching \"always-on\" live channels, giving subscribers something to tune into 24/7.",
+      "body": "Amid signs of slowing engagement, Netflix is reportedly considering launching \"always-on\" live channels, giving subscribers something to tune into 24/7.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Software. As the situation continues to evolve, professionals and enthusiasts in the software development and engineering field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Lauren Forristal",
+      "date": "2026-07-10",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 48,
+      "url": "https://techcrunch.com/2026/07/10/netflix-could-be-planning-always-on-live-tv-channels/",
+      "image": "/images/feed/feed-226ed9407aaa.jpg",
+      "source": "TechCrunch",
+      "isLive": true
+    },
+    {
+      "id": "feed-e639a023e9be",
+      "title": "I Rebuilt the Foundation of My Text Editor",
+      "excerpt": "After working on cdin for a while, I started noticing something. The biggest problems were not the features I was missing. They were the things underneath. When I first started cdin, the goal was simp…",
+      "body": "After working on cdin for a while, I started noticing something. The biggest problems were not the features I was missing. They were the things underneath. When I first started cdin, the goal was simple: build a small, fast, and hackable text editor that works well even on low-end hardware. It started as a fork of lite, but over time it became something more personal. I changed the things I did not like, added the things I needed, and slowly shaped it into the editor I wanted to use. But as the project grew, I noticed that some parts of the architecture were becoming harder to maintain. The Lua layer was doing too much. Some systems had duplicated logic. Plugins depended on internal behavior instead of clear APIs.",
+      "author": "Genix",
+      "date": "2026-07-10",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 53,
+      "url": "https://dev.to/m__mdy__m/i-rebuilt-the-foundation-of-my-text-editor-cbm",
+      "image": "/images/feed/feed-e639a023e9be.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-9a76eec2a2cd",
+      "title": "Dev Opportunity Radar #7: $1,000 Solo Grants, Free Claude Max for Open Source Contributors, and an MLH Hackathon",
+      "excerpt": "TL;DR Welcome back to Dev Opportunity Radar. This is a weekly series where I share opportunities, resources, communities, and interesting finds that I come across, with the goal of helping people disc…",
+      "body": "TL;DR Welcome back to Dev Opportunity Radar . This is a weekly series where I share opportunities, resources, communities, and interesting finds that I come across, with the goal of helping people discover things they might otherwise miss. This week's edition includes microgrants for solo builders, Anthropic's Claude for Open Source program, the Midnight Hackathon , and The Odin Project , one of the most popular free resources for learning full-stack web development. If you're new to the series, or missed a previous edition, you'll find the Dev Opportunity Radar Archive at the end of this article, where every edition, Community Find, and helpful link is collected in one place.",
+      "author": "Hemapriya Kanagala",
+      "date": "2026-07-10",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Open Source"
+      ],
+      "featured": true,
+      "xpReward": 53,
+      "url": "https://dev.to/devengers/dev-opportunity-radar-7-1000-solo-grants-free-claude-max-for-open-source-contributors-and-an-3i12",
+      "image": "/images/feed/feed-9a76eec2a2cd.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-707e0caf5970",
+      "title": "Netflix Reportedly Threatening To Take Over Letterboxd",
+      "excerpt": "Sony, Paramount, and others are eyeing a potential acquisition as well",
+      "body": "Sony, Paramount, and others are eyeing a potential acquisition as well\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Ethan Gach",
+      "date": "2026-07-10",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 43,
+      "url": "https://kotaku.com/netflix-reportedly-threatening-to-take-over-letterboxd-2000714661",
+      "image": "/images/feed/feed-707e0caf5970.jpg",
+      "source": "Kotaku",
+      "isLive": true
+    },
+    {
+      "id": "feed-82a60e837c0e",
+      "title": "Burn After Reading",
+      "excerpt": "My manager ruined a perfectly good beer at an open air brewery in Richmond by telling me the truth about my career. The advice aged better than the beer. Here's the T-shaped engineer pitch nobody gave…",
+      "body": "My manager ruined a perfectly good beer at an open air brewery in Richmond by telling me the truth about my career. The advice aged better than the beer. Here's the T-shaped engineer pitch nobody gave you, and six prompts worth burning tokens on at the end. The T-shaped engineer idea was first called out for me at an office happy hour, over beers at an open air brewery in Richmond. Careers came up, the way they do when engineers drink near their manager, and mine made a point I couldn't shake: depth alone doesn't carry you. The engineers who go furthest are deep in one thing, conversant in everything around it, and able to explain their work to anyone in the building. I nodded, went home, and kept doing exactly what I was doing. Going deeper and calling it growth.",
+      "author": "Shekhar Bhardwaj",
+      "date": "2026-07-10",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 39,
+      "url": "https://dev.to/shek_bake_1eda6ed9b79f7a1/burn-after-reading-48l",
+      "image": "/images/feed/feed-82a60e837c0e.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-3246c552f0fa",
+      "title": "What is Cali Commander? Everything to know about Magic's controversial new format",
+      "excerpt": "A new Commander format created by former NFL player Cassius Marsh is stirring up the MTG web community.",
+      "body": "If you're a Magic: The Gathering fan, and you have been online in the past few days, chances are you've heard of Cali Commander, a new fan-made format that has quickly become the talk of the community. Created by former NFL linebacker Cassius Marsh, this is a spin on the classic 1v1 Commander format, but with some controversies attached.",
+      "author": "Francesco Cacciatore",
+      "date": "2026-07-10",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 32,
+      "url": "https://www.polygon.com/mtg-what-is-cali-commander-magic-the-gathering/",
+      "image": "/images/feed/feed-3246c552f0fa.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-ee2ac87e303d",
+      "title": "Australia’s 7 best-selling EVs are now all Chinese — even Tesla’s",
+      "excerpt": "Australia just posted its biggest month ever for electric car sales, and for the first time seven different EVs each cleared 1,000 units in a single month. Every one of them is either Chinese-owned or…",
+      "body": "Australia just posted its biggest month ever for electric car sales, and for the first time seven different EVs each cleared 1,000 units in a single month. Every one of them is either Chinese-owned or Chinese-built — and that includes the Tesla Model Y that topped the chart, which rolls off the line in Shanghai.",
+      "author": "Fred Lambert",
+      "date": "2026-07-10",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Tesla"
+      ],
+      "featured": false,
+      "xpReward": 52,
+      "url": "https://electrek.co/2026/07/10/australia-top-7-evs-all-chinese/",
+      "image": "/images/feed/feed-ee2ac87e303d.jpg",
+      "source": "Electrek",
+      "isLive": true
+    },
+    {
+      "id": "feed-c1719e158f83",
+      "title": "Ghost of Tsushima anime gets trailer teasing connection to game's multiplayer mode",
+      "excerpt": "Ghost of Tsushima: Legends got a new trailer ahead of the show's 2027 release on Crunchyroll.",
+      "body": "Crunchyroll has released a new teaser for Ghost of Tsushima ’s upcoming anime adaptation , which is currently set for 2027 . While the trailer shows little beyond character concept art, these illustrations are admittedly quite slick, depicting three masked warriors in ornate, skull-themed battle armor.",
+      "author": "Elijah Gonzalez",
+      "date": "2026-07-10",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Multiplayer",
+        "Game"
+      ],
+      "featured": false,
+      "xpReward": 52,
+      "url": "https://www.polygon.com/ghost-of-tsushima-anime-new-trailer-legends/",
+      "image": "/images/feed/feed-c1719e158f83.png",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-669374bef301",
+      "title": "How to do a barrel roll in Forza Horizon 6",
+      "excerpt": "Here's how to barrel roll in Forza Horizon 6, a skill you must perform to complete Series 2 daily challenge \"Rolling in the Jeep.\"",
+      "body": "To perform the barrel roll skill in Forza Horizon 6 , you must make your car spin in the air without hitting anything else. This technique involves having the right structure that not only helps you reach the required height but also allows your vehicle to rotate sideways. Landing a barrel roll is required for the \"Rolling in the Jeep\" daily challenge , which is part of the Forza Horizon 6 Series 2 \"Horizon Decades\" playlist .",
+      "author": "Paulo Kawanishi",
+      "date": "2026-07-10",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 46,
+      "url": "https://www.polygon.com/forza-horizon-6-fh6-barrel-roll-skill-how-to/",
+      "image": "/images/feed/feed-669374bef301.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-0a5bad958f23",
+      "title": "GameStop’s Australian Outlets Leave Pokémon TCG Customers Furious After Insane Bait-N-Switch Pricing",
+      "excerpt": "Fake 'outrageous' prices turned out to be a trick, leaving just about everyone annoyed",
+      "body": "Fake 'outrageous' prices turned out to be a trick, leaving just about everyone annoyed\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "John Walker",
+      "date": "2026-07-10",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 35,
+      "url": "https://kotaku.com/gamestop-eb-games-australia-pokemon-tcg-30th-anniversary-scalpers-2000714619",
+      "image": "/images/feed/feed-0a5bad958f23.jpg",
+      "source": "Kotaku",
+      "isLive": true
+    },
+    {
+      "id": "feed-ad965b7b750e",
+      "title": "Researcher Details WhatsApp-to-Host Attack Chain Using Three OpenClaw Flaws",
+      "excerpt": "Details have emerged about three now-patched security flaws in the OpenClaw personal artificial intelligence (AI) assistant that, if successfully exploited, could enable credential theft, privilege es…",
+      "body": "Details have emerged about three now-patched security flaws in the OpenClaw personal artificial intelligence (AI) assistant that, if successfully exploited, could enable credential theft, privilege escalation, and arbitrary code execution on the host. A brief description of the high-severity vulnerabilities is as follows&nbsp;- GHSA-hjr6-g723-hmfm (CVSS score: 8.8) - An operating system",
+      "author": "info@thehackernews.com (The Hacker News)",
+      "date": "2026-07-10",
+      "readTime": "2 min",
+      "section": "cybersecurity",
+      "tags": [
+        "Cybersecurity"
+      ],
+      "featured": false,
+      "xpReward": 48,
+      "url": "https://thehackernews.com/2026/07/researcher-details-whatsapp-to-host.html",
+      "image": "/images/feed/feed-ad965b7b750e.jpg",
+      "source": "The Hacker News",
+      "isLive": true
+    },
+    {
+      "id": "feed-b2d0e9691941",
+      "title": "EU threatens Meta with fines over addictive features on Facebook and Instagram",
+      "excerpt": "The tech giant is in breach of the Digital Services Act by focusing on features like infinite scroll, autoplay, push notifications, and the highly personalized recommendation algorithms, the European…",
+      "body": "The tech giant is in breach of the Digital Services Act by focusing on features like infinite scroll, autoplay, push notifications, and the highly personalized recommendation algorithms, the European — a development drawing significant attention in the cybersecurity and digital privacy space.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cybersecurity. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Aisha Malik",
+      "date": "2026-07-10",
+      "readTime": "2 min",
+      "section": "cybersecurity",
+      "tags": [
+        "Cybersecurity"
+      ],
+      "featured": false,
+      "xpReward": 43,
+      "url": "https://techcrunch.com/2026/07/10/eu-threatens-meta-with-fines-over-addictive-features-on-facebook-and-instagram/",
+      "image": "/images/feed/feed-b2d0e9691941.jpg",
+      "source": "TechCrunch",
+      "isLive": true
+    },
+    {
+      "id": "feed-de996bd36f91",
+      "title": "With ChatGPT Atlas shutting down, here are the AI browsers people actually use",
+      "excerpt": "OpenAI is pulling the plug on its dedicated web browser, ChatGPT Atlas. Instead of investing in an AI browser with a small user base, the company is improving agentic web use features inside the new C…",
+      "body": "OpenAI is pulling the plug on its dedicated web browser, ChatGPT Atlas. Instead of investing in an AI browser with a small user base, the company is improving agentic web use features inside the new ChatGPT desktop app. While ChatGPT Atlas may not have gained much traction, AI browsers can be useful for automating tasks like research, browser tidiness, and more. Here are options available on the Mac.",
+      "author": "Zac Hall",
+      "date": "2026-07-10",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 53,
+      "url": "https://9to5mac.com/2026/07/10/with-chatgpt-atlas-shutting-down-here-are-the-ai-browsers-people-actually-use/",
+      "image": "/images/feed/feed-de996bd36f91.jpg",
+      "source": "9to5Mac",
+      "isLive": true
+    },
+    {
+      "id": "feed-4938775d1d8f",
+      "title": "Volvo’s Electric Truck Is Moving Faster Than Its Hydrogen Strategy",
+      "excerpt": "Volvo’s new FH Aero Electric is the kind of truck legacy manufacturers used to imply battery-electric trucking could not really become. It claims up to 700 kilometers of range, carries up to 725 kWh o…",
+      "body": "Volvo’s new FH Aero Electric is the kind of truck legacy manufacturers used to imply battery-electric trucking could not really become. It claims up to 700 kilometers of range, carries up to 725 kWh of usable battery energy, supports megawatt charging, and uses a new e-axle to free more chassis ... [continued] The post Volvo’s Electric Truck Is Moving Faster Than Its Hydrogen Strategy appeared first on CleanTechnica .",
+      "author": "Michael Barnard",
+      "date": "2026-07-10",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Cars"
+      ],
+      "featured": false,
+      "xpReward": 52,
+      "url": "https://cleantechnica.com/2026/07/10/volvo-electric-truck-hydrogen-strategy/",
+      "image": "/images/feed/feed-4938775d1d8f.webp",
+      "source": "CleanTechnica",
+      "isLive": true
+    },
+    {
+      "id": "feed-4ef3e03012fd",
+      "title": "UNDP & TAILG Sign MOU for a Green, Low-Carbon Mobility Project to Advance Sustainable Development in Africa & Beyond",
+      "excerpt": "NAIROBI, Kenya — The United Nations Development Programme (UNDP) and TAILG, a leading electric mobility company, officially signed a Memorandum of Understanding (MOU) in Kenya regarding the Green Mobi…",
+      "body": "NAIROBI, Kenya — The United Nations Development Programme (UNDP) and TAILG, a leading electric mobility company, officially signed a Memorandum of Understanding (MOU) in Kenya regarding the Green Mobility Centre of Excellence (GM-CoE). The two parties have established a strategic partnership to jointly implement flagship projects for green, low-carbon mobility. ... [continued] The post UNDP &#038; TAILG Sign MOU for a Green, Low-Carbon Mobility Project to Advance Sustainable Development in Africa &#038; Beyond appeared first on CleanTechnica .",
+      "author": "Press Release",
+      "date": "2026-07-10",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Cars"
+      ],
+      "featured": false,
+      "xpReward": 40,
+      "url": "https://cleantechnica.com/2026/07/10/undp-tailg-sign-mou-for-a-green-low-carbon-mobility-project-to-advance-sustainable-development-in-africa-beyond/",
+      "image": "/images/feed/feed-4ef3e03012fd.jpg",
+      "source": "CleanTechnica",
+      "isLive": true
+    },
+    {
+      "id": "feed-956e917c10bc",
+      "title": "Spotify is tweaking one of Discover Weekly’s best features",
+      "excerpt": "Spotify is testing revised filters for some playlists, while also announcing brand-new controls for Release Radar.",
+      "body": "TL;DR Spotify is currently testing an update to genre/mood filters with added phrasing. This test effectively replaces the existing single-word genre filters, though it doesn’t appear to be widely available just yet. Spotify has separately announced new “controls” for its Release Radar playlist. Spotify’s user-focused playlists have witnessed a few changes over its 11-year-plus span. Last year, the streaming giant released new genre/mood filters for some of these playlists. A year since these filters rolled out to the masses, Spotify is now testing a minor but significant revamp. As bingbongforever shares on Reddit, Spotify is testing more elaborate phrasing for genre filters.",
+      "author": "Chethan Rao",
+      "date": "2026-07-10",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 33,
+      "url": "https://www.androidauthority.com/spotify-discover-weekly-new-genre-filters-3686300/",
+      "image": "/images/feed/feed-956e917c10bc.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-2b3a6d954759",
+      "title": "Engadget Podcast: Xbox resets with layoffs",
+      "excerpt": "This week on the Engadget Podcast, we dive into Microsoft's brutal Xbox layoffs with Mike Futter of the Virtual Economy Podcast.",
+      "body": "This week on the Engadget Podcast, we dive into Microsoft's brutal Xbox layoffs with Mike Futter of the Virtual Economy Podcast.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadget. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "staff@engadget.com (Devindra Hardawar)",
+      "date": "2026-07-10",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadget"
+      ],
+      "featured": false,
+      "xpReward": 32,
+      "url": "https://www.engadget.com/2212251/engadget-podcast-xbox-resets-with-layoffs/",
+      "image": "/images/feed/feed-2b3a6d954759.jpg",
+      "source": "Engadget",
+      "isLive": true
+    },
+    {
+      "id": "feed-8d8d71f92cc0",
+      "title": "Adventures of Elliot's new update finally lets you silence Faie",
+      "excerpt": "The HD-2D RPG from Square Enix stars a companion character that is a little too chatty, but a new patch finally fixed it.",
+      "body": "Square Enix's latest RPG, The Adventures of Elliot: The Millennium Tales , is a charming HD-2D Zelda-like with almost nothing offensive about its familiar design. I say \"almost\" because there has been one major criticism the game has received since it was released on June 18: characters won't shut up! Nearly a month after launch, Square Enix is finally fixing the problem.",
+      "author": "Willa Rowe",
+      "date": "2026-07-10",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 41,
+      "url": "https://www.polygon.com/adventures-of-elliot-update-path-character-voices-turn-off/",
+      "image": "/images/feed/feed-8d8d71f92cc0.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-659e379844f7",
+      "title": "Florida ransomware negotiator convicted for helping ransomware gang extort US companies",
+      "excerpt": "A third ransomware negotiator has been jailed for helping a notorious ransomware group extort American victim companies into paying the hackers.",
+      "body": "A third ransomware negotiator has been jailed for helping a notorious ransomware group extort American victim companies into paying the hackers.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Ransomware. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Zack Whittaker",
+      "date": "2026-07-10",
+      "readTime": "2 min",
+      "section": "cybersecurity",
+      "tags": [
+        "Ransomware"
+      ],
+      "featured": false,
+      "xpReward": 50,
+      "url": "https://techcrunch.com/2026/07/10/florida-ransomware-negotiator-convicted-for-helping-ransomware-gang-extort-us-companies/",
+      "image": "/images/feed/feed-659e379844f7.jpg",
+      "source": "TechCrunch",
+      "isLive": true
+    },
+    {
+      "id": "feed-70272ba73196",
+      "title": "The space industry is weighing ambitious hiring against heritage",
+      "excerpt": "Space is hard, as the decades-old adage goes. For much of the industry’s history, “rocket science” was as much a barrier to entry as a byword for difficulty. But now […] The post The space industry is…",
+      "body": "Space is hard, as the decades-old adage goes. For much of the industry’s history, “rocket science” was as much a barrier to entry as a byword for difficulty. But now […] The post The space industry is — a development drawing significant attention in the space exploration and astronomy space.\n\nThis report, published by SpaceNews, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Space. As the situation continues to evolve, professionals and enthusiasts in the space exploration and astronomy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to SpaceNews using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Jason Rainbow",
+      "date": "2026-07-10",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Space"
+      ],
+      "featured": false,
+      "xpReward": 44,
+      "url": "https://spacenews.com/the-space-industry-is-weighing-ambitious-hiring-against-heritage/",
+      "image": "/images/feed/feed-70272ba73196.jpg",
+      "source": "SpaceNews",
+      "isLive": true
+    },
+    {
+      "id": "feed-f88f2cc08d19",
+      "title": "PlayStation ‘No Disc, No Buy’ Boycott Immediately Splinters In The Face Of Black Ops Ports",
+      "excerpt": "Sony finally posted something without getting ratio'd",
+      "body": "Sony finally posted something without getting ratio'd\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Playstation. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Ethan Gach",
+      "date": "2026-07-10",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Playstation"
+      ],
+      "featured": false,
+      "xpReward": 42,
+      "url": "https://kotaku.com/playstation-no-disc-no-buy-boycott-immediately-splinters-in-the-face-of-black-ops-ports-2000714620",
+      "image": "/images/feed/feed-f88f2cc08d19.jpg",
+      "source": "Kotaku",
+      "isLive": true
+    },
+    {
+      "id": "feed-c1b4d4c12c5a",
+      "title": "The Replicant in Your Directory: AI Agents and the Identity Security Gap",
+      "excerpt": "AI agents are accelerating the growth of non-human identities, making it harder for organizations to understand what exists, who owns it, and what it can access. Netwrix explains why stronger visibili…",
+      "body": "AI agents are accelerating the growth of non-human identities, making it harder for organizations to understand what exists, who owns it, and what it can access. Netwrix explains why stronger visibility and identity governance are essential as AI expands the enterprise attack surface. [...]",
+      "author": "Sponsored by Netwrix",
+      "date": "2026-07-10",
+      "readTime": "2 min",
+      "section": "cybersecurity",
+      "tags": [
+        "Security"
+      ],
+      "featured": false,
+      "xpReward": 35,
+      "url": "https://www.bleepingcomputer.com/news/security/the-replicant-in-your-directory-ai-agents-and-the-identity-security-gap/",
+      "image": "/images/feed/feed-c1b4d4c12c5a.jpg",
+      "source": "BleepingComputer",
+      "isLive": true
+    },
+    {
+      "id": "feed-346c16b5d593",
+      "title": "SpaceX launch creates colorful 'jellyfish' in the night sky | Space photo of the day for July 10, 2026",
+      "excerpt": "I promise it's not an alien.",
+      "body": "A \"space jellyfish\" cloud lit up the early morning sky following a SpaceX Falcon 9 launch. (Image credit: SpaceX) Is it a space jellyfish? Is it an alien ? No, it's the aftermath of a SpaceX rocket launch! What is it? Have you ever looked up and thought, \"Why is there a giant glowing jellyfish cloud in the sky?\" If so, chances are that you've seen the remnants of a rocket launch, and not a surprise alien visitor. In the early hours of July 9, SpaceX launched 29 of its Starlink broadband satellites from Florida's Cape Canaveral Space Force Station to low Earth orbit. It was the rocket's 36th flight, a record. The rocket lifted off at 5:25 a.m. EDT (0925 GMT), and the scene it painted in the dark early-morning sky looks truly out of this world. But there is a practical, Earthly explanation.",
+      "author": " Chelsea Gohd ",
+      "date": "2026-07-10",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Spacex",
+        "Space"
+      ],
+      "featured": false,
+      "xpReward": 43,
+      "url": "https://www.space.com/space-exploration/spacex-launch-creates-colorful-jellyfish-in-the-night-sky-space-photo-of-the-day-for-july-10-2026",
+      "image": "/images/feed/feed-346c16b5d593.jpg",
+      "source": "Space.com",
+      "isLive": true
+    },
+    {
+      "id": "feed-475f92b0b851",
+      "title": "The next big addition to T-Life app sounds an awful lot like targeted advertising",
+      "excerpt": "The carrier also boasted of record high usage of the T-Life app. The one that's now mandatory to use in stores.",
+      "body": "Credit: Joe Maring / Android Authority TL;DR T-Mobile has outlined future plans for the T-Life app in an official blog post. The carrier says it’ll offer “richer account profiles and interest-based preferences” to deliver personalized benefits and experiences. We’ve asked T-Mobile whether this data will be used for marketing purposes. T-Mobile has been pushing its T-Life app hard in the last few months, to the point where all retail transactions at physical stores have to happen via it. The carrier has already issued a major T-Life update earlier this year, and it’s just revealed more details about upcoming additions. T-Mobile outlined future plans for the T-Life app in an official blog post :",
+      "author": "Hadlee Simons",
+      "date": "2026-07-10",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 42,
+      "url": "https://www.androidauthority.com/t-mobile-t-life-future-app-update-3686336/",
+      "image": "/images/feed/feed-475f92b0b851.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-388278d0eec1",
+      "title": "California School District Jumps Into Solar, Storage, & Electric Buses",
+      "excerpt": "The quite rural Porterville Unified School District (PUSD) in California, which sits between Los Angeles and San Francisco, or Los Angeles and Sacramento, has decided to go all-in on cleantech. It is…",
+      "body": "The quite rural Porterville Unified School District (PUSD) in California, which sits between Los Angeles and San Francisco, or Los Angeles and Sacramento, has decided to go all-in on cleantech. It is getting solar, battery energy storage, and also electric school buses. The school district is working with ForeFront Power ... [continued] The post California School District Jumps Into Solar, Storage, &#038; Electric Buses appeared first on CleanTechnica .",
+      "author": "Zachary Shahan",
+      "date": "2026-07-10",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Cars"
+      ],
+      "featured": false,
+      "xpReward": 41,
+      "url": "https://cleantechnica.com/2026/07/10/california-school-district-jumps-into-solar-storage-electric-buses/",
+      "image": "/images/feed/feed-388278d0eec1.jpg",
+      "source": "CleanTechnica",
+      "isLive": true
+    },
     {
       "id": "feed-7d8807d2db93",
       "title": "Volkswagen will dramatically shrink its model lineup and factory footprint",
@@ -13,49 +547,11 @@
       "tags": [
         "Gadgets"
       ],
-      "featured": true,
-      "xpReward": 46,
+      "featured": false,
+      "xpReward": 38,
       "url": "https://www.engadget.com/2212213/volkswagen-will-shrink-model-lineup-and-factory-footprint/",
       "image": "/images/feed/feed-7d8807d2db93.jpg",
       "source": "Engadget",
-      "isLive": true
-    },
-    {
-      "id": "feed-878cd7418fc7",
-      "title": "Give Your AI Assistant a Private Memory",
-      "excerpt": "AI assistants are very good at explaining things, but they usually have a weak They do not know which documentation page you read last week. They do not know That context often lives in your browser h…",
-      "body": "AI assistants are very good at explaining things, but they usually have a weak memory of your own context. They do not know which documentation page you read last week. They do not know which article convinced you to try a library. They do not know which migration guide you followed, which GitHub issue had the workaround, or which security writeup you already trusted. That context often lives in your browser history, bookmarks, local notes, and half-remembered search queries. Hister turns that context into a private search index. With MCP support, it can also make that index available to AI assistants. A Quick Introduction to Hister Hister is a personal search engine for pages and files you care about. The browser extension automatically indexes pages as you browse.",
-      "author": "Adam Tauber",
-      "date": "2026-07-10",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 36,
-      "url": "https://dev.to/hister/give-your-ai-assistant-a-private-memory-3058",
-      "image": "/images/feed/feed-878cd7418fc7.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-7c95a9b9b926",
-      "title": "Aider vs OpenCode vs Claude Code: Which CLI Coding Agent Wins in 2026?",
-      "excerpt": "The terminal-based AI coding assistant space has exploded. What was a two-tool market in 2024 (GitHub Copilot CLI and... nothing) has become a crowded field of 10+ serious contenders, each with differ…",
-      "body": "The terminal-based AI coding assistant space has exploded. What was a two-tool market in 2024 (GitHub Copilot CLI and... nothing) has become a crowded field of 10+ serious contenders, each with different architectures, pricing models, and philosophical approaches to how AI should assist developers. I spent the last quarter benchmarking all of them. Here's what I found. The Short Version Best intelligence-per-dollar : Codex CLI (included with ChatGPT Plus) Best free tier : Antigravity CLI (formerly Gemini CLI) Best Git-native safety : Aider Best provider independence : OpenCode (75+ model providers) Best autonomy : Claude Code Best IDE-native CLI : Cursor CLI How They Compare Tool Best For Starting Price Key Strength Claude Code Autonomous execution $20/mo (Pro) Sub-agent architecture, mult…",
-      "author": "sanj.dev",
-      "date": "2026-07-10",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 39,
-      "url": "https://dev.to/sanj-dev/aider-vs-opencode-vs-claude-code-which-cli-coding-agent-wins-in-2026-41bn",
-      "image": "/images/feed/feed-7c95a9b9b926.webp",
-      "source": "Dev.to",
       "isLive": true
     },
     {
@@ -70,49 +566,11 @@
       "tags": [
         "Gadgets"
       ],
-      "featured": true,
-      "xpReward": 36,
+      "featured": false,
+      "xpReward": 33,
       "url": "https://www.engadget.com/2209430/microsoft-teams-tracking-employee-location/",
       "image": "/images/feed/feed-c6de8815f301.jpg",
       "source": "Engadget",
-      "isLive": true
-    },
-    {
-      "id": "feed-6b56f22c0d11",
-      "title": "TIL Git Hooks Exist (After a Decade of Using Git)",
-      "excerpt": "Wrote a small tool called Diff Sniffer — flags any commit that's AI-authored, touches a path you've marked risky, and never got a human review. All three conditions or it says nothing. No AI in the to…",
-      "body": "Wrote a small tool called Diff Sniffer — flags any commit that's AI-authored, touches a path you've marked risky, and never got a human review. All three conditions or it says nothing. No AI in the tool itself, just trailers and path globs. The part worth sharing here isn't the tool, though — it's that building the local-hook mode is what taught me git hooks exist at all. Post-commit, pre-push, whatever — you drop a script in .git/hooks/ and git just runs it. No config, no plugin API. A decade of daily git use and I'd never looked. If anyone's further down this road than I am — better hook patterns, gotchas with pre-push vs post-commit for something like this — I'd take the pointers. Full story + the actual tool: Coder B Dev Blog - I've use git ... / github.com/Coderb-dev/diffsniffer",
-      "author": "Brad Simon",
-      "date": "2026-07-10",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 54,
-      "url": "https://dev.to/coder_b/til-git-hooks-exist-after-a-decade-of-using-git-d1j",
-      "image": "/images/feed/feed-6b56f22c0d11.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-3c7ff10312ad",
-      "title": "A Robust Modbus Proxy: Reconnect, Stale-Cache Detection and Timeouts Done Right",
-      "excerpt": "A self-built Modbus cache proxy runs for weeks without complaint in summer — until the first night the inverter shuts down, or the first firmware reboot of the SDongle. That's exactly when you find ou…",
-      "body": "A self-built Modbus cache proxy runs for weeks without complaint in summer — until the first night the inverter shuts down, or the first firmware reboot of the SDongle. That's exactly when you find out whether you built a proxy or a time bomb. My first attempt was naive: poll, cache, serve. It worked perfectly during the day. At night, when the SUN2000 went to sleep, the poll loop hung in a read that never returned — and for hours the proxy silently served the last daytime values as if nothing was wrong. That's the dangerous failure: not the crash (you notice that), but the proxy that keeps running and serves stale data while nobody is the wiser. This post is the reliability playbook that turned my proxy into something I trust.",
-      "author": "Michael Bernhart",
-      "date": "2026-07-10",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 32,
-      "url": "https://dev.to/cloudapp_dev/a-robust-modbus-proxy-reconnect-stale-cache-detection-and-timeouts-done-right-149b",
-      "image": "/images/feed/feed-3c7ff10312ad.webp",
-      "source": "Dev.to",
       "isLive": true
     },
     {
@@ -128,29 +586,10 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 35,
       "url": "https://electrek.co/2026/07/10/byd-masdar-11-gwh-rtc-storage-abu-dhabi/",
       "image": "/images/feed/feed-5d81a3eee923.jpg",
       "source": "Electrek",
-      "isLive": true
-    },
-    {
-      "id": "feed-50303271c4a9",
-      "title": "I built a Product Hunt-style launchpad for makers who want discovery beyond launch day",
-      "excerpt": "Most launch platforms treat launch day like the finish line. You ship, you spike, you disappear. I kept seeing the same pattern: makers get a burst of attention on day one, then struggle to stay disco…",
-      "body": "Most launch platforms treat launch day like the finish line. You ship, you spike, you disappear. I kept seeing the same pattern: makers get a burst of attention on day one, then struggle to stay discoverable for the next six months. No indexed updates. No community signal. No path from \"someone upvoted my thing\" to \"people actually find my product.\" So I built LaunchZone — a product launch platform + maker community for Digital, Creative and SaaS founders.",
-      "author": "Dmytro Andrusenko",
-      "date": "2026-07-10",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 34,
-      "url": "https://dev.to/andrusenko/i-built-a-product-hunt-style-launchpad-for-makers-who-want-discovery-beyond-launch-day-2o46",
-      "image": "/images/feed/feed-50303271c4a9.webp",
-      "source": "Dev.to",
       "isLive": true
     },
     {
@@ -166,67 +605,10 @@
         "Iphone"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 52,
       "url": "https://9to5mac.com/2026/07/10/iphone-ultra-battery-details-allegedly-revealed-in-new-leak/",
       "image": "/images/feed/feed-3fa8d46bcbe3.jpg",
       "source": "9to5Mac",
-      "isLive": true
-    },
-    {
-      "id": "feed-e326b2d5ee64",
-      "title": "Angular Old vs New Syntax: A Practical Cheat Sheet (*ngIf @if, Signals, and More)",
-      "excerpt": "You open a two-year-old Angular codebase and see *ngIf everywhere. You open a job posting sample and the code uses @if. Nobody sent a memo explaining when that changed. Here's every major old-to-new s…",
-      "body": "You open a two-year-old Angular codebase and see *ngIf everywhere. You open a job posting sample and the code uses @if . Nobody sent a memo explaining when that changed. Here's every major old-to-new swap, side by side, with what actually changed underneath not just the syntax. Conditionals: *ngIf → @if Old: &lt;div *ngIf= \"isLoggedIn; else guestBlock\" &gt; Welcome back! &lt;/div&gt; &lt;ng-template #guestBlock &gt; &lt;div&gt; Please log in. &lt;/div&gt; &lt;/ng-template&gt; New: @if (isLoggedIn) { &lt;div&gt; Welcome back! &lt;/div&gt; } @else { &lt;div&gt; Please log in. &lt;/div&gt; } No more &lt;ng-template&gt; gymnastics for the else branch. It's just a block, the way if/else looks everywhere else in the language.",
-      "author": "Sai Kiran",
-      "date": "2026-07-10",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 39,
-      "url": "https://dev.to/sai_kiran_n/angular-old-vs-new-syntax-a-practical-cheat-sheet-ngif-if-signals-and-more-published-1m4k",
-      "image": "/images/feed/feed-e326b2d5ee64.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-355010e3c355",
-      "title": "GBase 8a 9.5.3 New Feature: Event‑Based Data Node Replacement (eventMode)",
-      "excerpt": "Starting from certain builds of GBase 8a 9.5.3, a new event‑driven method for replacing failed data nodes is available. Unlike the traditional redistribution‑based replacement, eventMode synchronises…",
-      "body": "Starting from certain builds of GBase 8a 9.5.3, a new event‑driven method for replacing failed data nodes is available. Unlike the traditional redistribution‑based replacement, eventMode synchronises change events between nodes to restore data, eliminating the need for a full‑scale rebalancing operation. Supported Versions This feature was implemented in 9.5.3.28.18R1_Patch.8 and may be merged into later versions. Test Cluster Setup A 3‑node cluster with one management node, one coordinator, and three data nodes. node1 (10.0.2.152) is a pure data node that has been marked UNAVAILABLE due to a failure. [ gbase@rh151 gcinstall] $ gcadmin ...",
-      "author": "Michael",
-      "date": "2026-07-10",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 33,
-      "url": "https://dev.to/michaelfv/gbase-8a-953-new-feature-event-based-data-node-replacement-eventmode-mb7",
-      "image": "/images/feed/feed-355010e3c355.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-5498ab629b9a",
-      "title": "Worried about status bar clutter with Android Halo? Google may let you clean it up",
-      "excerpt": "A new Settings sub-section could let you toggle whether to show or hide the Android Halo icon and even the mute icon.",
-      "body": "Credit: Google TL;DR Android Canary 2607 reveals that Google is working on a new “Status bar” settings section to let users show or hide specific system and notification icons. Users will be able to toggle off the upcoming Android Halo AI assistant icon, which requires an unannounced “Agent Task” device feature to function. A separate toggle is in development to hide the mute icon, similar to the existing vibration icon toggle. Google introduced Android Halo at Google I/O 2026, showcasing it as a subtle status bar indicator that keeps you informed when an AI assistant is running in the background and when it wants your attention. More recently, Google shared that it’s also a handy way for users to interact with the AI agent without having to jump back into the AI app.",
-      "author": "Aamir Siddiqui",
-      "date": "2026-07-10",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 50,
-      "url": "https://www.androidauthority.com/android-halo-status-bar-icon-settings-apk-teardown-3686316/",
-      "image": "/images/feed/feed-5498ab629b9a.jpg",
-      "source": "Android Authority",
       "isLive": true
     },
     {
@@ -242,48 +624,10 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 31,
       "url": "https://thehackernews.com/2026/07/new-modbeacon-rat-uses-grpc-streaming.html",
       "image": "/images/feed/feed-ca4fdb1b1f20.jpg",
       "source": "The Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-83ce54e45078",
-      "title": "China becomes the second country to recover a rocket booster",
-      "excerpt": "China made a breakthrough in its space program with the successful capture of a Long March 10B rocket booster.",
-      "body": "China made a breakthrough in its space program with the successful capture of a Long March 10B rocket booster.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Steve Dent)",
-      "date": "2026-07-10",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 51,
-      "url": "https://www.engadget.com/2212193/china-becomes-second-country-to-recover-rocket-booster/",
-      "image": "/images/feed/feed-83ce54e45078.jpg",
-      "source": "Engadget",
-      "isLive": true
-    },
-    {
-      "id": "feed-25f813a41b47",
-      "title": "Faces of Death is finally streaming on Shudder and it's the best slasher of 2026",
-      "excerpt": "Faces of Death is finally streaming on Shudder. Here's why Daniel Goldhaber's smart, bloody slasher is one of 2026's best horror movies.",
-      "body": "Nobody would deny that 2026 has been the best year for horror movies in quite some time. Between Backrooms , Obsession , and Undertone , there are all sorts of horror movies for people to watch, exploring different sides of the modern world and promising great things from a new batch of young filmmakers. One subgenre that’s sorely missing from these box office hits is the slasher — and we have the solution to that problem.",
-      "author": "Maria Loreto",
-      "date": "2026-07-10",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 46,
-      "url": "https://www.polygon.com/faces-of-death-now-streaming-on-shudder/",
-      "image": "/images/feed/feed-25f813a41b47.jpg",
-      "source": "Polygon",
       "isLive": true
     },
     {
@@ -299,7 +643,7 @@
         "Orbit"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 33,
       "url": "https://spacenews.com/startup-testing-nuclear-battery-technology-in-orbit/",
       "image": "/images/feed/feed-8f32dc465785.jpg",
       "source": "SpaceNews",
@@ -318,48 +662,10 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 33,
       "url": "https://spacenews.com/space-capitalism-needs-more-than-a-bull-market/",
       "image": "/images/feed/feed-d580c85d16c6.jpg",
       "source": "SpaceNews",
-      "isLive": true
-    },
-    {
-      "id": "feed-2c41462b9235",
-      "title": "HP OmniBook Ultra 14 review: HP's best ultraportable in years",
-      "excerpt": "While fully loaded models are quite pricey, the HP OmniBook Ultra is hard to beat for those in the market for a premium Windows ultraportable.",
-      "body": "While fully loaded models are quite pricey, the HP OmniBook Ultra is hard to beat for those in the market for a premium Windows ultraportable.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Sam Rutherford)",
-      "date": "2026-07-10",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 35,
-      "url": "https://www.engadget.com/2211901/hp-omnibook-ultra-14-review/",
-      "image": "/images/feed/feed-2c41462b9235.jpg",
-      "source": "Engadget",
-      "isLive": true
-    },
-    {
-      "id": "feed-932c45abb3e7",
-      "title": "Xreal's $299 lightweight a01+ AR glasses are now available to buy",
-      "excerpt": "The latest glasses from Xreal are designed to appeal to gamers and movie-watchers who want a big screen wherever they are.",
-      "body": "The latest glasses from Xreal are designed to appeal to gamers and movie-watchers who want a big screen wherever they are.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Matt Tate)",
-      "date": "2026-07-10",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 49,
-      "url": "https://www.engadget.com/2211557/xreal-299-lightweight-a01-ar-glasses-are-now-available-to-buy/",
-      "image": "/images/feed/feed-932c45abb3e7.jpg",
-      "source": "Engadget",
       "isLive": true
     },
     {
@@ -375,29 +681,10 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 33,
       "url": "https://www.space.com/stargazing/the-moon-mars-and-the-pleiades-form-a-stunning-lineup-before-dawn-on-july-11-heres-how-to-see-it",
       "image": "/images/feed/feed-3ef8b388182e.jpg",
       "source": "Space.com",
-      "isLive": true
-    },
-    {
-      "id": "feed-62422c3c756e",
-      "title": "The Hunt For Naruto Live-Action Movie Cast Has Begun, According To Spider-Man: Brand New Day Director",
-      "excerpt": "Naruto author Masashi Kishimoto also gave the project his blessing, and stated that he 'cannot wait to meet' the live-action versions of his characters",
-      "body": "Naruto author Masashi Kishimoto also gave the project his blessing, and stated that he 'cannot wait to meet' the live-action versions of his characters\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Lewis Parker",
-      "date": "2026-07-10",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 43,
-      "url": "https://kotaku.com/naruto-movie-casting-destin-daniel-cretton-masashi-kishimoto-team-7-2000714611",
-      "image": "/images/feed/feed-62422c3c756e.jpg",
-      "source": "Kotaku",
       "isLive": true
     },
     {
@@ -413,7 +700,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 33,
       "url": "https://insideevs.com/news/801269/audi-usa-ev-sales-q2-h1-2026/",
       "image": "/images/feed/feed-7399bf97972d.jpg",
       "source": "InsideEVs",
@@ -433,29 +720,10 @@
         "Claude"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 52,
       "url": "https://www.technologyreview.com/2026/07/10/1140316/the-download-anthropic-claude-hidden-space-openai-super-app/",
       "image": "/images/feed/feed-8e9121e5dcc9.jpg",
       "source": "MIT Tech Review",
-      "isLive": true
-    },
-    {
-      "id": "feed-904376ffd639",
-      "title": "Xbox's Halo and Fallout strategy shows signs of following Marvel",
-      "excerpt": "Xbox's strategy of investing heavily into its biggest franchises seems like a plan destined to backfire",
-      "body": "Xbox CEO Asha Sharma's big company reset came with a promise to re-invest resources into ventures that would boost Xbox revenue — alongside thousands of layoffs . Previous investments in award-winning games didn't pay off, despite Xbox wanting culturally relevant, award-winning games. So now it's time for more of the things Xbox players love. It's a terrible decision that seems designed to inevitably result in Marvel-style blandness and oversaturation.",
-      "author": "Josh Broadwell",
-      "date": "2026-07-10",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Xbox"
-      ],
-      "featured": false,
-      "xpReward": 36,
-      "url": "https://www.polygon.com/xbox-oversaturating-halo-fallout-games/",
-      "image": "/images/feed/feed-904376ffd639.jpg",
-      "source": "Polygon",
       "isLive": true
     },
     {
@@ -472,7 +740,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 34,
       "url": "https://www.space.com/space-exploration/human-spaceflight/supreme-court-ruling-on-mail-in-ballots-ensures-astronauts-can-vote-from-space-or-anywhere-else",
       "image": "/images/feed/feed-feab8de65241.jpg",
       "source": "Space.com",
@@ -491,7 +759,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 42,
       "url": "https://thehackernews.com/2026/07/unpatched-xring-flaw-in-xquic-lets.html",
       "image": "/images/feed/feed-15dc388bafc2.jpg",
       "source": "The Hacker News",
@@ -510,105 +778,10 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 41,
       "url": "https://www.bleepingcomputer.com/news/security/zimbra-urges-customers-to-patch-critical-web-client-xss-flaw/",
       "image": "/images/feed/feed-fcb267389fc8.jpg",
       "source": "BleepingComputer",
-      "isLive": true
-    },
-    {
-      "id": "feed-2d0c7da3140c",
-      "title": "From 17,000 to 1.1 Million Assets: How Lumen Technologies Rebuilt Exposure Management at Scale",
-      "excerpt": "Most enterprises assume their asset inventory is close enough to accurate. The evidence suggests otherwise. According to a survey of over 600 security leaders in the 2026 Axonius Actionability Report,…",
-      "body": "Most enterprises assume their asset inventory is close enough to accurate. The evidence suggests otherwise. According to a survey of over 600 security leaders in the 2026 Axonius Actionability Report, only 45% of organizations consolidate their asset and exposure data into a single view, and every downstream security program inherits whatever the inventory gets wrong. Lumen Technologies, a",
-      "author": "info@thehackernews.com (The Hacker News)",
-      "date": "2026-07-10",
-      "readTime": "2 min",
-      "section": "cybersecurity",
-      "tags": [
-        "Cybersecurity"
-      ],
-      "featured": false,
-      "xpReward": 44,
-      "url": "https://thehackernews.com/2026/07/from-17000-to-11-million-assets-how.html",
-      "image": "/images/feed/feed-2d0c7da3140c.jpg",
-      "source": "The Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-b5af5712df23",
-      "title": "Steam Machine Verification Is Finally Working, And Black Flag Gets A Perfect Score",
-      "excerpt": "Verification information for the Steam Machine and Steam Deck at last appears for every tested game",
-      "body": "Verification information for the Steam Machine and Steam Deck at last appears for every tested game\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "John Walker",
-      "date": "2026-07-10",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 45,
-      "url": "https://kotaku.com/steam-machine-valve-deck-verification-performance-black-flag-2000714602",
-      "image": "/images/feed/feed-b5af5712df23.jpg",
-      "source": "Kotaku",
-      "isLive": true
-    },
-    {
-      "id": "feed-fe8bca379c4c",
-      "title": "Exposed Hacker Server Reveals WP-SHELLSTORM Backdooring Thousands of WordPress Sites",
-      "excerpt": "A cybercrime crew left one of its own servers wide open on the internet for three weeks, and it exposed the operation's inner workings: the hacking tools, the activity logs, and target lists naming mo…",
-      "body": "A cybercrime crew left one of its own servers wide open on the internet for three weeks, and it exposed the operation's inner workings: the hacking tools, the activity logs, and target lists naming more than 1.4 million websites. Far fewer were actually broken into, but the exposed files showed researchers how a mass site-hacking operation runs from the inside. The operation, now tracked as",
-      "author": "info@thehackernews.com (The Hacker News)",
-      "date": "2026-07-10",
-      "readTime": "2 min",
-      "section": "cybersecurity",
-      "tags": [
-        "Hacker"
-      ],
-      "featured": false,
-      "xpReward": 51,
-      "url": "https://thehackernews.com/2026/07/exposed-hacker-server-reveals-wp.html",
-      "image": "/images/feed/feed-fe8bca379c4c.jpg",
-      "source": "The Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-1f3f74d49a30",
-      "title": "Pokémon TCG: Pitch Black Booster Bundle Preorders Are Back in Stock, and Under Market Price",
-      "excerpt": "Pokémon TCG: Pitch Black Sealed Booster Bundles preorders are back in stock at Amazon, and while it's not at MSRP, they're still listed for way under market price compared to resale sites like TCGplay…",
-      "body": "Pokémon TCG&#39;s next Mega Evolution expansion, Pitch Black , is rapidly approaching and will release on July 17. If you&#39;re looking to pick up some boosters to crack for launch week and don&#39;t want to pay a fortune, then I&#39;ve found the perfect deal for you. Amazon has just restocked Pitch Black Booster Bundles , and they&#39;re now down to $57.92 if you lock in your preorder today. Market price is currently sitting at close to $70 via trusted resale sites like TCGplayer and eBay . Pokémon TCG: Best Preorder Deal for Pitch Black Boosters That&#39;s over $10 in savings compared to buying on the resale market. Booster Bundles include six Pitch Black packs to open, and at $57.92, that works out at about $9.65 per pack.",
-      "author": "Robert Anderson",
-      "date": "2026-07-10",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 45,
-      "url": "https://www.ign.com/articles/pokemon-tcg-pitch-black-booster-bundle-preorders-are-back-in-stock-and-under-market-price-amazon",
-      "image": "/images/feed/feed-1f3f74d49a30.png",
-      "source": "IGN",
-      "isLive": true
-    },
-    {
-      "id": "feed-ac49151ccd46",
-      "title": "'I Just Can't Believe My Luck' — Dark Souls Superfan Peter Serafinowicz Reveals How He Landed a Role in the Upcoming Elden Ring Movie",
-      "excerpt": "Actor Peter Serafinowicz has revealed how a chance encounter with fellow Dark Souls superfan Alex Garland led to him landing a role in the upcoming Elden Ring movie.",
-      "body": "Actor Peter Serafinowicz has revealed how a chance encounter with fellow Dark Souls superfan Alex Garland led to him landing a role in the upcoming Elden Ring movie. Serafinowicz, who is best known as the voice of Darth Maul in Star Wars: Episode I – The Phantom Menace, for playing Pete in Shaun of the Dead, Garthan Saal in Guardians of the Galaxy, and The Sommelier in John Wick: Chapter 2, picked Dark Souls as one of his Five Brilliant Things in an interview with British comedian Russell Howard . Serafinowicz spoke passionately of his love for Dark Souls in the interview, explaining in great detail how its infamous difficulty makes it one of the most rewarding video games ever created.",
-      "author": "Wesley Yin-Poole",
-      "date": "2026-07-10",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 41,
-      "url": "https://www.ign.com/articles/i-just-cant-believe-my-luck-dark-souls-superfan-peter-serafinowicz-reveals-how-he-landed-a-role-in-the-upcoming-elden-ring-movie",
-      "image": "/images/feed/feed-ac49151ccd46.jpg",
-      "source": "IGN",
       "isLive": true
     },
     {
@@ -624,67 +797,10 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 41,
       "url": "https://spacenews.com/elevationspace-advances-work-on-commercial-reentry-vehicle/",
       "image": "/images/feed/feed-ead520ba5dd6.jpg",
       "source": "SpaceNews",
-      "isLive": true
-    },
-    {
-      "id": "feed-73611d0fd937",
-      "title": "This $8 Marvel Super Heroes MTG combo creates infinite creatures and card draw",
-      "excerpt": "This 'Fantastic' combo can end Magic games by turn 6, and won't cost a lot to put together.",
-      "body": "Magic: The Gathering ’s latest set, Marvel Super Heroes, once again encourages players to get chocolate in their peanut butter as Universes Within and Universes Beyond dovetail in surprising new ways.",
-      "author": "Lloyd Coombes",
-      "date": "2026-07-10",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 53,
-      "url": "https://www.polygon.com/mtg-marvel-super-heroes-magic-mr-fantastic-infinite-combo/",
-      "image": "/images/feed/feed-73611d0fd937.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-ff3911389d15",
-      "title": "EU Commission: addictive design Instagram and Facebook in breach of the DSA",
-      "excerpt": "",
-      "body": "This report, published by Hacker News, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Breach. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Hacker News using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "jeroenhd",
-      "date": "2026-07-10",
-      "readTime": "2 min",
-      "section": "cybersecurity",
-      "tags": [
-        "Breach"
-      ],
-      "featured": false,
-      "xpReward": 47,
-      "url": "https://ec.europa.eu/commission/presscorner/home/en",
-      "image": "https://ec.europa.eu/commission/presscorner/assets/framework/images/logo/ec_logo.png",
-      "source": "Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-001e21f0714f",
-      "title": "Study of 281 Free Android VPN Apps Finds Traffic Leaks, Unencrypted Data, and Tracking",
-      "excerpt": "Researchers ran 281 of the most popular free VPN apps on the Google Play Store through a new testing system and found that many fail at the basics people install a VPN for, i.e., keeping their traffic…",
-      "body": "Researchers ran 281 of the most popular free VPN apps on the Google Play Store through a new testing system and found that many fail at the basics people install a VPN for, i.e., keeping their traffic private and secure. The apps flagged with at least one problem have been installed more than 2.4 billion times. The problems are basic, not sophisticated. 29 apps let user traffic leak outside",
-      "author": "info@thehackernews.com (The Hacker News)",
-      "date": "2026-07-10",
-      "readTime": "2 min",
-      "section": "cybersecurity",
-      "tags": [
-        "Cybersecurity"
-      ],
-      "featured": false,
-      "xpReward": 33,
-      "url": "https://thehackernews.com/2026/07/study-of-281-free-android-vpn-apps.html",
-      "image": "/images/feed/feed-001e21f0714f.jpg",
-      "source": "The Hacker News",
       "isLive": true
     },
     {
@@ -700,7 +816,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 42,
       "url": "https://insideevs.com/news/801243/denza-z-electric-supercar-specs/",
       "image": "/images/feed/feed-d038f57237a5.jpg",
       "source": "InsideEVs",
@@ -719,105 +835,10 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 43,
       "url": "https://www.cnet.com/tech/services-and-software/you-should-download-ios-26-5-2-now-for-a-plethora-of-security-fixes/",
       "image": "/images/feed/feed-c70f1109eecb.jpg",
       "source": "CNET",
-      "isLive": true
-    },
-    {
-      "id": "feed-7ca264dc1931",
-      "title": "Astronomers may have heard the 1st 'whispers' of ghost particles created by supernova explosions",
-      "excerpt": "The universe is haunted by \"cosmic ghosts\" called neutrinos, which seem to be the \"whispers\" of stars that died in supernova explosions over the course of billions of years.",
-      "body": "The universe is haunted by \"cosmic ghosts\" called neutrinos, and new research suggests they may be the \"whispers\" of stars that died in supernova explosions over the course of billions of years. The discovery is an important step forward in our understanding of the life and death of stars and how they enrich their environments with metals, elements heavier than hydrogen and helium. It could also help better understand how black holes and neutron stars are born when massive stars die.",
-      "author": " Robert Lea ",
-      "date": "2026-07-10",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Space"
-      ],
-      "featured": false,
-      "xpReward": 52,
-      "url": "https://www.space.com/astronomy/stars/cosmic-ghost-neutrinos-may-be-the-whispers-of-stars-that-died-in-supernova-explosions",
-      "image": "/images/feed/feed-7ca264dc1931.png",
-      "source": "Space.com",
-      "isLive": true
-    },
-    {
-      "id": "feed-5239bd6357bf",
-      "title": "Buying A Ford EV Still Comes With A Free Home Charger",
-      "excerpt": "Ford extended its Power Promise program yet again, nearly two years after its introduction.",
-      "body": "Ford extended its Power Promise program yet again, nearly two years after its introduction.\n\nThis report, published by InsideEVs, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Ev. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to InsideEVs using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "InsideEVs",
-      "date": "2026-07-10",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Ev"
-      ],
-      "featured": false,
-      "xpReward": 44,
-      "url": "https://insideevs.com/news/801234/ford-ev-free-home-charger-2026/",
-      "image": "/images/feed/feed-5239bd6357bf.jpg",
-      "source": "InsideEVs",
-      "isLive": true
-    },
-    {
-      "id": "feed-121f33c95976",
-      "title": "Don't miss out on 'The Ark' Season 3 — get a year-long Peacock TV deal for just over $9 a month",
-      "excerpt": "Watch SYFY's outer space saga 'The Ark' on Peacock TV and all the best sci-fi content at a bargain price.",
-      "body": "We've found an incredible streaming deal for you. Peacock TV has cut a year-long Premium subscription plan from $131.88 to just $109.99. It's 12 months for the price of 10, and the lowest price we've seen since Black Friday last year. Get Peacock TV for just $9.16 a month when you sign up for a one-year plan. Peacock TV also hosts the SYFY channel, and sci-fi fans can stream hit series like Resident Alien and Battlestar Galactica . There are also exciting new additions, including Season 2 of The Undeclared War, and Season 3 of The Ark , scheduled to premiere on July 30, 2026. Save 17% on an annual subscription to a very popular streaming platform. Peacock TV is NBCUniversal's streaming service, and it offers over 50 always-on channels.",
-      "author": " Paul Brett ",
-      "date": "2026-07-10",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Space"
-      ],
-      "featured": false,
-      "xpReward": 41,
-      "url": "https://www.space.com/technology/dont-miss-out-on-the-ark-season-3-get-a-year-long-peacock-tv-deal-for-just-over-9-dollars-a-month",
-      "image": "/images/feed/feed-121f33c95976.jpg",
-      "source": "Space.com",
-      "isLive": true
-    },
-    {
-      "id": "feed-f497de233fd1",
-      "title": "Yamaha launches sporty Aerox-E electric scooter with removable batteries",
-      "excerpt": "Yamaha has officially entered India’s increasingly competitive premium electric scooter market with the launch of the new Aerox-E, an electric version of its popular sporty maxi-scooter. Rather than c…",
-      "body": "Yamaha has officially entered India’s increasingly competitive premium electric scooter market with the launch of the new Aerox-E , an electric version of its popular sporty maxi-scooter. Rather than chasing outright affordability, Yamaha is targeting riders looking for performance-focused urban transportation with premium features. That has resulted in a more premium scooter, but also one of the highest scooter price tags in the country.",
-      "author": "Micah Toll",
-      "date": "2026-07-10",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Cars"
-      ],
-      "featured": false,
-      "xpReward": 30,
-      "url": "https://electrek.co/2026/07/10/yamaha-launches-sporty-aerox-e-electric-scooter-with-removable-batteries/",
-      "image": "/images/feed/feed-f497de233fd1.jpg",
-      "source": "Electrek",
-      "isLive": true
-    },
-    {
-      "id": "feed-02fa21692359",
-      "title": "This Hyundai Ioniq 6 Lease Deal Is Cheaper Than A Nice Night Out",
-      "excerpt": "At less than $200 per month, this is one of the best deals out there.",
-      "body": "At less than $200 per month, this is one of the best deals out there.\n\nThis report, published by InsideEVs, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cars. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to InsideEVs using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "InsideEVs",
-      "date": "2026-07-10",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Cars"
-      ],
-      "featured": false,
-      "xpReward": 50,
-      "url": "https://insideevs.com/news/801209/hyundai-ioniq-6-cheap-lease-july-2026/",
-      "image": "/images/feed/feed-02fa21692359.jpg",
-      "source": "InsideEVs",
       "isLive": true
     },
     {
@@ -833,29 +854,10 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 34,
       "url": "https://openai.com/index/deutsche-telekom",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "OpenAI Blog",
-      "isLive": true
-    },
-    {
-      "id": "feed-441694e8b1c0",
-      "title": "US Accounted for Nearly 50% of World’s CO2 Emissions Growth in 2025 — Thanks, AI Data Center Explosion",
-      "excerpt": "A new report is out from the Energy Institute, and it’s quite damning for the US. The report is the 75th edition of the Statistical Review of World Energy. We’ll dive into other parts of the report, b…",
-      "body": "A new report is out from the Energy Institute, and it&#8217;s quite damning for the US. The report is the 75th edition of the Statistical Review of World Energy. We&#8217;ll dive into other parts of the report, but one big thing Robert Rapier of OilPrice.com noticed is that the US ... [continued] The post US Accounted for Nearly 50% of World&#8217;s CO2 Emissions Growth in 2025 — Thanks, AI Data Center Explosion appeared first on CleanTechnica .",
-      "author": "Zachary Shahan",
-      "date": "2026-07-10",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Cars"
-      ],
-      "featured": false,
-      "xpReward": 38,
-      "url": "https://cleantechnica.com/2026/07/09/us-accounted-for-nearly-50-of-worlds-co2-emissions-growth-in-2025-thanks-ai-data-center-explosion/",
-      "image": "/images/feed/feed-441694e8b1c0.png",
-      "source": "CleanTechnica",
       "isLive": true
     },
     {
@@ -873,7 +875,7 @@
         "Gpt"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 40,
       "url": "https://techcrunch.com/2026/07/09/openai-says-gpt-5-6-is-the-preferred-model-for-microsoft-copilot-amid-breakup-chatter/",
       "image": "/images/feed/feed-9ac461d004e9.jpg",
       "source": "TechCrunch",
@@ -892,29 +894,10 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 33,
       "url": "https://techcrunch.com/2026/07/09/fidji-simo-steps-down-from-openais-no-2-role/",
       "image": "/images/feed/feed-ee3f32770183.jpg",
       "source": "TechCrunch",
-      "isLive": true
-    },
-    {
-      "id": "feed-aa665a1ba2a0",
-      "title": "Fidji Simo steps down from leading OpenAI’s AGI work due to illness",
-      "excerpt": "OpenAI's Fidji Simo is departing her full-time role as the company's AGI chief and is transitioning to being a \"part-time advisor,\" she said on X. The news follows Simo's original announcement in Apri…",
-      "body": "OpenAI's Fidji Simo is departing her full-time role as the company's AGI chief and is transitioning to being a \"part-time advisor,\" she said on X . The news follows Simo's original announcement in April that she would take a few weeks of medical leave due to a neuroimmune condition, shortly after she had taken on the AGI chief title. (She had formerly been the company's CEO of applications). Around the same time, COO Brad Lightcap also stepped down from his role to focus on \"special projects,\" and OpenAI CMO Kate Rouch also stepped down in order to focus on her health. Rouch planned to return to a \"more narrowly scoped role\" when her health … Read the full story at The Verge.",
-      "author": "Hayden Field",
-      "date": "2026-07-09",
-      "readTime": "2 min",
-      "section": "ai",
-      "tags": [
-        "Openai"
-      ],
-      "featured": false,
-      "xpReward": 30,
-      "url": "https://www.theverge.com/ai-artificial-intelligence/963738/openai-fidji-simo-steps-down-ceo-advisor",
-      "image": "/images/feed/feed-aa665a1ba2a0.jpg",
-      "source": "The Verge",
       "isLive": true
     },
     {
@@ -930,24 +913,43 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 31,
       "url": "https://www.wired.com/story/fidji-simo-ceo-agi-deployment-openai/",
       "image": "/images/feed/feed-2b378536b74e.jpg",
       "source": "Wired",
       "isLive": true
+    },
+    {
+      "id": "feed-63cf08b8f574",
+      "title": "Publishers Accuse OpenAI of Withholding Evidence in Copyright Lawsuits",
+      "excerpt": "In a new motion, the New York Times, Ziff Davis and 15 other media organizations say OpenAI \"chose obstruction\" on details about how it trains its AI models.",
+      "body": "In a new motion, the New York Times, Ziff Davis and 15 other media organizations say OpenAI \"chose obstruction\" on details about how it trains its AI models.\n\nThis report, published by CNET, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Openai. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to CNET using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Corin Cesaric-Epple",
+      "date": "2026-07-09",
+      "readTime": "2 min",
+      "section": "ai",
+      "tags": [
+        "Openai"
+      ],
+      "featured": false,
+      "xpReward": 31,
+      "url": "https://www.cnet.com/tech/services-and-software/publishers-openai-copyright-lawsuits-nyt-ziff-davis/",
+      "image": "/images/feed/feed-63cf08b8f574.jpg",
+      "source": "CNET",
+      "isLive": true
     }
   ],
   "breakingNews": [
-    "ENGADGET: Volkswagen will dramatically shrink its model lineup and factory footprint",
-    "DEV.TO: Give Your AI Assistant a Private Memory",
-    "DEV.TO: Aider vs OpenCode vs Claude Code: Which CLI Coding Agent Wins in 2026?",
-    "ENGADGET: Is Microsoft Teams really going to start tracking employee locations?",
-    "DEV.TO: TIL Git Hooks Exist (After a Decade of Using Git)",
-    "DEV.TO: A Robust Modbus Proxy: Reconnect, Stale-Cache Detection and Timeouts Done Right",
-    "ELECTREK: BYD wins 11.3 GWh battery deal for world’s largest solar+storage",
-    "DEV.TO: I built a Product Hunt-style launchpad for makers who want discovery beyond launch day",
-    "9TO5MAC: iPhone Ultra battery details allegedly revealed in new leak",
-    "DEV.TO: Angular Old vs New Syntax: A Practical Cheat Sheet (*ngIf @if, Signals, and More)"
+    "DEV.TO: How Ticketmaster Sells Seats Without Double-Selling Them",
+    "DEV.TO: Proximity Search: How Yelp Finds Places Near You",
+    "DEV.TO: Coming up for Air",
+    "TECHCRUNCH: Netflix could be planning ‘always-on’ live TV channels",
+    "DEV.TO: I Rebuilt the Foundation of My Text Editor",
+    "DEV.TO: Dev Opportunity Radar #7: $1,000 Solo Grants, Free Claude Max for Open Source Contributors, and an MLH Hackathon",
+    "KOTAKU: Netflix Reportedly Threatening To Take Over Letterboxd",
+    "DEV.TO: Burn After Reading",
+    "POLYGON: What is Cali Commander? Everything to know about Magic's controversial new format",
+    "ELECTREK: Australia’s 7 best-selling EVs are now all Chinese — even Tesla’s"
   ],
   "sectionVideos": {}
 }
