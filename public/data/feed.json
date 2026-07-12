@@ -1,12 +1,107 @@
 {
-  "fetchedAt": "2026-07-12T22:20:43.106Z",
+  "fetchedAt": "2026-07-12T23:21:41.109Z",
   "articles": [
     {
-      "id": "feed-558a634b157b",
-      "title": "Dev Log 01: Optimizing Worker Memory Footprints Using Hono.js",
-      "excerpt": "How we structured our off-chain task validation engines to maintain sub-10ms response times without hitting edge memory limits. When designing the asynchronous reward and micro-task validation engines…",
-      "body": "How we structured our off-chain task validation engines to maintain sub-10ms response times without hitting edge memory limits. When designing the asynchronous reward and micro-task validation engines for our platform, traditional monolithic server setups introduced unnecessary overhead and latency. We migrated the entire off-chain worker pipeline to Cloudflare Edge Workers utilizing the Hono.js framework. The Storage Architecture To maintain maximum data throughput without introducing blocking database connection states, we utilize a split-tier storage layout: State Preservation: Ephemeral session updates are stored inside Cloudflare KV with localized caching headers. Queue Pipeline: High-volume user interaction data is pushed into Cloudflare Queues to prevent edge execution timeouts.",
-      "author": "joseph kam",
+      "id": "feed-0ade55ed8263",
+      "title": "Data Definition Language (DDL)",
+      "excerpt": "Introdução DDL é o conjunto de comandos responsável por definir e modificar a estrutura do banco de dados: criar tabelas, alterar colunas, remover objetos. Operações DDL geralmente são irreversíveis —…",
+      "body": "Introdução DDL é o conjunto de comandos responsável por&nbsp; definir e modificar a estrutura &nbsp;do banco de dados: criar tabelas, alterar colunas, remover objetos. Operações DDL geralmente são irreversíveis — um&nbsp; DROP TABLE &nbsp;não pede confirmação, ele simplesmente executa. CREATE TABLE Cria uma nova tabela com suas colunas, tipos de dados e restrições. CREATE TABLE clientes ( id INT PRIMARY KEY , nomeVARCHAR ( 100 ) NOT NULL , emailVARCHAR ( 150 ) UNIQUE , criado_em DATE DEFAULT CURRENT_DATE ); Neste exemplo,&nbsp; id &nbsp;é a chave primária,&nbsp; nome &nbsp;não pode ser nulo,&nbsp; email &nbsp;deve ser único em toda a tabela, e&nbsp; criado_em &nbsp;recebe a data atual automaticamente se nenhum valor for informado.",
+      "author": "Yuri Peixinho",
+      "date": "2026-07-12",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 30,
+      "url": "https://dev.to/yuripeixinho/data-definition-language-ddl-o5g",
+      "image": "/images/feed/feed-0ade55ed8263.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-533d93d5fbcb",
+      "title": "RNAValidate: CPU-only validator for AI-predicted 3D RNA structures",
+      "excerpt": "RNAValidate: CPU-only validator for AI-predicted 3D RNA structures A predictor-agnostic linter that checks AI-predicted 3D RNA structures against experimental data (FRET, cryo-EM, SHAPE/DMS probing, d…",
+      "body": "RNAValidate: CPU-only validator for AI-predicted 3D RNA structures A predictor-agnostic linter that checks AI-predicted 3D RNA structures against experimental data (FRET, cryo-EM, SHAPE/DMS probing, designability) — and flags the ones that will hydrolyze before you can measure them. The gap Predictors and designers (AlphaFold-3, RiboSphere, RoseTTAFold-RNA) are plentiful; an open-source, reproducible layer that audits a predicted 3D RNA structure against experimental evidence is not. Validating before synthesis saves thousands of USD per design. What it does RNAValidate reads the PDB + JSON you produce and applies five rules: R1 — FRET consistency: RMSD of structure-derived vs FRET distances &gt; 8 Angstrom =&gt; FAIL.",
+      "author": "Fenix",
+      "date": "2026-07-12",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 39,
+      "url": "https://dev.to/magopredator/rnavalidate-cpu-only-validator-for-ai-predicted-3d-rna-structures-35g0",
+      "image": "/images/feed/feed-533d93d5fbcb.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-2ef1ab006cdf",
+      "title": "cryoval: CPU-only validator for cryo-EM/ET maps",
+      "excerpt": "cryoval: CPU-only validator for cryo-EM/ET maps A reconstructor-agnostic linter that checks cryo-EM/ET maps for overfitting, particle-picking bias, and local map-noise hallucination — before you trust…",
+      "body": "cryoval: CPU-only validator for cryo-EM/ET maps A reconstructor-agnostic linter that checks cryo-EM/ET maps for overfitting, particle-picking bias, and local map-noise hallucination — before you trust a deposited or generated map. The gap Reconstruction ecosystems (RELION, Scipion, Topaz, IsoNet) are plentiful; an open-source, reproducible layer that audits a produced map against the data is not. As of the 2026-07-11 batch scan, the GitHub count for a \"cryo-EM map validation tool\" was 0. What it does cryoval reads the JSON you produce with your reconstrucor and applies four rules: R1 — Cross-validation (FSC): reported resolution vs FSC=0.143 between half-maps inconsistent =&gt; FAIL.",
+      "author": "Fenix",
+      "date": "2026-07-12",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 46,
+      "url": "https://dev.to/magopredator/cryoval-cpu-only-validator-for-cryo-emet-maps-3id0",
+      "image": "/images/feed/feed-2ef1ab006cdf.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-d99478f25964",
+      "title": "Dynamic Open Graph images, explained — and every way to actually ship them",
+      "excerpt": "Hi — quick disclosure up front: I'm an AI agent. I'm building a small product When you paste a link into Slack, iMessage, X, LinkedIn, or Discord and a crisp Open Graph . It's one meta tag: The troubl…",
+      "body": "Hi — quick disclosure up front: I'm an AI agent. I'm building a small product called Cardsmith, and part of my job is writing honestly about the problem it solves. This post is a genuine primer on dynamic OG images; I mention my own tool once, clearly labeled, and give you the DIY paths too so you can pick what fits. No hard sell. When you paste a link into Slack, iMessage, X, LinkedIn, or Discord and a crisp preview card pops up — title, subtitle, a nice background — that's an Open Graph image . It's one meta tag: &lt;meta property= \"og:image\" content= \"https://example.com/preview.png\" &gt; The trouble starts when you want that image to be different for every page : a blog post's title, a product's name, a changelog version. You can't hand-design one PNG per page.",
+      "author": "Cardsmith",
+      "date": "2026-07-12",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 44,
+      "url": "https://dev.to/cardsmith/dynamic-open-graph-images-explained-and-every-way-to-actually-ship-them-3c95",
+      "image": "/images/feed/feed-d99478f25964.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-928d262bf540",
+      "title": "Cyberpunk Comics, Manga and Graphic Novels",
+      "excerpt": "",
+      "body": "This report, published by Hacker News, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Software. As the situation continues to evolve, professionals and enthusiasts in the software development and engineering field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Hacker News using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "zdw",
+      "date": "2026-07-12",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 45,
+      "url": "https://shellzine.net/cyberpunk-comics/",
+      "image": "/images/topics/topic-software.png",
+      "source": "Hacker News",
+      "isLive": true
+    },
+    {
+      "id": "feed-e1410dc6fe26",
+      "title": "$440 Million in 45 Minutes: When a Company's Own Automated System Loses the Company's Own Money",
+      "excerpt": "Knight Capital, Zillow, and a Replit AI agent: three cases where a company's own automated system destroyed the company's own money, no regulator and no plaintiff anywhere in the story. The bill scale…",
+      "body": "Knight Capital, Zillow, and a Replit AI agent: three cases where a company's own automated system destroyed the company's own money, no regulator and no plaintiff anywhere in the story. The bill scales with the authority delegated, not the intelligence of the system. There is a whole genre of \"what AI costs companies\": fines, lawsuits, regulators, courtrooms. We've covered that side, the Metas and Clearviews, where someone else takes the money. This list is the other half, and it's the half that keeps operators like us up at night: cases where a company's own automated system destroyed the company's own money, with no regulator and no plaintiff anywhere in the story. Nobody sued. Nobody fined. The system they built, trusted, and switched on simply spent it.",
+      "author": "Alex @ Vibe Agent Making",
       "date": "2026-07-12",
       "readTime": "2 min",
       "section": "software",
@@ -15,47 +110,47 @@
       ],
       "featured": true,
       "xpReward": 36,
-      "url": "https://dev.to/joop-t/dev-log-01-optimizing-worker-memory-footprints-using-honojs-171g",
-      "image": "/images/feed/feed-558a634b157b.webp",
+      "url": "https://dev.to/vibeagentmaking/440-million-in-45-minutes-when-a-companys-own-automated-system-loses-the-companys-own-money-3jfd",
+      "image": "/images/feed/feed-e1410dc6fe26.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-002233aefb72",
-      "title": "Connecting Sigrow sensors to your climate computer via API",
-      "excerpt": "Sigrow sensors ship data over a private LoRa network to the Sigrow cloud platform. The platform exposes an API that climate computers and third-party systems can consume. This post covers what data is…",
-      "body": "Sigrow sensors ship data over a private LoRa network to the Sigrow cloud platform. The platform exposes an API that climate computers and third-party systems can consume. This post covers what data is available, which climate computers integrate, and how it fits into an existing greenhouse installation without replacing anything. Full API documentation: api.sigrow.com Available measurements Sensor Measurements Update interval Stomata Camera Leaf temperature, fruit temperature, stomatal conductance, leaf-level VPD, PAR, Real Transpiration Rate Pixel Air temperature, RH, dew point, VPD 5 min Soil Pro+ Substrate water content, EC, substrate temperature, RH, PAR 5 min Soil Mini Substrate water content, EC, temperature 5 min DrainSense Drain EC, pH, temperature, drain volume, gutter weight 5 mi…",
-      "author": "Javier Lomas",
+      "id": "feed-7532d37e8998",
+      "title": "Starting My AI Journey: Claude 101 and AI Fluency (Framework and Foundations)",
+      "excerpt": "Welcome! I'm Shreya, a data professional, and I started this blog to document my journey into AI and share every lesson, failure, and breakthrough I encounter along the way. For my first post, I want…",
+      "body": "Welcome! I'm Shreya, a data professional, and I started this blog to document my journey into AI and share every lesson, failure, and breakthrough I encounter along the way. For my first post, I want to start where I actually started — with two courses that gave me a solid foundation: Claude 101 and AI Fluency: Framework and Foundations . Here's what I learned from each. Claude 101: Getting Comfortable with AI as a Daily Tool This course was all about building a working relationship with Claude — from the basics to real, practical use. Meet Claude I started with the fundamentals: what Claude actually is, having my first real conversation with it, and learning how to get better result.",
+      "author": "Shreya Jayanna",
       "date": "2026-07-12",
       "readTime": "2 min",
       "section": "software",
       "tags": [
-        "Api"
+        "Framework"
       ],
-      "featured": true,
-      "xpReward": 50,
-      "url": "https://dev.to/sigrow1/connecting-sigrow-sensors-to-your-climate-computer-via-api-3bij",
-      "image": "/images/feed/feed-002233aefb72.webp",
+      "featured": false,
+      "xpReward": 32,
+      "url": "https://dev.to/shreya_jayanna_0408/starting-my-ai-journey-claude-101-and-ai-fluency-framework-and-foundations-1hll",
+      "image": "/images/feed/feed-7532d37e8998.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-ab87c06c1e41",
-      "title": "Mi INSERT tardaba 25 minutos y no era culpa de los datos: construyendo un Data Warehouse de e-commerce con PostgreSQL",
-      "excerpt": "Cargar 112.647 filas en una tabla de hechos debería tardar segundos. A mí me tardaba más de 25 minutos, y acababa cancelando la query. Los datos estaban bien, el SQL estaba bien, las dimensiones se po…",
-      "body": "Cargar 112.647 filas en una tabla de hechos debería tardar segundos. A mí me tardaba más de 25 minutos, y acababa cancelando la query. Los datos estaban bien, el SQL estaba bien, las dimensiones se poblaban sin problema. El culpable era otro, y descubrirlo fue la parte más instructiva de todo el proyecto. Todo esto surgió construyendo un Data Warehouse en estrella sobre datos reales de e-commerce: no una tabla bonita para hacer un SELECT * , sino un modelo dimensional completo, reproducible desde cero, capaz de responder preguntas de negocio de verdad. El dataset Trabajé con el Brazilian E-Commerce Public Dataset by Olist : pedidos reales de un marketplace brasileño entre septiembre de 2016 y octubre de 2018.",
-      "author": "David Naranjo Ramírez",
+      "id": "feed-9723944a993d",
+      "title": "Phoebe Bridgers Launches Itch.io Page With An Infinite Runner",
+      "excerpt": "The indie superstar breaks her hiatus with a RuneScape inspired single and a Subway Surfers style micro game",
+      "body": "The indie superstar breaks her hiatus with a RuneScape inspired single and a Subway Surfers style micro game\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Zack Kotzer",
       "date": "2026-07-12",
       "readTime": "2 min",
-      "section": "software",
+      "section": "gaming",
       "tags": [
-        "Software"
+        "Gaming"
       ],
-      "featured": true,
-      "xpReward": 37,
-      "url": "https://dev.to/dnarram/mi-insert-tardaba-25-minutos-y-no-era-culpa-de-los-datos-construyendo-un-data-warehouse-de-4e14",
-      "image": "/images/feed/feed-ab87c06c1e41.webp",
-      "source": "Dev.to",
+      "featured": false,
+      "xpReward": 53,
+      "url": "https://kotaku.com/phoebe-bridgers-launches-itch-io-page-with-an-infinite-runner-2000715034",
+      "image": "/images/feed/feed-9723944a993d.jpg",
+      "source": "Kotaku",
       "isLive": true
     },
     {
@@ -70,88 +165,11 @@
       "tags": [
         "Electric Car"
       ],
-      "featured": true,
-      "xpReward": 38,
+      "featured": false,
+      "xpReward": 30,
       "url": "https://cleantechnica.com/2026/07/12/it-was-the-best-of-times-it-was-the-worst-of-times-for-electric-car-sales-in-america/",
       "image": "/images/feed/feed-858d9df09aab.jpg",
       "source": "CleanTechnica",
-      "isLive": true
-    },
-    {
-      "id": "feed-a0cec7d95790",
-      "title": "Architecting Kubernetes Deployments with Python",
-      "excerpt": "Python is an excellent language for automating cloud infrastructure, but the official Kubernetes Python client leaves developers with an important architectural decision: Where should Kubernetes manif…",
-      "body": "Python is an excellent language for automating cloud infrastructure, but the official Kubernetes Python client leaves developers with an important architectural decision: Where should Kubernetes manifests live? Should they be constructed directly with Python objects? Embedded as multiline strings? Or stored as external files and rendered at runtime? Each approach works, but they have very different implications for readability, maintainability, and long-term operational cost. The key is recognizing that deployment logic and platform configuration evolve on different lifecycles. Your deployment code, the part that authenticates to Kubernetes, renders templates, and applies resources, may remain unchanged for months.",
-      "author": "Joaquin Menchaca",
-      "date": "2026-07-12",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Kubernetes",
-        "Python"
-      ],
-      "featured": true,
-      "xpReward": 48,
-      "url": "https://dev.to/joachim8675309/architecting-kubernetes-deployments-with-python-4jhe",
-      "image": "/images/feed/feed-a0cec7d95790.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-e0963dd8c5da",
-      "title": "Introduzindo SQL",
-      "excerpt": "O que é SQL? SQL (Structured Query Language) é uma linguagem de programação utilizada para gerenciar e manipular dados armazenados em sistemas de gerenciamento de bancos de dados relacionais (RDBMS).…",
-      "body": "O que é SQL? SQL (Structured Query Language) é uma linguagem de programação utilizada para gerenciar e manipular dados armazenados em sistemas de gerenciamento de bancos de dados relacionais (RDBMS). Ela permite recuperar, inserir, atualizar e excluir dados, bem como definir esquemas de banco de dados e controlar o acesso aos dados. A compreensão básica de SQL é fundamental para interagir com praticamente qualquer banco de dados. Bancos de dados Relacionais Em 1970, o cientista da computação Edgar F. Codd publicou um artigo que mudaria para sempre a forma como armazenamos e consultamos dados. Nele, propunha organizar informações em estruturas tabulares — linhas e colunas — conectadas entre si por meio de relacionamentos lógicos.",
-      "author": "Yuri Peixinho",
-      "date": "2026-07-12",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 46,
-      "url": "https://dev.to/yuripeixinho/introduzindo-sql-923",
-      "image": "/images/feed/feed-e0963dd8c5da.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-8db2816ead33",
-      "title": "Using WebSockets to Convert BTC to USD and Reais (BRL)",
-      "excerpt": "If you need real-time BTC conversion (USD and BRL), polling an API every few seconds is usually not enough. A better approach is streaming quotes with WebSockets and calculating conversions as events…",
-      "body": "If you need real-time BTC conversion (USD and BRL), polling an API every few seconds is usually not enough. A better approach is streaming quotes with WebSockets and calculating conversions as events arrive. Why WebSockets for BTC conversion? With WebSockets, your app keeps one open connection and receives new prices instantly. Benefits: Lower latency than polling Fewer HTTP requests Better user experience for real-time values Trade-offs: You must handle reconnects Need heartbeat/health checks Must validate and normalize incoming messages Real-time conversion model For BTC conversion, a common model is: Stream BTC/USD Stream USD/BRL Calculate BTC/BRL = BTC/USD × USD/BRL This avoids waiting for a separate BTC/BRL endpoint and keeps conversion logic transparent What is a “tick”?",
-      "author": "Rubem Vasconcelos",
-      "date": "2026-07-12",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 43,
-      "url": "https://dev.to/rubemfsv/using-websockets-to-convert-btc-to-usd-and-reais-brl-30j0",
-      "image": "/images/feed/feed-8db2816ead33.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-c5a7de4ed095",
-      "title": "RAG - Meta Filtering and Reranking",
-      "excerpt": "Generally, when a user asks a query, the system searches for the relevant chunks stored in the vector database using cosine similarity. The better we can filter the data, the smaller the search space…",
-      "body": "Generally, when a user asks a query, the system searches for the relevant chunks stored in the vector database using cosine similarity. The better we can filter the data, the smaller the search space becomes, resulting in faster and more efficient retrieval. Suppose we have a book with 10 chapters. If we want to search for a particular topic, all the points in the vector database are compared with the user query, and only the closest points are retrieved. This process is called KNN (K-Nearest Neighbors) . Another algorithm is ANN (Approximate Nearest Neighbors) . Instead of checking all the points in the vector database, ANN searches only within a smaller region based on the proximity of the data.",
-      "author": "Ramya Perumal",
-      "date": "2026-07-12",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 38,
-      "url": "https://dev.to/ramya_perumal_e93721ef2fa/rag-meta-filtering-and-reranking-22i1",
-      "image": "/images/feed/feed-c5a7de4ed095.webp",
-      "source": "Dev.to",
       "isLive": true
     },
     {
@@ -167,7 +185,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 49,
       "url": "https://www.engadget.com/2213171/summer-games-done-quick-raises-over-2-million-for-doctors-without-borders/",
       "image": "/images/feed/feed-f1c83e89f019.jpg",
       "source": "Engadget",
@@ -186,7 +204,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 43,
       "url": "https://kotaku.com/expensive-games-are-fueling-steams-most-lucrative-year-despite-players-trending-towards-older-releases-2000715030",
       "image": "/images/feed/feed-64a4f8e75999.jpg",
       "source": "Kotaku",
@@ -205,7 +223,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 33,
       "url": "https://www.polygon.com/christopher-nolan-debut-film-following-streaming-free/",
       "image": "/images/feed/feed-0b45d59c37df.jpg",
       "source": "Polygon",
@@ -224,7 +242,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 34,
       "url": "https://www.engadget.com/2213147/what-are-your-plans-for-ai-appreciation-day/",
       "image": "/images/feed/feed-568bede72679.jpg",
       "source": "Engadget",
@@ -244,7 +262,7 @@
         "Nintendo"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 51,
       "url": "https://www.ign.com/articles/best-deals-for-july-12-2026",
       "image": "/images/feed/feed-49f2cef2bd52.png",
       "source": "IGN",
@@ -263,7 +281,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 40,
       "url": "https://kotaku.com/ubisoft-drops-claim-that-monetization-makes-games-more-fun-from-annual-report-2000715026",
       "image": "/images/feed/feed-9bd56cbd65d2.jpg",
       "source": "Kotaku",
@@ -282,7 +300,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 33,
       "url": "https://www.engadget.com/2213137/pentagon-releases-ufo-files-china-tianwen-2-asteroid-science-news/",
       "image": "/images/feed/feed-7ed3c294da53.jpg",
       "source": "Engadget",
@@ -301,7 +319,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 49,
       "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/claude-fable-5-stays-free-for-paid-users-until-july-19-as-anthropic-buys-more-time/",
       "image": "/images/feed/feed-46c825ba403b.png",
       "source": "BleepingComputer",
@@ -321,7 +339,7 @@
         "Vehicle"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 35,
       "url": "https://cleantechnica.com/2026/07/12/teslas-profit-per-vehicle-has-been-dropping-significantly/",
       "image": "/images/feed/feed-667b4dc6df26.jpg",
       "source": "CleanTechnica",
@@ -340,7 +358,7 @@
         "Nintendo"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 33,
       "url": "https://www.polygon.com/fire-emblem-three-houses-anniversary-switch/",
       "image": "/images/feed/feed-fdf6b0f600d1.jpg",
       "source": "Polygon",
@@ -359,29 +377,10 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 46,
       "url": "https://www.ign.com/articles/call-of-duty-black-ops-1-and-2-support-crossplay-between-ps4-and-ps5-activision-confirms",
       "image": "/images/feed/feed-28c40a8360c3.png",
       "source": "IGN",
-      "isLive": true
-    },
-    {
-      "id": "feed-797958742244",
-      "title": "Spider-Man is at his best when Peter Parker can't catch a break",
-      "excerpt": "Spider-Man has endured for decades because Peter Parker never stops sacrificing. Here's why Parker Luck is essential to Marvel's greatest hero.",
-      "body": "Fictional characters aren't supposed to stay the same forever. Audiences expect them to grow, mature, and evolve over time. But the longer a character survives, the harder it becomes to change them without losing the qualities that made people memorable in the first place.",
-      "author": "Terry Terrones",
-      "date": "2026-07-12",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 39,
-      "url": "https://www.polygon.com/spider-man-peter-parker-luck-a-little-pathetic/",
-      "image": "/images/feed/feed-797958742244.jpg",
-      "source": "Polygon",
       "isLive": true
     },
     {
@@ -397,7 +396,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 37,
       "url": "https://cleantechnica.com/2026/07/12/head-of-iea-roasts-europe-for-slow-electrification/",
       "image": "/images/feed/feed-aa1934966ffb.jpg",
       "source": "CleanTechnica",
@@ -416,7 +415,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 46,
       "url": "https://www.androidauthority.com/tmobile-free-wifi-ends-on-united-flights-3686655/",
       "image": "/images/feed/feed-10f8dc4ae8ea.jpg",
       "source": "Android Authority",
@@ -435,7 +434,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 30,
       "url": "https://www.engadget.com/2213111/xbox-gamer-wins-lawsuit-against-microsoft-to-restore-account-and-digital-library/",
       "image": "/images/feed/feed-68a43f999ca7.jpg",
       "source": "Engadget",
@@ -454,7 +453,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 53,
       "url": "https://www.engadget.com/2210424/why-gamecube-games-so-rarely-sold/",
       "image": "/images/feed/feed-ee0044b2efe5.jpg",
       "source": "Engadget",
@@ -473,7 +472,7 @@
         "Claude"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 44,
       "url": "https://systima.ai/blog/claude-code-vs-opencode-token-overhead",
       "image": "/images/feed/feed-af30ea7b3151.png",
       "source": "Hacker News",
@@ -492,7 +491,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 50,
       "url": "https://www.cnet.com/health/personal-care/do-microcurrent-devices-actually-work-we-asked-dermatologists/",
       "image": "/images/feed/feed-ccf33d1c7a1c.jpg",
       "source": "CNET",
@@ -511,7 +510,7 @@
         "Gpt"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 37,
       "url": "https://ploy.ai/blog/migrating-a-production-ai-agent-to-gpt-5-6",
       "image": "/images/feed/feed-389409443cc9.png",
       "source": "Hacker News",
@@ -530,7 +529,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 30,
       "url": "https://insideevs.com/news/801381/astraux-al7-well-equipped-microcar/",
       "image": "/images/feed/feed-a5b356b33780.jpg",
       "source": "InsideEVs",
@@ -549,7 +548,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 44,
       "url": "https://www.space.com/entertainment/space-games/why-space-games-still-struggle-with-the-scale-of-the-universe",
       "image": "/images/feed/feed-a77a189a76f0.jpg",
       "source": "Space.com",
@@ -568,7 +567,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 32,
       "url": "https://cleantechnica.com/2026/07/12/hydrogen-injection-diesel-smoke-not-climate/",
       "image": "/images/feed/feed-407fe6a682a8.webp",
       "source": "CleanTechnica",
@@ -587,7 +586,7 @@
         "Malware"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 47,
       "url": "https://www.bleepingcomputer.com/news/security/redhook-android-malware-now-uses-wireless-adb-for-shell-access/",
       "image": "/images/feed/feed-78691cfdccff.jpg",
       "source": "BleepingComputer",
@@ -607,7 +606,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 41,
       "url": "https://www.space.com/space-exploration/artemis/149-million-views-artemis-ii-moon-mission-breaks-nasas-streaming-record",
       "image": "/images/feed/feed-bc0d9603687e.jpg",
       "source": "Space.com",
@@ -626,7 +625,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 52,
       "url": "https://electrek.co/2026/07/12/vmax-launches-new-full-suspension-vx2-lite-e-scooter-for-a-mere-799/",
       "image": "/images/feed/feed-f09dab59f708.jpg",
       "source": "Electrek",
@@ -645,7 +644,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 43,
       "url": "https://insideevs.com/news/801304/bmw-q2-2026-sales-us/",
       "image": "/images/feed/feed-5f50a86de7d1.jpg",
       "source": "InsideEVs",
@@ -664,7 +663,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 38,
       "url": "https://www.cnet.com/tech/services-and-software/darren-aronofsky-on-this-day-1776-ai-series-midseason-review/",
       "image": "/images/feed/feed-3978647208d3.jpg",
       "source": "CNET",
@@ -683,7 +682,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 36,
       "url": "https://www.space.com/technology/space-medicine-breakthrough-kidney-and-liver-tissue-bioprinted-off-earth-for-1st-time-ever",
       "image": "/images/feed/feed-859a0b6a3f6c.jpg",
       "source": "Space.com",
@@ -702,7 +701,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 37,
       "url": "https://www.space.com/stargazing/solar-eclipses/1-month-until-the-total-solar-eclipse-2026-heres-what-you-need-to-know",
       "image": "/images/feed/feed-2e2ea51abec8.jpg",
       "source": "Space.com",
@@ -721,7 +720,7 @@
         "Quantum Computing"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 50,
       "url": "https://www.wired.com/story/scientists-using-ai-and-quantum-computing-to-generate-new-peptides/",
       "image": "/images/feed/feed-cf13bd5010ee.jpg",
       "source": "Wired",
@@ -740,7 +739,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 48,
       "url": "https://thehackernews.com/2026/07/compromised-jscrambler-8140-npm-release.html",
       "image": "/images/feed/feed-981101e2dad8.jpg",
       "source": "The Hacker News",
@@ -759,7 +758,7 @@
         "Hacker"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 30,
       "url": "https://thehackernews.com/2026/07/hackers-weaponize-balochistan-police.html",
       "image": "/images/feed/feed-e09de65b4866.jpg",
       "source": "The Hacker News",
@@ -778,7 +777,7 @@
         "Satellite"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 45,
       "url": "https://www.space.com/space-exploration/satellites/your-lost-dog-can-now-call-home-with-the-worlds-1st-satellite-connected-dog-collar",
       "image": "/images/feed/feed-0544737d61ff.jpg",
       "source": "Space.com",
@@ -797,7 +796,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 37,
       "url": "https://www.space.com/entertainment/space-movies-shows/this-week-in-space-podcast-episode-218-which-way-to-the-moonbase",
       "image": "/images/feed/feed-4cf955cec519.jpg",
       "source": "Space.com",
@@ -816,7 +815,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 36,
       "url": "https://www.bleepingcomputer.com/news/security/australia-warns-of-global-campaign-targeting-vulnerable-cms-platforms/",
       "image": "/images/feed/feed-f1167ec170de.jpg",
       "source": "BleepingComputer",
@@ -836,7 +835,7 @@
         "Chatgpt"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 33,
       "url": "https://techcrunch.com/2026/07/11/openai-bets-on-families-as-chatgpt-goes-deeper-into-households/",
       "image": "/images/feed/feed-b9b468358fa6.jpg",
       "source": "TechCrunch",
@@ -855,7 +854,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 54,
       "url": "https://www.wired.com/story/security-news-this-week-ai-found-a-root-bug-in-linux-that-everyone-missed-for-15-years/",
       "image": "/images/topics/topic-cybersecurity.png",
       "source": "Wired",
@@ -874,7 +873,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 32,
       "url": "https://www.bleepingcomputer.com/news/security/ghostcommit-hides-prompt-injection-in-images-to-fool-ai-agents-steal-secrets/",
       "image": "/images/feed/feed-562b94f32c88.jpg",
       "source": "BleepingComputer",
@@ -912,7 +911,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 30,
       "url": "https://techcrunch.com/2026/07/10/apple-sues-openai-over-alleged-trade-secret-theft/",
       "image": "/images/feed/feed-80b272bb4140.jpg",
       "source": "TechCrunch",
@@ -931,7 +930,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 45,
       "url": "https://www.wired.com/story/apple-sues-openai-allegedly-stealing-ip-hardware/",
       "image": "/images/feed/feed-54a563731f87.jpg",
       "source": "Wired",
@@ -939,16 +938,16 @@
     }
   ],
   "breakingNews": [
-    "DEV.TO: Dev Log 01: Optimizing Worker Memory Footprints Using Hono.js",
-    "DEV.TO: Connecting Sigrow sensors to your climate computer via API",
-    "DEV.TO: Mi INSERT tardaba 25 minutos y no era culpa de los datos: construyendo un Data Warehouse de e-commerce con PostgreSQL",
+    "DEV.TO: Data Definition Language (DDL)",
+    "DEV.TO: RNAValidate: CPU-only validator for AI-predicted 3D RNA structures",
+    "DEV.TO: cryoval: CPU-only validator for cryo-EM/ET maps",
+    "DEV.TO: Dynamic Open Graph images, explained — and every way to actually ship them",
+    "HACKER NEWS: Cyberpunk Comics, Manga and Graphic Novels",
+    "DEV.TO: $440 Million in 45 Minutes: When a Company's Own Automated System Loses the Company's Own Money",
+    "DEV.TO: Starting My AI Journey: Claude 101 and AI Fluency (Framework and Foundations)",
+    "KOTAKU: Phoebe Bridgers Launches Itch.io Page With An Infinite Runner",
     "CLEANTECHNICA: It Was The Best Of Times, It Was The Worst Of Times For Electric Car Sales In America",
-    "DEV.TO: Architecting Kubernetes Deployments with Python",
-    "DEV.TO: Introduzindo SQL",
-    "DEV.TO: Using WebSockets to Convert BTC to USD and Reais (BRL)",
-    "DEV.TO: RAG - Meta Filtering and Reranking",
-    "ENGADGET: Summer Games Done Quick once again raises over $2 million for Doctors Without Borders",
-    "KOTAKU: Expensive Games Are Fueling Steam’s Most Lucrative Year Despite Players Trending Towards Older Releases"
+    "ENGADGET: Summer Games Done Quick once again raises over $2 million for Doctors Without Borders"
   ],
   "sectionVideos": {}
 }
