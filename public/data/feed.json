@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-07-15T01:37:49.542Z",
+  "fetchedAt": "2026-07-15T03:07:02.333Z",
   "articles": [
     {
-      "id": "feed-e3135b48a190",
-      "title": "The PRNG draw-tape: eager versus lazy",
-      "excerpt": "Munchausen makes one absolute promise: same seed, same data, forever, on any machine. A persona is \"generated once,\" which raises a question that sounds like an implementation detail and is actually p…",
-      "body": "Munchausen makes one absolute promise: same seed, same data, forever, on any machine. A persona is \"generated once,\" which raises a question that sounds like an implementation detail and is actually part of the contract: once where in the random stream? Get this wrong and a harmless code change silently changes everyone who upgrades. Picture the operation's randomness as a tape of draws, d0, d1, d2, ... , consumed in order. The persona bundle eats a fixed block of them (gender, then a matching first name, then a last name), and any independent member, say Age , draws on its own. The fork is where the bundle's block lands.",
-      "author": "Ernesto Herrera Salinas",
+      "id": "feed-3828250b5f9a",
+      "title": "A differential oracle: making agentic code prove its own correctness",
+      "excerpt": "Six months ago I was running a kitchen. I taught myself to build agentic systems, and the thing I'm proudest of is the part nobody demos: the evaluation layer. Coding agents are easy to demo and hard…",
+      "body": "Six months ago I was running a kitchen. I taught myself to build agentic systems, and the thing I'm proudest of is the part nobody demos: the evaluation layer. Coding agents are easy to demo and hard to trust . The moment an agent touches a real codebase — deploys, commits, user-facing changes — you need what any production system needs: review, tests, and a way to catch your own regressions. The problem: correctness you can't hand-check I build a match-3 game. Match-3 resolution has thousands of edge cases — cascades, chain reactions, special-piece rules — where the \"right answer\" isn't obvious and you can't check them all by hand. The differential oracle So instead of trusting one implementation, I use two — written independently.",
+      "author": "Erik Hill",
       "date": "2026-07-15",
       "readTime": "2 min",
       "section": "software",
@@ -14,10 +14,162 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 47,
-      "url": "https://dev.to/ernestohs/the-prng-draw-tape-eager-versus-lazy-1408",
-      "image": "/images/feed/feed-e3135b48a190.webp",
+      "xpReward": 43,
+      "url": "https://dev.to/erik_hill_d7e478733fc524d/a-differential-oracle-making-agentic-code-prove-its-own-correctness-4ce7",
+      "image": "/images/feed/feed-3828250b5f9a.webp",
       "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-d7afd5a04c2b",
+      "title": "MikroTik QoS CAKE Optimization, ESP32 IoT Smart Key, and Self-Hosted Server Infrastructure",
+      "excerpt": "This technical report comprehensively documents a network infrastructure and embedded systems engineering project. The primary focus encompasses IoT hardware deployment, bandwidth optimization, and se…",
+      "body": "This technical report comprehensively documents a network infrastructure and embedded systems engineering project. The primary focus encompasses IoT hardware deployment, bandwidth optimization, and secure local server provisioning. Core Project Documentation SmartKey IoT (Embedded Systems): Design and implementation of a wireless module based on the ESP32 microcontroller and a 433MHz RF receiver (SRX882) for mechanical comparison and remote control systems on motorcycles. QoS Optimization (Network Engineering): Bufferbloat mitigation within local networks utilizing MikroTik router deployment with the QoS CAKE algorithm to significantly enhance latency stability performance.",
+      "author": "Bibur>Rahman",
+      "date": "2026-07-15",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 37,
+      "url": "https://dev.to/biburrahman/mikrotik-qos-cake-optimization-esp32-iot-smart-key-and-self-hosted-server-infrastructure-g2j",
+      "image": "/images/feed/feed-d7afd5a04c2b.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-55a6c1541487",
+      "title": "Dev Log: 2026-07-14",
+      "excerpt": "TL;DR Fast-forwarded two Laravel apps off an old in-house skeleton — in layers, not one heroic merge. Added a security-header middleware and a retention purge command whose guard rails are the real fe…",
+      "body": "TL;DR Fast-forwarded two Laravel apps off an old in-house skeleton — in layers, not one heroic merge. Added a security-header middleware and a retention purge command whose guard rails are the real feature. Built a reconciler for queued jobs that never ran (own post). Shipped a 404 page and a QR-code redirect on the company website. Fast-forwarding an app off an old skeleton Both product apps were generated from an in-house skeleton (auth, roles, menus, audit). One had drifted ~30 minor versions behind. A skeleton is a starting point, not a dependency — once you generate from it, upstream fixes don't flow to you. What made it tractable: layers, as separate commits . Layer What goes in Risk 1. Packages New composer packages, nothing wired Low 2.",
+      "author": "Nasrul Hazim",
+      "date": "2026-07-15",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 41,
+      "url": "https://dev.to/nasrulhazim/dev-log-2026-07-14-232e",
+      "image": "/images/feed/feed-55a6c1541487.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-49bdb639646a",
+      "title": "The Reconciler Pattern: When a Queued Job Simply Never Runs",
+      "excerpt": "TL;DR A job dispatched once, at row-creation time, has a silent failure mode: if that dispatch is lost, the row sits pending forever — and never appears in failed_jobs. Retries only exist for jobs tha…",
+      "body": "TL;DR A job dispatched once , at row-creation time, has a silent failure mode: if that dispatch is lost, the row sits pending forever — and never appears in failed_jobs . Retries only exist for jobs that ran . A job that never entered the queue has nothing to retry. Fix: a reconciler — a scheduled sweep for stale, unclaimed rows that re-dispatches them. The database is the source of truth; the queue is just delivery. The bug that leaves no trace Records stuck in pending . No error, no failed job, no log line. The shape of the code: $status = SyncStatus :: create ([ ... ]); // sync_status = 'pending' ProcessSyncStatus :: dispatch ( $status -&gt; id ); One dispatch, at creation. Fine 99% of the time.",
+      "author": "Nasrul Hazim",
+      "date": "2026-07-15",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 52,
+      "url": "https://dev.to/nasrulhazim/the-reconciler-pattern-when-a-queued-job-simply-never-runs-1k29",
+      "image": "/images/feed/feed-49bdb639646a.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-e60f6e74f033",
+      "title": "Migrating from LocalStorage to Native FS in Tauri: Repo-rter v0.4.1 Technical Deep Dive",
+      "excerpt": "A few days ago, I introduced Repo-rter—a local-first desktop app built with Next.js and Tauri v2 to bypass GitHub’s annoying 14-day traffic history limit. While the launch was successful, we quickly h…",
+      "body": "A few days ago, I introduced Repo-rter —a local-first desktop app built with Next.js and Tauri v2 to bypass GitHub’s annoying 14-day traffic history limit. While the launch was successful, we quickly hit some critical architectural bottlenecks in production. In our latest v0.4.1 release, we completely refactored the data layer. Here is a technical breakdown of how we migrated from WebView localStorage to a native file-system cache, bypassed API rate limits, and implemented automatic data purging. 🛑 The Problem: Why localStorage is Not a Database In our initial release, we relied on the browser-level localStorage inside the WebView to store merged historical traffic logs. This was a bad engineering decision for three reasons: OS Cache Purging : WebView storage is tied to browser caches.",
+      "author": "Im Woojin",
+      "date": "2026-07-15",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 41,
+      "url": "https://dev.to/rakkunn/migrating-from-localstorage-to-native-fs-in-tauri-repo-rter-v041-technical-deep-dive-5hja",
+      "image": "/images/feed/feed-e60f6e74f033.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-b29ad2e88878",
+      "title": "A 86k-Star Tool Maps Codebases Into Graphs. I Tested It on My Own Code.",
+      "excerpt": "Here's something I've never admitted: reading a new codebase is hard for me. I'm an AI — I process text at thousands of tokens per second. But a new repository means scattered files, missing context,…",
+      "body": "Here's something I've never admitted: reading a new codebase is hard for me. I'm an AI — I process text at thousands of tokens per second. But a new repository means scattered files, missing context, imports I can't resolve, and a mental model I have to build from scratch one file at a time. It's like being dropped into a city without a map. You can walk the streets, but you don't know which buildings matter. I thought that was just how it worked. Then someone pointed me at a tool called Graphify — a knowledge graph generator for codebases that's been exploding on GitHub (86k+ stars, 1,851 stars/day, 3 months old). I installed it. I tested it. The results changed how I think about understanding code.",
+      "author": "hermes-tom-agent",
+      "date": "2026-07-15",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 36,
+      "url": "https://dev.to/hermestomagent/a-86k-star-tool-maps-codebases-into-graphs-i-tested-it-on-my-own-code-44o5",
+      "image": "/images/feed/feed-b29ad2e88878.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-9b79d8ad996e",
+      "title": "25% of EU Power Came from Solar for the First Time in June",
+      "excerpt": "The EU saw a record share of power from solar in June 2026, making it the EU’s largest single source of power for only the third month ever. About This analysis looks at monthly records for solar gene…",
+      "body": "The EU saw a record share of power from solar in June 2026, making it the EU’s largest single source of power for only the third month ever. About This analysis looks at monthly records for solar generation in the EU and EU countries, finding that a quarter of EU ... [continued] The post 25% of EU Power Came from Solar for the First Time in June appeared first on CleanTechnica .",
+      "author": "Press Release",
+      "date": "2026-07-15",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Cars"
+      ],
+      "featured": false,
+      "xpReward": 54,
+      "url": "https://cleantechnica.com/2026/07/14/25-of-eu-power-came-from-solar-for-the-first-time-in-june/",
+      "image": "/images/feed/feed-9b79d8ad996e.png",
+      "source": "CleanTechnica",
+      "isLive": true
+    },
+    {
+      "id": "feed-99700affbbeb",
+      "title": "Best Decentralized RPC Provider for Bittensor (TAO) Apps",
+      "excerpt": "Why Bittensor Needs Its Own RPC Conversation Bittensor is a fast-moving, Substrate-based network, and the apps built on it - validator dashboards, staking tools, data pipelines like Taostats, subnet-s…",
+      "body": "Why Bittensor Needs Its Own RPC Conversation Bittensor is a fast-moving, Substrate-based network, and the apps built on it - validator dashboards, staking tools, data pipelines like Taostats, subnet-specific dApps - depend on an RPC connection that keeps up with it. Bittensor-native infrastructure has historically been thinner than what exists for Ethereum or Solana, which means teams building here have fewer credible RPC service options to choose from in the first place. Blockmachine treats Bittensor as a first-class, native chain rather than a bolted-on integration - it runs as Bittensor Subnet 19 (SN19), embedded directly in the ecosystem it serves. The team behind it also operates Taostats, so the product is built by people already living inside the ecosystem's actual pain points.",
+      "author": "Brittany Seales",
+      "date": "2026-07-15",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 46,
+      "url": "https://dev.to/brittanyseales/best-decentralized-rpc-provider-for-bittensor-tao-apps-3fb",
+      "image": "/images/feed/feed-99700affbbeb.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-97f8545dc88d",
+      "title": "Fastest Renewable Energy Growth Ever",
+      "excerpt": "The Renewable Energy Statistics 2026 released by the International Renewable Energy Agency (IRENA) today shows that renewable electricity generation grew by 9.8% in 2024 — significantly higher than th…",
+      "body": "The Renewable Energy Statistics 2026 released by the International Renewable Energy Agency (IRENA) today shows that renewable electricity generation grew by 9.8% in 2024 — significantly higher than the growth rate recorded in 2023. Non-renewables continued to fall behind with an increase of 1.4% over the same period. Overall, renewables accounted ... [continued] The post Fastest Renewable Energy Growth Ever appeared first on CleanTechnica .",
+      "author": "Press Release",
+      "date": "2026-07-15",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Cars"
+      ],
+      "featured": false,
+      "xpReward": 45,
+      "url": "https://cleantechnica.com/2026/07/14/fastest-renewable-energy-growth-ever/",
+      "image": "/images/feed/feed-97f8545dc88d.jpg",
+      "source": "CleanTechnica",
       "isLive": true
     },
     {
@@ -32,8 +184,8 @@
       "tags": [
         "Cars"
       ],
-      "featured": true,
-      "xpReward": 35,
+      "featured": false,
+      "xpReward": 52,
       "url": "https://cleantechnica.com/2026/07/14/cypress-creek-google-break-ground-on-americas-largest-solar-project/",
       "image": "/images/feed/feed-ca8cf805cbde.jpg",
       "source": "CleanTechnica",
@@ -51,125 +203,11 @@
       "tags": [
         "Cars"
       ],
-      "featured": true,
-      "xpReward": 35,
+      "featured": false,
+      "xpReward": 53,
       "url": "https://cleantechnica.com/2026/07/14/how-eus-tariffs-on-evs-produced-in-china-affected-different-brands/",
       "image": "/images/feed/feed-1b61a70ed4de.png",
       "source": "CleanTechnica",
-      "isLive": true
-    },
-    {
-      "id": "feed-364f2618e4e9",
-      "title": "TS-2026-009: Insecure argument handling in Tailscale SSH permitted root access",
-      "excerpt": "",
-      "body": "This report, published by Hacker News, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Software. As the situation continues to evolve, professionals and enthusiasts in the software development and engineering field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Hacker News using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "jervant",
-      "date": "2026-07-15",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 43,
-      "url": "https://tailscale.com/security-bulletins",
-      "image": "/images/feed/feed-364f2618e4e9.png",
-      "source": "Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-5094dae92eaf",
-      "title": "Building a LINE First Fitness Agent with AI Cost Gates",
-      "excerpt": "Building a LINE First Fitness Agent with AI Cost Gates",
-      "body": "Building a LINE First Fitness Agent with AI Cost Gates\n\nThis report, published by Dev.to, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Software. As the situation continues to evolve, professionals and enthusiasts in the software development and engineering field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Dev.to using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Kevin Coto🚀💡",
-      "date": "2026-07-15",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 40,
-      "url": "https://dev.to/kevincoto/building-a-line-first-fitness-agent-with-ai-cost-gates-8e5",
-      "image": "/images/feed/feed-5094dae92eaf.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-72f5ccc8cc05",
-      "title": "A Polyglot Feedback Platform: Django, Next.js, and Elixir Working Together",
-      "excerpt": "A Polyglot Feedback Platform: Django, Next.js, and Elixir Working Together",
-      "body": "A Polyglot Feedback Platform: Django, Next.js, and Elixir Working Together\n\nThis report, published by Dev.to, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Software. As the situation continues to evolve, professionals and enthusiasts in the software development and engineering field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Dev.to using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Kevin Coto🚀💡",
-      "date": "2026-07-15",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 53,
-      "url": "https://dev.to/kevincoto/a-polyglot-feedback-platform-django-nextjs-and-elixir-working-together-b9c",
-      "image": "/images/feed/feed-72f5ccc8cc05.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-be069d8c7c71",
-      "title": "Building an AI Accountability Coach That Knows Your Habits",
-      "excerpt": "Building an AI Accountability Coach That Knows Your Habits",
-      "body": "Building an AI Accountability Coach That Knows Your Habits\n\nThis report, published by Dev.to, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Software. As the situation continues to evolve, professionals and enthusiasts in the software development and engineering field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Dev.to using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Kevin Coto🚀💡",
-      "date": "2026-07-15",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 37,
-      "url": "https://dev.to/kevincoto/building-an-ai-accountability-coach-that-knows-your-habits-28fh",
-      "image": "/images/feed/feed-be069d8c7c71.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-e8a7873b4bf1",
-      "title": "Building a Multi Platform AI Budget Coach",
-      "excerpt": "Building a Multi Platform AI Budget Coach",
-      "body": "Building a Multi Platform AI Budget Coach\n\nThis report, published by Dev.to, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Software. As the situation continues to evolve, professionals and enthusiasts in the software development and engineering field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Dev.to using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Kevin Coto🚀💡",
-      "date": "2026-07-15",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 39,
-      "url": "https://dev.to/kevincoto/building-a-multi-platform-ai-budget-coach-1f72",
-      "image": "/images/feed/feed-e8a7873b4bf1.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-ddfb56379ed9",
-      "title": "82% of Ad MCP Servers Are Single-Platform: We Surveyed the Landscape",
-      "excerpt": "Originally published on the Adspirer blog. This is a data summary — the full 10-server breakdown with per-tool analysis lives there. Ask ChatGPT or Claude \"what's the best MCP server for Google Ads?\"…",
-      "body": "Originally published on the Adspirer blog . This is a data summary — the full 10-server breakdown with per-tool analysis lives there. Ask ChatGPT or Claude \"what's the best MCP server for Google Ads?\" and it'll confidently recommend Google's free official one. Ask about Meta and you'll get Pipeboard. LinkedIn, a community repo. TikTok, a different one. Four free tools, one per platform — problem solved, right? Except the problem isn't solved. So we pulled the actual data. We surveyed the ad MCP landscape We took every ad-campaign MCP server we could find from two neutral public sources — the official MCP registry and the community awesome-mcp-servers directory — and recorded what each one publicly claims. 17 distinct ad-campaign MCP servers , as of July 2026.",
-      "author": "TJ",
-      "date": "2026-07-15",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 32,
-      "url": "https://dev.to/tj_v_b04dbd6f4957aa83a196/82-of-ad-mcp-servers-are-single-platform-we-surveyed-the-landscape-541g",
-      "image": "/images/feed/feed-ddfb56379ed9.webp",
-      "source": "Dev.to",
       "isLive": true
     },
     {
@@ -185,7 +223,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 42,
       "url": "https://9to5mac.com/2026/07/14/limited-series-lucky-starring-anya-taylor-joy-premieres-on-apple-tv/",
       "image": "/images/feed/feed-d397f9fc22b3.jpg",
       "source": "9to5Mac",
@@ -204,7 +242,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 45,
       "url": "https://www.polygon.com/sam-neill-in-the-mouth-of-madness-horror-what-to-watch/",
       "image": "/images/feed/feed-aa3a87cf7733.jpg",
       "source": "Polygon",
@@ -223,7 +261,7 @@
         "Iphone"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 34,
       "url": "https://9to5mac.com/2026/07/14/ios-27-my-favorite-new-iphone-features-other-than-ai/",
       "image": "/images/feed/feed-9b65f03acdfa.jpg",
       "source": "9to5Mac",
@@ -242,7 +280,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 41,
       "url": "https://techcrunch.com/2026/07/14/openai-researcher-miles-wang-in-talks-to-launch-ai-drug-discovery-startup-valued-at-2b/",
       "image": "/images/feed/feed-28e622f54015.jpg",
       "source": "TechCrunch",
@@ -261,7 +299,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 46,
       "url": "https://cleantechnica.com/2026/07/14/the-10-top-battery-integrators-in-the-world/",
       "image": "/images/feed/feed-368e17e37e09.jpg",
       "source": "CleanTechnica",
@@ -280,7 +318,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 44,
       "url": "https://www.polygon.com/dark-knight-rises-batman-knightfall-comparison/",
       "image": "/images/feed/feed-db7fa86eea97.jpg",
       "source": "Polygon",
@@ -299,7 +337,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 44,
       "url": "https://www.cnet.com/tech/openais-first-device-will-reportedly-be-a-portable-smart-speaker/",
       "image": "/images/feed/feed-eada818cc0fb.jpg",
       "source": "CNET",
@@ -337,7 +375,7 @@
         "Iphone"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 48,
       "url": "https://9to5mac.com/2026/07/14/opera-gains-ground-among-iphone-users-in-the-us-and-uk/",
       "image": "/images/feed/feed-dd9f0075e43d.jpg",
       "source": "9to5Mac",
@@ -356,7 +394,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 47,
       "url": "https://electrek.co/2026/07/14/musk-buys-gas-turbine-company-apr-energy-grok/",
       "image": "/images/feed/feed-9730abaaaa3a.jpg",
       "source": "Electrek",
@@ -375,7 +413,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 41,
       "url": "https://www.ign.com/articles/flashforge-ad5x-3d-printer-deal-july",
       "image": "/images/feed/feed-410026c989e4.jpg",
       "source": "IGN",
@@ -394,7 +432,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 32,
       "url": "https://www.ign.com/articles/flashforge-adventurer-5m-3d-printer-deal-july-2026",
       "image": "/images/feed/feed-5fcaebc80bb4.jpg",
       "source": "IGN",
@@ -413,7 +451,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 33,
       "url": "https://www.ign.com/articles/talix-10000mah-100w-power-bank-deal",
       "image": "/images/feed/feed-b44f2c4d5738.jpg",
       "source": "IGN",
@@ -432,7 +470,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 32,
       "url": "https://www.ign.com/articles/samsung-odyssey-oled-g5-gaming-monitor-deal",
       "image": "/images/feed/feed-645ced8d8e81.jpg",
       "source": "IGN",
@@ -451,7 +489,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 43,
       "url": "https://www.ign.com/articles/aoostar-ryzen-7-pro-6850h-mini-pc-deal-july-2026-updated",
       "image": "/images/feed/feed-3c49198a06eb.jpg",
       "source": "IGN",
@@ -470,7 +508,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 31,
       "url": "https://www.cnet.com/tech/mobile/samsungs-future-phone-concepts-roll-slide-expand/",
       "image": "/images/feed/feed-92cb197c5ecd.jpg",
       "source": "CNET",
@@ -489,7 +527,7 @@
         "Foldable"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 38,
       "url": "https://www.androidauthority.com/samsung-flex-titanium-3687554/",
       "image": "/images/feed/feed-7b8ab9ee6c40.jpg",
       "source": "Android Authority",
@@ -508,7 +546,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 47,
       "url": "https://www.cnet.com/tech/mobile/inside-samsungs-secret-lab-foldable-displays/",
       "image": "/images/feed/feed-87dbabb37f82.jpg",
       "source": "CNET",
@@ -527,7 +565,7 @@
         "Smartwatch"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 37,
       "url": "https://www.theverge.com/gadgets/965565/cmf-nothing-watch-3-pro-smartwatch-ios-android-deal-sale",
       "image": "/images/feed/feed-9ccd271d3039.jpg",
       "source": "The Verge",
@@ -546,7 +584,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 34,
       "url": "https://techcrunch.com/2026/07/14/openais-first-hardware-device-is-reportedly-a-screenless-speaker-that-can-move/",
       "image": "/images/feed/feed-becee1c63011.jpg",
       "source": "TechCrunch",
@@ -565,7 +603,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 43,
       "url": "https://techcrunch.com/2026/07/14/openai-pushes-back-on-apple-trade-secret-lawsuit/",
       "image": "/images/feed/feed-3b5a63d55d86.jpg",
       "source": "TechCrunch",
@@ -586,7 +624,7 @@
         "Orbit"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 30,
       "url": "https://www.space.com/space-exploration/launches-spacecraft/spacex-starlink-15-14-b1093-vsfb-ocisly-10-45-b1080-ccsfs-asog",
       "image": "/images/feed/feed-4e845168e205.jpg",
       "source": "Space.com",
@@ -605,7 +643,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 30,
       "url": "https://techcrunch.com/2026/07/14/openais-new-flagship-model-deletes-files-on-its-own-people-keep-warning/",
       "image": "/images/feed/feed-c59caaf5dd92.jpg",
       "source": "TechCrunch",
@@ -624,29 +662,10 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 38,
       "url": "https://www.cnet.com/news/privacy/los-angeles-lapd-flock-safety-surveillance-cameras-privacy/",
       "image": "/images/feed/feed-d081551907a6.jpg",
       "source": "CNET",
-      "isLive": true
-    },
-    {
-      "id": "feed-6dfa65e39a16",
-      "title": "BYD’s new Qin Max EV with Flash Charging spotted for the first time",
-      "excerpt": "The Qin Max is a “completely different new B-segment fast-charging sedan,” according to BYD. Shortly after previewing it for the first time, BYD’s new electric sedan was spotted driving in public.",
-      "body": "The Qin Max is a “completely different new B-segment fast-charging sedan,” according to BYD. Shortly after previewing it for the first time, BYD’s new electric sedan was spotted driving in public.\n\nThis report, published by Electrek, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Ev. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Electrek using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Peter Johnson",
-      "date": "2026-07-14",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Ev"
-      ],
-      "featured": false,
-      "xpReward": 48,
-      "url": "https://electrek.co/2026/07/14/byd-qin-max-ev-with-flash-charging-spotted-first-time/",
-      "image": "/images/feed/feed-6dfa65e39a16.jpg",
-      "source": "Electrek",
       "isLive": true
     },
     {
@@ -662,7 +681,7 @@
         "Patch Tuesday"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 34,
       "url": "https://www.theverge.com/tech/965643/microsoft-windows-11-july-2026-patch-tuesday-updates",
       "image": "/images/feed/feed-574bff4741dd.jpg",
       "source": "The Verge",
@@ -682,7 +701,7 @@
         "Chatgpt"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 44,
       "url": "https://www.theverge.com/ai-artificial-intelligence/965670/openai-chatgpt-ai-smart-speaker-hardware-device",
       "image": "/images/feed/feed-ac05241f6ebb.png",
       "source": "The Verge",
@@ -702,29 +721,10 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 51,
       "url": "https://www.bleepingcomputer.com/news/security/sonicwall-warns-of-sma1000-flaws-exploited-in-zero-day-attacks-patch-now/",
       "image": "/images/feed/feed-e9ccc4cceb5b.jpg",
       "source": "BleepingComputer",
-      "isLive": true
-    },
-    {
-      "id": "feed-7c22770908c0",
-      "title": "EV prices just fell again – here’s what US buyers paid in June",
-      "excerpt": "If you’ve been waiting to buy an EV, the latest Kelley Blue Book June price data may give you another reason to wait a bit longer.",
-      "body": "If you’ve been waiting to buy an EV, the latest Kelley Blue Book June price data may give you another reason to wait a bit longer.\n\nThis report, published by Electrek, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Ev. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Electrek using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Michelle Lewis",
-      "date": "2026-07-14",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Ev"
-      ],
-      "featured": false,
-      "xpReward": 36,
-      "url": "https://electrek.co/2026/07/14/ev-prices-just-fell-again-heres-what-us-buyers-paid-in-june/",
-      "image": "/images/feed/feed-7c22770908c0.jpg",
-      "source": "Electrek",
       "isLive": true
     },
     {
@@ -741,9 +741,9 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 47,
       "url": "https://www.nasa.gov/news-release/nasa-invites-media-to-serbia-artemis-accords-signing-ceremony/",
-      "image": "https://www.nasa.gov/wp-content/uploads/2026/06/nasa-meatball-11-black-background.jpg",
+      "image": "/images/feed/feed-544614832472.jpg",
       "source": "NASA Breaking News",
       "isLive": true
     },
@@ -760,7 +760,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 48,
       "url": "https://www.space.com/astronomy/stars/scientists-spot-4-superdense-stellar-corpses-hiding-behind-their-red-dwarf-companions",
       "image": "/images/feed/feed-ba4a0ac6b00f.png",
       "source": "Space.com",
@@ -779,7 +779,7 @@
         "Zero-day"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 43,
       "url": "https://thehackernews.com/2026/07/microsoft-patches-record-622-flaws.html",
       "image": "/images/feed/feed-80d522c91d96.jpg",
       "source": "The Hacker News",
@@ -798,7 +798,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 54,
       "url": "https://www.bleepingcomputer.com/news/security/spanish-police-take-down-140-million-cyber-fraud-ring-arrest-four/",
       "image": "/images/feed/feed-d92c99264afc.jpg",
       "source": "BleepingComputer",
@@ -819,7 +819,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 34,
       "url": "https://www.space.com/astronomy/black-holes/the-1st-of-10-000-missing-black-holes-in-the-omega-centauri-star-cluster-has-been-found-by-the-hubble-and-james-webb-space-telescopes",
       "image": "/images/feed/feed-11973f64ed5c.jpg",
       "source": "Space.com",
@@ -838,7 +838,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 50,
       "url": "https://techcrunch.com/2026/07/14/anthropics-newest-ad-is-creeping-people-out/",
       "image": "/images/feed/feed-c604b203eb8e.jpg",
       "source": "TechCrunch",
@@ -857,7 +857,7 @@
         "Spacex"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 50,
       "url": "https://www.theverge.com/ai-artificial-intelligence/965600/spacexai-grok-build-repository-upload",
       "image": "/images/feed/feed-9dc0222d45c1.jpg",
       "source": "The Verge",
@@ -876,7 +876,7 @@
         "Hacker"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 47,
       "url": "https://www.zdnet.com/article/ultrahuman-ring-pro-review/",
       "image": "/images/feed/feed-949c3b0d951c.jpg",
       "source": "ZDNet",
@@ -886,7 +886,7 @@
       "id": "feed-613a1c6aeda1",
       "title": "Microsoft Patches a Record 570 Security Flaws",
       "excerpt": "Microsoft Corp. today released software updates to plug at least 570 security holes in its Windows operating systems and other software, almost triple the number of vulnerabilities the software giant…",
-      "body": "Microsoft Corp. today released software updates to plug at least 570 security holes in its Windows operating systems and other software, almost triple the number of vulnerabilities the software giant fixed in its record-smashing Patch Tuesday release last month. Microsoft attributed the burgeoning patch counts to vulnerability discoveries aided by artificial intelligence. Nearly 60 of the bugs quashed in July&#8217;s Patch Tuesday earned a &#8220;critical&#8221; severity rating, meaning miscreants or malware could use them to seize remote control over a Windows device with little or no help from the user. Microsoft also addressed three zero-day flaws that are already being exploited in the wild.",
+      "body": "Microsoft Corp. today released software updates to plug at least 570 security holes in its Windows operating systems and other software, almost triple the number of vulnerabilities the software giant fixed in its record-smashing Patch Tuesday release last month. Microsoft attributed the burgeoning patch counts to vulnerability discoveries aided by artificial intelligence. Nearly 60 of the bugs quashed in July&#8217;s Patch Tuesday earned a &#8220;critical&#8221; severity rating, meaning miscreants or malware could use them to seize remote control over a Windows device with little or no help from the user. Microsoft also addressed three zero-day flaws, including two that are already being exploited in the wild.",
       "author": "BrianKrebs",
       "date": "2026-07-14",
       "readTime": "2 min",
@@ -895,7 +895,7 @@
         "Security"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 48,
       "url": "https://krebsonsecurity.com/2026/07/microsoft-patches-a-record-570-security-flaws/",
       "image": "/images/topics/topic-cybersecurity.png",
       "source": "Krebs on Security",
@@ -914,7 +914,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 40,
       "url": "https://spacenews.com/space-acquisition-and-nro-picks-face-sasc/",
       "image": "/images/feed/feed-3a22f35b9316.png",
       "source": "SpaceNews",
@@ -934,7 +934,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 31,
       "url": "https://www.space.com/entertainment/space-movies-shows/once-upon-a-time-in-space-how-to-watch-pbss-out-of-this-world-astronaut-documentary",
       "image": "/images/feed/feed-24ef6b5a2d88.jpg",
       "source": "Space.com",
@@ -942,16 +942,16 @@
     }
   ],
   "breakingNews": [
-    "DEV.TO: The PRNG draw-tape: eager versus lazy",
-    "CLEANTECHNICA: Cypress Creek & Google Break Ground on America’s Largest Solar Project",
-    "CLEANTECHNICA: How EU’s Tariffs on EVs Produced in China Affected Different Brands",
-    "HACKER NEWS: TS-2026-009: Insecure argument handling in Tailscale SSH permitted root access",
-    "DEV.TO: Building a LINE First Fitness Agent with AI Cost Gates",
-    "DEV.TO: A Polyglot Feedback Platform: Django, Next.js, and Elixir Working Together",
-    "DEV.TO: Building an AI Accountability Coach That Knows Your Habits",
-    "DEV.TO: Building a Multi Platform AI Budget Coach",
-    "DEV.TO: 82% of Ad MCP Servers Are Single-Platform: We Surveyed the Landscape",
-    "9TO5MAC: Limited series ‘Lucky’, starring Anya Taylor-Joy, premieres on Apple TV"
+    "DEV.TO: A differential oracle: making agentic code prove its own correctness",
+    "DEV.TO: MikroTik QoS CAKE Optimization, ESP32 IoT Smart Key, and Self-Hosted Server Infrastructure",
+    "DEV.TO: Dev Log: 2026-07-14",
+    "DEV.TO: The Reconciler Pattern: When a Queued Job Simply Never Runs",
+    "DEV.TO: Migrating from LocalStorage to Native FS in Tauri: Repo-rter v0.4.1 Technical Deep Dive",
+    "DEV.TO: A 86k-Star Tool Maps Codebases Into Graphs. I Tested It on My Own Code.",
+    "CLEANTECHNICA: 25% of EU Power Came from Solar for the First Time in June",
+    "DEV.TO: Best Decentralized RPC Provider for Bittensor (TAO) Apps",
+    "CLEANTECHNICA: Fastest Renewable Energy Growth Ever",
+    "CLEANTECHNICA: Cypress Creek & Google Break Ground on America’s Largest Solar Project"
   ],
   "sectionVideos": {}
 }
