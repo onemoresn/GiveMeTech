@@ -1,12 +1,31 @@
 {
-  "fetchedAt": "2026-07-16T03:06:12.726Z",
+  "fetchedAt": "2026-07-16T05:05:14.994Z",
   "articles": [
     {
-      "id": "feed-efffddd1dfdb",
-      "title": "Cloudflare Workers AI: Add a Free LLM to a Static Site, No Backend Needed",
-      "excerpt": "Quick answer: A static site behind Cloudflare can get AI without a backend and without storing an API key. Workers AI binds a model like Llama 3.3 70B to your worker through a two-line env.AI config b…",
-      "body": "Quick answer: A static site behind Cloudflare can get AI without a backend and without storing an API key. Workers AI binds a model like Llama 3.3 70B to your worker through a two-line env.AI config binding. The free tier is 10,000 neurons a day. Measured for real, that is about 80 answers a day at ~124 neurons and ~15 seconds each. This happened in a single day. In the morning, our PRD consulting landing page was an ordinary static site: text, images, a mailto button. By the afternoon, that same page had a box where a reader can paste their app idea and get back an eight-section PRD skeleton with the risks called out, in about fifteen seconds. Here is what we did NOT add: a server. There is still no backend of our own, no VM, no container, and not a single API key anywhere in the code.",
-      "author": "yim_rei",
+      "id": "feed-7a6a6b040de1",
+      "title": "Motorola new flagship killer looks great, until you check its terrible update policy",
+      "excerpt": "Two years of updates is just not okay for a 2026 flagship.",
+      "body": "TL;DR Motorola’s latest flagship-killer phone will only receive two Android OS upgrades and three years of security updates. The phone has launched with Android 16 and is only guaranteed to receive updates through Android 18. The short software commitment is a major weakness for a premium phone that costs £700 (~$947) in the UK and otherwise offers flagship-level hardware. Motorola’s latest flagship-killer phone, the Edge 70 Max , checks almost every box you’d expect from a premium Android device . It packs Qualcomm’s latest flagship chip, a massive silicon-carbon battery, ultra-fast charging, Qi2.2 magnetic wireless charging, and high-end durability features. On paper, it looks like one of Motorola’s strongest value propositions in years.",
+      "author": "Adamya Sharma",
+      "date": "2026-07-16",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": true,
+      "xpReward": 35,
+      "url": "https://www.androidauthority.com/motorola-edge-70-max-software-updates-3688045/",
+      "image": "/images/feed/feed-7a6a6b040de1.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-b5da22865178",
+      "title": "Multi-Tab State Sync Made Easy: Introducing useSharedState in react-hook-lab!",
+      "excerpt": "If you've ever had to build a web application where users open multiple tabs, you know the struggle of keeping state synchronized. Whether it's a shopping cart, user preferences, or live dashboard con…",
+      "body": "If you've ever had to build a web application where users open multiple tabs, you know the struggle of keeping state synchronized. Whether it's a shopping cart, user preferences, or live dashboard configurations, manual synchronization using localStorage events or WebSockets can quickly turn into a boilerplate-heavy headache. Today, I'm thrilled to share a major feature update to react-hook-lab : the introduction of the useSharedState hook! This release also includes some source-tree spring cleaning to ensure a lighter, cleaner library. What's New: Multi-Tab State Synchronization 🔄 The star of this release is the new useSharedState hook. This hook allows you to seamlessly share and synchronize state across multiple browser tabs or windows in real-time, completely out of the box.",
+      "author": "Saurav Pandey",
       "date": "2026-07-16",
       "readTime": "2 min",
       "section": "software",
@@ -14,10 +33,163 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 46,
-      "url": "https://dev.to/yimtheppariyapol/cloudflare-workers-ai-add-a-free-llm-to-a-static-site-no-backend-needed-37ab",
-      "image": "/images/feed/feed-efffddd1dfdb.webp",
+      "xpReward": 32,
+      "url": "https://dev.to/saurav_tb_pandey/multi-tab-state-sync-made-easy-introducing-usesharedstate-in-react-hook-lab-2422",
+      "image": "/images/feed/feed-b5da22865178.webp",
       "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-978a6d34d54c",
+      "title": "Two Workers Both Held the 'Only One' Lock. The Clock Was Never Synced.",
+      "excerpt": "The problem We had a nightly billing-reconciliation job that was only supposed to run once. To enforce that across three worker instances, we did the standard thing: grab a Redis lock with SET lock:re…",
+      "body": "The problem We had a nightly billing-reconciliation job that was only supposed to run once. To enforce that across three worker instances, we did the standard thing: grab a Redis lock with SET lock:reconcile &lt;owner&gt; NX PX 30000 before starting, release it when done, and let the TTL clean up after a crash. One night it ran twice, at the same time, on two different workers. Same customer batch, processed twice, twice the reconciliation entries written. Nobody deployed anything that day. The lock code hadn't changed in months. Why it happens The lock logic was correct. The assumption underneath it wasn't. PX 30000 means \"expire in 30 seconds,\" and Redis measures that 30 seconds using its own server clock.",
+      "author": "speed engineer",
+      "date": "2026-07-16",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 34,
+      "url": "https://dev.to/speed_engineer/two-workers-both-held-the-only-one-lock-the-clock-was-never-synced-h5k",
+      "image": "/images/feed/feed-978a6d34d54c.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-3c89067d50e6",
+      "title": "Scope creep is a state machine, not a difficult-client problem",
+      "excerpt": "Scope creep is usually described as a people problem: a client asks for too much, a freelancer is too accommodating, or a stakeholder keeps changing their mind. That framing is emotionally satisfying…",
+      "body": "Scope creep is usually described as a people problem: a client asks for too much, a freelancer is too accommodating, or a stakeholder keeps changing their mind. That framing is emotionally satisfying and operationally weak. The more useful model is a small state machine. Every new request needs to move into exactly one of four states: Included — already covered by the agreed deliverables. Swapped — replaces something of comparable effort. Deferred — recorded for a later phase. Added — changes the fee and/or delivery date. The expensive failure mode is not “a difficult client.” It is an unclassified request that quietly enters production. The smallest useful protocol You do not need a heavyweight project-management system.",
+      "author": "ScopeShield Ops",
+      "date": "2026-07-16",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 38,
+      "url": "https://dev.to/scopeshieldops/scope-creep-is-a-state-machine-not-a-difficult-client-problem-54do",
+      "image": "/images/feed/feed-3c89067d50e6.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-a6221234296f",
+      "title": "Email Verification Bots with Playwright",
+      "excerpt": "If you've ever tried to test your own signup flow, provision a demo account, or sign up for a vendor's API on behalf of your one-person company, you've hit the same wall every solo founder hits: the f…",
+      "body": "If you've ever tried to test your own signup flow, provision a demo account, or sign up for a vendor's API on behalf of your one-person company, you've hit the same wall every solo founder hits: the form submits fine, and then the service says \"check your email to verify your account.\" Now a human has to open an inbox, find the code or the link, and come back to finish the job. That single step is why so many \"fully automated\" onboarding tests still have a person babysitting them. You don't need to be an engineer to fix this. This guide shows how to build a registration bot with Claude Code — the AI coding agent — where Playwright handles the browser and email verification is solved by a temporary inbox the bot owns.",
+      "author": "Francisco Perez",
+      "date": "2026-07-16",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 41,
+      "url": "https://dev.to/francofuji/email-verification-bots-with-playwright-1dc7",
+      "image": "/images/feed/feed-a6221234296f.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-985626e3b4e4",
+      "title": "Canary Agentic Autofix With Failure Classes and Reliability Gates",
+      "excerpt": "GitHub announced agentic autofix for code scanning alerts in public preview on July 10, 2026. Primary source: GitHub Changelog, July 10, 2026. The wrong metric is “percentage of alerts with a generate…",
+      "body": "GitHub announced agentic autofix for code scanning alerts in public preview on July 10, 2026. Primary source: GitHub Changelog, July 10, 2026 . The wrong metric is “percentage of alerts with a generated patch.” Generation is only the first transition: alert -&gt; candidate -&gt; build -&gt; tests -&gt; security oracle -&gt; human review -&gt; merge -&gt; post-merge observation This is an evaluation proposal, not a benchmark or assessment of GitHub's preview. Choose a bounded canary Start with repositories that have active owners, deterministic builds, relevant isolated tests, reversible releases, and no automatic production deployment from candidate patches. Exclude abandoned code, safety-critical paths, and repositories with unreliable tests.",
+      "author": "Robin",
+      "date": "2026-07-16",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 31,
+      "url": "https://dev.to/robinzzz/canary-agentic-autofix-with-failure-classes-and-reliability-gates-id0",
+      "image": "/images/feed/feed-985626e3b4e4.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-c9b554991c8e",
+      "title": "Research Human Security Review in the Copilot App With Stop Conditions",
+      "excerpt": "GitHub announced on July 14, 2026 that security reviews are available in the GitHub Copilot app. Primary source: GitHub Changelog, July 14, 2026. The meaningful research question is not whether people…",
+      "body": "GitHub announced on July 14, 2026 that security reviews are available in the GitHub Copilot app. Primary source: GitHub Changelog, July 14, 2026 . The meaningful research question is not whether people click Accept. It is whether they can build an evidence-backed decision when guidance is useful, incomplete, or wrong. understand change -&gt; inspect evidence -&gt; challenge findings -&gt; verify uncertainty -&gt; accept, reject, or escalate This is a proposed research protocol, not a completed study. It does not invent product fields or report findings.",
+      "author": "Haley",
+      "date": "2026-07-16",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 49,
+      "url": "https://dev.to/haaaaaley/research-human-security-review-in-the-copilot-app-with-stop-conditions-2g71",
+      "image": "/images/feed/feed-c9b554991c8e.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-1da9a733c9b4",
+      "title": "A Secure Mobile Handoff Checklist for Copilot Conflict Resolution",
+      "excerpt": "GitHub announced on July 8, 2026 that GitHub Mobile can start a Copilot cloud-agent workflow to fix pull-request merge conflicts. Primary source: GitHub Changelog, July 8, 2026. The unsafe mental mode…",
+      "body": "GitHub announced on July 8, 2026 that GitHub Mobile can start a Copilot cloud-agent workflow to fix pull-request merge conflicts. Primary source: GitHub Changelog, July 8, 2026 . The unsafe mental model is “tap once and the conflict is solved.” A safer model is: mobile intent -&gt; bounded remote task -&gt; proposed patch -&gt; verification -&gt; human merge This is a source-based checklist, not a hands-on product assessment. Exact controls and permissions must come from current GitHub documentation.",
+      "author": "Roronoa",
+      "date": "2026-07-16",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 42,
+      "url": "https://dev.to/roronoa_/a-secure-mobile-handoff-checklist-for-copilot-conflict-resolution-49jg",
+      "image": "/images/feed/feed-1da9a733c9b4.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-38f3bd060457",
+      "title": "Culdcept Begins brings the Sega Saturn era to Nintendo Switch 2",
+      "excerpt": "Culdcept Begins revives a cult-classic series with strategic deckbuilding and a whole lot of luck.",
+      "body": "If you’re looking for something new to play on Switch 2 this week, you’ve got more options than you can handle. Denshattack! , D-topia , Moss: The Forgotten Relic , and more lead a busy week for indie games. Dig deep through the stack of new releases, though, and you’ll find an unexpected retro revival in the mix: Culdcept Begins .",
+      "author": "Giovanni Colantonio",
+      "date": "2026-07-16",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Nintendo Switch",
+        "Nintendo"
+      ],
+      "featured": false,
+      "xpReward": 41,
+      "url": "https://www.polygon.com/culdcept-begins-impressions/",
+      "image": "/images/feed/feed-38f3bd060457.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-22b3483f7f6b",
+      "title": "Ontario Wildfire Smoke Moves East",
+      "excerpt": "Canadian wildfires sent plumes of smoke streaming over Ontario, Quebec, and parts of the U.S. Midwest and Northeast.",
+      "body": "Earth Observatory Science Earth Observatory Ontario Wildfire Smoke Moves East Earth Earth Observatory Image of the Day EO Explorer Topics All Topics Atmosphere Land Heat &#038; Radiation Life on Earth Human Dimensions Natural Events Oceans Remote Sensing Technology Snow &#038; Ice Water More Content Collections Global Maps World of Change Articles Earth Matters Blog Blue Marble: Next Generation EO Kids Mission: Biomes About About Us Subscribe 🛜 RSS Contact Us Search Smoke from wildland fires pours eastward over Canada and the U.S. in an image captured on the afternoon of July 14, 2026, by the VIIRS (Visible Infrared Imaging Radiometer Suite) on the NOAA-21 satellite.",
+      "author": "NASA Breaking News",
+      "date": "2026-07-16",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Space"
+      ],
+      "featured": false,
+      "xpReward": 54,
+      "url": "https://science.nasa.gov/earth/earth-observatory/ontario-wildfire-smoke-moves-east/",
+      "image": "/images/feed/feed-22b3483f7f6b.jpg",
+      "source": "NASA Breaking News",
       "isLive": true
     },
     {
@@ -32,125 +204,11 @@
       "tags": [
         "Cars"
       ],
-      "featured": true,
-      "xpReward": 50,
+      "featured": false,
+      "xpReward": 37,
       "url": "https://cleantechnica.com/2026/07/15/this-graph-shows-why-europe-india-china-should-adopt-cleantech-asap/",
       "image": "/images/feed/feed-8ac1aebf71f1.png",
       "source": "CleanTechnica",
-      "isLive": true
-    },
-    {
-      "id": "feed-92b157976cea",
-      "title": "Why Your PHP Form Is Not Working — 5 Common Bugs Fixed",
-      "excerpt": "💡 TL;DR A broken PHP form almost always comes down to one of five things: wrong method attribute, a mismatched name on your input, checking $_POST with the wrong key, a form that isn't actually submi…",
-      "body": "💡 TL;DR A broken PHP form almost always comes down to one of five things: wrong method attribute, a mismatched name on your input, checking $_POST with the wrong key, a form that isn't actually submitting, or output sent before a header() redirect. Fix those five and \"PHP POST not working\" stops being a mystery. You hit submit. Nothing happens. Or worse — the page reloads and $_POST is just... empty. You var_dump() it, get array(0) { } , and start questioning every life choice that led you here. Here's the direct answer: it's not really a \"PHP bug.\" Nine times out of ten it's a small disconnect between your HTML form tag and the script reading it.",
-      "author": "Bikki Singh",
-      "date": "2026-07-16",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 48,
-      "url": "https://dev.to/bikkisingh/why-your-php-form-is-not-working-5-common-bugs-fixed-5cmn",
-      "image": "/images/feed/feed-92b157976cea.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-a934b94ea666",
-      "title": "citefid 0.1.0: verificar la fidelidad de citas en wikis OKF con NLI (AUC 0.7029 sobre código)",
-      "excerpt": "citefid 0.1.0: verificar la fidelidad de citas en wikis OKF con NLI (AUC 0.70 sobre código) Los generadores de wikis OKF comprueban que la cita existe, no que su contenido respalde la afirmación. cite…",
-      "body": "citefid 0.1.0: verificar la fidelidad de citas en wikis OKF con NLI (AUC 0.70 sobre código) Los generadores de wikis OKF comprueban que la cita existe, no que su contenido respalde la afirmación. citefid cierra esa brecha: verifica fidelidad, no existencia. El problema Los wikis de conocimiento generados por LLM que siguen el estándar OKF (Open Knowledge Format) incluyen citas a fragmentos de código o documentación. El pipeline típico valida que el archivo citado exista y que el rango de líneas sea válido. Eso no dice nada sobre si el fragmento confirma lo que el texto afirma. La literatura documenta el hueco: citas que apuntan a fuentes que no respaldan el claim (CiteCheck; \"Cited but Not Verified\"; grounding engañoso). Un lector que confía en la wiki hereda una afirmación sin verificar.",
-      "author": "Fenix",
-      "date": "2026-07-16",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 30,
-      "url": "https://dev.to/magopredator/citefid-010-verificar-la-fidelidad-de-citas-en-wikis-okf-con-nli-auc-070-sobre-codigo-1ojf",
-      "image": "/images/feed/feed-a934b94ea666.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-22e81cfcde7f",
-      "title": "9arm's skills repo is small, but it has one AI cost idea worth stealing",
-      "excerpt": "Quick answer: 9arm-skills is a small Claude Code skills repo by 9arm, a Thai creator: 6 skills, buckets modeled on Matt Pocock's repo. The part worth taking is a skill called qwen-agent, about handing…",
-      "body": "Quick answer: 9arm-skills is a small Claude Code skills repo by 9arm, a Thai creator: 6 skills, buckets modeled on Matt Pocock's repo. The part worth taking is a skill called qwen-agent , about handing menial work to a cheap model and keeping the expensive one for judgment. It's a cost idea none of the four bigger repos I reviewed have. I have reviewed four Claude Code skill repos so far, some with hundreds of thousands of stars. This one is different. 9arm, a Thai creator, has a repo of around 2,900 stars, far smaller, just 6 skills, and its bucket layout is borrowed straight from Matt Pocock's repo. To be straight: on scale or fame, this repo isn't in the same league as the other four.",
-      "author": "yim_rei",
-      "date": "2026-07-16",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 39,
-      "url": "https://dev.to/yimtheppariyapol/9arms-skills-repo-is-small-but-it-has-one-ai-cost-idea-worth-stealing-2in4",
-      "image": "/images/feed/feed-22e81cfcde7f.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-309bba751592",
-      "title": "Your ESXi Hosts Are on Two Clocks Now: Support Dates and the Broadcom Licensing Squeeze",
-      "excerpt": "Originally published at endoflife.ai. If you run ESXi, you're managing two countdowns at once — and they interact badly. Clock one: support dates. vSphere/ESXi 7.x reached end of general support on Oc…",
-      "body": "Originally published at endoflife.ai . If you run ESXi, you're managing two countdowns at once — and they interact badly. Clock one: support dates. vSphere/ESXi 7.x reached end of general support on October 2, 2025 (Broadcom extended it six months from the original April date — a one-time mercy, already spent). After end of general support: no more bug fixes or security patches, no support cases. Hypervisors are a top-tier attack target; an unpatched hypervisor is a very different risk than an unpatched app server, because everything above it inherits the compromise. Clock two: licensing. Broadcom killed perpetual licenses in December 2023. Everything is subscription now, bundles have consolidated, and renewal quotes have become the stuff of sysadmin forum legend.",
-      "author": "endoflife-ai",
-      "date": "2026-07-16",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 42,
-      "url": "https://dev.to/endoflifeai/your-esxi-hosts-are-on-two-clocks-now-support-dates-and-the-broadcom-licensing-squeeze-aaf",
-      "image": "/images/feed/feed-309bba751592.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-0f09c4f6c061",
-      "title": "Clear the Lineup: Eliminating an N+1 Query Bug to Boost API Performance by 6",
-      "excerpt": "This is a submission for DEV's Summer Bug Smash: Clear the Lineup powered by Sentry. The project is a full-stack web application built using Node.js, Express, and MongoDB. It provides REST APIs for ma…",
-      "body": "This is a submission for DEV's Summer Bug Smash: Clear the Lineup powered by Sentry . Project Overview The project is a full-stack web application built using Node.js, Express, and MongoDB. It provides REST APIs for managing user data and resources. While testing the application, I noticed that one API endpoint became significantly slower as the database size increased. The issue was caused by unnecessary database queries being executed inside a loop. Bug Fix or Performance Improvement Problem The API fetched each document individually inside a loop.",
-      "author": "Shirshak Nandy",
-      "date": "2026-07-16",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Api"
-      ],
-      "featured": false,
-      "xpReward": 31,
-      "url": "https://dev.to/shirshak_nandy_2cd2a85ce0/clear-the-lineup-eliminating-an-n1-query-bug-to-boost-api-performance-by-6x-458j",
-      "image": "/images/feed/feed-0f09c4f6c061.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-268224a4a031",
-      "title": "Building a Low-Cost, Zero-Backend AI Stock Bubble Index Tracker",
-      "excerpt": "As the discussion around Artificial Intelligence shifts from generative hype to financial sustainability, I wanted to build a dedicated tool to track the \"bubble status\" of AI-related equities. Instea…",
-      "body": "As the discussion around Artificial Intelligence shifts from generative hype to financial sustainability, I wanted to build a dedicated tool to track the \"bubble status\" of AI-related equities. Instead of spinning up a heavy Kubernetes cluster or paying for expensive enterprise data pipelines, my goal was to build a highly responsive, SEO-optimized, and low-latency metrics dashboard. Here is the architectural breakdown of how I built AI Stock Bubble Index. The Architecture: Keeping it Lightweight To handle real-time financial sentiment and market data without breaking the bank, I adopted a modern JAMstack / Zero-Backend inspired architecture.",
-      "author": "dundun sun",
-      "date": "2026-07-16",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 39,
-      "url": "https://dev.to/dundunup/building-a-low-cost-zero-backend-ai-stock-bubble-index-tracker-16n3",
-      "image": "/images/feed/feed-268224a4a031.webp",
-      "source": "Dev.to",
       "isLive": true
     },
     {
@@ -166,10 +224,29 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 32,
       "url": "https://www.androidauthority.com/oneplus-realme-shutdown-3688034/",
       "image": "/images/feed/feed-7c6464cae2d7.jpg",
       "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-823b93415726",
+      "title": "Fantasy Tactical RPG Langrisser: Sea of Sword Announced with Debut Trailer",
+      "excerpt": "Fantasy Tactical RPG Langrisser: Sea of Sword Announced with Debut Trailer",
+      "body": "Developer BlackJack Studio revealed the next game in the long-running Langrisser RPG franchise with a debut teaser trailer on Thursday. Titled Langrisser: Sea of Sword, it marks a next-generation leap for the series. It’s releasing globally on iOS, Android, Steam, and PC and is officially open for pre-registration now. The Langrisser series has been going strong for 35 years now and is known for its squad-based tactical battles and branching story paths. Langrisser: Sea of Sword builds on that foundation, but the story takes the series in a darker, more intense direction.",
+      "author": "coreydemoss",
+      "date": "2026-07-16",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 47,
+      "url": "https://www.ign.com/articles/fantasy-tactical-rpg-langrisser-sea-of-sword-announced-with-debut-trailer",
+      "image": "/images/feed/feed-823b93415726.jpg",
+      "source": "IGN",
       "isLive": true
     },
     {
@@ -185,7 +262,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 41,
       "url": "https://cleantechnica.com/2026/07/15/zayed-sustainability-prize-closes-2027-submissions-with-strong-global-participation/",
       "image": "/images/feed/feed-8df0fac85b8c.jpg",
       "source": "CleanTechnica",
@@ -204,7 +281,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 31,
       "url": "https://cleantechnica.com/2026/07/15/wallbox-turning-point-energy-surpass-10000-ev-chargers-deployed-across-saudi-arabia/",
       "image": "/images/feed/feed-d2d2cb571c47.jpg",
       "source": "CleanTechnica",
@@ -223,7 +300,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 41,
       "url": "https://cleantechnica.com/2026/07/15/the-jackery-homepower-h1000-v2-cleantechnica-tested/",
       "image": "/images/feed/feed-bcbf05330380.jpg",
       "source": "CleanTechnica",
@@ -242,7 +319,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 48,
       "url": "https://cleantechnica.com/2026/07/15/delhi-launches-big-new-ev-policies/",
       "image": "/images/feed/feed-29300be3594a.jpg",
       "source": "CleanTechnica",
@@ -261,7 +338,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 34,
       "url": "https://www.androidauthority.com/android-17-qpr1-beta-7-3688027/",
       "image": "/images/feed/feed-300afcd64b04.jpg",
       "source": "Android Authority",
@@ -280,7 +357,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 43,
       "url": "https://www.polygon.com/hbo-max-streaming-hit-july-14-2026/",
       "image": "/images/feed/feed-65eefa0305d8.jpg",
       "source": "Polygon",
@@ -299,7 +376,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 34,
       "url": "https://9to5mac.com/2026/07/15/airpods-just-got-a-long-requested-feature-in-new-public-beta/",
       "image": "/images/feed/feed-60dcd6f813b9.jpg",
       "source": "9to5Mac",
@@ -318,7 +395,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 39,
       "url": "https://electrek.co/2026/07/15/energy-business-used-car-business-and-plain-ol-business-business/",
       "image": "/images/feed/feed-86acd366849e.jpg",
       "source": "Electrek",
@@ -338,7 +415,7 @@
         "Game"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 33,
       "url": "https://kotaku.com/elder-scrolls-online-studio-leadership-revealed-to-be-part-of-the-xbox-cuts-but-say-they-have-tremendous-confidence-in-the-games-future-2000716382",
       "image": "/images/feed/feed-ac6fd8a82bbb.jpg",
       "source": "Kotaku",
@@ -357,7 +434,7 @@
         "Smartwatch"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 50,
       "url": "https://www.cnet.com/tech/mobile/samsung-galaxy-watch-9-ultra-2-rumors-everything-we-know/",
       "image": "/images/feed/feed-2dfe94918625.jpg",
       "source": "CNET",
@@ -376,7 +453,7 @@
         "Security"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 38,
       "url": "https://www.zdnet.com/article/7-home-security-checks-before-vacation/",
       "image": "/images/feed/feed-202661cc33cf.jpg",
       "source": "ZDNet",
@@ -395,7 +472,7 @@
         "Playstation"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 32,
       "url": "https://kotaku.com/playstations-summer-sale-includes-a-ton-of-ps5-games-that-cost-15-or-less-2000716362",
       "image": "/images/feed/feed-cd10bb32de4d.jpg",
       "source": "Kotaku",
@@ -433,29 +510,10 @@
         "Headphones"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 33,
       "url": "https://www.theverge.com/tech/966022/skullcandy-cruser-1080-anc-bose-tuning-noise-cancelling-wireless-headphones",
       "image": "/images/feed/feed-1fee5fe82e37.jpg",
       "source": "The Verge",
-      "isLive": true
-    },
-    {
-      "id": "feed-b2ace61ed2d0",
-      "title": "Can Bose Help Skullcandy Shake Its Bargain-Bin Reputation?",
-      "excerpt": "Skullcandy’s audio products aren’t exactly known for their stellar audio quality or noise cancellation, but its latest headphones are getting an assist from Bose to turn things around.",
-      "body": "Skullcandy’s audio products aren’t exactly known for their stellar audio quality or noise cancellation, but its latest headphones are getting an assist from Bose to turn things around.\n\nThis report, published by Wired, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Wired using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Julian Chokkattu",
-      "date": "2026-07-16",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 48,
-      "url": "https://www.wired.com/story/can-bose-help-skullcandy-shake-its-bargain-bin-reputation/",
-      "image": "/images/feed/feed-b2ace61ed2d0.jpg",
-      "source": "Wired",
       "isLive": true
     },
     {
@@ -472,7 +530,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 33,
       "url": "https://techcrunch.com/2026/07/15/microsoft-is-reportedly-training-salespeople-to-talk-down-openai-and-anthropic/",
       "image": "/images/feed/feed-86fc4744cf64.jpg",
       "source": "TechCrunch",
@@ -491,7 +549,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 43,
       "url": "https://www.cnet.com/tech/services-and-software/openais-first-hardware-release-turns-out-to-be-keypad-for-codex/",
       "image": "/images/feed/feed-0ec96e38090f.jpg",
       "source": "CNET",
@@ -510,7 +568,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 42,
       "url": "https://kotaku.com/ps6-could-fix-the-launch-ps5sliquid-metal-cooling-snafu-2000716337",
       "image": "/images/feed/feed-52098b26af90.jpg",
       "source": "Kotaku",
@@ -529,7 +587,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 32,
       "url": "https://www.ign.com/articles/zach-creggers-resident-evil-runtime-revealed-and-it-matches-early-audience-reactions",
       "image": "/images/feed/feed-87f25767d6c8.jpg",
       "source": "IGN",
@@ -548,48 +606,10 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 49,
       "url": "https://cleantechnica.com/2026/07/15/line-5-tunnel-permit-jeopardizes-safety-of-the-great-lakes/",
       "image": "/images/feed/feed-54cce4ce93d8.jpg",
       "source": "CleanTechnica",
-      "isLive": true
-    },
-    {
-      "id": "feed-5a916bba81de",
-      "title": "Pokémon’s Big 30th Anniversary TCG Release Is An Even Bigger Mess Than Usual",
-      "excerpt": "More Pikachus, more problems",
-      "body": "More Pikachus, more problems\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Rebekah Valentine",
-      "date": "2026-07-15",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 32,
-      "url": "https://kotaku.com/pokemons-big-30th-anniversary-tcg-release-is-an-even-bigger-mess-than-usual-2000716339",
-      "image": "/images/feed/feed-5a916bba81de.jpg",
-      "source": "Kotaku",
-      "isLive": true
-    },
-    {
-      "id": "feed-5fcaebc80bb4",
-      "title": "The Popular Budget-Friendly Flashforge Adventurer 5M 3D Printer Drops to Just $155 Shipped",
-      "excerpt": "Produce consistent quality 3D prints without spending hundreds of dollars.",
-      "body": "If you&#39;re interested in dipping your toes in the world of 3D printing, I would suggest Flashforge&#39;s entry level model - the Adventure 5M - as your first 3D printer to start. It&#39;s currently on sale at AliExpress for just $154.62 with free delivery after you apply $23 off coupon code &quot; SBUS23 &quot;. The same printer sells for $227 on Amazon during the Prime Day Sale. You&#39;re buying it from FlashForge&#39;s official store on AliExpress. It ships free locally from the United States and arrives within 1 to 2 weeks. The Adventurer 5M offers great performance at at outstanding budget price. I would say it is the best 3D printer priced below $150.",
-      "author": "Eric Song",
-      "date": "2026-07-15",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 36,
-      "url": "https://www.ign.com/articles/flashforge-adventurer-5m-3d-printer-deal-july-2026",
-      "image": "/images/feed/feed-5fcaebc80bb4.jpg",
-      "source": "IGN",
       "isLive": true
     },
     {
@@ -605,7 +625,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 42,
       "url": "https://venturebeat.com/ai/agentic-orchestration-enterprise-ai-organizations-have-a-deployment-problem-not-a-platform-problem-and-most-are-calling-chatbots-agents",
       "image": "/images/feed/feed-dc315898b2db.png",
       "source": "VentureBeat AI",
@@ -624,7 +644,7 @@
         "Llm"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 44,
       "url": "https://blog.greg.technology/2026/07/14/llm-networking-with-mikrotik.html",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "Hacker News",
@@ -645,7 +665,7 @@
         "Astronaut"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 35,
       "url": "https://www.space.com/space-exploration/artemis/full-steam-ahead-nasa-ramps-up-prep-for-artemis-iii-astronaut-launch-in-2027",
       "image": "/images/feed/feed-bbe72ce78ae9.jpg",
       "source": "Space.com",
@@ -664,7 +684,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 43,
       "url": "https://www.nasa.gov/centers-and-facilities/armstrong/nasa-uses-subscale-aircraft-to-accelerate-flight-innovation/",
       "image": "https://www.youtube.com/embed/Fb08ooo7MhI",
       "source": "NASA Breaking News",
@@ -702,7 +722,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 47,
       "url": "https://www.cnet.com/tech/services-and-software/starlink-customers-report-demand-surcharges/",
       "image": "/images/feed/feed-af76c20a381a.jpg",
       "source": "CNET",
@@ -721,7 +741,7 @@
         "Vulnerability"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 50,
       "url": "https://www.bleepingcomputer.com/news/security/zoom-warns-of-critical-account-takeover-vulnerability/",
       "image": "/images/feed/feed-68201cbccaad.jpg",
       "source": "BleepingComputer",
@@ -740,7 +760,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 46,
       "url": "https://www.space.com/space-exploration/watch-archimedes-burn-rocket-lab-fires-up-engine-for-its-powerful-next-gen-neutron-launcher-video",
       "image": "/images/feed/feed-25a2d2a4044b.png",
       "source": "Space.com",
@@ -759,7 +779,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 49,
       "url": "https://www.cnet.com/news/privacy/los-angeles-lapd-flock-safety-surveillance-cameras-privacy/",
       "image": "/images/feed/feed-d081551907a6.jpg",
       "source": "CNET",
@@ -778,7 +798,7 @@
         "Claude"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 47,
       "url": "https://brainless.swerdlow.dev",
       "image": "/images/feed/feed-a5260a6fdae7.png",
       "source": "Hacker News",
@@ -797,7 +817,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 43,
       "url": "https://techcrunch.com/2026/07/15/amid-hardware-legal-battle-openai-releases-a-230-keyboard-for-codex/",
       "image": "/images/feed/feed-c9ca9bb827ce.png",
       "source": "TechCrunch",
@@ -816,7 +836,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 45,
       "url": "https://science.nasa.gov/science-research/astromaterials/nasa-study-of-pristine-meteorite-adds-to-story-of-ancient-asteroids/",
       "image": "/images/feed/feed-27a35400dce0.jpg",
       "source": "NASA Breaking News",
@@ -835,29 +855,10 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 30,
       "url": "https://spacenews.com/space-force-awards-slingshot-69-million-for-ai-enabled-training-technology/",
       "image": "/images/feed/feed-46e7def5d9b9.jpg",
       "source": "SpaceNews",
-      "isLive": true
-    },
-    {
-      "id": "feed-865a549cbce9",
-      "title": "The 10 best British sci-fi shows of all time",
-      "excerpt": "Makes you proud to be British!",
-      "body": "America and Hollywood might feel like the natural home of sci-fi, but Britain has quite the science fiction pedigree of its own. Doctor Who is obviously our great nation's most famous sci-fi export, standing tall amongst the other giants of the genre, but it's far from our only contribution. From television to literature, there is a history of some truly great and groundbreaking science fiction coming from this loose collection of islands. So, make yourself a nice cup of tea and have a seat while we break down the UK’s 10 best science fiction shows of all time (in no particular order). 1.",
-      "author": " William Worrall ",
-      "date": "2026-07-15",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Space"
-      ],
-      "featured": false,
-      "xpReward": 54,
-      "url": "https://www.space.com/entertainment/space-movies-shows/the-10-best-british-sci-fi-shows-of-all-time",
-      "image": "/images/feed/feed-865a549cbce9.jpg",
-      "source": "Space.com",
       "isLive": true
     },
     {
@@ -873,7 +874,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 44,
       "url": "https://techcrunch.com/2026/07/15/microsoft-patches-bug-in-video-game-age-of-empires-ii/",
       "image": "/images/feed/feed-4cadbea0d08d.jpg",
       "source": "TechCrunch",
@@ -892,7 +893,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 34,
       "url": "https://thehackernews.com/2026/07/tuxbot-v3-evolution-shows-signs-of-llm.html",
       "image": "/images/feed/feed-009af2d6a033.jpg",
       "source": "The Hacker News",
@@ -911,7 +912,7 @@
         "Malware"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 42,
       "url": "https://www.bleepingcomputer.com/news/security/google-gemini-cli-abused-as-a-hacking-agent-malware-botnet-operator/",
       "image": "/images/feed/feed-ad02ca180aab.jpg",
       "source": "BleepingComputer",
@@ -930,7 +931,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 46,
       "url": "https://www.wired.com/story/thinking-machines-lab-releases-its-first-model-inkling/",
       "image": "/images/feed/feed-d1cb0c279873.jpg",
       "source": "Wired",
@@ -938,16 +939,16 @@
     }
   ],
   "breakingNews": [
-    "DEV.TO: Cloudflare Workers AI: Add a Free LLM to a Static Site, No Backend Needed",
-    "CLEANTECHNICA: This Graph Shows Why Europe, India, & China Should Adopt Cleantech ASAP",
-    "DEV.TO: Why Your PHP Form Is Not Working — 5 Common Bugs Fixed",
-    "DEV.TO: citefid 0.1.0: verificar la fidelidad de citas en wikis OKF con NLI (AUC 0.7029 sobre código)",
-    "DEV.TO: 9arm's skills repo is small, but it has one AI cost idea worth stealing",
-    "DEV.TO: Your ESXi Hosts Are on Two Clocks Now: Support Dates and the Broadcom Licensing Squeeze",
-    "DEV.TO: Clear the Lineup: Eliminating an N+1 Query Bug to Boost API Performance by 6",
-    "DEV.TO: Building a Low-Cost, Zero-Backend AI Stock Bubble Index Tracker",
-    "ANDROID AUTHORITY: OnePlus shutdown report comes with another nasty surprise for Android fans",
-    "CLEANTECHNICA: Zayed Sustainability Prize Closes 2027 Submissions with Strong Global Participation"
+    "ANDROID AUTHORITY: Motorola new flagship killer looks great, until you check its terrible update policy",
+    "DEV.TO: Multi-Tab State Sync Made Easy: Introducing useSharedState in react-hook-lab!",
+    "DEV.TO: Two Workers Both Held the 'Only One' Lock. The Clock Was Never Synced.",
+    "DEV.TO: Scope creep is a state machine, not a difficult-client problem",
+    "DEV.TO: Email Verification Bots with Playwright",
+    "DEV.TO: Canary Agentic Autofix With Failure Classes and Reliability Gates",
+    "DEV.TO: Research Human Security Review in the Copilot App With Stop Conditions",
+    "DEV.TO: A Secure Mobile Handoff Checklist for Copilot Conflict Resolution",
+    "POLYGON: Culdcept Begins brings the Sega Saturn era to Nintendo Switch 2",
+    "NASA BREAKING NEWS: Ontario Wildfire Smoke Moves East"
   ],
   "sectionVideos": {}
 }
