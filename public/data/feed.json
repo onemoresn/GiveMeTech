@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-07-18T07:35:49.962Z",
+  "fetchedAt": "2026-07-18T08:37:44.021Z",
   "articles": [
     {
-      "id": "feed-95fd4fd75019",
-      "title": "I'm 13, Solo Founder & CEO of Akhouri Systems. No team, no backend, no funding — just a laptop.",
-      "excerpt": "👋 I'm 13. I run a software company by myself. 🏗️ The Setup Team size: 1 (me) Everything below is real, working software — not prototypes, not concepts. Shipped, versioned, and public on GitHub. 🔒 A…",
-      "body": "👋 I'm 13. I run a software company by myself. No co-founder. No backend team. No investors. No support system beyond a laptop and a lot of trial and error. Just me — building, breaking, and rebuilding — under a name I gave myself: Akhouri Systems. This isn't a \"look how young I am\" post. It's a \"here's what I actually shipped\" post. 🏗️ The Setup Team size: 1 (me) Funding: ₹0 Infrastructure: none — everything ships as offline, standalone executables Support system: Google, documentation, and a lot of failed builds Everything below is real, working software — not prototypes, not concepts. Shipped, versioned, and public on GitHub. 🔒 ATLOCK — A Total Security Suite for Windows The flagship product. Currently on v4.0.",
-      "author": "Akhouri Anmol Kumar",
+      "id": "feed-366aede5c5dd",
+      "title": "Part 2- Strangler Fig Pattern Implementation",
+      "excerpt": "Strangler Fig Data Migration: Orders Service Extraction The core problem: two systems (monolith DB + new Orders microservice DB) need to represent the same truth during the transition, with zero downt…",
+      "body": "Strangler Fig Data Migration: Orders Service Extraction The core problem: two systems (monolith DB + new Orders microservice DB) need to represent the same truth during the transition, with zero downtime and zero data loss, until you can cut over completely. Here's the depth version, phase by phase. Phase 1: Dual Writes (Synchronization begins) Before the new service takes any real traffic, you need both databases populated and kept in sync. Pattern: Event-driven sync via CDC (Change Data Capture), not application-level dual writes. Why not just write to both DBs from application code? // DON'T do this — the classic dual-write trap func CreateOrder ( o Order ) error { if err := monolithDB . Save ( o ); err != nil { return err } if err := newOrdersDB .",
+      "author": "kamal namdeo",
       "date": "2026-07-18",
       "readTime": "2 min",
       "section": "software",
@@ -14,18 +14,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 43,
-      "url": "https://dev.to/akhourianmolkumar/im-13-solo-founder-ceo-of-akhouri-systems-no-team-no-backend-no-funding-just-a-laptop-2ch1",
-      "image": "/images/feed/feed-95fd4fd75019.webp",
+      "xpReward": 45,
+      "url": "https://dev.to/kamal_namdeo/part-2-strangler-fig-pattern-implementation-31c7",
+      "image": "/images/feed/feed-366aede5c5dd.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-f7abfd296d62",
-      "title": "I got rejected from a few interviews cuz my portfolio was outdated, so I built a tool to fix that",
-      "excerpt": "A few months ago I was applying for roles and lost a couple of interveiws partly because my personal site hadnt been touched in over a year. The repos were stale, the bio was wrong, and every time I s…",
-      "body": "A few months ago I was applying for roles and lost a couple of interveiws partly because my personal site hadnt been touched in over a year. The repos were stale, the bio was wrong, and every time I sat down to update it I ended up redesigning the whole thing instead of just... updating it. The actual chore was always the same three things: Manually re-copying experience and skills from my resume Digging through GitHub to pick which repos were worth showing Rebuilding the layout from scratch cuz I hated the old one So instead of doing that a fourth time, I built somthing to automate it. Heres a quick demo (30 secs, macOS theme at the end): Its called SPM (Smart Portfolio Manager).",
-      "author": "Smith Patel",
+      "id": "feed-012ff75640bd",
+      "title": "The Data Dictionary Should Live in the ERD, Not in a Spreadsheet",
+      "excerpt": "Disclosure: I build Schemity, a desktop ERD tool - this post is from our blog and uses it for the examples. TL;DR: The meaning of a schema - what tables are for, who owns them, why a grouping exists -…",
+      "body": "Disclosure: I build Schemity , a desktop ERD tool - this post is from our blog and uses it for the examples. TL;DR: The meaning of a schema - what tables are for, who owns them, why a grouping exists - usually lives in heads, spreadsheets, or wikis that drift out of date. Schemity attaches markdown descriptions to entities, legends, and context views, shown behind a file icon on the diagram itself, so the data dictionary lives inside the ERD and stays where the schema is. You can write what a table, a group of tables, or an entire view of your schema means directly into the diagram: Schemity stores a markdown description on entities, legends, and context views, one click away behind a file icon on the canvas.",
+      "author": "Son Tran",
       "date": "2026-07-18",
       "readTime": "2 min",
       "section": "software",
@@ -33,18 +33,75 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 46,
-      "url": "https://dev.to/iamsmith21/i-got-rejected-from-a-few-interviews-cuz-my-portfolio-was-outdated-so-i-built-a-tool-to-fix-that-a71",
-      "image": "/images/feed/feed-f7abfd296d62.webp",
+      "xpReward": 47,
+      "url": "https://dev.to/tbson87/the-data-dictionary-should-live-in-the-erd-not-in-a-spreadsheet-23c3",
+      "image": "/images/feed/feed-012ff75640bd.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-5f3c68ef58dd",
-      "title": "You fixed SPF, DKIM and DMARC and email still lands in spam. Here's why.",
-      "excerpt": "Last post I got the auth records green on my side-project mail. SPF, DKIM, DMARC all passing, and I figured the hard part was behind me. It wasn't. The first real campaign, about four thousand people,…",
-      "body": "Last post I got the auth records green on my side-project mail. SPF, DKIM, DMARC all passing, and I figured the hard part was behind me. It wasn't. The first real campaign, about four thousand people, mostly never reached an inbox. Nothing bounced and nothing got rejected, it just got held back and quietly filtered. Every record still validated. Auth was perfect. Placement was terrible. That gap took me an embarrassingly long time to understand, so here it is up front: authentication proves the mail is really from you. It says nothing about whether anyone should want it. A domain that started sending three days ago has no track record, and to Gmail one suddenly pushing 4,000 messages looks exactly like a compromised box or a spammer who registered a throwaway that morning.",
-      "author": "Basic Technology",
+      "id": "feed-71eab13b2f6a",
+      "title": "Next.js 16: Every Change That Actually Matters for Developers",
+      "excerpt": "Next.js 16 shipped October 2025. Three minor releases followed — 16.1 in December, 16.2 in March 2026, 16.3 in June 2026. I've gone through every release note so you don't have to. Here's what actuall…",
+      "body": "Next.js 16 shipped October 2025. Three minor releases followed — 16.1 in December, 16.2 in March 2026, 16.3 in June 2026. I've gone through every release note so you don't have to. Here's what actually matters. Turbopack Is Now the Default Webpack is out. Turbopack — built in Rust — is the stable default for both development and production. No configuration needed. You get it automatically on upgrade. Real numbers from actual projects — production builds dropped from 24.5 seconds to 5.7 seconds. Fast Refresh is up to 10x faster. If you have a custom webpack config — run next dev --webpack or next build --webpack to keep it. Everyone else just upgrades and it works. 16.1 added Turbopack File System Caching for next dev — stores compiler artifacts on disk between restarts.",
+      "author": "Sakshi",
+      "date": "2026-07-18",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Developer"
+      ],
+      "featured": true,
+      "xpReward": 38,
+      "url": "https://dev.to/lettstartdesign-official/nextjs-16-every-change-that-actually-matters-for-developers-14n1",
+      "image": "/images/feed/feed-71eab13b2f6a.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-966f2a6cbd75",
+      "title": "Why \"Court-Ready\" Architecture is the Ultimate Design Constraint",
+      "excerpt": "When building software for co-parents, the \"happy path\" is rarely the one developers should optimize for. In most SaaS niches, we focus on frictionless experiences and \"undo\" buttons. But in the world…",
+      "body": "When building software for co-parents, the \"happy path\" is rarely the one developers should optimize for. In most SaaS niches, we focus on frictionless experiences and \"undo\" buttons. But in the world of high-conflict family law, a \"delete\" button is a liability. When I started building CustodyTrac.com, I realized that the value of the platform wasn't just in the calendar or the expense tracker—it was in the integrity of the record . If a parent can claim they didn't see a message, or if an expense can be retroactively altered without a trace, the software becomes useless in a courtroom. Designing for \"court-readiness\" requires a shift in how we think about data persistence, audit trails, and stakeholder access.",
+      "author": "Call Flow",
+      "date": "2026-07-18",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 35,
+      "url": "https://dev.to/call_flow_ai/why-court-ready-architecture-is-the-ultimate-design-constraint-2jl5",
+      "image": "/images/feed/feed-966f2a6cbd75.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-6f6a4cc94c84",
+      "title": "One Webhook, Five Deliveries, One Entitlement",
+      "excerpt": "A customer can complete checkout once while your webhook handler receives the The launch check is concrete: Take one valid, signed order webhook. Deliver the exact same body five times. A webhook sign…",
+      "body": "A customer can complete checkout once while your webhook handler receives the same event more than once. If every delivery creates access again, one purchase can produce duplicate licenses, seats, credits, or subscription records. The launch check is concrete: Take one valid, signed order webhook. Deliver the exact same body five times. The result should still be one processed-event record and one intended entitlement. A webhook signature is necessary. It is not idempotency. What the signature proves—and what it does not A valid signature tells your handler that the raw request body matches a message signed with the configured webhook secret. It helps reject forged or modified payloads before they change state. It does not tell you that the message is new.",
+      "author": "ShipTested",
+      "date": "2026-07-18",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 54,
+      "url": "https://dev.to/shiptested/one-webhook-five-deliveries-one-entitlement-3ol9",
+      "image": "/images/feed/feed-6f6a4cc94c84.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-56c225e6f0a1",
+      "title": "How to Design a Live Scoreboard Without Overloading Your Backend",
+      "excerpt": "A live scoreboard looks simple until traffic arrives. The product needs to show current match state, but your backend should not have to answer the same high-frequency request thousands of times per m…",
+      "body": "A live scoreboard looks simple until traffic arrives. The product needs to show current match state, but your backend should not have to answer the same high-frequency request thousands of times per minute for every user watching the same event. Separate initial state from live state Initial state includes fixtures, teams, competition metadata, venue, kickoff time and pre-match context. This data can usually be loaded with REST and cached. Live state includes score, match status, clock, period and incidents. This data changes more frequently and may be better suited to push updates or controlled polling. Use caching deliberately Not every field needs the same freshness. Fixtures and team names can be cached longer. Match status and incidents need shorter windows.",
+      "author": "TheSports",
       "date": "2026-07-18",
       "readTime": "2 min",
       "section": "software",
@@ -53,74 +110,17 @@
       ],
       "featured": true,
       "xpReward": 37,
-      "url": "https://dev.to/basictechnology/you-fixed-spf-dkim-and-dmarc-and-email-still-lands-in-spam-heres-why-a4f",
-      "image": "/images/feed/feed-5f3c68ef58dd.webp",
+      "url": "https://dev.to/thesports_api/how-to-design-a-live-scoreboard-without-overloading-your-backend-1bce",
+      "image": "/images/feed/feed-56c225e6f0a1.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-2958031b2321",
-      "title": "Fine, electric mountain bikes don’t suck",
-      "excerpt": "You don’t need a $10,000 Amflow PX Carbon Pro, but it doesn’t hurt. | Photo by Thomas Ricker / The Verge Cheater, I'd grumble between huffs as yet another e-bike rider casually skittered past me on a…",
-      "body": "You don’t need a $10,000 Amflow PX Carbon Pro, but it doesn’t hurt. | Photo by Thomas Ricker / The Verge Cheater , I'd grumble between huffs as yet another e-bike rider casually skittered past me on a steep ascent. It's this purist attitude that, for years, has left me blind to one simple fact: electric mountain bikes are fun! My attitude adjustment came a few weeks ago, the very first time I rode an Amflow PX Carbon Pro fitted with the incredibly compact, lightweight, and powerful M2S motor from Avinox, a new DJI offshoot that has incumbents like Bosch and Specialized on edge. The motor doesn't make me a speed demon, but it does let me suck better by compensating whenever my poor technique kills the momentum. Mountain biking has a long histor … Read the full story at The Verge.",
-      "author": "Thomas Ricker",
-      "date": "2026-07-18",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 44,
-      "url": "https://www.theverge.com/tech/966964/emtb-riders-are-not-cheaters",
-      "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/07/amflow-blur-wheelie.jpeg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
-      "source": "The Verge",
-      "isLive": true
-    },
-    {
-      "id": "feed-9dedea521a75",
-      "title": "The Evolution of Monero Payments with MyZubster: A Self-Hosted Ecosystem",
-      "excerpt": "The Evolution of Monero Payments with MyZubster My journey with Monero started years ago, back when I was mining Bitcoin and exploring the world of cryptocurrencies. I quickly realized that privacy wa…",
-      "body": "The Evolution of Monero Payments with MyZubster A Journey from Mining to Building My journey with Monero started years ago, back when I was mining Bitcoin and exploring the world of cryptocurrencies. I quickly realized that privacy wasn't just a feature – it was a fundamental right. That's what drew me to Monero. Monero is the only cryptocurrency that truly protects your financial privacy. Every transaction is private by default. No one can see your balance, your transaction history, or who you're transacting with. But there was a problem: accepting Monero payments was complicated.",
-      "author": "Daniel Ioni",
-      "date": "2026-07-18",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 32,
-      "url": "https://dev.to/danielioni/the-evolution-of-monero-payments-with-myzubster-a-self-hosted-ecosystem-4ll7",
-      "image": "/images/feed/feed-9dedea521a75.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-31ba29cd3516",
-      "title": "A Transition Ledger for Debugging a Five-Wave Godot Dungeon Loop",
-      "excerpt": "Disclosure: I work with SEELE AI. This article describes a real internal Godot 4.6 Dungeon Master Tycoon prototype; it is not a public playable release, plugin, or official Godot integration. Small ma…",
-      "body": "Disclosure: I work with SEELE AI. This article describes a real internal Godot 4.6 Dungeon Master Tycoon prototype; it is not a public playable release, plugin, or official Godot integration. Small management RPGs often become difficult to debug before they become technically large. A room can be valid in the build phase, a monster can be affordable when recruited, and combat can resolve without an exception, yet the complete loop can still feel inconsistent. The problem is often not one broken function. It is an unclear handoff between states. Dungeon Master Tycoon is compact enough to make those handoffs visible: an 18x13 dungeon grid, 4 scenes, 7 scripts, room and trap states, multiple monster and hero types, and a five-wave loop.",
-      "author": "Alok Ranjan Guru",
-      "date": "2026-07-18",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 50,
-      "url": "https://dev.to/alokranjanguru1/a-transition-ledger-for-debugging-a-five-wave-godot-dungeon-loop-378o",
-      "image": "/images/feed/feed-31ba29cd3516.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-69f8c8b7b8a8",
-      "title": "From ICPC to US Clients: 12 Freelancing Lessons I Wish I'd Known as an Engineer",
-      "excerpt": "Seven years ago I was a competitive programmer in Lahore, grinding Codeforces problems at 2am and treating a good contest rating like the only scoreboard that mattered. Since then the scoreboard chang…",
-      "body": "Seven years ago I was a competitive programmer in Lahore, grinding Codeforces problems at 2am and treating a good contest rating like the only scoreboard that mattered. Since then the scoreboard changed a lot: ICPC World Finals, AR systems that ended up in front of the U.S. Fire Administration, CTO roles at US startups, my own studio with 40+ shipped products, and a couple of apps with real users. I get asked \"how do you get US clients from Pakistan?\" almost every week, usually by other developers. The honest answer is that there was no single trick. But looking back, there were a handful of repeatable moves that actually moved my trajectory, and almost all of them are things any engineer can copy. This is the version I wish someone had handed me in 2019. 1.",
-      "author": "Nabeel Hassan",
+      "id": "feed-aa143293c178",
+      "title": "JPEG progresivo: cómo esconder 90 fotogramas en un solo archivo",
+      "excerpt": "Un JPEG normal se corta cuando la descarga se corta a la mitad. El formato JPEG progresivo, en cambio, permite guardar los datos en capas, de gruesa a fina, para que una imagen a medio cargar ya se ve…",
+      "body": "Un JPEG normal se corta cuando la descarga se corta a la mitad. El formato JPEG progresivo , en cambio, permite guardar los datos en capas, de gruesa a fina, para que una imagen a medio cargar ya se vea completa en baja resolución. El desarrollador que firma como Maurycy publicó el 17 de julio de 2026 una técnica que lleva esa idea al extremo: concatenar decenas de imágenes distintas dentro de un mismo archivo .jpg para que, mientras carga, el navegador muestre una tras otra como si fuera un video. La técnica no usa códecs de video ni contenedores como MP4, ni una sola línea de JavaScript.",
+      "author": "lu1tr0n",
       "date": "2026-07-18",
       "readTime": "2 min",
       "section": "software",
@@ -128,10 +128,29 @@
         "Software"
       ],
       "featured": false,
-      "xpReward": 46,
-      "url": "https://dev.to/nabeelbaghoor/from-icpc-to-us-clients-12-freelancing-lessons-i-wish-id-known-as-an-engineer-50mo",
-      "image": "/images/feed/feed-69f8c8b7b8a8.webp",
+      "xpReward": 37,
+      "url": "https://dev.to/lu1tr0n/jpeg-progresivo-como-esconder-90-fotogramas-en-un-solo-archivo-3fp5",
+      "image": "/images/feed/feed-aa143293c178.webp",
       "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-4bf6d0193afd",
+      "title": "Skyroot Aerospace reaches orbit on first Vikram-1 launch",
+      "excerpt": "Skyroot Aerospace’s Vikram-1 rocket successfully lifted off on its inaugural flight July 18, becoming the first commercial Indian rocket to reach orbit. The post Skyroot Aerospace reaches orbit on fir…",
+      "body": "Skyroot Aerospace’s Vikram-1 rocket successfully lifted off on its inaugural flight July 18, becoming the first commercial Indian rocket to reach orbit. The post Skyroot Aerospace reaches orbit on fir — a development drawing significant attention in the space exploration and astronomy space.\n\nThis report, published by SpaceNews, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Orbit. As the situation continues to evolve, professionals and enthusiasts in the space exploration and astronomy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to SpaceNews using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Jeff Foust",
+      "date": "2026-07-18",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Orbit"
+      ],
+      "featured": false,
+      "xpReward": 50,
+      "url": "https://spacenews.com/skyroot-aerospace-reaches-orbit-on-first-vikram-1-launch/",
+      "image": "/images/feed/feed-4bf6d0193afd.jpg",
+      "source": "SpaceNews",
       "isLive": true
     },
     {
@@ -147,7 +166,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 45,
       "url": "https://9to5mac.com/2026/07/17/apple-raises-icloud-subscription-prices-in-several-countries/",
       "image": "/images/feed/feed-247329faa9c3.jpg",
       "source": "9to5Mac",
@@ -166,7 +185,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 45,
       "url": "https://www.ign.com/articles/jennifer-english-steps-away-from-tides-of-annihilation-role-due-to-health-concerns",
       "image": "/images/feed/feed-d015326bf6d4.jpg",
       "source": "IGN",
@@ -185,7 +204,7 @@
         "Automotive"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 46,
       "url": "https://cleantechnica.com/2026/07/17/endgame-the-decline-fall-of-the-western-automotive-industry/",
       "image": "/images/feed/feed-0f5086150a28.jpg",
       "source": "CleanTechnica",
@@ -204,7 +223,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 48,
       "url": "https://cleantechnica.com/2026/07/17/pass-permitting-reform-unleash-american-solar-and-storage/",
       "image": "/images/feed/feed-4833c7b18b2c.png",
       "source": "CleanTechnica",
@@ -223,7 +242,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 36,
       "url": "https://cleantechnica.com/2026/07/17/east-coast-states-will-sue-trump-for-illegal-payoffs/",
       "image": "/images/feed/feed-cfa0040900ed.png",
       "source": "CleanTechnica",
@@ -242,7 +261,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 36,
       "url": "https://9to5mac.com/2026/07/17/apple-cites-paused-securities-fraud-case-in-bid-to-halt-epic-proceedings/",
       "image": "/images/feed/feed-96f35b256ad7.jpg",
       "source": "9to5Mac",
@@ -261,7 +280,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 30,
       "url": "https://cleantechnica.com/2026/07/17/sierra-club-north-carolina-reacts-nextera-dominion-file-application-to-merge-form-countrys-largest-utility/",
       "image": "/images/feed/feed-dddb47f72e7c.png",
       "source": "CleanTechnica",
@@ -280,7 +299,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 52,
       "url": "https://cleantechnica.com/2026/07/17/heros-mission-building-a-blueprint-for-wave-energy-components/",
       "image": "/images/feed/feed-3c7ee1c6b0f9.jpg",
       "source": "CleanTechnica",
@@ -299,7 +318,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 44,
       "url": "https://www.ign.com/articles/colman-domingo-and-robert-ohara-in-talks-to-write-live-action-princess-and-the-frog-tiana-spinoff-movie",
       "image": "/images/feed/feed-6f7368f1b638.png",
       "source": "IGN",
@@ -318,7 +337,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 43,
       "url": "https://www.ign.com/articles/the-lego-exclusive-dungeons-and-dragons-set-has-sold-out-just-days-before-it-retires-forever",
       "image": "/images/feed/feed-304123e0862c.png",
       "source": "IGN",
@@ -337,7 +356,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 49,
       "url": "https://spacenews.com/nasa-terminates-draper-lunar-lander-mission/",
       "image": "/images/feed/feed-293af7adec2e.jpg",
       "source": "SpaceNews",
@@ -356,7 +375,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 40,
       "url": "https://www.polygon.com/who-are-the-sea-people-in-christopher-nolans-the-odyssey/",
       "image": "/images/feed/feed-e8fd8792288c.jpg",
       "source": "Polygon",
@@ -375,7 +394,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 49,
       "url": "https://www.ign.com/articles/best-christopher-nolan-movies",
       "image": "/images/feed/feed-61aa4be205ea.jpg",
       "source": "IGN",
@@ -413,7 +432,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 45,
       "url": "https://www.ign.com/articles/jurassic-park-fans-go-viral-with-tear-jerking-tribute-to-sam-neill-in-path-of-titans",
       "image": "/images/feed/feed-cdc22570d8a9.jpg",
       "source": "IGN",
@@ -432,7 +451,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 46,
       "url": "https://www.nasa.gov/centers-and-facilities/armstrong/nasa-pushes-new-wing-design-to-find-structural-limits/",
       "image": "/images/feed/feed-abedbe3c5e01.jpg",
       "source": "NASA Breaking News",
@@ -451,7 +470,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 52,
       "url": "https://techcrunch.com/2026/07/17/vertu-wants-executives-to-pay-6880-for-an-ai-agent-heres-how-it-actually-performs/",
       "image": "/images/feed/feed-2d9cc2c8c02b.jpg",
       "source": "TechCrunch",
@@ -470,7 +489,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 53,
       "url": "https://science.nasa.gov/photojournal/the-growing-crescent-of-mars-as-nasas-psyche-mission-approaches/",
       "image": "/images/feed/feed-adc988f15542.png",
       "source": "NASA Breaking News",
@@ -489,7 +508,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 34,
       "url": "https://www.engadget.com/2217943/there-s-now-an-api-for-mainlining-trump-s-truth-social-posts/",
       "image": "/images/feed/feed-bc5a077239b2.jpg",
       "source": "Engadget",
@@ -527,7 +546,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 47,
       "url": "https://www.androidauthority.com/gboard-spaces-after-autocorrect-suggestions-apk-teardown-3689011/",
       "image": "/images/feed/feed-5d5895a54a7b.jpg",
       "source": "Android Authority",
@@ -546,7 +565,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 36,
       "url": "https://9to5mac.com/2026/07/17/investigation-reveals-dozens-of-disguised-gambling-apps-on-the-app-store-in-brazil/",
       "image": "/images/feed/feed-9314fbf5747c.jpg",
       "source": "9to5Mac",
@@ -565,7 +584,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 53,
       "url": "https://cleantechnica.com/2026/07/17/australia-nails-it-again-on-large-data-centers-this-time/",
       "image": "/images/feed/feed-1ed8ea7f339f.jpg",
       "source": "CleanTechnica",
@@ -584,7 +603,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 36,
       "url": "https://thehackernews.com/2026/07/new-wp2shell-wordpress-core-flaw-lets.html",
       "image": "/images/feed/feed-73dd59721858.jpg",
       "source": "The Hacker News",
@@ -603,7 +622,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 39,
       "url": "https://insideevs.com/news/802060/toyota-bz-3000-conquest-cash/",
       "image": "/images/feed/feed-11c2fbb11398.jpg",
       "source": "InsideEVs",
@@ -622,7 +641,7 @@
         "Headphones"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 53,
       "url": "https://www.cnet.com/tech/mobile/best-over-ear-headphones/",
       "image": "/images/feed/feed-23f86de96bc4.jpg",
       "source": "CNET",
@@ -641,7 +660,7 @@
         "Astronaut"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 45,
       "url": "https://www.nasa.gov/organizations/ochmo/establishing-a-vte-risk-score-for-astronauts-algorithm/",
       "image": "/images/feed/feed-a705fa254de0.jpg",
       "source": "NASA Breaking News",
@@ -660,7 +679,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 40,
       "url": "https://www.space.com/astronomy/mars/these-metallic-dunes-on-mars-look-like-sci-fi-what-are-they-really",
       "image": "/images/feed/feed-6b102a276ded.jpg",
       "source": "Space.com",
@@ -679,29 +698,10 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 33,
       "url": "https://www.bleepingcomputer.com/news/security/abbott-laboratories-probes-two-cyber-incidents-amid-extortion-claims/",
       "image": "/images/feed/feed-189850f386a0.jpg",
       "source": "BleepingComputer",
-      "isLive": true
-    },
-    {
-      "id": "feed-aaed9a66beb3",
-      "title": "NASA Awards Facilities Support Services Contract for Ames Research Center",
-      "excerpt": "CONTRACT RELEASE NASA has selected Chugach Intelligence Solutions LLC to provide comprehensive operations, maintenance, and repair services for NASA’s Ames Research Center in California’s Silicon Vall…",
-      "body": "CONTRACT RELEASE NASA has selected Chugach Intelligence Solutions LLC to provide comprehensive operations, maintenance, and repair services for&nbsp;NASA’s&nbsp;Ames Research Center&nbsp;in California’s Silicon Valley.&nbsp; The Ames Facilities Support Services II contract&nbsp;ensures that&nbsp;the center’s&nbsp;historic and specialized facilities are properly&nbsp;maintained, fully operational, and capable of supporting&nbsp;the agency’s&nbsp;missions&nbsp;and tenant partners in the NASA Research Park.&nbsp; The&nbsp;hybrid contract&nbsp;has&nbsp;a five-year period of performance, consisting of a 12-month base period and four 12-month&nbsp;option&nbsp;periods, with the possibility of a six-month&nbsp;extension.&nbsp;The performance period is expected to begin Thursday, Aug.",
-      "author": "Jeanne Neal",
-      "date": "2026-07-17",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Nasa"
-      ],
-      "featured": false,
-      "xpReward": 36,
-      "url": "https://www.nasa.gov/centers-and-facilities/ames/nasa-awards-facilities-support-services-contract-for-ames-research-center/",
-      "image": "/images/feed/feed-aaed9a66beb3.jpg",
-      "source": "NASA Breaking News",
       "isLive": true
     },
     {
@@ -717,7 +717,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 31,
       "url": "https://thehackernews.com/2026/07/openssl-hollowbyte-flaw-could-freeze.html",
       "image": "/images/feed/feed-c4f4e300b2d2.jpg",
       "source": "The Hacker News",
@@ -736,7 +736,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 30,
       "url": "https://thehackernews.com/2026/07/seven-malicious-vite-npm-packages-use.html",
       "image": "/images/feed/feed-499e4165bde8.jpg",
       "source": "The Hacker News",
@@ -774,7 +774,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 48,
       "url": "https://techcrunch.com/video/how-apples-big-lawsuit-could-disrupt-openais-ipo-plans/",
       "image": "/images/feed/feed-0a1bc8bb93d4.jpg",
       "source": "TechCrunch",
@@ -793,7 +793,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 52,
       "url": "https://www.theverge.com/podcast/967244/apple-openai-lawsuit-vergecast",
       "image": "/images/feed/feed-9f0a72b022f7.jpg",
       "source": "The Verge",
@@ -812,7 +812,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 31,
       "url": "https://www.zdnet.com/article/ai-model-release-tracker/",
       "image": "/images/feed/feed-34ff00561232.jpg",
       "source": "ZDNet",
@@ -831,7 +831,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 50,
       "url": "https://thehackernews.com/2026/07/new-nadmesh-botnet-hunts-exposed-ai.html",
       "image": "/images/feed/feed-9a79c915fce1.jpg",
       "source": "The Hacker News",
@@ -850,7 +850,7 @@
         "Breach"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 37,
       "url": "https://thehackernews.com/2026/07/goldeneyedog-subgroup-linked-to.html",
       "image": "/images/feed/feed-7d46daae0fdb.jpg",
       "source": "The Hacker News",
@@ -888,7 +888,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 53,
       "url": "https://www.wired.com/story/best-smart-speakers/",
       "image": "/images/feed/feed-3fb4e5d43de0.jpg",
       "source": "Wired",
@@ -907,7 +907,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 32,
       "url": "https://www.cnet.com/tech/apple-vs-open-ai-explained-the-battle-for-ai-gadgets-begins-with-a-juicy-lawsuit/",
       "image": "/images/feed/feed-44441e29bbef.jpg",
       "source": "CNET",
@@ -926,7 +926,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 47,
       "url": "https://openai.com/index/a-scorecard-for-the-ai-age",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "OpenAI Blog",
@@ -934,16 +934,16 @@
     }
   ],
   "breakingNews": [
-    "DEV.TO: I'm 13, Solo Founder & CEO of Akhouri Systems. No team, no backend, no funding — just a laptop.",
-    "DEV.TO: I got rejected from a few interviews cuz my portfolio was outdated, so I built a tool to fix that",
-    "DEV.TO: You fixed SPF, DKIM and DMARC and email still lands in spam. Here's why.",
-    "THE VERGE: Fine, electric mountain bikes don’t suck",
-    "DEV.TO: The Evolution of Monero Payments with MyZubster: A Self-Hosted Ecosystem",
-    "DEV.TO: A Transition Ledger for Debugging a Five-Wave Godot Dungeon Loop",
-    "DEV.TO: From ICPC to US Clients: 12 Freelancing Lessons I Wish I'd Known as an Engineer",
+    "DEV.TO: Part 2- Strangler Fig Pattern Implementation",
+    "DEV.TO: The Data Dictionary Should Live in the ERD, Not in a Spreadsheet",
+    "DEV.TO: Next.js 16: Every Change That Actually Matters for Developers",
+    "DEV.TO: Why \"Court-Ready\" Architecture is the Ultimate Design Constraint",
+    "DEV.TO: One Webhook, Five Deliveries, One Entitlement",
+    "DEV.TO: How to Design a Live Scoreboard Without Overloading Your Backend",
+    "DEV.TO: JPEG progresivo: cómo esconder 90 fotogramas en un solo archivo",
+    "SPACENEWS: Skyroot Aerospace reaches orbit on first Vikram-1 launch",
     "9TO5MAC: Apple raises iCloud+ subscription prices in several countries",
-    "IGN: Jennifer English Steps Away From Tides of Annihilation Role Due to Health Concerns",
-    "CLEANTECHNICA: Endgame: The Decline & Fall of the Western Automotive Industry"
+    "IGN: Jennifer English Steps Away From Tides of Annihilation Role Due to Health Concerns"
   ],
   "sectionVideos": {}
 }
