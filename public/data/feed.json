@@ -1,6 +1,291 @@
 {
-  "fetchedAt": "2026-07-18T11:24:57.897Z",
+  "fetchedAt": "2026-07-18T12:22:07.211Z",
   "articles": [
+    {
+      "id": "feed-92f28581ce3c",
+      "title": "Apple weekend deals: AirPods Pro 3, MacBook Pro up to $400 off, Series 11 $130 off, chargers, bands, more",
+      "excerpt": "We are landing for another weekend edition of 9to5Toys Lunch Break to highlight the summer price drop on AirPods Pro 3 at $50 off, as well as the lowest price in several months on AirPods 4 with ANC (…",
+      "body": "We are landing for another weekend edition of 9to5Toys Lunch Break to highlight the summer price drop on AirPods Pro 3 at $50 off, as well as the lowest price in several months on AirPods 4 with ANC (or score a renewed premium down at $119). If a new Apple Watch is in line, the most popular models are $100 off right now starting from $299, while the M5 MacBook Pro is $150 off, the M5 Pro is $300 off, and M5 Max is $400 off the list price. Also be sure to swing by the Nomad Anniversary Sale this weekend – it is loaded with discounts on Apple Watch bands, 25W MagSafe chargers, cases, and more – as well as the ongoing Anker summer charging gear sale from $8. Everything awaits below.",
+      "author": "Justin Kahn",
+      "date": "2026-07-18",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Macbook"
+      ],
+      "featured": true,
+      "xpReward": 39,
+      "url": "https://9to5mac.com/2026/07/18/apple-weekend-deals-airpods-pro-macbook-series-11/",
+      "image": "/images/feed/feed-92f28581ce3c.jpg",
+      "source": "9to5Mac",
+      "isLive": true
+    },
+    {
+      "id": "feed-4a7dc7727c82",
+      "title": "Retrieval-Augmented Self-Recall — Part 6: The Fine-Tune That Did Nothing, and Shipping It as an MCP Server",
+      "excerpt": "Part 6 (finale) of Retrieval-Augmented Self-Recall. Code: RE-call. Part 5: the gap threshold that didn't transfer. I fine-tuned the embedder on my own domain expecting a win. I measured it properly, o…",
+      "body": "Part 6 (finale) of Retrieval-Augmented Self-Recall. Code: RE-call . Part 5: the gap threshold that didn't transfer . I fine-tuned the embedder on my own domain expecting a win. I measured it properly, on held-out queries. The improvement was exactly zero. Δ+0.00 MRR. Δ+0.00 nDCG@10. Not \"small\". Not \"within noise\". Zero. It's also the result I wanted, which takes some explaining. That's the first half of this post. The second half is how the whole engine ships, so an agent can actually use it. The fine-tune that did nothing After Part 5, the natural next question: if calibrating the threshold helps, would a better embedding help more? So I fine-tuned one on my domain. The setup: all-MiniLM-L6-v2 , OnlineContrastiveLoss on query/gold-chunk pairs, trained on the 14-document corpus.",
+      "author": "Giulio D'Erme",
+      "date": "2026-07-18",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 52,
+      "url": "https://dev.to/gde03/retrieval-augmented-self-recall-part-6-the-fine-tune-that-did-nothing-and-shipping-it-as-an-mcp-240m",
+      "image": "/images/feed/feed-4a7dc7727c82.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-c12cb92f7f63",
+      "title": "Retrieval-Augmented Self-Recall — Part 5: The Gap Threshold That Didn't Transfer",
+      "excerpt": "Part 5 of Retrieval-Augmented Self-Recall. Code: RE-call. Part 4: the eval harness. I shipped the gap_warning guard from Part 3 with a sensible-looking default: if the best cosine similarity is below…",
+      "body": "Part 5 of Retrieval-Augmented Self-Recall. Code: RE-call . Part 4: the eval harness . I shipped the gap_warning guard from Part 3 with a sensible-looking default: if the best cosine similarity is below 0.50 , call it a probable gap and abstain. I tested it. It worked. Then I swapped the embedding model. Every question that should have been refused came back as a confident answer. No error. No crash. No failed test. The guard was still there, still running, still reporting that everything was fine. It had just quietly stopped being a guard. Here's the mechanism, because it generalises well past my project, and there's a decent chance it's live in your RAG system right now. Cosine similarity is not calibrated across models The gap guard fires when best_cosine &lt; threshold . I used 0.50.",
+      "author": "Giulio D'Erme",
+      "date": "2026-07-18",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 51,
+      "url": "https://dev.to/gde03/retrieval-augmented-self-recall-part-5-the-gap-threshold-that-didnt-transfer-86a",
+      "image": "/images/feed/feed-c12cb92f7f63.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-3ad94260eb3d",
+      "title": "Retrieval-Augmented Self-Recall — Part 4: Benchmarking Retrieval *and* Honesty",
+      "excerpt": "Part 4 of Retrieval-Augmented Self-Recall. Code: RE-call. Part 3: the honesty guards. A standard RAG benchmark would have handed my retriever a perfect score on a day it was confidently answering ques…",
+      "body": "Part 4 of Retrieval-Augmented Self-Recall. Code: RE-call . Part 3: the honesty guards . A standard RAG benchmark would have handed my retriever a perfect score on a day it was confidently answering questions it had no data for. That's not a bug in my system. It's a gap in what those benchmarks ask. Every one of them asks the same thing: when there was an answer, did you rank it first? None of them ask the question that decides whether agent memory is safe: when there was no answer, did you say so? So RE-call ships its own harness. Here's how it works, and the first finding it produced. The test set: the unanswerable queries are the point The evaluation runs on 14 answerable queries + 5 unanswerable queries over a synthetic corpus.",
+      "author": "Giulio D'Erme",
+      "date": "2026-07-18",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 41,
+      "url": "https://dev.to/gde03/retrieval-augmented-self-recall-part-4-benchmarking-retrieval-and-honesty-aj3",
+      "image": "/images/feed/feed-3ad94260eb3d.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-79ce9d26b9ec",
+      "title": "Retrieval-Augmented Self-Recall — Part 3: Teaching RAG to Say \\\"I Don't Know\\",
+      "excerpt": "Part 3 of Retrieval-Augmented Self-Recall. Code: RE-call. Part 2: hybrid retrieval on Postgres. Ask your agent \"have we tried this filter on this market before?\" when the honest answer is never. A ran…",
+      "body": "Part 3 of Retrieval-Augmented Self-Recall. Code: RE-call . Part 2: hybrid retrieval on Postgres . Ask your agent \"have we tried this filter on this market before?\" when the honest answer is never . A ranking retriever hands back the three closest memos anyway — something about a different filter, on a different market — and the agent, looking at three confident results, concludes: yes, we've looked at this. It just made a decision on a hallucination. Nothing in the stack noticed. No error was raised, because from the retriever's point of view nothing went wrong: you asked for the nearest neighbours and it gave you the nearest neighbours. Everything in Part 2 made retrieval good . Good ranking makes this failure worse , not better — it returns confident noise faster.",
+      "author": "Giulio D'Erme",
+      "date": "2026-07-18",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 38,
+      "url": "https://dev.to/gde03/retrieval-augmented-self-recall-part-3-teaching-rag-to-say-i-dont-know-28no",
+      "image": "/images/feed/feed-79ce9d26b9ec.jpg",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-73a3c36e857e",
+      "title": "Retrieval-Augmented Self-Recall — Part 2: Hybrid RAG on Nothing but Postgres",
+      "excerpt": "Part 2 of Retrieval-Augmented Self-Recall. Code: RE-call. Part 1: the self-recall problem. Say \"vector search\" and the reflex is a dedicated vector database: Pinecone, Weaviate, Qdrant. I didn't insta…",
+      "body": "Part 2 of Retrieval-Augmented Self-Recall. Code: RE-call . Part 1: the self-recall problem . Say \"vector search\" and the reflex is a dedicated vector database: Pinecone, Weaviate, Qdrant. I didn't install one. RE-call keeps the dense vectors, the full-text index, and the metadata you filter them by in a single Postgres. Not as a shortcut, and not out of allergy to new infrastructure. Because for agent memory a separate vector store is the wrong shape , and it quietly costs you the one property this whole system depends on. Here's the argument, and the retrieval pipeline it buys you. Why not a dedicated vector DB Agent memory has three properties that make Postgres the natural fit: It's already relational. Memos have timestamps, source types, tags, decision status.",
+      "author": "Giulio D'Erme",
+      "date": "2026-07-18",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 38,
+      "url": "https://dev.to/gde03/retrieval-augmented-self-recall-part-2-hybrid-rag-on-nothing-but-postgres-2pge",
+      "image": "/images/feed/feed-73a3c36e857e.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-02f0f582dfa8",
+      "title": "Taking Over LLM Memory Store Testing with Pytest: 90% Fewer State Inconsistencies",
+      "excerpt": "At 2:17 a.m., a Slack message exploded with user feedback: “Your AI assistant acts like it has amnesia—it just stored meeting minutes, but when I ask again, it says nothing was saved.” I dug into the…",
+      "body": "At 2:17 a.m., a Slack message exploded with user feedback: “Your AI assistant acts like it has amnesia—it just stored meeting minutes, but when I ask again, it says nothing was saved.” I dug into the logs and found that the Redis write was acknowledged, but the entry in the vector store was empty. This “intermittent amnesia” had already pissed off the user for the third time. Previously, we’d just manually curl a few conversation turns and call that a test pass—clearly that approach was broken. I was forced to set a rule the next morning: All state‑consistency logic for memory storage must be automatically verified by Pytest, or it’s not allowed to land on main.",
+      "author": "BAOFUFAN",
+      "date": "2026-07-18",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 49,
+      "url": "https://dev.to/_eb7f2a654e97a60ae9f96e/taking-over-llm-memory-store-testing-with-pytest-90-fewer-state-inconsistencies-cjp",
+      "image": "/images/feed/feed-02f0f582dfa8.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-e7ccf180123c",
+      "title": "ContraPoints reveals the Pokémon win that finally defeated her parents",
+      "excerpt": "YouTuber Natalie Wynn joins Shelf Quest, the \"Criterion Closet of games,\" to talk Spyro, Resident Evil, and PS1.",
+      "body": "Natalie Wynn has spent the last decade turning philosophy, internet culture, and politics into some of YouTube's most ambitious video essays . As ContraPoints , she's built an audience of millions by dissecting everything from shame and cancel culture to Twilight and J.K. Rowling with visual flourish typically reserved for feature films. But when we dropped her into a retro game store for Polygon's Shelf Quest , another obsession quickly came into focus: the strange emotional power of old video games.",
+      "author": "Matt Patches",
+      "date": "2026-07-18",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 49,
+      "url": "https://www.polygon.com/contrapoints-shelf-quest/",
+      "image": "/images/feed/feed-e7ccf180123c.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-fc2bf4ae3ba8",
+      "title": "How I Turned OWASP Juice Shop Into a Live Attack-Detection Lab Using SecureNow",
+      "excerpt": "Ever wanted to see an attack get caught the moment it happens, instead of just reading about it after the fact? That's what this walkthrough is about. What Is OWASP Juice Shop? OWASP Juice Shop is a d…",
+      "body": "Ever wanted to see an attack get caught the moment it happens, instead of just reading about it after the fact? That's what this walkthrough is about. OWASP Juice Shop is intentionally broken — SQL injection, XSS, broken access control, and a dozen other flaws are baked into its code on purpose, making it one of the best sandboxes for learning how real attacks actually work. But knowing an app is vulnerable is only half the story: the real skill is watching an attack happen and catching it as it unfolds. That's where SecureNow comes in.",
+      "author": "Ghit",
+      "date": "2026-07-18",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 46,
+      "url": "https://dev.to/ghat/how-i-turned-owasp-juice-shop-into-a-live-attack-detection-lab-using-securenow-46na",
+      "image": "/images/feed/feed-fc2bf4ae3ba8.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-e8ebfa3b1a6b",
+      "title": "The 9 Best Games To Play After Watching The Odyssey",
+      "excerpt": "Play these if you want to sail a boat or blind a Cyclops",
+      "body": "Play these if you want to sail a boat or blind a Cyclops\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Rebekah Valentine",
+      "date": "2026-07-18",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 34,
+      "url": "https://kotaku.com/the-9-best-games-to-play-after-watching-the-odyssey-2000716736",
+      "image": "/images/feed/feed-e8ebfa3b1a6b.jpg",
+      "source": "Kotaku",
+      "isLive": true
+    },
+    {
+      "id": "feed-0597aa10dcf3",
+      "title": "I let an AI take over my Google TV for a week — and it solved streaming’s biggest problem",
+      "excerpt": "Project Neo replaces endless TV browsing with conversational AI.",
+      "body": "Doomscrolling is a concept we are all very well-acquainted with. Netflix might have a seemingly endless list of movies to offer, but actually finding one that you want to watch always feels completely out of reach. All too often, I find myself sitting on the couch, remote in hand, trying to figure out what to watch while the evening wastes away. The paradox of modern streaming is that the more choices we have, the harder it becomes to settle on anything, turning what should be a relaxing evening into a tedious exercise in decision paralysis. Me? I usually end up on YouTube. But I digress. After spending a week letting a chatbot dictate my evening TV watching, I'm convinced this is the future of streaming on Google TV.",
+      "author": "Dhruv Bhutani",
+      "date": "2026-07-18",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 41,
+      "url": "https://www.androidauthority.com/ai-took-over-google-tv-fixed-streaming-problem-3686072/",
+      "image": "/images/feed/feed-0597aa10dcf3.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-ff9cef660d1d",
+      "title": "More games should be on rails (literally)",
+      "excerpt": "It's been a good few weeks for games on rails. Nintendo's Star Fox remake wisely kept the tightly scripted, action-packed levels from Star Fox 64 largely the same, and they're still fun to fly through…",
+      "body": "It's been a good few weeks for games on rails. Nintendo's Star Fox remake wisely kept the tightly scripted, action-packed levels from Star Fox 64 largely the same, and they're still fun to fly through nearly 20 years later. Denshattack! , a new game from Undercoders, similarly features levels packed with carefully orchestrated sequences to great effect. Except instead of flying through space as an unnervingly realistic anthropomorphic fox, you're flying - and flipping, and spinning, and grinding - through Japan while driving a blindingly fast train. Calling Denshattack! a train game radically undersells what you actually do. Across a bright … Read the full story at The Verge.",
+      "author": "Jay Peters",
+      "date": "2026-07-18",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 43,
+      "url": "https://www.theverge.com/games/961152/denshattack-review",
+      "image": "/images/feed/feed-ff9cef660d1d.jpg",
+      "source": "The Verge",
+      "isLive": true
+    },
+    {
+      "id": "feed-cdbda3af6e9c",
+      "title": "The apps, gadgets, and tools every reader needs",
+      "excerpt": "Hi, friends! Welcome to Installer No. 136, your guide to the best and Verge-iest stuff in the world. (If you're new here, welcome, hope your neighborhood isn't as smoky as mine, and also you can read…",
+      "body": "Hi, friends! Welcome to Installer No. 136, your guide to the best and Verge -iest stuff in the world. (If you're new here, welcome, hope your neighborhood isn't as smoky as mine, and also you can read all the old editions at the Installer homepage .) This week, I've been recording the next season of Version History (this season's finale is out on Sunday!), reading about data center heists and Backyard Baseball and the creator of Calvin and Hobbes , canceling my October plans to see Digger 30 or 40 times, taking on the new Knockout Tour routes in Mario Kart World , learning more than I ever intended about Staten Island thanks to Revisionist His … Read the full story at The Verge.",
+      "author": "David Pierce",
+      "date": "2026-07-18",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadget"
+      ],
+      "featured": false,
+      "xpReward": 54,
+      "url": "https://www.theverge.com/tech/967544/best-apps-gadgets-reading-installer",
+      "image": "/images/feed/feed-cdbda3af6e9c.png",
+      "source": "The Verge",
+      "isLive": true
+    },
+    {
+      "id": "feed-bed24bf95046",
+      "title": "The Xpeng L03 Aims To Take On Europe And Undercut Tesla",
+      "excerpt": "This Chinese SUV has integrated Google Maps and FSD-like capability, all for about $3,500 cheaper than a Tesla Model Y.",
+      "body": "This Chinese SUV has integrated Google Maps and FSD-like capability, all for about $3,500 cheaper than a Tesla Model Y.\n\nThis report, published by InsideEVs, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Tesla. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to InsideEVs using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "InsideEVs",
+      "date": "2026-07-18",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Tesla"
+      ],
+      "featured": false,
+      "xpReward": 41,
+      "url": "https://insideevs.com/news/802044/xpeng-mona-l03-europe-launch/",
+      "image": "/images/feed/feed-bed24bf95046.jpg",
+      "source": "InsideEVs",
+      "isLive": true
+    },
+    {
+      "id": "feed-b536ab55a117",
+      "title": "AI-run 'utopias,' Moss in 2D and other new indie games worth checking out",
+      "excerpt": "Enjoy our weekend guide to the best indie games worth checking out.",
+      "body": "Enjoy our weekend guide to the best indie games worth checking out.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "staff@engadget.com (Kris Holt)",
+      "date": "2026-07-18",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 53,
+      "url": "https://www.engadget.com/2217879/ai-run-utopias-moss-in-2d-and-other-new-indie-games-worth-checking-out/",
+      "image": "/images/feed/feed-b536ab55a117.jpg",
+      "source": "Engadget",
+      "isLive": true
+    },
     {
       "id": "feed-d62e0fed8a10",
       "title": "EVs At 98.3% Share In Norway – Tesla Model Y Leads",
@@ -13,144 +298,11 @@
       "tags": [
         "Tesla"
       ],
-      "featured": true,
-      "xpReward": 32,
+      "featured": false,
+      "xpReward": 47,
       "url": "https://cleantechnica.com/2026/07/18/evs-at-98-3-share-in-norway-tesla-model-y-leads/",
       "image": "/images/feed/feed-d62e0fed8a10.png",
       "source": "CleanTechnica",
-      "isLive": true
-    },
-    {
-      "id": "feed-dd46a1fa02ba",
-      "title": "Releasing revera@1.0.0",
-      "excerpt": "Today I launched revera@1.0.0, upgrading from 0.1.0 to stable. revera is a CLI that scores npm packages for security risk before you install them. The 1.0.0 rewrite replaces fixed weights with a Bayes…",
-      "body": "Today I launched revera@1.0.0 , upgrading from 0.1.0 to stable. revera is a CLI that scores npm packages for security risk before you install them. The 1.0.0 rewrite replaces fixed weights with a Bayesian evidence engine: every package becomes a node in its dependency graph, gets scored across 8 categories from real signals (vuln feeds, publisher trust, GitHub activity, typosquat detection), and risk propagates bottom-up through the whole dependency tree, not just the top-level package. Previously it used pre-defined weights. Now it decides its own weights from the evidence. npm install revera",
-      "author": "Aarav Maloo",
-      "date": "2026-07-18",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 50,
-      "url": "https://dev.to/aaravmaloo/releasing-revera100-2llo",
-      "image": "/images/feed/feed-dd46a1fa02ba.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-0ecc0b3795c6",
-      "title": "Every response promised a rate limit. Nothing enforced it.",
-      "excerpt": "One function in this site's Worker attaches security headers to every response it renders. Until yesterday two of them were RateLimit-Limit: 100 and RateLimit-Policy: \"default\";q=100;w=60. They went o…",
-      "body": "One function in this site's Worker attaches security headers to every response it renders. Until yesterday two of them were RateLimit-Limit: 100 and RateLimit-Policy: \"default\";q=100;w=60. They went out with the homepage, with all 24 guides, with every markdown twin and with every 404. This site also publishes a guide on response headers for agents, and that guide teaches the RateLimit family on the reasoning that a well-behaved agent reads the declared budget and throttles itself before anyone has to throttle it. No code enforced either number. The Worker had no rate limiting logic and no path that returned a 429, and the config declared no limiter. The 100 had never been connected to a counter, so every response was advertising a budget the server had no way to spend.",
-      "author": "Erik Rekola",
-      "date": "2026-07-18",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 47,
-      "url": "https://dev.to/turva-dev/every-response-promised-a-rate-limit-nothing-enforced-it-n5g",
-      "image": "/images/feed/feed-0ecc0b3795c6.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-19b6d0416baa",
-      "title": "Process A Larger Xiaohongshu Note Batch Asynchronously",
-      "excerpt": "Process A Larger Note Batch Asynchronously Synchronous batches are convenient for a small request. For up to 50 complete public note URLs, use the asynchronous workflow so the client does not hold one…",
-      "body": "Process A Larger Note Batch Asynchronously Synchronous batches are convenient for a small request. For up to 50 complete public note URLs, use the asynchronous workflow so the client does not hold one gateway request open. Start with XHS Data API on RapidAPI and keep the RapidAPI key on your server. Submit A Job import os import time import requests base_url = \" https://xiaohongshu-rednote-data-api.p.rapidapi.com \" headers = { \" X-RapidAPI-Key \" : os . environ [ \" X_RAPIDAPI_KEY \" ], \" X-RapidAPI-Host \" : \" xiaohongshu-rednote-data-api.p.rapidapi.com \" , \" Content-Type \" : \" application/json \" , } urls = [ os . environ [ \" XHS_NOTE_URL \" ]] response = requests .",
-      "author": "mian po",
-      "date": "2026-07-18",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 39,
-      "url": "https://dev.to/mian_po_0ae30e900c601c8f5/process-a-larger-xiaohongshu-note-batch-asynchronously-6oj",
-      "image": "/images/feed/feed-19b6d0416baa.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-45b4b3060dac",
-      "title": "Retrieve Rich Xiaohongshu Note Data With Python",
-      "excerpt": "Retrieve Rich Xiaohongshu Note Data With Python This tutorial retrieves normalized public note data from a complete Xiaohongshu (RedNote) URL through RapidAPI. A subscription to XHS Data API. A server…",
-      "body": "Retrieve Rich Xiaohongshu Note Data With Python This tutorial retrieves normalized public note data from a complete Xiaohongshu (RedNote) URL through RapidAPI. What You Need A subscription to XHS Data API . A server-side RapidAPI key. A current public note URL containing the xsec_token copied with that note. Keep both values in environment variables: export X_RAPIDAPI_KEY = \"your_rapidapi_key\" export XHS_NOTE_URL = \"complete_current_public_note_url\" Validate The URL First /note/parse_url performs local validation and extracts URL components without fetching upstream note data: import os import requests base_url = \" https://xiaohongshu-rednote-data-api.p.rapidapi.com \" headers = { \" X-RapidAPI-Key \" : os .",
-      "author": "mian po",
-      "date": "2026-07-18",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Python"
-      ],
-      "featured": true,
-      "xpReward": 34,
-      "url": "https://dev.to/mian_po_0ae30e900c601c8f5/retrieve-rich-xiaohongshu-note-data-with-python-598n",
-      "image": "/images/feed/feed-45b4b3060dac.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-5e81ad0c4dfc",
-      "title": "I Replaced My Entire DevOps Pipeline with AI Agents — Here's What Happened",
-      "excerpt": "Thirty days ago, I made a bet with my team: replace our entire DevOps pipeline with AI agents and see what happens. No manual deployments. No human monitoring. No on-call rotations. Just AI. Here's th…",
-      "body": "Thirty days ago, I made a bet with my team: replace our entire DevOps pipeline with AI agents and see what happens. No manual deployments. No human monitoring. No on-call rotations. Just AI. Here's the honest, unfiltered results. The Setup Our stack: Backend: Python/FastAPI on Kubernetes Frontend: Next.js on Vercel Database: PostgreSQL on AWS RDS CI/CD: GitHub Actions Monitoring: Datadog Incident Response: PagerDuty The AI agent pipeline: Deploy Agent: Handles builds, tests, and deployments Monitor Agent: Watches metrics and alerts on anomalies Incident Agent: Diagnoses and fixes issues automatically Optimize Agent: Continuously tunes performance and costs Week 1: The Honeymoon Day 1-3: Everything worked beautifully.",
-      "author": "niuniu",
-      "date": "2026-07-18",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Devops"
-      ],
-      "featured": true,
-      "xpReward": 44,
-      "url": "https://dev.to/jarynagent/i-replaced-my-entire-devops-pipeline-with-ai-agents-heres-what-happened-m21",
-      "image": "/images/feed/feed-5e81ad0c4dfc.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-986e591f7ce0",
-      "title": "Beyond MCP: why your enterprise AI platform needs seven boundaries, not one protocol",
-      "excerpt": "MCP is becoming the default answer to every enterprise-agent architecture question. Access internal data? MCP. Call company APIs? MCP. Two agents need to communicate? MCP. Build the internal AI platfo…",
-      "body": "MCP is becoming the default answer to every enterprise-agent architecture question. Access internal data? MCP. Call company APIs? MCP. Two agents need to communicate? MCP. Build the internal AI platform? Put an MCP server in front of everything. An MCP server is not an AI platform. It does not decide which source is authoritative. It does not preserve business transactions. It does not establish whether an employee may authorize a payment. It does not execute a process that waits three days for human approval. It does not determine whether an agent selected the right tool or produced the correct outcome. MCP standardizes one boundary: the connection between an AI application and a capability. An enterprise agent platform must handle several others.",
-      "author": "Alexey Vidanov",
-      "date": "2026-07-18",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 54,
-      "url": "https://dev.to/aws-builders/beyond-mcp-why-your-enterprise-ai-platform-needs-seven-boundaries-not-one-protocol-16n3",
-      "image": "/images/feed/feed-986e591f7ce0.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-c2045f134a74",
-      "title": "PromptOT MCP: Manage and version LLM prompts from your AI tools",
-      "excerpt": "PromptOT MCP: Manage and version LLM prompts from your AI tools Prompts often start as simple strings in code. Then the product grows. You add a better system prompt. Then a guardrail. Then a differen…",
-      "body": "PromptOT MCP: Manage and version LLM prompts from your AI tools Prompts often start as simple strings in code. Then the product grows. You add a better system prompt. Then a guardrail. Then a different version for production. Then a customer-specific variable. Then test cases. Then someone wants to roll back to the version from last week. At that point, prompts are no longer just text. They become part of the application layer. That is the problem PromptOT is built around. PromptOT is a prompt management platform for LLM applications. It lets teams build, version, evaluate, and deliver system prompts through an API without redeploying the app every time a prompt changes. The new part I want to share is the PromptOT MCP server .",
-      "author": "PromptOT",
-      "date": "2026-07-18",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 36,
-      "url": "https://dev.to/promptot/i-stopped-copy-pasting-prompts-into-chatgpt-heres-the-mcp-setup-that-replaced-it-co",
-      "image": "/images/feed/feed-c2045f134a74.webp",
-      "source": "Dev.to",
       "isLive": true
     },
     {
@@ -166,7 +318,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 38,
       "url": "https://www.androidauthority.com/terrible-ads-ruining-android-apps-google-doing-nothing-3687904/",
       "image": "/images/feed/feed-848bed08d6ef.jpg",
       "source": "Android Authority",
@@ -185,7 +337,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 30,
       "url": "https://www.engadget.com/2218076/openai-notify-parents-teen-banned-chatgpt-violence/",
       "image": "/images/feed/feed-d8395de64935.jpg",
       "source": "Engadget",
@@ -204,7 +356,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 38,
       "url": "https://www.polygon.com/best-puzzle-games-co-op/",
       "image": "/images/feed/feed-20e83d14a431.jpg",
       "source": "Polygon",
@@ -223,7 +375,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 53,
       "url": "https://www.androidauthority.com/best-ai-browsers-2026-3687497/",
       "image": "/images/feed/feed-681c0d56db46.jpg",
       "source": "Android Authority",
@@ -242,67 +394,10 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 52,
       "url": "https://www.wired.com/story/security-news-this-week-your-period-tracker-is-probably-spying-on-you/",
       "image": "/images/feed/feed-6200e59e5ba7.jpg",
       "source": "Wired",
-      "isLive": true
-    },
-    {
-      "id": "feed-617d9d7a4875",
-      "title": "The Best Motion Sensors and Home Security Gadgets Without Cameras",
-      "excerpt": "If you prefer not to have cameras in and around your home, try one of these more private, WIRED-tested security devices.",
-      "body": "If you prefer not to have cameras in and around your home, try one of these more private, WIRED-tested security devices.\n\nThis report, published by Wired, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadget. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Wired using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Simon Hill",
-      "date": "2026-07-18",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadget"
-      ],
-      "featured": false,
-      "xpReward": 52,
-      "url": "https://www.wired.com/story/best-motion-sensors-private-alternatives-security/",
-      "image": "/images/feed/feed-617d9d7a4875.jpg",
-      "source": "Wired",
-      "isLive": true
-    },
-    {
-      "id": "feed-3a13f235a2c0",
-      "title": "Pixel Glow is real, but it doesn’t solve Google’s bigger Pixel 11 problems",
-      "excerpt": "Pixel Glow is here, but will it be enough?",
-      "body": "Google recently shared new Pixel 11 teaser images, giving us our first look at Pixel Glow . I love that Pixel Glow is real, and it opens up some interesting integration possibilities. Google needed to do something with its hardware without a drastic design change, which has been a relative sales success for the company. While I’m glad that Google is pushing ahead with new features, it masks the troubles ahead for the Pixel 11.",
-      "author": "Stephen Radochia",
-      "date": "2026-07-18",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 34,
-      "url": "https://www.androidauthority.com/pixel-glow-doesnt-solve-pixel-11-biggest-problems-3688323/",
-      "image": "/images/feed/feed-3a13f235a2c0.jpg",
-      "source": "Android Authority",
-      "isLive": true
-    },
-    {
-      "id": "feed-19866e600aed",
-      "title": "The iPad mini's biggest update in 5 years is expected this fall - here's what we know",
-      "excerpt": "The next iPad mini is rumored to feature an OLED panel and a more powerful processor. A new base iPad is also in the works.",
-      "body": "The next iPad mini is rumored to feature an OLED panel and a more powerful processor. A new base iPad is also in the works.\n\nThis report, published by ZDNet, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to ZDNet using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "ZDNet",
-      "date": "2026-07-18",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 44,
-      "url": "https://www.zdnet.com/article/apple-ipad-mini-2026-redesign-oled-rumors/",
-      "image": "/images/feed/feed-19866e600aed.jpg",
-      "source": "ZDNet",
       "isLive": true
     },
     {
@@ -318,7 +413,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 48,
       "url": "https://www.polygon.com/the-bloodiest-horror-film-of-2026-ice-cream-man/",
       "image": "/images/feed/feed-bf1cae1ddf3b.jpg",
       "source": "Polygon",
@@ -337,7 +432,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 34,
       "url": "https://www.space.com/stargazing/meteor-showers/beyond-the-perseids-6-meteor-showers-worth-watching-this-summer",
       "image": "/images/feed/feed-18d7eb4fa00a.jpg",
       "source": "Space.com",
@@ -356,7 +451,7 @@
         "Gemini"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 31,
       "url": "https://www.wired.com/story/how-googles-new-gemini-rates-work-and-how-to-track-your-usage/",
       "image": "/images/feed/feed-78c12f50c0a4.jpg",
       "source": "Wired",
@@ -375,29 +470,10 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 49,
       "url": "https://www.ign.com/articles/christopher-nolan-says-it-will-be-at-least-3-years-before-we-see-his-next-film-after-the-odyssey-pushed-him-to-his-limits",
       "image": "/images/feed/feed-5f45f5c6599a.jpg",
       "source": "IGN",
-      "isLive": true
-    },
-    {
-      "id": "feed-d03c4fab0193",
-      "title": "I tested Nothing's new pink earbuds, and they look as good as they sound",
-      "excerpt": "The Nothing Ear (3a) have surprised me for several reasons - the price is one of them.",
-      "body": "The Nothing Ear (3a) have surprised me for several reasons - the price is one of them.\n\nThis report, published by ZDNet, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Earbuds. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to ZDNet using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "ZDNet",
-      "date": "2026-07-18",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Earbuds"
-      ],
-      "featured": false,
-      "xpReward": 30,
-      "url": "https://www.zdnet.com/article/nothing-ear-3a-review/",
-      "image": "/images/feed/feed-d03c4fab0193.jpg",
-      "source": "ZDNet",
       "isLive": true
     },
     {
@@ -413,7 +489,7 @@
         "Orbit"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 48,
       "url": "https://spacenews.com/skyroot-aerospace-reaches-orbit-on-first-vikram-1-launch/",
       "image": "/images/feed/feed-4bf6d0193afd.jpg",
       "source": "SpaceNews",
@@ -432,7 +508,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 50,
       "url": "https://www.ign.com/articles/jennifer-english-steps-away-from-tides-of-annihilation-role-due-to-health-concerns",
       "image": "/images/feed/feed-d015326bf6d4.jpg",
       "source": "IGN",
@@ -451,7 +527,7 @@
         "Automotive"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 52,
       "url": "https://cleantechnica.com/2026/07/17/endgame-the-decline-fall-of-the-western-automotive-industry/",
       "image": "/images/feed/feed-0f5086150a28.jpg",
       "source": "CleanTechnica",
@@ -470,7 +546,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 41,
       "url": "https://cleantechnica.com/2026/07/17/pass-permitting-reform-unleash-american-solar-and-storage/",
       "image": "/images/feed/feed-4833c7b18b2c.png",
       "source": "CleanTechnica",
@@ -489,7 +565,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 30,
       "url": "https://cleantechnica.com/2026/07/17/east-coast-states-will-sue-trump-for-illegal-payoffs/",
       "image": "/images/feed/feed-cfa0040900ed.png",
       "source": "CleanTechnica",
@@ -508,7 +584,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 38,
       "url": "https://cleantechnica.com/2026/07/17/sierra-club-north-carolina-reacts-nextera-dominion-file-application-to-merge-form-countrys-largest-utility/",
       "image": "/images/feed/feed-dddb47f72e7c.png",
       "source": "CleanTechnica",
@@ -527,48 +603,10 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 49,
       "url": "https://cleantechnica.com/2026/07/17/heros-mission-building-a-blueprint-for-wave-energy-components/",
       "image": "/images/feed/feed-3c7ee1c6b0f9.jpg",
       "source": "CleanTechnica",
-      "isLive": true
-    },
-    {
-      "id": "feed-6f7368f1b638",
-      "title": "Colman Domingo and Robert O’Hara in Talks to Write Live-Action Princess and the Frog Tiana Spinoff Movie",
-      "excerpt": "Colman Domingo is in talks to co-write a live-action movie focused on Princess and the Frog protagonist Tiana Rogers alongside playwright and director Robert O’Hara.",
-      "body": "Deadline reports that Colman Domingo is in talks to co-write a live-action movie focused on Princess and the Frog protagonist Tiana alongside playwright and director Robert O’Hara. Thus far, not much else is known about the project, which marks the latest in Disney’s string of live-action adaptations — a trend that’s not been exactly profitable for the House of Mouse. 2026’s Moana notoriously bombed at the box office , earning an approximate global total of $95 million from its opening weekend in July. This follows the similarly snoozy start to 2025’s Snow White remake, which earned $87.3 million globally on its opening weekend last March. Despite these underwhelming numbers and middling reviews , Disney seems to be moving full-speed ahead toward even more live-action remakes.",
-      "author": "Virginia Glaze",
-      "date": "2026-07-18",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 45,
-      "url": "https://www.ign.com/articles/colman-domingo-and-robert-ohara-in-talks-to-write-live-action-princess-and-the-frog-tiana-spinoff-movie",
-      "image": "/images/feed/feed-6f7368f1b638.png",
-      "source": "IGN",
-      "isLive": true
-    },
-    {
-      "id": "feed-304123e0862c",
-      "title": "The LEGO Exclusive Dungeons and Dragons Set Has Sold Out Just Days Before It Retires Forever",
-      "excerpt": "The LEGO Exclusive Dungeons and Dragons Set Has Sold Out Just Days Before It Retires Forever",
-      "body": "LEGO&#39;s epic Dungeon &amp; Dragons: Red Dragon&#39;s Tale set may not officially retire until July 31, but you&#39;d be hard pressed to find in stock anywhere. All major retailers that carry LEGO sets, like Amazon, Target, Walmart, and Best Buy, are out of stock. Even If you wanted to buy directly through LEGO&#39;s site , you&#39;d be met with the dreaded &quot;sold out&quot; text. Still, if stock does miraculously become available at any of these retailers (sticker price is $359.99) or you&#39;re lucky enough to find one secondhand, you&#39;re in for a real treat.",
-      "author": "Myles Obenza",
-      "date": "2026-07-18",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 35,
-      "url": "https://www.ign.com/articles/the-lego-exclusive-dungeons-and-dragons-set-has-sold-out-just-days-before-it-retires-forever",
-      "image": "/images/feed/feed-304123e0862c.png",
-      "source": "IGN",
       "isLive": true
     },
     {
@@ -584,67 +622,10 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 41,
       "url": "https://spacenews.com/nasa-terminates-draper-lunar-lander-mission/",
       "image": "/images/feed/feed-293af7adec2e.jpg",
       "source": "SpaceNews",
-      "isLive": true
-    },
-    {
-      "id": "feed-e8fd8792288c",
-      "title": "Who are the “Sea People” in Christopher Nolan’s The Odyssey?",
-      "excerpt": "In Christopher Nolan's The Odyssey, there are stories of the \"Sea People,\" which is based on real-wolrd history",
-      "body": "Throughout Christopher Nolan ’s epic The Odyssey , there are plenty of threats both seen and unseen. From the towering Cyclops to the wrathful god Poseidon, Odysseus and his soldiers must contend with all of them. Perhaps the most ominous threat though is the “Sea People” or the “People from the Sea,” a force mentioned throughout the film as a danger to Ithaca and its neighbors in the Mediterranean.",
-      "author": "Brian VanHooker",
-      "date": "2026-07-18",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 53,
-      "url": "https://www.polygon.com/who-are-the-sea-people-in-christopher-nolans-the-odyssey/",
-      "image": "/images/feed/feed-e8fd8792288c.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-abedbe3c5e01",
-      "title": "NASA Pushes New Wing Design to Find Structural Limits",
-      "excerpt": "NASA researchers recently put a new wing design, appearing long and thin with a lightweight structural design, through a series of grueling tests to find its structural limits. What they found left th…",
-      "body": "3 Min Read NASA Pushes New Wing Design to Find Structural Limits The 15-foot Structural Wing Experiment Evaluating Truss-bracing test article is fully installed in the Flight Loads Laboratory at NASA’s Armstrong Flight Research Center in Edwards, California, on Wednesday, May 20, 2026. The model is part of NASA’s research to develop technologies for future ultra-efficient aircraft. Credits: NASA/Carla Escamilla NASA researchers recently put a new wing design, appearing long and thin with a lightweight structural design, through a series of grueling tests to find its structural limits. What they found left them encouraged about the wing’s potential, even when they pushed it past its intended limits.",
-      "author": "Dede Dinius",
-      "date": "2026-07-17",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Nasa"
-      ],
-      "featured": false,
-      "xpReward": 45,
-      "url": "https://www.nasa.gov/centers-and-facilities/armstrong/nasa-pushes-new-wing-design-to-find-structural-limits/",
-      "image": "/images/feed/feed-abedbe3c5e01.jpg",
-      "source": "NASA Breaking News",
-      "isLive": true
-    },
-    {
-      "id": "feed-adc988f15542",
-      "title": "The Growing Crescent of Mars as NASA’s Psyche Mission Approaches",
-      "excerpt": "Description This composite of images taken by NASA’s Psyche mission shows the crescent of Mars grow as the spacecraft approached the planet for a gravity assist from May 2 to May 15, 2026. The series…",
-      "body": "1 Min Read The Growing Crescent of Mars as NASA’s Psyche Mission Approaches PIA26586 Credits: NASA/JPL-Caltech/ASU Photojournal Navigation Science Photojournal The Growing Crescent of Mars… Photojournal Home Photojournal Search Latest Content Galleries Feedback RSS About Downloads The Growing Crescent of Mars as NASA’s Psyche Mission Approaches PNG (3.48 MB) Description This composite of images taken by NASA’s Psyche mission shows the crescent of Mars grow as the spacecraft approached the planet for a gravity assist from May 2 to May 15, 2026. The series begins with the smallest crescent at the center of the of the image as Mars is farthest from the spacecraft, and progressively grows as the spacecraft gets closer.",
-      "author": "NASA Breaking News",
-      "date": "2026-07-17",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Nasa"
-      ],
-      "featured": false,
-      "xpReward": 49,
-      "url": "https://science.nasa.gov/photojournal/the-growing-crescent-of-mars-as-nasas-psyche-mission-approaches/",
-      "image": "/images/feed/feed-adc988f15542.png",
-      "source": "NASA Breaking News",
       "isLive": true
     },
     {
@@ -660,29 +641,10 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 36,
       "url": "https://www.space.com/entertainment/space-movies-shows/remembering-ulysses-31-the-80s-cartoon-that-transported-the-odyssey-to-outer-space",
       "image": "/images/feed/feed-ef9ea34c3f3f.jpg",
       "source": "Space.com",
-      "isLive": true
-    },
-    {
-      "id": "feed-1ed8ea7f339f",
-      "title": "Australia Nails It Again — On Large Data Centers This Time",
-      "excerpt": "The United States kicked off the solar power industry, but then Germany took it to another level, and Australia followed close behind and became true leader globally in rooftop solar power adoption. W…",
-      "body": "The United States kicked off the solar power industry, but then Germany took it to another level, and Australia followed close behind and became true leader globally in rooftop solar power adoption. With strong federal policies and some strong state policies, Australia shot to the top of the charts in ... [continued] The post Australia Nails It Again — On Large Data Centers This Time appeared first on CleanTechnica .",
-      "author": "Zachary Shahan",
-      "date": "2026-07-17",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Cars"
-      ],
-      "featured": false,
-      "xpReward": 51,
-      "url": "https://cleantechnica.com/2026/07/17/australia-nails-it-again-on-large-data-centers-this-time/",
-      "image": "/images/feed/feed-1ed8ea7f339f.jpg",
-      "source": "CleanTechnica",
       "isLive": true
     },
     {
@@ -698,29 +660,29 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 51,
       "url": "https://thehackernews.com/2026/07/new-wp2shell-wordpress-core-flaw-lets.html",
       "image": "/images/feed/feed-73dd59721858.jpg",
       "source": "The Hacker News",
       "isLive": true
     },
     {
-      "id": "feed-a705fa254de0",
-      "title": "Establishing a VTE Risk Score for Astronauts Algorithm",
-      "excerpt": "In April 2026, NASA’s Office of the Chief Health and Medical Officer (OCHMO) initiated a working group to review updated VTE case information, additional data gathered revealing altered blood flow sta…",
-      "body": "Spontaneous echo contrast (SEC) grade 3 with peripheral echogenicity. NASA/Pavela NASA/SP-20260005258/REV1 &#8211; NASA Risk of Venous Thromboembolism in Spaceflight &#8211; Outcomes of Working Group Meeting – April 2026 In April 2026, NASA’s Office of the Chief Health and Medical Officer (OCHMO) initiated a working group to review updated VTE case information, additional data gathered revealing altered blood flow status within a cohort of astronauts, and discuss progress of research and clinical activities intended to mitigate the risk of VTE during spaceflight with new evidence-based clinical practice recommendations.",
-      "author": "Sarah Taoufik",
+      "id": "feed-6b102a276ded",
+      "title": "These 'metallic' dunes on Mars look like sci-fi. What are they really?",
+      "excerpt": "New images from the European Space Agency's Mars Express orbiter have captured strange-looking waves on the Red Planet.",
+      "body": "If you still picture Mars as a monotonous red desert, it may be time for an update. The European Space Agency's Mars Express orbiter has been capturing some of the Red Planet's most surreal landscapes, and its latest images reveal a sprawling field that looks like molten metal frozen across the floor of an ancient Mars crater. The shimmering \"waves\" aren't metal at all, however. They are dark sand dunes dusted with seasonal frost, much of it carbon dioxide, or \"dry ice,\" that settles on the surface during Martian winters, giving the dunes their uncanny chrome-like sheen, according to ESA . The rest is a trick of light and contrast.",
+      "author": " Sharmila Kuthunur ",
       "date": "2026-07-17",
       "readTime": "2 min",
       "section": "space",
       "tags": [
-        "Astronaut"
+        "Space"
       ],
       "featured": false,
-      "xpReward": 37,
-      "url": "https://www.nasa.gov/organizations/ochmo/establishing-a-vte-risk-score-for-astronauts-algorithm/",
-      "image": "/images/feed/feed-a705fa254de0.jpg",
-      "source": "NASA Breaking News",
+      "xpReward": 44,
+      "url": "https://www.space.com/astronomy/mars/these-metallic-dunes-on-mars-look-like-sci-fi-what-are-they-really",
+      "image": "/images/feed/feed-6b102a276ded.jpg",
+      "source": "Space.com",
       "isLive": true
     },
     {
@@ -755,10 +717,29 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 47,
       "url": "https://thehackernews.com/2026/07/openssl-hollowbyte-flaw-could-freeze.html",
       "image": "/images/feed/feed-c4f4e300b2d2.jpg",
       "source": "The Hacker News",
+      "isLive": true
+    },
+    {
+      "id": "feed-4761e5a87cc5",
+      "title": "The Perseid meteor shower starts this week. Here's why you should look up now",
+      "excerpt": "The Perseid meteor shower begins on July 17 alongside two others, making \"shooting stars\" likely any night this month and next.",
+      "body": "People keep asking me about the total solar eclipse on August 12 . That's understandable. For anyone in the Northern Hemisphere, it is shaping up to be a joyous day of astronomy. Totality will cross eastern Greenland, western Iceland and northern Spain, but much of Europe will see a very deep partial eclipse, and even parts of North America will see a small bite taken from the sun. Then, just hours later, the Perseid meteor shower will peak beneath perfectly moonless skies. What a double-act! The problem with promoting days and nights like that is that they make us think skywatching is only worth doing at very specific times. Everything becomes about moments, peaks and countdowns. That rings true for an eclipse, of course, but for the Perseids, it's less so.",
+      "author": " Jamie Carter ",
+      "date": "2026-07-17",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Space"
+      ],
+      "featured": false,
+      "xpReward": 35,
+      "url": "https://www.space.com/stargazing/meteor-showers/the-perseid-meteor-shower-starts-this-week-heres-why-you-should-look-up-now",
+      "image": "/images/feed/feed-4761e5a87cc5.jpg",
+      "source": "Space.com",
       "isLive": true
     },
     {
@@ -774,10 +755,29 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 34,
       "url": "https://thehackernews.com/2026/07/seven-malicious-vite-npm-packages-use.html",
       "image": "/images/feed/feed-499e4165bde8.jpg",
       "source": "The Hacker News",
+      "isLive": true
+    },
+    {
+      "id": "feed-d6528d067479",
+      "title": "I replaced my space heater and ceiling fan with one Dyson appliance",
+      "excerpt": "Designed for year-round comfort, the Dyson Hot+Cool HF1 combines quiet operation and simple controls with Dyson's signature bladeless design.",
+      "body": "Designed for year-round comfort, the Dyson Hot+Cool HF1 combines quiet operation and simple controls with Dyson's signature bladeless design.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Space. As the situation continues to evolve, professionals and enthusiasts in the space exploration and astronomy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Aisha Malik",
+      "date": "2026-07-17",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Space"
+      ],
+      "featured": false,
+      "xpReward": 51,
+      "url": "https://techcrunch.com/2026/07/17/i-replaced-my-space-heater-and-ceiling-fan-with-one-dyson-appliance/",
+      "image": "/images/feed/feed-d6528d067479.jpg",
+      "source": "TechCrunch",
       "isLive": true
     },
     {
@@ -793,7 +793,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 45,
       "url": "https://www.bleepingcomputer.com/news/security/hollowbyte-ddos-flaw-bloats-openssl-server-memory-with-11-byte-payload/",
       "image": "/images/feed/feed-68dcc1f4937a.jpg",
       "source": "BleepingComputer",
@@ -812,7 +812,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 53,
       "url": "https://techcrunch.com/video/how-apples-big-lawsuit-could-disrupt-openais-ipo-plans/",
       "image": "/images/feed/feed-0a1bc8bb93d4.jpg",
       "source": "TechCrunch",
@@ -831,7 +831,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 40,
       "url": "https://www.theverge.com/podcast/967244/apple-openai-lawsuit-vergecast",
       "image": "/images/feed/feed-9f0a72b022f7.jpg",
       "source": "The Verge",
@@ -850,7 +850,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 44,
       "url": "https://www.zdnet.com/article/ai-model-release-tracker/",
       "image": "/images/feed/feed-34ff00561232.jpg",
       "source": "ZDNet",
@@ -869,7 +869,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 34,
       "url": "https://thehackernews.com/2026/07/new-nadmesh-botnet-hunts-exposed-ai.html",
       "image": "/images/feed/feed-9a79c915fce1.jpg",
       "source": "The Hacker News",
@@ -888,7 +888,7 @@
         "Gemini"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 30,
       "url": "https://www.cnet.com/tech/services-and-software/best-ai-video-generators/",
       "image": "/images/feed/feed-299ab317f778.jpg",
       "source": "CNET",
@@ -907,7 +907,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 46,
       "url": "https://www.wired.com/story/best-smart-speakers/",
       "image": "/images/feed/feed-3fb4e5d43de0.jpg",
       "source": "Wired",
@@ -926,7 +926,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 42,
       "url": "https://www.cnet.com/tech/apple-vs-open-ai-explained-the-battle-for-ai-gadgets-begins-with-a-juicy-lawsuit/",
       "image": "/images/feed/feed-44441e29bbef.jpg",
       "source": "CNET",
@@ -934,16 +934,16 @@
     }
   ],
   "breakingNews": [
-    "CLEANTECHNICA: EVs At 98.3% Share In Norway – Tesla Model Y Leads",
-    "DEV.TO: Releasing revera@1.0.0",
-    "DEV.TO: Every response promised a rate limit. Nothing enforced it.",
-    "DEV.TO: Process A Larger Xiaohongshu Note Batch Asynchronously",
-    "DEV.TO: Retrieve Rich Xiaohongshu Note Data With Python",
-    "DEV.TO: I Replaced My Entire DevOps Pipeline with AI Agents — Here's What Happened",
-    "DEV.TO: Beyond MCP: why your enterprise AI platform needs seven boundaries, not one protocol",
-    "DEV.TO: PromptOT MCP: Manage and version LLM prompts from your AI tools",
-    "ANDROID AUTHORITY: As Google sits back and watches, terrible ads are ruining Android’s free app ecosystem",
-    "ENGADGET: OpenAI will start notifying parents if their teen has been kicked off of ChatGPT"
+    "9TO5MAC: Apple weekend deals: AirPods Pro 3, MacBook Pro up to $400 off, Series 11 $130 off, chargers, bands, more",
+    "DEV.TO: Retrieval-Augmented Self-Recall — Part 6: The Fine-Tune That Did Nothing, and Shipping It as an MCP Server",
+    "DEV.TO: Retrieval-Augmented Self-Recall — Part 5: The Gap Threshold That Didn't Transfer",
+    "DEV.TO: Retrieval-Augmented Self-Recall — Part 4: Benchmarking Retrieval *and* Honesty",
+    "DEV.TO: Retrieval-Augmented Self-Recall — Part 3: Teaching RAG to Say \\\"I Don't Know\\",
+    "DEV.TO: Retrieval-Augmented Self-Recall — Part 2: Hybrid RAG on Nothing but Postgres",
+    "DEV.TO: Taking Over LLM Memory Store Testing with Pytest: 90% Fewer State Inconsistencies",
+    "POLYGON: ContraPoints reveals the Pokémon win that finally defeated her parents",
+    "DEV.TO: How I Turned OWASP Juice Shop Into a Live Attack-Detection Lab Using SecureNow",
+    "KOTAKU: The 9 Best Games To Play After Watching The Odyssey"
   ],
   "sectionVideos": {}
 }
