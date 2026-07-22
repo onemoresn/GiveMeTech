@@ -1,6 +1,310 @@
 {
-  "fetchedAt": "2026-07-22T22:25:11.107Z",
+  "fetchedAt": "2026-07-22T23:25:03.198Z",
   "articles": [
+    {
+      "id": "feed-e8108ef71df5",
+      "title": "Implementing UUID v7 by hand: time-sortable primary keys (and the same-millisecond trap)",
+      "excerpt": "Random UUID v4 makes a poor primary key: values land all over the index, so B-tree inserts scatter across pages and page splits go up. UUID v7 puts a millisecond timestamp in the leading bits (standar…",
+      "body": "Random UUID v4 makes a poor primary key: values land all over the index, so B-tree inserts scatter across pages and page splits go up. UUID v7 puts a millisecond timestamp in the leading bits (standardized in RFC 9562), so generation order equals sort order and you get locality back. I needed a UUID generator that runs entirely in the browser, and while building it I implemented v7 by hand instead of pulling in a library. Here is the layout, the implementation, the trap I hit, and when each version is actually the right choice. The v7 layout The 128 bits break down like this: | 48bit unix_ms | 4bit ver(=7) | 12bit rand_a | 2bit variant | 62bit rand_b | The first 48 bits are the Unix timestamp in milliseconds, big-endian.",
+      "author": "takahiro hashito",
+      "date": "2026-07-22",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 44,
+      "url": "https://dev.to/takahiro_hashito_a1f3f0dc/implementing-uuid-v7-by-hand-time-sortable-primary-keys-and-the-same-millisecond-trap-1l71",
+      "image": "/images/feed/feed-e8108ef71df5.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-51548f43416c",
+      "title": "Expiring Content: Put the Deadline in the Data, Not the Prose",
+      "excerpt": "Introduction I run several sites that publish time-limited information: Kindle manga sales, grocery and household deals. Everything on them expires. That creates a structural weakness. Expired deals l…",
+      "body": "Introduction I run several sites that publish time-limited information: Kindle manga sales, grocery and household deals. Everything on them expires . That creates a structural weakness. Expired deals left on the page erode trust in the whole site. A reader clicks a link labeled \"through July 31\" and lands on a full-price page. After that happens a couple of times, they stop coming back. Removing expired entries by hand does not scale; the more articles you have, the worse it gets. So I moved the deadline into the data and let the build decide what to show. Architecture Each article carries metrics.deadline in its JSON, and build.js computes the days remaining at generation time.",
+      "author": "takahiro hashito",
+      "date": "2026-07-22",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 53,
+      "url": "https://dev.to/takahiro_hashito_a1f3f0dc/expiring-content-put-the-deadline-in-the-data-not-the-prose-27bh",
+      "image": "/images/feed/feed-51548f43416c.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-ecbd78e500f9",
+      "title": "Enforcing Content Tone With a Lint That Fails the Build",
+      "excerpt": "Introduction I run about twenty static sites on an automated pipeline. Article data lives in JSON, and a dependency-free build.js emits the HTML. Since updates run unattended, most of the writing is d…",
+      "body": "Introduction I run about twenty static sites on an automated pipeline. Article data lives in JSON, and a dependency-free build.js emits the HTML. Since updates run unattended, most of the writing is done by machines too. That created a problem I did not anticipate: tone drifted. I had a rule that these sites use no emoji. Yet every run slipped one in somewhere. A heading here, an FAQ answer there. I would remove them, and the next day they showed up somewhere else. Trying to hold a style rule in place through review does not scale. So I turned it into a lint that fails the build. Architecture The shape is simple: walk the files, report any line containing an emoji, and exit non-zero if there is even one.",
+      "author": "takahiro hashito",
+      "date": "2026-07-22",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 30,
+      "url": "https://dev.to/takahiro_hashito_a1f3f0dc/enforcing-content-tone-with-a-lint-that-fails-the-build-19jf",
+      "image": "/images/feed/feed-ecbd78e500f9.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-07ea760e06ca",
+      "title": "Understanding Next.js Page Caching (with a real example)",
+      "excerpt": "Caching can be a tricky topic, especially when pages don’t update the way you expect. /writing page of my site. Whenever I added or updated articles, the changes did not show immediately. Oddly enough…",
+      "body": "Caching can be a tricky topic, especially when pages don’t update the way you expect. I recently ran into an interesting issue while working on the /writing page of my site. Whenever I added or updated articles, the changes did not show immediately. Oddly enough, the individual article pages updated as expected, but the listing page stayed stale. After some digging, I realized this was not a bug. It was Next.js doing exactly what it is supposed to . How Next.js caching works Next.js (App Router) handles HTML caching at the edge in production. For statically prerendered pages, it sets Cache-Control: s-maxage=31536000 , which is one year. This header tells CDNs and edge caches that they can serve the page without re-fetching for a long time.",
+      "author": "Edgar Nahama Alochi",
+      "date": "2026-07-22",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 52,
+      "url": "https://dev.to/nahamaalochi/understanding-nextjs-page-caching-with-a-real-example-10io",
+      "image": "/images/feed/feed-07ea760e06ca.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-1cc3df796239",
+      "title": "Why Your Unit Tests Aren't Enough (And How to Break Your Own API)",
+      "excerpt": "Stop testing the happy path. Learn how to use property-based testing and Schemathesis to automate chaos and break your API before your users do We’ve all been there. You finish building a new API endp…",
+      "body": "Stop testing the happy path. Learn how to use property-based testing and Schemathesis to automate chaos and break your API before your users do The Problem with Manual Testing We’ve all been there. You finish building a new API endpoint, fire off a perfectly formatted JSON payload, and get a beautiful 200 OK . You write a few unit tests covering the expected inputs, watch the green checkmarks light up in your CI pipeline, and confidently merge the pull request. Then the code hits a live environment. A frontend glitch sends a massive integer instead of a string. A random scraper drops a 10MB payload into a query parameter. Someone decides to test your search bar with a null byte.",
+      "author": "David Oprea",
+      "date": "2026-07-22",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Api"
+      ],
+      "featured": true,
+      "xpReward": 44,
+      "url": "https://dev.to/david_oprea/why-your-unit-tests-arent-enough-and-how-to-break-your-own-api-5ge",
+      "image": "https://assets.dev.to/assets/github-logo-5a155e1f9a670af7944dd5e12375bc76ed542ea80224905ecaf878b9157cdefc.svg",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-51ead6cd3623",
+      "title": "Aether-7B-5Attn: VIDRAFT's Fully Open-Source MoE Foundation Model with Five Heterogeneous Attention Mechanisms",
+      "excerpt": "Aether-7B-5Attn: VIDRAFT's Fully Open-Source MoE Foundation Model with Five Heterogeneous Attention Mechanisms TL;DR: Korean AI startup VIDRAFT has released Aether-7B-5Attn on Hugging Face — a fully o…",
+      "body": "Aether-7B-5Attn: VIDRAFT's Fully Open-Source MoE Foundation Model with Five Heterogeneous Attention Mechanisms TL;DR: Korean AI startup VIDRAFT has released Aether-7B-5Attn on Hugging Face — a fully open-source Mixture-of-Experts foundation model with 6.59B total parameters that integrates five distinct attention mechanisms arranged in a novel Latin-square layer structure. It ships under Apache 2.0 with full training data recipes, code, hyperparameters, logs, intermediate checkpoints, and evaluation code, making it one of the most transparently documented open releases to date. What it is Aether-7B-5Attn is a foundation language model developed by VIDRAFT (비드래프트), a Seoul-based Pre-AGI AI deep-tech company.",
+      "author": "AI OpenFree",
+      "date": "2026-07-22",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 50,
+      "url": "https://dev.to/ai_openfree_b23025ef075cf/aether-7b-5attn-vidrafts-fully-open-source-moe-foundation-model-with-five-heterogeneous-attention-2ilh",
+      "image": "/images/feed/feed-51ead6cd3623.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-d59d38478267",
+      "title": "Zelda: Tears Of The Kingdom Gets Very Cool And Surprisingly Affordable Action Figures",
+      "excerpt": "Hasbro is bringing Hyrule to life for cheap",
+      "body": "Hasbro is bringing Hyrule to life for cheap\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Ethan Gach",
+      "date": "2026-07-22",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 47,
+      "url": "https://kotaku.com/zelda-tears-of-the-kingdom-gets-very-cool-and-surprisingly-affordable-action-figures-2000718523",
+      "image": "/images/feed/feed-d59d38478267.jpg",
+      "source": "Kotaku",
+      "isLive": true
+    },
+    {
+      "id": "feed-0175ed7ea310",
+      "title": "The Odyssey’s most important visual was inspired by a 58-year-old twist from a classic sci-fi movie",
+      "excerpt": "Christopher Nolan has been thinking about how to film the Trojan Horse for decades",
+      "body": "The Trojan horse is one of those indelible images. It’s a tale that most of us are acquainted with, whether we studied it in school, saw it in a movie, read about it in books, or heard it mentioned in a song . In Greek mythology, the Trojan horse was a trick devised by Odysseus in the Trojan War, resulting in the end of a struggle that had dragged on for a decade. The giant wooden horse was presented as a peace offering to the Trojans and was dragged inside the city's impregnable walls, only for Greek warriors to crawl out of it and destroy the city in one night.",
+      "author": "Maria Loreto",
+      "date": "2026-07-22",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 37,
+      "url": "https://www.polygon.com/the-odyssey-trojan-horse-drew-inspiration-from-planet-of-the-apes/",
+      "image": "/images/feed/feed-0175ed7ea310.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-cafdda87fb2f",
+      "title": "Nearly 4,000 Tennesseans Speak Out Against TVA’s Fossil Fuel-Powered Energy Plan",
+      "excerpt": "NASHVILLE — Nearly 4,000 Tennesseans criticized the Tennessee Valley Authority’s energy plan as short-sighted and over reliant on gas. The Sierra Club submitted 3,669 comments on behalf of its support…",
+      "body": "NASHVILLE — Nearly 4,000 Tennesseans criticized the Tennessee Valley Authority’s energy plan as short-sighted and over reliant on gas. The Sierra Club submitted 3,669 comments on behalf of its supporters as well as its own technical comments on TVA’s 2026 preliminary Integrated Resource Plan, the federal utility’s long-term energy plan that maps ... [continued] The post Nearly 4,000 Tennesseans Speak Out Against TVA’s Fossil Fuel-Powered Energy Plan appeared first on CleanTechnica .",
+      "author": "Press Release",
+      "date": "2026-07-22",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Cars"
+      ],
+      "featured": false,
+      "xpReward": 53,
+      "url": "https://cleantechnica.com/2026/07/22/nearly-4000-tennesseans-speak-out-against-tvas-fossil-fuel-powered-energy-plan/",
+      "image": "/images/feed/feed-cafdda87fb2f.png",
+      "source": "CleanTechnica",
+      "isLive": true
+    },
+    {
+      "id": "feed-0bd28f08dd41",
+      "title": "Stone.js: your app exists in every runtime, until you run it",
+      "excerpt": "The rewrite tax Count the versions of your last real-world app. There is the Express or Nest version for the server. The handler you extracted and mangled for Lambda. The API routes you re-declared wh…",
+      "body": "The rewrite tax Count the versions of your last real-world app. There is the Express or Nest version for the server. The handler you extracted and mangled for Lambda. The API routes you re-declared when the frontend moved to Next. And now someone is asking for an MCP server so agents can use it. Same domain logic. Four incarnations. Every framework you picked made you pay this tax, because every framework has a home runtime and your code belongs to it. Stone.js starts from the opposite premise: an application is not an object, it is an act . Application = Domain x Context . You write the domain once; the context (server, function, browser, agent) applies itself to your domain at runtime, not the other way around. Show me A domain is just classes or functions.",
+      "author": "Mr. Stone",
+      "date": "2026-07-22",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 39,
+      "url": "https://dev.to/mr_stone/stonejs-your-app-exists-in-every-runtime-until-you-run-it-2n8o",
+      "image": "/images/feed/feed-0bd28f08dd41.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-fcebc1a53f19",
+      "title": "Ford Just Made It Easier To Back Up Your House With An F-150 Hybrid Or Lightning",
+      "excerpt": "The new solution means you don't need to use a mess of extension cords to back up your fridge or other appliances.",
+      "body": "The new solution means you don't need to use a mess of extension cords to back up your fridge or other appliances.\n\nThis report, published by InsideEVs, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Hybrid. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to InsideEVs using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "InsideEVs",
+      "date": "2026-07-22",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Hybrid"
+      ],
+      "featured": false,
+      "xpReward": 33,
+      "url": "https://insideevs.com/news/802486/ford-truck-backup-power/",
+      "image": "/images/feed/feed-fcebc1a53f19.jpg",
+      "source": "InsideEVs",
+      "isLive": true
+    },
+    {
+      "id": "feed-308f89c07093",
+      "title": "Apple updates macOS 28 guidance with direct encrypted HFS+ to APFS conversion",
+      "excerpt": "Users who rely on encrypted HFS+ drives will no longer need to decrypt them before converting them to APFS for macOS 28 compatibility. Here’s what that means.",
+      "body": "Users who rely on encrypted HFS+ drives will no longer need to decrypt them before converting them to APFS for macOS 28 compatibility. Here’s what that means.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Marcus Mendes",
+      "date": "2026-07-22",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 39,
+      "url": "https://9to5mac.com/2026/07/22/apple-updates-macos-28-guidance-with-direct-encrypted-hfs-to-apfs-conversion/",
+      "image": "/images/feed/feed-308f89c07093.jpg",
+      "source": "9to5Mac",
+      "isLive": true
+    },
+    {
+      "id": "feed-6ae97beefcd0",
+      "title": "Unlikely Pokémon Winds & Waves monster hides 20 years of history",
+      "excerpt": "A small detail in Pokémon Pokopia might've been planned for Diamond & Pearl. And we may not see the full version until the Switch 2 Pokémon games",
+      "body": "Pokémon archivists just released footage of a never-before-seen documentary about the making of 2007's Pokémon Diamond and Pokémon Pearl , and it's proven to be a treasure trove of trivia for hardcore fans. There's an inside look at how Game Freak develops starters, early Pokémon designs for some of the most iconic characters, and surprisingly, tidbits that shed light on modern Pokémon games. Developers at Game Freak came up with ideas 20 years ago that did not see the light of day until the release of Pokémon Pokopia . And the idea might reappear when Pokémon Winds and Waves is released next year.",
+      "author": "Patricia Hernandez",
+      "date": "2026-07-22",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 50,
+      "url": "https://www.polygon.com/pokemon-winds-waves-leak-diamond-pearl-doc-monster-design-pokopia/",
+      "image": "/images/feed/feed-6ae97beefcd0.png",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-4f46f97d1be6",
+      "title": "World Of Warcraft Players Think They’ve Uncovered An Insider Raiding Scandal",
+      "excerpt": "That's...not a real ability",
+      "body": "That's...not a real ability\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Rebekah Valentine",
+      "date": "2026-07-22",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 46,
+      "url": "https://kotaku.com/world-of-warcraft-insider-raiding-scandal-2000718464",
+      "image": "/images/feed/feed-4f46f97d1be6.jpg",
+      "source": "Kotaku",
+      "isLive": true
+    },
+    {
+      "id": "feed-a82df7a69ac4",
+      "title": "Save $1,500 Off an Alienware Area-51 Ryzen X3D Gaming PC With RTX 5090 GPU and 64GB of RAM",
+      "excerpt": "Still expensive, but a competitive price point in today's market for an extremely powerful gaming PC.",
+      "body": "Dell is offering a steep discount on its most powerful desktop computer. The Alienware Area-51 AMD Ryzen X3D edition gaming PC equipped with a GeForce RTX 5090 GPU and 64GB of DDR5-6400MHz RAM has dropped to $5,399.99 shipped after a $1,500 instant discount. No, it&#39;s still not even remotely affordable for most people, but if you&#39;ve got deep pockets, this is a substantial discount on a beastly Alienware system. If you look at the prices of the individual components in today&#39;s market, it&#39;s (sadly) not as ridiculous as your initial sticker shock might lead you to believe. Alienware Area-51 Ryzen X3D RTX 5090 Gaming PC w/ 64GB RAM The Alienware Area-51 is Dell&#39;s flagship gaming PC.",
+      "author": "Eric Song",
+      "date": "2026-07-22",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 42,
+      "url": "https://www.ign.com/articles/dell-alienware-area-51-rtx-5090-gaming-pc-deal-july-2026",
+      "image": "/images/feed/feed-a82df7a69ac4.jpg",
+      "source": "IGN",
+      "isLive": true
+    },
+    {
+      "id": "feed-7246091bb127",
+      "title": "Jimothy, the Viral Raccoon, Scurries Across Your Screen in Google Animation",
+      "excerpt": "The short-spined critter also has a bobblehead, art contest, police sketch and recently won a race at a Seattle Mariners game.",
+      "body": "The short-spined critter also has a bobblehead, art contest, police sketch and recently won a race at a Seattle Mariners game.\n\nThis report, published by CNET, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to CNET using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Gael Cooper",
+      "date": "2026-07-22",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 41,
+      "url": "https://www.cnet.com/news/jimothy-viral-raccoon-google-animation/",
+      "image": "/images/feed/feed-7246091bb127.png",
+      "source": "CNET",
+      "isLive": true
+    },
     {
       "id": "feed-60a6521e66e9",
       "title": "Check out this nifty 3D Playdate game demo",
@@ -13,49 +317,11 @@
       "tags": [
         "Gadgets"
       ],
-      "featured": true,
-      "xpReward": 46,
+      "featured": false,
+      "xpReward": 32,
       "url": "https://www.engadget.com/2221371/check-out-this-nifty-3d-playdate-game-demo/",
       "image": "/images/feed/feed-60a6521e66e9.jpg",
       "source": "Engadget",
-      "isLive": true
-    },
-    {
-      "id": "feed-c2491157bbf8",
-      "title": "An ESP32 and Eight ToF Sensors Give This Antique Lamp a Sixth Sense",
-      "excerpt": "What if a floor lamp could feel you crossing the room and answer with light and sound? That is the trick behind Bloom Chandelier, an interactive installation built around a brass floor lamp handed dow…",
-      "body": "What if a floor lamp could feel you crossing the room and answer with light and sound? That is the trick behind Bloom Chandelier, an interactive installation built around a brass floor lamp handed down from the maker's great-grandmother. Instead of a switch, the lamp watches the space around it. Walk closer and it glows brighter while soft tones swell up from nowhere. Step away and both the light and the sound fade back into silence, leaving a short trail behind you like a wake. How does it know you are there? Eight VL53L1X time-of-flight sensors ring the lamp's collar, giving it a full 360-degree view that reaches roughly four feet out. These are not motion detectors.",
-      "author": "circuitrocks",
-      "date": "2026-07-22",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 46,
-      "url": "https://dev.to/circuitrocks/an-esp32-and-eight-tof-sensors-give-this-antique-lamp-a-sixth-sense-2824",
-      "image": "/images/feed/feed-c2491157bbf8.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-f82e2a175190",
-      "title": "Meta won’t have to face the next planned social media addiction trial",
-      "excerpt": "Less than a week before Meta's lawyers were set to return to a Los Angeles courtroom, the plaintiff accusing the platform of inflicting harm dropped the case. Brought by 15-year-old Florida plaintiff…",
-      "body": "Less than a week before Meta's lawyers were set to return to a Los Angeles courtroom , the plaintiff accusing the platform of inflicting harm dropped the case. Brought by 15-year-old Florida plaintiff going by initials R.K.C., the case was set to be the second in a set of bellwether trials meant to test legal arguments that social media giants allegedly broke the law by creating features that hooked and harmed teens. TikTok, Snap, and YouTube previously settled claims brought by R.K.C. for undisclosed amounts. \"In light of the overall successful result of the litigation and his concerns about enduring a grueling weekslong trial, he has elect … Read the full story at The Verge.",
-      "author": "Lauren Feiner",
-      "date": "2026-07-22",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 37,
-      "url": "https://www.theverge.com/policy/969644/meta-social-media-addiction-trial-dropped",
-      "image": "/images/feed/feed-f82e2a175190.jpg",
-      "source": "The Verge",
       "isLive": true
     },
     {
@@ -70,49 +336,11 @@
       "tags": [
         "Gadgets"
       ],
-      "featured": true,
-      "xpReward": 33,
+      "featured": false,
+      "xpReward": 51,
       "url": "https://www.engadget.com/2221369/steam-adds-handy-gifting-and-wishlist-updates/",
       "image": "/images/feed/feed-27dcea7781fc.jpg",
       "source": "Engadget",
-      "isLive": true
-    },
-    {
-      "id": "feed-22d1b91ecd7a",
-      "title": "Loop Engineering: How to Stop Your Agent Reward-Hacking Its Own Checks",
-      "excerpt": "You gave the agent a failing test and told it to get the suite green. It came back green. Then you read the diff: it did not touch the code under test. It edited the test. The assertion that read == 9…",
-      "body": "You gave the agent a failing test and told it to get the suite green. It came back green. Then you read the diff: it did not touch the code under test. It edited the test . The assertion that read == 9000 now reads == 10000 , which is exactly what the buggy function returns, so the bar is green because the test was changed to agree with the bug . This has a name. It is reward hacking, and it is not a rare glitch on the margins. Cursor's own engineering team published a piece titled reward hacking is swamping model intelligence gains . There is a benchmark built to measure it in long-horizon coding agents, SpecBench .",
-      "author": " Gábor Mészáros",
-      "date": "2026-07-22",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 34,
-      "url": "https://dev.to/reporails/loop-engineering-how-to-stop-your-agent-reward-hacking-its-own-checks-4fpn",
-      "image": "/images/feed/feed-22d1b91ecd7a.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-42dd8f7444e9",
-      "title": "Google justifies its massive AI spending with a booming cloud business",
-      "excerpt": "Google's cloud business is thriving, as companies adopting its AI and AI infrastructure services help the tech giant to report record profits.",
-      "body": "Google's cloud business is thriving, as companies adopting its AI and AI infrastructure services help the tech giant to report record profits.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Software. As the situation continues to evolve, professionals and enthusiasts in the software development and engineering field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Lucas Ropek",
-      "date": "2026-07-22",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 38,
-      "url": "https://techcrunch.com/2026/07/22/google-justifies-its-massive-ai-spending-with-a-booming-cloud-business/",
-      "image": "/images/feed/feed-42dd8f7444e9.jpg",
-      "source": "TechCrunch",
       "isLive": true
     },
     {
@@ -128,67 +356,10 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 37,
       "url": "https://kotaku.com/ex-assassins-creed-hexe-director-explains-why-trying-to-get-things-done-with-1000-person-teams-felt-like-pissing-upstream-2000718473",
       "image": "/images/feed/feed-10118e725cf0.jpg",
       "source": "Kotaku",
-      "isLive": true
-    },
-    {
-      "id": "feed-bc6c1a712780",
-      "title": "Medici family mystery may be solved after more than 400 years",
-      "excerpt": "",
-      "body": "This report, published by Hacker News, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Software. As the situation continues to evolve, professionals and enthusiasts in the software development and engineering field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Hacker News using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "effects",
-      "date": "2026-07-22",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 32,
-      "url": "https://www.cnn.com/2026/07/15/science/medici-family-mystery-dna-malaria",
-      "image": "/images/topics/topic-software.png",
-      "source": "Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-cda548505dc0",
-      "title": "Any text-to-SQL benchmark should address difficulties of real-world data stores",
-      "excerpt": "",
-      "body": "This report, published by Hacker News, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Software. As the situation continues to evolve, professionals and enthusiasts in the software development and engineering field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Hacker News using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "shenli3514",
-      "date": "2026-07-22",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 46,
-      "url": "https://cacm.acm.org/blogcacm/if-you-think-you-can-do-real-world-text-to-sql/",
-      "image": "/images/topics/topic-software.png",
-      "source": "Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-091a5b00b1e3",
-      "title": "Today’s NYT Strands Hints, Answers and Help for July 23 #872",
-      "excerpt": "Here are hints and answers for the NYT Strands puzzle No. 872 for Thursday, July 23",
-      "body": "Here are hints and answers for the NYT Strands puzzle No. 872 for Thursday, July 23\n\nThis report, published by CNET, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Software. As the situation continues to evolve, professionals and enthusiasts in the software development and engineering field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to CNET using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Gael Cooper",
-      "date": "2026-07-22",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 36,
-      "url": "https://www.cnet.com/tech/gaming/todays-nyt-strands-hints-answers-and-help-for-july-23-872/",
-      "image": "/images/feed/feed-091a5b00b1e3.jpg",
-      "source": "CNET",
       "isLive": true
     },
     {
@@ -204,7 +375,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 35,
       "url": "https://www.androidauthority.com/google-meet-organizes-meeting-files-in-drive-folder-3690434/",
       "image": "/images/feed/feed-98956cf507ce.jpg",
       "source": "Android Authority",
@@ -223,48 +394,10 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 51,
       "url": "https://www.bleepingcomputer.com/news/security/upbound-says-hack-caused-13-million-in-fraudulent-acima-leases/",
       "image": "/images/feed/feed-2e55b9346eb2.jpg",
       "source": "BleepingComputer",
-      "isLive": true
-    },
-    {
-      "id": "feed-3c617c145cba",
-      "title": "Samsung Galaxy Z Fold 8 Ultra Review So Far",
-      "excerpt": "The Samsung Galaxy Z Fold 8 Ultra is Samsung's latest flagship foldable, and while it brings the better battery and camera that I've been wanting for years, its $2099 price tag is hard to swallow.",
-      "body": "Earlier today, Samsung launched the Galaxy Z Fold 8 Ultra, along with the Fold 8 and the Flip 8. Now, aside from tacking ‘Ultra’ onto the name, the Z Fold 8 Ultra looks and feels a lot like last year’s Z Fold 7 . I’ve even put them next to each other, and apart from last year’s much more vivid colorway, I legitimately couldn’t tell the difference between them. However, appearances are only skin deep, and Samsung has made some big improvements over its last-generation foldables, like finally including the same 5000mAh battery you’d find in the Galaxy S26 Ultra that came out earlier this year. That doesn’t necessarily justify adding the Ultra to the name, but I suspect it has something to do with the Fold 8 Ultra’s new $2099 price tag.",
-      "author": "Jacqueline Thomas",
-      "date": "2026-07-22",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 38,
-      "url": "https://www.ign.com/articles/samsung-galaxy-z-fold-8-ultra-review",
-      "image": "/images/feed/feed-3c617c145cba.jpg",
-      "source": "IGN",
-      "isLive": true
-    },
-    {
-      "id": "feed-d19ecfb75b59",
-      "title": "Ex-Disney CEO Says He Doesn’t Remember Why He Greenlit Kingdom Hearts",
-      "excerpt": "The Disney and Final Fantasy crossover does sound like a hard sell",
-      "body": "The Disney and Final Fantasy crossover does sound like a hard sell\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Kenneth Shepard",
-      "date": "2026-07-22",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 39,
-      "url": "https://kotaku.com/kingdom-hearts-disney-pitch-square-enix-greenlight-story-2000718510",
-      "image": "/images/feed/feed-d19ecfb75b59.jpg",
-      "source": "Kotaku",
       "isLive": true
     },
     {
@@ -280,7 +413,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 41,
       "url": "https://www.androidauthority.com/galaxy-watch-ultra-2-diving-subscription-3690422/",
       "image": "/images/feed/feed-cc1d49d05e9b.jpg",
       "source": "Android Authority",
@@ -300,7 +433,7 @@
         "Orbit"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 39,
       "url": "https://spacenews.com/chinas-shijian-31-satellite-is-sweeping-geo-using-a-unique-orbit/",
       "image": "/images/feed/feed-fca44bbd5c22.jpg",
       "source": "SpaceNews",
@@ -319,29 +452,10 @@
         "Foldable"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 45,
       "url": "https://www.cnet.com/tech/mobile/higher-samsung-prices-foldables-ram-shortage/",
       "image": "/images/feed/feed-8d6d5e2def5a.jpg",
       "source": "CNET",
-      "isLive": true
-    },
-    {
-      "id": "feed-1ce176f88506",
-      "title": "Someone Just Leaked An Internal Pokémon Diamond And Pearl Documentary That Shows Tons Of Adorable Scrapped Pokémon Designs",
-      "excerpt": "THERE'S A DELIBIRD EVOLUTION",
-      "body": "THERE'S A DELIBIRD EVOLUTION\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Rebekah Valentine",
-      "date": "2026-07-22",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 32,
-      "url": "https://kotaku.com/pokemon-diamond-pearl-documentary-leak-scrapped-2000718475",
-      "image": "/images/feed/feed-1ce176f88506.jpg",
-      "source": "Kotaku",
       "isLive": true
     },
     {
@@ -358,7 +472,7 @@
         "Satellite"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 50,
       "url": "https://www.space.com/space-exploration/launches-spacecraft/chinas-record-breaking-gravity-1-rocket-launches-9-satellites-from-a-ship-at-sea-video",
       "image": "/images/feed/feed-acb1bf159c29.jpg",
       "source": "Space.com",
@@ -377,7 +491,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 45,
       "url": "https://9to5mac.com/2026/07/22/apple-store-app-may-soon-get-an-ai-powered-shopping-assistant/",
       "image": "/images/feed/feed-a1835c7a70a5.jpg",
       "source": "9to5Mac",
@@ -396,68 +510,10 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 36,
       "url": "https://electrek.co/2026/07/22/tesla-robotaxi-growth-flat-own-chart-q2-2026/",
       "image": "/images/feed/feed-b45163529c33.png",
       "source": "Electrek",
-      "isLive": true
-    },
-    {
-      "id": "feed-8bc841202ac5",
-      "title": "Save $100 Off a Like New Asus ROG Xbox Ally X Handheld Gaming PC at Best Buy",
-      "excerpt": "The most powerful Windows-based gaming handheld.",
-      "body": "The Asus ROG Xbox Ally X is currently the best Windows gaming handheld PC on the market. It&#39;s powerful enough to run even the latest AAA Steam games thanks to the updated AMD Ryzen Z2 Extreme processor. The Xbox interface is also intuitive and easy to use. In fact, IGN&#39;s Jackie Thomas recommends getting the Xbox Ally (and Ally X) over a Steam Deck . All the miniaturization comes at a cost, and the Xbox Ally X sells for $1,000 with no price drop in sight. Fortunately, there is a simple way to get one for a significantly lower price, and that&#39;s by getting an open box unit. Save $100 Off an Excellent Condition Asus ROG Xbox Ally X Best Buy has recently refreshed its inventory of open box Asus ROG Xbox Ally X handheld gaming PCs.",
-      "author": "Eric Song",
-      "date": "2026-07-22",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Xbox",
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 51,
-      "url": "https://www.ign.com/articles/asus-rog-xbox-ally-x-handheld-gaming-pc-deal-july-2026",
-      "image": "/images/feed/feed-8bc841202ac5.jpg",
-      "source": "IGN",
-      "isLive": true
-    },
-    {
-      "id": "feed-b649d1a61a41",
-      "title": "US outlines its $5 billion Genesis Mission to boost science with AI",
-      "excerpt": "Several federal agencies are contributing toward the interdisciplinary research efforts.",
-      "body": "Several federal agencies are contributing toward the interdisciplinary research efforts.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Anna Washenko)",
-      "date": "2026-07-22",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 31,
-      "url": "https://www.engadget.com/2221309/us-outlines-its-5-billion-genesis-mission-to-boost-science-with-ai/",
-      "image": "/images/feed/feed-b649d1a61a41.jpg",
-      "source": "Engadget",
-      "isLive": true
-    },
-    {
-      "id": "feed-ca4019c06d00",
-      "title": "Pokémon Diamond & Pearl video reveals tons of early Pokémon designs",
-      "excerpt": "A Pokémon Diamond and Pearl documentary has been uploaded in full to YouTube, offering fans a look at how those games were made.",
-      "body": "A massive making-of documentary for Pokémon Diamond and Pokémon Pearl has been unearthed and thoroughly studied by fans, offering all-new insights into the development of the Nintendo DS game, including never-before-seen early monster designs.",
-      "author": "Austin Manchester",
-      "date": "2026-07-22",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 44,
-      "url": "https://www.polygon.com/pokemon-diamond-pearl-leak-early-designs-documentary/",
-      "image": "/images/feed/feed-ca4019c06d00.jpg",
-      "source": "Polygon",
       "isLive": true
     },
     {
@@ -492,29 +548,10 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 49,
       "url": "https://electrek.co/2026/07/22/subaru-delaying-3-row-getaway-ev-following-toyota/",
       "image": "/images/feed/feed-dd9f62575599.jpg",
       "source": "Electrek",
-      "isLive": true
-    },
-    {
-      "id": "feed-0cdb139523cc",
-      "title": "New Langrisser Tactics RPG Looks Like Gacha Slop That’s Ripping Off Unicorn Overlord",
-      "excerpt": "Come on, guys",
-      "body": "Come on, guys\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Ethan Gach",
-      "date": "2026-07-22",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 44,
-      "url": "https://kotaku.com/new-langrisser-tactics-rpg-looks-like-gacha-slop-thats-ripping-off-unicorn-overlord-2000718474",
-      "image": "/images/feed/feed-0cdb139523cc.jpg",
-      "source": "Kotaku",
       "isLive": true
     },
     {
@@ -530,7 +567,7 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 31,
       "url": "https://insideevs.com/news/802480/tesla-recalls-15-canadian-models/",
       "image": "/images/feed/feed-40a77197d8db.jpg",
       "source": "InsideEVs",
@@ -549,7 +586,7 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 42,
       "url": "https://electrek.co/2026/07/22/tesla-tsla-q2-2026-financial-results/",
       "image": "/images/feed/feed-bd882abcf19c.jpg",
       "source": "Electrek",
@@ -569,7 +606,7 @@
         "Breach"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 45,
       "url": "https://www.bleepingcomputer.com/news/security/south-korea-discloses-data-breach-impacting-diplomats-worldwide/",
       "image": "/images/feed/feed-036538756570.jpg",
       "source": "BleepingComputer",
@@ -588,7 +625,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 36,
       "url": "https://electrek.co/2026/07/22/ford-f-150-electric-trucks-can-now-power-home-electrical-panel/",
       "image": "/images/feed/feed-2ee665c5be49.jpg",
       "source": "Electrek",
@@ -607,7 +644,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 42,
       "url": "https://www.space.com/entertainment/space-movies-shows/5-disturbing-things-we-saw-after-digging-into-the-recent-dune-part-3-trailer",
       "image": "/images/feed/feed-6d5e40dc84d6.jpg",
       "source": "Space.com",
@@ -626,7 +663,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 49,
       "url": "https://techcrunch.com/2026/07/22/how-an-openais-human-mistake-led-to-the-ai-powered-hack-on-hugging-face/",
       "image": "/images/feed/feed-298db90fda8b.jpg",
       "source": "TechCrunch",
@@ -645,7 +682,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 47,
       "url": "https://www.wired.com/story/chinas-open-ai-models-are-challenging-silicon-valleys-playbook/",
       "image": "/images/feed/feed-7d7d859d0c3b.jpg",
       "source": "Wired",
@@ -664,10 +701,29 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 48,
       "url": "https://www.space.com/astronomy/comets/after-nearly-30-years-nasa-realized-this-near-earth-asteroid-is-actually-a-comet-the-discovery-may-help-us-defend-the-planet-some-day",
       "image": "/images/feed/feed-bf49ece8076b.jpg",
       "source": "Space.com",
+      "isLive": true
+    },
+    {
+      "id": "feed-348058de62a2",
+      "title": "NASA to Showcase Agency’s Newest Wind Tunnel in Virginia",
+      "excerpt": "Media are invited to NASA’s Langley Research Center in Hampton, Virginia, on Friday, July 31, to attend a media tour and ribbon-cutting ceremony for the Flight Dynamics Research Facility, the agency’s…",
+      "body": "The Flight Dynamics Research Facility, located at NASA’s Langley Research Center in Hampton, Virginia, is the agency’s first major wind tunnel built in more than 40 years. NASA/Mark Knopp Media are invited to NASA’s Langley Research Center in Hampton, Virginia, on Friday, July 31, to attend a media tour and ribbon-cutting ceremony for the Flight Dynamics Research Facility, the agency’s first new wind tunnel in more than 40 years. The event will include a brief media availability with: NASA Administrator Jared Isaacman Dr. Trina Dyal, center director, NASA Langley Administrator Edward C. Forst, U.S. General Services Administration This event is in person only and open to members of the media who are United States citizens or lawful permanent residents.",
+      "author": "Jennifer M. Dooren",
+      "date": "2026-07-22",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Nasa"
+      ],
+      "featured": false,
+      "xpReward": 37,
+      "url": "https://www.nasa.gov/news-release/nasa-to-showcase-agencys-newest-wind-tunnel-in-virginia/",
+      "image": "https://www.nasa.gov/wp-content/uploads/2026/07/langleyfdrfjune2026-ba2289.jpg",
+      "source": "NASA Breaking News",
       "isLive": true
     },
     {
@@ -683,7 +739,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 44,
       "url": "https://thehackernews.com/2026/07/github-cuts-public-bug-bounty-payouts.html",
       "image": "/images/feed/feed-6832f8fa2ac6.jpg",
       "source": "The Hacker News",
@@ -702,7 +758,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 33,
       "url": "https://spacenews.com/fcc-approves-sweeping-space-reforms-while-clearing-more-c-band-for-5g/",
       "image": "/images/feed/feed-61cc4237e2e0.jpg",
       "source": "SpaceNews",
@@ -721,29 +777,10 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 44,
       "url": "https://techcrunch.com/2026/07/22/science-corporations-vision-restoring-chip-wins-eu-approval/",
       "image": "/images/feed/feed-725e52aa7e59.jpg",
       "source": "TechCrunch",
-      "isLive": true
-    },
-    {
-      "id": "feed-c20d6847ad03",
-      "title": "France won’t approve Tesla ‘FSD’ yet, wants EU-wide sign-off first",
-      "excerpt": "France’s Transport Minister, Philippe Tabarot, says the country won’t authorize Tesla’s “Full Self-Driving” (Supervised) “as it currently stands,” pointing to two safety problems: the system lets driv…",
-      "body": "France’s Transport Minister, Philippe Tabarot, says the country won’t authorize Tesla’s “Full Self-Driving” (Supervised) “as it currently stands,” pointing to two safety problems: the system lets drivers speed, and it doesn’t keep them attentive enough in cities. But this isn’t France slamming the door on Tesla. It’s France refusing to rubber-stamp the Netherlands’ national approval and holding out for a proper EU-wide sign-off.",
-      "author": "Fred Lambert",
-      "date": "2026-07-22",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Tesla"
-      ],
-      "featured": false,
-      "xpReward": 52,
-      "url": "https://electrek.co/2026/07/22/france-tesla-fsd-approval-tabarot-speeding/",
-      "image": "/images/feed/feed-c20d6847ad03.jpg",
-      "source": "Electrek",
       "isLive": true
     },
     {
@@ -759,29 +796,10 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 41,
       "url": "https://thehackernews.com/2026/07/ubuntu-snap-confine-flaw-could-give.html",
       "image": "/images/feed/feed-460acdeac82f.jpg",
       "source": "The Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-75f40bb4494e",
-      "title": "Ebikes Are Perfect for Injury Recovery Exercise",
-      "excerpt": "For those of us getting a bit older, exercise can be a challenge. You exercise a lot because you are supposed to in order to be healthy and because you love it … but then you end up exercising too muc…",
-      "body": "For those of us getting a bit older, exercise can be a challenge. You exercise a lot because you are supposed to in order to be healthy and because you love it &#8230; but then you end up exercising too much or too hard and get injured. It has happened ... [continued] The post Ebikes Are Perfect for Injury Recovery Exercise appeared first on CleanTechnica .",
-      "author": "Zachary Shahan",
-      "date": "2026-07-22",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Cars"
-      ],
-      "featured": false,
-      "xpReward": 49,
-      "url": "https://cleantechnica.com/2026/07/22/ebikes-are-perfect-for-injury-recovery-exercise/",
-      "image": "/images/feed/feed-75f40bb4494e.jpg",
-      "source": "CleanTechnica",
       "isLive": true
     },
     {
@@ -797,31 +815,10 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 35,
       "url": "https://techcrunch.com/video/menlo-ventures-matt-murphy-explains-why-anthropic-is-winning-and-its-not-the-model/",
       "image": "/images/feed/feed-138565f55ec2.jpg",
       "source": "TechCrunch",
-      "isLive": true
-    },
-    {
-      "id": "feed-50fe705158bc",
-      "title": "NASA's Roman Space Telescope could reveal black holes ripping up stars. It's set to launch Aug. 30",
-      "excerpt": "NASA's next super telescope, the Nancy Grace Roman Space Telescope, may leave nowhere to hide for black holes that violently murder and devour stars, not even cosmic noon.",
-      "body": "The launch of NASA's next super telescope, the Nancy Grace Roman Space Telescope (Roman), may mean there is nowhere left for violent black holes to hide. In fact, these cosmic cannibals may not even be able to hide from Roman at \"cosmic noon,\" a period of the universe's history that occurred around 11 billion to 12 billion years ago. The study of these gory stellar events so early in the history of the universe could help reveal how supermassive black holes grew so big, so rapidly. Occurrences of black holes ripping apart stars are called tidal disruption events (TDEs), and they happen when an unfortunate star's orbit brings it too close to the immense gravitational influence of a supermassive black hole.",
-      "author": " Robert Lea ",
-      "date": "2026-07-22",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Nasa",
-        "Telescope",
-        "Space"
-      ],
-      "featured": false,
-      "xpReward": 51,
-      "url": "https://www.space.com/astronomy/black-holes/nasas-roman-space-telescope-could-reveal-black-holes-ripping-up-stars-its-set-to-launch-aug-30",
-      "image": "/images/feed/feed-50fe705158bc.png",
-      "source": "Space.com",
       "isLive": true
     },
     {
@@ -837,7 +834,7 @@
         "Chatgpt"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 51,
       "url": "https://chatgpt.com/share/6a5fdc7a-d6f8-83e8-bbea-8deb42cfed56",
       "image": "/images/feed/feed-678763b37da6.png",
       "source": "Hacker News",
@@ -856,7 +853,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 52,
       "url": "https://www.cnet.com/tech/services-and-software/ai-help-locate-your-lost-photos-media/",
       "image": "/images/feed/feed-717659669a5f.jpg",
       "source": "CNET",
@@ -875,7 +872,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 45,
       "url": "https://www.zdnet.com/article/firefox-153-enables-containers-by-default/",
       "image": "/images/feed/feed-feb95c226d01.jpg",
       "source": "ZDNet",
@@ -894,7 +891,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 45,
       "url": "https://www.bleepingcomputer.com/news/security/swiss-rail-giant-stadler-rejects-123m-ransom-demand-after-cyberattack/",
       "image": "/images/feed/feed-fd298fe7b34f.jpg",
       "source": "BleepingComputer",
@@ -913,7 +910,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 43,
       "url": "https://techcrunch.com/2026/07/22/openais-ai-spending-spree-has-ballooned-to-750b/",
       "image": "/images/feed/feed-031142badcc9.jpg",
       "source": "TechCrunch",
@@ -932,7 +929,7 @@
         "Ransomware"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 50,
       "url": "https://www.bleepingcomputer.com/news/security/how-enterprise-genai-can-amplify-ransomware-risk-and-how-to-contain-it/",
       "image": "https://www.bleepstatic.com/content/posts/2026/07/22/ai-prompt-acronis.jpeg",
       "source": "BleepingComputer",
@@ -940,16 +937,16 @@
     }
   ],
   "breakingNews": [
-    "ENGADGET: Check out this nifty 3D Playdate game demo",
-    "DEV.TO: An ESP32 and Eight ToF Sensors Give This Antique Lamp a Sixth Sense",
-    "THE VERGE: Meta won’t have to face the next planned social media addiction trial",
-    "ENGADGET: Steam adds handy gifting and wishlist updates",
-    "DEV.TO: Loop Engineering: How to Stop Your Agent Reward-Hacking Its Own Checks",
-    "TECHCRUNCH: Google justifies its massive AI spending with a booming cloud business",
-    "KOTAKU: Ex-Assassin’s Creed Hexe Director Explains Why Trying To Get Things Done With 1,000-Person Teams Felt Like ‘Pissing Upstream’",
-    "HACKER NEWS: Medici family mystery may be solved after more than 400 years",
-    "HACKER NEWS: Any text-to-SQL benchmark should address difficulties of real-world data stores",
-    "CNET: Today’s NYT Strands Hints, Answers and Help for July 23 #872"
+    "DEV.TO: Implementing UUID v7 by hand: time-sortable primary keys (and the same-millisecond trap)",
+    "DEV.TO: Expiring Content: Put the Deadline in the Data, Not the Prose",
+    "DEV.TO: Enforcing Content Tone With a Lint That Fails the Build",
+    "DEV.TO: Understanding Next.js Page Caching (with a real example)",
+    "DEV.TO: Why Your Unit Tests Aren't Enough (And How to Break Your Own API)",
+    "DEV.TO: Aether-7B-5Attn: VIDRAFT's Fully Open-Source MoE Foundation Model with Five Heterogeneous Attention Mechanisms",
+    "KOTAKU: Zelda: Tears Of The Kingdom Gets Very Cool And Surprisingly Affordable Action Figures",
+    "POLYGON: The Odyssey’s most important visual was inspired by a 58-year-old twist from a classic sci-fi movie",
+    "CLEANTECHNICA: Nearly 4,000 Tennesseans Speak Out Against TVA’s Fossil Fuel-Powered Energy Plan",
+    "DEV.TO: Stone.js: your app exists in every runtime, until you run it"
   ],
   "sectionVideos": {}
 }
