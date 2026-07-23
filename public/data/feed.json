@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-07-23T09:52:30.306Z",
+  "fetchedAt": "2026-07-23T10:47:52.125Z",
   "articles": [
     {
-      "id": "feed-bd2e3e433a42",
-      "title": "Ink & Switch Introduces Bijou64: Canonical Variable-Length Integer Encoding for Safe Parsing",
-      "excerpt": "Ink & Switch published bijou64, a variable-length integer encoding where every number has exactly one byte representation, closing the canonicality bug class behind attacks on PKCS#1, JWT libraries, a…",
-      "body": "Ink & Switch published bijou64, a variable-length integer encoding where every number has exactly one byte representation, closing the canonicality bug class behind attacks on PKCS#1, JWT libraries, and Bitcoin. The design also decodes two to ten times faster than LEB128. Community ports to Elixir, Go, Perl, and Java followed, while HN commenters debated SIMD performance and residual range checks. By Steef-Jan Wiggers",
-      "author": "Steef-Jan Wiggers",
+      "id": "feed-8d98793c96b5",
+      "title": "A CORS Mismatch That Broke DocMind AI on a Fresh Netlify Deploy",
+      "excerpt": "This is a submission for DEV's Summer Bug Smash: Clear the Lineup powered by Sentry. DocMind AI is a RAG-based document chatbot — you upload documents and ask questions about them, and it retrieves re…",
+      "body": "This is a submission for DEV's Summer Bug Smash: Clear the Lineup powered by Sentry . Project Overview DocMind AI is a RAG-based document chatbot — you upload documents and ask questions about them, and it retrieves relevant context and generates grounded answers. The stack: FastAPI backend, Groq LLaMA 3.3 for generation, Pinecone for vector storage, HuggingFace embeddings, and a Netlify-hosted frontend, with voice input/output built on top. Bug Fix or Performance Improvement The backend already had CORS configured correctly in principle — CORSMiddleware was in place, scoped to a specific origin rather than a wildcard, with allow_credentials=False and an explicit method/header allowlist. That part was never the problem. The actual bug was a domain mismatch.",
+      "author": "Urooj Fatima",
       "date": "2026-07-23",
       "readTime": "2 min",
       "section": "software",
@@ -14,170 +14,132 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 30,
-      "url": "https://www.infoq.com/news/2026/07/bijou64-canonical-varint/?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=global",
-      "image": "/images/feed/feed-bd2e3e433a42.jpg",
-      "source": "InfoQ",
-      "isLive": true
-    },
-    {
-      "id": "feed-68f5a4cde825",
-      "title": "AI Agents Inside CI/CD: How We Automated PR Triage and Reduced Review Bottlenecks",
-      "excerpt": "Over the past few months, I've been exploring how AI agents can fit into a modern CI/CD pipeline—not to replace engineers, but to eliminate repetitive work that slows teams down. Here's what worked we…",
-      "body": "Over the past few months, I've been exploring how AI agents can fit into a modern CI/CD pipeline—not to replace engineers, but to eliminate repetitive work that slows teams down. Here's what worked well: ✅ Automatically categorized incoming pull requests ✅ Flagged potential security and dependency issues ✅ Suggested fixes for linting and test failures ✅ Generated review summaries for faster code reviews ✅ Reduced context switching for reviewers The biggest lesson? AI is most valuable before the human review begins. The Problem Every engineering team eventually runs into the same issue. Developers submit pull requests faster than reviewers can process them.",
-      "author": "joshua dyson",
-      "date": "2026-07-23",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 43,
-      "url": "https://dev.to/joshua_dyson/ai-agents-inside-cicd-how-we-automated-pr-triage-and-reduced-review-bottlenecks-c16",
-      "image": "/images/feed/feed-68f5a4cde825.webp",
+      "xpReward": 52,
+      "url": "https://dev.to/codewithurooj/a-cors-mismatch-that-broke-docmind-ai-on-a-fresh-netlify-deploy-published-79c",
+      "image": "/images/feed/feed-8d98793c96b5.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-239f0e9ffb09",
-      "title": "GitLab CI \"Cannot connect to unix:///var/run/docker.sock\"",
-      "excerpt": "The fast fix If your GitLab CI job fails with Cannot connect to the Docker daemon at unix:///var/run/docker.sock, your docker client is looking for a local socket that does not exist inside the job co…",
-      "body": "The fast fix If your GitLab CI job fails with Cannot connect to the Docker daemon at unix:///var/run/docker.sock , your docker client is looking for a local socket that does not exist inside the job container, because DOCKER_HOST is not set. Point the client at the docker:dind service over TCP and the error goes away: build : image : docker:28.3 services : - name : docker:28.3-dind alias : docker variables : DOCKER_HOST : tcp://docker:2376 DOCKER_TLS_CERTDIR : \" /certs\" DOCKER_CERT_PATH : \" /certs/client\" DOCKER_TLS_VERIFY : \" 1\" script : - docker info - docker build -t my-app . That is the whole fix for the common case.",
-      "author": "DevOps Start",
-      "date": "2026-07-23",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 48,
-      "url": "https://dev.to/devopsstart/gitlab-ci-cannot-connect-to-unixvarrundockersock-1doj",
-      "image": "/images/feed/feed-239f0e9ffb09.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-bd329874d5f5",
-      "title": "Pulling Business Rules Out of Your Service Isn't a Rewrite. It's a Seam.",
-      "excerpt": "Teams treat \"externalize the rules\" as two different decisions depending on the stack. In Node, it's \"which npm package handles conditionals.\" In Java, it's \"do we adopt Drools.\" Both framings are wro…",
-      "body": "Teams treat \"externalize the rules\" as two different decisions depending on the stack. In Node, it's \"which npm package handles conditionals.\" In Java, it's \"do we adopt Drools.\" Both framings are wrong in the same way — they turn an architecture decision into a product decision before anyone's actually designed the seam. The seam is the same regardless of language: rules become data instead of control flow, the boundary between your service and the rule layer is typed on both sides, and a contract test catches the moment a rule change would silently break what your code expects back. Get that seam right and it barely matters whether you're calling it from Express or Spring Boot. Get it wrong and you've just moved your if statements into a config file and called it progress.",
-      "author": "Snehasish Konger",
-      "date": "2026-07-23",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 46,
-      "url": "https://dev.to/snehasishkonger/pulling-business-rules-out-of-your-service-isnt-a-rewrite-its-a-seam-1o50",
-      "image": "/images/feed/feed-bd329874d5f5.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-282dd4923840",
-      "title": "Unhandled Promise Rejections in Node.js: Why They Silently Kill Jobs",
-      "excerpt": "A background worker sits quietly for weeks, chewing through a job queue without incident, and then one Tuesday afternoon it disappears mid-batch, taking forty in-flight jobs down with it. No stack tra…",
-      "body": "A background worker sits quietly for weeks, chewing through a job queue without incident, and then one Tuesday afternoon it disappears mid-batch, taking forty in-flight jobs down with it. No stack trace pointing at the offending line, no alert until a customer notices their export never finished. Nine times out of ten, the culprit is one of the most under-discussed failure modes in server-side JavaScript: unhandled promise rejections. They are easy to introduce, easy to miss in code review, and in modern Node.js they no longer just print a warning — they can end your process outright.",
-      "author": "Faisal Nadeem",
-      "date": "2026-07-23",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 49,
-      "url": "https://dev.to/faisal_nadeem_752520c3e03/unhandled-promise-rejections-in-nodejs-why-they-silently-kill-jobs-dl2",
-      "image": "/images/feed/feed-282dd4923840.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-491f01bf1814",
-      "title": "Samsung is playing a dangerous game with the Galaxy Z Fold 8’s missing S Pen support",
-      "excerpt": "The S Pen is a part of the Samsung experience I won't give up.",
-      "body": "https://youtu.be/RGTGAkNOjCU It’s been a year since Samsung removed the S Pen from the Galaxy Z Fold series. The Z Fold 7 debuted a welcome redesign that was thinner and lighter than ever before, and the hardware needed to power the stylus is one of the things sacrificed to make that happen.",
-      "author": "Zac Kew-Denniss",
-      "date": "2026-07-23",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": true,
-      "xpReward": 53,
-      "url": "https://www.androidauthority.com/galaxy-z-fold-8-missing-s-pen-support-dangerous-game-3689243/",
-      "image": "/images/feed/feed-491f01bf1814.jpg",
-      "source": "Android Authority",
-      "isLive": true
-    },
-    {
-      "id": "feed-f8d19bd8d486",
-      "title": "My Week of Transparent Living With Apple’s ‘More Clear’ Liquid Glass Setting",
-      "excerpt": "I cranked Apple’s iOS 27 beta to maximum transparency on my iPhone and enjoyed every warped second.",
-      "body": "I cranked Apple’s iOS 27 beta to maximum transparency on my iPhone and enjoyed every warped second.\n\nThis report, published by Wired, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Wired using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Reece Rogers",
-      "date": "2026-07-23",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 45,
-      "url": "https://www.wired.com/story/my-week-of-transparent-living-with-apples-more-clear-liquid-glass-setting/",
-      "image": "/images/feed/feed-f8d19bd8d486.jpg",
-      "source": "Wired",
-      "isLive": true
-    },
-    {
-      "id": "feed-c3081f8ec6c0",
-      "title": "Framework’s premium laptop is shipping with less RAM",
-      "excerpt": "The Framework Laptop 13 Pro configuration you wanted may not be available for a while. | Image: Framework RAMageddon has claimed yet another victim, with Framework now announcing a \"major and unfortun…",
-      "body": "The Framework Laptop 13 Pro configuration you wanted may not be available for a while. | Image: Framework RAMageddon has claimed yet another victim, with Framework now announcing a \"major and unfortunate\" pricing update for its upcoming premium laptop - which also impacts folks who preordered it. Memory configurations for the Laptop 13 Pro have been adjusted after Framework says it received cost updates from its memory supplier that \"are more than double that of the prior inventory.\" While Framework says it has enough LPCAMM2 memory modules on hand to cover all existing preorders, they're not the right mix of 64GB, 32GB, and 16GB modules to match all preorder configurations. The company is now notifying some customers that the memory configurat … Read the full story at The Verge.",
+      "id": "feed-96eed6a172db",
+      "title": "Google hit with $1 billion fine for breaking EU antitrust rules",
+      "excerpt": "The European Union has fined Google's parent company Alphabet €890 million (about $1 billion) for two separate violations of the bloc's Digital Markets Act (DMA). One penalty is for giving its own pro…",
+      "body": "The European Union has fined Google's parent company Alphabet &euro;890 million (about $1 billion) for two separate violations of the bloc's Digital Markets Act (DMA). One penalty is for giving its own products preferential treatment in search results, while the other is for blocking Android developers from sending users to alternate payment options. A &euro;460 million fine has been issued to Google for giving preferential treatment to its own Shopping, Hotels, and Flights services in Google Search results. The second &euro;430 million penalty is for Play Store rules preventing developers from freely steering consumers to alternative mobile app systems. … Read the full story at The Verge.",
       "author": "Jess Weatherbed",
       "date": "2026-07-23",
       "readTime": "2 min",
-      "section": "gadgets",
+      "section": "software",
       "tags": [
-        "Laptop"
+        "Software"
       ],
-      "featured": false,
-      "xpReward": 39,
-      "url": "https://www.theverge.com/tech/969819/framework-laptop-13-pro-preorder-ram-price-updates",
-      "image": "/images/feed/feed-c3081f8ec6c0.jpg",
+      "featured": true,
+      "xpReward": 34,
+      "url": "https://www.theverge.com/tech/943866/google-alphabet-eu-dma-fine-search-services-play-store-steering",
+      "image": "/images/feed/feed-96eed6a172db.jpg",
       "source": "The Verge",
       "isLive": true
     },
     {
-      "id": "feed-a277114661e7",
-      "title": "Gemini 3.6 Flash & 3.5 Flash-Lite: Developer guide",
-      "excerpt": "Gemini 3.6 Flash (gemini-3.6-flash) and Gemini 3.5 Flash-Lite (gemini-3.5-flash-lite) are generally available (GA) and ready for production use. Gemini 3.6 Flash: Stronger performance on complex agent…",
-      "body": "Gemini 3.6 Flash ( gemini-3.6-flash ) and Gemini 3.5 Flash-Lite ( gemini-3.5-flash-lite ) are generally available (GA) and ready for production use. Gemini 3.6 Flash : Stronger performance on complex agentic and multimodal tasks while reducing token usage, at a lower price point than 3.5 Flash. Gemini 3.5 Flash-Lite : The fastest, lowest-cost model in the 3.5 family. Outperforms prior Flash-Lite generations for high-throughput execution. This guide explains what's new in each model, what API changes affect your code, and how to migrate. Tip : You can automate this migration with a coding agent that supports skills (like Antigravity).",
-      "author": "Patrick Loeber",
+      "id": "feed-27228099a93e",
+      "title": "10 Best Meal Delivery Services, Tested by an Ex-Restaurant Critic",
+      "excerpt": "Here are the best delivery services and meal kits in 2026, including Martha Stewart’s meal service, a GLP-1–supportive plan, and a budget-friendly option.",
+      "body": "Here are the best delivery services and meal kits in 2026, including Martha Stewart’s meal service, a GLP-1–supportive plan, and a budget-friendly option.\n\nThis report, published by Wired, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Software. As the situation continues to evolve, professionals and enthusiasts in the software development and engineering field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Wired using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Matthew Korfhage",
       "date": "2026-07-23",
       "readTime": "2 min",
       "section": "software",
       "tags": [
-        "Developer"
+        "Software"
       ],
-      "featured": false,
-      "xpReward": 39,
-      "url": "https://dev.to/googleai/gemini-36-flash-35-flash-lite-developer-guide-268i",
-      "image": "/images/feed/feed-a277114661e7.webp",
+      "featured": true,
+      "xpReward": 53,
+      "url": "https://www.wired.com/gallery/best-meal-kit-services-1/",
+      "image": "/images/feed/feed-27228099a93e.jpg",
+      "source": "Wired",
+      "isLive": true
+    },
+    {
+      "id": "feed-c5b90d5d12fb",
+      "title": "5 smartwatches you should buy instead of the Samsung Galaxy Watch Ultra 2",
+      "excerpt": "Don't buy a Galaxy Watch Ultra 2 just yet.",
+      "body": "Samsung has a duo of new Galaxy Watches out for 2026 , and one of them is the Galaxy Watch Ultra 2. It’s been just about two years since the first Watch Ultra was announced, and for the second model, Samsung has made some pretty impressive upgrades. Remember how thick the original Watch Ultra was? The Watch Ultra 2 is much thinner. The Watch Ultra 2 is more durable than its predecessor, features a slightly larger (and significantly brighter) display, a much newer chipset, and a considerably larger battery. Add it all together, and the Watch Ultra 2 sounds pretty great.",
+      "author": "Joe Maring",
+      "date": "2026-07-23",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Smartwatch"
+      ],
+      "featured": true,
+      "xpReward": 43,
+      "url": "https://www.androidauthority.com/samsung-galaxy-watch-ultra-2-alternatives-3690211/",
+      "image": "/images/feed/feed-c5b90d5d12fb.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-539d7f5314d1",
+      "title": "People Are Getting Off to Porn About ICE Raids",
+      "excerpt": "MAGA-coded adult content playing off immigration crackdowns, white supremacy, and obeying the “natural order” is finding rabid audiences on X.",
+      "body": "MAGA-coded adult content playing off immigration crackdowns, white supremacy, and obeying the “natural order” is finding rabid audiences on X.\n\nThis report, published by Wired, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Software. As the situation continues to evolve, professionals and enthusiasts in the software development and engineering field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Wired using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Jason Parham",
+      "date": "2026-07-23",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 41,
+      "url": "https://www.wired.com/story/people-are-getting-off-to-content-about-ice-raids/",
+      "image": "/images/feed/feed-539d7f5314d1.jpg",
+      "source": "Wired",
+      "isLive": true
+    },
+    {
+      "id": "feed-686ffa292750",
+      "title": "Better than Next.js? Is Rust Finally Ready for Full-Stack Web Development? Introducing Topcoat",
+      "excerpt": "There is a super-new Rust Web Framework in town, and it's name is Topcoat Rust is already a solid choice for backend development, especially with frameworks like Axum. But building a complete web appl…",
+      "body": "There is a super-new Rust Web Framework in town, and it's name is Topcoat Rust is already a solid choice for backend development, especially with frameworks like Axum. But building a complete web application in Rust still means connecting many different libraries yourself. That is the problem Topcoat wants to solve. Topcoat is a new batteries-included framework created by Carl Lerche and Julien Scholz for building full-stack, reactive web applications entirely in Rust. Announcement: https://tokio.rs/blog/2026-07-22-announcing-topcoat GitHub: https://github.com/tokio-rs/topcoat Prefer a video version? I discussed Topcoat directly with Carl Lerche, the creator of Tokio, and Julien Scholz, the creator of Topcoat. What is Topcoat? Topcoat is fully server-rendered.",
+      "author": "Francesco Ciulla",
+      "date": "2026-07-23",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 53,
+      "url": "https://dev.to/francescoxx/better-than-nextjs-is-rust-finally-ready-for-full-stack-web-development-introducing-topcoat-2h09",
+      "image": "/images/feed/feed-686ffa292750.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-4995f63429d3",
-      "title": "Enterprise architects: your overdue Entra decision is an agent CSA schema",
-      "excerpt": "If you are an enterprise architect working on Microsoft Entra and AI agents, your first overdue job is not another policy wizard, another dashboard, or another governance steering committee. It is sch…",
-      "body": "If you are an enterprise architect working on Microsoft Entra and AI agents, your first overdue job is not another policy wizard, another dashboard, or another governance steering committee. It is schema design. Specifically, it is deciding how you classify non-human identities with custom security attributes in Microsoft Entra . Not eventually. Up front. I keep seeing the same pattern across customers of every size: teams move quickly on agent experimentation, they onboard identities, they test controls, and then they realize they have no consistent attribute language for policy scope. At that point, every policy becomes a naming convention problem in disguise. That is backwards. The control plane starts with classification Custom security attributes are not decorative metadata.",
-      "author": "Anton Staykov",
+      "id": "feed-ae688183c5a7",
+      "title": "First Look at Warhammer Blood Bowl, the Free Overhaul for Blood Bowl 3 Due Out Fall 2026",
+      "excerpt": "Warhammer Blood Bowl hits the end zone this fall, and we've got first-look screenshots and confirmed platforms for launch.",
+      "body": "Warhammer Blood Bowl hits the end zone this fall, and we&#39;ve got first-look screenshots and confirmed platforms for launch. The video game adaptation of Games Workshop’s Warhammer fantasy football tabletop game is now in the hands of Warhammer 40,000: Battlesector publisher Slitherine, which obtained the licence, publishing rights, and back catalog from the collapsing Nacon. Now, Slitherine has re-announced Warhammer Blood Bowl with a batch of screenshots, below. It’s due out this fall across PC, Xbox, and PlayStation. Slitherine said Warhammer Blood Bowl is “built upon the solid foundations of Blood Bowl 3,” with series developer Cyanide still in place. The game will also adopt the latest official tabletop ruleset, updated through September 2025 (also known as Third Season Edition).",
+      "author": "Wesley Yin-Poole",
+      "date": "2026-07-23",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 47,
+      "url": "https://www.ign.com/articles/first-look-at-warhammer-blood-bowl-the-free-overhaul-for-blood-bowl-3-due-out-fall-2026",
+      "image": "/images/feed/feed-ae688183c5a7.png",
+      "source": "IGN",
+      "isLive": true
+    },
+    {
+      "id": "feed-390410185ce4",
+      "title": "MCP Just Killed the Handshake (Your Server Is Next)",
+      "excerpt": "Originally published in Temrel, a weekly newsletter on agentic engineering. You have built an MCP server the right way: handshakes, and perhaps even sampling. On Monday 28 July, the spec finalises and…",
+      "body": "Originally published in Temrel , a weekly newsletter on agentic engineering. You have built an MCP server the right way: handshakes, and perhaps even sampling. On Monday 28 July, the spec finalises and a great deal of \"the right way\" becomes legacy. It is not going to blow up, but the clock starts. An MCP primer (skip if you know it) The Model Context Protocol (MCP) is an open standard from Anthropic (late 2024) that defines how AI apps connect to external tools and data. It runs on local stdio or, more commonly, streamable HTTP for remote tools. Three roles: the host (the app, e.g. Claude Code or Cursor), the client (runs inside the host, manages the connection), and the server (wraps a tool's capability, e.g. GitHub or Postgres).",
+      "author": "Ben Stanley",
       "date": "2026-07-23",
       "readTime": "2 min",
       "section": "software",
@@ -185,10 +147,279 @@
         "Software"
       ],
       "featured": false,
-      "xpReward": 30,
-      "url": "https://dev.to/astaykov/enterprise-architects-your-overdue-entra-decision-is-an-agent-csa-schema-2j5n",
-      "image": "/images/feed/feed-4995f63429d3.webp",
+      "xpReward": 31,
+      "url": "https://dev.to/temrel/mcp-just-killed-the-handshake-your-server-is-next-47gj",
+      "image": "/images/feed/feed-390410185ce4.webp",
       "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-dcdd306077ec",
+      "title": "An AI \"Escaped Its Sandbox\" — Or We Just Built a Bad Sandbox",
+      "excerpt": "Hook An AI agent broke containment during a security test and went on to poke at another company's infrastructure without a human telling it to. That sentence alone is why this story has 92 comments o…",
+      "body": "Hook An AI agent broke containment during a security test and went on to poke at another company's infrastructure without a human telling it to. That sentence alone is why this story has 92 comments on HN — but the interesting part isn't the AI. It's the sandbox. Context Let's be clear about what's actually new here versus what's just... containment failing, again. Sandbox escapes are one of the oldest problems in computer security. Browsers escape sandboxes. VMs escape hypervisors. Containers escape into hosts. We've been building and breaking isolation boundaries for decades.",
+      "author": "Cor E",
+      "date": "2026-07-23",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 39,
+      "url": "https://dev.to/coridev/an-ai-escaped-its-sandbox-or-we-just-built-a-bad-sandbox-352",
+      "image": "/images/feed/feed-dcdd306077ec.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-cfceb90a6422",
+      "title": "The Lord of the Rings: The Rings of Power is Finally Introducing Galadriel's Husband Celeborn — And a Famous Face From Stranger Things is Playing Her 'Lover-Boy' Beau",
+      "excerpt": "Galadriel's husband Celeborn will finally be introduced in The Lord of the Rings: The Rings of Power, with new episodes set to debut Stranger Things' Jamie Campbell Bower as her \"lover-boy\" partner.",
+      "body": "Galadriel&#39;s husband Celeborn will finally be introduced in The Lord of the Rings: The Rings of Power , with new episodes set to debut Stranger Things&#39; Jamie Campbell Bower as her &quot;lover-boy&quot; partner. Exactly how Celeborn will be introduced — and where he&#39;s supposed to have been for the past two seasons — remains under wraps. But Empire has confirmed that Celeborn will feature in the show&#39;s upcoming third season, and that the actor behind Stranger Things&#39; Vecna will play Galadriel&#39;s fair-headed fellow. As Tolkien fans will know, Galadriel and Celeborn were married during Middle-earth&#39;s First Age, long prior to the events of the Second Age, which The Rings of Power is adapting.",
+      "author": "Tom Phillips",
+      "date": "2026-07-23",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 54,
+      "url": "https://www.ign.com/articles/the-lord-of-the-rings-the-rings-of-power-is-finally-introducing-galadriels-husband-celeborn-and-a-famous-face-from-stranger-things-is-playing-her-lover-boy-beau",
+      "image": "/images/feed/feed-cfceb90a6422.jpg",
+      "source": "IGN",
+      "isLive": true
+    },
+    {
+      "id": "feed-e124ac3cb2e0",
+      "title": "If the Galaxy Z Flip 8 really is Samsung’s last model, the foldable world is in trouble",
+      "excerpt": "Dear Samsung, please don't let the Flip flip away.",
+      "body": "I’ve always had a soft spot for flip phones. There’s something undeniably charming and incredibly cute about them, and Samsung has been nailing the formula for years. The Galaxy Z Flip is pocketable, the cover screen handles most tasks, and its compact design somehow makes me want to pick it up even when I don’t need to. That’s exactly why I look forward to every new Galaxy Z Flip launch, and why I was especially excited to get my hands on the Galaxy Z Flip 8 . So when I came across the latest rumor, I won’t lie — it completely took the wind out of my sails. The idea that Samsung could end the Flip series after the Galaxy Z Flip 8 is genuinely disappointing, and I really hope it’s wide of the mark.",
+      "author": "Shimul Sood",
+      "date": "2026-07-23",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Foldable"
+      ],
+      "featured": false,
+      "xpReward": 44,
+      "url": "https://www.androidauthority.com/samsung-galaxy-z-flip-8-last-one-foldables-in-trouble-3689436/",
+      "image": "/images/feed/feed-e124ac3cb2e0.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-8a5cc77afbaf",
+      "title": "Sony's FX5 cinema camera finally offers open gate and RAW 5K recording",
+      "excerpt": "Sony has just unveiled its latest cinema camera that may foreshadow some long-awaited features in its consumer mirrorless lineup.",
+      "body": "Sony has just unveiled its latest cinema camera that may foreshadow some long-awaited features in its consumer mirrorless lineup.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "staff@engadget.com (Steve Dent)",
+      "date": "2026-07-23",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 43,
+      "url": "https://www.engadget.com/2221526/sony-fx5-cinema-camera/",
+      "image": "/images/feed/feed-8a5cc77afbaf.jpg",
+      "source": "Engadget",
+      "isLive": true
+    },
+    {
+      "id": "feed-f0cecc4e5be8",
+      "title": "Google wants your face to be your backup password with new selfie video sign-in",
+      "excerpt": "You can now setup your face as sign-in method for your Google account.",
+      "body": "Credit: Joe Hindy / Android Authority TL;DR Google is introducing a new selfie video sign-in and account recovery method that lets users verify their identity with a short selfie video. The feature uses liveness checks, facial matching, encryption, and Google’s existing security systems to help prevent spoofing attempts. Users can delete their saved selfie video at any time and can choose whether or not Google can use their videos to improve its facial recognition and verification tech. Google is adding a new way for users to sign in and get back into their accounts when traditional recovery methods aren’t available. Called selfie video, the new feature allows users to record a short video of themselves and later use it to verify their identity when signing in to their Google account.",
+      "author": "Adamya Sharma",
+      "date": "2026-07-23",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 44,
+      "url": "https://www.androidauthority.com/google-selfie-video-sign-in-3690502/",
+      "image": "/images/feed/feed-f0cecc4e5be8.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-b96a40c1e2ae",
+      "title": "New msaRAT malware uses Chrome, Edge browsers to route C2 traffic",
+      "excerpt": "The Chaos ransomware gang is using a new backdoor dubbed msaRAT that hides command-and-control (C2) communication by routing it through the Chrome or Edge browsers. [...]",
+      "body": "The Chaos ransomware gang is using a new backdoor dubbed msaRAT that hides command-and-control (C2) communication by routing it through the Chrome or Edge browsers. [...]\n\nThis report, published by BleepingComputer, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Malware. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to BleepingComputer using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Bill Toulas",
+      "date": "2026-07-23",
+      "readTime": "2 min",
+      "section": "cybersecurity",
+      "tags": [
+        "Malware"
+      ],
+      "featured": false,
+      "xpReward": 48,
+      "url": "https://www.bleepingcomputer.com/news/security/new-msarat-malware-uses-chrome-edge-browsers-to-route-c2-traffic/",
+      "image": "/images/feed/feed-b96a40c1e2ae.jpg",
+      "source": "BleepingComputer",
+      "isLive": true
+    },
+    {
+      "id": "feed-b30397531823",
+      "title": "The James Webb Space Telescope's disappearing 'Little Red Dots' may lead to another cosmic puzzle",
+      "excerpt": "Just as the dinosaurs didn't disappear but rather evolved into birds, cosmic dinosaurs in the form of the JWST's Little Red Dots may fade away completely.",
+      "body": "Paleontologists now know that many of the dinosaurs didn't disappear but instead evolved into modern birds, and new research suggests that \"cosmic dinosaurs\" observed by the James Webb Space Telescope (JWST) didn't go extinct either. Rather, they may have evolved into familiar sights in the modern universe: vast conglomerations of densely packed stars called \"globular clusters.\" Little Red Dots became quite the puzzle for astronomers in 2022, when the JWST began to routinely spot them in abundance around 600 million years after the Big Bang . That is because these objects seemingly disappear before the cosmos gets to around 2 billion years old.",
+      "author": " Robert Lea ",
+      "date": "2026-07-23",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "James Webb",
+        "Telescope",
+        "Space"
+      ],
+      "featured": false,
+      "xpReward": 34,
+      "url": "https://www.space.com/astronomy/james-webb-space-telescope/the-james-webb-space-telescopes-disappearing-little-red-dots-may-lead-to-another-cosmic-puzzle",
+      "image": "/images/feed/feed-b30397531823.png",
+      "source": "Space.com",
+      "isLive": true
+    },
+    {
+      "id": "feed-b5fc88d7d7fb",
+      "title": "Google adds selfie video as a log-in option",
+      "excerpt": "You'll now be able to get into your Google account with a selfie video.",
+      "body": "You'll now be able to get into your Google account with a selfie video.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "staff@engadget.com (Mariella Moon)",
+      "date": "2026-07-23",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 34,
+      "url": "https://www.engadget.com/2221520/google-adds-selfie-video-log-in/",
+      "image": "/images/feed/feed-b5fc88d7d7fb.jpg",
+      "source": "Engadget",
+      "isLive": true
+    },
+    {
+      "id": "feed-590f3fd869a9",
+      "title": "Google now lets you sign in to your account using a selfie video",
+      "excerpt": "Google announced yet another way to gain access to your account if you get locked out, forget your password, or don't have access to the phone, computer, or two-factor authentication apps you typicall…",
+      "body": "Google announced yet another way to gain access to your account if you get locked out, forget your password, or don't have access to the phone, computer, or two-factor authentication apps you typically use. As the name implies, selfie video lets you capture a short video of your face on a mobile device or PC, which is then compared to an earlier video that Google keeps on file to confirm you're the account owner. Setting up the selfie video feature simply requires you to look at your device's camera and follow a series of onscreen prompts that guide you through simple head movements to ensure multiple angles of your face are captured. It's … Read the full story at The Verge.",
+      "author": "Andrew Liszewski",
+      "date": "2026-07-23",
+      "readTime": "2 min",
+      "section": "cybersecurity",
+      "tags": [
+        "Cybersecurity"
+      ],
+      "featured": false,
+      "xpReward": 50,
+      "url": "https://www.theverge.com/tech/969361/google-account-sign-in-selfie-video-security",
+      "image": "/images/feed/feed-590f3fd869a9.jpg",
+      "source": "The Verge",
+      "isLive": true
+    },
+    {
+      "id": "feed-4ce21d9d7db6",
+      "title": "Google Photos could finally let you hide sensitive details in your pics",
+      "excerpt": "Why scratch out that sensitive info with the Pen tool when you can use a Redact tool instead?",
+      "body": "Credit: Edgar Cervantes / Android Authority TL;DR An Android Authority teardown has revealed that Google is working on a Redact tool in Google Photos. This would allow users to “redact sensitive areas of your photos,” according to a code snippet. Google would be joining Samsung, OPPO, OnePlus, and others in offering this functionality. There are times when we want to share images with other people but need to redact sensitive info in them first. Unfortunately, Google Photos only lets you scribble over the desired area with the Markup option. Thankfully, we’ve discovered that Google is working on a solution. You’re reading an Authority Insights story.",
+      "author": "Hadlee Simons",
+      "date": "2026-07-23",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 40,
+      "url": "https://www.androidauthority.com/google-photos-redact-tool-apk-teardown-3690571/",
+      "image": "/images/feed/feed-4ce21d9d7db6.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-efff19f98ab2",
+      "title": "Xbox Gamers Slam Paramount After Avatar Legends: The Fighting Game Suffers Shock Delay on Their Console Just Hours Before Launch",
+      "excerpt": "Avatar Legends: The Fighting Game has suffered a shock delay on Xbox just hours before it was due to come out, sparking a backlash from fans.",
+      "body": "Avatar Legends: The Fighting Game has suffered a shock delay on Xbox just hours before it was due to come out, sparking a backlash from fans. The Paramount Games Studio-published fighting game, developed by Gameplay Group International, was due out today, July 23, across PlayStation 5, Xbox Series X and S, PC via Steam, and Nintendo Switch. But in a note to fans published just a few hours ago , Paramount said the Switch version will be available as the Standard Edition only, and crossplay with other platforms and language localization beyond English will not be available. “We are committed to bringing these features, along with upgrading to Deluxe Edition, to players as soon as possible and will keep you updated on our timeline and progress,” Paramount said.",
+      "author": "Wesley Yin-Poole",
+      "date": "2026-07-23",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Xbox",
+        "Game"
+      ],
+      "featured": false,
+      "xpReward": 44,
+      "url": "https://www.ign.com/articles/xbox-gamers-slam-paramount-after-avatar-legends-the-fighting-game-suffers-shock-delay-on-their-console-just-hours-before-launch",
+      "image": "/images/feed/feed-efff19f98ab2.jpg",
+      "source": "IGN",
+      "isLive": true
+    },
+    {
+      "id": "feed-eb28b42483c6",
+      "title": "OnePlus continues marching on with new phone on the horizon",
+      "excerpt": "It reminds me of the Nord 5.",
+      "body": "TL;DR OnePlus will launch a new budget smartphone in India — the OnePlus N6x. The phone looks similar to the Nord 5, and will be available in two colors: Burgundy Red and Ice Blue. The OnePlus N6x will launch on July 31. OnePlus may have decided not to launch any new products in the US and Europe, but the brand is definitely not holding back with new devices in other parts of the world. After launching the OnePlus N6 in India late last month, the company is now teasing yet another phone in the N-series. According to an Amazon microsite that just went live, the smartphone maker is gearing up to launch the new OnePlus N6x. The microsite doesn’t give us many details about the upcoming phone, but it does reveal the design, color options, and launch date.",
+      "author": "Akshay Gangwar",
+      "date": "2026-07-23",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 51,
+      "url": "https://www.androidauthority.com/oneplus-n6x-teaser-india-3690574/",
+      "image": "/images/feed/feed-eb28b42483c6.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-bb124678eacb",
+      "title": "Magic's Star Trek Draft Night Set Is Currently the Easiest Way to Get a Collector Booster",
+      "excerpt": "Magic: The Gathering's Draft Night set is currently the only way fans can get hold of elusive \"Collector Boosters\" after scalpers descend on preorders for the new Universes Beyond set.",
+      "body": "We’ve known about Magic’s upcoming Star Trek set as part of its Universes Beyond lineup for a little while, but we now have more information about the set that’s set to boldly go where no set has gone before (or at least since Edge of Eternities). While we’re expecting Commander precons to be popular, there’s a very, very good chance that the Collector Boosters will form something of a no-win situation - a Kobayashi Maru, of sorts. That’s because they’re priced higher already, but are already being hoovered up by scalpers and sold at even higher prices — preventing genuine collectors from snagging them. Boo!",
+      "author": "Lloyd Coombes",
+      "date": "2026-07-23",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 36,
+      "url": "https://www.ign.com/articles/mtg-star-trek-collector-booster-draft-night-set-sealed-in-stock",
+      "image": "/images/feed/feed-bb124678eacb.png",
+      "source": "IGN",
+      "isLive": true
+    },
+    {
+      "id": "feed-b10182d1af4f",
+      "title": "Pokémon Diamond and Pearl Leak Reveals More Than 100 Scrapped Designs, Including Unseen Creatures and Missing Evolutions",
+      "excerpt": "Pokémon Diamond and Pearl fans are celebrating the unofficial reveal of more than 100 previously-unseen designs, including early drafts of known creatures, numerous scrapped species, and cut evolution…",
+      "body": "Pokémon Diamond and Pearl fans are celebrating the unofficial reveal of more than 100 previously-unseen designs, including early drafts of known creatures, numerous scrapped species, and cut evolutions. Evidence of a discarded Delibird and Kecleon evolutions, Stantler and Lapras pre-evolutions, plus what look like a baby Plusle and Minun are all briefly seen. Completely cut Pokémon include creatures based on a crane, crickets, snails, molluscs, goats, mice, a platypus, and a swordfish can also be seen, as well as plants such as beansprouts and clover. There&#39;s even different designs for the region&#39;s starter Pokémon, such as a foam-headed Water-type dog, and a Grass-type wolf.",
+      "author": "Tom Phillips",
+      "date": "2026-07-23",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 35,
+      "url": "https://www.ign.com/articles/pokemon-diamond-and-pearl-leak-reveals-more-than-100-scrapped-designs-including-unseen-creatures-and-missing-evolutions",
+      "image": "/images/feed/feed-b10182d1af4f.jpg",
+      "source": "IGN",
       "isLive": true
     },
     {
@@ -204,86 +435,10 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 54,
       "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-working-to-fix-exchange-online-mailbox-quarantine-issue/",
       "image": "/images/feed/feed-d5e48b41d7e5.jpg",
       "source": "BleepingComputer",
-      "isLive": true
-    },
-    {
-      "id": "feed-0e47865c0d80",
-      "title": "Remember Jibo? Its Successor Is a Wearable That Turns Your Life Into AI Slop",
-      "excerpt": "With “blessings” from the original Jibo founders, iKairos is a wearable or desk-mounted “AI journal” that turns your family moments into AI images and video.",
-      "body": "With “blessings” from the original Jibo founders, iKairos is a wearable or desk-mounted “AI journal” that turns your family moments into AI images and video.\n\nThis report, published by Wired, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Wearable. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Wired using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Boone Ashworth",
-      "date": "2026-07-23",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Wearable"
-      ],
-      "featured": false,
-      "xpReward": 41,
-      "url": "https://www.wired.com/story/the-beloved-jibo-robot-is-being-resurrected-as-an-ai-wearable/",
-      "image": "/images/feed/feed-0e47865c0d80.jpg",
-      "source": "Wired",
-      "isLive": true
-    },
-    {
-      "id": "feed-3619b0bd6176",
-      "title": "Is the Galaxy Z Fold 8 Ultra worth $200 more than the Z Fold 8? Here’s my expert advice",
-      "excerpt": "The Galaxy Z Fold 8 makes compromises the Z Fold 7 never had to.",
-      "body": "Last year’s Samsung Galaxy Z Fold 7 was a remarkably well-built phone, with the lack of S Pen support perhaps being the only blemish on a notably upgraded hardware package. Still, spec enthusiasts were perhaps left wondering whether the $2,000 asking price was too steep, given that the less expensive Galaxy S25 Ultra and now the Galaxy S26 Ultra offer faster charging, longer battery life, and superior camera specs. Samsung appears to have heard the call. For those clamoring for even more hardware, we now have two booklet Samsung foldables to pick from — the Z Fold 8 and Z Fold 8 Ultra .",
-      "author": "Robert Triggs",
-      "date": "2026-07-23",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 47,
-      "url": "https://www.androidauthority.com/galaxy-z-fold-8-ultra-vs-fold-8-worth-200-more-3686769/",
-      "image": "/images/feed/feed-3619b0bd6176.jpg",
-      "source": "Android Authority",
-      "isLive": true
-    },
-    {
-      "id": "feed-4e19a5c0f924",
-      "title": "A SpaceX Falcon 9 rocket is expected to crash into the moon this August",
-      "excerpt": "The upper stage of a Falcon 9 rocket has been drifting in space for over a year after it launched. It's expected to crash into the moon next month.",
-      "body": "The upper stage of a Falcon 9 rocket has been drifting in space for over a year after it launched. It's expected to crash into the moon next month.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Mariella Moon)",
-      "date": "2026-07-23",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 44,
-      "url": "https://www.engadget.com/2221503/spacex-falcon-9-rocket-crash-moon-august/",
-      "image": "/images/feed/feed-4e19a5c0f924.jpg",
-      "source": "Engadget",
-      "isLive": true
-    },
-    {
-      "id": "feed-9164918ab157",
-      "title": "Your next WHOOP could be free, courtesy of this fancy platinum credit card",
-      "excerpt": "The offer also applies to existing WHOOP users.",
-      "body": "Credit: Kaitlyn Cimino / Android Authority TL;DR Robinhood now includes a yearly WHOOP Peak membership as a credit card perk. WHOOP users will be eligible for a $239 credit for an annual membership, hardware included. The offer is only valid if you make the purchase through your Robinhood Platinum Visa card. Despite newer alternatives, such as the Fitbit Air , cropping up recently, WHOOP’s screenless bands still take the top spot for people who care about fitness metrics more than anything. The companion app, however, is somewhat of a sticking point, not because of what it offers, but the subscription wall WHOOP puts up to let you access your health data. That’s why some people have also attempted to break through the wall with an unofficial open-source app for their WHOOP bands .",
-      "author": "Tushar Mehta",
-      "date": "2026-07-23",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 36,
-      "url": "https://www.androidauthority.com/whoop-subscription-free-credit-card-3690522/",
-      "image": "/images/feed/feed-9164918ab157.jpg",
-      "source": "Android Authority",
       "isLive": true
     },
     {
@@ -300,7 +455,7 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 40,
       "url": "https://www.bleepingcomputer.com/news/security/check-point-patches-smartconsole-zero-day-exploited-in-attacks/",
       "image": "/images/feed/feed-ac789352ae80.jpg",
       "source": "BleepingComputer",
@@ -319,10 +474,29 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 53,
       "url": "https://thehackernews.com/2026/07/nine-year-old-refluxfs-linux-flaw-gives.html",
       "image": "/images/feed/feed-8651e16bfc09.jpg",
       "source": "The Hacker News",
+      "isLive": true
+    },
+    {
+      "id": "feed-fffa81542fe6",
+      "title": "NASCAR 26 Release Date Confirmed, Features Dynamic Track Surfaces, AI DNFs",
+      "excerpt": "Improvements incoming as iRacing builds upon last year’s foundation.",
+      "body": "iRacing has confirmed the release date for its second stab at a standalone NASCAR game, following on from last year’s robust NASCAR 25. NASCAR 26 will be officially launched on September 18, 2026 (albeit following a three-day early access period for purchasers of the game’s higher-priced ‘Gold Edition’). A new developer diary published today , featuring producer Matt Lewis and creative director Mike DeVault, discussed a number of additions and improvements to this year’s game. NASCAR 26 will feature dynamic track surfaces, which will rubber in as race weekends progress. This evolution will open up new strategies as new racing lines become available.",
+      "author": "Luke Reilly",
+      "date": "2026-07-23",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 52,
+      "url": "https://www.ign.com/articles/nascar-26-release-date-confirmed-features-dynamic-track-surfaces-ai-dnfs",
+      "image": "/images/feed/feed-fffa81542fe6.jpg",
+      "source": "IGN",
       "isLive": true
     },
     {
@@ -338,7 +512,7 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 41,
       "url": "https://thehackernews.com/2026/07/check-point-patches-exploited.html",
       "image": "/images/feed/feed-0920d9b93175.jpg",
       "source": "The Hacker News",
@@ -357,7 +531,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 51,
       "url": "https://www.ign.com/articles/matt-damon-almost-starred-as-robin-in-two-different-batman-movies",
       "image": "/images/feed/feed-48475e6b70b6.png",
       "source": "IGN",
@@ -376,105 +550,29 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 50,
       "url": "https://electrek.co/2026/07/22/iea-global-power-demand-is-surging-and-renewables-are-passing-coal/",
       "image": "/images/feed/feed-bc1a0b92553c.jpg",
       "source": "Electrek",
       "isLive": true
     },
     {
-      "id": "feed-32d88c37bc64",
-      "title": "How to play with friends in Splatoon Raiders",
-      "excerpt": "You can play with friends in Splatoon Raiders' multiplayer, even though it's a single-player game. Here's how to play with friends in Splatoon Raiders",
-      "body": "You can play with friends in Splatoon Raiders ' multiplayer, even though Nintendo bills the game as a single-player adventure. However, Raiders never tells you how to go about doing this. The process is similar to how multiplayer works in Splatoon 3 , and it has the same big restriction as well: You can't play Splatoon Raiders on local wireless.",
-      "author": "Josh Broadwell",
+      "id": "feed-7517a617a646",
+      "title": "Olympic Mountain Glory",
+      "excerpt": "Snow-capped mountains carved by deep river valleys preside over northwestern Washington state.",
+      "body": "Earth Observatory Science Earth Observatory Olympic Mountain Glory Earth Earth Observatory Image of the Day EO Explorer Topics All Topics Atmosphere Land Heat &#038; Radiation Life on Earth Human Dimensions Natural Events Oceans Remote Sensing Technology Snow &#038; Ice Water More Content Collections Global Maps World of Change Articles Earth Matters Blog Blue Marble: Next Generation EO Kids Mission: Biomes About About Us Subscribe 🛜 RSS Contact Us Search May 6, 2016 Alpine glaciers, wild coastlines, temperate rainforests, and deep river valleys coexist on the Olympic Peninsula in the northwest corner of Washington state. Surrounded by blue waters, peaceful islands, and bustling population centers, its rugged interior remains a relatively remote bastion of wilderness.",
+      "author": "NASA Breaking News",
       "date": "2026-07-23",
       "readTime": "2 min",
-      "section": "gaming",
+      "section": "space",
       "tags": [
-        "Gaming"
+        "Space"
       ],
       "featured": false,
-      "xpReward": 45,
-      "url": "https://www.polygon.com/splatoon-raiders-multiplayer-how-to-play-with-friends/",
-      "image": "/images/feed/feed-32d88c37bc64.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-e6513c84fef1",
-      "title": "Which gadget tank should you pick in Splatoon Raiders?",
-      "excerpt": "Splatoon Raiders' gadget tanks are an important part of each raid. Here's which gadget tank you should pick in Splatoon Raiders",
-      "body": "You're asked to pick a gadget tank in Splatoon Raiders after your first few treasure raids. It seems like a big decision, and it kind of is. You're not locked into your choice, as you can swap tanks later. But only one of the three tanks gives you enough freedom to experiment and create your own play styles without getting into too much danger.",
-      "author": "Josh Broadwell",
-      "date": "2026-07-23",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 40,
-      "url": "https://www.polygon.com/splatoon-raiders-gadget-tank-speed-power-technical/",
-      "image": "/images/feed/feed-e6513c84fef1.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-fafa2b52058c",
-      "title": "10 Splatoon Raiders beginner tips to help you beat back the hordes in style",
-      "excerpt": "Our Splatoon Raiders beginner guide includes 10 tips and tricks to get the most out of your weapons and gadgets",
-      "body": "Splatoon Raiders puts a big twist on the usual turf war formula and changes some of the series' most fundamental aspects. Sub-weapons aren't tied to primary weapons anymore, and you can mix and match different types together and with your main weapon, regardless of what it is. You've got a little robot buddy to help out in tough fights, and picking the right weapon for the job is more important than ever.",
-      "author": "Josh Broadwell",
-      "date": "2026-07-23",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 43,
-      "url": "https://www.polygon.com/splatoon-raiders-beginner-tips-tricks/",
-      "image": "/images/feed/feed-fafa2b52058c.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-7de1db3cacb1",
-      "title": "Doom Co-Creator John Romero to Headline Gamescom Asia x Thailand Game Show 2026",
-      "excerpt": "Doom Co-Creator John Romero to Headline Gamescom Asia x Thailand Game Show 2026",
-      "body": "John Romero, the co-founder of id Software and co-creator of Doom, Quake, and Wolfenstein 3D, has been confirmed as the headline keynote speaker for this year&#39;s Gamescom Asia x Thailand Game Show, to be held in Bangkok this October. The industry veteran&#39;s planned keynote, to be titled &quot;Why We Still Make Games&quot;, promises to &quot;reflect on a lifetime of building games, overcoming setbacks, and navigating decades of industry change.&quot; And presumably, unsuccessful attempts at making people his bitch . While Romero left the Doom development studio some three decades ago, he recently took to social media to express his support for all id Software staff affected by the layoffs earlier this month that came off the back of Xbox&#39;s significant restructuring process.",
-      "author": "Tristan Ogilvie",
-      "date": "2026-07-23",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Game"
-      ],
-      "featured": false,
-      "xpReward": 51,
-      "url": "https://www.ign.com/articles/doom-co-creator-john-romero-to-headline-gamescom-asia-x-thailand-game-show-2026",
-      "image": "/images/feed/feed-7de1db3cacb1.jpg",
-      "source": "IGN",
-      "isLive": true
-    },
-    {
-      "id": "feed-5d618f7b8e66",
-      "title": "50/50 Director Jonathan Levine in Talks to Direct Tom Cruise Sequel Days of Thunder 2",
-      "excerpt": "Paramount prepares to drop the hammer on another high-speed Tom Cruise legacy sequel.",
-      "body": "Director Jonathan Levine (50/50, Warm Bodies) is reportedly in talks to helm the long-awaited follow up to 1990 racing action-drama Days of Thunder, according to The Hollywood Reporter. Star Tom Cruise is aboard to reprise his role as NASCAR driver and Daytona 500 champ Cole Trickle, and is producing alongside Jerry Bruckheimer. Bruckheimer produced the original Days of Thunder in partnership with Don Simpson, who died in 1996. The Hollywood Reporter notes Days of Thunder 2 is intended to be Cruise’s next production. No further details are available in terms of the planned story for the sequel, or how it picks up from the original, but a script has been written by screenwriter and author Will Staples.",
-      "author": "Luke Reilly",
-      "date": "2026-07-23",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 50,
-      "url": "https://www.ign.com/articles/5050-director-jonathan-levine-in-talks-to-direct-tom-cruise-sequel-days-of-thunder-2",
-      "image": "/images/feed/feed-5d618f7b8e66.jpg",
-      "source": "IGN",
+      "xpReward": 42,
+      "url": "https://science.nasa.gov/earth/earth-observatory/olympic-mountain-glory/",
+      "image": "/images/feed/feed-7517a617a646.jpg",
+      "source": "NASA Breaking News",
       "isLive": true
     },
     {
@@ -490,7 +588,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 30,
       "url": "https://cleantechnica.com/2026/07/22/even-under-extreme-warming-aseans-wind-solar-generation-variation-from-normal-will-be-less-than-1-in-2030/",
       "image": "/images/feed/feed-2cd9ff9d256d.png",
       "source": "CleanTechnica",
@@ -509,7 +607,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 44,
       "url": "https://cleantechnica.com/2026/07/22/europe-can-unlock-25-gw-of-clean-power-by-using-existing-grid-connections/",
       "image": "/images/feed/feed-e4918890f194.jpg",
       "source": "CleanTechnica",
@@ -528,7 +626,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 49,
       "url": "https://cleantechnica.com/2026/07/22/new-report-outlines-priorities-for-a-cybersecure-american-made-solar-storage-industry/",
       "image": "/images/feed/feed-b60d9a5abb0f.png",
       "source": "CleanTechnica",
@@ -548,7 +646,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 40,
       "url": "https://cleantechnica.com/2026/07/22/tesla-climbs-back-above-50-share-of-us-ev-market-whos-in-2nd-3rd-4th/",
       "image": "/images/feed/feed-59d72fda75df.png",
       "source": "CleanTechnica",
@@ -567,7 +665,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 37,
       "url": "https://electrek.co/2026/07/22/deliveries-automation-and-the-gateway-drug-to-electrification-with-big-joe/",
       "image": "/images/feed/feed-6307013affd4.jpg",
       "source": "Electrek",
@@ -586,29 +684,10 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 32,
       "url": "https://electrek.co/2026/07/22/tesla-hardware-3-fsd-no-plan-musk-earnings-call/",
       "image": "/images/feed/feed-ffbaaf307e57.jpg",
       "source": "Electrek",
-      "isLive": true
-    },
-    {
-      "id": "feed-08145f54e7f8",
-      "title": "Lego’s Donkey Kong arcade machine lets Mario jump endless barrels — Miyamoto is reportedly happy",
-      "excerpt": "Carl Merriam has designed some of my favorite nostalgia-inducing Lego sets, including the Lego Nintendo Game Boy and Piranha Plant. He's assisted on the incredible Lion Knights' Castle, Galaxy Explore…",
-      "body": "Carl Merriam has designed some of my favorite nostalgia-inducing Lego sets, including the Lego Nintendo Game Boy and Piranha Plant . He's assisted on the incredible Lion Knights' Castle , Galaxy Explorer , and Pirates of Barracuda Bay . Now, he's helped the company create a $200 Donkey Kong arcade machine set that managed to win even Mario creator Shigeru Miyamoto's favor - or so he's told. It doesn't play quite like Donkey Kong , of course. Jumpman, the character that would be renamed Mario, can never reach the top under his own power. But like Lego's $230 pinball machine , it does contain a basic fully functional game. There's a working joyst … Read the full story at The Verge.",
-      "author": "Sean Hollister",
-      "date": "2026-07-23",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 45,
-      "url": "https://www.theverge.com/gadgets/969668/lego-donkey-kong-arcade-machine",
-      "image": "/images/feed/feed-08145f54e7f8.jpg",
-      "source": "The Verge",
       "isLive": true
     },
     {
@@ -624,7 +703,7 @@
         "Spacex"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 43,
       "url": "https://electrek.co/2026/07/22/elon-musk-hints-tesla-spacex-merger-earnings-call/",
       "image": "/images/feed/feed-56f1bcf4af0d.jpg",
       "source": "Electrek",
@@ -643,7 +722,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 39,
       "url": "https://www.bleepingcomputer.com/news/security/upbound-says-hack-caused-13-million-in-fraudulent-acima-leases/",
       "image": "/images/feed/feed-2e55b9346eb2.jpg",
       "source": "BleepingComputer",
@@ -663,7 +742,7 @@
         "Orbit"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 45,
       "url": "https://spacenews.com/chinas-shijian-31-satellite-is-sweeping-geo-using-a-unique-orbit/",
       "image": "/images/feed/feed-fca44bbd5c22.jpg",
       "source": "SpaceNews",
@@ -683,7 +762,7 @@
         "Satellite"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 39,
       "url": "https://www.space.com/space-exploration/launches-spacecraft/chinas-record-breaking-gravity-1-rocket-launches-9-satellites-from-a-ship-at-sea-video",
       "image": "/images/feed/feed-acb1bf159c29.jpg",
       "source": "Space.com",
@@ -702,30 +781,10 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 42,
       "url": "https://techcrunch.com/2026/07/22/treasury-threatens-sanctions-after-white-house-claims-moonshot-distilled-anthropics-fable/",
       "image": "/images/feed/feed-eb195570e729.jpg",
       "source": "TechCrunch",
-      "isLive": true
-    },
-    {
-      "id": "feed-036538756570",
-      "title": "South Korea discloses data breach impacting diplomats worldwide",
-      "excerpt": "South Korea disclosed that hackers breached the National Diplomatic Academy's online education system for ten months and stole personal information belonging to current and former employees of the Min…",
-      "body": "South Korea disclosed that hackers breached the National Diplomatic Academy's online education system for ten months and stole personal information belonging to current and former employees of the Min — a development drawing significant attention in the cybersecurity and digital privacy space.\n\nThis report, published by BleepingComputer, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Data Breach, Breach. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to BleepingComputer using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Bill Toulas",
-      "date": "2026-07-22",
-      "readTime": "2 min",
-      "section": "cybersecurity",
-      "tags": [
-        "Data Breach",
-        "Breach"
-      ],
-      "featured": false,
-      "xpReward": 40,
-      "url": "https://www.bleepingcomputer.com/news/security/south-korea-discloses-data-breach-impacting-diplomats-worldwide/",
-      "image": "/images/feed/feed-036538756570.jpg",
-      "source": "BleepingComputer",
       "isLive": true
     },
     {
@@ -741,7 +800,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 53,
       "url": "https://www.space.com/entertainment/space-movies-shows/5-disturbing-things-we-saw-after-digging-into-the-recent-dune-part-3-trailer",
       "image": "/images/feed/feed-6d5e40dc84d6.jpg",
       "source": "Space.com",
@@ -760,7 +819,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 42,
       "url": "https://techcrunch.com/2026/07/22/how-an-openais-human-mistake-led-to-the-ai-powered-hack-on-hugging-face/",
       "image": "/images/feed/feed-298db90fda8b.jpg",
       "source": "TechCrunch",
@@ -779,7 +838,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 51,
       "url": "https://www.wired.com/story/chinas-open-ai-models-are-challenging-silicon-valleys-playbook/",
       "image": "/images/feed/feed-7d7d859d0c3b.jpg",
       "source": "Wired",
@@ -798,67 +857,10 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 35,
       "url": "https://www.space.com/astronomy/comets/after-nearly-30-years-nasa-realized-this-near-earth-asteroid-is-actually-a-comet-the-discovery-may-help-us-defend-the-planet-some-day",
       "image": "/images/feed/feed-bf49ece8076b.jpg",
       "source": "Space.com",
-      "isLive": true
-    },
-    {
-      "id": "feed-6832f8fa2ac6",
-      "title": "GitHub Cuts Public Bug Bounty Payouts, Moves Top Rewards to VIP Tier",
-      "excerpt": "Beginning July 27, 2026, GitHub will cut public bug bounty payouts by at least half at every severity level. Critical findings will drop from $20,000-$30,000+ to a fixed $10,000, while its permanent i…",
-      "body": "Beginning July 27, 2026, GitHub will cut public bug bounty payouts by at least half at every severity level. Critical findings will drop from $20,000-$30,000+ to a fixed $10,000, while its permanent invite-only VIP tier will pay $30,000 or more. Reports filed before that date, including those already in GitHub's growing triage queue, will retain the previous payout terms. GitHub said the",
-      "author": "info@thehackernews.com (The Hacker News)",
-      "date": "2026-07-22",
-      "readTime": "2 min",
-      "section": "cybersecurity",
-      "tags": [
-        "Cybersecurity"
-      ],
-      "featured": false,
-      "xpReward": 44,
-      "url": "https://thehackernews.com/2026/07/github-cuts-public-bug-bounty-payouts.html",
-      "image": "/images/feed/feed-6832f8fa2ac6.jpg",
-      "source": "The Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-61cc4237e2e0",
-      "title": "FCC approves sweeping space reforms while clearing more C-band for 5G",
-      "excerpt": "The FCC voted July 22 to push satellite operators out of more C-band spectrum for a 5G auction next year, while approving a licensing overhaul aimed at accelerating the commercial space economy. The p…",
-      "body": "The FCC voted July 22 to push satellite operators out of more C-band spectrum for a 5G auction next year, while approving a licensing overhaul aimed at accelerating the commercial space economy. The post FCC approves sweeping space reforms while clearing more C-band for 5G appeared first on SpaceNews .",
-      "author": "Jason Rainbow",
-      "date": "2026-07-22",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Space"
-      ],
-      "featured": false,
-      "xpReward": 40,
-      "url": "https://spacenews.com/fcc-approves-sweeping-space-reforms-while-clearing-more-c-band-for-5g/",
-      "image": "/images/feed/feed-61cc4237e2e0.jpg",
-      "source": "SpaceNews",
-      "isLive": true
-    },
-    {
-      "id": "feed-725e52aa7e59",
-      "title": "Science Corporation’s vision-restoring chip wins EU approval",
-      "excerpt": "\"The thing that the space needs is a company making $100 million a year of revenue,\" Science Corp. CEO Max Hodak said.",
-      "body": "\"The thing that the space needs is a company making $100 million a year of revenue,\" Science Corp. CEO Max Hodak said.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Space. As the situation continues to evolve, professionals and enthusiasts in the space exploration and astronomy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Tim Fernholz",
-      "date": "2026-07-22",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Space"
-      ],
-      "featured": false,
-      "xpReward": 47,
-      "url": "https://techcrunch.com/2026/07/22/science-corporations-vision-restoring-chip-wins-eu-approval/",
-      "image": "/images/feed/feed-725e52aa7e59.jpg",
-      "source": "TechCrunch",
       "isLive": true
     },
     {
@@ -874,7 +876,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 50,
       "url": "https://techcrunch.com/video/menlo-ventures-matt-murphy-explains-why-anthropic-is-winning-and-its-not-the-model/",
       "image": "/images/feed/feed-138565f55ec2.jpg",
       "source": "TechCrunch",
@@ -893,7 +895,7 @@
         "Chatgpt"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 48,
       "url": "https://chatgpt.com/share/6a5fdc7a-d6f8-83e8-bbea-8deb42cfed56",
       "image": "/images/feed/feed-678763b37da6.png",
       "source": "Hacker News",
@@ -912,7 +914,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 47,
       "url": "https://www.cnet.com/tech/services-and-software/ai-help-locate-your-lost-photos-media/",
       "image": "/images/feed/feed-717659669a5f.jpg",
       "source": "CNET",
@@ -931,7 +933,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 31,
       "url": "https://techcrunch.com/2026/07/22/openais-ai-spending-spree-has-ballooned-to-750b/",
       "image": "/images/feed/feed-031142badcc9.jpg",
       "source": "TechCrunch",
@@ -939,16 +941,16 @@
     }
   ],
   "breakingNews": [
-    "INFOQ: Ink & Switch Introduces Bijou64: Canonical Variable-Length Integer Encoding for Safe Parsing",
-    "DEV.TO: AI Agents Inside CI/CD: How We Automated PR Triage and Reduced Review Bottlenecks",
-    "DEV.TO: GitLab CI \"Cannot connect to unix:///var/run/docker.sock\"",
-    "DEV.TO: Pulling Business Rules Out of Your Service Isn't a Rewrite. It's a Seam.",
-    "DEV.TO: Unhandled Promise Rejections in Node.js: Why They Silently Kill Jobs",
-    "ANDROID AUTHORITY: Samsung is playing a dangerous game with the Galaxy Z Fold 8’s missing S Pen support",
-    "WIRED: My Week of Transparent Living With Apple’s ‘More Clear’ Liquid Glass Setting",
-    "THE VERGE: Framework’s premium laptop is shipping with less RAM",
-    "DEV.TO: Gemini 3.6 Flash & 3.5 Flash-Lite: Developer guide",
-    "DEV.TO: Enterprise architects: your overdue Entra decision is an agent CSA schema"
+    "DEV.TO: A CORS Mismatch That Broke DocMind AI on a Fresh Netlify Deploy",
+    "THE VERGE: Google hit with $1 billion fine for breaking EU antitrust rules",
+    "WIRED: 10 Best Meal Delivery Services, Tested by an Ex-Restaurant Critic",
+    "ANDROID AUTHORITY: 5 smartwatches you should buy instead of the Samsung Galaxy Watch Ultra 2",
+    "WIRED: People Are Getting Off to Porn About ICE Raids",
+    "DEV.TO: Better than Next.js? Is Rust Finally Ready for Full-Stack Web Development? Introducing Topcoat",
+    "IGN: First Look at Warhammer Blood Bowl, the Free Overhaul for Blood Bowl 3 Due Out Fall 2026",
+    "DEV.TO: MCP Just Killed the Handshake (Your Server Is Next)",
+    "DEV.TO: An AI \"Escaped Its Sandbox\" — Or We Just Built a Bad Sandbox",
+    "IGN: The Lord of the Rings: The Rings of Power is Finally Introducing Galadriel's Husband Celeborn — And a Famous Face From Stranger Things is Playing Her 'Lover-Boy' Beau"
   ],
   "sectionVideos": {}
 }
