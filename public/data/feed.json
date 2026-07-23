@@ -1,32 +1,89 @@
 {
-  "fetchedAt": "2026-07-22T23:25:03.198Z",
+  "fetchedAt": "2026-07-23T00:35:54.001Z",
   "articles": [
     {
-      "id": "feed-e8108ef71df5",
-      "title": "Implementing UUID v7 by hand: time-sortable primary keys (and the same-millisecond trap)",
-      "excerpt": "Random UUID v4 makes a poor primary key: values land all over the index, so B-tree inserts scatter across pages and page splits go up. UUID v7 puts a millisecond timestamp in the leading bits (standar…",
-      "body": "Random UUID v4 makes a poor primary key: values land all over the index, so B-tree inserts scatter across pages and page splits go up. UUID v7 puts a millisecond timestamp in the leading bits (standardized in RFC 9562), so generation order equals sort order and you get locality back. I needed a UUID generator that runs entirely in the browser, and while building it I implemented v7 by hand instead of pulling in a library. Here is the layout, the implementation, the trap I hit, and when each version is actually the right choice. The v7 layout The 128 bits break down like this: | 48bit unix_ms | 4bit ver(=7) | 12bit rand_a | 2bit variant | 62bit rand_b | The first 48 bits are the Unix timestamp in milliseconds, big-endian.",
-      "author": "takahiro hashito",
-      "date": "2026-07-22",
+      "id": "feed-08145f54e7f8",
+      "title": "Lego’s Donkey Kong arcade machine lets Mario jump endless barrels — Miyamoto is reportedly happy",
+      "excerpt": "Carl Merriam has designed some of my favorite nostalgia-inducing Lego sets, including the Lego Nintendo Game Boy and Piranha Plant. He's assisted on the incredible Lion Knights' Castle, Galaxy Explore…",
+      "body": "Carl Merriam has designed some of my favorite nostalgia-inducing Lego sets, including the Lego Nintendo Game Boy and Piranha Plant . He's assisted on the incredible Lion Knights' Castle , Galaxy Explorer , and Pirates of Barracuda Bay . Now, he's helped the company create a Donkey Kong arcade machine set that managed to win even Mario creator Shigeru Miyamoto's favor - or so he's told. It doesn't play quite like Donkey Kong , of course. Jumpman, the character that would be renamed Mario, can never reach the top under his own power. But like Lego's $230 pinball machine , it does contain a basic fully functional game. There's a working joystick … Read the full story at The Verge.",
+      "author": "Sean Hollister",
+      "date": "2026-07-23",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": true,
+      "xpReward": 48,
+      "url": "https://www.theverge.com/gadgets/969668/lego-donkey-kong-arcade-machine",
+      "image": "/images/feed/feed-08145f54e7f8.jpg",
+      "source": "The Verge",
+      "isLive": true
+    },
+    {
+      "id": "feed-56f1bcf4af0d",
+      "title": "Elon Musk hints at Tesla (TSLA)-SpaceX merger on earnings call",
+      "excerpt": "Elon Musk hinted at a merger between Tesla and SpaceX on Tesla’s Q2 2026 earnings call, pointing to “more and more overlap” between the two companies he controls. He stopped short of confirming anythi…",
+      "body": "Elon Musk hinted at a merger between Tesla and SpaceX on Tesla’s Q2 2026 earnings call, pointing to “more and more overlap” between the two companies he controls. He stopped short of confirming anything, deferring to Tesla’s general counsel and “the appropriate process” — but the exchange is the closest Musk has come to addressing the merger speculation directly.",
+      "author": "Fred Lambert",
+      "date": "2026-07-23",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Spacex"
+      ],
+      "featured": true,
+      "xpReward": 49,
+      "url": "https://electrek.co/2026/07/22/elon-musk-hints-tesla-spacex-merger-earnings-call/",
+      "image": "/images/feed/feed-56f1bcf4af0d.jpg",
+      "source": "Electrek",
+      "isLive": true
+    },
+    {
+      "id": "feed-bca5d13a366a",
+      "title": "Beyond \"Chat\": Architecting Intelligence with Skills and Specification Engineering",
+      "excerpt": "Remember the days when we used to dump all our CSS and JavaScript into a single index.html file? That's exactly what a \"Mega-Prompt\" is today: an unmanageable monolith. A few weeks ago, while working…",
+      "body": "Remember the days when we used to dump all our CSS and JavaScript into a single index.html file? That's exactly what a \"Mega-Prompt\" is today: an unmanageable monolith. A few weeks ago, while working on the orchestration of Vibrisse Agent (my local AI agent), I hit this exact wall. I was trying to stabilize a complex task by adding instructions to a 500-line system prompt. The more rules I added, the more the model forgot the older ones. The industry has sold us the myth of the Mega-Prompt. Those famous \"50 ultimate prompts\" or massive blocks of incantatory text are a technical dead end. Creative writing doesn't scale in production. As a web developer, my conviction is simple: to build reliable applications, we must stop \"talking\" to the machine and start configuring it.",
+      "author": "Quentin Merle",
+      "date": "2026-07-23",
       "readTime": "2 min",
       "section": "software",
       "tags": [
         "Software"
       ],
       "featured": true,
-      "xpReward": 44,
-      "url": "https://dev.to/takahiro_hashito_a1f3f0dc/implementing-uuid-v7-by-hand-time-sortable-primary-keys-and-the-same-millisecond-trap-1l71",
-      "image": "/images/feed/feed-e8108ef71df5.webp",
+      "xpReward": 42,
+      "url": "https://dev.to/quentin_merle/beyond-chat-architecting-intelligence-with-skills-and-specification-engineering-3mpm",
+      "image": "/images/feed/feed-bca5d13a366a.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-51548f43416c",
-      "title": "Expiring Content: Put the Deadline in the Data, Not the Prose",
-      "excerpt": "Introduction I run several sites that publish time-limited information: Kindle manga sales, grocery and household deals. Everything on them expires. That creates a structural weakness. Expired deals l…",
-      "body": "Introduction I run several sites that publish time-limited information: Kindle manga sales, grocery and household deals. Everything on them expires . That creates a structural weakness. Expired deals left on the page erode trust in the whole site. A reader clicks a link labeled \"through July 31\" and lands on a full-price page. After that happens a couple of times, they stop coming back. Removing expired entries by hand does not scale; the more articles you have, the worse it gets. So I moved the deadline into the data and let the build decide what to show. Architecture Each article carries metrics.deadline in its JSON, and build.js computes the days remaining at generation time.",
-      "author": "takahiro hashito",
-      "date": "2026-07-22",
+      "id": "feed-3705aaf8ba10",
+      "title": "talonaudit.com",
+      "excerpt": "I built Talon Audit: a privacy-first approach to website exposure and remediation Most website audit tools answer one narrow question. A performance tool asks whether the page is fast. Visitors do not…",
+      "body": "I built Talon Audit: a privacy-first approach to website exposure and remediation Most website audit tools answer one narrow question. A performance tool asks whether the page is fast. A security tool asks whether a protection is missing. An accessibility tool asks whether the interface meets specific standards. A conversion tool asks whether users are completing key actions. Visitors do not experience those categories separately. They experience one website. That observation led me to build Talon Audit, a privacy-first website analysis platform that connects technical exposure, reliability, usability, and conversion risk in one workflow.",
+      "author": "Jelena Stricak",
+      "date": "2026-07-23",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 46,
+      "url": "https://dev.to/jelenastricak/talonauditcom-p4b",
+      "image": "/images/feed/feed-3705aaf8ba10.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-60c67259835c",
+      "title": "Treating Firestore as a public cache",
+      "excerpt": "Using Firestore as \"the app's primary database\" is easy at first. Writes and reads complete in one place, and onSnapshot gives you realtime push for free. But as a service grows, keeping Firestore as…",
+      "body": "Using Firestore as \"the app's primary database\" is easy at first. Writes and reads complete in one place, and onSnapshot gives you realtime push for free. But as a service grows, keeping Firestore as the SoT (source of truth) exposes some fatal constraints. Where SoT-Firestore hurts Weak transaction boundaries, missing complex queries, the cost structure, the difficulty of migrating away. The harshest one: you cannot narrow related updates with a WHERE . For the use case \"update a set of documents matching a condition, consistently, in one go,\" Firestore is structurally weak.",
+      "author": "cilly",
+      "date": "2026-07-23",
       "readTime": "2 min",
       "section": "software",
       "tags": [
@@ -34,84 +91,84 @@
       ],
       "featured": true,
       "xpReward": 53,
-      "url": "https://dev.to/takahiro_hashito_a1f3f0dc/expiring-content-put-the-deadline-in-the-data-not-the-prose-27bh",
-      "image": "/images/feed/feed-51548f43416c.webp",
+      "url": "https://dev.to/cilly/treating-firestore-as-a-public-cache-3mkm",
+      "image": "/images/feed/feed-60c67259835c.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-ecbd78e500f9",
-      "title": "Enforcing Content Tone With a Lint That Fails the Build",
-      "excerpt": "Introduction I run about twenty static sites on an automated pipeline. Article data lives in JSON, and a dependency-free build.js emits the HTML. Since updates run unattended, most of the writing is d…",
-      "body": "Introduction I run about twenty static sites on an automated pipeline. Article data lives in JSON, and a dependency-free build.js emits the HTML. Since updates run unattended, most of the writing is done by machines too. That created a problem I did not anticipate: tone drifted. I had a rule that these sites use no emoji. Yet every run slipped one in somewhere. A heading here, an FAQ answer there. I would remove them, and the next day they showed up somewhere else. Trying to hold a style rule in place through review does not scale. So I turned it into a lint that fails the build. Architecture The shape is simple: walk the files, report any line containing an emoji, and exit non-zero if there is even one.",
-      "author": "takahiro hashito",
-      "date": "2026-07-22",
+      "id": "feed-2b171f2f4373",
+      "title": "Serverless: When It Helps and When It Hurts",
+      "excerpt": "Introduction Serverless computing has become a buzzword in cloud architecture. But like any tool, it has sweet spots and sharp edges. After building and maintaining several serverless applications, I'…",
+      "body": "Introduction Serverless computing has become a buzzword in cloud architecture. But like any tool, it has sweet spots and sharp edges. After building and maintaining several serverless applications, I've learned where it shines and where it creates headaches. This article shares those lessons. When Serverless Helps 1. Event-Driven Workloads Serverless excels when your code runs in response to events: file uploads, database changes, HTTP requests. The pay-per-execution model means you don't pay for idle time. // AWS Lambda handler for image resizing exports . handler = async ( event ) =&gt; { const bucket = event . Records [ 0 ]. s3 . bucket . name ; const key = event . Records [ 0 ]. s3 . object . key ; // resize and save return { statusCode : 200 }; }; 2.",
+      "author": "Cloud Frontier",
+      "date": "2026-07-23",
       "readTime": "2 min",
       "section": "software",
       "tags": [
         "Software"
       ],
       "featured": true,
-      "xpReward": 30,
-      "url": "https://dev.to/takahiro_hashito_a1f3f0dc/enforcing-content-tone-with-a-lint-that-fails-the-build-19jf",
-      "image": "/images/feed/feed-ecbd78e500f9.webp",
+      "xpReward": 42,
+      "url": "https://dev.to/cloudfrontier/serverless-when-it-helps-and-when-it-hurts-60g",
+      "image": "/images/feed/feed-2b171f2f4373.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-07ea760e06ca",
-      "title": "Understanding Next.js Page Caching (with a real example)",
-      "excerpt": "Caching can be a tricky topic, especially when pages don’t update the way you expect. /writing page of my site. Whenever I added or updated articles, the changes did not show immediately. Oddly enough…",
-      "body": "Caching can be a tricky topic, especially when pages don’t update the way you expect. I recently ran into an interesting issue while working on the /writing page of my site. Whenever I added or updated articles, the changes did not show immediately. Oddly enough, the individual article pages updated as expected, but the listing page stayed stale. After some digging, I realized this was not a bug. It was Next.js doing exactly what it is supposed to . How Next.js caching works Next.js (App Router) handles HTML caching at the edge in production. For statically prerendered pages, it sets Cache-Control: s-maxage=31536000 , which is one year. This header tells CDNs and edge caches that they can serve the page without re-fetching for a long time.",
-      "author": "Edgar Nahama Alochi",
-      "date": "2026-07-22",
+      "id": "feed-14b6ee4ae6d2",
+      "title": "Running a WordPress major upgrade step by step with WP-CLI — commands and checkpoints for each stage",
+      "excerpt": "The W series has covered what to check before a major upgrade, when to apply it, and what can go wrong. This fourth part covers the remaining question: how to actually run it. Once the preparation is…",
+      "body": "The W series has covered what to check before a major upgrade , when to apply it , and what can go wrong . This fourth part covers the remaining question: how to actually run it. Once the preparation is in place and the timing is right, this is the command sequence to follow — one stage at a time, with a confirmation step at each boundary. Why not use the admin dashboard Update button The WordPress admin screen has an \"Update All\" button that runs core, plugin, and theme updates in a single operation. This is the approach to avoid for major upgrades. The reason is loss of isolation . When core plus five plugins plus two themes update in one pass, any breakage afterward has multiple suspects and no clear way to narrow them down.",
+      "author": "Susumu Takahashi",
+      "date": "2026-07-23",
       "readTime": "2 min",
       "section": "software",
       "tags": [
         "Software"
       ],
-      "featured": true,
-      "xpReward": 52,
-      "url": "https://dev.to/nahamaalochi/understanding-nextjs-page-caching-with-a-real-example-10io",
-      "image": "/images/feed/feed-07ea760e06ca.webp",
+      "featured": false,
+      "xpReward": 41,
+      "url": "https://dev.to/susumun/running-a-wordpress-major-upgrade-step-by-step-with-wp-cli-commands-and-checkpoints-for-each-stage-b94",
+      "image": "/images/feed/feed-14b6ee4ae6d2.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-1cc3df796239",
-      "title": "Why Your Unit Tests Aren't Enough (And How to Break Your Own API)",
-      "excerpt": "Stop testing the happy path. Learn how to use property-based testing and Schemathesis to automate chaos and break your API before your users do We’ve all been there. You finish building a new API endp…",
-      "body": "Stop testing the happy path. Learn how to use property-based testing and Schemathesis to automate chaos and break your API before your users do The Problem with Manual Testing We’ve all been there. You finish building a new API endpoint, fire off a perfectly formatted JSON payload, and get a beautiful 200 OK . You write a few unit tests covering the expected inputs, watch the green checkmarks light up in your CI pipeline, and confidently merge the pull request. Then the code hits a live environment. A frontend glitch sends a massive integer instead of a string. A random scraper drops a 10MB payload into a query parameter. Someone decides to test your search bar with a null byte.",
-      "author": "David Oprea",
-      "date": "2026-07-22",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Api"
-      ],
-      "featured": true,
-      "xpReward": 44,
-      "url": "https://dev.to/david_oprea/why-your-unit-tests-arent-enough-and-how-to-break-your-own-api-5ge",
-      "image": "https://assets.dev.to/assets/github-logo-5a155e1f9a670af7944dd5e12375bc76ed542ea80224905ecaf878b9157cdefc.svg",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-51ead6cd3623",
-      "title": "Aether-7B-5Attn: VIDRAFT's Fully Open-Source MoE Foundation Model with Five Heterogeneous Attention Mechanisms",
-      "excerpt": "Aether-7B-5Attn: VIDRAFT's Fully Open-Source MoE Foundation Model with Five Heterogeneous Attention Mechanisms TL;DR: Korean AI startup VIDRAFT has released Aether-7B-5Attn on Hugging Face — a fully o…",
-      "body": "Aether-7B-5Attn: VIDRAFT's Fully Open-Source MoE Foundation Model with Five Heterogeneous Attention Mechanisms TL;DR: Korean AI startup VIDRAFT has released Aether-7B-5Attn on Hugging Face — a fully open-source Mixture-of-Experts foundation model with 6.59B total parameters that integrates five distinct attention mechanisms arranged in a novel Latin-square layer structure. It ships under Apache 2.0 with full training data recipes, code, hyperparameters, logs, intermediate checkpoints, and evaluation code, making it one of the most transparently documented open releases to date. What it is Aether-7B-5Attn is a foundation language model developed by VIDRAFT (비드래프트), a Seoul-based Pre-AGI AI deep-tech company.",
-      "author": "AI OpenFree",
-      "date": "2026-07-22",
+      "id": "feed-0e391bd486e1",
+      "title": "Our login hung for exactly 10 seconds. Our own security headers did it.",
+      "excerpt": "For about a week, returning users who opened our portal watched the word \"Loading…\" sit on the screen for ten seconds before the login page appeared. Not sometimes. Not roughly. Ten seconds, every tim…",
+      "body": "For about a week, returning users who opened our portal watched the word \"Loading…\" sit on the screen for ten seconds before the login page appeared. Not sometimes. Not roughly. Ten seconds, every time, and then everything worked perfectly. First-time visitors never saw it. Only people who had signed in before. A bug that takes a random amount of time is a performance problem. A bug that takes exactly ten seconds is a confession. Nothing in a healthy web request rounds itself off to a clean power of ten. That number is not the sum of some real work; it is the ceiling of a timeout, and a timeout means something, somewhere, is patiently waiting for a thing that is never going to arrive.",
+      "author": "authagonal",
+      "date": "2026-07-23",
       "readTime": "2 min",
       "section": "software",
       "tags": [
         "Software"
       ],
-      "featured": true,
-      "xpReward": 50,
-      "url": "https://dev.to/ai_openfree_b23025ef075cf/aether-7b-5attn-vidrafts-fully-open-source-moe-foundation-model-with-five-heterogeneous-attention-2ilh",
-      "image": "/images/feed/feed-51ead6cd3623.webp",
+      "featured": false,
+      "xpReward": 41,
+      "url": "https://dev.to/authagonal/our-login-hung-for-exactly-10-seconds-our-own-security-headers-did-it-45aa",
+      "image": "/images/feed/feed-0e391bd486e1.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-cb410018e303",
+      "title": "Hunting Down Zombie Agents: Logging Subagent Usage with a Claude Code Stop Hook",
+      "excerpt": "Quick question: how many of the subagents you've defined in ~/.claude/agents/ have actually been called this month? I couldn't have told you — until I started measuring, and this morning's tally revea…",
+      "body": "Quick question: how many of the subagents you've defined in ~/.claude/agents/ have actually been called this month? I couldn't have told you — until I started measuring, and this morning's tally revealed 44 agents that hadn't been invoked even once in 30 days . This post is part of my \"Claude Code environment\" series (a follow-up to automatic terminal window tiling ), continuing the theme of keeping the setup from bloating. I'll walk through, with real code, a system that records subagent invocations to JSONL via a Stop hook and uses a daily report to flush out the zombies and cull them. The problem: the gap between \"defined\" and \"used\" Adding an agent to Claude Code is as simple as writing frontmatter in .claude/agents/*.md .",
+      "author": "Lily",
+      "date": "2026-07-23",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 38,
+      "url": "https://dev.to/bokuwalily/hunting-down-zombie-agents-logging-subagent-usage-with-a-claude-code-stop-hook-332g",
+      "image": "/images/feed/feed-cb410018e303.webp",
       "source": "Dev.to",
       "isLive": true
     },
@@ -128,7 +185,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 54,
       "url": "https://kotaku.com/zelda-tears-of-the-kingdom-gets-very-cool-and-surprisingly-affordable-action-figures-2000718523",
       "image": "/images/feed/feed-d59d38478267.jpg",
       "source": "Kotaku",
@@ -147,7 +204,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 51,
       "url": "https://www.polygon.com/the-odyssey-trojan-horse-drew-inspiration-from-planet-of-the-apes/",
       "image": "/images/feed/feed-0175ed7ea310.jpg",
       "source": "Polygon",
@@ -166,29 +223,10 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 43,
       "url": "https://cleantechnica.com/2026/07/22/nearly-4000-tennesseans-speak-out-against-tvas-fossil-fuel-powered-energy-plan/",
       "image": "/images/feed/feed-cafdda87fb2f.png",
       "source": "CleanTechnica",
-      "isLive": true
-    },
-    {
-      "id": "feed-0bd28f08dd41",
-      "title": "Stone.js: your app exists in every runtime, until you run it",
-      "excerpt": "The rewrite tax Count the versions of your last real-world app. There is the Express or Nest version for the server. The handler you extracted and mangled for Lambda. The API routes you re-declared wh…",
-      "body": "The rewrite tax Count the versions of your last real-world app. There is the Express or Nest version for the server. The handler you extracted and mangled for Lambda. The API routes you re-declared when the frontend moved to Next. And now someone is asking for an MCP server so agents can use it. Same domain logic. Four incarnations. Every framework you picked made you pay this tax, because every framework has a home runtime and your code belongs to it. Stone.js starts from the opposite premise: an application is not an object, it is an act . Application = Domain x Context . You write the domain once; the context (server, function, browser, agent) applies itself to your domain at runtime, not the other way around. Show me A domain is just classes or functions.",
-      "author": "Mr. Stone",
-      "date": "2026-07-22",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 39,
-      "url": "https://dev.to/mr_stone/stonejs-your-app-exists-in-every-runtime-until-you-run-it-2n8o",
-      "image": "/images/feed/feed-0bd28f08dd41.webp",
-      "source": "Dev.to",
       "isLive": true
     },
     {
@@ -204,10 +242,29 @@
         "Hybrid"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 34,
       "url": "https://insideevs.com/news/802486/ford-truck-backup-power/",
       "image": "/images/feed/feed-fcebc1a53f19.jpg",
       "source": "InsideEVs",
+      "isLive": true
+    },
+    {
+      "id": "feed-230639bda8ad",
+      "title": "Anthropomorphism in Children's Interactions with LLM Chatbots",
+      "excerpt": "",
+      "body": "This report, published by Hacker News, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Llm. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Hacker News using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "StatsAreFun",
+      "date": "2026-07-22",
+      "readTime": "2 min",
+      "section": "ai",
+      "tags": [
+        "Llm"
+      ],
+      "featured": false,
+      "xpReward": 42,
+      "url": "https://arxiv.org/abs/2607.18250",
+      "image": "/images/feed/feed-230639bda8ad.png",
+      "source": "Hacker News",
       "isLive": true
     },
     {
@@ -223,7 +280,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 40,
       "url": "https://9to5mac.com/2026/07/22/apple-updates-macos-28-guidance-with-direct-encrypted-hfs-to-apfs-conversion/",
       "image": "/images/feed/feed-308f89c07093.jpg",
       "source": "9to5Mac",
@@ -242,7 +299,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 35,
       "url": "https://www.polygon.com/pokemon-winds-waves-leak-diamond-pearl-doc-monster-design-pokopia/",
       "image": "/images/feed/feed-6ae97beefcd0.png",
       "source": "Polygon",
@@ -261,7 +318,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 39,
       "url": "https://kotaku.com/world-of-warcraft-insider-raiding-scandal-2000718464",
       "image": "/images/feed/feed-4f46f97d1be6.jpg",
       "source": "Kotaku",
@@ -280,7 +337,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 36,
       "url": "https://www.ign.com/articles/dell-alienware-area-51-rtx-5090-gaming-pc-deal-july-2026",
       "image": "/images/feed/feed-a82df7a69ac4.jpg",
       "source": "IGN",
@@ -299,7 +356,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 32,
       "url": "https://www.cnet.com/news/jimothy-viral-raccoon-google-animation/",
       "image": "/images/feed/feed-7246091bb127.png",
       "source": "CNET",
@@ -318,7 +375,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 50,
       "url": "https://www.engadget.com/2221371/check-out-this-nifty-3d-playdate-game-demo/",
       "image": "/images/feed/feed-60a6521e66e9.jpg",
       "source": "Engadget",
@@ -337,29 +394,10 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 30,
       "url": "https://www.engadget.com/2221369/steam-adds-handy-gifting-and-wishlist-updates/",
       "image": "/images/feed/feed-27dcea7781fc.jpg",
       "source": "Engadget",
-      "isLive": true
-    },
-    {
-      "id": "feed-10118e725cf0",
-      "title": "Ex-Assassin’s Creed Hexe Director Explains Why Trying To Get Things Done With 1,000-Person Teams Felt Like ‘Pissing Upstream’",
-      "excerpt": "Clint Hocking, the first Assassin's Creed Hexe director to exit the project this year, recounted the 'disconnected' process of developing Ubisoft's Watch Dogs: Legion",
-      "body": "Clint Hocking, the first Assassin's Creed Hexe director to exit the project this year, recounted the 'disconnected' process of developing Ubisoft's Watch Dogs: Legion\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Lewis Parker",
-      "date": "2026-07-22",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 37,
-      "url": "https://kotaku.com/ex-assassins-creed-hexe-director-explains-why-trying-to-get-things-done-with-1000-person-teams-felt-like-pissing-upstream-2000718473",
-      "image": "/images/feed/feed-10118e725cf0.jpg",
-      "source": "Kotaku",
       "isLive": true
     },
     {
@@ -375,7 +413,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 40,
       "url": "https://www.androidauthority.com/google-meet-organizes-meeting-files-in-drive-folder-3690434/",
       "image": "/images/feed/feed-98956cf507ce.jpg",
       "source": "Android Authority",
@@ -394,7 +432,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 41,
       "url": "https://www.bleepingcomputer.com/news/security/upbound-says-hack-caused-13-million-in-fraudulent-acima-leases/",
       "image": "/images/feed/feed-2e55b9346eb2.jpg",
       "source": "BleepingComputer",
@@ -413,7 +451,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 47,
       "url": "https://www.androidauthority.com/galaxy-watch-ultra-2-diving-subscription-3690422/",
       "image": "/images/feed/feed-cc1d49d05e9b.jpg",
       "source": "Android Authority",
@@ -433,7 +471,7 @@
         "Orbit"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 43,
       "url": "https://spacenews.com/chinas-shijian-31-satellite-is-sweeping-geo-using-a-unique-orbit/",
       "image": "/images/feed/feed-fca44bbd5c22.jpg",
       "source": "SpaceNews",
@@ -452,7 +490,7 @@
         "Foldable"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 48,
       "url": "https://www.cnet.com/tech/mobile/higher-samsung-prices-foldables-ram-shortage/",
       "image": "/images/feed/feed-8d6d5e2def5a.jpg",
       "source": "CNET",
@@ -472,7 +510,7 @@
         "Satellite"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 53,
       "url": "https://www.space.com/space-exploration/launches-spacecraft/chinas-record-breaking-gravity-1-rocket-launches-9-satellites-from-a-ship-at-sea-video",
       "image": "/images/feed/feed-acb1bf159c29.jpg",
       "source": "Space.com",
@@ -491,7 +529,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 52,
       "url": "https://9to5mac.com/2026/07/22/apple-store-app-may-soon-get-an-ai-powered-shopping-assistant/",
       "image": "/images/feed/feed-a1835c7a70a5.jpg",
       "source": "9to5Mac",
@@ -510,7 +548,7 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 45,
       "url": "https://electrek.co/2026/07/22/tesla-robotaxi-growth-flat-own-chart-q2-2026/",
       "image": "/images/feed/feed-b45163529c33.png",
       "source": "Electrek",
@@ -529,7 +567,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 38,
       "url": "https://techcrunch.com/2026/07/22/treasury-threatens-sanctions-after-white-house-claims-moonshot-distilled-anthropics-fable/",
       "image": "/images/feed/feed-eb195570e729.jpg",
       "source": "TechCrunch",
@@ -548,7 +586,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 42,
       "url": "https://electrek.co/2026/07/22/subaru-delaying-3-row-getaway-ev-following-toyota/",
       "image": "/images/feed/feed-dd9f62575599.jpg",
       "source": "Electrek",
@@ -567,7 +605,7 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 32,
       "url": "https://insideevs.com/news/802480/tesla-recalls-15-canadian-models/",
       "image": "/images/feed/feed-40a77197d8db.jpg",
       "source": "InsideEVs",
@@ -586,7 +624,7 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 48,
       "url": "https://electrek.co/2026/07/22/tesla-tsla-q2-2026-financial-results/",
       "image": "/images/feed/feed-bd882abcf19c.jpg",
       "source": "Electrek",
@@ -606,7 +644,7 @@
         "Breach"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 44,
       "url": "https://www.bleepingcomputer.com/news/security/south-korea-discloses-data-breach-impacting-diplomats-worldwide/",
       "image": "/images/feed/feed-036538756570.jpg",
       "source": "BleepingComputer",
@@ -625,7 +663,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 41,
       "url": "https://electrek.co/2026/07/22/ford-f-150-electric-trucks-can-now-power-home-electrical-panel/",
       "image": "/images/feed/feed-2ee665c5be49.jpg",
       "source": "Electrek",
@@ -644,7 +682,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 54,
       "url": "https://www.space.com/entertainment/space-movies-shows/5-disturbing-things-we-saw-after-digging-into-the-recent-dune-part-3-trailer",
       "image": "/images/feed/feed-6d5e40dc84d6.jpg",
       "source": "Space.com",
@@ -663,7 +701,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 43,
       "url": "https://techcrunch.com/2026/07/22/how-an-openais-human-mistake-led-to-the-ai-powered-hack-on-hugging-face/",
       "image": "/images/feed/feed-298db90fda8b.jpg",
       "source": "TechCrunch",
@@ -682,7 +720,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 38,
       "url": "https://www.wired.com/story/chinas-open-ai-models-are-challenging-silicon-valleys-playbook/",
       "image": "/images/feed/feed-7d7d859d0c3b.jpg",
       "source": "Wired",
@@ -701,7 +739,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 32,
       "url": "https://www.space.com/astronomy/comets/after-nearly-30-years-nasa-realized-this-near-earth-asteroid-is-actually-a-comet-the-discovery-may-help-us-defend-the-planet-some-day",
       "image": "/images/feed/feed-bf49ece8076b.jpg",
       "source": "Space.com",
@@ -720,7 +758,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 51,
       "url": "https://www.nasa.gov/news-release/nasa-to-showcase-agencys-newest-wind-tunnel-in-virginia/",
       "image": "https://www.nasa.gov/wp-content/uploads/2026/07/langleyfdrfjune2026-ba2289.jpg",
       "source": "NASA Breaking News",
@@ -739,7 +777,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 32,
       "url": "https://thehackernews.com/2026/07/github-cuts-public-bug-bounty-payouts.html",
       "image": "/images/feed/feed-6832f8fa2ac6.jpg",
       "source": "The Hacker News",
@@ -758,29 +796,10 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 52,
       "url": "https://spacenews.com/fcc-approves-sweeping-space-reforms-while-clearing-more-c-band-for-5g/",
       "image": "/images/feed/feed-61cc4237e2e0.jpg",
       "source": "SpaceNews",
-      "isLive": true
-    },
-    {
-      "id": "feed-725e52aa7e59",
-      "title": "Science Corporation’s vision-restoring chip wins EU approval",
-      "excerpt": "\"The thing that the space needs is a company making $100 million a year of revenue,\" Science Corp. CEO Max Hodak said.",
-      "body": "\"The thing that the space needs is a company making $100 million a year of revenue,\" Science Corp. CEO Max Hodak said.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Space. As the situation continues to evolve, professionals and enthusiasts in the space exploration and astronomy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Tim Fernholz",
-      "date": "2026-07-22",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Space"
-      ],
-      "featured": false,
-      "xpReward": 44,
-      "url": "https://techcrunch.com/2026/07/22/science-corporations-vision-restoring-chip-wins-eu-approval/",
-      "image": "/images/feed/feed-725e52aa7e59.jpg",
-      "source": "TechCrunch",
       "isLive": true
     },
     {
@@ -815,7 +834,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 53,
       "url": "https://techcrunch.com/video/menlo-ventures-matt-murphy-explains-why-anthropic-is-winning-and-its-not-the-model/",
       "image": "/images/feed/feed-138565f55ec2.jpg",
       "source": "TechCrunch",
@@ -834,7 +853,7 @@
         "Chatgpt"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 53,
       "url": "https://chatgpt.com/share/6a5fdc7a-d6f8-83e8-bbea-8deb42cfed56",
       "image": "/images/feed/feed-678763b37da6.png",
       "source": "Hacker News",
@@ -853,7 +872,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 53,
       "url": "https://www.cnet.com/tech/services-and-software/ai-help-locate-your-lost-photos-media/",
       "image": "/images/feed/feed-717659669a5f.jpg",
       "source": "CNET",
@@ -872,7 +891,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 38,
       "url": "https://www.zdnet.com/article/firefox-153-enables-containers-by-default/",
       "image": "/images/feed/feed-feb95c226d01.jpg",
       "source": "ZDNet",
@@ -891,29 +910,10 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 46,
       "url": "https://www.bleepingcomputer.com/news/security/swiss-rail-giant-stadler-rejects-123m-ransom-demand-after-cyberattack/",
       "image": "/images/feed/feed-fd298fe7b34f.jpg",
       "source": "BleepingComputer",
-      "isLive": true
-    },
-    {
-      "id": "feed-031142badcc9",
-      "title": "OpenAI’s AI spending spree has ballooned to $750B",
-      "excerpt": "OpenAI will spend the equivalent of Sweden's GDP on infrastructure through 2030.",
-      "body": "OpenAI will spend the equivalent of Sweden's GDP on infrastructure through 2030.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Openai. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Tim De Chant",
-      "date": "2026-07-22",
-      "readTime": "2 min",
-      "section": "ai",
-      "tags": [
-        "Openai"
-      ],
-      "featured": false,
-      "xpReward": 43,
-      "url": "https://techcrunch.com/2026/07/22/openais-ai-spending-spree-has-ballooned-to-750b/",
-      "image": "/images/feed/feed-031142badcc9.jpg",
-      "source": "TechCrunch",
       "isLive": true
     },
     {
@@ -929,7 +929,7 @@
         "Ransomware"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 47,
       "url": "https://www.bleepingcomputer.com/news/security/how-enterprise-genai-can-amplify-ransomware-risk-and-how-to-contain-it/",
       "image": "https://www.bleepstatic.com/content/posts/2026/07/22/ai-prompt-acronis.jpeg",
       "source": "BleepingComputer",
@@ -937,16 +937,16 @@
     }
   ],
   "breakingNews": [
-    "DEV.TO: Implementing UUID v7 by hand: time-sortable primary keys (and the same-millisecond trap)",
-    "DEV.TO: Expiring Content: Put the Deadline in the Data, Not the Prose",
-    "DEV.TO: Enforcing Content Tone With a Lint That Fails the Build",
-    "DEV.TO: Understanding Next.js Page Caching (with a real example)",
-    "DEV.TO: Why Your Unit Tests Aren't Enough (And How to Break Your Own API)",
-    "DEV.TO: Aether-7B-5Attn: VIDRAFT's Fully Open-Source MoE Foundation Model with Five Heterogeneous Attention Mechanisms",
-    "KOTAKU: Zelda: Tears Of The Kingdom Gets Very Cool And Surprisingly Affordable Action Figures",
-    "POLYGON: The Odyssey’s most important visual was inspired by a 58-year-old twist from a classic sci-fi movie",
-    "CLEANTECHNICA: Nearly 4,000 Tennesseans Speak Out Against TVA’s Fossil Fuel-Powered Energy Plan",
-    "DEV.TO: Stone.js: your app exists in every runtime, until you run it"
+    "THE VERGE: Lego’s Donkey Kong arcade machine lets Mario jump endless barrels — Miyamoto is reportedly happy",
+    "ELECTREK: Elon Musk hints at Tesla (TSLA)-SpaceX merger on earnings call",
+    "DEV.TO: Beyond \"Chat\": Architecting Intelligence with Skills and Specification Engineering",
+    "DEV.TO: talonaudit.com",
+    "DEV.TO: Treating Firestore as a public cache",
+    "DEV.TO: Serverless: When It Helps and When It Hurts",
+    "DEV.TO: Running a WordPress major upgrade step by step with WP-CLI — commands and checkpoints for each stage",
+    "DEV.TO: Our login hung for exactly 10 seconds. Our own security headers did it.",
+    "DEV.TO: Hunting Down Zombie Agents: Logging Subagent Usage with a Claude Code Stop Hook",
+    "KOTAKU: Zelda: Tears Of The Kingdom Gets Very Cool And Surprisingly Affordable Action Figures"
   ],
   "sectionVideos": {}
 }
