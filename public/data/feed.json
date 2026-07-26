@@ -1,12 +1,51 @@
 {
-  "fetchedAt": "2026-07-26T16:24:44.643Z",
+  "fetchedAt": "2026-07-26T17:25:38.479Z",
   "articles": [
     {
-      "id": "feed-91c6f89849f1",
-      "title": "Building a Voice-First AI Recipe Manager: Lessons I Learned",
-      "excerpt": "Most recipe apps assume you're willing to stop what you're doing and type. I realized that's not how most people actually cook. Family recipes are often spoken out loud, scribbled on paper, or remembe…",
-      "body": "Most recipe apps assume you're willing to stop what you're doing and type. I realized that's not how most people actually cook. Family recipes are often spoken out loud, scribbled on paper, or remembered from years of repetition. Typing every ingredient into an app feels like work. So, I decided to build SayChef, a voice-first recipe manager that lets people simply talk. Instead of filling out multiple fields, a user can say something like: \"Two cups of flour, one teaspoon of baking powder, bake at 350 for 30 minutes.\" The app converts natural speech into a structured recipe with: Recipe title Ingredients Measurements Cooking steps Cook time Temperature Notes Tags The Hardest Part The biggest challenge wasn't speech recognition. It was dealing with how people naturally talk.",
-      "author": "Jason Kingsley",
+      "id": "feed-f20d7d4944f3",
+      "title": "Clojure vars - notes",
+      "excerpt": "Intro named references (symbol) to values of fn they live in a namespace mutable reference to an immutable value Var is separate from the value so you can redefine it Note: symbol is just name Functio…",
+      "body": "Intro named references (symbol) to values of fn they live in a namespace mutable reference to an immutable value Var is separate from the value so you can redefine it Note: symbol is just name Dig Deeper Functions are actually stored in vars ( defn greet [ name ] ( str \"hello\" name )) ; is equal to ( def greet ( fn [ name ] ( str \"hello\" name ))) ; because defn is macro Dynamic vars Allows temporary thread-local bindings ( def ^ :dynamic *debug* false ) ; temporarily change it ( binding [ *debug* true ] ( prinlnt *debug* )) Metadata ( def ^ { :doc \"A counter\" } counter 0 ) Symbol vs Var Symbol Pice of code that names something ( type 'x ) ;; =&gt; clojure.lang.Symbol Writen as 'x Exists in code and data Var Runtime object that point to immutable value Written as #'x or (var x) Exists at ru…",
+      "author": "ivan.gavlik",
+      "date": "2026-07-26",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 43,
+      "url": "https://dev.to/ivangavlik/clojure-vars-notes-5h66",
+      "image": "/images/feed/feed-f20d7d4944f3.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-3edda774be54",
+      "title": "Big PlayStation Game Sale Is A Perfect Chance To Build Up Your Physical Collection Before Sony Kills Discs",
+      "excerpt": "Critically-acclaimed exclusives are super discounted right now",
+      "body": "Critically-acclaimed exclusives are super discounted right now\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Playstation, Game. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Ethan Gach",
+      "date": "2026-07-26",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Playstation",
+        "Game"
+      ],
+      "featured": true,
+      "xpReward": 42,
+      "url": "https://kotaku.com/big-playstation-game-sale-is-a-perfect-chance-to-build-up-your-physical-collection-before-sony-kills-discs-2000719394",
+      "image": "/images/feed/feed-3edda774be54.jpg",
+      "source": "Kotaku",
+      "isLive": true
+    },
+    {
+      "id": "feed-e4bbd1606acd",
+      "title": "LangChain’s tool routing is a bloated mess. So we built a <10ms local semantic registry to replace it at US Neural.",
+      "excerpt": "Look, LangChain was great to get the ecosystem started 0 to 1. But let's be honest: taking LangChain to production with 50+ tools is a nightmare of abstraction hell and brittle if/else logic. The Agen…",
+      "body": "Look, LangChain was great to get the ecosystem started 0 to 1. But let's be honest: taking LangChain to production with 50+ tools is a nightmare of abstraction hell and brittle if/else logic. The AgentExecutor is slow, and relying on it to route complex tools feels like fighting the framework. Tool discovery shouldn't be an LLM's job, and it shouldn't require a heavy python wrapper. It’s a distributed networking problem. What we built at US Neural: We built Mycelium — a decoupled, semantic tool registry. Instead of chaining tools in code, you register them to a local mesh. When a user has a task, the engine routes it semantically (no keyword matching).",
+      "author": "udaysaai",
       "date": "2026-07-26",
       "readTime": "2 min",
       "section": "software",
@@ -15,17 +54,17 @@
       ],
       "featured": true,
       "xpReward": 35,
-      "url": "https://dev.to/saychef/building-a-voice-first-ai-recipe-manager-lessons-i-learned-k1b",
-      "image": "/images/feed/feed-91c6f89849f1.webp",
+      "url": "https://dev.to/udaysaai/langchains-tool-routing-is-a-bloated-mess-so-we-built-a-10ms-local-semantic-registry-to-replace-56f3",
+      "image": "/images/feed/feed-e4bbd1606acd.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-e5acd8872b9d",
-      "title": "Halftone UI: a component library that ships its own printing press",
-      "excerpt": "Halftone UI: a component library that ships its own printing press Most UI libraries paint. A background is a hex value. A gradient is a CSS function. A chart is an SVG path. The result is clean, pred…",
-      "body": "Halftone UI: a component library that ships its own printing press Most UI libraries paint. A background is a hex value. A gradient is a CSS function. A chart is an SVG path. The result is clean, predictable, and often a little too familiar. Halftone UI takes a different route: it prints. Every visual surface is a live canvas. A component provides a tone function — how dark should the ink be at this point? — and the press keeps the dots that tone can reach. const meter = surface ( canvas , { tone : ( p , W ) =&gt; ( p . x / W &lt; 0.72 ? 0.95 : 0.05 ), pattern : \" hatch \" , }) That threshold operation is the whole idea behind halftone UI. It works for a button, a meter, a chart, a photo, or a full-page example. A pie chart and an image, both printed by the same engine.",
-      "author": "ecgang",
+      "id": "feed-7fb8a23f82f9",
+      "title": "Inside one London founder house rewriting the founder-house rules",
+      "excerpt": "How one founder house is betting work-life balance can beat burnout .",
+      "body": "How one founder house is betting work-life balance can beat burnout .\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Software. As the situation continues to evolve, professionals and enthusiasts in the software development and engineering field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Dominic-Madori Davis",
       "date": "2026-07-26",
       "readTime": "2 min",
       "section": "software",
@@ -33,18 +72,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 52,
-      "url": "https://dev.to/ecgang/halftone-ui-a-component-library-that-ships-its-own-printing-press-3k7e",
-      "image": "/images/feed/feed-e5acd8872b9d.webp",
-      "source": "Dev.to",
+      "xpReward": 40,
+      "url": "https://techcrunch.com/2026/07/26/inside-one-london-founder-house-rewriting-the-founder-house-rules/",
+      "image": "/images/feed/feed-7fb8a23f82f9.jpg",
+      "source": "TechCrunch",
       "isLive": true
     },
     {
-      "id": "feed-016bf53af5cc",
-      "title": "120,001 introspections, 3 distinct: making Typst's convergence check 334 faster",
-      "excerpt": "This is a submission for DEV's Summer Bug Smash: Clear the Lineup powered by Sentry. Written with AI assistance (Claude). The measurements, negative controls and verification below are real and reprod…",
-      "body": "This is a submission for DEV's Summer Bug Smash: Clear the Lineup powered by Sentry . Written with AI assistance (Claude). The measurements, negative controls and verification below are real and reproducible — every number was taken from the runs described. Project Overview Typst is a markup-based typesetting system written in Rust — think LaTeX, but with a sane language and compile times measured in milliseconds. You write = Heading , it produces a PDF. The interesting part for this challenge is how Typst handles introspection . Documents can ask questions about their own finished layout: \"what page is this heading on?\", \"how many figures are there?\", \"give me every &lt;glossary&gt; label\".",
-      "author": "Christo",
+      "id": "feed-a1a87cbae25c",
+      "title": "I Built an AI App That Finds What You Can Build With Your Old LEGO Bricks",
+      "excerpt": "A few months ago, I was looking at a familiar scene that many parents probably know: A huge box full of LEGO bricks. Thousands of pieces. Different colors, shapes, and sizes. But the funny thing is… n…",
+      "body": "A few months ago, I was looking at a familiar scene that many parents probably know: A huge box full of LEGO bricks. Thousands of pieces. Different colors, shapes, and sizes. But the funny thing is… nobody knows what can actually be built with them anymore. My kids would open the box, search for a few minutes, and eventually say: \"We don't have the right pieces.\" Then they would ask for a new LEGO set. That made me wonder: What if the problem isn't that we don't have enough LEGO? What if we just don't know what we already have? That question became the starting point of Brickbeam .",
+      "author": "Muhammet",
       "date": "2026-07-26",
       "readTime": "2 min",
       "section": "software",
@@ -52,10 +91,181 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 50,
-      "url": "https://dev.to/booyaka101/120001-introspections-3-distinct-making-typsts-convergence-check-334x-faster-38fj",
-      "image": "/images/feed/feed-016bf53af5cc.webp",
+      "xpReward": 45,
+      "url": "https://dev.to/muhammetsahin/i-built-an-ai-app-that-finds-what-you-can-build-with-your-old-lego-bricks-3lm7",
+      "image": "/images/feed/feed-a1a87cbae25c.webp",
       "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-89062fc98c41",
+      "title": "We made SigNoz's LLM observability actually reachable…",
+      "excerpt": "-and added the one signal it was missing Track 01 — AI & Agent Observability. A hackathon project built from scratch, July 20–26, 2026. There's a sentence we said to each other on day one and then kep…",
+      "body": "-and added the one signal it was missing Track 01 — AI &amp; Agent Observability. A hackathon project built from scratch, July 20–26, 2026. There's a sentence we said to each other on day one and then kept saying all week, because it kept being true: An API 200 is not evidence that a feature works. This post is the story of a project that lives entirely inside that sentence. It's about a feature SigNoz already shipped that almost nobody can reach, a real bug that makes part of it impossible, and a missing signal — measured answer quality — that we built on top. And it's about how we used SigNoz not as a black box but as the thing under test. The surprising starting point: SigNoz already built the machinery Most \"add observability to LLMs\" projects start from zero.",
+      "author": "Gajanand V Dhayagode",
+      "date": "2026-07-26",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 46,
+      "url": "https://dev.to/gajanand_vdhayagode_55da/we-made-signozs-llm-observability-actually-reachable-ldk",
+      "image": "/images/feed/feed-89062fc98c41.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-a190ea1f1949",
+      "title": "7 best Netflix Original anime that are worth your time (#3 is a masterpiece)",
+      "excerpt": "Dystopian worlds often end up being the most riveting settings.",
+      "body": "Although Netflix has a decent and ever-growing anime library, the streaming service has also produced some excellent original anime over the years. Some of its most popular animated originals — like Castlevania and Blood of Zeus — aren't technically anime, but they still boast complex storytelling and spectacular animation.",
+      "author": "Debopriyaa Dutta",
+      "date": "2026-07-26",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 31,
+      "url": "https://www.polygon.com/best-netflix-original-anime-you-need-to-watch/",
+      "image": "/images/feed/feed-a190ea1f1949.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-1e8662087fae",
+      "title": "Openship: Your Deployment Tool Shouldn't Compete With Your App for RAM",
+      "excerpt": "The self-hosted PaaS drawer is not empty. Coolify, Dokploy, CapRover, Dokku, Kamal. If you have wanted a Heroku you actually own, someone has already built you three of them. So when Openship showed u…",
+      "body": "The self-hosted PaaS drawer is not empty. Coolify, Dokploy, CapRover, Dokku, Kamal. If you have wanted a Heroku you actually own, someone has already built you three of them. So when Openship showed up in July 2026 and hit several thousand GitHub stars in about a week, the reasonable reaction was skepticism. Another dashboard for docker compose up . Having read through it, there is one architectural decision here that is actually different, and it is the kind of difference you feel on a 4 GB VPS. This post covers what that decision is, how to get the thing running three different ways, and an honest read on whether you should put anything you care about on it yet. The one idea that matters Every self-hosted PaaS in that drawer runs its entire control plane on your server.",
+      "author": "ArshTechPro",
+      "date": "2026-07-26",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 32,
+      "url": "https://dev.to/arshtechpro/openship-your-deployment-tool-shouldnt-compete-with-your-app-for-ram-5a4k",
+      "image": "/images/feed/feed-1e8662087fae.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-3f8081a02ece",
+      "title": "Linux Isn't Hard—You're Learning It the Wrong Way",
+      "excerpt": "Stop memorizing commands. Start understanding concepts. Many people believe Linux is difficult because they begin by trying to The truth is simple: Linux isn't hard---you're probably learning it Wheth…",
+      "body": "Stop memorizing commands. Start understanding concepts. Many people believe Linux is difficult because they begin by trying to memorize dozens of terminal commands. After a few days, they forget most of them and feel discouraged. The truth is simple: Linux isn't hard---you're probably learning it the wrong way. Whether you want to become a Linux administrator, DevOps engineer, cloud engineer, or simply feel comfortable using Linux, the right learning approach makes all the difference. Stop Memorizing Commands A common mistake is trying to remember hundreds of commands like: ls pwd cd mkdir touch cp mv rm chmod Commands are tools, not vocabulary. You don't need to memorize every tool before building something. Instead, learn commands when you actually need them.",
+      "author": "Asep Sayyad",
+      "date": "2026-07-26",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 30,
+      "url": "https://dev.to/asepsayyad007/linux-isnt-hard-youre-learning-it-the-wrong-way-4hoo",
+      "image": "/images/feed/feed-3f8081a02ece.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-2ad28c5a3e51",
+      "title": "A new look for the Apple Watch may still be at least a year away",
+      "excerpt": "Apple will refresh its Series 12 and Ultra 4 watches with better specs, but not a design overhaul.",
+      "body": "Apple will refresh its Series 12 and Ultra 4 watches with better specs, but not a design overhaul.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Apple Watch. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "staff@engadget.com (Jackson Chen)",
+      "date": "2026-07-26",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Apple Watch"
+      ],
+      "featured": false,
+      "xpReward": 48,
+      "url": "https://www.engadget.com/2223488/apple-watch-redesign-a-year-away-series-12-ultra-4-updates/",
+      "image": "/images/feed/feed-2ad28c5a3e51.jpg",
+      "source": "Engadget",
+      "isLive": true
+    },
+    {
+      "id": "feed-6fb83e4cc4ad",
+      "title": "Completed Fan-Made Portal Remake Stuck In Limbo As Valve Goes Silent",
+      "excerpt": "Portal: Alive & Kicking kicking had Valve’s blessing and even access to Portal 2’s source code, but that same arrangement now has the team sitting on their hands",
+      "body": "Portal: Alive & Kicking kicking had Valve’s blessing and even access to Portal 2’s source code, but that same arrangement now has the team sitting on their hands\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Zack Kotzer",
+      "date": "2026-07-26",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 48,
+      "url": "https://kotaku.com/completed-fan-made-portal-remake-stuck-in-limbo-as-valve-goes-silent-2000719395",
+      "image": "/images/feed/feed-6fb83e4cc4ad.jpg",
+      "source": "Kotaku",
+      "isLive": true
+    },
+    {
+      "id": "feed-355626f29c21",
+      "title": "Hugging Face CEO calls for ‘radical transparency’ after ‘unprecedented’ OpenAI hack",
+      "excerpt": "\"The first autonomous agent cyberattack is an unprecedented event. It deserves an unprecedented response!\"",
+      "body": "\"The first autonomous agent cyberattack is an unprecedented event. It deserves an unprecedented response!\"\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Openai. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Anthony Ha",
+      "date": "2026-07-26",
+      "readTime": "2 min",
+      "section": "ai",
+      "tags": [
+        "Openai"
+      ],
+      "featured": false,
+      "xpReward": 41,
+      "url": "https://techcrunch.com/2026/07/26/hugging-face-ceo-calls-for-radical-transparency-after-unprecedented-openai-hack/",
+      "image": "/images/feed/feed-355626f29c21.jpg",
+      "source": "TechCrunch",
+      "isLive": true
+    },
+    {
+      "id": "feed-c709cf016634",
+      "title": "Path of Exile 2 is an intense action RPG that manages to be strangely cozy",
+      "excerpt": "Path of Exile 2 is nothing like the traditional cozy game, but Grinding Gear Games' action RPG can offer the relaxing experience you may need.",
+      "body": "I feel tired. I boot up Path of Exile 2 . I select my level 49 Chronomancer, and as I traverse the maze-like maps, hordes of four-arm humanoid creatures jump at me, giant insectoid monstrosities pursue me, and abyssal green devils come out of the ground to shoot infernal laser beams. But I keep moving, unstoppable ( unbeatable! ), freezing and exploding their bodies. I'm drowning in a stream of dopamine, having the most relaxing gaming moment I could have.",
+      "author": "Paulo Kawanishi",
+      "date": "2026-07-26",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 38,
+      "url": "https://www.polygon.com/path-of-exile-2-recommendation-cozy-game/",
+      "image": "/images/feed/feed-c709cf016634.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-045e658bcd22",
+      "title": "Why do phones still use battery when powered off?",
+      "excerpt": "Your battery is continually losing charge.",
+      "body": "Your battery is continually losing charge.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "staff@engadget.com (Christine Persaud)",
+      "date": "2026-07-26",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 33,
+      "url": "https://www.engadget.com/2219830/phone-battery-powered-off-explained/",
+      "image": "/images/feed/feed-045e658bcd22.jpg",
+      "source": "Engadget",
       "isLive": true
     },
     {
@@ -70,68 +280,11 @@
       "tags": [
         "Gaming"
       ],
-      "featured": true,
-      "xpReward": 46,
+      "featured": false,
+      "xpReward": 39,
       "url": "https://www.polygon.com/the-odyssey-box-office-dark-knight-record-beaten/",
       "image": "/images/feed/feed-2326fab15ed5.jpg",
       "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-307c03d7676c",
-      "title": "TechCrunch Mobility: Uber bets on its former CEO",
-      "excerpt": "Welcome back to TechCrunch Mobility, your hub for the future of transportation and now, more than ever, the role AI is playing in it.",
-      "body": "Welcome back to TechCrunch Mobility, your hub for the future of transportation and now, more than ever, the role AI is playing in it.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Software. As the situation continues to evolve, professionals and enthusiasts in the software development and engineering field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Kirsten Korosec",
-      "date": "2026-07-26",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 41,
-      "url": "https://techcrunch.com/2026/07/26/techcrunch-mobility-uber-bets-on-its-former-ceo/",
-      "image": "/images/feed/feed-307c03d7676c.jpg",
-      "source": "TechCrunch",
-      "isLive": true
-    },
-    {
-      "id": "feed-79a05a0fc772",
-      "title": "Validation State Doesn't Act By Itself",
-      "excerpt": "Originally published at https://blog.pathvector.dev/protocol-in-code-bgp-05/ — part of the free Protocol Lab series. This post is part of Protocol in Code, a free series that reads network protocols n…",
-      "body": "Originally published at https://blog.pathvector.dev/protocol-in-code-bgp-05/ — part of the free Protocol Lab series. This post is part of Protocol in Code , a free series that reads network protocols not as configuration examples but as logic with inputs, state, and branches — actual code you can read and run. The whole series lives here: github.com/pathvector-studio/protocol-in-code . If you're newer to this material and want a more hands-on, guided on-ramp first, start with the companion Protocol Lab series and come back. Today's module is from the BGP track, Session 05. The source file is src/protocol_in_code/bgp/policy.py , and it builds directly on the origin-validation logic from Session 04.",
-      "author": "pathvector-dev",
-      "date": "2026-07-26",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 48,
-      "url": "https://dev.to/pathvector-dev/validation-state-doesnt-act-by-itself-35nm",
-      "image": "/images/feed/feed-79a05a0fc772.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-a502df1910dc",
-      "title": "Origin validation is a separate decision from best path",
-      "excerpt": "Originally published at https://blog.pathvector.dev/protocol-in-code-bgp-04/ — part of the free Protocol Lab series. This post is part of Protocol in Code, a free series that reads network protocols a…",
-      "body": "Originally published at https://blog.pathvector.dev/protocol-in-code-bgp-04/ — part of the free Protocol Lab series. This post is part of Protocol in Code , a free series that reads network protocols as logic — inputs, state, and branches — rather than as configuration examples. The full source, walkthroughs, and site lessons live in the repo: pathvector-studio/protocol-in-code . If you're newer to this and want to build the protocols hands-on before dissecting them, start with the companion Protocol Lab series instead. Today we're on the BGP track, session 04, reading a single small file: src/protocol_in_code/bgp/validation.py . It's about 40 lines. The idea inside it is one that trips up a lot of engineers who've been running BGP for years.",
-      "author": "pathvector-dev",
-      "date": "2026-07-26",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 39,
-      "url": "https://dev.to/pathvector-dev/origin-validation-is-a-separate-decision-from-best-path-316g",
-      "image": "/images/feed/feed-a502df1910dc.webp",
-      "source": "Dev.to",
       "isLive": true
     },
     {
@@ -147,29 +300,10 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 39,
       "url": "https://www.polygon.com/what-could-be-next-for-apocalypse-in-x-men-97/",
       "image": "/images/feed/feed-d59bee2526e9.png",
       "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-3c470f6cf546",
-      "title": "Teams Governance — Why Most Enterprises Get It Wrong",
-      "excerpt": "By Suvankar Chakraborty | Principal Engineer — IAM, Modern Workplace Management & IT Operations The Collaboration Platform That Became a Governance Nightmare Microsoft Teams was deployed at extraordin…",
-      "body": "By Suvankar Chakraborty | Principal Engineer — IAM, Modern Workplace Management &amp; IT Operations The Collaboration Platform That Became a Governance Nightmare Microsoft Teams was deployed at extraordinary speed across the enterprise world. In most organisations I know, the deployment timeline went something like this: March 2020, global pandemic, remote work mandate, Teams switched on, everyone told to use it, governance deferred because there was no time. Five years later, the governance that was deferred in 2020 has still not been implemented in most of those environments. The result is predictable and consistent across industries: Teams sprawl at industrial scale. Hundreds of Teams that nobody owns. Channels for projects that ended three years ago.",
-      "author": "Suvankar Chakraborty",
-      "date": "2026-07-26",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 38,
-      "url": "https://dev.to/suvankar_chakraborty_1d46/teams-governance-why-most-enterprises-get-it-wrong-1008",
-      "image": "/images/feed/feed-3c470f6cf546.webp",
-      "source": "Dev.to",
       "isLive": true
     },
     {
@@ -185,7 +319,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 30,
       "url": "https://cleantechnica.com/2026/07/26/trump-blames-canada-wildfire-smoke-climate/",
       "image": "/images/feed/feed-95c8f904c603.png",
       "source": "CleanTechnica",
@@ -204,7 +338,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 48,
       "url": "https://www.engadget.com/2218723/android-auto-hidden-menu/",
       "image": "/images/feed/feed-1682154b9eb0.jpg",
       "source": "Engadget",
@@ -223,87 +357,10 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 38,
       "url": "https://kotaku.com/avengers-ghost-rider-and-more-everything-marvel-revealed-at-san-diego-comic-con-2026-2000719376",
       "image": "/images/feed/feed-efca2c236f6e.jpg",
       "source": "Kotaku",
-      "isLive": true
-    },
-    {
-      "id": "feed-d7867b69e662",
-      "title": "‘Unfilmable’ Cyberpunk Classic Neuromancer Receives First Trailer",
-      "excerpt": "The criminal underbelly of William Gibson’s genre shaping Sprawl comes to you from Apple TV",
-      "body": "The criminal underbelly of William Gibson’s genre shaping Sprawl comes to you from Apple TV\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Zack Kotzer",
-      "date": "2026-07-26",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 41,
-      "url": "https://kotaku.com/unfilmable-cyberpunk-classic-neuromancer-receives-first-trailer-2000719381",
-      "image": "/images/feed/feed-d7867b69e662.jpg",
-      "source": "Kotaku",
-      "isLive": true
-    },
-    {
-      "id": "feed-828587d08794",
-      "title": "IDW Teases an Exciting New Era for Teenage Mutant Ninja Turtles | Comic Con 2026",
-      "excerpt": "IDW's flagship TMNT comic is undergoing another seismic change in 2027. We chat with the current and incoming writers of the series to learn more.",
-      "body": "2027 is already shaping up to be a monumental year for IDW Publishing&#39;s Teenage Mutant Ninja Turtles line. The company made two big reveals at Comic-Con. First, current TMNT writer Gene Luen Yang will be ending his story with issue #24, paving the way for new writer Matthew Rosenberg (Astonishing X-Men) and artist Juann Cabal (All-New Wolverine) to take over the series with TMNT #25. Second, they confirmed that the third and final volume in the TMNT: The Last Ronin trilogy will debut in 2027, with the entire creative team returning to wrap up this futuristic saga. IGN had a chance to speak with both Yang and Rosenberg at Comic-Con, where the duo talked about their shared love of the franchise and how Yang will be handing off the series in the months to come. Read on to learn more.",
-      "author": "Jesse Schedeen",
-      "date": "2026-07-26",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 45,
-      "url": "https://www.ign.com/articles/idw-teases-an-exciting-new-era-for-teenage-mutant-ninja-turtles-comic-con-2026",
-      "image": "/images/feed/feed-828587d08794.jpg",
-      "source": "IGN",
-      "isLive": true
-    },
-    {
-      "id": "feed-8d1329cfe640",
-      "title": "Star Trek: Strange New Worlds cast reveal why Kirk and Spock still aren't best friends in season 4",
-      "excerpt": "As the series moves closer to The Original Series, the cast explains why every episode still feels unmistakably like Star Trek.",
-      "body": "As Star Trek: Strange New Worlds enters its fourth season , the Enterprise is closer than ever to The Original Series . Kirk and Spock continue building the friendship that will eventually define one of science fiction’s most iconic duos, but after watching the season’s first six episodes, one thing is equally clear: The series hasn’t become any less adventurous.",
-      "author": "Terry Terrones",
-      "date": "2026-07-26",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 42,
-      "url": "https://www.polygon.com/star-trek-strange-new-worlds-season-4-cast-interview/",
-      "image": "/images/feed/feed-8d1329cfe640.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-d56524a32bed",
-      "title": "You can get three months of Xbox Game Pass Ultimate for almost half off",
-      "excerpt": "Subscribing to Xbox Game Pass Ultimate on a recurring basis has been tough to justify recently, even after Microsoft reduced the monthly cost from $29.99 to $22.99. But you can get a better deal on a…",
-      "body": "Subscribing to Xbox Game Pass Ultimate on a recurring basis has been tough to justify recently, even after Microsoft reduced the monthly cost from $29.99 to $22.99. But you can get a better deal on a three-month subscription (valued at $69) by grabbing a digital code at Eneba that costs $39.01 at the time of publication. Game Pass Ultimate grants you access to the full Game Pass library on Xbox (compared to a more limited slice with Premium), including first-party titles and online multiplayer access. The subscription also gives PC gamers access to Microsoft’s catalog of Game Pass games through the Xbox app, though the selection differs a bit between console and desktop. Xbox Game Pass Ultimate Where to Buy: $69 $39.01 at Eneba You don’t need me to tell you why deals like these are nice.",
-      "author": "Cameron Faulkner",
-      "date": "2026-07-26",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Xbox",
-        "Game"
-      ],
-      "featured": false,
-      "xpReward": 54,
-      "url": "https://www.theverge.com/gadgets/970775/xbox-game-pass-ultimate-deal-sale",
-      "image": "/images/feed/feed-d56524a32bed.jpg",
-      "source": "The Verge",
       "isLive": true
     },
     {
@@ -319,7 +376,7 @@
         "Apple Watch"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 46,
       "url": "https://www.engadget.com/2222496/apple-watch-heres-why-calorie-tracker-not-a-fact/",
       "image": "/images/feed/feed-22f2a1f04e14.jpg",
       "source": "Engadget",
@@ -338,7 +395,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 31,
       "url": "https://www.bleepingcomputer.com/news/security/github-pypi-add-time-absed-defenses-against-supply-chain-attacks/",
       "image": "/images/feed/feed-c8d5104cc7f3.jpg",
       "source": "BleepingComputer",
@@ -357,7 +414,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 44,
       "url": "https://electrek.co/2026/07/26/kalmar-ottawa-electric-yard-truck-gets-to-work-in-canada/",
       "image": "/images/feed/feed-f464ac39315a.jpg",
       "source": "Electrek",
@@ -376,7 +433,7 @@
         "Macbook"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 43,
       "url": "https://www.engadget.com/2218722/macbook-air-missing-fan-reason-why/",
       "image": "/images/feed/feed-cd0bd987015b.jpg",
       "source": "Engadget",
@@ -395,7 +452,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 45,
       "url": "https://www.space.com/entertainment/space-movies-shows/what-happened-to-space-horror-movies",
       "image": "/images/feed/feed-eaba8716fb88.jpg",
       "source": "Space.com",
@@ -414,7 +471,7 @@
         "Spacex"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 37,
       "url": "https://www.wsj.com/tech/google-discloses-94-1-billion-in-spacex-stock-marking-6-stake-91655d7c",
       "image": "/images/topics/topic-space.png",
       "source": "Hacker News",
@@ -433,7 +490,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 41,
       "url": "https://cleantechnica.com/2026/07/26/we-may-be-looking-at-the-debate-about-ai-data-centers-all-wrong/",
       "image": "/images/feed/feed-4fb945d53800.jpg",
       "source": "CleanTechnica",
@@ -452,7 +509,7 @@
         "Galaxy S"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 30,
       "url": "https://www.androidauthority.com/samsung-foldables-galaxy-s27-more-exciting-3690629/",
       "image": "/images/feed/feed-dfaaee284c5a.jpg",
       "source": "Android Authority",
@@ -471,7 +528,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 52,
       "url": "https://cleantechnica.com/2026/07/26/what-must-we-do-to-save-us-democracy/",
       "image": "/images/feed/feed-81dad0ca5bbd.jpg",
       "source": "CleanTechnica",
@@ -490,7 +547,7 @@
         "Foldable"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 45,
       "url": "https://www.zdnet.com/article/samsung-galaxy-z-fold-8-vs-z-flip-8/",
       "image": "/images/feed/feed-8417a8d6efb7.jpg",
       "source": "ZDNet",
@@ -509,69 +566,10 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 47,
       "url": "https://electrek.co/2026/07/26/met-police-break-their-own-record-for-seizing-illegal-e-bikes/",
       "image": "/images/feed/feed-001b8b6ac6bb.jpg",
       "source": "Electrek",
-      "isLive": true
-    },
-    {
-      "id": "feed-769661ee6f5b",
-      "title": "These are the first 5 apps I’d install on the Galaxy Z Fold 8 Ultra",
-      "excerpt": "That massive screen would make my digital life just a tad easier in many ways.",
-      "body": "Credit: Stephen Radochia / Android Authority The Galaxy Z Fold 8 was officially unveiled this week, and its highlight feature is the massive unfolded 8-inch display. It can serve as a proper productivity machine or just as a much better entertainment device compared to standard bar phones. That got me thinking about which apps I’d download first on a device like this, and I’ve come up with a list. While there are a lot of apps that take advantage of the massive display of the device or the split screen feature, these are the five I’d install on day one.",
-      "author": "Mitja Rutnik",
-      "date": "2026-07-26",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 30,
-      "url": "https://www.androidauthority.com/first-apps-install-galaxy-z-fold-8-ultra-3690641/",
-      "image": "/images/feed/feed-769661ee6f5b.jpg",
-      "source": "Android Authority",
-      "isLive": true
-    },
-    {
-      "id": "feed-2893ec8c1b51",
-      "title": "All the Ways You Can Make Reading on Your Phone Easier",
-      "excerpt": "Tired of eye strain? These tips will help optimize your smartphone for marathon reading sessions.",
-      "body": "Tired of eye strain? These tips will help optimize your smartphone for marathon reading sessions.\n\nThis report, published by Wired, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Wired using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "David Nield",
-      "date": "2026-07-26",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 50,
-      "url": "https://www.wired.com/story/all-the-ways-you-can-make-reading-easier-on-your-phone/",
-      "image": "/images/feed/feed-2893ec8c1b51.jpg",
-      "source": "Wired",
-      "isLive": true
-    },
-    {
-      "id": "feed-deddf17b8687",
-      "title": "NASA Astronaut Chris Williams, Crewmates Return from Space Station",
-      "excerpt": "Concluding an eight-month science mission aboard the International Space Station, NASA astronaut Chris Williams returned to Earth on Sunday alongside Roscosmos cosmonauts Sergey Kud-Sverchkov and Serg…",
-      "body": "The Soyuz MS-28 spacecraft is seen as it lands in a remote area near the town of Zhezkazgan, Kazakhstan with Expedition 74 NASA astronaut Chris Williams, and Roscosmos cosmonauts Sergey Kud-Sverchkov, and Sergei Mikaev aboard, Sunday, July 26, 2026. NASA/Bill Ingalls Concluding an eight-month science mission aboard the International Space Station, NASA astronaut Chris Williams returned to Earth on Sunday alongside Roscosmos cosmonauts Sergey Kud-Sverchkov and Sergei Mikaev. The crew made its safe, parachute-assisted landing at 5:27 a.m. CDT (3:27 p.m., Kazakhstan time), southeast of Dzhezkazgan, after departing the space station at 2:03 a.m., aboard the Soyuz MS-28 spacecraft. The crew was in space for 241 days, orbiting the Earth 3,856 times and traveling more than 102 million miles.",
-      "author": "Jennifer M. Dooren",
-      "date": "2026-07-26",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Space Station",
-        "Nasa",
-        "Astronaut"
-      ],
-      "featured": false,
-      "xpReward": 44,
-      "url": "https://www.nasa.gov/news-release/nasa-astronaut-chris-williams-crewmates-return-from-space-station/",
-      "image": "https://www.nasa.gov/wp-content/uploads/2026/07/ms28soyuzjuly26.jpg",
-      "source": "NASA Breaking News",
       "isLive": true
     },
     {
@@ -589,7 +587,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 30,
       "url": "https://www.space.com/space-exploration/international-space-station/im-not-an-astronaut-but-i-went-to-the-international-space-station-sort-of",
       "image": "/images/feed/feed-28d9d775bbe0.jpg",
       "source": "Space.com",
@@ -608,7 +606,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 42,
       "url": "https://www.cnet.com/science/space/researchers-find-first-exomoon/",
       "image": "/images/feed/feed-745cecfb0368.jpg",
       "source": "CNET",
@@ -627,7 +625,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 39,
       "url": "https://cleantechnica.com/2026/07/26/domestic-ev-policy-decides-the-global-car-hierarchy-why-china-thailand-are-pulling-ahead/",
       "image": "/images/feed/feed-04e2499fc792.png",
       "source": "CleanTechnica",
@@ -646,7 +644,7 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 41,
       "url": "https://cleantechnica.com/2026/07/26/evs-at-37-7-share-in-germany-tesla-model-y-leads/",
       "image": "/images/feed/feed-b519d4a07de2.png",
       "source": "CleanTechnica",
@@ -665,7 +663,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 45,
       "url": "https://spacenews.com/nasa-and-esa-facilities-avoid-major-damage-from-wildfires-in-spain/",
       "image": "/images/feed/feed-67e79f073e73.jpg",
       "source": "SpaceNews",
@@ -684,7 +682,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 38,
       "url": "https://www.bleepingcomputer.com/news/security/steam-forum-clickfix-attacks-infect-gamers-with-xmrig-cryptominers/",
       "image": "/images/feed/feed-097012add232.jpg",
       "source": "BleepingComputer",
@@ -703,7 +701,7 @@
         "Hacker"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 52,
       "url": "https://techcrunch.com/2026/07/25/the-hacker-who-humiliated-spyware-makers-and-was-never-caught/",
       "image": "/images/feed/feed-e427e2207a7b.jpg",
       "source": "TechCrunch",
@@ -722,7 +720,7 @@
         "Malware"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 33,
       "url": "https://thehackernews.com/2026/07/malvertising-sends-malware-in-pieces.html",
       "image": "/images/feed/feed-fbb6b8145116.jpg",
       "source": "The Hacker News",
@@ -743,7 +741,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 38,
       "url": "https://www.space.com/entertainment/space-movies-shows/we-talk-with-astronaut-michael-foale-about-the-1997-space-station-mir-crisis-he-took-all-the-blame-of-the-collision-on-his-shoulders",
       "image": "/images/feed/feed-5011e34c591e.jpg",
       "source": "Space.com",
@@ -762,10 +760,29 @@
         "Malware"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 37,
       "url": "https://www.bleepingcomputer.com/news/security/malicious-sites-use-javascript-to-build-malware-in-browser-memory/",
       "image": "/images/feed/feed-dd5867bc820c.jpg",
       "source": "BleepingComputer",
+      "isLive": true
+    },
+    {
+      "id": "feed-f7f17dcdbe64",
+      "title": "This Week In Space podcast: Episode 220 — First on Mars",
+      "excerpt": "On Episode 220 of This Week In Space, Rod Pyle and Tariq Malik are joined by Dr. Pascal Lee and astrobiologist Dr. Penny Boston to mark the 50th anniversary of Viking 1's landing on Mars.",
+      "body": "On Episode 220 of This Week In Space , Rod Pyle and Tariq Malik are joined by Dr. Pascal Lee and astrobiologist Dr. Penny Boston to mark the 50th anniversary of Viking 1's landing on Mars. This week, we cover how Starship Flight 13 finally prepares to launch amid a legal battle over SpaceX's proposed land swap at Starbase, plus a Chinese Long March 3B rocket gets struck by lightning during liftoff, yet still delivers its satellite safely. Then, we revisit the Viking 1 mission's groundbreaking life-detection experiments and the decades-long controversy over what they actually found.",
+      "author": " Space.com Staff ",
+      "date": "2026-07-25",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Space"
+      ],
+      "featured": false,
+      "xpReward": 32,
+      "url": "https://www.space.com/entertainment/space-movies-shows/this-week-in-space-podcast-episode-220-first-on-mars",
+      "image": "/images/feed/feed-f7f17dcdbe64.jpg",
+      "source": "Space.com",
       "isLive": true
     },
     {
@@ -781,7 +798,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 41,
       "url": "https://www.bleepingcomputer.com/news/security/shinyhunters-data-leaks-fuel-2-000-sextortion-email-scam/",
       "image": "/images/feed/feed-92ff7404d9b1.jpg",
       "source": "BleepingComputer",
@@ -800,7 +817,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 42,
       "url": "https://cleantechnica.com/2026/07/25/ai-industry-red-yellow-flags/",
       "image": "/images/feed/feed-d13bd6dd1809.png",
       "source": "CleanTechnica",
@@ -819,7 +836,7 @@
         "Vulnerability"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 54,
       "url": "https://thehackernews.com/2026/07/fastjson-1x-rce-vulnerability-targeted.html",
       "image": "/images/feed/feed-b483a44b49aa.jpg",
       "source": "The Hacker News",
@@ -838,7 +855,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 44,
       "url": "https://www.wired.com/story/security-news-this-week-the-openai-models-that-hacked-hugging-face-were-active-on-the-internet-for-days/",
       "image": "/images/feed/feed-c82a3ed9f76a.jpg",
       "source": "Wired",
@@ -858,7 +875,7 @@
         "Chatgpt"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 40,
       "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/openai-confirms-chatgpt-is-down-worldwide/",
       "image": "/images/feed/feed-326db9e0a755.jpg",
       "source": "BleepingComputer",
@@ -877,7 +894,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 46,
       "url": "https://techcrunch.com/2026/07/24/i-tried-out-openais-new-ai-keypad-which-will-be-fun-for-coders-and-slightly-mystifying-to-everyone-else/",
       "image": "/images/feed/feed-0c2e3422c702.jpg",
       "source": "TechCrunch",
@@ -897,7 +914,7 @@
         "Chatgpt"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 54,
       "url": "https://www.cnet.com/tech/services-and-software/openai-is-very-interested-in-building-out-chatgpt-integrations-for-wearables/",
       "image": "/images/feed/feed-076645fe4665.jpg",
       "source": "CNET",
@@ -916,44 +933,24 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 42,
       "url": "https://www.wired.com/story/uncanny-valley-podcast/",
       "image": "/images/feed/feed-3bce429613d5.jpg",
       "source": "Wired",
       "isLive": true
-    },
-    {
-      "id": "feed-a264e8a95836",
-      "title": "Anthropic Releases Claude Opus 5 to Be Your New ‘Everyday’ Assistant",
-      "excerpt": "Like Gemini, the latest Claude model prioritizes cost efficiency.",
-      "body": "Like Gemini, the latest Claude model prioritizes cost efficiency.\n\nThis report, published by CNET, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Anthropic, Claude. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to CNET using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Blake Stimac",
-      "date": "2026-07-24",
-      "readTime": "2 min",
-      "section": "ai",
-      "tags": [
-        "Anthropic",
-        "Claude"
-      ],
-      "featured": false,
-      "xpReward": 45,
-      "url": "https://www.cnet.com/tech/services-and-software/anthropic-releases-claude-opus-5-to-be-your-new-everyday-assistant/",
-      "image": "https://www.cnet.com/wp-content/uploads/sites/2/Opus-5-Hero.png",
-      "source": "CNET",
-      "isLive": true
     }
   ],
   "breakingNews": [
-    "DEV.TO: Building a Voice-First AI Recipe Manager: Lessons I Learned",
-    "DEV.TO: Halftone UI: a component library that ships its own printing press",
-    "DEV.TO: 120,001 introspections, 3 distinct: making Typst's convergence check 334 faster",
-    "POLYGON: The Odyssey just beat The Dark Knight in an impressive way",
-    "TECHCRUNCH: TechCrunch Mobility: Uber bets on its former CEO",
-    "DEV.TO: Validation State Doesn't Act By Itself",
-    "DEV.TO: Origin validation is a separate decision from best path",
-    "POLYGON: 5 classic Apocalypse stories that explain how X-Men '97 season 2 will end",
-    "DEV.TO: Teams Governance — Why Most Enterprises Get It Wrong",
-    "CLEANTECHNICA: Trump Blames Canada For Smoke From A Climate America Created"
+    "DEV.TO: Clojure vars - notes",
+    "KOTAKU: Big PlayStation Game Sale Is A Perfect Chance To Build Up Your Physical Collection Before Sony Kills Discs",
+    "DEV.TO: LangChain’s tool routing is a bloated mess. So we built a <10ms local semantic registry to replace it at US Neural.",
+    "TECHCRUNCH: Inside one London founder house rewriting the founder-house rules",
+    "DEV.TO: I Built an AI App That Finds What You Can Build With Your Old LEGO Bricks",
+    "DEV.TO: We made SigNoz's LLM observability actually reachable…",
+    "POLYGON: 7 best Netflix Original anime that are worth your time (#3 is a masterpiece)",
+    "DEV.TO: Openship: Your Deployment Tool Shouldn't Compete With Your App for RAM",
+    "DEV.TO: Linux Isn't Hard—You're Learning It the Wrong Way",
+    "ENGADGET: A new look for the Apple Watch may still be at least a year away"
   ],
   "sectionVideos": {}
 }
