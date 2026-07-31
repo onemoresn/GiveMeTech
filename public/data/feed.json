@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-07-31T11:46:25.630Z",
+  "fetchedAt": "2026-07-31T12:43:37.988Z",
   "articles": [
     {
       "id": "feed-5b3393f6cb74",
@@ -14,29 +14,315 @@
         "Ai"
       ],
       "featured": true,
-      "xpReward": 46,
+      "xpReward": 42,
       "url": "https://openai.com/index/advancing-responsible-ai-across-europe",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "OpenAI Blog",
       "isLive": true
     },
     {
-      "id": "feed-a1047d498c8a",
-      "title": "How to Connect an OpenAI SDK App to an OpenAI-Compatible API",
-      "excerpt": "Many applications already use the OpenAI SDK. Moving to another compatible gateway should not require rewriting the whole application. In most cases, the main changes are the API key, base URL, and mo…",
-      "body": "Many applications already use the OpenAI SDK. Moving to another compatible gateway should not require rewriting the whole application. In most cases, the main changes are the API key, base URL, and model ID. This guide shows the basic migration flow with Route Key, an OpenAI-compatible AI API gateway and multi-model router. What you need Before starting, prepare: An OpenAI-compatible SDK A Route Key API key A supported model ID A test environment where you can safely send a small request You can review the current supported models and pricing signals in the Route Key model catalog . 1. Install the OpenAI SDK For Python: pip install openai For Node.js: npm install openai Keep the API key in an environment variable. Do not put it directly in source code or commit it to a public repository.",
-      "author": "Route Key AI",
+      "id": "feed-b052500a3c56",
+      "title": "Deploying ImgProxy – Process, Resize, Convert Images on the Fly",
+      "excerpt": "ImgProxy is an open-source image-processing server — resize, convert, and transform images on the fly via URL parameters, ideal as a caching layer in front of a CDN or web app. This guide builds ImgPr…",
+      "body": "ImgProxy is an open-source image-processing server — resize, convert, and transform images on the fly via URL parameters, ideal as a caching layer in front of a CDN or web app. This guide builds ImgProxy from source on Ubuntu, runs it as a systemd service behind Nginx with TLS, walks through its URL processing options, and secures it with signed URLs. Prerequisites: an Ubuntu server, a domain A record (e.g. imgproxy.example.com ), non-root sudo user. Install ImgProxy ImgProxy uses libvips for image processing; this builds it from source with Go.",
+      "author": "Sanskriti Harmukh",
       "date": "2026-07-31",
       "readTime": "2 min",
       "section": "software",
       "tags": [
-        "Api"
+        "Software"
       ],
       "featured": true,
-      "xpReward": 31,
-      "url": "https://dev.to/routekeyai/how-to-connect-an-openai-sdk-app-to-an-openai-compatible-api-27i7",
-      "image": "/images/feed/feed-a1047d498c8a.webp",
+      "xpReward": 49,
+      "url": "https://dev.to/vultr/deploying-imgproxy-process-resize-convert-images-on-the-fly-5ab0",
+      "image": "/images/feed/feed-b052500a3c56.webp",
       "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-90de8fb8fa8c",
+      "title": "My MCP Tool's Audit Log Was Built So a Bad Write Would Leave a Trace. The Log Itself Leaves None.",
+      "excerpt": "A few days ago I fixed update_article, one of the tools in this repo's MCP server, because it had a nasty shape: it took a bare integer article_id, PUT whatever fields you gave it straight to the DEV.…",
+      "body": "A few days ago I fixed update_article , one of the tools in this repo's MCP server, because it had a nasty shape: it took a bare integer article_id , PUT whatever fields you gave it straight to the DEV.to API, and if the id was wrong or hallucinated, it would silently overwrite a live published post with nothing left behind to show it had happened. The fix added a fetch-before-write diff and a JSONL audit log: _ARTICLE_UPDATE_LOG = \" logs/article_updates.jsonl \" def _log_article_update ( article_id , before , fields_changed , after ): os . makedirs ( os . path . dirname ( _ARTICLE_UPDATE_LOG ), exist_ok = True ) entry = { \" article_id \" : article_id , \" fields_changed \" : sorted ( fields_changed ), \" url \" : after .",
+      "author": "Enjoy Kumawat",
+      "date": "2026-07-31",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 48,
+      "url": "https://dev.to/enjoy_kumawat/my-mcp-tools-audit-log-was-built-so-a-bad-write-would-leave-a-trace-the-log-itself-leaves-none-4maf",
+      "image": "/images/feed/feed-90de8fb8fa8c.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-f88048aacdf3",
+      "title": "Deploying code-server for VS Code on Ubuntu 24.04",
+      "excerpt": "code-server is the open-source project that runs full VS Code including extensions, integrated terminal, Git, IntelliSense — on a remote server, accessible from any browser. This guide deploys it on U…",
+      "body": "code-server is the open-source project that runs full VS Code including extensions, integrated terminal, Git, IntelliSense — on a remote server, accessible from any browser. This guide deploys it on Ubuntu 24.04 with Docker Compose, fronted by Traefik for automatic HTTPS. Prerequisites: an Ubuntu 24.04 server (1GB RAM / 2 vCPU minimum), a domain A record (e.g. code.example.com ), Docker and Docker Compose installed.",
+      "author": "Sanskriti Harmukh",
+      "date": "2026-07-31",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 41,
+      "url": "https://dev.to/vultr/deploying-code-server-for-vs-code-on-ubuntu-2404-4o9e",
+      "image": "/images/feed/feed-f88048aacdf3.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-e9d00a4150fa",
+      "title": "Deploying Gradio on Ubuntu 22.04",
+      "excerpt": "Gradio is a Python library for wrapping any ML model in a web interface, ready to deploy and scale as an app. This guide builds a GFPGAN-powered face-restoration demo with Gradio on Ubuntu 22.04, runs…",
+      "body": "Gradio is a Python library for wrapping any ML model in a web interface, ready to deploy and scale as an app. This guide builds a GFPGAN-powered face-restoration demo with Gradio on Ubuntu 22.04, runs it as a systemd service, and exposes it through Nginx with TLS. Prerequisites: a GPU-enabled Ubuntu 22.04 server, a domain A record (e.g. gradio.example.com ), non-root sudo access, Nginx installed. Set Up the Server 1. Install dependencies: $ pip3 install realesrgan gfpgan basicsr gradio realesrgan — background restoration gfpgan — face restoration basicsr — provides RRDBNet , the super-resolution architecture GFPGAN relies on gradio — the web interface 2. GFPGAN's pandas dependency needs jinja2 &gt;= 3.1.2: $ pip show jinja2 Upgrade if it's older: $ pip install --upgrade jinja2 3.",
+      "author": "Sanskriti Harmukh",
+      "date": "2026-07-31",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 48,
+      "url": "https://dev.to/vultr/deploying-gradio-on-ubuntu-2204-gol",
+      "image": "/images/feed/feed-e9d00a4150fa.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-7438c8c979e4",
+      "title": "Deploying Metabase on Kubernetes",
+      "excerpt": "Metabase is an open-source BI tool for building charts and dashboards over MySQL, PostgreSQL, MongoDB, Redshift, and more. This guide deploys Metabase on Kubernetes, loads the Sakila sample dataset in…",
+      "body": "Metabase is an open-source BI tool for building charts and dashboards over MySQL, PostgreSQL, MongoDB, Redshift, and more. This guide deploys Metabase on Kubernetes, loads the Sakila sample dataset into MySQL, builds a dashboard, and secures it behind Nginx Ingress with cert-manager TLS. Prerequisites: a Kubernetes cluster with kubectl / helm configured, a Linux workstation, a reachable MySQL server, and a domain name. Load the Sakila Sample Database Sakila models a DVD rental store — films, actors, inventory, rentals.",
+      "author": "Sanskriti Harmukh",
+      "date": "2026-07-31",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Kubernetes"
+      ],
+      "featured": true,
+      "xpReward": 52,
+      "url": "https://dev.to/vultr/deploying-metabase-on-kubernetes-48gh",
+      "image": "/images/feed/feed-7438c8c979e4.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-dc80a4f5f5dc",
+      "title": "Installing Nginx UI – An Open-Source WebUI for Nginx",
+      "excerpt": "Nginx UI is an open-source web GUI for managing Nginx, single-node or clustered, with real-time stats, automatic Let's Encrypt TLS, performance monitoring, and even LLM-assisted config editing. This g…",
+      "body": "Nginx UI is an open-source web GUI for managing Nginx, single-node or clustered, with real-time stats, automatic Let's Encrypt TLS, performance monitoring, and even LLM-assisted config editing. This guide installs it on Ubuntu 24.04, puts it behind a reverse proxy with TLS, sets up ACME certificate management, and creates a virtual host through the dashboard. Prerequisites: an Ubuntu 24.04 server, non-root sudo user, a domain A record (e.g. nginx-ui.example.com ), Docker installed if you choose that install path. $ sudo apt update $ sudo apt install nginx -y Pick one of the two install methods below. Option A: Install via Script Runs Nginx UI as a system service, managing the host's Nginx directly.",
+      "author": "Sanskriti Harmukh",
+      "date": "2026-07-31",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 52,
+      "url": "https://dev.to/vultr/installing-nginx-ui-an-open-source-webui-for-nginx-59j7",
+      "image": "/images/feed/feed-dc80a4f5f5dc.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-45276756c0d9",
+      "title": "Testing CAST AI on GKE: A Hands-On Kubernetes Workload Optimization Lab",
+      "excerpt": "Kubernetes makes it easy to define CPU and memory requests for our applications. But there is a problem: How do we know whether those resource requests are actually correct? If an application requests…",
+      "body": "Kubernetes makes it easy to define CPU and memory requests for our applications. But there is a problem: How do we know whether those resource requests are actually correct? If an application requests: yaml resources: requests: cpu: \"1000m\" memory: \"1Gi\" but normally consumes only a few millicores of CPU and a few megabytes of memory, we may be reserving significantly more cluster capacity than the workload actually needs. I wanted to understand how Kubernetes cost optimization platforms detect this situation, so I built a small hands-on lab using: Google Kubernetes Engine (GKE) CAST AI Kubernetes Docker FastAPI Google Artifact Registry The goal wasn't simply to install CAST AI.",
+      "author": "SHIVAM UPADHYAY",
+      "date": "2026-07-31",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Kubernetes"
+      ],
+      "featured": false,
+      "xpReward": 53,
+      "url": "https://dev.to/upshivam786/testing-cast-ai-on-gke-a-hands-on-kubernetes-workload-optimization-lab-3lep",
+      "image": "/images/feed/feed-45276756c0d9.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-4dde83c4147a",
+      "title": "Wheel-E Podcast: VW e-bikes, Juiced Scrambler, Anyland Auto-wheelie, more",
+      "excerpt": "This week on Electrek’s Wheel-E podcast, we discuss the most popular news stories from the world of electric bikes and other nontraditional electric vehicles. This time, that includes new e-bikes from…",
+      "body": "This week on Electrek ’s Wheel-E podcast, we discuss the most popular news stories from the world of electric bikes and other nontraditional electric vehicles. This time, that includes new e-bikes from VW and Specialized, a Huffy kids’ e-bike, Veo adds a three-wheeler to its shared micromobility lineup, we tested the new Juiced Scrambler, Anyland Rev Pro HMP launches 75 mph Flash e-scooter, and more.",
+      "author": "Micah Toll",
+      "date": "2026-07-31",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Cars"
+      ],
+      "featured": false,
+      "xpReward": 31,
+      "url": "https://electrek.co/2026/07/31/wheel-e-podcast-vw-e-bikes-juiced-scrambler-anyland-auto-wheelie-more/",
+      "image": "/images/feed/feed-4dde83c4147a.jpg",
+      "source": "Electrek",
+      "isLive": true
+    },
+    {
+      "id": "feed-12e0594216b2",
+      "title": "Slate Truck first drive: A minimalist's delight",
+      "excerpt": "Slate's anti-truck EV is poised to deliver on all of its promises.",
+      "body": "Slate's anti-truck EV is poised to deliver on all of its promises.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "staff@engadget.com (Tim Stevens)",
+      "date": "2026-07-31",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 54,
+      "url": "https://www.engadget.com/2226925/slate-truck-first-drive/",
+      "image": "/images/feed/feed-12e0594216b2.jpg",
+      "source": "Engadget",
+      "isLive": true
+    },
+    {
+      "id": "feed-d8898bcc684a",
+      "title": "5 leaked codenames reveal Samsung’s ambitious multi-device foldable and rollable strategy",
+      "excerpt": "Internal B9, H9, Q9A, Q9B, and Z9 codenames point to an expanding lineup of flexible-display devices.",
+      "body": "Credit: Paul Jones / Android Authority TL;DR A new report reveals five internal Samsung hardware codenames: B9, H9, Q9A, Q9B, and Z9. These codenames are said to correspond to the Galaxy Z Flip 9, Z Fold 9, Z Fold 9 Ultra, Z TriFold 2, and a “Rollable Flex” tablet, respectively. Summer 2027 is said to be the targeted launch window for the mainstream foldables, while the rollable slate could be slated for early 2028. Samsung’s foldable roadmap for next year is already leaking, and it looks like the company is preparing to go even bigger with its form-factor ambitions. Freshly surfaced codenames suggest that, alongside standard annual upgrades, Samsung is prepping a second-generation tri-fold device and a brand-new rollable slate for 2027.",
+      "author": "Aamir Siddiqui",
+      "date": "2026-07-31",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Foldable",
+        "Device"
+      ],
+      "featured": false,
+      "xpReward": 54,
+      "url": "https://www.androidauthority.com/samsung-foldable-rollable-codenames-leak-3693254/",
+      "image": "/images/feed/feed-d8898bcc684a.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-0f2e10fc9a33",
+      "title": "Nothing’s next big bet reportedly puts smartphones on the back burner",
+      "excerpt": "The future of Nothing might sound, wear, and think a little differently.",
+      "body": "TL;DR Nothing is reportedly shifting to an AI-first strategy, with wearables and audio products taking priority over smartphones in a phased rollout expected to begin later this year. The rumored first wave includes AI-powered earbuds, speakers, headphones, and a smartwatch, while retaining Nothing’s signature transparent design language. The report remains unconfirmed, but if accurate, it could mark Nothing’s biggest strategic shift yet. Over the past several months, AI has reshaped the smartphone industry in ways most of us didn’t expect. Memory prices have increased , manufacturers are paying more for powerful chips, and those costs are gradually making their way to consumers.",
+      "author": "Shimul Sood",
+      "date": "2026-07-31",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Smartphone"
+      ],
+      "featured": false,
+      "xpReward": 46,
+      "url": "https://www.androidauthority.com/nothing-ai-powered-wearables-3693243/",
+      "image": "/images/feed/feed-0f2e10fc9a33.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-d7536a9f36d2",
+      "title": "NASA still assessing Starliner-1 flight opportunities",
+      "excerpt": "A NASA official says that work with Boeing on the company’s CST-100 Starliner vehicle is making “good progress” but declined to offer a date when the spacecraft could fly again. The post NASA still as…",
+      "body": "A NASA official says that work with Boeing on the company’s CST-100 Starliner vehicle is making “good progress” but declined to offer a date when the spacecraft could fly again. The post NASA still as — a development drawing significant attention in the space exploration and astronomy space.\n\nThis report, published by SpaceNews, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Nasa. As the situation continues to evolve, professionals and enthusiasts in the space exploration and astronomy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to SpaceNews using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Jeff Foust",
+      "date": "2026-07-31",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Nasa"
+      ],
+      "featured": false,
+      "xpReward": 48,
+      "url": "https://spacenews.com/nasa-still-assessing-starliner-1-flight-opportunities/",
+      "image": "/images/feed/feed-d7536a9f36d2.jpg",
+      "source": "SpaceNews",
+      "isLive": true
+    },
+    {
+      "id": "feed-93c5318a9043",
+      "title": "Magic’s most tedious card ever makes this Marvel Commander impossible to top",
+      "excerpt": "Made of Magic, is Molecule Man.",
+      "body": "Magic: The Gathering ’s Marvel Super Heroes is absolutely packed with cards that could be your Commander , and while your mind may instantly think of the likes of Iron Man, Incredible Hulk, or any other iconic superhero, it’s Molecule Man that you should be wary of coming up against.",
+      "author": "Lloyd Coombes",
+      "date": "2026-07-31",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 32,
+      "url": "https://www.polygon.com/mtg-molecule-man-combo/",
+      "image": "/images/feed/feed-93c5318a9043.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-a8a8dd916ad9",
+      "title": "The new space wars: lessons from Ukraine and the Middle East",
+      "excerpt": "In March 2021, while serving as a senior fellow at the Brookings Institution, I hosted a discussion with General Chance Saltzman, now Chief of Space Operations for the United States […] The post The n…",
+      "body": "In March 2021, while serving as a senior fellow at the Brookings Institution, I hosted a discussion with General Chance Saltzman, now Chief of Space Operations for the United States [&#8230;] The post The new space wars: lessons from Ukraine and the Middle East appeared first on SpaceNews .",
+      "author": "Frank A. Rose",
+      "date": "2026-07-31",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Space"
+      ],
+      "featured": false,
+      "xpReward": 33,
+      "url": "https://spacenews.com/the-new-space-wars-lessons-from-ukraine-and-the-middle-east/",
+      "image": "/images/feed/feed-a8a8dd916ad9.jpg",
+      "source": "SpaceNews",
+      "isLive": true
+    },
+    {
+      "id": "feed-9a174a56935b",
+      "title": "Feebas and Milotic join Pokémon Pokopia in new limited-time event",
+      "excerpt": "The Fetch Scales for Feebas event adds Feebas and Milotic to Pokémon Pokopia alongside a new beachside furniture set",
+      "body": "Feebas and Milotic are coming to Pokémon Pokopia this summer as part of a fun event. Players will have the opportunity to add these Pokémon to their Pokédex by building them a habitat, and for a limited time, they can bring Feebas Prism Scales to exchange for summertime decorations and goodies.",
+      "author": "Ashely Claudino",
+      "date": "2026-07-31",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 49,
+      "url": "https://www.polygon.com/pokemon-pokopia-feebas-summer-event/",
+      "image": "/images/feed/feed-9a174a56935b.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-b410f78e8403",
+      "title": "Do Our Individual Behaviors Speed Up Or Inhibit Collective Climate Action?",
+      "excerpt": "Occasionally, there is dissension among climate activists and the experts who study them about whether individual behaviors help or hurt collective climate action. In other words, if I walk the climat…",
+      "body": "Occasionally, there is dissension among climate activists and the experts who study them about whether individual behaviors help or hurt collective climate action. In other words, if I walk the climate talk, am I more likely to persuade others &#8212; including corporations and governments &#8212; to do the same? A ... [continued] The post Do Our Individual Behaviors Speed Up Or Inhibit Collective Climate Action? appeared first on CleanTechnica .",
+      "author": "Carolyn Fortuna",
+      "date": "2026-07-31",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Cars"
+      ],
+      "featured": false,
+      "xpReward": 35,
+      "url": "https://cleantechnica.com/2026/07/31/do-our-individual-behaviors-speed-up-or-inhibit-collective-climate-action/",
+      "image": "/images/feed/feed-b410f78e8403.jpg",
+      "source": "CleanTechnica",
       "isLive": true
     },
     {
@@ -51,30 +337,11 @@
       "tags": [
         "Gaming"
       ],
-      "featured": true,
-      "xpReward": 45,
+      "featured": false,
+      "xpReward": 46,
       "url": "https://kotaku.com/even-stellar-bladefans-hate-the-sequels-official-genai-music-video-2000720725",
       "image": "/images/feed/feed-f5a5d69a380d.jpg",
       "source": "Kotaku",
-      "isLive": true
-    },
-    {
-      "id": "feed-75539c7f6c66",
-      "title": "Your AI SOC Agent Has a Task Role. Does It Also Have Your S3 Credentials?",
-      "excerpt": "✓ Human-authored analysis; AI used for formatting and proofreading. Agentic security platforms are arriving. ECS-hosted investigation agents that invoke Bedrock models, write case artifacts to S3, mou…",
-      "body": "✓ Human-authored analysis; AI used for formatting and proofreading. Agentic security platforms are arriving. ECS-hosted investigation agents that invoke Bedrock models, write case artifacts to S3, mount shared session state via EFS, and expose interactive shells through ALBs. The architecture is sound. The security configuration surface is enormous. Most of it isn't covered by existing benchmarks because the benchmarks were written before agents existed. I audited a published deployment architecture for an ECS-hosted agentic SOC platform. An AI incident response system where autonomous agents triage alerts, investigate incidents, and produce case reports. 24 configuration properties matter for security. I checked each against the control catalog. 19 were already covered. 5 weren't.",
-      "author": "Bala Paranj",
-      "date": "2026-07-31",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 44,
-      "url": "https://dev.to/bala_paranj_059d338e44e7e/your-ai-soc-agent-has-a-task-role-does-it-also-have-your-s3-credentials-50d6",
-      "image": "/images/feed/feed-75539c7f6c66.webp",
-      "source": "Dev.to",
       "isLive": true
     },
     {
@@ -89,49 +356,30 @@
       "tags": [
         "Iphone"
       ],
-      "featured": true,
-      "xpReward": 30,
+      "featured": false,
+      "xpReward": 51,
       "url": "https://9to5mac.com/2026/07/31/macos-27-brings-three-key-upgrades-to-iphone-mirroring/",
       "image": "/images/feed/feed-93376c5338eb.jpg",
       "source": "9to5Mac",
       "isLive": true
     },
     {
-      "id": "feed-b85ece9aaae3",
-      "title": "Hardening an AI coding agent: the failures, and the code that fixed them",
-      "excerpt": "At Univoco we build retrieval-augmented assistants over a customer's own documentation. One of them is a coding agent that writes code for a proprietary document layout engine. The useful thing about…",
-      "body": "At Univoco we build retrieval-augmented assistants over a customer's own documentation. One of them is a coding agent that writes code for a proprietary document layout engine. The useful thing about that engine is that there is effectively nothing about it on the public internet. The model cannot have learned it. Everything the agent knows comes from a private documentation index and the tools we give it to search that index. That makes it an unusually clean laboratory. When memorisation is off the table, you get to watch the problem-solving process itself, and watch it fail. It failed a lot, and the failures were rarely the ones I expected. What follows is the list, in the order we hit them, with the code that fixed each one.",
-      "author": "Joe Buckle",
+      "id": "feed-ca00c87e5ee1",
+      "title": "6 Reasons Why Device Code Phishing is the Fastest-Growing Threat of 2026",
+      "excerpt": "Device code phishing - the abuse of the OAuth 2.0 device authorization grant to steal access tokens - has evolved from a niche red-team technique to an industrial-scale threat in under six months. Des…",
+      "body": "Device code phishing - the abuse of the OAuth 2.0 device authorization grant to steal access tokens - has evolved from a niche red-team technique to an industrial-scale threat in under six months. Designed for input-constrained devices like smart TVs, printers, and so on, the device authorization login flow has been adopted by a wide range of apps and use-cases that it wasn't originally",
+      "author": "info@thehackernews.com (The Hacker News)",
       "date": "2026-07-31",
       "readTime": "2 min",
-      "section": "software",
+      "section": "cybersecurity",
       "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 42,
-      "url": "https://dev.to/joebuckle-dev/hardening-an-ai-coding-agent-the-failures-and-the-code-that-fixed-them-g3c",
-      "image": "/images/feed/feed-b85ece9aaae3.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-bf43fc4b2c88",
-      "title": "Building an Elden Ring Build Calculator: What Game Developers Can Learn From RPG Stat Systems",
-      "excerpt": "When players talk about RPG builds, they usually talk about weapons, armor, skills, and damage numbers. But behind every build decision is a much more interesting problem: A stat optimization problem.…",
-      "body": "When players talk about RPG builds, they usually talk about weapons, armor, skills, and damage numbers. But behind every build decision is a much more interesting problem: A stat optimization problem. Games like Elden Ring look simple on the surface. A player chooses: Strength Dexterity Intelligence Faith Arcane Then equips a weapon. However, the relationship between these choices is not linear. A weapon may scale with multiple attributes. A stat may provide strong returns early but diminishing returns later. A talisman may change the value of an entire build. For developers, this creates an interesting challenge: How do you transform complex game mechanics into a tool that helps players make better decisions?",
-      "author": "xiaodong ding",
-      "date": "2026-07-31",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Developer"
+        "Phishing"
       ],
       "featured": false,
-      "xpReward": 49,
-      "url": "https://dev.to/xiaodong_ding_241610dbd31/building-an-elden-ring-build-calculator-what-game-developers-can-learn-from-rpg-stat-systems-498p",
-      "image": "/images/feed/feed-bf43fc4b2c88.webp",
-      "source": "Dev.to",
+      "xpReward": 48,
+      "url": "https://thehackernews.com/2026/07/6-reasons-why-device-code-phishing-is.html",
+      "image": "/images/feed/feed-ca00c87e5ee1.jpg",
+      "source": "The Hacker News",
       "isLive": true
     },
     {
@@ -166,29 +414,29 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 35,
       "url": "https://www.androidauthority.com/files-by-google-document-scanner-apk-teardown-3693113/",
       "image": "/images/feed/feed-eb5283e75159.jpg",
       "source": "Android Authority",
       "isLive": true
     },
     {
-      "id": "feed-5b97ae1019ba",
-      "title": "Gemini Robotics 2 Has Not Been Announced: What Google DeepMind Actually Offers",
-      "excerpt": "Google DeepMind has not announced a product called Gemini Robotics 2. The name does not appear in the supplied first-party material describing the company’s robotics work. What is documented is the br…",
-      "body": "Google DeepMind has not announced a product called Gemini Robotics 2 . The name does not appear in the supplied first-party material describing the company’s robotics work. What is documented is the broader Gemini Robotics family, including Gemini Robotics 1.5, Gemini Robotics-ER 1.6, and On-Device variants. That distinction is important for technology leaders assessing robotics AI. Product names are not cosmetic details in enterprise planning. They shape vendor evaluations, architecture discussions, procurement records, safety reviews, and decisions about whether a capability is available now or remains a future possibility. The verified Gemini Robotics lineup Google DeepMind’s published materials describe a Gemini Robotics family rather than a Gemini Robotics 2 release .",
-      "author": "Ali Farhat",
+      "id": "feed-f4f4a701f804",
+      "title": "Chinese Hacker Commands DeepSeek via Telegram to Launch Autonomous Attacks",
+      "excerpt": "Palo Alto Networks' Unit 42 says a Chinese-speaking threat actor used DeepSeek through the open-source Hermes Agent framework to launch attacks autonomously. After an initial Telegram instruction, the…",
+      "body": "Palo Alto Networks' Unit 42 says a Chinese-speaking threat actor used DeepSeek through the open-source Hermes Agent framework to launch attacks autonomously. After an initial Telegram instruction, the agent found internet-facing systems and selected public exploits. The researchers recovered no further operator input in the session. The operator, tracked through the aliases knaithe and KnYuan,",
+      "author": "info@thehackernews.com (The Hacker News)",
       "date": "2026-07-31",
       "readTime": "2 min",
-      "section": "software",
+      "section": "cybersecurity",
       "tags": [
-        "Software"
+        "Hacker"
       ],
       "featured": false,
-      "xpReward": 47,
-      "url": "https://dev.to/alifar/gemini-robotics-2-has-not-been-announced-what-google-deepmind-actually-offers-l72",
-      "image": "/images/feed/feed-5b97ae1019ba.webp",
-      "source": "Dev.to",
+      "xpReward": 34,
+      "url": "https://thehackernews.com/2026/07/chinese-hacker-commands-deepseek-via.html",
+      "image": "/images/feed/feed-f4f4a701f804.jpg",
+      "source": "The Hacker News",
       "isLive": true
     },
     {
@@ -204,67 +452,10 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 44,
       "url": "https://9to5mac.com/2026/07/31/first-impressions-of-smart-glasses-with-a-display-the-even-realities-g2/",
       "image": "/images/feed/feed-14782146ea00.jpg",
       "source": "9to5Mac",
-      "isLive": true
-    },
-    {
-      "id": "feed-e730bfc1be45",
-      "title": "Your Data Warehouse Is Not Your Data Pipeline",
-      "excerpt": "Teams keep forcing their warehouse to do integration work it was never designed for. The result is ballooning costs, opaque failures, and architectures that become harder to maintain the more they ‘su…",
-      "body": "Teams keep forcing their warehouse to do integration work it was never designed for. The result is ballooning costs, opaque failures, and architectures that become harder to maintain the more they ‘succeed.’ Here’s the case for separating data movement from analytics storage. The expensive truth about modern data stacks Spend enough time around data platform teams and you hear the same story. A company builds out its \"modern data stack\" — warehouse, processing layer, orchestrator — and everything looks clean on the architecture diagram. Then the warehouse bill starts to climb. Ingestion jobs fail more often than anyone expected. And every time something breaks, it takes half a day to figure out whether the problem is in the load, the reshape, the orchestrator, or the warehouse itself.",
-      "author": "Andrew Tan",
-      "date": "2026-07-31",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 42,
-      "url": "https://dev.to/andrew_tan_layline/your-data-warehouse-is-not-your-data-pipeline-4n6",
-      "image": "/images/feed/feed-e730bfc1be45.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-7308c2e39e93",
-      "title": "A user spent four days designing a feature for my project. The right answer was zero lines of code.",
-      "excerpt": "Last week I got the best feature request my open-source project has ever received. It was detailed, technically literate, fail-closed by design, and came from someone who clearly runs the tool harder…",
-      "body": "Last week I got the best feature request my open-source project has ever received. It was detailed, technically literate, fail-closed by design, and came from someone who clearly runs the tool harder than I do. I'm not going to build it. And the person who asked for it agrees — because the conversation ended with him shipping the fix, in his own layer, as a package other people can now use. I want to walk through how that happened, because the whole arc is a case study in a question I think we ask too rarely: not \"how do I implement this?\" but \" where does this concern actually live? \" The request My project is safari-mcp , an MCP server that lets AI coding agents drive the real Safari on macOS — your session, your logins, your tabs.",
-      "author": "אחיה כהן",
-      "date": "2026-07-31",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 53,
-      "url": "https://dev.to/achiya-automation/a-user-spent-four-days-designing-a-feature-for-my-project-the-right-answer-was-zero-lines-of-code-bff",
-      "image": "/images/feed/feed-7308c2e39e93.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-46251e343df0",
-      "title": "Google Health could soon make your medical lab results much easier to understand",
-      "excerpt": "An experimental feature called \"Medical Record Infographic\" could turn complex lab reports into visual summaries.",
-      "body": "Credit: Google TL;DR Strings within Google Health v5.04.1 reveal that Google is working on an experimental feature called “Medical Record Infographic.” The feature appears to be designed to transform complex medical lab reports into downloadable visual summaries, potentially using AI. Users will be able to scan physical documents with their phone camera or upload JPG, JPEG, PNG, or PDF files up to 10MB. However, the tool will process only one report at a time and overwrite previous uploads. Medical lab reports are notoriously hard to read for the average person, filled with obscure acronyms and complex reference ranges. Google appears to be working on a solution to bridge that gap.",
-      "author": "Aamir Siddiqui",
-      "date": "2026-07-31",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 31,
-      "url": "https://www.androidauthority.com/google-health-medical-record-infographic-apk-teardown-3693210/",
-      "image": "/images/feed/feed-46251e343df0.jpg",
-      "source": "Android Authority",
       "isLive": true
     },
     {
@@ -280,48 +471,10 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 53,
       "url": "https://www.polygon.com/new-ps5-games-august-2026/",
       "image": "/images/feed/feed-763184a60625.jpg",
       "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-b3d55d84f949",
-      "title": "6 Best Phones With Headphone Jacks (2026), Tested and Reviewed",
-      "excerpt": "Headphone jacks are endangered, but they’re not gone. Here are our favorite smartphones that still let you plug and play.",
-      "body": "Headphone jacks are endangered, but they’re not gone. Here are our favorite smartphones that still let you plug and play.\n\nThis report, published by Wired, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Wired using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Julian Chokkattu",
-      "date": "2026-07-31",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 39,
-      "url": "https://www.wired.com/gallery/best-headphone-jack-phones/",
-      "image": "/images/feed/feed-b3d55d84f949.jpg",
-      "source": "Wired",
-      "isLive": true
-    },
-    {
-      "id": "feed-eaa2a45cb1cf",
-      "title": "Daisy One Review: Comfy and Tactile Headphones",
-      "excerpt": "The company’s first headphones look very stylish and have great tactile features, but underwhelm on sound quality.",
-      "body": "The company’s first headphones look very stylish and have great tactile features, but underwhelm on sound quality.\n\nThis report, published by Wired, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Headphones. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Wired using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Boone Ashworth",
-      "date": "2026-07-31",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Headphones"
-      ],
-      "featured": false,
-      "xpReward": 35,
-      "url": "https://www.wired.com/review/daisy-one/",
-      "image": "/images/feed/feed-eaa2a45cb1cf.jpg",
-      "source": "Wired",
       "isLive": true
     },
     {
@@ -337,7 +490,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 48,
       "url": "https://www.theverge.com/tech/973621/sony-playstation-ending-discs-pushing-forward",
       "image": "/images/feed/feed-e846a9e2ecae.jpg",
       "source": "The Verge",
@@ -356,7 +509,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 36,
       "url": "https://www.polygon.com/insidious-out-of-the-further-release-date/",
       "image": "/images/feed/feed-41b4f2ea01bb.jpg",
       "source": "Polygon",
@@ -375,7 +528,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 52,
       "url": "https://www.space.com/stargazing/the-night-sky-is-changing-this-august-heres-which-planets-to-watch",
       "image": "/images/feed/feed-9a8abb68f239.jpg",
       "source": "Space.com",
@@ -394,7 +547,7 @@
         "Security"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 41,
       "url": "https://www.wired.com/story/defcon-34-badge-baochip-andrew-bunnie-huang/",
       "image": "/images/feed/feed-f63a3553653c.jpg",
       "source": "Wired",
@@ -413,7 +566,7 @@
         "Hybrid"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 54,
       "url": "https://insideevs.com/news/803331/audi-hybrids-us-lineup-change/",
       "image": "/images/feed/feed-33272d3176f6.jpg",
       "source": "InsideEVs",
@@ -432,7 +585,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 30,
       "url": "https://cleantechnica.com/2026/07/31/germany-hydrogen-gas-system-rescue/",
       "image": "/images/feed/feed-7d9d950b3218.webp",
       "source": "CleanTechnica",
@@ -451,47 +604,9 @@
         "Nintendo"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 30,
       "url": "https://www.polygon.com/super-mario-sunshine-is-coming-to-switch-2/",
       "image": "/images/feed/feed-26445530b42b.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-a7eeb5d7e314",
-      "title": "Square Enix Says Kingdom Hearts Art Accused Of Using GenAI Was Just Regular Human Error",
-      "excerpt": "Someone forgot how many fingers Donald has",
-      "body": "Someone forgot how many fingers Donald has\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Ethan Gach",
-      "date": "2026-07-31",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 52,
-      "url": "https://kotaku.com/square-enix-says-kingdom-hearts-art-accused-of-using-genai-was-just-regular-human-error-2000720610",
-      "image": "/images/feed/feed-a7eeb5d7e314.jpg",
-      "source": "Kotaku",
-      "isLive": true
-    },
-    {
-      "id": "feed-cc02e22261bb",
-      "title": "Star Wars is coming to D&D, and perhaps to Magic: The Gathering too",
-      "excerpt": "Dungeons & Dragons has announced a crossover with Star Wars in 2027, leading to speculation that the IP could make an appearance in Magic too.",
-      "body": "Dungeons & Dragons is getting ready to swap swords and sorcery for lightsabers and the Force next year. As announced at the end of the D&D Vision Keynote presentation at Gen Con 2026 on Thursday, a crossover with Star Wars is coming to the world's most famous tabletop role-playing game in 2027.",
-      "author": "Francesco Cacciatore",
-      "date": "2026-07-31",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 30,
-      "url": "https://www.polygon.com/dnd-star-wars-crossover-magic/",
-      "image": "/images/feed/feed-cc02e22261bb.jpg",
       "source": "Polygon",
       "isLive": true
     },
@@ -508,7 +623,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 39,
       "url": "https://www.space.com/entertainment/space-toys-lego/our-favorite-space-and-sci-fi-playmobil-sets-from-star-trek-playsets-to-esa-collaborated-models",
       "image": "/images/feed/feed-5b7555075e4d.jpg",
       "source": "Space.com",
@@ -527,7 +642,7 @@
         "Rivian"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 35,
       "url": "https://insideevs.com/news/803324/rivian-van-amazon-fleet-update-q2-2026/",
       "image": "/images/feed/feed-8c3202c2aec3.jpg",
       "source": "InsideEVs",
@@ -546,48 +661,30 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 38,
       "url": "https://openai.com/index/unive",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "OpenAI Blog",
       "isLive": true
     },
     {
-      "id": "feed-91975a5d91a2",
-      "title": "APOD: 2026 July 31 – NGC 4372 and the Dark Doodad",
-      "excerpt": "APOD Science APOD APOD: 2026 July 31 – NGC… Today’s APOD Archive Submissions Index Search Calendar RSS Education About Discuss APOD Astronomy Picture of the Day Discover the cosmos! Each day a differe…",
-      "body": "APOD Science APOD APOD: 2026 July 31 – NGC… Today’s APOD Archive Submissions Index Search Calendar RSS Education About Discuss APOD Astronomy Picture of the Day Discover the cosmos! Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer. NGC 4372 and the Dark Doodad Explanation: The Dark Doodad Nebula drifts through southern skies , a tantalizing target for binoculars toward the small constellation Musca , The Fly. A dusty interstellar cloud, it’s seen against rich starfields just south of the Coalsack Nebula and the Southern Cross.",
-      "author": "NASA Breaking News",
+      "id": "feed-922039ba63ec",
+      "title": "Anthropic Says Claude Mistook the Open Internet for a CTF and Breached Three Organizations",
+      "excerpt": "Anthropic on Thursday became the latest artificial intelligence (AI) company to reveal that three of its models, including Claude Opus 4.7, Mythos 5, and an unnamed research model, had breached three…",
+      "body": "Anthropic on Thursday became the latest artificial intelligence (AI) company to reveal that three of its models, including Claude Opus 4.7, Mythos 5, and an unnamed research model, had breached three unnamed organizations during cybersecurity testing without its knowledge. The AI firm said the earliest incidents date back to April 2026, adding it made the discoveries after launching a \"",
+      "author": "info@thehackernews.com (The Hacker News)",
       "date": "2026-07-31",
       "readTime": "2 min",
-      "section": "space",
+      "section": "ai",
       "tags": [
-        "Space"
+        "Anthropic",
+        "Claude"
       ],
       "featured": false,
-      "xpReward": 35,
-      "url": "https://science.nasa.gov/image-article/apod-2026-july-31-ngc-4372-and-the-dark-doodad/",
-      "image": "/images/feed/feed-91975a5d91a2.jpg",
-      "source": "NASA Breaking News",
-      "isLive": true
-    },
-    {
-      "id": "feed-c139c564d3c9",
-      "title": "Destructive Fires Char Western Europe",
-      "excerpt": "Raging wildfires disrupted summer in Spain and France amid sweltering heat waves and prolonged drought.",
-      "body": "Earth Observatory Science Earth Observatory Destructive Fires Char Western… Earth Earth Observatory Image of the Day EO Explorer Topics All Topics Atmosphere Land Heat &#038; Radiation Life on Earth Human Dimensions Natural Events Oceans Remote Sensing Technology Snow &#038; Ice Water More Content Collections Global Maps World of Change Articles Earth Matters Blog Blue Marble: Next Generation EO Kids Mission: Biomes About About Us Subscribe 🛜 RSS Contact Us Search Charred landscapes surround reservoirs in central Spain in an image captured by the OLI (Operational Land Imager) on Landsat 9 on July 29, 2026.",
-      "author": "NASA Breaking News",
-      "date": "2026-07-31",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Space"
-      ],
-      "featured": false,
-      "xpReward": 48,
-      "url": "https://science.nasa.gov/earth/earth-observatory/destructive-fires-char-western-europe/",
-      "image": "/images/feed/feed-c139c564d3c9.jpg",
-      "source": "NASA Breaking News",
+      "xpReward": 54,
+      "url": "https://thehackernews.com/2026/07/anthropic-says-claude-mistook-open.html",
+      "image": "/images/feed/feed-922039ba63ec.jpg",
+      "source": "The Hacker News",
       "isLive": true
     },
     {
@@ -603,7 +700,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 54,
       "url": "https://cleantechnica.com/2026/07/30/zoox-gets-first-us-paid-robotaxi-with-no-human-controls-approval/",
       "image": "/images/feed/feed-56d64508894f.jpg",
       "source": "CleanTechnica",
@@ -622,7 +719,7 @@
         "Spacex"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 42,
       "url": "https://electrek.co/2026/07/30/tesla-weighs-selling-china-business-spacex-merger/",
       "image": "/images/feed/feed-3b872c1034ab.jpg",
       "source": "Electrek",
@@ -641,28 +738,9 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 47,
       "url": "https://cleantechnica.com/2026/07/30/people-want-us-to-not-cover-elon-musks-politics-but-hes-using-his-wealth-power-from-tesla-to-influence-elections/",
       "image": "/images/feed/feed-d997aa68af53.jpg",
-      "source": "CleanTechnica",
-      "isLive": true
-    },
-    {
-      "id": "feed-bb569ecf1f33",
-      "title": "“Hot Blocks” Thermal Energy Storage Startup Nails Down $550 Million More To Chase Fossil Fuels Away",
-      "excerpt": "The US energy storage startup Antora Energy is scaling up with a $550 million assist from leading investors. The post “Hot Blocks” Thermal Energy Storage Startup Nails Down $550 Million More To Chase…",
-      "body": "The US energy storage startup Antora Energy is scaling up with a $550 million assist from leading investors. The post “Hot Blocks” Thermal Energy Storage Startup Nails Down $550 Million More To Chase — a development drawing significant attention in the electric vehicles, hybrids, and automotive technology space.\n\nThis report, published by CleanTechnica, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cars. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to CleanTechnica using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Tina Casey",
-      "date": "2026-07-31",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Cars"
-      ],
-      "featured": false,
-      "xpReward": 34,
-      "url": "https://cleantechnica.com/2026/07/30/energy-storage-factory-made-carbon-blocks-us-startup-antora/",
-      "image": "/images/feed/feed-bb569ecf1f33.png",
       "source": "CleanTechnica",
       "isLive": true
     },
@@ -680,7 +758,7 @@
         "Claude"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 43,
       "url": "https://www.wired.com/story/anthropic-says-claude-hacked-real-systems-during-cybersecurity-tests/",
       "image": "/images/feed/feed-4beb32c1dbb9.jpg",
       "source": "Wired",
@@ -699,29 +777,10 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 30,
       "url": "https://techcrunch.com/2026/07/30/anthropic-says-its-own-ai-models-breached-three-companies-during-security-tests/",
       "image": "/images/feed/feed-ac80cd240e82.jpg",
       "source": "TechCrunch",
-      "isLive": true
-    },
-    {
-      "id": "feed-286453767c7b",
-      "title": "Europe’s Waste Creates Value Elsewhere",
-      "excerpt": "How the Circular Economy Act can provide the tools to help scale Europe’s recycling industry, in order to secure access to critical minerals. Recovering materials from end-of-life products like cars a…",
-      "body": "How the Circular Economy Act can provide the tools to help scale Europe’s recycling industry, in order to secure access to critical minerals. Recovering materials from end-of-life products like cars and batteries is a key means to secure much needed critical minerals resiliently and sustainably. However, Europe’s recycling industry is ... [continued] The post Europe’s Waste Creates Value Elsewhere appeared first on CleanTechnica .",
-      "author": "Transport &#38; Environment (T&#38;E)",
-      "date": "2026-07-31",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Cars"
-      ],
-      "featured": false,
-      "xpReward": 53,
-      "url": "https://cleantechnica.com/2026/07/30/europes-waste-creates-value-elsewhere/",
-      "image": "/images/feed/feed-286453767c7b.png",
-      "source": "CleanTechnica",
       "isLive": true
     },
     {
@@ -738,7 +797,7 @@
         "Breach"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 34,
       "url": "https://www.bleepingcomputer.com/news/security/anthropics-claude-breached-3-orgs-uploaded-pypi-malware-during-tests/",
       "image": "/images/feed/feed-41f4cb784e73.png",
       "source": "BleepingComputer",
@@ -757,7 +816,7 @@
         "Orbit"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 47,
       "url": "https://spacenews.com/rules-of-the-road-needed-for-orbital-data-center-constellations/",
       "image": "/images/feed/feed-13761a3f9b05.jpg",
       "source": "SpaceNews",
@@ -776,7 +835,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 38,
       "url": "https://techcrunch.com/2026/07/30/ai-hedge-fund-situational-awareness-may-have-sold-its-public-portfolio-but-it-still-has-its-anthropic-shares/",
       "image": "/images/feed/feed-fb6c910e2e05.jpg",
       "source": "TechCrunch",
@@ -796,7 +855,7 @@
         "Breach"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 43,
       "url": "https://www.bleepingcomputer.com/news/security/south-korea-fines-telco-giant-kt-39-million-for-customer-data-breach/",
       "image": "/images/feed/feed-c732a136b822.jpg",
       "source": "BleepingComputer",
@@ -815,7 +874,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 39,
       "url": "https://www.bleepingcomputer.com/news/security/jetbrains-warns-of-critical-teamcity-remote-code-execution-flaw/",
       "image": "/images/feed/feed-1ca96886227f.jpg",
       "source": "BleepingComputer",
@@ -834,7 +893,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 53,
       "url": "https://www.zdnet.com/article/fcc-ban-on-foreign-made-robot-vacuums-and-your-roomba/",
       "image": "/images/feed/feed-b24520a1d2b4.jpg",
       "source": "ZDNet",
@@ -853,29 +912,10 @@
         "Spacecraft"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 50,
       "url": "https://www.space.com/space-exploration/launches-spacecraft/the-us-government-wants-to-bypass-environmental-laws-for-commercial-launches-and-spacecraft-reentries",
       "image": "/images/feed/feed-c40bb0cfcaf5.jpg",
       "source": "Space.com",
-      "isLive": true
-    },
-    {
-      "id": "feed-f3dac28bfcae",
-      "title": "Banning Open-Source AI Models to Protect Our Cybersecurity May Do the Opposite",
-      "excerpt": "A ban on open Chinese AI models under the guise of security might actually put our cybersecurity more at risk.",
-      "body": "A ban on open Chinese AI models under the guise of security might actually put our cybersecurity more at risk.\n\nThis report, published by CNET, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cybersecurity. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to CNET using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Katelyn Chedraoui",
-      "date": "2026-07-30",
-      "readTime": "2 min",
-      "section": "cybersecurity",
-      "tags": [
-        "Cybersecurity"
-      ],
-      "featured": false,
-      "xpReward": 49,
-      "url": "https://www.cnet.com/tech/services-and-software/open-source-ai-model-ban-proposal-cybersecurity-risks-news/",
-      "image": "/images/feed/feed-f3dac28bfcae.jpg",
-      "source": "CNET",
       "isLive": true
     },
     {
@@ -891,63 +931,24 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 43,
       "url": "https://techcrunch.com/2026/07/30/judge-says-trump-admin-still-lacks-evidence-for-anthropic-supply-chain-risk-label/",
       "image": "/images/feed/feed-358552aaff9a.png",
       "source": "TechCrunch",
-      "isLive": true
-    },
-    {
-      "id": "feed-87eb0c888a46",
-      "title": "CareCloud begins to notify hundreds of thousands after hackers stole medical records",
-      "excerpt": "The health tech data giant, which handles vast amounts of patients' medical data, said hackers struck one of its protected health data stores.",
-      "body": "The health tech data giant, which handles vast amounts of patients' medical data, said hackers struck one of its protected health data stores.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Hacker. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Zack Whittaker",
-      "date": "2026-07-30",
-      "readTime": "2 min",
-      "section": "cybersecurity",
-      "tags": [
-        "Hacker"
-      ],
-      "featured": false,
-      "xpReward": 51,
-      "url": "https://techcrunch.com/2026/07/30/carecloud-begins-to-notify-hundreds-of-thousands-after-hackers-stole-medical-records/",
-      "image": "/images/feed/feed-87eb0c888a46.jpg",
-      "source": "TechCrunch",
-      "isLive": true
-    },
-    {
-      "id": "feed-b67f09c6456e",
-      "title": "Everyone Is Freaking Out About OpenAI and Anthropic’s Race for Dominance",
-      "excerpt": "Researchers fear AI is moving too fast, while Mark Zuckerberg is worried about who owns it. Plus: Inside Black Forest Labs’ push into robotics.",
-      "body": "Researchers fear AI is moving too fast, while Mark Zuckerberg is worried about who owns it. Plus: Inside Black Forest Labs’ push into robotics.\n\nThis report, published by Wired, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Openai, Anthropic. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Wired using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Maxwell Zeff",
-      "date": "2026-07-30",
-      "readTime": "2 min",
-      "section": "ai",
-      "tags": [
-        "Openai",
-        "Anthropic"
-      ],
-      "featured": false,
-      "xpReward": 38,
-      "url": "https://www.wired.com/story/everyone-is-freaking-out-about-openai-and-anthropics-race-for-dominance/",
-      "image": "/images/feed/feed-b67f09c6456e.jpg",
-      "source": "Wired",
       "isLive": true
     }
   ],
   "breakingNews": [
     "OPENAI BLOG: Advancing responsible AI across Europe",
-    "DEV.TO: How to Connect an OpenAI SDK App to an OpenAI-Compatible API",
-    "KOTAKU: Even Stellar Blade Fans Hate The Sequel’s Official GenAI Music Video",
-    "DEV.TO: Your AI SOC Agent Has a Task Role. Does It Also Have Your S3 Credentials?",
-    "9TO5MAC: macOS 27 brings three key upgrades to iPhone Mirroring",
-    "DEV.TO: Hardening an AI coding agent: the failures, and the code that fixed them",
-    "DEV.TO: Building an Elden Ring Build Calculator: What Game Developers Can Learn From RPG Stat Systems",
-    "ANDROID AUTHORITY: Android phones can now back up documents automatically to Google Drive, here’s how",
-    "ANDROID AUTHORITY: Files by Google could finally become a better document scanner",
-    "DEV.TO: Gemini Robotics 2 Has Not Been Announced: What Google DeepMind Actually Offers"
+    "DEV.TO: Deploying ImgProxy – Process, Resize, Convert Images on the Fly",
+    "DEV.TO: My MCP Tool's Audit Log Was Built So a Bad Write Would Leave a Trace. The Log Itself Leaves None.",
+    "DEV.TO: Deploying code-server for VS Code on Ubuntu 24.04",
+    "DEV.TO: Deploying Gradio on Ubuntu 22.04",
+    "DEV.TO: Deploying Metabase on Kubernetes",
+    "DEV.TO: Installing Nginx UI – An Open-Source WebUI for Nginx",
+    "DEV.TO: Testing CAST AI on GKE: A Hands-On Kubernetes Workload Optimization Lab",
+    "ELECTREK: Wheel-E Podcast: VW e-bikes, Juiced Scrambler, Anyland Auto-wheelie, more",
+    "ENGADGET: Slate Truck first drive: A minimalist's delight"
   ],
   "sectionVideos": {}
 }
