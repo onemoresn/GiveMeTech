@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-08-05T00:34:51.511Z",
+  "fetchedAt": "2026-08-05T01:37:09.061Z",
   "articles": [
     {
-      "id": "feed-c1f5f6d5b036",
-      "title": "To big to lie, cheat, steal?",
-      "excerpt": "Remember when Volkswagen cheated and lied on their emissions testing for their clean diesel… That was so crazy in retrospect. Imagine Anthropic and OpenAI were completely training on everyone’s data a…",
-      "body": "Remember when Volkswagen cheated and lied on their emissions testing for their clean diesel… That was so crazy in retrospect. Imagine Anthropic and OpenAI were completely training on everyone’s data and just lying about it and promising not to in their Terms and Conditions? I guess we’ll see.",
-      "author": "Jonathan Murray",
+      "id": "feed-23b18632d66a",
+      "title": "Cursor Google Workspace Plugin Security Checklist",
+      "excerpt": "Cursor Google Workspace plugins: connect Gmail, Drive, and Calendar safely Quick answer Cursor released Google Workspace plugins on August 3, 2026. Coding agents can now pull context and take actions…",
+      "body": "Cursor Google Workspace plugins: connect Gmail, Drive, and Calendar safely Quick answer Cursor released Google Workspace plugins on August 3, 2026. Coding agents can now pull context and take actions through Gmail, Google Drive, and Google Calendar without leaving Cursor. The underlying plugin manifests point to Google's remote MCP endpoints, while Google's Workspace MCP servers are still in Developer Preview. Treat this as an external-action rollout, not a convenience toggle. Install one product plugin at a time, connect a low-impact test account, snapshot the tools actually returned by tools/list , and separate untrusted reading from write-capable sessions.",
+      "author": "Ahab",
       "date": "2026-08-05",
       "readTime": "2 min",
       "section": "software",
@@ -14,18 +14,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 36,
-      "url": "https://dev.to/jon_at_backboardio/to-big-to-lie-cheat-steal-4416",
-      "image": "/images/feed/feed-c1f5f6d5b036.webp",
+      "xpReward": 31,
+      "url": "https://dev.to/ahab_indieseek/cursor-google-workspace-plugin-security-checklist-3e4i",
+      "image": "/images/feed/feed-23b18632d66a.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-9baec15594b5",
-      "title": "Opening Web Invite Links Directly in the App with Expo Router",
-      "excerpt": "This article is an English translation of the original Japanese article. In my club management app, I use the following invite URL for both web and iOS app: https://squad-note.com/invite/{orgId} If th…",
-      "body": "This article is an English translation of the original Japanese article. In my club management app, I use the following invite URL for both web and iOS app: https://squad-note.com/invite/{orgId} If the app is installed, Expo Router opens the invite screen in the app. If not, the web page displays. Using Universal Links lets me share a single URL rather than splitting it into web and app versions. Expo Router File Structure I place the invite screen as a dynamic route. apps/mobile/src/app/invite/[orgId]/index.tsx The screen retrieves the orgId from the URL via useLocalSearchParams .",
-      "author": "hiro@",
+      "id": "feed-00ad68953905",
+      "title": "Contributing a GCP Cloud Spanner Scaler to KEDA",
+      "excerpt": "How we added native Spanner support to Kubernetes autoscaling — and what we learned along the way We run several workloads on Kubernetes that process jobs stored in Cloud Spanner tables. The pattern i…",
+      "body": "How we added native Spanner support to Kubernetes autoscaling — and what we learned along the way The problem We run several workloads on Kubernetes that process jobs stored in Cloud Spanner tables. The pattern is simple: a producer writes rows with status = 'pending' , workers pick them up and mark them done . The question is — how many workers do you run? Fixed replica counts mean either wasted money during quiet periods or dropped throughput during spikes. We needed autoscaling based on actual queue depth, not CPU or memory. KEDA (Kubernetes Event-Driven Autoscaling) is the standard answer for this — it scales workloads based on external metrics like queue lengths, database counts, and custom queries. It already had scalers for GCP Pub/Sub, Cloud Tasks, and Cloud Storage.",
+      "author": "Petr Petrenko",
       "date": "2026-08-05",
       "readTime": "2 min",
       "section": "software",
@@ -33,10 +33,143 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 36,
-      "url": "https://dev.to/hirodeath/opening-web-invite-links-directly-in-the-app-with-expo-router-2mco",
-      "image": "/images/feed/feed-9baec15594b5.webp",
+      "xpReward": 46,
+      "url": "https://dev.to/n0rm4l/contributing-a-gcp-cloud-spanner-scaler-to-keda-j6c",
+      "image": "/images/feed/feed-00ad68953905.webp",
       "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-a61de3708cda",
+      "title": "How to generate a valid file of any exact size, in the browser",
+      "excerpt": "I needed a 10 MB PDF to test an upload limit. Not \"about 10 MB\" — exactly 10,485,760 bytes. Every generator I found gave me fixed sizes or made me wait for a server download. So I looked into doing it…",
+      "body": "I needed a 10 MB PDF to test an upload limit. Not \"about 10 MB\" — exactly 10,485,760 bytes. Every generator I found gave me fixed sizes or made me wait for a server download. So I looked into doing it in the browser. The interesting part wasn't the size. It was keeping the file valid while hitting an arbitrary byte count. The naive approach breaks the file The obvious move is: make a real file, then append junk bytes until you hit the target. const blob = new Blob ([ realPdf , padding ]); // ← corrupt For most formats this produces a broken file. A PDF reader follows the cross-reference table to a byte offset; trailing garbage after %%EOF can throw it off. A PNG decoder walks length-prefixed chunks; extra bytes at the end aren't a valid chunk.",
+      "author": "Byte Rivet",
+      "date": "2026-08-05",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 54,
+      "url": "https://dev.to/byterivet/how-to-generate-a-valid-file-of-any-exact-size-in-the-browser-296k",
+      "image": "/images/feed/feed-a61de3708cda.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-05a3e3a7c3d9",
+      "title": "Every key failed in exactly the same way",
+      "excerpt": "Cloudflare error 1010 rejects Python's default User-Agent before the API's auth layer ever sees the request. How to tell it from a real 401, and the four headers that fix it.\" Originally published on…",
+      "body": "Cloudflare error 1010 rejects Python's default User-Agent before the API's auth layer ever sees the request. How to tell it from a real 401, and the four headers that fix it.\" Originally published on dhseadev.online . I lost an hour to a credential that was never wrong. The task was small: a read-only Model Context Protocol server over a vendor REST API, so an assistant could read job records without me pasting spreadsheet exports into a chat window. The vendor authenticates with the customer's own API key over HTTP Basic. Two lines of urllib . Done before lunch. Every request came back the same way: HTTP / 1.1 403 Forbidden error code: 1010 The short version Cloudflare error 1010 is not an authentication failure.",
+      "author": "Dhardingsea Developer",
+      "date": "2026-08-05",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 43,
+      "url": "https://dev.to/dhseadev/every-key-failed-in-exactly-the-same-way-21mi",
+      "image": "/images/feed/feed-05a3e3a7c3d9.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-7bc9d5d21993",
+      "title": "The Headset Is the Sensor: Building VR a Clinician Will Actually Act On",
+      "excerpt": "I have shipped XR that gets judged on whether it feels good, and XR that gets judged on whether a doctor can act on the number it produced. They look like the same stack from the outside. Unity, a hea…",
+      "body": "I have shipped XR that gets judged on whether it feels good, and XR that gets judged on whether a doctor can act on the number it produced. They look like the same stack from the outside. Unity, a headset, a scene, a build pipeline. They are not the same job at all, and the gap between them is where most clinical VR projects quietly fall apart. The shift is small to describe and enormous to build for. A consumer VR app degrades gracefully. If tracking drifts half a degree, the game is slightly worse and nobody files a bug. A diagnostic that reports where a patient looked, how fast they reacted, or how far they could reach is only as good as the measurement underneath it, and a clinician is going to make a decision on that measurement.",
+      "author": "Nabeel Hassan",
+      "date": "2026-08-05",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 50,
+      "url": "https://dev.to/nabeelbaghoor/the-headset-is-the-sensor-building-vr-a-clinician-will-actually-act-on-40li",
+      "image": "/images/feed/feed-7bc9d5d21993.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-e609976e524d",
+      "title": "How I Validate Small Web Products Without Trusting the Landing Page",
+      "excerpt": "A landing page can tell me what a product wants to be. It rarely tells me enough to decide whether I should recommend, integrate, or cite it. That gap is especially obvious with small web products. A…",
+      "body": "A landing page can tell me what a product wants to be. It rarely tells me enough to decide whether I should recommend, integrate, or cite it. That gap is especially obvious with small web products. A directory may aggregate public repositories, an AI studio may store private work, a game portal may embed a third-party catalog, and a personal publication may mix reporting with opinion. They should not all be judged by the same generic “trust” checklist. I now start with the product type and build an evidence map around it. Step 1: define the claim boundary Write one sentence that describes the site without marketing adjectives. Then list the claims that would matter if the sentence were wrong.",
+      "author": "stotyMan",
+      "date": "2026-08-05",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 42,
+      "url": "https://dev.to/wwqking/how-i-validate-small-web-products-without-trusting-the-landing-page-3cml",
+      "image": "/images/feed/feed-e609976e524d.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-24837bbf023a",
+      "title": "How to Connect AceData Cloud MCP to Your AI Assistant",
+      "excerpt": "The hard part of adopting an AI coding agent is rarely the first prompt; it is building a terminal setup you can reuse inside a real repository without mixing credentials, project rules, and task cont…",
+      "body": "The hard part of adopting an AI coding agent is rarely the first prompt; it is building a terminal setup you can reuse inside a real repository without mixing credentials, project rules, and task context. This guide sets up Claude Code CLI with Ace Data Cloud, then uses it for focused terminal work: explaining code, reviewing a diff, and following repository instructions stored in CLAUDE.md . What this setup gives you Claude Code can run interactively in a project directory, execute one task and exit, consume piped input, or continue an earlier conversation. The Ace Data Cloud configuration needs two values: ANTHROPIC_AUTH_TOKEN : your API token. Claude Code adds the Bearer prefix when sending it. ANTHROPIC_BASE_URL : https://api.acedata.cloud .",
+      "author": "Germey",
+      "date": "2026-08-05",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 53,
+      "url": "https://dev.to/germey/how-to-connect-acedata-cloud-mcp-to-your-ai-assistant-2d4p",
+      "image": "/images/feed/feed-24837bbf023a.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-0cc3f77468e9",
+      "title": "The Fast Lane: 3 Ways Geothermal Companies Can Get More Heat",
+      "excerpt": "Geothermal Energy Has Enormous Potential. These 3 Technologies Could Help the Industry Dig Deeper, Hotter, and More Profitable Wells. “The Fast Lane” series zooms in on some of the thousands of techno…",
+      "body": "Geothermal Energy Has Enormous Potential. These 3 Technologies Could Help the Industry Dig Deeper, Hotter, and More Profitable Wells. “The Fast Lane” series zooms in on some of the thousands of technologies born in the National Laboratory of the Rockies that companies can license today. This iteration focuses on technologies ... [continued] The post The Fast Lane: 3 Ways Geothermal Companies Can Get More Heat appeared first on CleanTechnica .",
+      "author": "US Department of Energy",
+      "date": "2026-08-05",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Cars"
+      ],
+      "featured": false,
+      "xpReward": 51,
+      "url": "https://cleantechnica.com/2026/08/04/the-fast-lane-3-ways-geothermal-companies-can-get-more-heat/",
+      "image": "/images/feed/feed-0cc3f77468e9.jpg",
+      "source": "CleanTechnica",
+      "isLive": true
+    },
+    {
+      "id": "feed-1de5746ca8d1",
+      "title": "Ted Lasso’s season 4 premiere now available to stream on Apple TV",
+      "excerpt": "The long-awaited return of Ted Lasso is finally here, with the premiere episode of the show’s much-anticipated fourth season now available to Apple TV subscribers.",
+      "body": "The long-awaited return of Ted Lasso is finally here, with the premiere episode of the show’s much-anticipated fourth season now available to Apple TV subscribers.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Marcus Mendes",
+      "date": "2026-08-05",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 43,
+      "url": "https://9to5mac.com/2026/08/04/ted-lassos-season-4-premiere-now-available-to-stream-on-apple-tv/",
+      "image": "/images/feed/feed-1de5746ca8d1.jpg",
+      "source": "9to5Mac",
       "isLive": true
     },
     {
@@ -51,49 +184,30 @@
       "tags": [
         "Gaming"
       ],
-      "featured": true,
-      "xpReward": 50,
+      "featured": false,
+      "xpReward": 36,
       "url": "https://www.polygon.com/chris-pratt-zero-dark-thirty-netflix-august-2026/",
       "image": "/images/feed/feed-b733b1792f71.jpg",
       "source": "Polygon",
       "isLive": true
     },
     {
-      "id": "feed-9f558ec51c41",
-      "title": "Snowflake to Databricks: what the migration actually costs you",
-      "excerpt": "Most Snowflake-to-Databricks migrations get sold on cost and delivered on something else. The credit line item is what gets the project funded, but the teams that finish happy are usually the ones tha…",
-      "body": "Most Snowflake-to-Databricks migrations get sold on cost and delivered on something else. The credit line item is what gets the project funded, but the teams that finish happy are usually the ones that moved for a different reason: they wanted ML, streaming and GenAI workloads living next to the analytics data instead of shuttling between two platforms. If your only justification is the bill, read the breakeven section below before you commit — the honest number is longer than the deck says. We're a Databricks shop , and we've written elsewhere about how to choose between the two platforms if you haven't committed yet. This post assumes you have. What actually changes underneath The two platforms look similar from a SQL console and are structurally different behind it.",
-      "author": "Zephico Technologies",
+      "id": "feed-451aa669d933",
+      "title": "Joke Game Priced at 200 Dollars Rakes In $1.3 Million on Steam Before Thousands of Players Refund It",
+      "excerpt": "The teenaged developer of a joke game titled This Game Costs 200 Dollars almost made over $1 million before thousands of players refunded it.",
+      "body": "The teenaged developer of a joke game titled This Game Costs 200 Dollars almost made over $1 million before thousands of players refunded it. 18-year-old Michael Major is behind the viral game , which is actually a sequel to his previous title, This Game Costs 10 Dollars. Major said he created the game as a simple joke, figuring no one would actually buy it due to its exorbitant price, which is the maximum amount of money that developers can charge on the Steam. In fact, the Steam page’s ‘About This Game’ section describes it as “the swindle to end all swindles,” with Major writing, “I know some people will buy this game out of sheer curiosity, and I highly recommend you do, too.” Little did he expect that thousands of players would actually take him up on his offer.",
+      "author": "Virginia Glaze",
       "date": "2026-08-04",
       "readTime": "2 min",
-      "section": "software",
+      "section": "gaming",
       "tags": [
-        "Software"
+        "Game"
       ],
-      "featured": true,
+      "featured": false,
       "xpReward": 48,
-      "url": "https://dev.to/zephico/snowflake-to-databricks-what-the-migration-actually-costs-you-5e09",
-      "image": "/images/feed/feed-9f558ec51c41.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-b6ff313360bf",
-      "title": "Eight Myths on Software Engineering and GenAI",
-      "excerpt": "",
-      "body": "This report, published by Hacker News, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Software. As the situation continues to evolve, professionals and enthusiasts in the software development and engineering field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Hacker News using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "tchalla",
-      "date": "2026-08-04",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 46,
-      "url": "https://queue.acm.org/detail.cfm?id=3807963",
-      "image": "/images/topics/topic-software.png",
-      "source": "Hacker News",
+      "url": "https://www.ign.com/articles/joke-game-priced-at-200-dollars-rakes-in-13-million-on-steam-before-thousands-of-players-refund-it",
+      "image": "/images/feed/feed-451aa669d933.jpg",
+      "source": "IGN",
       "isLive": true
     },
     {
@@ -108,68 +222,11 @@
       "tags": [
         "Gaming"
       ],
-      "featured": true,
-      "xpReward": 47,
+      "featured": false,
+      "xpReward": 45,
       "url": "https://www.ign.com/articles/flashforge-adventurer-5m-3d-printer-deal-july-2026-updated",
       "image": "/images/feed/feed-1dcfad7fb8dd.jpg",
       "source": "IGN",
-      "isLive": true
-    },
-    {
-      "id": "feed-f4f10a453b95",
-      "title": "Mana: 2-3 Seconds to Feeling Human",
-      "excerpt": "so I shipped a voice AI assistant that runs entirely on my machine. no cloud, no APIs, no latency nightmares. the original idea came from Alice in Sword Art Online — an AI that feels like an actual pe…",
-      "body": "so I shipped a voice AI assistant that runs entirely on my machine. no cloud, no APIs, no latency nightmares. the original idea came from Alice in Sword Art Online — an AI that feels like an actual person, not a chatbot. mixed with JARVIS's anticipation and Neuro-sama's quirky personality. here's what actually went into getting from \"wouldn't it be cool\" to \"this runs 24/7 without issues.\" the problem with voice AI most voice assistants are cloud-first: you speak → sent to server → processed → response → back to you. each hop adds latency. you're looking at 3-6 seconds before you hear anything. for a voice interaction, that's dead. it kills the feeling of talking to something intelligent. I wanted something faster. something that responds . the constraint: do it locally.",
-      "author": "Yuuzu",
-      "date": "2026-08-04",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 46,
-      "url": "https://dev.to/yuuzulight/mana-2-3-seconds-to-feeling-human-3e0b",
-      "image": "/images/feed/feed-f4f10a453b95.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-a15a791d2bfa",
-      "title": "Medir si un LLM nombra a tu empresa: por qué una captura no sirve como métrica",
-      "excerpt": "Cada vez más gente arranca la búsqueda de un proveedor preguntándole a un modelo en vez de a un buscador. Y no pide diez opciones para comparar: pide una recomendación y recibe dos o tres nombres. Si…",
-      "body": "Cada vez más gente arranca la búsqueda de un proveedor preguntándole a un modelo en vez de a un buscador. Y no pide diez opciones para comparar: pide una recomendación y recibe dos o tres nombres. Si tu empresa no está ahí, no quedaste octava. No estás en la respuesta. La pregunta que sigue es obvia: cuánto tarda en cambiar eso. Pero antes hay un problema más aburrido y más importante, que es cómo se mide. Lo escribo porque es la parte que casi nunca se cuenta y es donde se rompen los informes. Una captura de pantalla no es una medición Es el error más común y el más difícil de discutir, porque la captura parece prueba.",
-      "author": "Gonzalo Terrones",
-      "date": "2026-08-04",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 40,
-      "url": "https://dev.to/gonzalo_terrones_7737b137/medir-si-un-llm-nombra-a-tu-empresa-por-que-una-captura-no-sirve-como-metrica-32e8",
-      "image": "/images/feed/feed-a15a791d2bfa.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-e9b5a278e9a1",
-      "title": "A/B Test AI Prompts at the Edge with Telnyx Stateful Actors",
-      "excerpt": "Changing a prompt is easy. Knowing whether the new prompt is actually better is the hard part. This example builds a small prompt A/B testing API on Telnyx Edge Compute. You send one task and two prom…",
-      "body": "Changing a prompt is easy. Knowing whether the new prompt is actually better is the hard part. This example builds a small prompt A/B testing API on Telnyx Edge Compute. You send one task and two prompt variants. The app runs both variants through Telnyx AI Inference, stores the experiment in a Stateful Actor, and lets users vote on which result they prefer. Code: https://github.com/team-telnyx/telnyx-code-examples/tree/main/edge-prompt-ab-tester What it does The app gives you a tiny evaluation loop: create an experiment compare two model responses vote for variant A or B close the experiment check aggregate stats Routes: POST /experiments POST /experiments/&lt;id&gt;/vote POST /experiments/&lt;id&gt;/close GET /experiments GET /experiments/&lt;id&gt; GET /stats GET /health/liveness GET /h…",
-      "author": "Sonam",
-      "date": "2026-08-04",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 48,
-      "url": "https://dev.to/sonam_50a41a4ced7e6b4f3fa/ab-test-ai-prompts-at-the-edge-with-telnyx-stateful-actors-5a3",
-      "image": "/images/feed/feed-e9b5a278e9a1.webp",
-      "source": "Dev.to",
       "isLive": true
     },
     {
@@ -185,7 +242,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 50,
       "url": "https://www.bleepingcomputer.com/news/security/openai-anthropic-ai-agents-targeted-real-people-and-systems-in-cyber-tests/",
       "image": "/images/feed/feed-4d039509ce26.jpg",
       "source": "BleepingComputer",
@@ -204,7 +261,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 45,
       "url": "https://www.ign.com/articles/lord-of-the-rings-3d-maps-of-middle-earth-gift-idea-2026",
       "image": "/images/feed/feed-4924d1062218.jpg",
       "source": "IGN",
@@ -223,7 +280,7 @@
         "Iphone"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 42,
       "url": "https://www.cnet.com/tech/iphone-20-pro-and-pro-max-might-get-bigger-screens-in-2027/",
       "image": "/images/feed/feed-1f71f21179ad.jpg",
       "source": "CNET",
@@ -242,7 +299,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 53,
       "url": "https://electrek.co/2026/08/04/lucids-smaller-cosmos-suv-slated-for-2026-has-been-pushed-back-to-2027/",
       "image": "/images/feed/feed-2086bff9b987.jpg",
       "source": "Electrek",
@@ -261,7 +318,7 @@
         "Authentication"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 45,
       "url": "https://unit42.paloaltonetworks.com/passwordless-authentication-security-risks/",
       "image": "/images/feed/feed-d0bd893f45be.jpg",
       "source": "Hacker News",
@@ -280,7 +337,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 52,
       "url": "https://www.wired.com/story/ok-well-there-are-even-more-ai-agent-hacking-incidents/",
       "image": "/images/feed/feed-7505963df54f.jpg",
       "source": "Wired",
@@ -299,7 +356,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 34,
       "url": "https://cleantechnica.com/2026/08/04/students-to-help-identify-retirement-options-for-energy-technologies/",
       "image": "/images/feed/feed-b85317d2e959.jpg",
       "source": "CleanTechnica",
@@ -318,7 +375,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 42,
       "url": "https://www.ign.com/articles/spider-man-theory-may-change-how-you-see-brand-new-days-ending",
       "image": "/images/feed/feed-a5fc15154578.jpg",
       "source": "IGN",
@@ -328,7 +385,7 @@
       "id": "feed-08675216f0dd",
       "title": "DJI's Latest Osmo Action 6 8K Video Camera Drops to $308 During the AliExpress Back to School Sale",
       "excerpt": "Everyone else still has it for $439, including Amazon.",
-      "body": "Update: This deal is now expired. DJI&#39;s newest and best action camera just got a humongous discount. AliExpress via FlyingFlightStore is offering the capable DJI Osmo Action 6 8K Camera (Standard Combo) for a low, low price of $308.23 with free shipping after you apply $40 off coupon code &quot; USSR40 &quot;. This camera sells for $439 everywhere else, including Amazon . This diminutive waterproof action cam features a new 1:1.1 sensor and can record up to 8K video (or 4K @ 120fps). I reached out to AliExpress and the company confirmed FlyingFlightStore is an authorized DJI reseller. The camera ships free from the United States so there are no import fees. This is such a good deal that I actually ordered one myself.",
+      "body": "DJI&#39;s newest and best action camera just got a humongous discount. AliExpress via FlyingFlightStore is offering the capable DJI Osmo Action 6 8K Camera (Standard Combo) for a low, low price of $308.23 with free shipping after you apply $40 off coupon code &quot; USSR40 &quot;. This camera sells for $439 everywhere else, including Amazon . This diminutive waterproof action cam features a new 1:1.1 sensor and can record up to 8K video (or 4K @ 120fps). I reached out to AliExpress and the company confirmed FlyingFlightStore is an authorized DJI reseller. The camera ships free from the United States so there are no import fees. This is such a good deal that I actually ordered one myself.",
       "author": "Eric Song",
       "date": "2026-08-04",
       "readTime": "2 min",
@@ -337,7 +394,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 52,
       "url": "https://www.ign.com/articles/dji-osmo-action-6-video-camera-deal-august-2026",
       "image": "/images/feed/feed-08675216f0dd.jpg",
       "source": "IGN",
@@ -356,7 +413,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 50,
       "url": "https://insideevs.com/news/803792/lucid-midsize-ev-production-2027/",
       "image": "/images/feed/feed-4a5e038e0054.jpg",
       "source": "InsideEVs",
@@ -376,7 +433,7 @@
         "Starship"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 53,
       "url": "https://www.space.com/space-exploration/launches-spacecraft/spacex-wants-to-launch-next-starship-this-month-and-catch-it-too-elon-musk-says-in-1st-earnings-call-since-historic-ipo",
       "image": "/images/feed/feed-30e4a0ceccf5.jpg",
       "source": "Space.com",
@@ -397,7 +454,7 @@
         "Orbit"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 49,
       "url": "https://spacenews.com/spacex-to-begin-starship-orbital-flights/",
       "image": "/images/feed/feed-8f67356d229d.jpg",
       "source": "SpaceNews",
@@ -416,7 +473,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 50,
       "url": "https://www.engadget.com/2230511/texas-governor-orders-audit-of-new-data-centers-after-realizing-over-400-gigawatts-of-power-is-a-lot/",
       "image": "/images/feed/feed-53aea5121b11.jpg",
       "source": "Engadget",
@@ -435,7 +492,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 48,
       "url": "https://spacenews.com/rocket-lab-str-win-space-force-contracts-for-airborne-target-tracking-technologies/",
       "image": "/images/feed/feed-f141704aeaa9.jpg",
       "source": "SpaceNews",
@@ -454,7 +511,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 39,
       "url": "https://9to5mac.com/2026/08/04/daily-august-4-2026/",
       "image": "/images/feed/feed-cf34394a8dad.jpg",
       "source": "9to5Mac",
@@ -473,7 +530,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 39,
       "url": "https://www.ign.com/articles/spider-man-brand-new-day-reportedly-cut-a-scene-with-a-fan-favorite-daredevil-character-and-it-mightve-fixed-a-plot-hole",
       "image": "/images/feed/feed-02461e733879.jpg",
       "source": "IGN",
@@ -492,29 +549,10 @@
         "Spacex"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 54,
       "url": "https://techcrunch.com/2026/08/04/elon-musk-repeatedly-one-upped-his-execs-on-spacexs-first-earnings-call/",
       "image": "/images/feed/feed-c9f29b8d2736.jpg",
       "source": "TechCrunch",
-      "isLive": true
-    },
-    {
-      "id": "feed-d573c91a0628",
-      "title": "Tom Holland and Zendaya Are On an Unprecedented Box Office Run",
-      "excerpt": "Tom Holland and Zendaya could set some astonishing records this year thanks to Spider-Man: Brand New Day and The Odyssey.",
-      "body": "Tom Holland and Zendaya could set some astonishing records this year thanks to Spider-Man: Brand New Day and The Odyssey. The couple just had back-to-back releases that are proving to be box office juggernauts. Spaced only two weeks apart, the duo had key roles in both The Odyssey and Spider-Man: Brand New Day, both of which have or will cross the billion-dollar mark at the box office. Brand New Day is expected to go the distance and make $2 billion, partially assisted by a newly-added IMAX release. The films have set box office records, with Spider-Man specifically dethroning Avengers: Endgame&#39;s biggest domestic opening .",
-      "author": "Cade Onder",
-      "date": "2026-08-04",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 33,
-      "url": "https://www.ign.com/articles/tom-holland-and-zendaya-are-on-an-unprecedented-box-office-run",
-      "image": "/images/feed/feed-d573c91a0628.jpg",
-      "source": "IGN",
       "isLive": true
     },
     {
@@ -531,7 +569,7 @@
         "Breach"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 43,
       "url": "https://www.bleepingcomputer.com/news/security/tp-link-patches-omada-ztp-flaws-allowing-hackers-to-breach-networks/",
       "image": "/images/feed/feed-5ad28e56f6da.jpg",
       "source": "BleepingComputer",
@@ -550,7 +588,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 31,
       "url": "https://www.engadget.com/2230492/the-saudi-led-55-billion-takeover-of-ea-has-closed/",
       "image": "/images/feed/feed-997874b55ae2.jpg",
       "source": "Engadget",
@@ -569,7 +607,7 @@
         "Laptop"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 34,
       "url": "https://techascent.com/blog/just-ducking-around.html",
       "image": "/images/topics/topic-gadgets.png",
       "source": "Hacker News",
@@ -588,7 +626,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 35,
       "url": "https://www.engadget.com/2230482/telegram-ceo-says-takedown-extortionist-was-responsible-for-the-app-being-briefly-delisted-by-apple/",
       "image": "/images/feed/feed-612dcc15f62f.jpg",
       "source": "Engadget",
@@ -607,29 +645,10 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 39,
       "url": "https://www.wired.com/story/the-white-house-is-keeping-its-ai-cybersecurity-framework-secret/",
       "image": "/images/feed/feed-6452de04eca8.jpg",
       "source": "Wired",
-      "isLive": true
-    },
-    {
-      "id": "feed-2152afcd7168",
-      "title": "Now you can securely link multiple phones to one Signal account",
-      "excerpt": "You can link more devices with one phone number on Signal now, including an Android phone or iPhone. Signal already supported linking PCs and iPads, but not additional phones. When you link a device o…",
-      "body": "You can link more devices with one phone number on Signal now, including an Android phone or iPhone. Signal already supported linking PCs and iPads , but not additional phones. When you link a device on Signal, you can check and respond to new messages across all of your linked devices. You can also choose whether or not to transfer an end-to-end encrypted copy of your previous messages to each newly linked device to mitigate the risk of devices that might be shared, lost, or compromised. The update is rolling out now with Signal version 8.20 on Android and version 8.22 for iPhone / iPad. Signal also says it has made \"significant interface … Read the full story at The Verge.",
-      "author": "Stevie Bonifield",
-      "date": "2026-08-04",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 45,
-      "url": "https://www.theverge.com/tech/975407/signal-linked-devices-sync",
-      "image": "/images/feed/feed-2152afcd7168.jpg",
-      "source": "The Verge",
       "isLive": true
     },
     {
@@ -645,7 +664,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 30,
       "url": "https://spacenews.com/telesat-lands-1-63-billion-canadian-defense-contract/",
       "image": "/images/feed/feed-151a7ac998fa.png",
       "source": "SpaceNews",
@@ -665,7 +684,7 @@
         "Satellite"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 54,
       "url": "https://www.space.com/space-exploration/launches-spacecraft/spacex-launches-ast-spacemobile-11-13-direct-to-cell-satellites",
       "image": "/images/feed/feed-3e72157cb572.jpg",
       "source": "Space.com",
@@ -684,7 +703,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 33,
       "url": "https://cleantechnica.com/2026/08/04/energy-discovery-awaits-within-the-spin-of-atoms/",
       "image": "/images/feed/feed-f35f7892890e.jpg",
       "source": "CleanTechnica",
@@ -703,7 +722,7 @@
         "Phishing"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 51,
       "url": "https://www.bleepingcomputer.com/news/security/phishing-service-spoofs-ringcentral-to-steal-microsoft-365-accounts/",
       "image": "/images/feed/feed-ce168402b944.jpg",
       "source": "BleepingComputer",
@@ -722,7 +741,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 46,
       "url": "https://electrek.co/2026/08/04/evgo-is-putting-500-fast-chargers-where-americans-shop/",
       "image": "/images/feed/feed-d8eba442e006.jpg",
       "source": "Electrek",
@@ -741,7 +760,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 38,
       "url": "https://cleantechnica.com/2026/08/04/health-labor-civil-rights-groups-warn-states-proposed-air-pollution-permit-for-hyundai-steel-mill-will-harm-community-worker-health/",
       "image": "/images/feed/feed-151ed302af69.jpg",
       "source": "CleanTechnica",
@@ -760,29 +779,10 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 53,
       "url": "https://openai.com/index/third-party-cyber-evaluations-involving-openai-models/",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-0410b719bc78",
-      "title": "Chevy Blazer EV prices remain the same for 2027 despite a few upgrades",
-      "excerpt": "The 2027 Chevy Blazer EV is the same price as the outgoing model, despite gaining a NACS port and additional features.",
-      "body": "The 2027 Chevy Blazer EV is the same price as the outgoing model, despite gaining a NACS port and additional features.\n\nThis report, published by Electrek, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Ev. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Electrek using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Peter Johnson",
-      "date": "2026-08-04",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Ev"
-      ],
-      "featured": false,
-      "xpReward": 53,
-      "url": "https://electrek.co/2026/08/04/chevy-blazer-ev-prices-2027-upgrades/",
-      "image": "/images/feed/feed-0410b719bc78.jpg",
-      "source": "Electrek",
       "isLive": true
     },
     {
@@ -798,7 +798,7 @@
         "Spacex"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 48,
       "url": "https://techcrunch.com/2026/08/04/spacex-has-bought-329m-worth-of-tesla-megapacks-so-far-this-year/",
       "image": "/images/feed/feed-d677fdcd54de.jpg",
       "source": "TechCrunch",
@@ -817,7 +817,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 35,
       "url": "https://techcrunch.com/2026/08/04/anthropic-signs-10-billion-deal-with-ai-cloud-startup-volta/",
       "image": "/images/feed/feed-af3fbfe150b0.jpg",
       "source": "TechCrunch",
@@ -836,7 +836,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 44,
       "url": "https://www.bleepingcomputer.com/news/security/new-xcsset-variant-targets-macos-devs-via-compromised-xcode-projects/",
       "image": "/images/feed/feed-0015a35012bf.jpg",
       "source": "BleepingComputer",
@@ -855,7 +855,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 32,
       "url": "https://www.bleepingcomputer.com/news/security/77-open-vsx-extensions-found-harvesting-developer-info/",
       "image": "/images/feed/feed-20ab94ddb628.jpg",
       "source": "BleepingComputer",
@@ -874,7 +874,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 52,
       "url": "https://www.cnet.com/tech/services-and-software/openai-apple-lawsuit-released-texts-emails-august-2026-news/",
       "image": "/images/feed/feed-4272fa93eec3.jpg",
       "source": "CNET",
@@ -912,7 +912,7 @@
         "Llm"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 39,
       "url": "https://www.theverge.com/ai-artificial-intelligence/975180/llm-ai-chatbot-use-not-healthy",
       "image": "/images/feed/feed-62a45b0de0e1.jpg",
       "source": "The Verge",
@@ -939,16 +939,16 @@
     }
   ],
   "breakingNews": [
-    "DEV.TO: To big to lie, cheat, steal?",
-    "DEV.TO: Opening Web Invite Links Directly in the App with Expo Router",
-    "POLYGON: Chris Pratt's 157-Minute Action Thriller Changed Hollywood Forever, and It's Streaming Now on Netflix",
-    "DEV.TO: Snowflake to Databricks: what the migration actually costs you",
-    "HACKER NEWS: Eight Myths on Software Engineering and GenAI",
-    "IGN: The Popular Budget-Friendly Flashforge Adventurer 5M 3D Printer Drops to a Mere $135 Shipped",
-    "DEV.TO: Mana: 2-3 Seconds to Feeling Human",
-    "DEV.TO: Medir si un LLM nombra a tu empresa: por qué una captura no sirve como métrica",
-    "DEV.TO: A/B Test AI Prompts at the Edge with Telnyx Stateful Actors",
-    "BLEEPINGCOMPUTER: OpenAI, Anthropic AI agents targeted real people and systems in cyber tests"
+    "DEV.TO: Cursor Google Workspace Plugin Security Checklist",
+    "DEV.TO: Contributing a GCP Cloud Spanner Scaler to KEDA",
+    "DEV.TO: How to generate a valid file of any exact size, in the browser",
+    "DEV.TO: Every key failed in exactly the same way",
+    "DEV.TO: The Headset Is the Sensor: Building VR a Clinician Will Actually Act On",
+    "DEV.TO: How I Validate Small Web Products Without Trusting the Landing Page",
+    "DEV.TO: How to Connect AceData Cloud MCP to Your AI Assistant",
+    "CLEANTECHNICA: The Fast Lane: 3 Ways Geothermal Companies Can Get More Heat",
+    "9TO5MAC: Ted Lasso’s season 4 premiere now available to stream on Apple TV",
+    "POLYGON: Chris Pratt's 157-Minute Action Thriller Changed Hollywood Forever, and It's Streaming Now on Netflix"
   ],
   "sectionVideos": {}
 }
