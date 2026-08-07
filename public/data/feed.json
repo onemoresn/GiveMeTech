@@ -1,6 +1,196 @@
 {
-  "fetchedAt": "2026-08-07T22:15:47.592Z",
+  "fetchedAt": "2026-08-07T23:15:40.378Z",
   "articles": [
+    {
+      "id": "feed-68ae3f6fd509",
+      "title": "Selective Attention: Filtering Before You Fill",
+      "excerpt": "Shrinking blocks to fit is the second-best move. The first is deciding that a block should not be there at all — filtering is free in window terms, and truncation never is. Order of operations matters…",
+      "body": "Shrinking blocks to fit is the second-best move. The first is deciding that a block should not be there at all — filtering is free in window terms, and truncation never is. Filtering happens before allocation Order of operations matters here and it is frequently reversed. Assembly should gather candidates, filter them, and only then allocate room among the survivors. Filtering after allocation is pointless — the damage is done — and truncating instead of filtering produces the worst possible artefact: several partial documents, each missing its conclusion, none of them useful. Compare the two dispositions of a 30,000-token budget across ten candidate documents of 8,000 tokens each.",
+      "author": "Multigrid",
+      "date": "2026-08-07",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 49,
+      "url": "https://dev.to/multigrid/selective-attention-filtering-before-you-fill-57id",
+      "image": "/images/feed/feed-68ae3f6fd509.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-878a5f4cb1a8",
+      "title": "Context Compression: Making 100k Tokens Fit in 10k",
+      "excerpt": "Compression is the one context technique that costs money to apply, so it is the one that most needs an arithmetic justification. Two cheaper things usually beat it, and knowing when they do not is mo…",
+      "body": "Compression is the one context technique that costs money to apply, so it is the one that most needs an arithmetic justification. Two cheaper things usually beat it, and knowing when they do not is most of the skill. The free wins, first Before any model-based technique, remove the tokens that carry no information. This is unglamorous, lossless, and routinely worth 30–60% on real prompts: Strip markup. Scraped HTML in a prompt is mostly attributes, navigation and script tags. Extract text. Minify structured data. Pretty-printed JSON pays for every space. For tabular data, CSV or a compact key-per-column form is dramatically cheaper than an array of objects that repeats every key on every row. Deduplicate. Retrieval with overlapping chunks delivers near-identical passages. Hash and drop.",
+      "author": "Multigrid",
+      "date": "2026-08-07",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 38,
+      "url": "https://dev.to/multigrid/context-compression-making-100k-tokens-fit-in-10k-4aam",
+      "image": "/images/feed/feed-878a5f4cb1a8.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-e41e5fde96de",
+      "title": "Context Caching Strategy: Ordering for Cache Hits",
+      "excerpt": "Prompt caching is not a setting you enable. It is a property your prompt either has or does not have, and one timestamp in the wrong place removes it from every request you will ever send. The pricing…",
+      "body": "Prompt caching is not a setting you enable. It is a property your prompt either has or does not have, and one timestamp in the wrong place removes it from every request you will ever send. It is a prefix, and that is the whole design The pricing and mechanics of cached tokens belong to the tokens cluster . The one structural fact that governs assembly is this: caching operates on a prefix . The provider can reuse the computed state of your request up to the first position where it differs from a previous request, and not one token further. This is a much harsher constraint than “repeated content is cheaper.” Content that repeats but has moved is worth nothing.",
+      "author": "Multigrid",
+      "date": "2026-08-07",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 39,
+      "url": "https://dev.to/multigrid/context-caching-strategy-ordering-for-cache-hits-1omo",
+      "image": "/images/feed/feed-e41e5fde96de.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-d4bfd9f76b89",
+      "title": "Budgeting the Context Window Across a Session",
+      "excerpt": "A context budget is not a guideline about keeping prompts short. It is a division of a fixed number of tokens between named claimants, made by code, before anything is rendered. Here is the code. The…",
+      "body": "A context budget is not a guideline about keeping prompts short. It is a division of a fixed number of tokens between named claimants, made by code, before anything is rendered. Here is the code. Reserve the output first The window holds input and output together. Whatever room the answer needs is unavailable to the prompt, and this is the single most common arithmetic mistake in an assembler: filling to the window size and then discovering the model has nowhere to write. The mechanics of that — and the 400 it produces — belong to context window versus max output tokens . For the allocator, only the consequence matters: available = window - reserved_output - safety_margin The safety margin is not superstition.",
+      "author": "Multigrid",
+      "date": "2026-08-07",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 44,
+      "url": "https://dev.to/multigrid/budgeting-the-context-window-across-a-session-251m",
+      "image": "/images/feed/feed-d4bfd9f76b89.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-dd7a73db105e",
+      "title": "Context Windows as an Architectural Constraint",
+      "excerpt": "Every other fixed-capacity resource in a system gets an explicit policy: what is admitted, what is rejected, what happens at the ceiling. Context windows usually get none of that, which is why they fa…",
+      "body": "Every other fixed-capacity resource in a system gets an explicit policy: what is admitted, what is rejected, what happens at the ceiling. Context windows usually get none of that, which is why they fail in production rather than in design review. A capacity, not a limit The instructive comparison is a memory-constrained embedded system. Nobody writing firmware for 64KB of RAM treats the limit as an occasional annoyance. It is the first fact of the design: data structures are sized for it, allocation is planned, and the behaviour when memory runs out is specified rather than discovered. A context window is that constraint with two differences, and both cut the wrong way.",
+      "author": "Multigrid",
+      "date": "2026-08-07",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 42,
+      "url": "https://dev.to/multigrid/context-windows-as-an-architectural-constraint-4bmp",
+      "image": "/images/feed/feed-dd7a73db105e.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-07987a2d2aee",
+      "title": "Building a Content Safety Layer That Isn't Useless",
+      "excerpt": "No precision or recall numbers appear on this page, and that is the argument rather than an omission. A safety threshold depends on your content distribution and your base rate, so a number from someo…",
+      "body": "No precision or recall numbers appear on this page, and that is the argument rather than an omission. A safety threshold depends on your content distribution and your base rate, so a number from someone else’s deployment is not evidence about yours. What transfers is the method. How safety layers actually fail They rarely fail by missing something dramatic. They fail in one of three quieter ways: Tuned so tight that users route around it. The filter blocks legitimate work, the team adds an exception, then another, and eventually a bypass flag that becomes the default. The control is nominally live and effectively off. Tuned so loose it is decoration. Nobody measured, so the threshold is whatever the example in the documentation used.",
+      "author": "Multigrid",
+      "date": "2026-08-07",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 48,
+      "url": "https://dev.to/multigrid/building-a-content-safety-layer-that-isnt-useless-2mnl",
+      "image": "/images/feed/feed-07987a2d2aee.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-ad7160b50026",
+      "title": "Content Filter Triggered on Innocent Input",
+      "excerpt": "“Content filter triggered” can mean three different things: an input classifier rejected your request before generation, an output classifier stopped generation part-way, or the model itself declined…",
+      "body": "“Content filter triggered” can mean three different things: an input classifier rejected your request before generation, an output classifier stopped generation part-way, or the model itself declined and no filter was involved. They present similarly, they have different fixes, and the status code plus finish_reason separates them in one glance. Three mechanisms that look identical Mechanism Description Input classifier A separate model scores your prompt before the main model sees it. Rejection is an HTTP 400 with a policy-related code, no usage, and no output tokens billed. The main model never ran. Output classifier Generation starts, a classifier scores the output as it is produced, and generation is cut.",
+      "author": "Multigrid",
+      "date": "2026-08-07",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 36,
+      "url": "https://dev.to/multigrid/content-filter-triggered-on-innocent-input-2kg1",
+      "image": "/images/feed/feed-ad7160b50026.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-fe3673f4fed0",
+      "title": "Memoirium combines Dark Souls, Inception, and Backrooms in Steam's Coolest New Action RPG",
+      "excerpt": "New action game Memoirium on Steam combines Dark Souls, Inception, and Backrooms",
+      "body": "Fact: The fluid, crumbling dreamscapes of Inception would make for an excellent video game. And no genre is better-suited for those vibes than Soulslikes. From the medieval fantasy look of the genre’s origins to the overwhelming sci-fi horror of Hellpoint , all we need now is a game willing to combine the aesthetics of its predecessors into something truly unreal. For those who agree, the perfect game comes out in just a few days.",
+      "author": "Lillian Ali",
+      "date": "2026-08-07",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 45,
+      "url": "https://www.polygon.com/new-soulslike-memoirium-on-steam/",
+      "image": "/images/feed/feed-fe3673f4fed0.png",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-59163ffd3cbe",
+      "title": "OpenAI says it slowed Astra model development over security concerns",
+      "excerpt": "OpenAI said it has suspended work on some aspects of its upcoming model Astra over concerns about its cybersecurity prowess.",
+      "body": "OpenAI said it has suspended work on some aspects of its upcoming model Astra over concerns about its cybersecurity prowess.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Security. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Kirsten Korosec",
+      "date": "2026-08-07",
+      "readTime": "2 min",
+      "section": "cybersecurity",
+      "tags": [
+        "Security"
+      ],
+      "featured": false,
+      "xpReward": 54,
+      "url": "https://techcrunch.com/2026/08/07/openai-says-it-slowed-astra-model-development-over-security-concerns/",
+      "image": "/images/feed/feed-59163ffd3cbe.jpg",
+      "source": "TechCrunch",
+      "isLive": true
+    },
+    {
+      "id": "feed-67c487686801",
+      "title": "Claude Code now lets sessions talk to each other on macOS",
+      "excerpt": "Users running the latest version of Claude Code on macOS and Linux can now have their sessions message each other to share findings, ask questions, and coordinate work. Here are the details.",
+      "body": "Users running the latest version of Claude Code on macOS and Linux can now have their sessions message each other to share findings, ask questions, and coordinate work. Here are the details.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Marcus Mendes",
+      "date": "2026-08-07",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 34,
+      "url": "https://9to5mac.com/2026/08/07/claude-code-now-lets-sessions-talk-to-each-other-on-macos/",
+      "image": "/images/feed/feed-67c487686801.jpg",
+      "source": "9to5Mac",
+      "isLive": true
+    },
     {
       "id": "feed-7171ba64d97e",
       "title": "The gaming site sponsored by Walmart lays off its editorial staff",
@@ -13,49 +203,11 @@
       "tags": [
         "Gaming"
       ],
-      "featured": true,
-      "xpReward": 39,
+      "featured": false,
+      "xpReward": 40,
       "url": "https://www.theverge.com/games/977056/restart-gaming-site-walmart-moonrock-layoffs",
       "image": "/images/feed/feed-7171ba64d97e.jpg",
       "source": "The Verge",
-      "isLive": true
-    },
-    {
-      "id": "feed-104b4f643c82",
-      "title": "When an AI Says Something False About Your Company",
-      "excerpt": "Before you do anything about a false statement, find out which of four mechanisms produced it. A stale memory in the weights, a wrongly retrieved page, a confusion between you and a similarly named en…",
-      "body": "Before you do anything about a false statement, find out which of four mechanisms produced it. A stale memory in the weights, a wrongly retrieved page, a confusion between you and a similarly named entity, and a conflation inside one answer need four different responses, and three of the four are useless against the other causes. Diagnose before you do anything Reproduce it first, several times, in a clean session with memory disabled, and record the output. One screenshot is not a diagnosis because the output is sampled — see the sampling protocol for why. Then work through these questions in order. Did it cite sources? If yes, the grounded path ran and the fault is probably in what it retrieved. If no, it answered from the weights. Did your server see a fetch?",
-      "author": "Multigrid",
-      "date": "2026-08-07",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 52,
-      "url": "https://dev.to/multigrid/when-an-ai-says-something-false-about-your-company-1f7",
-      "image": "/images/feed/feed-104b4f643c82.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-13849f872ffe",
-      "title": "What AI Engineers Earn, and Which Salary Sources Are Worth Reading",
-      "excerpt": "Published AI salary figures disagree by factors of two or three, and almost all of the disagreement comes from three things: who filled in the survey, what counts as compensation, and what the title m…",
-      "body": "Published AI salary figures disagree by factors of two or three, and almost all of the disagreement comes from three things: who filled in the survey, what counts as compensation, and what the title means. This page will not give you a number. It will let you read anyone else’s and tell whether it is worth anything. Why the figures disagree so wildly A salary figure has to answer four questions before it means anything: which population, which geography, which components of pay, and which seniority. Most published figures answer none of them explicitly, and the spread that results is not measurement noise — it is four different quantities being reported under one label. “AI engineer” makes this worse than the equivalent problem for, say, plumbers.",
-      "author": "Multigrid",
-      "date": "2026-08-07",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 50,
-      "url": "https://dev.to/multigrid/what-ai-engineers-earn-and-which-salary-sources-are-worth-reading-59in",
-      "image": "/images/feed/feed-13849f872ffe.webp",
-      "source": "Dev.to",
       "isLive": true
     },
     {
@@ -70,8 +222,8 @@
       "tags": [
         "Gaming"
       ],
-      "featured": true,
-      "xpReward": 38,
+      "featured": false,
+      "xpReward": 36,
       "url": "https://www.polygon.com/video/contrapoints-devours-forbidden-decadent-games-shelf-quest/",
       "image": "/images/feed/feed-ac23c4caa289.jpg",
       "source": "Polygon",
@@ -89,8 +241,8 @@
       "tags": [
         "Gaming"
       ],
-      "featured": true,
-      "xpReward": 50,
+      "featured": false,
+      "xpReward": 48,
       "url": "https://www.polygon.com/best-sci-fi-shows-on-netflix/",
       "image": "/images/feed/feed-7c374df387bb.jpg",
       "source": "Polygon",
@@ -108,87 +260,11 @@
       "tags": [
         "Gaming"
       ],
-      "featured": true,
-      "xpReward": 33,
+      "featured": false,
+      "xpReward": 51,
       "url": "https://kotaku.com/demons-souls-from-software-prototype-first-person-2000722570",
       "image": "/images/feed/feed-b43dd850bdc0.jpg",
       "source": "Kotaku",
-      "isLive": true
-    },
-    {
-      "id": "feed-6754d08359e3",
-      "title": "AI Engineer vs ML Engineer vs Data Scientist: What Each Actually Does",
-      "excerpt": "These three titles are used interchangeably by companies who have not thought about it and precisely by companies who have. Comparing the titles is therefore useless. Comparing what the person does al…",
-      "body": "These three titles are used interchangeably by companies who have not thought about it and precisely by companies who have. Comparing the titles is therefore useless. Comparing what the person does all day is not, and the distinctions turn out to be sharp. Titles are unreliable; the work is not The same title means different jobs at two companies on the same street, and the same job carries different titles depending on which decade the organisation’s job architecture was written in. A “data scientist” at one place builds dashboards; at another it is the person who trains the ranking model. This is not sloppiness that will be fixed — job titles are a compensation and organisational artefact, not a description. What is stable is the work.",
-      "author": "Multigrid",
-      "date": "2026-08-07",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 46,
-      "url": "https://dev.to/multigrid/ai-engineer-vs-ml-engineer-vs-data-scientist-what-each-actually-does-20ba",
-      "image": "/images/feed/feed-6754d08359e3.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-550a2aedc247",
-      "title": "The Realistic Timeline for an Enterprise AI Project",
-      "excerpt": "Published timelines for enterprise AI projects are useless to you, because the durations that dominate them are properties of the organisation rather than of the work. The transferable thing is not a…",
-      "body": "Published timelines for enterprise AI projects are useless to you, because the durations that dominate them are properties of the organisation rather than of the work. The transferable thing is not a number of weeks; it is a method for deriving your own from queues you can measure this afternoon. Why the estimate is wrong in one direction Ask an engineering team how long the build takes and you will get a reasonable answer about building. Then the project takes three times that, and the difference is not underestimation of the work. It is that the estimate covered the only part the estimator controls. Two structural reasons this is worse for AI projects than for ordinary software.",
-      "author": "Multigrid",
-      "date": "2026-08-07",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 46,
-      "url": "https://dev.to/multigrid/the-realistic-timeline-for-an-enterprise-ai-project-55l3",
-      "image": "/images/feed/feed-550a2aedc247.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-375b92784a6c",
-      "title": "Measuring Productivity Gains Honestly",
-      "excerpt": "Almost every productivity figure attached to an AI rollout comes from asking people how much time they saved. That method has a predictable direction of error, and the fix is not a better survey — it…",
-      "body": "Almost every productivity figure attached to an AI rollout comes from asking people how much time they saved. That method has a predictable direction of error, and the fix is not a better survey — it is a design in which the answer is not supplied by the people being measured. Narrowing “productivity” to something countable Productivity is output per unit of input. Before anything can be measured, both halves have to be fixed to something a query can count, and the narrowing is where most of the intellectual work is. Pick a task, not a role. “Engineering productivity” is not measurable in a quarter; “median time from pull request opened to first review comment” is. “Legal team efficiency” is not measurable; “contracts reviewed per reviewer-day, for contracts of type X” is.",
-      "author": "Multigrid",
-      "date": "2026-08-07",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 52,
-      "url": "https://dev.to/multigrid/measuring-productivity-gains-honestly-36jg",
-      "image": "/images/feed/feed-375b92784a6c.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-573f50c41a6d",
-      "title": "Procurement: Budgeting for Usage-Based AI Costs",
-      "excerpt": "An annual budget is a single number approved once, in advance, by somebody who will be held to it. A metered AI bill is a number that moves every day and rises fastest precisely when the project is go…",
-      "body": "An annual budget is a single number approved once, in advance, by somebody who will be held to it. A metered AI bill is a number that moves every day and rises fastest precisely when the project is going well. Those two instruments are in direct conflict, and the conflict has a structural fix. Why the two instruments fight Three properties of metered inference make ordinary budgeting behave badly, and none of them is a forecasting failure. Success increases spend. Adoption is the outcome you wanted and it is also the mechanism by which you exceed the line. A budget that punishes over-spend without distinguishing growth from waste is a budget that punishes the goal. The unit is invisible to the buyer. Finance approves dollars; the system consumes tokens.",
-      "author": "Multigrid",
-      "date": "2026-08-07",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 45,
-      "url": "https://dev.to/multigrid/procurement-budgeting-for-usage-based-ai-costs-2611",
-      "image": "/images/feed/feed-573f50c41a6d.webp",
-      "source": "Dev.to",
       "isLive": true
     },
     {
@@ -204,29 +280,10 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 44,
       "url": "https://cleantechnica.com/2026/08/07/solar-power-us-trade-tariffs-trump-manufacturing-polysilicon/",
       "image": "/images/feed/feed-32d846e16548.jpg",
       "source": "CleanTechnica",
-      "isLive": true
-    },
-    {
-      "id": "feed-326b6984e1df",
-      "title": "Using AI Without Handing Over Your Data",
-      "excerpt": "“We do not train on your data” and “we do not keep your data” are different sentences with different consequences, and most products make only the first. Knowing which one you have been given is most…",
-      "body": "“We do not train on your data” and “we do not keep your data” are different sentences with different consequences, and most products make only the first. Knowing which one you have been given is most of what privacy literacy consists of here. Two different promises Promise Description no training Your input is not used to improve the model. It says nothing about whether the text is stored, for how long, who can read it, whether it is used to enforce policy, or whether it appears in support tooling and backups. no retention The text is not stored after the request is served, or is stored only for a stated short window. This is a stronger and rarer promise, it is usually a paid or enterprise option, and it typically comes with named exceptions such as abuse review.",
-      "author": "Multigrid",
-      "date": "2026-08-07",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 37,
-      "url": "https://dev.to/multigrid/using-ai-without-handing-over-your-data-4ke5",
-      "image": "/images/feed/feed-326b6984e1df.webp",
-      "source": "Dev.to",
       "isLive": true
     },
     {
@@ -242,7 +299,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 34,
       "url": "https://www.polygon.com/video/tom-holland-knows-how-to-keep-mcu-secrets-now/",
       "image": "/images/feed/feed-4fa985103479.jpg",
       "source": "Polygon",
@@ -261,29 +318,10 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 39,
       "url": "https://kotaku.com/primetime-trailer-robert-pattinson-chris-hanson-impression-2000722584",
       "image": "/images/feed/feed-7e7cfc532ffe.jpg",
       "source": "Kotaku",
-      "isLive": true
-    },
-    {
-      "id": "feed-fc9754cfecbb",
-      "title": "Sadie Sink can't say anything about Spider-Man: Brand New Day",
-      "excerpt": "This seems like a good use of everyone's time.",
-      "body": "This seems like a good use of everyone's time.\n\nThis report, published by Polygon, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Polygon using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Polygon Staff",
-      "date": "2026-08-07",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 44,
-      "url": "https://www.polygon.com/video/sadie-sink-can-t-say-anything-about-spider-man-brand-new-day/",
-      "image": "/images/feed/feed-fc9754cfecbb.jpg",
-      "source": "Polygon",
       "isLive": true
     },
     {
@@ -299,7 +337,7 @@
         "Iphone"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 46,
       "url": "https://9to5mac.com/2026/08/07/9to5mac-overtime-076-native-retro-games-on-iphone/",
       "image": "/images/feed/feed-441a1e342387.jpg",
       "source": "9to5Mac",
@@ -337,7 +375,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 39,
       "url": "https://techcrunch.com/2026/08/07/wacoms-movinkpad-11-is-a-fun-and-mid-priced-entry-point-for-digital-artists/",
       "image": "/images/feed/feed-3ac7659d9bc3.jpg",
       "source": "TechCrunch",
@@ -356,7 +394,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 35,
       "url": "https://9to5mac.com/2026/08/07/your-friends-neighbors-star-confirmed-for-his-third-apple-tv-project/",
       "image": "/images/feed/feed-6fe562430749.jpg",
       "source": "9to5Mac",
@@ -376,7 +414,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 53,
       "url": "https://spacenews.com/senate-installs-new-chiefs-for-u-s-military-space-acquisition-spy-satellites/",
       "image": "/images/feed/feed-8993ee13895d.png",
       "source": "SpaceNews",
@@ -395,7 +433,7 @@
         "Security"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 36,
       "url": "https://techcrunch.com/2026/08/07/security-researchers-scanned-the-polish-web-and-found-courts-hospitals-and-airports-at-risk-of-hacks/",
       "image": "/images/feed/feed-7feef810b451.jpg",
       "source": "TechCrunch",
@@ -414,7 +452,7 @@
         "Spacex"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 44,
       "url": "https://www.space.com/astronomy/moon/spacex-serious-about-building-factories-on-the-moon-its-going-to-happen-elon-musk-says",
       "image": "/images/feed/feed-9cdbefb77680.jpg",
       "source": "Space.com",
@@ -433,7 +471,7 @@
         "Starship"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 47,
       "url": "https://www.space.com/space-exploration/launches-spacecraft/not-looking-good-right-now-starship-likely-to-be-lost-at-sea-2-weeks-after-epic-13th-test-flight-elon-musk-says",
       "image": "/images/feed/feed-fcdf29139577.jpg",
       "source": "Space.com",
@@ -452,10 +490,29 @@
         "Iphone"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 34,
       "url": "https://9to5mac.com/2026/08/07/iphone-17-might-get-price-increase-next-week-per-new-rumor/",
       "image": "/images/feed/feed-59937e42c4c3.jpg",
       "source": "9to5Mac",
+      "isLive": true
+    },
+    {
+      "id": "feed-8c3c4edc3b6e",
+      "title": "Lost my phone at the office. Claude suggested tracking Bluetooth signal strength",
+      "excerpt": "",
+      "body": "This report, published by Hacker News, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Claude. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Hacker News using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "ilamont",
+      "date": "2026-08-07",
+      "readTime": "2 min",
+      "section": "ai",
+      "tags": [
+        "Claude"
+      ],
+      "featured": false,
+      "xpReward": 32,
+      "url": "https://twitter.com/un1c0rnioz/status/2084686552299634805",
+      "image": "/images/feed/feed-8c3c4edc3b6e.png",
+      "source": "Hacker News",
       "isLive": true
     },
     {
@@ -471,7 +528,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 49,
       "url": "https://electrek.co/2026/08/07/kias-larger-ev-van-caught-less-camo-debut-images/",
       "image": "/images/feed/feed-e445d64cf226.jpg",
       "source": "Electrek",
@@ -491,7 +548,7 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 36,
       "url": "https://www.bleepingcomputer.com/news/security/framework-tally-disclose-metabase-data-theft-attacks/",
       "image": "/images/feed/feed-6278098620d9.jpg",
       "source": "BleepingComputer",
@@ -510,28 +567,9 @@
         "Iphone"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 35,
       "url": "https://9to5mac.com/2026/08/07/ios-27-has-long-awaited-fix-for-common-iphone-wireless-issue/",
       "image": "/images/feed/feed-5df51e90dab9.jpg",
-      "source": "9to5Mac",
-      "isLive": true
-    },
-    {
-      "id": "feed-84460d8f715a",
-      "title": "You may soon be able to create and export custom WhatsApp stickers straight from ChatGPT",
-      "excerpt": "OpenAI is working on a feature that allows users to export custom stickers created on ChatGPT straight into WhatsApp. Here are the details.",
-      "body": "OpenAI is working on a feature that allows users to export custom stickers created on ChatGPT straight into WhatsApp. Here are the details.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Marcus Mendes",
-      "date": "2026-08-07",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 38,
-      "url": "https://9to5mac.com/2026/08/07/you-may-soon-be-able-to-create-and-export-custom-whatsapp-stickers-straight-from-chatgpt/",
-      "image": "/images/feed/feed-84460d8f715a.jpg",
       "source": "9to5Mac",
       "isLive": true
     },
@@ -548,7 +586,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 45,
       "url": "https://cleantechnica.com/2026/08/07/new-mexico-court-orders-meta-to-pay-942-million-over-harm-to-children/",
       "image": "/images/feed/feed-9c27b3d0ad45.jpg",
       "source": "CleanTechnica",
@@ -567,7 +605,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 43,
       "url": "https://insideevs.com/features/804221/ev-development-cycles-too-long/",
       "image": "/images/feed/feed-d3cbe8081cd9.jpg",
       "source": "InsideEVs",
@@ -586,7 +624,7 @@
         "Breach"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 54,
       "url": "https://www.bleepingcomputer.com/news/security/unlimited-technology-systems-breach-impacts-38-million-people/",
       "image": "/images/feed/feed-8a6bf048fb5d.jpg",
       "source": "BleepingComputer",
@@ -605,7 +643,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 46,
       "url": "https://electrek.co/2026/08/07/podcast-ford-fathom-cheap-pickup-ev-audi-a2-trump-on-evs-and-more/",
       "image": "/images/feed/feed-ebf1ed71d6a5.jpg",
       "source": "Electrek",
@@ -624,7 +662,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 42,
       "url": "https://cleantechnica.com/2026/08/07/reports-of-doug-burgums-smug-incompetence-are-no-surprise/",
       "image": "/images/feed/feed-474411874a03.jpg",
       "source": "CleanTechnica",
@@ -643,7 +681,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 46,
       "url": "https://cleantechnica.com/2026/08/07/new-anti-energy-efficiency-bill-will-cost-consumers-waste-energy/",
       "image": "/images/feed/feed-acf68d35f736.jpg",
       "source": "CleanTechnica",
@@ -662,7 +700,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 40,
       "url": "https://www.space.com/space-exploration/voyager/nasa-figured-out-how-to-keep-its-48-year-old-voyager-2-probe-running-for-yet-another-year",
       "image": "/images/feed/feed-03fee12afd4f.jpg",
       "source": "Space.com",
@@ -681,7 +719,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 35,
       "url": "https://science.nasa.gov/earth/2026-igarss-hyperwall-schedule/",
       "image": "/images/feed/feed-d9c195a646fd.png",
       "source": "NASA Breaking News",
@@ -700,7 +738,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 53,
       "url": "https://thehackernews.com/2026/08/nearly-800-malicious-npm-packages.html",
       "image": "/images/feed/feed-22c85ae6a67d.jpg",
       "source": "The Hacker News",
@@ -719,7 +757,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 54,
       "url": "https://www.theverge.com/ai-artificial-intelligence/976948/openai-astra-model-pause-critical-cyber-capabilities",
       "image": "/images/feed/feed-65308bcbb462.jpg",
       "source": "The Verge",
@@ -738,7 +776,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 37,
       "url": "https://thehackernews.com/2026/08/clickfix-attacks-deliver-macos-stealer.html",
       "image": "/images/feed/feed-1459d2632c9c.jpg",
       "source": "The Hacker News",
@@ -778,7 +816,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 51,
       "url": "https://www.space.com/astronomy/james-webb-space-telescope/inside-the-mystery-of-the-james-webb-space-telescopes-little-red-dots-and-how-they-might-be-evolving",
       "image": "/images/feed/feed-5e2fc49f1ff8.jpg",
       "source": "Space.com",
@@ -797,7 +835,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 34,
       "url": "https://www.cnet.com/tech/services-and-software/details-leak-openai-doughnut-shaped-speaker/",
       "image": "/images/feed/feed-861d5fc9c4cc.jpg",
       "source": "CNET",
@@ -816,29 +854,10 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 47,
       "url": "https://spacenews.com/fcc-space-bureau-deputy-takes-the-reins-amid-licensing-overhaul/",
       "image": "/images/feed/feed-464db49d70a8.jpg",
       "source": "SpaceNews",
-      "isLive": true
-    },
-    {
-      "id": "feed-fd09df8ac36b",
-      "title": "Weak Passwords Just Exposed Our Water Supply to Iranian Hackers",
-      "excerpt": "Our critical utility infrastructure can make the same classic mistakes as we do with our everyday connected devices.",
-      "body": "Our critical utility infrastructure can make the same classic mistakes as we do with our everyday connected devices.\n\nThis report, published by CNET, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Hacker. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to CNET using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Joe Supan",
-      "date": "2026-08-07",
-      "readTime": "2 min",
-      "section": "cybersecurity",
-      "tags": [
-        "Hacker"
-      ],
-      "featured": false,
-      "xpReward": 35,
-      "url": "https://www.cnet.com/tech/services-and-software/weak-passwords-just-exposed-our-water-supply-to-iranian-hackers/",
-      "image": "https://www.cnet.com/wp-content/uploads/sites/2/GettyImages-2099926548.jpg",
-      "source": "CNET",
       "isLive": true
     },
     {
@@ -854,7 +873,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 47,
       "url": "https://techcrunch.com/2026/08/07/cloudflare-launches-kitesurf-a-browser-built-for-ai-agents/",
       "image": "/images/feed/feed-62678037a7fe.jpg",
       "source": "TechCrunch",
@@ -873,7 +892,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 50,
       "url": "https://openai.com/index/responding-next-frontier-critical-cyber-capabilities",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "OpenAI Blog",
@@ -892,7 +911,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 47,
       "url": "https://openai.com/index/hsp-gruppe",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "OpenAI Blog",
@@ -912,44 +931,24 @@
         "Claude"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 38,
       "url": "https://thehackernews.com/2026/08/claude-code-and-gemini-cli-flaws-let.html",
       "image": "/images/feed/feed-ce47ddc808c8.jpg",
       "source": "The Hacker News",
       "isLive": true
-    },
-    {
-      "id": "feed-44629d3fcbba",
-      "title": "OpenAI rolls out a major ChatGPT upgrade, even if you don’t pay for it",
-      "excerpt": "OpenAI is rolling out a more reliable version of ChatGPT GPT-5.6 Sol for Plus and Pro users, while Free users are getting unlimited text chats with GPT-5.6 Luna. [...]",
-      "body": "OpenAI is rolling out a more reliable version of ChatGPT GPT-5.6 Sol for Plus and Pro users, while Free users are getting unlimited text chats with GPT-5.6 Luna. [...]\n\nThis report, published by BleepingComputer, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Openai, Chatgpt. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to BleepingComputer using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Mayank Parmar",
-      "date": "2026-08-06",
-      "readTime": "2 min",
-      "section": "ai",
-      "tags": [
-        "Openai",
-        "Chatgpt"
-      ],
-      "featured": false,
-      "xpReward": 30,
-      "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/openai-rolls-out-a-major-chatgpt-upgrade-even-if-you-dont-pay-for-it/",
-      "image": "/images/feed/feed-44629d3fcbba.jpg",
-      "source": "BleepingComputer",
-      "isLive": true
     }
   ],
   "breakingNews": [
-    "THE VERGE: The gaming site sponsored by Walmart lays off its editorial staff",
-    "DEV.TO: When an AI Says Something False About Your Company",
-    "DEV.TO: What AI Engineers Earn, and Which Salary Sources Are Worth Reading",
-    "POLYGON: Contrapoints devours forbidden, decadent games | Shelf Quest",
-    "POLYGON: 10 Sci-Fi Shows on Netflix Where Every Episode is a Masterpiece",
-    "KOTAKU: Unearthed Demon’s Souls Prototype Footage Reveals FromSoftware’s Original First-Person Take On The Souls Formula",
-    "DEV.TO: AI Engineer vs ML Engineer vs Data Scientist: What Each Actually Does",
-    "DEV.TO: The Realistic Timeline for an Enterprise AI Project",
-    "DEV.TO: Measuring Productivity Gains Honestly",
-    "DEV.TO: Procurement: Budgeting for Usage-Based AI Costs"
+    "DEV.TO: Selective Attention: Filtering Before You Fill",
+    "DEV.TO: Context Compression: Making 100k Tokens Fit in 10k",
+    "DEV.TO: Context Caching Strategy: Ordering for Cache Hits",
+    "DEV.TO: Budgeting the Context Window Across a Session",
+    "DEV.TO: Context Windows as an Architectural Constraint",
+    "DEV.TO: Building a Content Safety Layer That Isn't Useless",
+    "DEV.TO: Content Filter Triggered on Innocent Input",
+    "POLYGON: Memoirium combines Dark Souls, Inception, and Backrooms in Steam's Coolest New Action RPG",
+    "TECHCRUNCH: OpenAI says it slowed Astra model development over security concerns",
+    "9TO5MAC: Claude Code now lets sessions talk to each other on macOS"
   ],
   "sectionVideos": {}
 }
