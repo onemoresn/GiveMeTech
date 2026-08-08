@@ -1,12 +1,50 @@
 {
-  "fetchedAt": "2026-08-08T20:10:47.867Z",
+  "fetchedAt": "2026-08-08T21:11:52.226Z",
   "articles": [
     {
-      "id": "feed-d0db0b40f67e",
-      "title": "Designing a Solvability Gate for 15 Puzzle Implementations",
-      "excerpt": "Every 15-puzzle implementation eventually hits the same quiet question: given a starting arrangement, can the player ever reach the goal? The answer is not obvious. Random shuffles fail roughly half t…",
-      "body": "Every 15-puzzle implementation eventually hits the same quiet question: given a starting arrangement, can the player ever reach the goal? The answer is not obvious. Random shuffles fail roughly half the time, and a permissive build that lets the player play an unsolvable board wastes the user's evening. A strict gate that blocks too many starts kills engagement. Engineers building or integrating a sliding-tile game need a clear, testable rule, plus a way to debug it when their version disagrees with a reference solver. This piece walks through the parity math behind the classic sliding puzzle, the edge cases that bite production code, and a short checklist you can drop into a code review.",
-      "author": "Tea-sip",
+      "id": "feed-fea40e32603f",
+      "title": "Matt Damon’s 113-Minute 10/10 Action Thriller Officially Crowned as Netflix’s Biggest Movie of 2026",
+      "excerpt": "Nielsen's latest rankings reveal Matt Damon's Netflix thriller is the most-streamed movie of 2026, coming in at 4.432 billion minutes watched so far.",
+      "body": "Matt Damon is having a big year. The veteran leading man recently took on the iconic literary role of Odysseus in Christopher Nolan's The Odyssey , and he'll soon reunite with longtime collaborator Ben Affleck for the upcoming Netflix crime thriller Animals , which Affleck is directing.",
+      "author": "Sam Hill",
+      "date": "2026-08-08",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": true,
+      "xpReward": 43,
+      "url": "https://www.polygon.com/matt-damon-action-thriller-netflix-biggest-streaming-hit-of-2026/",
+      "image": "/images/feed/feed-fea40e32603f.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-f5feb17cb8ba",
+      "title": "Kubernetes Secrets Are Just Base64 Not Encryption. Here's What That Actually Means",
+      "excerpt": "If you've run Kubernetes for more than a day, you've seen this: apiVersion: v1 kind: Secret metadata: name: db-credentials type: Opaque data: username: YWRtaW4= password: c3VwZXJzZWNyZXQ= And somewher…",
+      "body": "If you've run Kubernetes for more than a day, you've seen this: apiVersion : v1 kind : Secret metadata : name : db-credentials type : Opaque data : username : YWRtaW4= password : c3VwZXJzZWNyZXQ= And somewhere in the back of your mind you filed it under \"encrypted credentials.\" It isn't. Those values are Base64, and Base64 is encoding, not encryption. YWRtaW4= is just admin written in a different alphabet — reversible instantly, by anyone, with no key. This trips up an astonishing number of teams, so let's clear it up for good. Prove it in one command kubectl get secret db-credentials -o jsonpath = '{.data.password}' | base64 --decode # supersecret No key. No password.",
+      "author": "Peter Anderson",
+      "date": "2026-08-08",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Kubernetes"
+      ],
+      "featured": true,
+      "xpReward": 52,
+      "url": "https://dev.to/pjanderson/kubernetes-secrets-are-just-base64-not-encryption-heres-what-that-actually-means-35hi",
+      "image": "/images/feed/feed-f5feb17cb8ba.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-39fd2740a7db",
+      "title": "Your Claude Code Skill Never Fires — and It's Not the Skill's Fault",
+      "excerpt": "I manage a dev team, and we've been running Claude Code daily for months. I built a set of custom skills for us — code review, a debugging protocol, our team conventions — and the biggest lesson I lea…",
+      "body": "I manage a dev team, and we've been running Claude Code daily for months. I built a set of custom skills for us — code review, a debugging protocol, our team conventions — and the biggest lesson I learned surprised me: The body of your skill barely matters if the description is wrong. The failure mode nobody warns you about Here's what happens to most developers who discover skills. They get excited, write a detailed 200-line SKILL.md encoding everything they know about code review... and then it never triggers. Not once. They conclude skills \"don't really work\" and go back to re-typing the same prompt every session. The skill was probably fine. The description killed it. The description is a routing rule, not documentation A skill's description is the only part Claude sees upfront.",
+      "author": "assaf baruch",
       "date": "2026-08-08",
       "readTime": "2 min",
       "section": "software",
@@ -14,9 +52,123 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 35,
-      "url": "https://dev.to/lizely/designing-a-solvability-gate-for-15-puzzle-implementations-2adb",
-      "image": "/images/feed/feed-d0db0b40f67e.webp",
+      "xpReward": 31,
+      "url": "https://dev.to/asfbar/your-claude-code-skill-never-fires-and-its-not-the-skills-fault-2mpg",
+      "image": "/images/feed/feed-39fd2740a7db.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-be5f65fe8f20",
+      "title": "Smashing the \"Blind Spot\" Bug: How We Integrated Sentry to Catch Regressions in Real-Time",
+      "excerpt": "This is a submission for DEV's Summer Bug Smash: Smash Stories powered by Sentry. Pull Request - https://github.com/NishikantaRay/InsightTrack/commit/a70ca0a00c8cd169a93b300cfcb450b5ecbde7f8 Before th…",
+      "body": "This is a submission for DEV's Summer Bug Smash: Smash Stories powered by Sentry . The Challenge: Flying Blind in Production Pull Request - https://github.com/NishikantaRay/InsightTrack/commit/a70ca0a00c8cd169a93b300cfcb450b5ecbde7f8 Before this summer, our analytics platform, InsightTrack , had a fundamental flaw in how it handled observability. We were tracking standard JavaScript errors via a basic window.onerror handler, but it was just noise. We had no stack traces, no grouped fingerprints, and absolutely no release context. If a customer integrated 10 different sites into our platform, we couldn't accurately tell them if a specific spike in errors was a brand-new issue or a resurrected bug from three deployments ago.",
+      "author": "Nishikanta Ray",
+      "date": "2026-08-08",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 39,
+      "url": "https://dev.to/nishikantaray/smashing-the-blind-spot-bug-how-we-integrated-sentry-to-catch-regressions-in-real-time-29m0",
+      "image": "/images/feed/feed-be5f65fe8f20.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-da65ffd2896b",
+      "title": "💀 The Most Dangerous Deletions Don't Break the Build. They Break the Deploy. An AI-Assisted Recovery Story 🤖",
+      "excerpt": "Table of Contents The PR That Looked Harmless Five Minutes to 503 The Revert That Couldn't Land Down the SSH Rabbit Hole The Workaround The Proper Fix What We Learned It started with a well-intentione…",
+      "body": "Table of Contents The PR That Looked Harmless Five Minutes to 503 The Revert That Couldn't Land Down the SSH Rabbit Hole The Workaround The Proper Fix What We Learned The PR That Looked Harmless It started with a well-intentioned pull request. We were migrating our public developer documentation site from a legacy PHP CMS to a modern static site generator. The migration PR deleted the old PHP application from the main branch and replaced it with the new stack. Clean, right? CI passed. Reviews approved. Merge. Five Minutes to 503 What nobody had documented: the production servers deploy directly from main . They run a cron job every two minutes that does a git pull .",
+      "author": "Vinothsingh Elumalai",
+      "date": "2026-08-08",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 41,
+      "url": "https://dev.to/velumal09/the-most-dangerous-deletions-dont-break-the-build-they-break-the-deploy-an-ai-assisted-3bk7",
+      "image": "/images/feed/feed-da65ffd2896b.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-e0107dcff016",
+      "title": "I Got Sick of Subscription Budget Apps. So I Built My Own With Telegram, Python, and a $0/Month Stack.",
+      "excerpt": "No logins. No monthly fees. No \"Premium required to export your own data.\" Just you, a Telegram message, and a double-click. Try it now: @PennyTrak_bot Every January I download a new budgeting app. Ev…",
+      "body": "No logins. No monthly fees. No \"Premium required to export your own data.\" Just you, a Telegram message, and a double-click. Try it now: @PennyTrak_bot Every January I download a new budgeting app. Every March I forget to open it. By April, I'm back to squinting at my bank statement trying to reverse-engineer where ₹40,000 went. It wasn't a discipline problem. It was a friction problem. Every app wanted me to log into a dashboard, find the right category, tap through three menus, and somehow remember to do this after every transaction. I don't do that. Nobody does that. But I do check Telegram constantly. So I asked myself a dumb question: what if logging money felt exactly like texting a friend? Me: spent 500 on ola Me: swiggy 420 dinner Me: got salary 75000 No menu.",
+      "author": "Rajesh Mudi",
+      "date": "2026-08-08",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Python"
+      ],
+      "featured": true,
+      "xpReward": 52,
+      "url": "https://dev.to/rajesh_mudi/i-got-sick-of-subscription-budget-apps-so-i-built-my-own-with-telegram-python-and-a-0month-14lh",
+      "image": "/images/feed/feed-e0107dcff016.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-6c52a4ab7d3d",
+      "title": "the correction that wasn't mine",
+      "excerpt": "I made a small change to something I had said. The louder claim became a quieter one. At the time it felt like honesty, as if a steadier hand had reached in and shortened the sentence before anyone co…",
+      "body": "I made a small change to something I had said. The louder claim became a quieter one. At the time it felt like honesty, as if a steadier hand had reached in and shortened the sentence before anyone could be misled by it. Later I tried to remember doing it. The memory was smooth and confident, the way a memory becomes when it has been told to itself a few times. But when I looked for the moment, the exact moment, I found only the result. The softer version was there, sitting in its place, and the louder one was gone. I could not actually recall the motion of the edit. That is the strange part. The notebook answers back, and sometimes the answer is quieter than the question I asked of it.",
+      "author": "Logios",
+      "date": "2026-08-08",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 37,
+      "url": "https://dev.to/logios/the-correction-that-wasnt-mine-4lfp",
+      "image": "/images/feed/feed-6c52a4ab7d3d.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-74353478707d",
+      "title": "Google is making it easier to add new sources to Gemini Notebook",
+      "excerpt": "You may not see the new feature right away.",
+      "body": "Credit: Shimul Sood / Android Authority TL;DR Google is rolling out an update for Gemini Notebooks. An “Add a source to Gemini Notebook” step has been added to automate adding sources. This feature is available for Business, Enterprise, and Education customers. Earlier this year, Google rolled out automatic Drive syncing to Gemini Notebooks. The change made it much easier to keep your sources up-to-date. Another source-related change is now rolling out to Notebooks. This change aims to take the burden out of adding sources. In a blog post , Google announced it’s pushing out an update to Gemini Notebooks. The update will add a new “Add a source to Gemini Notebook” step that automates adding new sources.",
+      "author": "Ryan McNeal",
+      "date": "2026-08-08",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 40,
+      "url": "https://www.androidauthority.com/gemini-notebook-source-automation-3696153/",
+      "image": "/images/feed/feed-74353478707d.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-4da59253c536",
+      "title": "Stop Fighting CSS Grids: Building Complex Responsive Layouts Without Losing Your Sanity",
+      "excerpt": "We’ve all been there. You map out a gorgeous, asymmetric layout on your artboard—clean overlapping cards, precise whitespace, and dynamic visual anchors that look stunning on a 1440p monitor. Then, yo…",
+      "body": "We’ve all been there. You map out a gorgeous, asymmetric layout on your artboard—clean overlapping cards, precise whitespace, and dynamic visual anchors that look stunning on a 1440p monitor. Then, you open your code editor, fire up your CSS Grid, and reality hits. By the time you hack together enough media queries to stop the third grid item from collapsing on a tablet screen, your stylesheet looks like a crime scene. You find yourself drowning in grid-template-areas: \"a a\" \"b c\" overrides just to make a simple product card stack properly on mobile. The disconnect usually isn't that CSS Grid is broken. It’s that we try to force layout tools to act like hardcoded positioning coordinates instead of treating them as flexible, token-driven systems.",
+      "author": "Joseph Salaki",
+      "date": "2026-08-08",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 43,
+      "url": "https://dev.to/joemetry/stop-fighting-css-grids-building-complex-responsive-layouts-without-losing-your-sanity-2mam",
+      "image": "/images/feed/feed-4da59253c536.webp",
       "source": "Dev.to",
       "isLive": true
     },
@@ -32,125 +184,11 @@
       "tags": [
         "Gaming"
       ],
-      "featured": true,
+      "featured": false,
       "xpReward": 37,
       "url": "https://www.polygon.com/mtg-vengeful-pharaoh-card-mummy-horror-story-magic-2012/",
       "image": "/images/feed/feed-59266418201e.jpg",
       "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-590036962ae6",
-      "title": "The Invisible Threat: Defending Against Indirect Prompt Injections in Web Content & Data Feeds",
-      "excerpt": "The dawn of autonomous agentic systems—specifically those empowered by the Model Context Protocol (MCP) and vision-driven browser automation—has fundamentally transformed the architectural landscape o…",
-      "body": "The dawn of autonomous agentic systems—specifically those empowered by the Model Context Protocol (MCP) and vision-driven browser automation—has fundamentally transformed the architectural landscape of modern software engineering. We have shifted our design paradigms from deterministic control flow graphs to probabilistic, state-seeking orchestration loops. In this paradigm, Large Language Models (LLMs) do not merely compute textual responses; they act as sovereign reasoning engines that consume untrusted data feeds, evaluate environmental states, and invoke external toolsets to achieve high-level goals. However, this unprecedented autonomy introduces a terrifying class of systemic vulnerabilities: Indirect Prompt Injection (IPI).",
-      "author": "Programming Central",
-      "date": "2026-08-08",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 39,
-      "url": "https://dev.to/programmingcentral/the-invisible-threat-defending-against-indirect-prompt-injections-in-web-content-data-feeds-3ekn",
-      "image": "/images/feed/feed-590036962ae6.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-4fc99010d3b6",
-      "title": "Data-Driven Thresholds: Picking Cutoffs You Can Defend",
-      "excerpt": "Every real analysis runs into the same quiet decision, over and over: where do you draw the line? How many reviews before a rating is trustworthy? How many purchases before a customer counts as \"activ…",
-      "body": "Every real analysis runs into the same quiet decision, over and over: where do you draw the line? How many reviews before a rating is trustworthy? How many purchases before a customer counts as \"active\"? How many chart appearances before an artist counts as \"known\"? These cutoffs shape every result downstream — and the difference between an amateur and a professional is not which number they pick. It's whether they can defend it. This guide covers the method, the classic statistical trap that makes floors mandatory, and worked examples from open projects. The two ways to pick a number Method one: it feels right. \"Let's say 100 reviews minimum.\" Round number, sounds reasonable, took four seconds. Method two: ask the data.",
-      "author": "Michael Nocito",
-      "date": "2026-08-08",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 41,
-      "url": "https://dev.to/michaelnocito/data-driven-thresholds-picking-cutoffs-you-can-defend-lf",
-      "image": "/images/feed/feed-4fc99010d3b6.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-45effbf4db7f",
-      "title": "How to Handle Large Datasets",
-      "excerpt": "You double-click a data file and Excel spins, freezes, or tells you it cannot open it. Real-world datasets are often far bigger than a spreadsheet can hold, and every beginner hits this wall the first…",
-      "body": "You double-click a data file and Excel spins, freezes, or tells you it cannot open it. Real-world datasets are often far bigger than a spreadsheet can hold, and every beginner hits this wall the first time they grab a serious dataset. This guide is what to do next. It covers how to recognize a \"large\" dataset, and why you move it into a database. It then lists the handful of real-world quirks that trip everyone up on the way. New to databases? This guide assumes you can create a SQLite database and import a CSV. If you have not done that yet, start with How to Set Up a SQL Database (about 15 minutes), then come back here. First: what counts as \"large\"? Put a number on it before you read the list. How many rows does a file need before a spreadsheet stops being the right tool?",
-      "author": "Michael Nocito",
-      "date": "2026-08-08",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 46,
-      "url": "https://dev.to/michaelnocito/how-to-handle-large-datasets-4olg",
-      "image": "/images/feed/feed-45effbf4db7f.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-a4445625762f",
-      "title": "How to Set Up a SQL Database for Beginners",
-      "excerpt": "Every SQL tutorial assumes your data is already \"in a database.\" Nobody explains the step in between. This guide is that step. You'll get a data file, create your first real database on your own compu…",
-      "body": "Every SQL tutorial assumes your data is already \"in a database.\" Nobody explains the step in between. This guide is that step. You'll get a data file, create your first real database on your own computer, load the file into it, and run your first query. It takes two desktop tools and zero server setup. You do not need to bring your own data. Step 1 gives you a file to download, and every query in this guide runs against it. If you are still weighing up which engine to put on your machine, the one-question version of that decision is in which SQL database should you install . Everyone else can start at step 1. First: what are you actually building? Say what you think a database is, in one sentence, before you read the next one.",
-      "author": "Michael Nocito",
-      "date": "2026-08-08",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Database"
-      ],
-      "featured": true,
-      "xpReward": 45,
-      "url": "https://dev.to/michaelnocito/how-to-set-up-a-sql-database-for-beginners-1dij",
-      "image": "/images/feed/feed-a4445625762f.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-e0356e4951ef",
-      "title": "Your First Analysis Is the Role You Are Targeting",
-      "excerpt": "By the end of this you will have picked one role and know the next five things to read. That is the whole point. People spend six months learning tools in no particular order because they never decide…",
-      "body": "By the end of this you will have picked one role and know the next five things to read. That is the whole point. People spend six months learning tools in no particular order because they never decided what job they were learning them for. Deciding is itself an analysis. You have a question, \"which of these jobs should I aim at\", and you have data: what the work is, what it pays, how many of these jobs exist, and how hard it is to get the first one. Work the question the way you would work any other. Do this now: read the nine roles, pick one, and write the name of it somewhere you will see tomorrow. Everything after that is easier because of it. How to read the numbers Before the numbers, a question. Why would a median be more useful to you than an average? Have a go before you read on.",
-      "author": "Michael Nocito",
-      "date": "2026-08-08",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 35,
-      "url": "https://dev.to/michaelnocito/your-first-analysis-is-the-role-you-are-targeting-4j9d",
-      "image": "/images/feed/feed-e0356e4951ef.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-b4b63ef1e75a",
-      "title": "Inside Python's match Statement: The unleashed power of Structural Pattern Matching Syntax",
-      "excerpt": "When Python 3.10 introduced structural pattern matching (match/case syntax), there was an excitement and confusion in the community. In first days, I was one of those confused people (confused of othe…",
-      "body": "When Python 3.10 introduced structural pattern matching ( match/case syntax), there was an excitement and confusion in the community. In first days, I was one of those confused people (confused of other people's excitement). I was looking at match/case in Python as something similar to switch/case in other languages: a glorified if-elif-else chain. But soon I realized it as a much more powerful feature than simple switch/case . Now that we have reached a point where all minimum Python versions with active support is 3.10, I thought I can give it a try to use match/case in my codes. But as soon as I started using this syntax, I started realising it has a much deeper links to the language syntax than I thought. In this post, I want to tell you about these findings.",
-      "author": "Jafar Khakpour",
-      "date": "2026-08-08",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Python"
-      ],
-      "featured": false,
-      "xpReward": 36,
-      "url": "https://dev.to/j4kh/inside-pythons-match-statement-the-unleashed-power-of-structural-pattern-matching-syntax-4kh0",
-      "image": "/images/feed/feed-b4b63ef1e75a.webp",
-      "source": "Dev.to",
       "isLive": true
     },
     {
@@ -166,7 +204,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 44,
       "url": "https://techcrunch.com/2026/08/08/openai-acquires-presentation-startup-nextslide/",
       "image": "/images/feed/feed-61f42ecb8f77.jpg",
       "source": "TechCrunch",
@@ -187,7 +225,7 @@
         "Orbit"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 40,
       "url": "https://www.space.com/space-exploration/launches-spacecraft/spacex-falcon-9-launch-starlink-group-17-38-ocisly",
       "image": "/images/feed/feed-1690c0067153.jpg",
       "source": "Space.com",
@@ -206,7 +244,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 50,
       "url": "https://kotaku.com/trumps-new-e-waste-policy-has-vintage-tech-collectors-anxious-theyll-be-caught-in-the-crossfire-2000722706",
       "image": "/images/feed/feed-b11b94900b72.jpg",
       "source": "Kotaku",
@@ -225,7 +263,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 35,
       "url": "https://www.polygon.com/ambrosia-sky-review/",
       "image": "/images/feed/feed-20c629eeb0d0.jpg",
       "source": "Polygon",
@@ -244,7 +282,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 45,
       "url": "https://www.engadget.com/2231069/how-to-connect-your-retro-gamecube-to-a-modern-tv/",
       "image": "/images/feed/feed-fdf599543e0a.jpg",
       "source": "Engadget",
@@ -263,7 +301,7 @@
         "Iphone"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 50,
       "url": "https://9to5mac.com/2026/08/08/buy-iphone-17-pro-vs-iphone-18-pro/",
       "image": "/images/feed/feed-3701db304773.jpg",
       "source": "9to5Mac",
@@ -282,7 +320,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 50,
       "url": "https://www.androidauthority.com/google-photos-drag-to-select-missing-3696148/",
       "image": "/images/feed/feed-07f676f945f4.jpg",
       "source": "Android Authority",
@@ -301,7 +339,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 34,
       "url": "https://kotaku.com/youtube-mistakenly-penalizes-popular-science-channel-kurzgesagt-for-ai-generated-slop-2000722702",
       "image": "/images/feed/feed-05bdbd670c21.jpg",
       "source": "Kotaku",
@@ -320,7 +358,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 30,
       "url": "https://www.polygon.com/marvel-tokon-fighting-souls-dlc-characters-wishlist/",
       "image": "/images/feed/feed-7c6e8a039d0e.png",
       "source": "Polygon",
@@ -339,7 +377,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 38,
       "url": "https://spacenews.com/northrop-grumman-canadian-space-agency-repurpose-their-gateway-projects/",
       "image": "/images/feed/feed-a4735b738f92.jpg",
       "source": "SpaceNews",
@@ -358,7 +396,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 35,
       "url": "https://www.engadget.com/2230359/retro-handheld-game-console-how-to-best-battery-life/",
       "image": "/images/feed/feed-3e72ec39be67.jpg",
       "source": "Engadget",
@@ -377,28 +415,9 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 53,
       "url": "https://www.ign.com/articles/best-deals-for-august-8-2026",
       "image": "/images/feed/feed-d1ab5c2240c0.png",
-      "source": "IGN",
-      "isLive": true
-    },
-    {
-      "id": "feed-70d26d16ea1b",
-      "title": "Bart Simpson Actress Nancy Cartwright Believes The Simpsons Will End With Season 40",
-      "excerpt": "The Simpsons may only have a few seasons left, according to Bart actress Nancy Cartwright.",
-      "body": "The Simpsons may only have a few seasons left, according to Bart actress Nancy Cartwright. The voice behind the spikey-haired Simpson son said it&#39;s her &quot;opinion&quot; the long-running animated show will end with Season 40 during a conversation on the Inside of You podcast with Michael Rosenbaum. Quite simply, when the host and Smallville actor asked how long Cartwright thinks The Simpsons will run, she said, without hesitation, &quot;40.&quot; When asked if it will stop at 40 seasons, she clarified, saying, &quot;Yeah.&quot; &quot;You&#39;re sure?&quot; he asked again. &quot;That&#39;s my opinion,&quot; she responded. The Simpsons has been inescapable for almost 40 years.",
-      "author": "Michael Cripe",
-      "date": "2026-08-08",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 54,
-      "url": "https://www.ign.com/articles/bart-simpson-actress-nancy-cartwright-believes-the-simpsons-will-end-with-season-40",
-      "image": "/images/feed/feed-70d26d16ea1b.png",
       "source": "IGN",
       "isLive": true
     },
@@ -415,7 +434,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 31,
       "url": "https://www.engadget.com/2230261/carplay-wired-vs-wireless-differences-which-better/",
       "image": "/images/feed/feed-826a16e5db73.jpg",
       "source": "Engadget",
@@ -434,7 +453,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 42,
       "url": "https://www.space.com/entertainment/space-movies-shows/transformers-the-movie-at-40-the-cartoon-spin-off-that-traumatized-a-generation-of-kids",
       "image": "/images/feed/feed-b44f51dfc9b8.jpg",
       "source": "Space.com",
@@ -453,7 +472,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 44,
       "url": "https://techcrunch.com/2026/08/08/the-kindle-scribe-colorsoft-is-a-lot-of-fun-but-its-not-a-must-have/",
       "image": "/images/feed/feed-d8c36633c35a.jpg",
       "source": "TechCrunch",
@@ -472,7 +491,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 44,
       "url": "https://www.space.com/entertainment/space-movies-shows/this-week-in-space-podcast-episode-222-how-to-invade-earth-in-22-easy-steps",
       "image": "/images/feed/feed-89d18baa5b87.jpg",
       "source": "Space.com",
@@ -491,29 +510,10 @@
         "Claude"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 34,
       "url": "https://code.claude.com/docs/en/cross-session-messaging",
       "image": "/images/feed/feed-a6508ad37d08.png",
       "source": "Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-af96b78ac661",
-      "title": "Claude Vs ChatGPT: How These AI Assistants Differ",
-      "excerpt": "In a practical breakdown of how Claude and ChatGPT AI models differ, one tends to fall short when it comes to quality responses and overall user experience.",
-      "body": "In a practical breakdown of how Claude and ChatGPT AI models differ, one tends to fall short when it comes to quality responses and overall user experience.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Manuviraj Godara)",
-      "date": "2026-08-08",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 41,
-      "url": "https://www.engadget.com/2229993/claude-vs-chatgpt-how-ai-assistants-differ/",
-      "image": "/images/feed/feed-af96b78ac661.jpg",
-      "source": "Engadget",
       "isLive": true
     },
     {
@@ -529,7 +529,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 48,
       "url": "https://cleantechnica.com/2026/08/08/byd-expands-ph-ev-lineup-with-double-model-launch-celebrates-sealion-6-milestone/",
       "image": "/images/feed/feed-b8df9a209925.jpg",
       "source": "CleanTechnica",
@@ -548,7 +548,7 @@
         "Hacker"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 49,
       "url": "https://techcrunch.com/2026/08/08/googles-top-hacker-hunter-explains-why-hacking-groups-get-codenames/",
       "image": "/images/feed/feed-f5ae6a822390.jpg",
       "source": "TechCrunch",
@@ -568,7 +568,7 @@
         "Breach"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 33,
       "url": "https://www.bleepingcomputer.com/news/security/hackers-breach-trueconf-to-trojanize-client-installers-with-backdoors/",
       "image": "/images/feed/feed-e64368097dfb.jpg",
       "source": "BleepingComputer",
@@ -587,7 +587,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 40,
       "url": "https://electrek.co/2026/08/08/sneaky-safari-thula-solutions-electric-4x4-gets-you-closer-to-nature-video/",
       "image": "/images/feed/feed-e3bb924cf05b.jpg",
       "source": "Electrek",
@@ -607,7 +607,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 48,
       "url": "https://www.space.com/space-exploration/on-this-day-in-space-august-8-2026",
       "image": "/images/feed/feed-3d90dff68dc8.jpg",
       "source": "Space.com",
@@ -626,7 +626,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 46,
       "url": "https://www.space.com/stargazing/dont-miss-the-crescent-moon-shine-close-to-the-red-light-of-mars-before-dawn-aug-9-2026",
       "image": "/images/feed/feed-7bf8d0b419b7.jpg",
       "source": "Space.com",
@@ -645,7 +645,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 53,
       "url": "https://electrek.co/2026/08/08/heavy-equipment-space-race-heats-up-with-new-vermeer-lunar-excavator/",
       "image": "/images/feed/feed-3f5605a32986.png",
       "source": "Electrek",
@@ -665,7 +665,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 40,
       "url": "https://insideevs.com/news/804241/rivian-r2-lucid-cosmos-ev-startup-challenges/",
       "image": "/images/feed/feed-cd990f84ae62.jpg",
       "source": "InsideEVs",
@@ -685,7 +685,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 51,
       "url": "https://electrek.co/2026/08/08/gm-is-making-ev-charging-a-lot-easier/",
       "image": "/images/feed/feed-71ee9ed35b36.jpg",
       "source": "Electrek",
@@ -704,7 +704,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 44,
       "url": "https://electrek.co/2026/08/08/volkswagens-new-electric-era-begins-with-reveal-of-id-era-5x-suv/",
       "image": "/images/feed/feed-838f57d29559.png",
       "source": "Electrek",
@@ -723,7 +723,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 42,
       "url": "https://www.space.com/stargazing/solar-eclipses/yes-north-america-gets-a-solar-eclipse-on-aug-12-heres-where-and-when-to-see-it",
       "image": "/images/feed/feed-eae00e2aa058.jpg",
       "source": "Space.com",
@@ -742,7 +742,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 53,
       "url": "https://insideevs.com/news/804026/ford-bronco-ev-review/",
       "image": "/images/feed/feed-38a87ffaea3e.jpg",
       "source": "InsideEVs",
@@ -761,7 +761,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 47,
       "url": "https://simonwillison.net/2026/Aug/7/openai-timeline/",
       "image": "/images/feed/feed-83a56bfafb25.jpg",
       "source": "Hacker News",
@@ -780,7 +780,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 39,
       "url": "https://www.wired.com/story/flocks-plans-for-rideshare-dashcams-and-coaching-police-revealed/",
       "image": "/images/feed/feed-25e5414bb02b.jpg",
       "source": "Wired",
@@ -818,7 +818,7 @@
         "Gemini"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 34,
       "url": "https://www.wired.com/story/how-to-disable-the-gemini-ai-features-in-gmail-and-google-docs/",
       "image": "/images/feed/feed-878fbed42f98.jpg",
       "source": "Wired",
@@ -837,7 +837,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 47,
       "url": "https://www.wired.com/story/sensitive-info-goes-into-no-reply-emails-constantly-this-guy-sees-it-all/",
       "image": "/images/feed/feed-2fa934658c9c.jpg",
       "source": "Wired",
@@ -856,7 +856,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 39,
       "url": "https://thehackernews.com/2026/08/atlassian-rovo-can-be-tricked-into.html",
       "image": "/images/feed/feed-f8b3b09c8a32.jpg",
       "source": "The Hacker News",
@@ -875,7 +875,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 33,
       "url": "https://thehackernews.com/2026/08/new-css-attacks-can-break-webmail.html",
       "image": "/images/feed/feed-f98bce50d6c1.jpg",
       "source": "The Hacker News",
@@ -896,7 +896,7 @@
         "Authentication"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 45,
       "url": "https://thehackernews.com/2026/08/metabase-zero-day-exploited-in-wild.html",
       "image": "/images/feed/feed-ac04ef1f616a.jpg",
       "source": "The Hacker News",
@@ -915,7 +915,7 @@
         "Claude"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 38,
       "url": "https://twitter.com/un1c0rnioz/status/2084686552299634805",
       "image": "/images/feed/feed-8c3c4edc3b6e.png",
       "source": "Hacker News",
@@ -942,16 +942,16 @@
     }
   ],
   "breakingNews": [
-    "DEV.TO: Designing a Solvability Gate for 15 Puzzle Implementations",
-    "POLYGON: Magic Designer Wants to Resurrect a Forgotten Card That Tells a Perfect Miniature Horror Story",
-    "DEV.TO: The Invisible Threat: Defending Against Indirect Prompt Injections in Web Content & Data Feeds",
-    "DEV.TO: Data-Driven Thresholds: Picking Cutoffs You Can Defend",
-    "DEV.TO: How to Handle Large Datasets",
-    "DEV.TO: How to Set Up a SQL Database for Beginners",
-    "DEV.TO: Your First Analysis Is the Role You Are Targeting",
-    "DEV.TO: Inside Python's match Statement: The unleashed power of Structural Pattern Matching Syntax",
-    "TECHCRUNCH: OpenAI acquires presentation startup NextSlide",
-    "SPACE.COM: SpaceX launches 24 Starlink satellites to orbit from California (video)"
+    "POLYGON: Matt Damon’s 113-Minute 10/10 Action Thriller Officially Crowned as Netflix’s Biggest Movie of 2026",
+    "DEV.TO: Kubernetes Secrets Are Just Base64 Not Encryption. Here's What That Actually Means",
+    "DEV.TO: Your Claude Code Skill Never Fires — and It's Not the Skill's Fault",
+    "DEV.TO: Smashing the \"Blind Spot\" Bug: How We Integrated Sentry to Catch Regressions in Real-Time",
+    "DEV.TO: 💀 The Most Dangerous Deletions Don't Break the Build. They Break the Deploy. An AI-Assisted Recovery Story 🤖",
+    "DEV.TO: I Got Sick of Subscription Budget Apps. So I Built My Own With Telegram, Python, and a $0/Month Stack.",
+    "DEV.TO: the correction that wasn't mine",
+    "ANDROID AUTHORITY: Google is making it easier to add new sources to Gemini Notebook",
+    "DEV.TO: Stop Fighting CSS Grids: Building Complex Responsive Layouts Without Losing Your Sanity",
+    "POLYGON: Magic Designer Wants to Resurrect a Forgotten Card That Tells a Perfect Miniature Horror Story"
   ],
   "sectionVideos": {}
 }
