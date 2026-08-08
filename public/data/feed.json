@@ -1,51 +1,13 @@
 {
-  "fetchedAt": "2026-08-07T23:15:40.378Z",
+  "fetchedAt": "2026-08-08T00:21:02.008Z",
   "articles": [
     {
-      "id": "feed-68ae3f6fd509",
-      "title": "Selective Attention: Filtering Before You Fill",
-      "excerpt": "Shrinking blocks to fit is the second-best move. The first is deciding that a block should not be there at all — filtering is free in window terms, and truncation never is. Order of operations matters…",
-      "body": "Shrinking blocks to fit is the second-best move. The first is deciding that a block should not be there at all — filtering is free in window terms, and truncation never is. Filtering happens before allocation Order of operations matters here and it is frequently reversed. Assembly should gather candidates, filter them, and only then allocate room among the survivors. Filtering after allocation is pointless — the damage is done — and truncating instead of filtering produces the worst possible artefact: several partial documents, each missing its conclusion, none of them useful. Compare the two dispositions of a 30,000-token budget across ten candidate documents of 8,000 tokens each.",
-      "author": "Multigrid",
-      "date": "2026-08-07",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 49,
-      "url": "https://dev.to/multigrid/selective-attention-filtering-before-you-fill-57id",
-      "image": "/images/feed/feed-68ae3f6fd509.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-878a5f4cb1a8",
-      "title": "Context Compression: Making 100k Tokens Fit in 10k",
-      "excerpt": "Compression is the one context technique that costs money to apply, so it is the one that most needs an arithmetic justification. Two cheaper things usually beat it, and knowing when they do not is mo…",
-      "body": "Compression is the one context technique that costs money to apply, so it is the one that most needs an arithmetic justification. Two cheaper things usually beat it, and knowing when they do not is most of the skill. The free wins, first Before any model-based technique, remove the tokens that carry no information. This is unglamorous, lossless, and routinely worth 30–60% on real prompts: Strip markup. Scraped HTML in a prompt is mostly attributes, navigation and script tags. Extract text. Minify structured data. Pretty-printed JSON pays for every space. For tabular data, CSV or a compact key-per-column form is dramatically cheaper than an array of objects that repeats every key on every row. Deduplicate. Retrieval with overlapping chunks delivers near-identical passages. Hash and drop.",
-      "author": "Multigrid",
-      "date": "2026-08-07",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 38,
-      "url": "https://dev.to/multigrid/context-compression-making-100k-tokens-fit-in-10k-4aam",
-      "image": "/images/feed/feed-878a5f4cb1a8.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-e41e5fde96de",
-      "title": "Context Caching Strategy: Ordering for Cache Hits",
-      "excerpt": "Prompt caching is not a setting you enable. It is a property your prompt either has or does not have, and one timestamp in the wrong place removes it from every request you will ever send. The pricing…",
-      "body": "Prompt caching is not a setting you enable. It is a property your prompt either has or does not have, and one timestamp in the wrong place removes it from every request you will ever send. It is a prefix, and that is the whole design The pricing and mechanics of cached tokens belong to the tokens cluster . The one structural fact that governs assembly is this: caching operates on a prefix . The provider can reuse the computed state of your request up to the first position where it differs from a previous request, and not one token further. This is a much harsher constraint than “repeated content is cheaper.” Content that repeats but has moved is worth nothing.",
-      "author": "Multigrid",
-      "date": "2026-08-07",
+      "id": "feed-9950940c28be",
+      "title": "I published an open dataset of every AI crawler user agent (GPTBot, ClaudeBot + 26 more)",
+      "excerpt": "While building AI-crawler tooling I kept needing the same thing: a current, GitHub: https://github.com/osamamumtaz01/ai-crawler-user-agents Live endpoint (always current, CORS enabled): https://geopro…",
+      "body": "While building AI-crawler tooling I kept needing the same thing: a current, machine-readable list of AI crawler user agents. Every blog post has a partial list, half of them outdated, none of them structured. So I published mine as an open dataset. GitHub: https://github.com/osamamumtaz01/ai-crawler-user-agents Live endpoint (always current, CORS enabled): https://geoprompttracker.com/data/ai-crawlers.json 28 crawlers — GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, PerplexityBot, Google-Extended, Bytespider, Applebot-Extended, Meta-ExternalAgent, and the rest. JSON + CSV, CC BY 4.0. Also on Kaggle and Hugging Face. The field that actually matters: purpose The mistake I see constantly: treating \"AI bots\" as one thing.",
+      "author": "Osama Mumtaz",
+      "date": "2026-08-08",
       "readTime": "2 min",
       "section": "software",
       "tags": [
@@ -53,18 +15,37 @@
       ],
       "featured": true,
       "xpReward": 39,
-      "url": "https://dev.to/multigrid/context-caching-strategy-ordering-for-cache-hits-1omo",
-      "image": "/images/feed/feed-e41e5fde96de.webp",
+      "url": "https://dev.to/osama1malik/i-published-an-open-dataset-of-every-ai-crawler-user-agent-gptbot-claudebot-26-more-3he4",
+      "image": "/images/feed/feed-9950940c28be.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-d4bfd9f76b89",
-      "title": "Budgeting the Context Window Across a Session",
-      "excerpt": "A context budget is not a guideline about keeping prompts short. It is a division of a fixed number of tokens between named claimants, made by code, before anything is rendered. Here is the code. The…",
-      "body": "A context budget is not a guideline about keeping prompts short. It is a division of a fixed number of tokens between named claimants, made by code, before anything is rendered. Here is the code. Reserve the output first The window holds input and output together. Whatever room the answer needs is unavailable to the prompt, and this is the single most common arithmetic mistake in an assembler: filling to the window size and then discovering the model has nowhere to write. The mechanics of that — and the 400 it produces — belong to context window versus max output tokens . For the allocator, only the consequence matters: available = window - reserved_output - safety_margin The safety margin is not superstition.",
+      "id": "feed-2b1da65b5612",
+      "title": "How LLM Pricing Works: Every Line on the Bill",
+      "excerpt": "Almost every price list shows two numbers, input and output, per million tokens. A real bill has five or six lines, and the ones that are missing from the headline are usually the ones that decide wha…",
+      "body": "Almost every price list shows two numbers, input and output, per million tokens. A real bill has five or six lines, and the ones that are missing from the headline are usually the ones that decide what you pay. What is actually being metered Not words, not characters, not requests. Tokens — the sub-word units the model’s tokenizer splits text into. English prose runs somewhere around 0.75 words per token, which makes “about four characters” a serviceable estimate for a back-of-envelope and a bad one for a budget. Code, JSON, non-Latin scripts and long identifiers all tokenize worse than prose, sometimes much worse, and a tokenizer differs between model families. If a number matters, count it with the tokenizer for the model you are actually calling.",
       "author": "Multigrid",
-      "date": "2026-08-07",
+      "date": "2026-08-08",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 35,
+      "url": "https://dev.to/multigrid/how-llm-pricing-works-every-line-on-the-bill-270f",
+      "image": "/images/feed/feed-2b1da65b5612.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-f4ac13b8eb7a",
+      "title": "Gradient Boosting, Explained by Building Three Trees",
+      "excerpt": "Gradient boosting fits a tree to the errors of what you have so far, adds a fraction of it, and repeats. Every explanation says that; almost none of them shows it happening. Here are three rounds on s…",
+      "body": "Gradient boosting fits a tree to the errors of what you have so far, adds a fraction of it, and repeats. Every explanation says that; almost none of them shows it happening. Here are three rounds on six rows, with the split search worked, the residuals after each round, and the total squared error falling from 810 to 40.5. The idea in one sentence Start with a constant prediction. Compute how wrong it is on every row. Fit a small tree whose job is to predict that wrongness . Add a fraction of the tree’s output to the running prediction. Compute the new wrongness. Repeat a few hundred times. Nothing is thrown away and nothing is refitted.",
+      "author": "Multigrid",
+      "date": "2026-08-08",
       "readTime": "2 min",
       "section": "software",
       "tags": [
@@ -72,37 +53,56 @@
       ],
       "featured": true,
       "xpReward": 44,
-      "url": "https://dev.to/multigrid/budgeting-the-context-window-across-a-session-251m",
-      "image": "/images/feed/feed-d4bfd9f76b89.webp",
+      "url": "https://dev.to/multigrid/gradient-boosting-explained-by-building-three-trees-10ca",
+      "image": "/images/feed/feed-f4ac13b8eb7a.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-dd7a73db105e",
-      "title": "Context Windows as an Architectural Constraint",
-      "excerpt": "Every other fixed-capacity resource in a system gets an explicit policy: what is admitted, what is rejected, what happens at the ceiling. Context windows usually get none of that, which is why they fa…",
-      "body": "Every other fixed-capacity resource in a system gets an explicit policy: what is admitted, what is rejected, what happens at the ceiling. Context windows usually get none of that, which is why they fail in production rather than in design review. A capacity, not a limit The instructive comparison is a memory-constrained embedded system. Nobody writing firmware for 64KB of RAM treats the limit as an occasional annoyance. It is the first fact of the design: data structures are sized for it, allocation is planned, and the behaviour when memory runs out is specified rather than discovered. A context window is that constraint with two differences, and both cut the wrong way.",
+      "id": "feed-7880c2edc593",
+      "title": "How Diffusion Models Generate an Image",
+      "excerpt": "A diffusion model does not remove noise from an image. It repeatedly estimates all of the noise present in a tensor, takes a small step in the direction that estimate implies, and does it again. The d…",
+      "body": "A diffusion model does not remove noise from an image. It repeatedly estimates all of the noise present in a tensor, takes a small step in the direction that estimate implies, and does it again. The difference between those two descriptions explains almost everything people find surprising about the results. The short answer Generation starts with a tensor of pure Gaussian noise. A neural network is called once per step, typically twenty to fifty times in total. Each call takes the current tensor and the current noise level and returns an estimate of the noise it contains. A sampler uses that estimate to produce a slightly less noisy tensor, and the loop repeats. When the noise level reaches zero, the tensor is the image — or, in a latent model, is decoded into one.",
       "author": "Multigrid",
-      "date": "2026-08-07",
+      "date": "2026-08-08",
       "readTime": "2 min",
       "section": "software",
       "tags": [
         "Software"
       ],
       "featured": true,
-      "xpReward": 42,
-      "url": "https://dev.to/multigrid/context-windows-as-an-architectural-constraint-4bmp",
-      "image": "/images/feed/feed-dd7a73db105e.webp",
+      "xpReward": 36,
+      "url": "https://dev.to/multigrid/how-diffusion-models-generate-an-image-3pp9",
+      "image": "/images/feed/feed-7880c2edc593.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-07987a2d2aee",
-      "title": "Building a Content Safety Layer That Isn't Useless",
-      "excerpt": "No precision or recall numbers appear on this page, and that is the argument rather than an omission. A safety threshold depends on your content distribution and your base rate, so a number from someo…",
-      "body": "No precision or recall numbers appear on this page, and that is the argument rather than an omission. A safety threshold depends on your content distribution and your base rate, so a number from someone else’s deployment is not evidence about yours. What transfers is the method. How safety layers actually fail They rarely fail by missing something dramatic. They fail in one of three quieter ways: Tuned so tight that users route around it. The filter blocks legitimate work, the team adds an exception, then another, and eventually a bypass flag that becomes the default. The control is nominally live and effectively off. Tuned so loose it is decoration. Nobody measured, so the threshold is whatever the example in the documentation used.",
+      "id": "feed-585daf2b9e51",
+      "title": "How Speech Recognition Works Now",
+      "excerpt": "Speech recognition turns a one-dimensional pressure signal into a sequence of words, and the whole design problem is that nobody tells the model where one word stops. Everything below follows from tha…",
+      "body": "Speech recognition turns a one-dimensional pressure signal into a sequence of words, and the whole design problem is that nobody tells the model where one word stops. Everything below follows from that. The shape of the problem A microphone produces numbers: at 16 kHz, sixteen thousand of them per second per channel, typically 16-bit signed. Thirty seconds of mono audio is 480,000 samples, which is 960 kB raw. The text it corresponds to is about seventy-five words. So the job is a reduction of roughly five thousand to one, from a signal with no boundaries in it to a sequence of discrete symbols. Two properties of the input make it hard.",
       "author": "Multigrid",
-      "date": "2026-08-07",
+      "date": "2026-08-08",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 36,
+      "url": "https://dev.to/multigrid/how-speech-recognition-works-now-2alp",
+      "image": "/images/feed/feed-585daf2b9e51.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-75ce1f21702a",
+      "title": "How AI Assistants Choose Which Pages to Cite",
+      "excerpt": "An assistant that shows five links did not rank the web. It ran a short pipeline of ordinary components — a search backend, a fetcher, a chunker, a token budget and a generation step — and about half…",
+      "body": "An assistant that shows five links did not rank the web. It ran a short pipeline of ordinary components — a search backend, a fetcher, a chunker, a token budget and a generation step — and about half of that pipeline leaves evidence on your server. This traces the whole of it and marks each stage as observable or not. Two paths, and only one leaves evidence When an assistant answers a question about your company, one of two things happened, and they are not variants of each other. On the parametric path the model answered from its weights. Nothing was fetched, nothing was searched, and your server saw no request.",
+      "author": "Multigrid",
+      "date": "2026-08-08",
       "readTime": "2 min",
       "section": "software",
       "tags": [
@@ -110,28 +110,48 @@
       ],
       "featured": true,
       "xpReward": 48,
-      "url": "https://dev.to/multigrid/building-a-content-safety-layer-that-isnt-useless-2mnl",
-      "image": "/images/feed/feed-07987a2d2aee.webp",
+      "url": "https://dev.to/multigrid/how-ai-assistants-choose-which-pages-to-cite-3kmd",
+      "image": "/images/feed/feed-75ce1f21702a.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-ad7160b50026",
-      "title": "Content Filter Triggered on Innocent Input",
-      "excerpt": "“Content filter triggered” can mean three different things: an input classifier rejected your request before generation, an output classifier stopped generation part-way, or the model itself declined…",
-      "body": "“Content filter triggered” can mean three different things: an input classifier rejected your request before generation, an output classifier stopped generation part-way, or the model itself declined and no filter was involved. They present similarly, they have different fixes, and the status code plus finish_reason separates them in one glance. Three mechanisms that look identical Mechanism Description Input classifier A separate model scores your prompt before the main model sees it. Rejection is an HTTP 400 with a policy-related code, no usage, and no output tokens billed. The main model never ran. Output classifier Generation starts, a classifier scores the output as it is produced, and generation is cut.",
+      "id": "feed-c9d508162937",
+      "title": "HNSW Explained: The Index Behind Most Vector Search",
+      "excerpt": "Hierarchical Navigable Small World graphs — Malkov and Yashunin, 2016, later in IEEE TPAMI — are the default index in pgvector, Qdrant, Weaviate, Milvus, Lucene and Faiss. The structure is easier than…",
+      "body": "Hierarchical Navigable Small World graphs — Malkov and Yashunin, 2016, later in IEEE TPAMI — are the default index in pgvector, Qdrant, Weaviate, Milvus, Lucene and Faiss. The structure is easier than its name: it is a skip list where “next” means “nearer in vector space”. It is a skip list in many dimensions A skip list over sorted numbers has several linked lists stacked on top of each other. The bottom contains every element; each level up contains a random sample of the level below. You search by walking the sparse top list until you overshoot, dropping a level, walking again, and so on — logarithmic instead of linear, from a structure with no global ordering requirement beyond “less than”. HNSW is that idea with “nearer” substituted for “less than”. Each vector is a node.",
       "author": "Multigrid",
-      "date": "2026-08-07",
+      "date": "2026-08-08",
       "readTime": "2 min",
       "section": "software",
       "tags": [
         "Software"
       ],
       "featured": false,
-      "xpReward": 36,
-      "url": "https://dev.to/multigrid/content-filter-triggered-on-innocent-input-2kg1",
-      "image": "/images/feed/feed-ad7160b50026.webp",
+      "xpReward": 40,
+      "url": "https://dev.to/multigrid/hnsw-explained-the-index-behind-most-vector-search-4788",
+      "image": "/images/feed/feed-c9d508162937.webp",
       "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-a1a70a49e9c2",
+      "title": "2025's Best Soulslike You Missed Is Officially a Sleeper Hit on Xbox Game Pass",
+      "excerpt": "Hell Is Us is a must-play 2025 Soulslike saddled with terrible release day luck, now getting a second chance on Xbox Game Pass.",
+      "body": "It feels like forever ago (cue up a cigarette drag), but looking back, 2025 was an uncharacteristically stacked year for new video games . Kirby Air Ride got a decades-overdue sequel ! Battlefield 6 was actually good ! Blue Prince redefined puzzle games ! Clair Obscur: Expedition 33 — can you believe that only just came out last year ? (Cue up another cigarette drag.)",
+      "author": "Ari Notis",
+      "date": "2026-08-08",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Xbox",
+        "Game"
+      ],
+      "featured": false,
+      "xpReward": 34,
+      "url": "https://www.polygon.com/hell-is-us-game-pass-hit/",
+      "image": "/images/feed/feed-a1a70a49e9c2.jpg",
+      "source": "Polygon",
       "isLive": true
     },
     {
@@ -147,7 +167,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 53,
       "url": "https://www.polygon.com/new-soulslike-memoirium-on-steam/",
       "image": "/images/feed/feed-fe3673f4fed0.png",
       "source": "Polygon",
@@ -156,8 +176,8 @@
     {
       "id": "feed-59163ffd3cbe",
       "title": "OpenAI says it slowed Astra model development over security concerns",
-      "excerpt": "OpenAI said it has suspended work on some aspects of its upcoming model Astra over concerns about its cybersecurity prowess.",
-      "body": "OpenAI said it has suspended work on some aspects of its upcoming model Astra over concerns about its cybersecurity prowess.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Security. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "excerpt": "OpenAI said this model, which is still in development, reached its \"critical cybersecurity threshold,\" meaning it could independently identify and carry out cyberattacks against traditionally well-pro…",
+      "body": "OpenAI said this model, which is still in development, reached its \"critical cybersecurity threshold,\" meaning it could independently identify and carry out cyberattacks against traditionally well-pro — a development drawing significant attention in the cybersecurity and digital privacy space.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Security. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
       "author": "Kirsten Korosec",
       "date": "2026-08-07",
       "readTime": "2 min",
@@ -166,7 +186,7 @@
         "Security"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 38,
       "url": "https://techcrunch.com/2026/08/07/openai-says-it-slowed-astra-model-development-over-security-concerns/",
       "image": "/images/feed/feed-59163ffd3cbe.jpg",
       "source": "TechCrunch",
@@ -185,7 +205,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 45,
       "url": "https://9to5mac.com/2026/08/07/claude-code-now-lets-sessions-talk-to-each-other-on-macos/",
       "image": "/images/feed/feed-67c487686801.jpg",
       "source": "9to5Mac",
@@ -204,7 +224,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 50,
       "url": "https://www.theverge.com/games/977056/restart-gaming-site-walmart-moonrock-layoffs",
       "image": "/images/feed/feed-7171ba64d97e.jpg",
       "source": "The Verge",
@@ -223,7 +243,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 47,
       "url": "https://www.polygon.com/video/contrapoints-devours-forbidden-decadent-games-shelf-quest/",
       "image": "/images/feed/feed-ac23c4caa289.jpg",
       "source": "Polygon",
@@ -242,7 +262,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 45,
       "url": "https://www.polygon.com/best-sci-fi-shows-on-netflix/",
       "image": "/images/feed/feed-7c374df387bb.jpg",
       "source": "Polygon",
@@ -261,7 +281,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 40,
       "url": "https://kotaku.com/demons-souls-from-software-prototype-first-person-2000722570",
       "image": "/images/feed/feed-b43dd850bdc0.jpg",
       "source": "Kotaku",
@@ -280,7 +300,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 43,
       "url": "https://cleantechnica.com/2026/08/07/solar-power-us-trade-tariffs-trump-manufacturing-polysilicon/",
       "image": "/images/feed/feed-32d846e16548.jpg",
       "source": "CleanTechnica",
@@ -299,29 +319,10 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 54,
       "url": "https://www.polygon.com/video/tom-holland-knows-how-to-keep-mcu-secrets-now/",
       "image": "/images/feed/feed-4fa985103479.jpg",
       "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-7e7cfc532ffe",
-      "title": "Robert Pattinson’s Impression of Chris Hansen In Primetime Is The Creepiest Thing In A Movie Full Of Creeps",
-      "excerpt": "Pattinson is doing what he does best: playing guys on the verge of Losing It",
-      "body": "Pattinson is doing what he does best: playing guys on the verge of Losing It\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Ash Parrish",
-      "date": "2026-08-07",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 39,
-      "url": "https://kotaku.com/primetime-trailer-robert-pattinson-chris-hanson-impression-2000722584",
-      "image": "/images/feed/feed-7e7cfc532ffe.jpg",
-      "source": "Kotaku",
       "isLive": true
     },
     {
@@ -337,7 +338,7 @@
         "Iphone"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 33,
       "url": "https://9to5mac.com/2026/08/07/9to5mac-overtime-076-native-retro-games-on-iphone/",
       "image": "/images/feed/feed-441a1e342387.jpg",
       "source": "9to5Mac",
@@ -356,7 +357,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 50,
       "url": "https://www.androidauthority.com/youtube-tv-espn-unlimited-3696125/",
       "image": "/images/feed/feed-63cc872c4ddd.jpg",
       "source": "Android Authority",
@@ -364,9 +365,9 @@
     },
     {
       "id": "feed-3ac7659d9bc3",
-      "title": "Wacom’s Movinkpad 11 is a fun and mid-priced entry point for digital artists",
-      "excerpt": "The Movinkpad 11 a versatile little graphics tablet that can help make your wildest digital art dreams come true.",
-      "body": "The Movinkpad 11 a versatile little graphics tablet that can help make your wildest digital art dreams come true.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "title": "Wacom’s MovinkPad 11 is a fun, midpriced entry point for digital artists",
+      "excerpt": "The MovinkPad 11 a versatile little graphics tablet that can help make your wildest digital art dreams come true.",
+      "body": "The MovinkPad 11 a versatile little graphics tablet that can help make your wildest digital art dreams come true.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
       "author": "Lucas Ropek",
       "date": "2026-08-07",
       "readTime": "2 min",
@@ -375,7 +376,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 54,
       "url": "https://techcrunch.com/2026/08/07/wacoms-movinkpad-11-is-a-fun-and-mid-priced-entry-point-for-digital-artists/",
       "image": "/images/feed/feed-3ac7659d9bc3.jpg",
       "source": "TechCrunch",
@@ -394,7 +395,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 50,
       "url": "https://9to5mac.com/2026/08/07/your-friends-neighbors-star-confirmed-for-his-third-apple-tv-project/",
       "image": "/images/feed/feed-6fe562430749.jpg",
       "source": "9to5Mac",
@@ -414,7 +415,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 37,
       "url": "https://spacenews.com/senate-installs-new-chiefs-for-u-s-military-space-acquisition-spy-satellites/",
       "image": "/images/feed/feed-8993ee13895d.png",
       "source": "SpaceNews",
@@ -433,7 +434,7 @@
         "Security"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 52,
       "url": "https://techcrunch.com/2026/08/07/security-researchers-scanned-the-polish-web-and-found-courts-hospitals-and-airports-at-risk-of-hacks/",
       "image": "/images/feed/feed-7feef810b451.jpg",
       "source": "TechCrunch",
@@ -452,7 +453,7 @@
         "Spacex"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 53,
       "url": "https://www.space.com/astronomy/moon/spacex-serious-about-building-factories-on-the-moon-its-going-to-happen-elon-musk-says",
       "image": "/images/feed/feed-9cdbefb77680.jpg",
       "source": "Space.com",
@@ -471,7 +472,7 @@
         "Starship"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 34,
       "url": "https://www.space.com/space-exploration/launches-spacecraft/not-looking-good-right-now-starship-likely-to-be-lost-at-sea-2-weeks-after-epic-13th-test-flight-elon-musk-says",
       "image": "/images/feed/feed-fcdf29139577.jpg",
       "source": "Space.com",
@@ -490,29 +491,10 @@
         "Iphone"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 49,
       "url": "https://9to5mac.com/2026/08/07/iphone-17-might-get-price-increase-next-week-per-new-rumor/",
       "image": "/images/feed/feed-59937e42c4c3.jpg",
       "source": "9to5Mac",
-      "isLive": true
-    },
-    {
-      "id": "feed-8c3c4edc3b6e",
-      "title": "Lost my phone at the office. Claude suggested tracking Bluetooth signal strength",
-      "excerpt": "",
-      "body": "This report, published by Hacker News, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Claude. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Hacker News using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "ilamont",
-      "date": "2026-08-07",
-      "readTime": "2 min",
-      "section": "ai",
-      "tags": [
-        "Claude"
-      ],
-      "featured": false,
-      "xpReward": 32,
-      "url": "https://twitter.com/un1c0rnioz/status/2084686552299634805",
-      "image": "/images/feed/feed-8c3c4edc3b6e.png",
-      "source": "Hacker News",
       "isLive": true
     },
     {
@@ -528,7 +510,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 36,
       "url": "https://electrek.co/2026/08/07/kias-larger-ev-van-caught-less-camo-debut-images/",
       "image": "/images/feed/feed-e445d64cf226.jpg",
       "source": "Electrek",
@@ -548,7 +530,7 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 50,
       "url": "https://www.bleepingcomputer.com/news/security/framework-tally-disclose-metabase-data-theft-attacks/",
       "image": "/images/feed/feed-6278098620d9.jpg",
       "source": "BleepingComputer",
@@ -567,7 +549,7 @@
         "Iphone"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 49,
       "url": "https://9to5mac.com/2026/08/07/ios-27-has-long-awaited-fix-for-common-iphone-wireless-issue/",
       "image": "/images/feed/feed-5df51e90dab9.jpg",
       "source": "9to5Mac",
@@ -605,7 +587,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 35,
       "url": "https://insideevs.com/features/804221/ev-development-cycles-too-long/",
       "image": "/images/feed/feed-d3cbe8081cd9.jpg",
       "source": "InsideEVs",
@@ -624,7 +606,7 @@
         "Breach"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 48,
       "url": "https://www.bleepingcomputer.com/news/security/unlimited-technology-systems-breach-impacts-38-million-people/",
       "image": "/images/feed/feed-8a6bf048fb5d.jpg",
       "source": "BleepingComputer",
@@ -643,7 +625,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 47,
       "url": "https://electrek.co/2026/08/07/podcast-ford-fathom-cheap-pickup-ev-audi-a2-trump-on-evs-and-more/",
       "image": "/images/feed/feed-ebf1ed71d6a5.jpg",
       "source": "Electrek",
@@ -662,7 +644,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 45,
       "url": "https://cleantechnica.com/2026/08/07/reports-of-doug-burgums-smug-incompetence-are-no-surprise/",
       "image": "/images/feed/feed-474411874a03.jpg",
       "source": "CleanTechnica",
@@ -700,29 +682,10 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 35,
       "url": "https://www.space.com/space-exploration/voyager/nasa-figured-out-how-to-keep-its-48-year-old-voyager-2-probe-running-for-yet-another-year",
       "image": "/images/feed/feed-03fee12afd4f.jpg",
       "source": "Space.com",
-      "isLive": true
-    },
-    {
-      "id": "feed-d9c195a646fd",
-      "title": "2026 IGARSS Hyperwall Schedule",
-      "excerpt": "IGARSS 2026 Join NASA in the Exhibit Hall (Booth #100) for Hyperwall Storytelling by NASA experts. Full Hyperwall Agenda below. MONDAY, AUGUST 10 3:00 PM Technology Enabling the Future of Earth Scienc…",
-      "body": "Explore This Section Earth Earth Observer Editor’s Corner Feature Articles Meeting Summaries News Science in the News In Memoriam Announcements Archives IGARSS 2026 Join NASA in the Exhibit Hall (Booth #100) for Hyperwall Storytelling by NASA experts. Full Hyperwall Agenda below. MONDAY, AUGUST 10 3:00 PM Technology Enabling the Future of Earth Science Mike Seablom 3:15 PM Discovery Earth: New Missions &#038; Technical Innovation Advancing Earth System Insights Karen St. Germain TUESDAY, AUGUST 11 10:00 AM STELLA: Open-Source Multisenor Platforms For Real-Time Environmental Monitoring Mike Taylor 10:15 AM NOAA Geostationary Satellites: Valuable Data for both Research and Operational Use Dan Lindsey 3:00 PM Discovering Mineral Resources with NASA Imaging Spectroscopy Robert O.",
-      "author": "NASA Breaking News",
-      "date": "2026-08-07",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Space"
-      ],
-      "featured": false,
-      "xpReward": 35,
-      "url": "https://science.nasa.gov/earth/2026-igarss-hyperwall-schedule/",
-      "image": "/images/feed/feed-d9c195a646fd.png",
-      "source": "NASA Breaking News",
       "isLive": true
     },
     {
@@ -738,7 +701,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 38,
       "url": "https://thehackernews.com/2026/08/nearly-800-malicious-npm-packages.html",
       "image": "/images/feed/feed-22c85ae6a67d.jpg",
       "source": "The Hacker News",
@@ -757,7 +720,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 40,
       "url": "https://www.theverge.com/ai-artificial-intelligence/976948/openai-astra-model-pause-critical-cyber-capabilities",
       "image": "/images/feed/feed-65308bcbb462.jpg",
       "source": "The Verge",
@@ -776,7 +739,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 42,
       "url": "https://thehackernews.com/2026/08/clickfix-attacks-deliver-macos-stealer.html",
       "image": "/images/feed/feed-1459d2632c9c.jpg",
       "source": "The Hacker News",
@@ -816,7 +779,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 48,
       "url": "https://www.space.com/astronomy/james-webb-space-telescope/inside-the-mystery-of-the-james-webb-space-telescopes-little-red-dots-and-how-they-might-be-evolving",
       "image": "/images/feed/feed-5e2fc49f1ff8.jpg",
       "source": "Space.com",
@@ -835,7 +798,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 49,
       "url": "https://www.cnet.com/tech/services-and-software/details-leak-openai-doughnut-shaped-speaker/",
       "image": "/images/feed/feed-861d5fc9c4cc.jpg",
       "source": "CNET",
@@ -854,10 +817,30 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 34,
       "url": "https://spacenews.com/fcc-space-bureau-deputy-takes-the-reins-amid-licensing-overhaul/",
       "image": "/images/feed/feed-464db49d70a8.jpg",
       "source": "SpaceNews",
+      "isLive": true
+    },
+    {
+      "id": "feed-782fdb6127e3",
+      "title": "Korean lunar orbiter snaps first pics of the SpaceX Falcon 9 crash site on the moon",
+      "excerpt": "NASA believes the crater left by the rocket is around 60 feet wide.",
+      "body": "NASA believes the crater left by the rocket is around 60 feet wide.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Spacex, Orbit. As the situation continues to evolve, professionals and enthusiasts in the space exploration and astronomy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "staff@engadget.com (Matt Tate)",
+      "date": "2026-08-07",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Spacex",
+        "Orbit"
+      ],
+      "featured": false,
+      "xpReward": 31,
+      "url": "https://www.engadget.com/2232601/korean-lunar-orbiter-snaps-first-pics-of-the-spacex-falcon-9-crash-site-on-the-moon/",
+      "image": "/images/feed/feed-782fdb6127e3.jpg",
+      "source": "Engadget",
       "isLive": true
     },
     {
@@ -873,7 +856,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 48,
       "url": "https://techcrunch.com/2026/08/07/cloudflare-launches-kitesurf-a-browser-built-for-ai-agents/",
       "image": "/images/feed/feed-62678037a7fe.jpg",
       "source": "TechCrunch",
@@ -892,7 +875,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 35,
       "url": "https://openai.com/index/responding-next-frontier-critical-cyber-capabilities",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "OpenAI Blog",
@@ -911,7 +894,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 42,
       "url": "https://openai.com/index/hsp-gruppe",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "OpenAI Blog",
@@ -931,24 +914,44 @@
         "Claude"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 54,
       "url": "https://thehackernews.com/2026/08/claude-code-and-gemini-cli-flaws-let.html",
       "image": "/images/feed/feed-ce47ddc808c8.jpg",
       "source": "The Hacker News",
       "isLive": true
+    },
+    {
+      "id": "feed-44629d3fcbba",
+      "title": "OpenAI rolls out a major ChatGPT upgrade, even if you don’t pay for it",
+      "excerpt": "OpenAI is rolling out a more reliable version of ChatGPT GPT-5.6 Sol for Plus and Pro users, while Free users are getting unlimited text chats with GPT-5.6 Luna. [...]",
+      "body": "OpenAI is rolling out a more reliable version of ChatGPT GPT-5.6 Sol for Plus and Pro users, while Free users are getting unlimited text chats with GPT-5.6 Luna. [...]\n\nThis report, published by BleepingComputer, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Openai, Chatgpt. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to BleepingComputer using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Mayank Parmar",
+      "date": "2026-08-06",
+      "readTime": "2 min",
+      "section": "ai",
+      "tags": [
+        "Openai",
+        "Chatgpt"
+      ],
+      "featured": false,
+      "xpReward": 52,
+      "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/openai-rolls-out-a-major-chatgpt-upgrade-even-if-you-dont-pay-for-it/",
+      "image": "/images/feed/feed-44629d3fcbba.jpg",
+      "source": "BleepingComputer",
+      "isLive": true
     }
   ],
   "breakingNews": [
-    "DEV.TO: Selective Attention: Filtering Before You Fill",
-    "DEV.TO: Context Compression: Making 100k Tokens Fit in 10k",
-    "DEV.TO: Context Caching Strategy: Ordering for Cache Hits",
-    "DEV.TO: Budgeting the Context Window Across a Session",
-    "DEV.TO: Context Windows as an Architectural Constraint",
-    "DEV.TO: Building a Content Safety Layer That Isn't Useless",
-    "DEV.TO: Content Filter Triggered on Innocent Input",
+    "DEV.TO: I published an open dataset of every AI crawler user agent (GPTBot, ClaudeBot + 26 more)",
+    "DEV.TO: How LLM Pricing Works: Every Line on the Bill",
+    "DEV.TO: Gradient Boosting, Explained by Building Three Trees",
+    "DEV.TO: How Diffusion Models Generate an Image",
+    "DEV.TO: How Speech Recognition Works Now",
+    "DEV.TO: How AI Assistants Choose Which Pages to Cite",
+    "DEV.TO: HNSW Explained: The Index Behind Most Vector Search",
+    "POLYGON: 2025's Best Soulslike You Missed Is Officially a Sleeper Hit on Xbox Game Pass",
     "POLYGON: Memoirium combines Dark Souls, Inception, and Backrooms in Steam's Coolest New Action RPG",
-    "TECHCRUNCH: OpenAI says it slowed Astra model development over security concerns",
-    "9TO5MAC: Claude Code now lets sessions talk to each other on macOS"
+    "TECHCRUNCH: OpenAI says it slowed Astra model development over security concerns"
   ],
   "sectionVideos": {}
 }
