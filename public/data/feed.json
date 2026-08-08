@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-08-08T06:20:47.842Z",
+  "fetchedAt": "2026-08-08T07:24:38.957Z",
   "articles": [
     {
-      "id": "feed-ff75160c70ba",
-      "title": "Building a Leak-Safe gRPC Frame Decoder on Reactor Netty",
-      "excerpt": "This is the second article in my grpc-reactor series. The first article explains why I chose to build the runtime directly on Reactor Netty and where its compatibility boundary sits. This article move…",
-      "body": "This is the second article in my grpc-reactor series. The first article explains why I chose to build the runtime directly on Reactor Netty and where its compatibility boundary sits. This article moves one layer down into the Stage 1 protocol implementation: the frame decoder that every RPC shape relies on. gRPC protobuf messages are not written directly as raw bytes into HTTP/2 DATA frames. Every message starts with a five-byte envelope: byte 0 bit 0 indicates compression; bits 1-7 must be zero bytes 1-4 unsigned big-endian payload length byte 5..n protobuf message, or its compressed representation Encoding this envelope is straightforward. The difficult part is decoding it without assuming that one input buffer contains one complete frame.",
-      "author": "Wang Lee",
+      "id": "feed-29dd8faa1043",
+      "title": "My routing policy and my traces disagreed 96 times. Never once on the main thread.",
+      "excerpt": "This is part four of a series about pointing an append-only audit log at things that count tokens. Part one found that a missing model line was half my agent overspend. Part two found two accounting b…",
+      "body": "This is part four of a series about pointing an append-only audit log at things that count tokens. Part one found that a missing model line was half my agent overspend. Part two found two accounting bugs in splitrail. Part three found a 2.35× over-count in a 30k-star repo that the vendor's own documentation had warned about. I promised this post at the end of part two and pushed it at the start of part three. Here it is. The first three parts asked whether tools counted correctly. This one assumes the counting is right and asks the next question: given trustworthy numbers, do they say what I think they say about my own behaviour? I wrote my routing policy down as a file. Then I measured which model actually ran, per decision, and priced the difference. 425 decisions.",
+      "author": "Li Zhuojun",
       "date": "2026-08-08",
       "readTime": "2 min",
       "section": "software",
@@ -14,37 +14,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 30,
-      "url": "https://dev.to/qianwj/building-a-leak-safe-grpc-frame-decoder-on-reactor-netty-po7",
-      "image": "/images/feed/feed-ff75160c70ba.webp",
+      "xpReward": 38,
+      "url": "https://dev.to/lizhuojunx86/my-routing-policy-and-my-traces-disagreed-96-times-never-once-on-the-main-thread-ffp",
+      "image": "/images/feed/feed-29dd8faa1043.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-cc6d997d660d",
-      "title": "I built a pricing API for LLMs — then realized the real users might not be human",
-      "excerpt": "Klikk her: LLM Price Watch started as a simple problem: comparing per-token pricing across Claude, GPT, Gemini, DeepSeek, and Grok meant opening five pricing pages and doing the math by hand every tim…",
-      "body": "Klikk her: LLM Price Watch started as a simple problem: comparing per-token pricing across Claude, GPT, Gemini, DeepSeek, and Grok meant opening five pricing pages and doing the math by hand every time a new model dropped. So I built a calculator. Then I built an API behind it. Then I noticed something about who was actually going to call that API. The obvious version The first version of the API was exactly what you'd expect: GET /v1/models — every tracked model with current pricing GET /v1/models/:id — a single model GET /v1/calculate?model=X&amp;input_tokens=N&amp;output_tokens=N — cost for a specific call Straightforward. A human developer hits /calculate , gets a number, builds their cost estimate into a dashboard somewhere. Done.",
-      "author": "Anders Rasmussen",
-      "date": "2026-08-08",
-      "readTime": "2 min",
-      "section": "ai",
-      "tags": [
-        "Ai"
-      ],
-      "featured": true,
-      "xpReward": 42,
-      "url": "https://dev.to/adrasmussen/i-built-a-pricing-api-for-llms-then-realized-the-real-users-might-not-be-human-4b8j",
-      "image": "/images/feed/feed-cc6d997d660d.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-d32b5958d288",
-      "title": "Your firewall is your AI policy — I probed 18 major sites to read it",
-      "excerpt": "Everyone's arguing about AI search visibility. Almost nobody is measuring the boring part: whether AI crawlers can fetch your pages at all. So I built a small open-source tool — geo-crawl-audit — that…",
-      "body": "Everyone's arguing about AI search visibility. Almost nobody is measuring the boring part: whether AI crawlers can fetch your pages at all . So I built a small open-source tool — geo-crawl-audit — that probes any site with the user-agents of every AI crawler that matters (GPTBot, OAI-SearchBot, ClaudeBot, PerplexityBot, ChatGPT-User, and friends), measures how each is treated versus a normal browser, and checks the thing most people never think about: how many words exist in the raw HTML before any JavaScript runs . Because here's the detail the industry keeps missing — GPTBot, ClaudeBot, and PerplexityBot don't execute JavaScript. For most sites, Googlebot (feeding Gemini) and Applebot are the only AI-adjacent crawlers that render it.",
-      "author": "Alex Bouchard",
+      "id": "feed-8be9c850e3ed",
+      "title": "Scraping Ethically: A Practical Guide to Respectful Web Crawling",
+      "excerpt": "Scraping Ethically: A Practical Guide to Respectful Web Crawling The single most important thing to understand about web scraping is this: ethical crawling is not a legal gray area—it’s a technical an…",
+      "body": "Scraping Ethically: A Practical Guide to Respectful Web Crawling The single most important thing to understand about web scraping is this: ethical crawling is not a legal gray area—it’s a technical and reputational survival strategy. If you scrape without respecting robots.txt, rate limits, and site terms, you will get blocked, your IPs will be burned, and you may face legal action. In 2023, the US District Court for the Northern District of California ruled in hiQ Labs v. LinkedIn that scraping publicly accessible data is legal, but that ruling came with a catch: it only applies when you don't bypass authentication or violate the site’s terms of service. The practical takeaway? Ethical scraping is the only sustainable way to extract data at scale. Here’s how to do it right.",
+      "author": "Aimigo",
       "date": "2026-08-08",
       "readTime": "2 min",
       "section": "software",
@@ -52,18 +33,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 51,
-      "url": "https://dev.to/abouchard11/your-firewall-is-your-ai-policy-i-probed-18-major-sites-to-read-it-5552",
-      "image": "/images/feed/feed-d32b5958d288.webp",
+      "xpReward": 34,
+      "url": "https://dev.to/aimigo_57e64d6aeaf6a67a02/scraping-ethically-a-practical-guide-to-respectful-web-crawling-4820",
+      "image": "/images/feed/feed-8be9c850e3ed.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-387368bd7337",
-      "title": "Docker for Beginners: Images, Containers, Ports, and Volumes Explained",
-      "excerpt": "Docker for Beginners: Images, Containers, Ports, and Volumes Explained If you've ever followed a programming tutorial and seen something like: docker run ... you've probably wondered: What exactly is…",
-      "body": "Docker for Beginners: Images, Containers, Ports, and Volumes Explained If you've ever followed a programming tutorial and seen something like: docker run ... you've probably wondered: What exactly is Docker doing? I had the same question when I started learning Docker. At first, I thought Docker was simply a way to \"run applications in containers.\" But there is much more to it. Once I understood four concepts — images, containers, ports, and volumes — Docker became much easier to understand. So let's break it down from the beginning. What Is Docker? Docker is a platform for building, packaging, and running applications in isolated environments called containers . The basic idea is simple: Package an application together with the things it needs to run, and make that package portable.",
-      "author": "Chetan Inaganti ",
+      "id": "feed-030630c9ddcd",
+      "title": "You built your modal with a `<div>` and a focus trap library. The native `<dialog>` does all of that.",
+      "excerpt": "Building a modal from scratch means writing the same boilerplate every time: a with role=\"dialog\", an aria-modal attribute, a tabindex=\"-1\" to steal focus, a keydown listener to catch Escape, a focus-…",
+      "body": "Building a modal from scratch means writing the same boilerplate every time: a &lt;div&gt; with role=\"dialog\" , an aria-modal attribute, a tabindex=\"-1\" to steal focus, a keydown listener to catch Escape, a focus-trap library to keep Tab cycling inside the dialog, and a click listener on the backdrop overlay you rendered yourself. It works, but you're doing the browser's job. The &lt;dialog&gt; element exists to take that job back. The baseline API &lt;dialog id= \"confirm-dialog\" &gt; &lt;h2&gt; Delete item? &lt;/h2&gt; &lt;p&gt; This cannot be undone. &lt;/p&gt; &lt;button id= \"cancel-btn\" &gt; Cancel &lt;/button&gt; &lt;button id= \"confirm-btn\" &gt; Confirm &lt;/button&gt; &lt;/dialog&gt; &lt;button id= \"open-btn\" &gt; Delete &lt;/button&gt; const dialog = document .",
+      "author": "Parsa Jiravand",
       "date": "2026-08-08",
       "readTime": "2 min",
       "section": "software",
@@ -71,18 +52,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 42,
-      "url": "https://dev.to/chetancodelrca/docker-for-beginners-images-containers-ports-and-volumes-explained-ee6",
-      "image": "/images/feed/feed-387368bd7337.webp",
+      "xpReward": 31,
+      "url": "https://dev.to/parsajiravand/you-built-your-modal-with-a-and-a-focus-trap-library-the-native-does-all-of-15lg",
+      "image": "/images/feed/feed-030630c9ddcd.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-e2f794f1477a",
-      "title": "Building an offline-first travel app in .NET MAUI (on-device OCR, currency & maps, no backend)",
-      "excerpt": "A build note from Horizon Software, a one-person Android studio. WanderWallet is a travel budget app, and the whole thing runs on the phone: no account, no backend, no cloud. Here's how the parts that…",
-      "body": "A build note from Horizon Software , a one-person Android studio. WanderWallet is a travel budget app, and the whole thing runs on the phone: no account, no backend, no cloud. Here's how the parts that look like they need a server actually work without one. The one constraint that shaped everything WanderWallet has a single non-negotiable rule: it has to work with no signal. You're three countries into a trip, your phone's in airplane mode to dodge roaming charges, and you still need to know whether you're on budget. That one requirement quietly makes most of the architectural decisions for you — no login, no server round-trips, and every feature that would normally lean on a cloud API has to earn its keep another way.",
-      "author": "Horizon Software",
+      "id": "feed-78c3c1bef0f6",
+      "title": "Stop importing `uuid`. `crypto.randomUUID()` has been native since 2021.",
+      "excerpt": "The uuid npm package is one of the most downloaded libraries in the JavaScript ecosystem. The vast majority of those installs exist for one thing: uuid/v4, which generates a random unique identifier i…",
+      "body": "The uuid npm package is one of the most downloaded libraries in the JavaScript ecosystem. The vast majority of those installs exist for one thing: uuid/v4 , which generates a random unique identifier in the standard xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx format. The browser — and Node.js — have been doing this natively since 2021. No package needed. The native API const id = crypto . randomUUID (); // \"110e8400-e29b-41d4-a716-446655440000\" That's the entire API surface. One call, no constructor, no configuration. It returns a v4 UUID string — the same format every UUID library produces, the same format your database expects. crypto.randomUUID() lives on the Web Crypto API's crypto object, which is globally available in browsers, Node.js, Deno, Bun, and Cloudflare Workers.",
+      "author": "Parsa Jiravand",
       "date": "2026-08-08",
       "readTime": "2 min",
       "section": "software",
@@ -90,48 +71,86 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 44,
-      "url": "https://dev.to/horizonsoftware/building-an-offline-first-travel-app-in-net-maui-on-device-ocr-currency-maps-no-backend-ecd",
-      "image": "/images/feed/feed-e2f794f1477a.webp",
+      "xpReward": 49,
+      "url": "https://dev.to/parsajiravand/stop-importing-uuid-cryptorandomuuid-has-been-native-since-2021-ehm",
+      "image": "/images/feed/feed-78c3c1bef0f6.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-05a63da479ce",
-      "title": "I Tried Building JavaScript Games Without a Game Engine. Here's What I Learned",
-      "excerpt": "I am a digital marketer, not a professional developer or game developer. Most of my career has been focused on SEO, growth marketing, paid acquisition, content, and digital strategy. When I started bu…",
-      "body": "I am a digital marketer, not a professional developer or game developer. Most of my career has been focused on SEO, growth marketing, paid acquisition, content, and digital strategy. When I started building GamesMom, however, I found myself learning much more about web development than I expected. GamesMom is a collection of free educational games and learning activities for kids that run directly in the browser. The site includes math games, word games, typing games, memory games, puzzle games, classroom games, quizzes, and other interactive activities. The idea was simple: make games that children can open and play without downloading an application or creating an account.",
-      "author": "Ravindra Reddy Chitla",
+      "id": "feed-9172f70b1f2a",
+      "title": "Nitecore’s latest power bank is the lightest and most compact yet",
+      "excerpt": "The Nitecore NB10000 Gen 4 power bank is a great option for endurance athletes and backpackers. | Photo by Thomas Ricker / The Verge There's two things you should know about me, your intrepid reviewer…",
+      "body": "The Nitecore NB10000 Gen 4 power bank is a great option for endurance athletes and backpackers. | Photo by Thomas Ricker / The Verge There's two things you should know about me, your intrepid reviewer: I hate the feature creep associated with modern power banks , and I love shaving grams off the gear I carry when backpacking, bikepacking , and trail running. So imagine my delight when Nitecore released a new generation of its ultralight NB10000 battery. After a few weeks with it I can confidently say: Haribo be damned ! The $83.95 NB10000 Gen 4 weighs just 146 grams, according to my scale, and measures 1.45 x 11.6 x 4.68cm (0.57 x 4.57 x 1.84 inches), according to Nitecore's spec sheet. That makes it the lightest and most compact 10,000mAh power bank I can find.",
+      "author": "Thomas Ricker",
       "date": "2026-08-08",
       "readTime": "2 min",
       "section": "software",
       "tags": [
-        "Javascript"
+        "Software"
       ],
       "featured": true,
-      "xpReward": 37,
-      "url": "https://dev.to/ravindrachitla/i-tried-building-javascript-games-without-a-game-engine-heres-what-i-learned-18b9",
-      "image": "/images/feed/feed-05a63da479ce.webp",
-      "source": "Dev.to",
+      "xpReward": 43,
+      "url": "https://www.theverge.com/tech/976506/nitecore-nb10000-gen4-review-adventure-battery",
+      "image": "/images/feed/feed-9172f70b1f2a.jpg",
+      "source": "The Verge",
       "isLive": true
     },
     {
-      "id": "feed-171691e3856a",
-      "title": "What Are Autonomous AI Agents? A Practical Guide for Developers",
-      "excerpt": "Most AI applications wait for a user to ask a question and then return an answer. Autonomous AI agents go further: they can interpret a goal, decide what steps are required, use external tools, evalua…",
-      "body": "Most AI applications wait for a user to ask a question and then return an answer. Autonomous AI agents go further: they can interpret a goal , decide what steps are required, use external tools, evaluate the results, and continue working until the task is completed or human help is needed. For example, a chatbot can explain how to resolve a customer complaint. An AI agent can read the complaint, retrieve the customer's order, check company policy, prepare a response, update the support ticket, and request approval before issuing a refund. That ability to make decisions and take actions is what makes autonomous AI agents different from traditional chatbots and fixed automation. 1. What Is an Autonomous AI Agent?",
-      "author": "Synfinity Dynamics Pvt Ltd",
+      "id": "feed-3205ae724a94",
+      "title": "Your store weighs 1.7 MB and still takes 18 seconds: the number that matters is 364 requests",
+      "excerpt": "Page weight is the number everyone checks, and it is the reason this store has been slow for I measured a Shopify storefront twice, cold cache, an hour apart: visit 1 visit 2 DOMContentLoaded 1.2 s 2.…",
+      "body": "Page weight is the number everyone checks, and it is the reason this store has been slow for months without anyone finding out why. I measured a Shopify storefront twice, cold cache, an hour apart: visit 1 visit 2 DOMContentLoaded 1.2 s 2.6 s load 18.7 s 18.1 s transferred 2 637 KB 1 736 KB requests 364 343 1.7 MB. By weight this is a healthy page — lighter than most of the stores I look at, and lighter than plenty of pages that finish in under two seconds. It still spends eighteen seconds finishing. Why the owner does not see it Look at the first row. The document is parsed and interactive in one to three seconds. The owner opens the shop, the header is there, the products are there, they scroll, they click, everything responds. Nothing about that experience says \"eighteen seconds\".",
+      "author": "Artur Smirnov",
       "date": "2026-08-08",
       "readTime": "2 min",
       "section": "software",
       "tags": [
-        "Developer"
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 39,
+      "url": "https://dev.to/smirnovartur/your-store-weighs-17-mb-and-still-takes-18-seconds-the-number-that-matters-is-364-requests-6lb",
+      "image": "/images/feed/feed-3205ae724a94.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-00d51a2abb60",
+      "title": "x402 designs out the intermediaries that produce your tax records",
+      "excerpt": "x402 lets software pay for things over HTTP. An agent calls a paid API, a I spent an evening reading the v2 specification line by line. The thing that In the United States, stablecoins are treated as…",
+      "body": "x402 lets software pay for things over HTTP. An agent calls a paid API, a fraction of a cent in USDC settles on-chain, the agent gets its data. No accounts, no API keys, no invoice. In December 2025 the protocol handled roughly 63 million transactions across 64,000 unique buyers, averaging about twelve cents each. I spent an evening reading the v2 specification line by line. The thing that struck me isn't in the spec at all. It's what the spec leaves out. Every one of those payments is a disposition In the United States, stablecoins are treated as property rather than currency. Spending one is a disposition that realizes gain or loss against basis. That is true of a $50,000 transfer and it is true of a payment worth twelve cents.",
+      "author": "Rodrigo Puliceno",
+      "date": "2026-08-08",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
       ],
       "featured": false,
-      "xpReward": 46,
-      "url": "https://dev.to/synfinity-dynamics-pvt-ltd/what-are-autonomous-ai-agents-a-practical-guide-for-developers-4iki",
-      "image": "/images/feed/feed-171691e3856a.webp",
+      "xpReward": 36,
+      "url": "https://dev.to/rpulicen/x402-designs-out-the-intermediaries-that-produce-your-tax-records-j28",
+      "image": "/images/feed/feed-00d51a2abb60.webp",
       "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-66734b63ebee",
+      "title": "Gas Stations are Changing Globally. How Has It Changed in Your Town? (Part 1: Asia)",
+      "excerpt": "In my recent trips globally have exposed me how the traditional petrol station model is undergoing a change as major oil and power companies scramble to adapt to rapid electric vehicle adoption. In Am…",
+      "body": "In my recent trips globally have exposed me how the traditional petrol station model is undergoing a change as major oil and power companies scramble to adapt to rapid electric vehicle adoption. In Amsterdam I saw Total which is now Total Energies, Shell has Recharge, Sinopec in China, Idemitsu in ... [continued] The post Gas Stations are Changing Globally. How Has It Changed in Your Town? (Part 1: Asia) appeared first on CleanTechnica .",
+      "author": "Raymond Tribdino",
+      "date": "2026-08-08",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Cars"
+      ],
+      "featured": false,
+      "xpReward": 48,
+      "url": "https://cleantechnica.com/2026/08/08/gas-stations-are-changing-globally-how-has-it-changed-in-your-town-part-1-asia/",
+      "image": "/images/feed/feed-66734b63ebee.jpg",
+      "source": "CleanTechnica",
       "isLive": true
     },
     {
@@ -147,29 +166,10 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 43,
       "url": "https://cleantechnica.com/2026/08/08/supercritical-co2-carbon-capture-power-cycles/",
       "image": "/images/feed/feed-8f0ad05ce7a7.png",
       "source": "CleanTechnica",
-      "isLive": true
-    },
-    {
-      "id": "feed-5be42d39ca68",
-      "title": "Biryani CSS Art — India's Soul in Every Grain 🍛",
-      "excerpt": "This is a submission for Frontend Challenge - Comfort Food Edition, CSS Art. I chose to build a classic Dum Biryani — the ultimate comfort food! 🍛 Here is my CSS Art representation of a traditional B…",
-      "body": "This is a submission for Frontend Challenge - Comfort Food Edition, CSS Art . Inspiration I chose to build a classic Dum Biryani — the ultimate comfort food! 🍛 There is nothing quite like opening a steaming handi of biryani and seeing the rich, saffron-colored rice dotted with fried onions, mint, and spices. It's a dish that brings people together and feels like a warm hug, making it the perfect inspiration for the Comfort Food challenge. Demo Here is my CSS Art representation of a traditional Biryani Handi! I built this primarily using vanilla CSS to create the realistic clay texture of the pot, the individual grains of rice, the steam animations, and the garnishes.",
-      "author": "Nitish Pandey",
-      "date": "2026-08-08",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 44,
-      "url": "https://dev.to/nitish_pandey_c5361afcae9/biryani-css-art-indias-soul-in-every-grain-17hb",
-      "image": "/images/feed/feed-5be42d39ca68.webp",
-      "source": "Dev.to",
       "isLive": true
     },
     {
@@ -185,7 +185,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 31,
       "url": "https://science.nasa.gov/image-article/apod/apod-2026-august-8-a-messier-moment-for-tempel-2/",
       "image": "/images/feed/feed-e1faafdd8315.jpg",
       "source": "NASA Breaking News",
@@ -204,7 +204,7 @@
         "Iphone"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 37,
       "url": "https://9to5mac.com/2026/08/07/whatsapp-makes-parent-managed-accounts-easier-to-set-up-on-iphone/",
       "image": "/images/feed/feed-0e56efd0ca4d.jpg",
       "source": "9to5Mac",
@@ -223,7 +223,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 47,
       "url": "https://cleantechnica.com/2026/08/07/xpeng-set-to-enter-the-philippines-with-the-globalized-mona/",
       "image": "/images/feed/feed-65d83e662aad.jpg",
       "source": "CleanTechnica",
@@ -242,7 +242,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 33,
       "url": "https://cleantechnica.com/2026/08/07/rd-100-awards-honor-4-nlr-innovations/",
       "image": "/images/feed/feed-7e9a5c000f1d.png",
       "source": "CleanTechnica",
@@ -261,7 +261,7 @@
         "Iphone"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 47,
       "url": "https://9to5mac.com/2026/08/07/apple-adds-nearly-45-hearing-devices-to-its-made-for-iphone-compatibility-list/",
       "image": "/images/feed/feed-64acd41a86dd.jpg",
       "source": "9to5Mac",
@@ -280,7 +280,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 53,
       "url": "https://cleantechnica.com/2026/08/07/green-hydrogen-us-renewable-energy-delaware-mid-atlantic/",
       "image": "/images/feed/feed-aa7045b6ae3f.jpg",
       "source": "CleanTechnica",
@@ -299,7 +299,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 37,
       "url": "https://www.space.com/space-exploration/voyager/nasa-figured-out-how-to-keep-its-48-year-old-voyager-2-probe-running-for-yet-another-year",
       "image": "/images/feed/feed-03fee12afd4f.jpg",
       "source": "Hacker News",
@@ -318,7 +318,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 46,
       "url": "https://cleantechnica.com/2026/08/07/nio-opens-battery-swapping-to-firefly-and-launches-5th-generation-swapping-stations/",
       "image": "/images/feed/feed-4b6f3702fc0d.jpg",
       "source": "CleanTechnica",
@@ -337,7 +337,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 31,
       "url": "https://cleantechnica.com/2026/08/07/waymo-ceo-dont-move-fast-break-things-with-physical-ai/",
       "image": "/images/feed/feed-f5bae86b1d44.jpg",
       "source": "CleanTechnica",
@@ -356,29 +356,10 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 33,
       "url": "https://9to5mac.com/2026/08/07/carplay-connection-issues/",
       "image": "/images/feed/feed-dc10bbd19c05.jpg",
       "source": "9to5Mac",
-      "isLive": true
-    },
-    {
-      "id": "feed-6fe90fdbece1",
-      "title": "U.S. Battery Storage Capacity Averaged 70% Growth Over The Last Three Years",
-      "excerpt": "Utility-scale battery storage capacity in the United States increased significantly during the last three years, with an annual average growth rate of 70%. By the end of 2025, the U.S. power system ha…",
-      "body": "Utility-scale battery storage capacity in the United States increased significantly during the last three years, with an annual average growth rate of 70%. By the end of 2025, the U.S. power system had operational battery storage capacity of 43.6 gigawatts (GW). During the first six months of 2026, operators added another 8.3 ... [continued] The post U.S. Battery Storage Capacity Averaged 70% Growth Over The Last Three Years appeared first on CleanTechnica .",
-      "author": "US Energy Information Administration",
-      "date": "2026-08-08",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Cars"
-      ],
-      "featured": false,
-      "xpReward": 48,
-      "url": "https://cleantechnica.com/2026/08/07/u-s-battery-storage-capacity-averaged-70-growth-over-the-last-three-years/",
-      "image": "/images/feed/feed-6fe90fdbece1.png",
-      "source": "CleanTechnica",
       "isLive": true
     },
     {
@@ -395,7 +376,7 @@
         "Game"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 53,
       "url": "https://www.polygon.com/hell-is-us-game-pass-hit/",
       "image": "/images/feed/feed-a1a70a49e9c2.jpg",
       "source": "Polygon",
@@ -414,7 +395,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 35,
       "url": "https://www.ign.com/articles/sega-is-auctioning-off-shadow-the-hedgehogs-real-life-motorcycle-for-a-good-cause",
       "image": "/images/feed/feed-768f4231fa15.jpg",
       "source": "IGN",
@@ -433,7 +414,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 33,
       "url": "https://www.ign.com/articles/jeff-vandermeer-reveals-annihilation-sequel-abdication-the-final-part-of-the-southern-reach-series",
       "image": "/images/feed/feed-5fb91ce6641c.webp",
       "source": "IGN",
@@ -452,7 +433,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 47,
       "url": "https://www.ign.com/articles/marvel-tokon-stumbles-to-mixed-steam-reviews-as-miserable-pc-port-complaints-prompt-response-from-arc-system-works",
       "image": "/images/feed/feed-af326133d525.jpg",
       "source": "IGN",
@@ -471,7 +452,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 39,
       "url": "https://www.polygon.com/new-soulslike-memoirium-on-steam/",
       "image": "/images/feed/feed-fe3673f4fed0.png",
       "source": "Polygon",
@@ -490,7 +471,7 @@
         "Security"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 43,
       "url": "https://techcrunch.com/2026/08/07/openai-says-it-slowed-astra-model-development-over-security-concerns/",
       "image": "/images/feed/feed-59163ffd3cbe.jpg",
       "source": "TechCrunch",
@@ -528,7 +509,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 31,
       "url": "https://9to5mac.com/2026/08/07/claude-code-now-lets-sessions-talk-to-each-other-on-macos/",
       "image": "/images/feed/feed-67c487686801.jpg",
       "source": "9to5Mac",
@@ -547,7 +528,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 41,
       "url": "https://www.ign.com/articles/brandon-sanderson-says-the-speed-racer-movie-is-unironically-a-10-out-of-10",
       "image": "/images/feed/feed-14f2604a6c13.jpg",
       "source": "IGN",
@@ -566,7 +547,7 @@
         "Iphone"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 51,
       "url": "https://9to5mac.com/2026/08/07/9to5mac-overtime-076-native-retro-games-on-iphone/",
       "image": "/images/feed/feed-441a1e342387.jpg",
       "source": "9to5Mac",
@@ -585,7 +566,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 49,
       "url": "https://www.androidauthority.com/youtube-tv-espn-unlimited-3696125/",
       "image": "/images/feed/feed-63cc872c4ddd.jpg",
       "source": "Android Authority",
@@ -604,7 +585,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 41,
       "url": "https://techcrunch.com/2026/08/07/wacoms-movinkpad-11-is-a-fun-and-mid-priced-entry-point-for-digital-artists/",
       "image": "/images/feed/feed-3ac7659d9bc3.jpg",
       "source": "TechCrunch",
@@ -624,7 +605,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 44,
       "url": "https://spacenews.com/senate-installs-new-chiefs-for-u-s-military-space-acquisition-spy-satellites/",
       "image": "/images/feed/feed-8993ee13895d.png",
       "source": "SpaceNews",
@@ -643,7 +624,7 @@
         "Security"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 37,
       "url": "https://techcrunch.com/2026/08/07/security-researchers-scanned-the-polish-web-and-found-courts-hospitals-and-airports-at-risk-of-hacks/",
       "image": "/images/feed/feed-7feef810b451.jpg",
       "source": "TechCrunch",
@@ -681,7 +662,7 @@
         "Starship"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 52,
       "url": "https://www.space.com/space-exploration/launches-spacecraft/not-looking-good-right-now-starship-likely-to-be-lost-at-sea-2-weeks-after-epic-13th-test-flight-elon-musk-says",
       "image": "/images/feed/feed-fcdf29139577.jpg",
       "source": "Space.com",
@@ -701,7 +682,7 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 49,
       "url": "https://www.bleepingcomputer.com/news/security/framework-tally-disclose-metabase-data-theft-attacks/",
       "image": "/images/feed/feed-6278098620d9.jpg",
       "source": "BleepingComputer",
@@ -720,7 +701,7 @@
         "Breach"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 53,
       "url": "https://www.bleepingcomputer.com/news/security/unlimited-technology-systems-breach-impacts-38-million-people/",
       "image": "/images/feed/feed-8a6bf048fb5d.jpg",
       "source": "BleepingComputer",
@@ -739,7 +720,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 32,
       "url": "https://www.space.com/space-exploration/voyager/nasa-figured-out-how-to-keep-its-48-year-old-voyager-2-probe-running-for-yet-another-year",
       "image": "/images/feed/feed-03fee12afd4f.jpg",
       "source": "Space.com",
@@ -758,7 +739,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 38,
       "url": "https://science.nasa.gov/earth/2026-igarss-hyperwall-schedule/",
       "image": "/images/feed/feed-d9c195a646fd.png",
       "source": "NASA Breaking News",
@@ -777,7 +758,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 30,
       "url": "https://thehackernews.com/2026/08/nearly-800-malicious-npm-packages.html",
       "image": "/images/feed/feed-22c85ae6a67d.jpg",
       "source": "The Hacker News",
@@ -796,7 +777,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 38,
       "url": "https://www.theverge.com/ai-artificial-intelligence/976948/openai-astra-model-pause-critical-cyber-capabilities",
       "image": "/images/feed/feed-65308bcbb462.jpg",
       "source": "The Verge",
@@ -815,7 +796,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 47,
       "url": "https://thehackernews.com/2026/08/clickfix-attacks-deliver-macos-stealer.html",
       "image": "/images/feed/feed-1459d2632c9c.jpg",
       "source": "The Hacker News",
@@ -824,8 +805,8 @@
     {
       "id": "feed-669f08ba97d4",
       "title": "UNC6671 Vishing Attacks Target Personal Phones to Steal SaaS Data",
-      "excerpt": "A recent wave of cyber attacks targeting financial services, private equity, and professional services is attributed to a data extortion group known as UNC6671. \"UNC6671 continues to rely on voice phi…",
-      "body": "A recent wave of cyber attacks targeting financial services, private equity, and professional services is attributed to a data extortion group known as UNC6671. \"UNC6671 continues to rely on voice phishing (vishing) to target enterprise employees, posing as IT help desk staff facilitating mandatory, urgent security migrations. Significantly, the threat actor often contacts employees via their",
+      "excerpt": "A recent wave of cyber attacks targeting financial services, private equity, and professional services has been attributed to a data extortion group known as UNC6671. \"UNC6671 continues to rely on voi…",
+      "body": "A recent wave of cyber attacks targeting financial services, private equity, and professional services has been attributed to a data extortion group known as UNC6671. \"UNC6671 continues to rely on voice phishing (vishing) to target enterprise employees, posing as IT help desk staff facilitating mandatory, urgent security migrations. Significantly, the threat actor often contacts employees via",
       "author": "info@thehackernews.com (The Hacker News)",
       "date": "2026-08-07",
       "readTime": "2 min",
@@ -834,7 +815,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 54,
       "url": "https://thehackernews.com/2026/08/unc6671-vishing-attacks-target-personal.html",
       "image": "/images/feed/feed-669f08ba97d4.jpg",
       "source": "The Hacker News",
@@ -853,7 +834,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 44,
       "url": "https://www.cnet.com/tech/services-and-software/details-leak-openai-doughnut-shaped-speaker/",
       "image": "/images/feed/feed-861d5fc9c4cc.jpg",
       "source": "CNET",
@@ -872,7 +853,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 54,
       "url": "https://techcrunch.com/2026/08/07/cloudflare-launches-kitesurf-a-browser-built-for-ai-agents/",
       "image": "/images/feed/feed-62678037a7fe.jpg",
       "source": "TechCrunch",
@@ -891,7 +872,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 52,
       "url": "https://openai.com/index/responding-next-frontier-critical-cyber-capabilities",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "OpenAI Blog",
@@ -910,7 +891,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 42,
       "url": "https://openai.com/index/hsp-gruppe",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "OpenAI Blog",
@@ -930,23 +911,43 @@
         "Claude"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 46,
       "url": "https://thehackernews.com/2026/08/claude-code-and-gemini-cli-flaws-let.html",
       "image": "/images/feed/feed-ce47ddc808c8.jpg",
       "source": "The Hacker News",
       "isLive": true
+    },
+    {
+      "id": "feed-44629d3fcbba",
+      "title": "OpenAI rolls out a major ChatGPT upgrade, even if you don’t pay for it",
+      "excerpt": "OpenAI is rolling out a more reliable version of ChatGPT GPT-5.6 Sol for Plus and Pro users, while Free users are getting unlimited text chats with GPT-5.6 Luna. [...]",
+      "body": "OpenAI is rolling out a more reliable version of ChatGPT GPT-5.6 Sol for Plus and Pro users, while Free users are getting unlimited text chats with GPT-5.6 Luna. [...]\n\nThis report, published by BleepingComputer, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Openai, Chatgpt. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to BleepingComputer using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Mayank Parmar",
+      "date": "2026-08-06",
+      "readTime": "2 min",
+      "section": "ai",
+      "tags": [
+        "Openai",
+        "Chatgpt"
+      ],
+      "featured": false,
+      "xpReward": 43,
+      "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/openai-rolls-out-a-major-chatgpt-upgrade-even-if-you-dont-pay-for-it/",
+      "image": "/images/feed/feed-44629d3fcbba.jpg",
+      "source": "BleepingComputer",
+      "isLive": true
     }
   ],
   "breakingNews": [
-    "DEV.TO: Building a Leak-Safe gRPC Frame Decoder on Reactor Netty",
-    "DEV.TO: I built a pricing API for LLMs — then realized the real users might not be human",
-    "DEV.TO: Your firewall is your AI policy — I probed 18 major sites to read it",
-    "DEV.TO: Docker for Beginners: Images, Containers, Ports, and Volumes Explained",
-    "DEV.TO: Building an offline-first travel app in .NET MAUI (on-device OCR, currency & maps, no backend)",
-    "DEV.TO: I Tried Building JavaScript Games Without a Game Engine. Here's What I Learned",
-    "DEV.TO: What Are Autonomous AI Agents? A Practical Guide for Developers",
+    "DEV.TO: My routing policy and my traces disagreed 96 times. Never once on the main thread.",
+    "DEV.TO: Scraping Ethically: A Practical Guide to Respectful Web Crawling",
+    "DEV.TO: You built your modal with a `<div>` and a focus trap library. The native `<dialog>` does all of that.",
+    "DEV.TO: Stop importing `uuid`. `crypto.randomUUID()` has been native since 2021.",
+    "THE VERGE: Nitecore’s latest power bank is the lightest and most compact yet",
+    "DEV.TO: Your store weighs 1.7 MB and still takes 18 seconds: the number that matters is 364 requests",
+    "DEV.TO: x402 designs out the intermediaries that produce your tax records",
+    "CLEANTECHNICA: Gas Stations are Changing Globally. How Has It Changed in Your Town? (Part 1: Asia)",
     "CLEANTECHNICA: Supercritical CO₂ Is Useful. The System Claims Are The Problem.",
-    "DEV.TO: Biryani CSS Art — India's Soul in Every Grain 🍛",
     "NASA BREAKING NEWS: APOD: 2026 August 8 – A Messier Moment for Tempel 2"
   ],
   "sectionVideos": {}
