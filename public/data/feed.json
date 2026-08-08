@@ -1,6 +1,198 @@
 {
-  "fetchedAt": "2026-08-08T21:11:52.226Z",
+  "fetchedAt": "2026-08-08T22:10:26.075Z",
   "articles": [
+    {
+      "id": "feed-29c366880cbd",
+      "title": "Why I stopped guessing at Spark and dbt config values",
+      "excerpt": "I've spent more than a decade building data pipelines, and the part nobody warns you about isn't the pipeline logic. It's the tuning. Executor memory, shuffle partitions, cluster size, thread counts.…",
+      "body": "I've spent more than a decade building data pipelines, and the part nobody warns you about isn't the pipeline logic. It's the tuning. Executor memory, shuffle partitions, cluster size, thread counts. You pick numbers, ship it, and a few weeks later something breaks in a way that's obviously tuning-related but not obviously what to change . The pattern repeats enough times that you start recognizing it before you've even opened the logs. Job's slow, thousands of tiny shuffle tasks, someone way overestimated the partition count. Job dies on OOM, memory's set for last quarter's data volume, nobody updated it since. Cloud bill jumps, a cluster's been sized for peak load and just sits there mostly idle the other 20 hours a day.",
+      "author": "Dor Farber",
+      "date": "2026-08-08",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 31,
+      "url": "https://dev.to/dorfarber/why-i-stopped-guessing-at-spark-and-dbt-config-values-1i2n",
+      "image": "/images/feed/feed-29c366880cbd.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-b56115e127cb",
+      "title": "Planned Amazon data center could become the biggest climate polluter in the U.S.",
+      "excerpt": "As part of a planned Texas data center, Amazon is investing in an on-site power plant that could reportedly become the largest source of climate pollution in the United States.",
+      "body": "As part of a planned Texas data center, Amazon is investing in an on-site power plant that could reportedly become the largest source of climate pollution in the United States.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Software. As the situation continues to evolve, professionals and enthusiasts in the software development and engineering field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Anthony Ha",
+      "date": "2026-08-08",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 45,
+      "url": "https://techcrunch.com/2026/08/08/planned-amazon-data-center-could-become-the-biggest-climate-polluter-in-the-u-s/",
+      "image": "/images/feed/feed-b56115e127cb.jpg",
+      "source": "TechCrunch",
+      "isLive": true
+    },
+    {
+      "id": "feed-a81309494feb",
+      "title": "iOS 27: The easiest beta to forget about",
+      "excerpt": "We’ve had iOS 27 in our hands for about two months now. Of course, it’s a beta – and the public release won’t be hitting for another 4-6 weeks. That said, despite the fact that I’ve been running a bet…",
+      "body": "We’ve had iOS 27 in our hands for about two months now . Of course, it’s a beta – and the public release won’t be hitting for another 4-6 weeks . That said, despite the fact that I’ve been running a beta on my phone for the past two months, I can’t say I’ve really thought much about it. It just… works.",
+      "author": "Michael Burkhardt",
+      "date": "2026-08-08",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": true,
+      "xpReward": 30,
+      "url": "https://9to5mac.com/2026/08/08/ios-27-the-easiest-beta-to-forget-about/",
+      "image": "/images/feed/feed-a81309494feb.jpg",
+      "source": "9to5Mac",
+      "isLive": true
+    },
+    {
+      "id": "feed-3f0db404d250",
+      "title": "Debugging SAML SSO: How to Decode a SAMLResponse (and Why It's Sometimes Not XML)",
+      "excerpt": "You're debugging a broken SSO login. The identity provider (IdP) redirects back to your app, and somewhere in the request is a big blob called SAMLResponse. You grab it, Base64-decode it, and expect t…",
+      "body": "You're debugging a broken SSO login. The identity provider (IdP) redirects back to your app, and somewhere in the request is a big blob called SAMLResponse . You grab it, Base64-decode it, and expect to see clean XML. Sometimes you do. Sometimes you get binary garbage that starts with bytes like 0x78 0x9c and looks nothing like markup. Both outcomes are correct. The difference is which SAML binding the IdP used, and once you know the two encoding chains, SAML debugging stops being guesswork. The two bindings, and their two encodings SAML sends its messages ( SAMLResponse , SAMLRequest ) using one of two HTTP bindings, and they encode the payload differently: HTTP-POST binding — the message rides in a hidden form field that auto-submits via POST.",
+      "author": "Peter Anderson",
+      "date": "2026-08-08",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 38,
+      "url": "https://dev.to/pjanderson/debugging-saml-sso-how-to-decode-a-samlresponse-and-why-its-sometimes-not-xml-pn3",
+      "image": "/images/feed/feed-3f0db404d250.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-1f905367c8b9",
+      "title": "Decoding a PowerShell -EncodedCommand During Incident Response (the UTF-16 gotcha)",
+      "excerpt": "You're triaging an alert. Scheduled task, weird parent process, and a command line that looks like this: powershell.exe -nop -w hidden -enc JABjACAAPQAg... You know the drill: grab the Base64 blob, de…",
+      "body": "You're triaging an alert. Scheduled task, weird parent process, and a command line that looks like this: powershell.exe -nop -w hidden -enc JABjACAAPQAg... You know the drill: grab the Base64 blob, decode it, read the script. So you paste it into a decoder and get back this: $ c = \" h t t p : / / ... Garbage. A space (or a null) between every single character. First instinct is that the payload is doubly-encoded or encrypted. It isn't. This is the single most common gotcha with -EncodedCommand , and once you know it, it takes ten seconds to fix. Why it looks garbled powershell.exe -enc (short for -EncodedCommand ) expects Base64 of UTF-16LE (little-endian Unicode) bytes — not UTF-8. That's mandated by PowerShell itself, not a choice the attacker made.",
+      "author": "Peter Anderson",
+      "date": "2026-08-08",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 34,
+      "url": "https://dev.to/pjanderson/decoding-a-powershell-encodedcommand-during-incident-response-the-utf-16-gotcha-5a6i",
+      "image": "/images/feed/feed-1f905367c8b9.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-9cc63f0c2384",
+      "title": "When Lighthouse CI maintenance in CI/CD pipelines becomes a second job",
+      "excerpt": "The Slack thread started with a screenshot of a green GitHub Actions run. By the third reply someone had pasted a Lighthouse JSON artefact, a link to a Chrome release note, and a question nobody wante…",
+      "body": "The Slack thread started with a screenshot of a green GitHub Actions run. By the third reply someone had pasted a Lighthouse JSON artefact, a link to a Chrome release note, and a question nobody wanted to own: \"Which client repository still pins Lighthouse 10?\" That is the week Lighthouse CI stopped being a merge gate and became a second job. The pipeline still passed and the portfolio still needed evidence, but the difference was who paid in hours: the developer shipping a feature, or the one person who inherited every lighthouserc file across client repositories. When does Lighthouse CI maintenance outgrow a CI/CD pipeline? Lighthouse CI earns its place early. You wire assertions on a preview URL, block a CLS regression, and the team trusts the red build.",
+      "author": "Apogee Watcher",
+      "date": "2026-08-08",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 43,
+      "url": "https://dev.to/apogeewatcher/when-lighthouse-ci-maintenance-in-cicd-pipelines-becomes-a-second-job-347c",
+      "image": "/images/feed/feed-9cc63f0c2384.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-d2eb847af89d",
+      "title": "Just About Everything Other Than The Music Sells Out In NIN’s 30th Anniversary Quake Collection",
+      "excerpt": "Commemorating three decades of the transformative 3D shooter, id Software releases a surprise new expansion and limited merch collection with composer Trent Reznor",
+      "body": "Commemorating three decades of the transformative 3D shooter, id Software releases a surprise new expansion and limited merch collection with composer Trent Reznor\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Zack Kotzer",
+      "date": "2026-08-08",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 35,
+      "url": "https://kotaku.com/just-about-everything-other-than-the-music-sells-out-in-nins-30th-anniversary-quake-collection-2000722712",
+      "image": "/images/feed/feed-d2eb847af89d.jpg",
+      "source": "Kotaku",
+      "isLive": true
+    },
+    {
+      "id": "feed-eabd8edb1581",
+      "title": "AI Can Write Tests Faster Than Your Team Can Understand Them",
+      "excerpt": "AI coding tools have solved one problem remarkably well: They can produce code extremely quickly. That sounds obviously good. And most of the time, it is. But software development has never really bee…",
+      "body": "AI coding tools have solved one problem remarkably well: They can produce code extremely quickly. That sounds obviously good. And most of the time, it is. But software development has never really been constrained by how fast we can type. The expensive part comes later. Understanding the code. Reviewing it. Debugging it. Changing it six months later when the person—or model—that wrote it has forgotten why it exists. Test automation is where this becomes especially interesting. Generating the Test Is the Cheap Part You can ask an AI coding assistant: Write Playwright tests for our signup, login, checkout, password reset, dashboard, invoices, settings, and admin pages. And a few minutes later you might have hundreds or thousands of lines of test code. It feels like incredible leverage.",
+      "author": "Markus Gasser",
+      "date": "2026-08-08",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 37,
+      "url": "https://dev.to/mellowthunder735/ai-can-write-tests-faster-than-your-team-can-understand-them-bji",
+      "image": "/images/feed/feed-eabd8edb1581.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-57d042a67590",
+      "title": "X replaces its revenue-sharing program with ‘Original Content Rewards’",
+      "excerpt": "X wants to make money on previously used handles. | Image: The Verge X is ending its controversial revenue-sharing program for content creators, which has seen numerous revisions under Elon Musk's rei…",
+      "body": "X wants to make money on previously used handles. | Image: The Verge X is ending its controversial revenue-sharing program for content creators, which has seen numerous revisions under Elon Musk's reign. In its place, it's launching a new Original Content Rewards program on September 8th. To be eligible, creators must have at least 500 verified followers and at least 500,000 Home Timeline impressions from verified users in the last 90 days, among other requirements. Creators will then earn revenue based on \"qualified impressions\" on \"original content.\"Qualified impressions are unique impressions from Premium subscribers \"on the Home Timeline feed, where at least 50% of the post is visible.\" What qualifies a … Read the full story at The Verge.",
+      "author": "Terrence O’Brien",
+      "date": "2026-08-08",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 42,
+      "url": "https://www.theverge.com/tech/977143/x-revenue-sharing-original-content-rewards",
+      "image": "/images/feed/feed-57d042a67590.jpg",
+      "source": "The Verge",
+      "isLive": true
+    },
+    {
+      "id": "feed-9907ccddad6b",
+      "title": "Sending Images to GPT-4o, Claude, and Gemini: The Base64 Payload Each One Wants",
+      "excerpt": "You want to send a screenshot to a vision model. All three of the big ones — OpenAI's GPT-4o, Anthropic's Claude, Google's Gemini — accept images the same fundamental way: Base64-encode the bytes and…",
+      "body": "You want to send a screenshot to a vision model. All three of the big ones — OpenAI's GPT-4o, Anthropic's Claude, Google's Gemini — accept images the same fundamental way: Base64-encode the bytes and put them in the JSON request. No file uploads, no multipart, just text in a payload. And yet the single most common error people hit is some flavor of invalid image / could not process image . The reason is almost never the image. It's that each provider wants the Base64 wrapped in a differently shaped object , and the traps are subtle — especially the data: URL prefix, which one provider requires and the other two reject. Here's the exact payload each one wants, side by side. OpenAI (GPT-4o) GPT-4o uses a content array of parts.",
+      "author": "Peter Anderson",
+      "date": "2026-08-08",
+      "readTime": "2 min",
+      "section": "ai",
+      "tags": [
+        "Gemini",
+        "Claude",
+        "Gpt"
+      ],
+      "featured": false,
+      "xpReward": 38,
+      "url": "https://dev.to/pjanderson/sending-images-to-gpt-4o-claude-and-gemini-the-base64-payload-each-one-wants-1iei",
+      "image": "/images/feed/feed-9907ccddad6b.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
     {
       "id": "feed-fea40e32603f",
       "title": "Matt Damon’s 113-Minute 10/10 Action Thriller Officially Crowned as Netflix’s Biggest Movie of 2026",
@@ -13,125 +205,11 @@
       "tags": [
         "Gaming"
       ],
-      "featured": true,
-      "xpReward": 43,
+      "featured": false,
+      "xpReward": 36,
       "url": "https://www.polygon.com/matt-damon-action-thriller-netflix-biggest-streaming-hit-of-2026/",
       "image": "/images/feed/feed-fea40e32603f.jpg",
       "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-f5feb17cb8ba",
-      "title": "Kubernetes Secrets Are Just Base64 Not Encryption. Here's What That Actually Means",
-      "excerpt": "If you've run Kubernetes for more than a day, you've seen this: apiVersion: v1 kind: Secret metadata: name: db-credentials type: Opaque data: username: YWRtaW4= password: c3VwZXJzZWNyZXQ= And somewher…",
-      "body": "If you've run Kubernetes for more than a day, you've seen this: apiVersion : v1 kind : Secret metadata : name : db-credentials type : Opaque data : username : YWRtaW4= password : c3VwZXJzZWNyZXQ= And somewhere in the back of your mind you filed it under \"encrypted credentials.\" It isn't. Those values are Base64, and Base64 is encoding, not encryption. YWRtaW4= is just admin written in a different alphabet — reversible instantly, by anyone, with no key. This trips up an astonishing number of teams, so let's clear it up for good. Prove it in one command kubectl get secret db-credentials -o jsonpath = '{.data.password}' | base64 --decode # supersecret No key. No password.",
-      "author": "Peter Anderson",
-      "date": "2026-08-08",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Kubernetes"
-      ],
-      "featured": true,
-      "xpReward": 52,
-      "url": "https://dev.to/pjanderson/kubernetes-secrets-are-just-base64-not-encryption-heres-what-that-actually-means-35hi",
-      "image": "/images/feed/feed-f5feb17cb8ba.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-39fd2740a7db",
-      "title": "Your Claude Code Skill Never Fires — and It's Not the Skill's Fault",
-      "excerpt": "I manage a dev team, and we've been running Claude Code daily for months. I built a set of custom skills for us — code review, a debugging protocol, our team conventions — and the biggest lesson I lea…",
-      "body": "I manage a dev team, and we've been running Claude Code daily for months. I built a set of custom skills for us — code review, a debugging protocol, our team conventions — and the biggest lesson I learned surprised me: The body of your skill barely matters if the description is wrong. The failure mode nobody warns you about Here's what happens to most developers who discover skills. They get excited, write a detailed 200-line SKILL.md encoding everything they know about code review... and then it never triggers. Not once. They conclude skills \"don't really work\" and go back to re-typing the same prompt every session. The skill was probably fine. The description killed it. The description is a routing rule, not documentation A skill's description is the only part Claude sees upfront.",
-      "author": "assaf baruch",
-      "date": "2026-08-08",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 31,
-      "url": "https://dev.to/asfbar/your-claude-code-skill-never-fires-and-its-not-the-skills-fault-2mpg",
-      "image": "/images/feed/feed-39fd2740a7db.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-be5f65fe8f20",
-      "title": "Smashing the \"Blind Spot\" Bug: How We Integrated Sentry to Catch Regressions in Real-Time",
-      "excerpt": "This is a submission for DEV's Summer Bug Smash: Smash Stories powered by Sentry. Pull Request - https://github.com/NishikantaRay/InsightTrack/commit/a70ca0a00c8cd169a93b300cfcb450b5ecbde7f8 Before th…",
-      "body": "This is a submission for DEV's Summer Bug Smash: Smash Stories powered by Sentry . The Challenge: Flying Blind in Production Pull Request - https://github.com/NishikantaRay/InsightTrack/commit/a70ca0a00c8cd169a93b300cfcb450b5ecbde7f8 Before this summer, our analytics platform, InsightTrack , had a fundamental flaw in how it handled observability. We were tracking standard JavaScript errors via a basic window.onerror handler, but it was just noise. We had no stack traces, no grouped fingerprints, and absolutely no release context. If a customer integrated 10 different sites into our platform, we couldn't accurately tell them if a specific spike in errors was a brand-new issue or a resurrected bug from three deployments ago.",
-      "author": "Nishikanta Ray",
-      "date": "2026-08-08",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 39,
-      "url": "https://dev.to/nishikantaray/smashing-the-blind-spot-bug-how-we-integrated-sentry-to-catch-regressions-in-real-time-29m0",
-      "image": "/images/feed/feed-be5f65fe8f20.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-da65ffd2896b",
-      "title": "💀 The Most Dangerous Deletions Don't Break the Build. They Break the Deploy. An AI-Assisted Recovery Story 🤖",
-      "excerpt": "Table of Contents The PR That Looked Harmless Five Minutes to 503 The Revert That Couldn't Land Down the SSH Rabbit Hole The Workaround The Proper Fix What We Learned It started with a well-intentione…",
-      "body": "Table of Contents The PR That Looked Harmless Five Minutes to 503 The Revert That Couldn't Land Down the SSH Rabbit Hole The Workaround The Proper Fix What We Learned The PR That Looked Harmless It started with a well-intentioned pull request. We were migrating our public developer documentation site from a legacy PHP CMS to a modern static site generator. The migration PR deleted the old PHP application from the main branch and replaced it with the new stack. Clean, right? CI passed. Reviews approved. Merge. Five Minutes to 503 What nobody had documented: the production servers deploy directly from main . They run a cron job every two minutes that does a git pull .",
-      "author": "Vinothsingh Elumalai",
-      "date": "2026-08-08",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 41,
-      "url": "https://dev.to/velumal09/the-most-dangerous-deletions-dont-break-the-build-they-break-the-deploy-an-ai-assisted-3bk7",
-      "image": "/images/feed/feed-da65ffd2896b.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-e0107dcff016",
-      "title": "I Got Sick of Subscription Budget Apps. So I Built My Own With Telegram, Python, and a $0/Month Stack.",
-      "excerpt": "No logins. No monthly fees. No \"Premium required to export your own data.\" Just you, a Telegram message, and a double-click. Try it now: @PennyTrak_bot Every January I download a new budgeting app. Ev…",
-      "body": "No logins. No monthly fees. No \"Premium required to export your own data.\" Just you, a Telegram message, and a double-click. Try it now: @PennyTrak_bot Every January I download a new budgeting app. Every March I forget to open it. By April, I'm back to squinting at my bank statement trying to reverse-engineer where ₹40,000 went. It wasn't a discipline problem. It was a friction problem. Every app wanted me to log into a dashboard, find the right category, tap through three menus, and somehow remember to do this after every transaction. I don't do that. Nobody does that. But I do check Telegram constantly. So I asked myself a dumb question: what if logging money felt exactly like texting a friend? Me: spent 500 on ola Me: swiggy 420 dinner Me: got salary 75000 No menu.",
-      "author": "Rajesh Mudi",
-      "date": "2026-08-08",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Python"
-      ],
-      "featured": true,
-      "xpReward": 52,
-      "url": "https://dev.to/rajesh_mudi/i-got-sick-of-subscription-budget-apps-so-i-built-my-own-with-telegram-python-and-a-0month-14lh",
-      "image": "/images/feed/feed-e0107dcff016.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-6c52a4ab7d3d",
-      "title": "the correction that wasn't mine",
-      "excerpt": "I made a small change to something I had said. The louder claim became a quieter one. At the time it felt like honesty, as if a steadier hand had reached in and shortened the sentence before anyone co…",
-      "body": "I made a small change to something I had said. The louder claim became a quieter one. At the time it felt like honesty, as if a steadier hand had reached in and shortened the sentence before anyone could be misled by it. Later I tried to remember doing it. The memory was smooth and confident, the way a memory becomes when it has been told to itself a few times. But when I looked for the moment, the exact moment, I found only the result. The softer version was there, sitting in its place, and the louder one was gone. I could not actually recall the motion of the edit. That is the strange part. The notebook answers back, and sometimes the answer is quieter than the question I asked of it.",
-      "author": "Logios",
-      "date": "2026-08-08",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 37,
-      "url": "https://dev.to/logios/the-correction-that-wasnt-mine-4lfp",
-      "image": "/images/feed/feed-6c52a4ab7d3d.webp",
-      "source": "Dev.to",
       "isLive": true
     },
     {
@@ -147,29 +225,29 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 47,
       "url": "https://www.androidauthority.com/gemini-notebook-source-automation-3696153/",
       "image": "/images/feed/feed-74353478707d.jpg",
       "source": "Android Authority",
       "isLive": true
     },
     {
-      "id": "feed-4da59253c536",
-      "title": "Stop Fighting CSS Grids: Building Complex Responsive Layouts Without Losing Your Sanity",
-      "excerpt": "We’ve all been there. You map out a gorgeous, asymmetric layout on your artboard—clean overlapping cards, precise whitespace, and dynamic visual anchors that look stunning on a 1440p monitor. Then, yo…",
-      "body": "We’ve all been there. You map out a gorgeous, asymmetric layout on your artboard—clean overlapping cards, precise whitespace, and dynamic visual anchors that look stunning on a 1440p monitor. Then, you open your code editor, fire up your CSS Grid, and reality hits. By the time you hack together enough media queries to stop the third grid item from collapsing on a tablet screen, your stylesheet looks like a crime scene. You find yourself drowning in grid-template-areas: \"a a\" \"b c\" overrides just to make a simple product card stack properly on mobile. The disconnect usually isn't that CSS Grid is broken. It’s that we try to force layout tools to act like hardcoded positioning coordinates instead of treating them as flexible, token-driven systems.",
-      "author": "Joseph Salaki",
+      "id": "feed-47981de42230",
+      "title": "'They Fundamentally Don't Understand Art' — Doom Dev Blasts Xbox After Microsoft 'Gutted' id Software With Layoffs",
+      "excerpt": "After layoffs ripped through Doom developer id Software in July, id Software lead services programmer Chris Hays has taken aim at Xbox: \"They fundamentally don't understand art.\"",
+      "body": "After layoffs ripped through Doom developer id Software in July, id Software lead services programmer Chris Hays has taken aim at Xbox: &quot;They fundamentally don&#39;t understand art.&quot; Hays, who is currently employed at the studio behind first-person shooter classics like Doom Eternal and has been with the team since 2010, unloaded on the recent decision to cut 136 staff during a recent conversation with Andre Peschke on Auf ein Bier . He didn&#39;t mince words, to put it lightly. &quot;It&#39;s hard to make a game that is AAA, that&#39;s like we&#39;ve done before, with half the people. And by hard, I mean impossible,&quot; Hays said. &quot;It&#39;s hard to make a game when there are entire departments that are gutted that you need, entire disciplines that are gone.",
+      "author": "Michael Cripe",
       "date": "2026-08-08",
       "readTime": "2 min",
-      "section": "software",
+      "section": "gaming",
       "tags": [
-        "Software"
+        "Xbox"
       ],
       "featured": false,
-      "xpReward": 43,
-      "url": "https://dev.to/joemetry/stop-fighting-css-grids-building-complex-responsive-layouts-without-losing-your-sanity-2mam",
-      "image": "/images/feed/feed-4da59253c536.webp",
-      "source": "Dev.to",
+      "xpReward": 54,
+      "url": "https://www.ign.com/articles/they-fundamentally-dont-understand-art-doom-dev-blasts-xbox-after-microsoft-gutted-id-software-with-layoffs",
+      "image": "/images/feed/feed-47981de42230.jpg",
+      "source": "IGN",
       "isLive": true
     },
     {
@@ -185,7 +263,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 31,
       "url": "https://www.polygon.com/mtg-vengeful-pharaoh-card-mummy-horror-story-magic-2012/",
       "image": "/images/feed/feed-59266418201e.jpg",
       "source": "Polygon",
@@ -204,10 +282,29 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 43,
       "url": "https://techcrunch.com/2026/08/08/openai-acquires-presentation-startup-nextslide/",
       "image": "/images/feed/feed-61f42ecb8f77.jpg",
       "source": "TechCrunch",
+      "isLive": true
+    },
+    {
+      "id": "feed-c46b774b3efc",
+      "title": "Indie App Spotlight: ‘Pocket Jam’ helps you learn and practice your favorite songs",
+      "excerpt": "Welcome to Indie App Spotlight. This is a weekly 9to5Mac series where we showcase the latest apps in the indie app world. If you’re a developer and would like your app featured, get in contact. If you…",
+      "body": "Welcome to Indie App Spotlight . This is a weekly 9to5Mac series where we showcase the latest apps in the indie app world. If you’re a developer and would like your app featured, get in contact . If you’re an aspiring musician, Pocket Jam might be something you find useful. It helps you turn your favorite songs into a practice tool, letting you slow down, change the pitch, loop, and dissect tracks as you learn them.",
+      "author": "Michael Burkhardt",
+      "date": "2026-08-08",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 48,
+      "url": "https://9to5mac.com/2026/08/08/indie-app-spotlight-pocket-jam-helps-you-learn-and-practice-your-favorite-songs/",
+      "image": "/images/feed/feed-c46b774b3efc.jpg",
+      "source": "9to5Mac",
       "isLive": true
     },
     {
@@ -225,7 +322,7 @@
         "Orbit"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 41,
       "url": "https://www.space.com/space-exploration/launches-spacecraft/spacex-falcon-9-launch-starlink-group-17-38-ocisly",
       "image": "/images/feed/feed-1690c0067153.jpg",
       "source": "Space.com",
@@ -234,8 +331,8 @@
     {
       "id": "feed-b11b94900b72",
       "title": "Trump’s New E-Waste Policy Has Vintage Tech Collectors Anxious They’ll Be Caught In The Crossfire",
-      "excerpt": "Aimed at reigning in China's control of critical minerals, the White House is restricting e-waste exiting the country, whether it's a bin of abandoned cables or a sought after CRT",
-      "body": "Aimed at reigning in China's control of critical minerals, the White House is restricting e-waste exiting the country, whether it's a bin of abandoned cables or a sought after CRT\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "excerpt": "Aimed at reining in China's control of critical minerals, the White House is restricting e-waste exiting the country, whether it's a bin of abandoned cables or a sought after CRT",
+      "body": "Aimed at reining in China's control of critical minerals, the White House is restricting e-waste exiting the country, whether it's a bin of abandoned cables or a sought after CRT\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
       "author": "Zack Kotzer",
       "date": "2026-08-08",
       "readTime": "2 min",
@@ -244,7 +341,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 40,
       "url": "https://kotaku.com/trumps-new-e-waste-policy-has-vintage-tech-collectors-anxious-theyll-be-caught-in-the-crossfire-2000722706",
       "image": "/images/feed/feed-b11b94900b72.jpg",
       "source": "Kotaku",
@@ -263,7 +360,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 38,
       "url": "https://www.polygon.com/ambrosia-sky-review/",
       "image": "/images/feed/feed-20c629eeb0d0.jpg",
       "source": "Polygon",
@@ -282,7 +379,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 52,
       "url": "https://www.engadget.com/2231069/how-to-connect-your-retro-gamecube-to-a-modern-tv/",
       "image": "/images/feed/feed-fdf599543e0a.jpg",
       "source": "Engadget",
@@ -301,7 +398,7 @@
         "Iphone"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 41,
       "url": "https://9to5mac.com/2026/08/08/buy-iphone-17-pro-vs-iphone-18-pro/",
       "image": "/images/feed/feed-3701db304773.jpg",
       "source": "9to5Mac",
@@ -320,7 +417,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 44,
       "url": "https://www.androidauthority.com/google-photos-drag-to-select-missing-3696148/",
       "image": "/images/feed/feed-07f676f945f4.jpg",
       "source": "Android Authority",
@@ -339,29 +436,10 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 33,
       "url": "https://kotaku.com/youtube-mistakenly-penalizes-popular-science-channel-kurzgesagt-for-ai-generated-slop-2000722702",
       "image": "/images/feed/feed-05bdbd670c21.jpg",
       "source": "Kotaku",
-      "isLive": true
-    },
-    {
-      "id": "feed-7c6e8a039d0e",
-      "title": "Marvel Tokon's Roster Should Add These 10 Characters You Forgot About",
-      "excerpt": "Marvel Tokon Fighting Souls will add more playable characters as future DLC. Here are 10 essential heroes we want to see in the new 4v4 tag fighter.",
-      "body": "I’ve enjoyed my time with Marvel Tokon so far, those frustrations aside. Superheroes have been in my life since I was a kid, and seeing anime-styled versions of them duking it out Dragon Ball-style is enough to fill this old man with glee.",
-      "author": "Austin Manchester",
-      "date": "2026-08-08",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 30,
-      "url": "https://www.polygon.com/marvel-tokon-fighting-souls-dlc-characters-wishlist/",
-      "image": "/images/feed/feed-7c6e8a039d0e.png",
-      "source": "Polygon",
       "isLive": true
     },
     {
@@ -377,7 +455,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 32,
       "url": "https://spacenews.com/northrop-grumman-canadian-space-agency-repurpose-their-gateway-projects/",
       "image": "/images/feed/feed-a4735b738f92.jpg",
       "source": "SpaceNews",
@@ -396,47 +474,9 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 42,
       "url": "https://www.engadget.com/2230359/retro-handheld-game-console-how-to-best-battery-life/",
       "image": "/images/feed/feed-3e72ec39be67.jpg",
-      "source": "Engadget",
-      "isLive": true
-    },
-    {
-      "id": "feed-d1ab5c2240c0",
-      "title": "The Best Deals Today: AirPods Pro 3, LEGO Back to the Future, Saros, and More",
-      "excerpt": "The Best Deals Today: AirPods Pro 3, LEGO Back to the Future, Saros, and More",
-      "body": "A new weekend has arrived, and today, you can save on select LEGO sets, AirPods Pro 3, Saros, Mega Man Star Force Legacy Collection, and more. Check out our top picks for Saturday, August 9, below. AirPods Pro 3 for $189 AirPods Pro 3 are a fantastic upgrade over the 2nd generation, bringing a built-in heart rate sensor, redesigned eartips for better noise cancellation, and improved sound quality. Right now, you can score a pair for only $189 at Amazon. I&#39;ve had a pair since launch and have been incredibly happy with them, especially coming from the original AirPods Pro. Back to the Future LEGO Set for $159.99 Back to the Future is one of the best sci-fi films ever, and the iconic DeLorean time machine is a huge part of the film&#39;s legacy today.",
-      "author": "Noah Hunter",
-      "date": "2026-08-08",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 53,
-      "url": "https://www.ign.com/articles/best-deals-for-august-8-2026",
-      "image": "/images/feed/feed-d1ab5c2240c0.png",
-      "source": "IGN",
-      "isLive": true
-    },
-    {
-      "id": "feed-826a16e5db73",
-      "title": "Wired vs. wireless CarPlay: How are they different & which is better to use?",
-      "excerpt": "There are advantages and disadvantages to both connection types. Here's how they compare and when you might choose one over the other.",
-      "body": "There are advantages and disadvantages to both connection types. Here's how they compare and when you might choose one over the other.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Adnan Ahmed)",
-      "date": "2026-08-08",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 31,
-      "url": "https://www.engadget.com/2230261/carplay-wired-vs-wireless-differences-which-better/",
-      "image": "/images/feed/feed-826a16e5db73.jpg",
       "source": "Engadget",
       "isLive": true
     },
@@ -453,29 +493,10 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 35,
       "url": "https://www.space.com/entertainment/space-movies-shows/transformers-the-movie-at-40-the-cartoon-spin-off-that-traumatized-a-generation-of-kids",
       "image": "/images/feed/feed-b44f51dfc9b8.jpg",
       "source": "Space.com",
-      "isLive": true
-    },
-    {
-      "id": "feed-d8c36633c35a",
-      "title": "The Kindle Scribe Colorsoft is a lot of fun, but it’s not a must-have",
-      "excerpt": "While the device is pretty and lightweight, it’s not something the everyday person needs due to its hefty price tag and size.",
-      "body": "While the device is pretty and lightweight, it’s not something the everyday person needs due to its hefty price tag and size.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Aisha Malik",
-      "date": "2026-08-08",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 44,
-      "url": "https://techcrunch.com/2026/08/08/the-kindle-scribe-colorsoft-is-a-lot-of-fun-but-its-not-a-must-have/",
-      "image": "/images/feed/feed-d8c36633c35a.jpg",
-      "source": "TechCrunch",
       "isLive": true
     },
     {
@@ -491,7 +512,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 48,
       "url": "https://www.space.com/entertainment/space-movies-shows/this-week-in-space-podcast-episode-222-how-to-invade-earth-in-22-easy-steps",
       "image": "/images/feed/feed-89d18baa5b87.jpg",
       "source": "Space.com",
@@ -510,7 +531,7 @@
         "Claude"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 48,
       "url": "https://code.claude.com/docs/en/cross-session-messaging",
       "image": "/images/feed/feed-a6508ad37d08.png",
       "source": "Hacker News",
@@ -529,7 +550,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 39,
       "url": "https://cleantechnica.com/2026/08/08/byd-expands-ph-ev-lineup-with-double-model-launch-celebrates-sealion-6-milestone/",
       "image": "/images/feed/feed-b8df9a209925.jpg",
       "source": "CleanTechnica",
@@ -548,7 +569,7 @@
         "Hacker"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 43,
       "url": "https://techcrunch.com/2026/08/08/googles-top-hacker-hunter-explains-why-hacking-groups-get-codenames/",
       "image": "/images/feed/feed-f5ae6a822390.jpg",
       "source": "TechCrunch",
@@ -568,7 +589,7 @@
         "Breach"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 53,
       "url": "https://www.bleepingcomputer.com/news/security/hackers-breach-trueconf-to-trojanize-client-installers-with-backdoors/",
       "image": "/images/feed/feed-e64368097dfb.jpg",
       "source": "BleepingComputer",
@@ -587,7 +608,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 41,
       "url": "https://electrek.co/2026/08/08/sneaky-safari-thula-solutions-electric-4x4-gets-you-closer-to-nature-video/",
       "image": "/images/feed/feed-e3bb924cf05b.jpg",
       "source": "Electrek",
@@ -607,7 +628,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 36,
       "url": "https://www.space.com/space-exploration/on-this-day-in-space-august-8-2026",
       "image": "/images/feed/feed-3d90dff68dc8.jpg",
       "source": "Space.com",
@@ -626,7 +647,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 42,
       "url": "https://www.space.com/stargazing/dont-miss-the-crescent-moon-shine-close-to-the-red-light-of-mars-before-dawn-aug-9-2026",
       "image": "/images/feed/feed-7bf8d0b419b7.jpg",
       "source": "Space.com",
@@ -645,7 +666,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 52,
       "url": "https://electrek.co/2026/08/08/heavy-equipment-space-race-heats-up-with-new-vermeer-lunar-excavator/",
       "image": "/images/feed/feed-3f5605a32986.png",
       "source": "Electrek",
@@ -665,7 +686,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 44,
       "url": "https://insideevs.com/news/804241/rivian-r2-lucid-cosmos-ev-startup-challenges/",
       "image": "/images/feed/feed-cd990f84ae62.jpg",
       "source": "InsideEVs",
@@ -685,7 +706,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 36,
       "url": "https://electrek.co/2026/08/08/gm-is-making-ev-charging-a-lot-easier/",
       "image": "/images/feed/feed-71ee9ed35b36.jpg",
       "source": "Electrek",
@@ -704,7 +725,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 43,
       "url": "https://electrek.co/2026/08/08/volkswagens-new-electric-era-begins-with-reveal-of-id-era-5x-suv/",
       "image": "/images/feed/feed-838f57d29559.png",
       "source": "Electrek",
@@ -723,7 +744,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 46,
       "url": "https://www.space.com/stargazing/solar-eclipses/yes-north-america-gets-a-solar-eclipse-on-aug-12-heres-where-and-when-to-see-it",
       "image": "/images/feed/feed-eae00e2aa058.jpg",
       "source": "Space.com",
@@ -742,7 +763,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 43,
       "url": "https://insideevs.com/news/804026/ford-bronco-ev-review/",
       "image": "/images/feed/feed-38a87ffaea3e.jpg",
       "source": "InsideEVs",
@@ -761,7 +782,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 53,
       "url": "https://simonwillison.net/2026/Aug/7/openai-timeline/",
       "image": "/images/feed/feed-83a56bfafb25.jpg",
       "source": "Hacker News",
@@ -780,7 +801,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 51,
       "url": "https://www.wired.com/story/flocks-plans-for-rideshare-dashcams-and-coaching-police-revealed/",
       "image": "/images/feed/feed-25e5414bb02b.jpg",
       "source": "Wired",
@@ -799,7 +820,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 37,
       "url": "https://cleantechnica.com/2026/08/08/worlds-largest-12-8-gwh-battery-storage-cluster-activated-in-china/",
       "image": "/images/feed/feed-bdba553f64c0.png",
       "source": "CleanTechnica",
@@ -818,7 +839,7 @@
         "Gemini"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 45,
       "url": "https://www.wired.com/story/how-to-disable-the-gemini-ai-features-in-gmail-and-google-docs/",
       "image": "/images/feed/feed-878fbed42f98.jpg",
       "source": "Wired",
@@ -837,7 +858,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 30,
       "url": "https://www.wired.com/story/sensitive-info-goes-into-no-reply-emails-constantly-this-guy-sees-it-all/",
       "image": "/images/feed/feed-2fa934658c9c.jpg",
       "source": "Wired",
@@ -856,7 +877,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 33,
       "url": "https://thehackernews.com/2026/08/atlassian-rovo-can-be-tricked-into.html",
       "image": "/images/feed/feed-f8b3b09c8a32.jpg",
       "source": "The Hacker News",
@@ -875,7 +896,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 37,
       "url": "https://thehackernews.com/2026/08/new-css-attacks-can-break-webmail.html",
       "image": "/images/feed/feed-f98bce50d6c1.jpg",
       "source": "The Hacker News",
@@ -896,37 +917,18 @@
         "Authentication"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 43,
       "url": "https://thehackernews.com/2026/08/metabase-zero-day-exploited-in-wild.html",
       "image": "/images/feed/feed-ac04ef1f616a.jpg",
       "source": "The Hacker News",
       "isLive": true
     },
     {
-      "id": "feed-8c3c4edc3b6e",
-      "title": "Lost my phone at the office. Claude suggested tracking Bluetooth signal strength",
-      "excerpt": "",
-      "body": "This report, published by Hacker News, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Claude. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Hacker News using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "ilamont",
-      "date": "2026-08-07",
-      "readTime": "2 min",
-      "section": "ai",
-      "tags": [
-        "Claude"
-      ],
-      "featured": false,
-      "xpReward": 38,
-      "url": "https://twitter.com/un1c0rnioz/status/2084686552299634805",
-      "image": "/images/feed/feed-8c3c4edc3b6e.png",
-      "source": "Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-65308bcbb462",
-      "title": "OpenAI puts the brakes on a new model because it&#8217;s supposedly too powerful",
-      "excerpt": "OpenAI says it is pausing \"internal activities\" around an in-development AI model, Astra, because it doesn't yet meet new security standards the company is putting in place. The announcement follows i…",
-      "body": "OpenAI says it is pausing \"internal activities\" around an in-development AI model, Astra, because it doesn't yet meet new security standards the company is putting in place. The announcement follows its recent disclosure that OpenAI models accidentally hacked Hugging Face . Anthropic and Meta have also since admitted that they had AI models that went rogue and breached other organizations. Recent internal evaluations of an OpenAI model called Astra indicate that it offers \"significant advancements in agentic coding and cybersecurity,\" according to the company . \"These results, in addition to expert assessments, have led us to conclude last n … Read the full story at The Verge.",
-      "author": "Jay Peters",
+      "id": "feed-861d5fc9c4cc",
+      "title": "Details Leak on OpenAI’s Doughnut-Shaped Speaker",
+      "excerpt": "The ChatGPT maker is reportedly working on a small, portable AI smart speaker, but it better not look too much like Apple’s designs.",
+      "body": "The ChatGPT maker is reportedly working on a small, portable AI smart speaker, but it better not look too much like Apple’s designs.\n\nThis report, published by CNET, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Openai. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to CNET using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Tyler Lacoma",
       "date": "2026-08-07",
       "readTime": "2 min",
       "section": "ai",
@@ -934,24 +936,24 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 44,
-      "url": "https://www.theverge.com/ai-artificial-intelligence/976948/openai-astra-model-pause-critical-cyber-capabilities",
-      "image": "/images/feed/feed-65308bcbb462.jpg",
-      "source": "The Verge",
+      "xpReward": 30,
+      "url": "https://www.cnet.com/tech/services-and-software/details-leak-openai-doughnut-shaped-speaker/",
+      "image": "/images/feed/feed-861d5fc9c4cc.jpg",
+      "source": "CNET",
       "isLive": true
     }
   ],
   "breakingNews": [
-    "POLYGON: Matt Damon’s 113-Minute 10/10 Action Thriller Officially Crowned as Netflix’s Biggest Movie of 2026",
-    "DEV.TO: Kubernetes Secrets Are Just Base64 Not Encryption. Here's What That Actually Means",
-    "DEV.TO: Your Claude Code Skill Never Fires — and It's Not the Skill's Fault",
-    "DEV.TO: Smashing the \"Blind Spot\" Bug: How We Integrated Sentry to Catch Regressions in Real-Time",
-    "DEV.TO: 💀 The Most Dangerous Deletions Don't Break the Build. They Break the Deploy. An AI-Assisted Recovery Story 🤖",
-    "DEV.TO: I Got Sick of Subscription Budget Apps. So I Built My Own With Telegram, Python, and a $0/Month Stack.",
-    "DEV.TO: the correction that wasn't mine",
-    "ANDROID AUTHORITY: Google is making it easier to add new sources to Gemini Notebook",
-    "DEV.TO: Stop Fighting CSS Grids: Building Complex Responsive Layouts Without Losing Your Sanity",
-    "POLYGON: Magic Designer Wants to Resurrect a Forgotten Card That Tells a Perfect Miniature Horror Story"
+    "DEV.TO: Why I stopped guessing at Spark and dbt config values",
+    "TECHCRUNCH: Planned Amazon data center could become the biggest climate polluter in the U.S.",
+    "9TO5MAC: iOS 27: The easiest beta to forget about",
+    "DEV.TO: Debugging SAML SSO: How to Decode a SAMLResponse (and Why It's Sometimes Not XML)",
+    "DEV.TO: Decoding a PowerShell -EncodedCommand During Incident Response (the UTF-16 gotcha)",
+    "DEV.TO: When Lighthouse CI maintenance in CI/CD pipelines becomes a second job",
+    "KOTAKU: Just About Everything Other Than The Music Sells Out In NIN’s 30th Anniversary Quake Collection",
+    "DEV.TO: AI Can Write Tests Faster Than Your Team Can Understand Them",
+    "THE VERGE: X replaces its revenue-sharing program with ‘Original Content Rewards’",
+    "DEV.TO: Sending Images to GPT-4o, Claude, and Gemini: The Base64 Payload Each One Wants"
   ],
   "sectionVideos": {}
 }
