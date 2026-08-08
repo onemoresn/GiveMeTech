@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-08-08T00:21:02.008Z",
+  "fetchedAt": "2026-08-08T01:35:16.809Z",
   "articles": [
     {
-      "id": "feed-9950940c28be",
-      "title": "I published an open dataset of every AI crawler user agent (GPTBot, ClaudeBot + 26 more)",
-      "excerpt": "While building AI-crawler tooling I kept needing the same thing: a current, GitHub: https://github.com/osamamumtaz01/ai-crawler-user-agents Live endpoint (always current, CORS enabled): https://geopro…",
-      "body": "While building AI-crawler tooling I kept needing the same thing: a current, machine-readable list of AI crawler user agents. Every blog post has a partial list, half of them outdated, none of them structured. So I published mine as an open dataset. GitHub: https://github.com/osamamumtaz01/ai-crawler-user-agents Live endpoint (always current, CORS enabled): https://geoprompttracker.com/data/ai-crawlers.json 28 crawlers — GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, PerplexityBot, Google-Extended, Bytespider, Applebot-Extended, Meta-ExternalAgent, and the rest. JSON + CSV, CC BY 4.0. Also on Kaggle and Hugging Face. The field that actually matters: purpose The mistake I see constantly: treating \"AI bots\" as one thing.",
-      "author": "Osama Mumtaz",
+      "id": "feed-dc68b2b0a980",
+      "title": "Building a Ride-Share Zone-Balancing Agent with LangGraph — Part 5: Coordinating Two Zones at Once",
+      "excerpt": "This is Part 5, the last part of this series. Part 4 let a human step into the loop before a risky decision executes. Every part so far, though, has shared one assumption: a zone is evaluated complete…",
+      "body": "This is Part 5, the last part of this series. Part 4 let a human step into the loop before a risky decision executes. Every part so far, though, has shared one assumption: a zone is evaluated completely on its own. That assumption hides a real inconsistency. driver_bonus and surge_pricing both attract \"new drivers,\" as if from an unlimited outside pool. But a real regional driver pool is finite, and it's shared. Two zones both running an aggressive incentive at the same hour can't both be right about where their new drivers are actually coming from. Part 5 is the first part where the agent has to notice that. Two zones, evaluated together every cycle — fixed at 2, not a general N, more on that below.",
+      "author": "Ebrahim Arian",
       "date": "2026-08-08",
       "readTime": "2 min",
       "section": "software",
@@ -14,18 +14,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 39,
-      "url": "https://dev.to/osama1malik/i-published-an-open-dataset-of-every-ai-crawler-user-agent-gptbot-claudebot-26-more-3he4",
-      "image": "/images/feed/feed-9950940c28be.webp",
+      "xpReward": 47,
+      "url": "https://dev.to/ebrahim_arian_37097b72c7e/building-a-ride-share-zone-balancing-agent-with-langgraph-part-5-coordinating-two-zones-at-once-2c17",
+      "image": "/images/feed/feed-dc68b2b0a980.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-2b1da65b5612",
-      "title": "How LLM Pricing Works: Every Line on the Bill",
-      "excerpt": "Almost every price list shows two numbers, input and output, per million tokens. A real bill has five or six lines, and the ones that are missing from the headline are usually the ones that decide wha…",
-      "body": "Almost every price list shows two numbers, input and output, per million tokens. A real bill has five or six lines, and the ones that are missing from the headline are usually the ones that decide what you pay. What is actually being metered Not words, not characters, not requests. Tokens — the sub-word units the model’s tokenizer splits text into. English prose runs somewhere around 0.75 words per token, which makes “about four characters” a serviceable estimate for a back-of-envelope and a bad one for a budget. Code, JSON, non-Latin scripts and long identifiers all tokenize worse than prose, sometimes much worse, and a tokenizer differs between model families. If a number matters, count it with the tokenizer for the model you are actually calling.",
-      "author": "Multigrid",
+      "id": "feed-ca1bd88dd871",
+      "title": "Building a Ride-Share Zone-Balancing Agent with LangGraph — Part 4: Letting a Human Step In",
+      "excerpt": "This is Part 4 of a 5-part series. Part 3 gave the agent memory. It can now run for hours on its own, cycle after cycle, without forgetting what it already tried. That's exactly the problem. A genuine…",
+      "body": "This is Part 4 of a 5-part series. Part 3 gave the agent memory. It can now run for hours on its own, cycle after cycle, without forgetting what it already tried. That's exactly the problem. A genuinely severe deficit might call for an aggressive surge multiplier, or a costly driver bonus. Right now, the agent applies whatever it decides immediately. Nobody has looked at it first. Nothing pauses for a second opinion, no matter how expensive the call. Part 4 adds that pause. It uses LangGraph's dynamic interrupt() : A node calls interrupt(payload) — but only conditionally , when it actually wants to pause. Execution stops at that exact point. app.invoke(Command(resume=answer), config=thread) continues from there. answer becomes interrupt() 's return value, right at the call site.",
+      "author": "Ebrahim Arian",
       "date": "2026-08-08",
       "readTime": "2 min",
       "section": "software",
@@ -33,37 +33,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 35,
-      "url": "https://dev.to/multigrid/how-llm-pricing-works-every-line-on-the-bill-270f",
-      "image": "/images/feed/feed-2b1da65b5612.webp",
+      "xpReward": 52,
+      "url": "https://dev.to/ebrahim_arian_37097b72c7e/building-a-ride-share-zone-balancing-agent-with-langgraph-part-4-letting-a-human-step-in-5die",
+      "image": "/images/feed/feed-ca1bd88dd871.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-f4ac13b8eb7a",
-      "title": "Gradient Boosting, Explained by Building Three Trees",
-      "excerpt": "Gradient boosting fits a tree to the errors of what you have so far, adds a fraction of it, and repeats. Every explanation says that; almost none of them shows it happening. Here are three rounds on s…",
-      "body": "Gradient boosting fits a tree to the errors of what you have so far, adds a fraction of it, and repeats. Every explanation says that; almost none of them shows it happening. Here are three rounds on six rows, with the split search worked, the residuals after each round, and the total squared error falling from 810 to 40.5. The idea in one sentence Start with a constant prediction. Compute how wrong it is on every row. Fit a small tree whose job is to predict that wrongness . Add a fraction of the tree’s output to the running prediction. Compute the new wrongness. Repeat a few hundred times. Nothing is thrown away and nothing is refitted.",
-      "author": "Multigrid",
-      "date": "2026-08-08",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 44,
-      "url": "https://dev.to/multigrid/gradient-boosting-explained-by-building-three-trees-10ca",
-      "image": "/images/feed/feed-f4ac13b8eb7a.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-7880c2edc593",
-      "title": "How Diffusion Models Generate an Image",
-      "excerpt": "A diffusion model does not remove noise from an image. It repeatedly estimates all of the noise present in a tensor, takes a small step in the direction that estimate implies, and does it again. The d…",
-      "body": "A diffusion model does not remove noise from an image. It repeatedly estimates all of the noise present in a tensor, takes a small step in the direction that estimate implies, and does it again. The difference between those two descriptions explains almost everything people find surprising about the results. The short answer Generation starts with a tensor of pure Gaussian noise. A neural network is called once per step, typically twenty to fifty times in total. Each call takes the current tensor and the current noise level and returns an estimate of the noise it contains. A sampler uses that estimate to produce a slightly less noisy tensor, and the loop repeats. When the noise level reaches zero, the tensor is the image — or, in a latent model, is decoded into one.",
-      "author": "Multigrid",
+      "id": "feed-eab668b9e268",
+      "title": "Building a Ride-Share Zone-Balancing Agent with LangGraph — Part 3: Giving the Agent Memory",
+      "excerpt": "This is Part 3 of a 5-part series. Part 1 built a rule-based agent for one zone. Part 2 added an LLM for two narrow jobs: reading an ops note, and explaining the decision. Neither part changed one bas…",
+      "body": "This is Part 3 of a 5-part series. Part 1 built a rule-based agent for one zone. Part 2 added an LLM for two narrow jobs: reading an ops note, and explaining the decision. Neither part changed one basic fact: the agent looks at a zone exactly once, then stops. That's a real problem. A severe deficit often needs more than one 15-minute window to fix. But calling the agent again is first contact all over again: No memory of what was already tried No sense of whether this is cycle one or cycle six The zone's own numbers reset, instead of carrying forward Part 3 fixes that with MemorySaver and a thread_id . One thread becomes one zone's ongoing story. One .invoke() call becomes one 15-minute cycle. The decision logic itself doesn't change at all.",
+      "author": "Ebrahim Arian",
       "date": "2026-08-08",
       "readTime": "2 min",
       "section": "software",
@@ -72,17 +53,17 @@
       ],
       "featured": true,
       "xpReward": 36,
-      "url": "https://dev.to/multigrid/how-diffusion-models-generate-an-image-3pp9",
-      "image": "/images/feed/feed-7880c2edc593.webp",
+      "url": "https://dev.to/ebrahim_arian_37097b72c7e/building-a-ride-share-zone-balancing-agent-with-langgraph-part-3-giving-the-agent-memory-obb",
+      "image": "/images/feed/feed-eab668b9e268.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-585daf2b9e51",
-      "title": "How Speech Recognition Works Now",
-      "excerpt": "Speech recognition turns a one-dimensional pressure signal into a sequence of words, and the whole design problem is that nobody tells the model where one word stops. Everything below follows from tha…",
-      "body": "Speech recognition turns a one-dimensional pressure signal into a sequence of words, and the whole design problem is that nobody tells the model where one word stops. Everything below follows from that. The shape of the problem A microphone produces numbers: at 16 kHz, sixteen thousand of them per second per channel, typically 16-bit signed. Thirty seconds of mono audio is 480,000 samples, which is 960 kB raw. The text it corresponds to is about seventy-five words. So the job is a reduction of roughly five thousand to one, from a signal with no boundaries in it to a sequence of discrete symbols. Two properties of the input make it hard.",
-      "author": "Multigrid",
+      "id": "feed-79ffff3f8f1e",
+      "title": "Building a Ride-Share Zone-Balancing Agent with LangGraph — Part 2: Teaching the Agent to Read Ops Notes",
+      "excerpt": "This is Part 2 of a 5-part series. Part 1 built a rule-based agent for a single ride-share zone — no LLM, just structured numbers and deterministic rules. It worked, but with one obvious hole. An ops…",
+      "body": "This is Part 2 of a 5-part series. Part 1 built a rule-based agent for a single ride-share zone — no LLM, just structured numbers and deterministic rules. It worked, but with one obvious hole. An ops person doesn't type structured fields. They write something like \"the event got cancelled, and there's an accident backing up traffic near the venue.\" Stage 1's agent only understands rain_flag / event_flag / traffic as raw values. It has no way to read that sentence at all. This is where an LLM earns its place — for exactly two jobs a lookup table genuinely can't do, and nothing more: Reconcile an ops note. Read the free text and correct rain_flag / event_flag / traffic before the decision runs. Explain the decision.",
+      "author": "Ebrahim Arian",
       "date": "2026-08-08",
       "readTime": "2 min",
       "section": "software",
@@ -90,18 +71,37 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 36,
-      "url": "https://dev.to/multigrid/how-speech-recognition-works-now-2alp",
-      "image": "/images/feed/feed-585daf2b9e51.webp",
+      "xpReward": 49,
+      "url": "https://dev.to/ebrahim_arian_37097b72c7e/building-a-ride-share-zone-balancing-agent-with-langgraph-part-2-teaching-the-agent-to-read-ops-3706",
+      "image": "/images/feed/feed-79ffff3f8f1e.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-75ce1f21702a",
-      "title": "How AI Assistants Choose Which Pages to Cite",
-      "excerpt": "An assistant that shows five links did not rank the web. It ran a short pipeline of ordinary components — a search backend, a fetcher, a chunker, a token budget and a generation step — and about half…",
-      "body": "An assistant that shows five links did not rank the web. It ran a short pipeline of ordinary components — a search backend, a fetcher, a chunker, a token budget and a generation step — and about half of that pipeline leaves evidence on your server. This traces the whole of it and marks each stage as observable or not. Two paths, and only one leaves evidence When an assistant answers a question about your company, one of two things happened, and they are not variants of each other. On the parametric path the model answered from its weights. Nothing was fetched, nothing was searched, and your server saw no request.",
-      "author": "Multigrid",
+      "id": "feed-f5bae86b1d44",
+      "title": "Waymo CEO: Don’t Move Fast & Break Things With Physical AI",
+      "excerpt": "Silicon Valley and the tech industry are known for their “move fast and break things” mantra. This has been how the software industry has operated forever basically. In fact, the modus operandi has pr…",
+      "body": "Silicon Valley and the tech industry are known for their &#8220;move fast and break things&#8221; mantra. This has been how the software industry has operated forever basically. In fact, the modus operandi has probably accelerated in recent years. Breaking things almost seems like the goal sometimes. Well, Waymo was spawned ... [continued] The post Waymo CEO: Don&#8217;t Move Fast &#038; Break Things With Physical AI appeared first on CleanTechnica .",
+      "author": "Zachary Shahan",
+      "date": "2026-08-08",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Cars"
+      ],
+      "featured": true,
+      "xpReward": 54,
+      "url": "https://cleantechnica.com/2026/08/07/waymo-ceo-dont-move-fast-break-things-with-physical-ai/",
+      "image": "/images/feed/feed-f5bae86b1d44.jpg",
+      "source": "CleanTechnica",
+      "isLive": true
+    },
+    {
+      "id": "feed-68bf77bec6e8",
+      "title": "Building a Ride-Share Zone-Balancing Agent with LangGraph — Part 1: A Rule-Based Agent, No LLM Yet",
+      "excerpt": "It's 5pm on a weekday, and you're standing outside a stadium after an event just wrapped up. You open your ride-share app. Estimated wait: 12 minutes. Meanwhile, three neighborhoods over, drivers are…",
+      "body": "It's 5pm on a weekday, and you're standing outside a stadium after an event just wrapped up. You open your ride-share app. Estimated wait: 12 minutes. Meanwhile, three neighborhoods over, drivers are circling empty streets with nobody requesting a ride. This happens constantly on any ride-share platform. It's not a bug — it's just supply and demand failing to line up on their own. Someone, or something, has to watch each part of the city. It needs to notice when a zone is out of balance, then decide what to do: Raise prices, to pull in more drivers Pay drivers a bonus to reposition Redirect riders to a calmer zone Or just leave it alone, if it'll sort itself out That decision-maker is what I'm building in this series, using LangGraph — one capability at a time.",
+      "author": "Ebrahim Arian",
       "date": "2026-08-08",
       "readTime": "2 min",
       "section": "software",
@@ -109,17 +109,17 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 48,
-      "url": "https://dev.to/multigrid/how-ai-assistants-choose-which-pages-to-cite-3kmd",
-      "image": "/images/feed/feed-75ce1f21702a.webp",
+      "xpReward": 47,
+      "url": "https://dev.to/ebrahim_arian_37097b72c7e/building-a-ride-share-zone-balancing-agent-with-langgraph-part-1-a-rule-based-agent-no-llm-yet-6pm",
+      "image": "/images/feed/feed-68bf77bec6e8.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-c9d508162937",
-      "title": "HNSW Explained: The Index Behind Most Vector Search",
-      "excerpt": "Hierarchical Navigable Small World graphs — Malkov and Yashunin, 2016, later in IEEE TPAMI — are the default index in pgvector, Qdrant, Weaviate, Milvus, Lucene and Faiss. The structure is easier than…",
-      "body": "Hierarchical Navigable Small World graphs — Malkov and Yashunin, 2016, later in IEEE TPAMI — are the default index in pgvector, Qdrant, Weaviate, Milvus, Lucene and Faiss. The structure is easier than its name: it is a skip list where “next” means “nearer in vector space”. It is a skip list in many dimensions A skip list over sorted numbers has several linked lists stacked on top of each other. The bottom contains every element; each level up contains a random sample of the level below. You search by walking the sparse top list until you overshoot, dropping a level, walking again, and so on — logarithmic instead of linear, from a structure with no global ordering requirement beyond “less than”. HNSW is that idea with “nearer” substituted for “less than”. Each vector is a node.",
+      "id": "feed-ae2b1d1efdc2",
+      "title": "Neuron-Level Explanations and Their Limits",
+      "excerpt": "The obvious way to understand a neuron is to find the inputs that make it fire hardest and read them. It is also the way that produces confident, wrong explanations, and the fixes — automated explanat…",
+      "body": "The obvious way to understand a neuron is to find the inputs that make it fire hardest and read them. It is also the way that produces confident, wrong explanations, and the fixes — automated explanation with automated scoring — are interesting precisely because of how they are scored. Where this starts: max-activating examples Run a large corpus through the model, record one neuron’s activation at every token, sort, and look at the top few hundred. Sometimes the answer is immediate: a neuron that fires on quotation marks, or on tokens inside URLs, or on the word after “Dr”.",
       "author": "Multigrid",
       "date": "2026-08-08",
       "readTime": "2 min",
@@ -128,10 +128,86 @@
         "Software"
       ],
       "featured": false,
-      "xpReward": 40,
-      "url": "https://dev.to/multigrid/hnsw-explained-the-index-behind-most-vector-search-4788",
-      "image": "/images/feed/feed-c9d508162937.webp",
+      "xpReward": 44,
+      "url": "https://dev.to/multigrid/neuron-level-explanations-and-their-limits-2oof",
+      "image": "/images/feed/feed-ae2b1d1efdc2.webp",
       "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-8428f83ea9cf",
+      "title": "Nested and Recursive Schemas: The Depth Limit Nobody Documents",
+      "excerpt": "There are two ceilings on schema depth and they behave completely differently. One is published, enforced at request time and easy to discover. The other is not a limit at all — it is a gradual change…",
+      "body": "There are two ceilings on schema depth and they behave completely differently. One is published, enforced at request time and easy to discover. The other is not a limit at all — it is a gradual change in what a failure looks like, and it has no error message. Two different limits The hard limit is a documented cap in the provider implementation. OpenAI’s Structured Outputs guide has published caps on nesting depth, on total object properties across a schema, and on the combined character length of names and enum values. Those numbers exist, they are enforced with a 400, and they have been raised at least once since the feature launched in August 2024 — so any figure you read anywhere, including here, needs checking against the current docs before you design around it.",
+      "author": "Multigrid",
+      "date": "2026-08-08",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 38,
+      "url": "https://dev.to/multigrid/nested-and-recursive-schemas-the-depth-limit-nobody-documents-32po",
+      "image": "/images/feed/feed-8428f83ea9cf.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-dc10bbd19c05",
+      "title": "CarPlay connection issues? This might explain why",
+      "excerpt": "If your Apple CarPlay connection randomly drops out while driving, the cause might not be your iPhone, cable, or car.",
+      "body": "If your Apple CarPlay connection randomly drops out while driving, the cause might not be your iPhone, cable, or car.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Zac Hall",
+      "date": "2026-08-08",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 37,
+      "url": "https://9to5mac.com/2026/08/07/carplay-connection-issues/",
+      "image": "/images/feed/feed-dc10bbd19c05.jpg",
+      "source": "9to5Mac",
+      "isLive": true
+    },
+    {
+      "id": "feed-6fe90fdbece1",
+      "title": "U.S. Battery Storage Capacity Averaged 70% Growth Over The Last Three Years",
+      "excerpt": "Utility-scale battery storage capacity in the United States increased significantly during the last three years, with an annual average growth rate of 70%. By the end of 2025, the U.S. power system ha…",
+      "body": "Utility-scale battery storage capacity in the United States increased significantly during the last three years, with an annual average growth rate of 70%. By the end of 2025, the U.S. power system had operational battery storage capacity of 43.6 gigawatts (GW). During the first six months of 2026, operators added another 8.3 ... [continued] The post U.S. Battery Storage Capacity Averaged 70% Growth Over The Last Three Years appeared first on CleanTechnica .",
+      "author": "US Energy Information Administration",
+      "date": "2026-08-08",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Cars"
+      ],
+      "featured": false,
+      "xpReward": 52,
+      "url": "https://cleantechnica.com/2026/08/07/u-s-battery-storage-capacity-averaged-70-growth-over-the-last-three-years/",
+      "image": "/images/feed/feed-6fe90fdbece1.png",
+      "source": "CleanTechnica",
+      "isLive": true
+    },
+    {
+      "id": "feed-a296dda2604f",
+      "title": "First Fully Electric VW ID. ERA Vehicle — ID. ERA 5X SUV",
+      "excerpt": "SAIC Volkswagen, a joint venture between SAIC and Volkswagen (duh) in China, has submitted a filing for the company’s first fully electric ID. ERA vehicle, the ID. ERA 5X SUV. XPENG was involved a bit…",
+      "body": "SAIC Volkswagen, a joint venture between SAIC and Volkswagen (duh) in China, has submitted a filing for the company&#8217;s first fully electric ID. ERA vehicle, the ID. ERA 5X SUV. XPENG was involved a bit too, but I&#8217;ll come back to that later. Earlier today, China&#8217;s Ministry of Industry and ... [continued] The post First Fully Electric VW ID. ERA Vehicle — ID. ERA 5X SUV appeared first on CleanTechnica .",
+      "author": "Zachary Shahan",
+      "date": "2026-08-08",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Vehicle"
+      ],
+      "featured": false,
+      "xpReward": 37,
+      "url": "https://cleantechnica.com/2026/08/07/first-fully-electric-vw-id-era-vehicle-id-era-5x-suv/",
+      "image": "/images/feed/feed-a296dda2604f.jpg",
+      "source": "CleanTechnica",
       "isLive": true
     },
     {
@@ -148,10 +224,67 @@
         "Game"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 30,
       "url": "https://www.polygon.com/hell-is-us-game-pass-hit/",
       "image": "/images/feed/feed-a1a70a49e9c2.jpg",
       "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-768f4231fa15",
+      "title": "Sega Is Auctioning Off Shadow The Hedgehog's Real-Life Motorcycle For a Good Cause",
+      "excerpt": "Sega is auctioning off Shadow the Hedgehog’s real-life Dark Rider motorcycle and giving the proceeds to charity.",
+      "body": "Sega is auctioning off Shadow the Hedgehog’s real-life Dark Rider motorcycle and giving the proceeds to charity. Shadow the Hedgehog finally got his time to shine in the Sonic 3 movie, where he faced off against Sonic, Knuckles, and Tails in an explosive adventure that dominated the box office. To promote the character, Sega launched a campaign called 2024 Fearless: Year of Shadow, which saw the developer commission a custom motorcycle themed after the antihero that appeared at events like Gamescom to advertise his silver screen debut. Manufactured by Bourget&#39;s Bike Works in collaboration with Sega, Oil Sweat &amp; Gears, and Atmospherics SFX, the bike is different from the one that appears in the movie, though it sports Shadow’s signature red-and black-color scheme and iconic symbol.",
+      "author": "Virginia Glaze",
+      "date": "2026-08-07",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 44,
+      "url": "https://www.ign.com/articles/sega-is-auctioning-off-shadow-the-hedgehogs-real-life-motorcycle-for-a-good-cause",
+      "image": "/images/feed/feed-768f4231fa15.jpg",
+      "source": "IGN",
+      "isLive": true
+    },
+    {
+      "id": "feed-5fb91ce6641c",
+      "title": "Jeff VanderMeer Reveals Annihilation Sequel Abdication, the Final Part of the Southern Reach Series",
+      "excerpt": "Southern Reach creator Jeff VanderMeer has revealed Abdication, the fifth and final book in the series that began with 2014's Annihilation.",
+      "body": "Fans of author Jeff VanderMeer&#39;s Southern Reach quadrilogy will be pleased to know that it&#39;s not going to be a quadrilogy much longer. VanderMeer took to social media to tease the fifth and final book in the series, dubbed Abdication. &quot;Pleased to finally announce... Abdication, the last Southern Reach novel!&quot; VanderMeer wrote on Bluesky. He also posted the following teaser text: There will come the days of the watcher, the drowned woman and the shadow of a man who keeps falling apart with each step, but first comes the moment the birds appear at night from the gaps between the stars, far from home.",
+      "author": "Jesse Schedeen",
+      "date": "2026-08-07",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 40,
+      "url": "https://www.ign.com/articles/jeff-vandermeer-reveals-annihilation-sequel-abdication-the-final-part-of-the-southern-reach-series",
+      "image": "/images/feed/feed-5fb91ce6641c.webp",
+      "source": "IGN",
+      "isLive": true
+    },
+    {
+      "id": "feed-af326133d525",
+      "title": "Marvel Tokon Stumbles to Mixed Steam Reviews as 'Miserable' PC Port Complaints Prompt Response From Arc System Works",
+      "excerpt": "Marvel Tokon: Fighting Souls stumbled on Steam with \"Mixed\" user reviews as players complain of PlayStation account requirements, anti-cheat roadblocks, and other technical issues.",
+      "body": "Marvel Tokon: Fighting Souls stumbled onto Steam with &quot;Mixed&quot; user reviews as players complained of PlayStation account requirements, anti-cheat roadblocks, and other technical issues. With a unique art style, a roster of heroes and villains that includes everyone from Spider-Man to Doctor Doom, and the developers at Arc System Works behind it all, the new Marvel fighting game stood out as one of the most highly-anticipated games of the year. Now, after finally reaching its August 6, 2026, release date, Steam users are reporting more negative experiences than positive ones. At the time of this piece&#39;s publication, just 44% of the 2,561 Marvel Tokon reviews on Valve&#39;s digital PC storefront are showing as positive across all languages.",
+      "author": "Michael Cripe",
+      "date": "2026-08-07",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 37,
+      "url": "https://www.ign.com/articles/marvel-tokon-stumbles-to-mixed-steam-reviews-as-miserable-pc-port-complaints-prompt-response-from-arc-system-works",
+      "image": "/images/feed/feed-af326133d525.jpg",
+      "source": "IGN",
       "isLive": true
     },
     {
@@ -167,7 +300,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 39,
       "url": "https://www.polygon.com/new-soulslike-memoirium-on-steam/",
       "image": "/images/feed/feed-fe3673f4fed0.png",
       "source": "Polygon",
@@ -186,10 +319,29 @@
         "Security"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 53,
       "url": "https://techcrunch.com/2026/08/07/openai-says-it-slowed-astra-model-development-over-security-concerns/",
       "image": "/images/feed/feed-59163ffd3cbe.jpg",
       "source": "TechCrunch",
+      "isLive": true
+    },
+    {
+      "id": "feed-4cd499262ab8",
+      "title": "Dwayne Johnson Reacts to Negative Moana Reviews After Disney's Live-Action Remake Bombs",
+      "excerpt": "Dwayne \"The Rock\" Johnson shared his thoughts about the negative reviews for Disney's live-action Moana remake after it floundered in theaters.",
+      "body": "Dwayne &quot;The Rock&quot; Johnson shared his thoughts about the negative reviews for Disney&#39;s live-action Moana remake after it floundered in theaters. The Black Adam actor, who reprised his role as Maui in last month&#39;s reimagining of the animated Disney flick, touched on some of the biting criticism it received around its premiere. From the WWE to Fast &amp; Furious, Johnson has decades of experience in show business, and for him, that means learning to roll with the punches, too. &quot;Our first two reviews came out,&quot; he told People. &quot;I&#39;ll never forget it… They were amazing.",
+      "author": "Michael Cripe",
+      "date": "2026-08-07",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 45,
+      "url": "https://www.ign.com/articles/dwayne-johnson-reacts-to-negative-moana-reviews-after-disneys-live-action-remake-bombs",
+      "image": "/images/feed/feed-4cd499262ab8.png",
+      "source": "IGN",
       "isLive": true
     },
     {
@@ -205,18 +357,18 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 36,
       "url": "https://9to5mac.com/2026/08/07/claude-code-now-lets-sessions-talk-to-each-other-on-macos/",
       "image": "/images/feed/feed-67c487686801.jpg",
       "source": "9to5Mac",
       "isLive": true
     },
     {
-      "id": "feed-7171ba64d97e",
-      "title": "The gaming site sponsored by Walmart lays off its editorial staff",
-      "excerpt": "Restart, a games media website launched in late 2024 that was sponsored by Walmart, has laid off its \"entire editorial team,\" according to a Friday post from Brandy Berthelson, the site's former edito…",
-      "body": "Restart , a games media website launched in late 2024 that was sponsored by Walmart, has laid off its \"entire editorial team,\" according to a Friday post from Brandy Berthelson, the site's former editor-in-chief. Other staffers have also posted about being laid off. Restart is operated by Moonrock, a content marketing agency, though its editorial mission page says it's \"powered\" by Walmart. That page outlines how Walmart is (or was) involved: When we mention a game, we'll provide purchase links that will take you to Walmart using a partner tracking code. This link provides us with 0% of the sale if you decide to buy the product, but it doe … Read the full story at The Verge.",
-      "author": "Jay Peters",
+      "id": "feed-14f2604a6c13",
+      "title": "Brandon Sanderson Says the Speed Racer Movie Is 'Unironically a 10 out of 10'",
+      "excerpt": "\"This is the Wachowskis at their A game, and it was underappreciated when it came out.\"",
+      "body": "Brandon Sanderson, author of the beloved Cosmere universe , has some strong opinions about the Speed Racer movie. During Sanderson&#39;s weekly podcast, he and cohost Dan Wells often create different tier lists, and this week&#39;s theme focused on the greatest overlords of all time. Before the two could even get into the ranking of any notorious movie villains, Sanderson made a bold statement about the 2008 Speed Racer movie. &quot;The movie Speed Racer is unironically a 10 out of 10,&quot; said Sanderson quite emphatically. &quot;This is the Wachowskis at their A game, and it was underappreciated when it came out.&quot; For reference, the Speed Racer movie is currently sitting at 42% on Rotten Tomatoes and a 6.1 out of 10 on IMDB.",
+      "author": "Jacob Kienlen",
       "date": "2026-08-07",
       "readTime": "2 min",
       "section": "gaming",
@@ -224,67 +376,10 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 50,
-      "url": "https://www.theverge.com/games/977056/restart-gaming-site-walmart-moonrock-layoffs",
-      "image": "/images/feed/feed-7171ba64d97e.jpg",
-      "source": "The Verge",
-      "isLive": true
-    },
-    {
-      "id": "feed-ac23c4caa289",
-      "title": "Contrapoints devours forbidden, decadent games | Shelf Quest",
-      "excerpt": "YouTuber Natalie Wynn, known as streamer and video essayist ContraPoints, viewed gaming as a forbidden delicacy when she was a kid. But that only made her want it more.From The Sims and Age of Empires…",
-      "body": "YouTuber Natalie Wynn, known as streamer and video essayist ContraPoints, viewed gaming as a forbidden delicacy when she was a kid. But that only made her want it more.From The Sims and Age of Empires — a development drawing significant attention in the gaming and interactive entertainment space.\n\nThis report, published by Polygon, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Polygon using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Polygon Staff",
-      "date": "2026-08-07",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 47,
-      "url": "https://www.polygon.com/video/contrapoints-devours-forbidden-decadent-games-shelf-quest/",
-      "image": "/images/feed/feed-ac23c4caa289.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-7c374df387bb",
-      "title": "10 Sci-Fi Shows on Netflix Where Every Episode is a Masterpiece",
-      "excerpt": "On Netflix, sci-fi shows like 11.22.63, Orphan Black, Dark, Resident Alien, The Tick, Cassandra, Pantheon, Bodies, and Maniac are perfect masterpieces",
-      "body": "Far too often, when you’re watching a series on Netflix and you’re really getting into it, you reach a point where the show suddenly goes way downhill. Even if things improve again later, the lull messes with the overall experience. Take The Walking Dead (currently available on Netflix). There are plenty of lulls you have to work through to get back to the good stuff and the show is downright unwatchable after Andrew Lincoln leaves. Or Lost , once that show started doing flash-forwards, it lost its edge. And Stranger Things , of course, suffered a massive decline after season 3.",
-      "author": "Brian VanHooker",
-      "date": "2026-08-07",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 45,
-      "url": "https://www.polygon.com/best-sci-fi-shows-on-netflix/",
-      "image": "/images/feed/feed-7c374df387bb.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-b43dd850bdc0",
-      "title": "Unearthed Demon’s Souls Prototype Footage Reveals FromSoftware’s Original First-Person Take On The Souls Formula",
-      "excerpt": "As fascinating as this prototype footage is, I'm sure we can all agree that it's good FromSoft ultimately went in a different direction",
-      "body": "As fascinating as this prototype footage is, I'm sure we can all agree that it's good FromSoft ultimately went in a different direction\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Lewis Parker",
-      "date": "2026-08-07",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 40,
-      "url": "https://kotaku.com/demons-souls-from-software-prototype-first-person-2000722570",
-      "image": "/images/feed/feed-b43dd850bdc0.jpg",
-      "source": "Kotaku",
+      "xpReward": 34,
+      "url": "https://www.ign.com/articles/brandon-sanderson-says-the-speed-racer-movie-is-unironically-a-10-out-of-10",
+      "image": "/images/feed/feed-14f2604a6c13.jpg",
+      "source": "IGN",
       "isLive": true
     },
     {
@@ -300,29 +395,10 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 39,
       "url": "https://cleantechnica.com/2026/08/07/solar-power-us-trade-tariffs-trump-manufacturing-polysilicon/",
       "image": "/images/feed/feed-32d846e16548.jpg",
       "source": "CleanTechnica",
-      "isLive": true
-    },
-    {
-      "id": "feed-4fa985103479",
-      "title": "Tom Holland knows how to keep MCU secrets now",
-      "excerpt": "What Marvel character do you think he was adamant about adding to Spider-Man: Brand New Day?",
-      "body": "What Marvel character do you think he was adamant about adding to Spider-Man: Brand New Day?\n\nThis report, published by Polygon, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Polygon using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Polygon Staff",
-      "date": "2026-08-07",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 54,
-      "url": "https://www.polygon.com/video/tom-holland-knows-how-to-keep-mcu-secrets-now/",
-      "image": "/images/feed/feed-4fa985103479.jpg",
-      "source": "Polygon",
       "isLive": true
     },
     {
@@ -338,7 +414,7 @@
         "Iphone"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 50,
       "url": "https://9to5mac.com/2026/08/07/9to5mac-overtime-076-native-retro-games-on-iphone/",
       "image": "/images/feed/feed-441a1e342387.jpg",
       "source": "9to5Mac",
@@ -357,7 +433,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 39,
       "url": "https://www.androidauthority.com/youtube-tv-espn-unlimited-3696125/",
       "image": "/images/feed/feed-63cc872c4ddd.jpg",
       "source": "Android Authority",
@@ -376,7 +452,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 44,
       "url": "https://techcrunch.com/2026/08/07/wacoms-movinkpad-11-is-a-fun-and-mid-priced-entry-point-for-digital-artists/",
       "image": "/images/feed/feed-3ac7659d9bc3.jpg",
       "source": "TechCrunch",
@@ -395,7 +471,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 51,
       "url": "https://9to5mac.com/2026/08/07/your-friends-neighbors-star-confirmed-for-his-third-apple-tv-project/",
       "image": "/images/feed/feed-6fe562430749.jpg",
       "source": "9to5Mac",
@@ -415,7 +491,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 34,
       "url": "https://spacenews.com/senate-installs-new-chiefs-for-u-s-military-space-acquisition-spy-satellites/",
       "image": "/images/feed/feed-8993ee13895d.png",
       "source": "SpaceNews",
@@ -434,7 +510,7 @@
         "Security"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 43,
       "url": "https://techcrunch.com/2026/08/07/security-researchers-scanned-the-polish-web-and-found-courts-hospitals-and-airports-at-risk-of-hacks/",
       "image": "/images/feed/feed-7feef810b451.jpg",
       "source": "TechCrunch",
@@ -453,7 +529,7 @@
         "Spacex"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 44,
       "url": "https://www.space.com/astronomy/moon/spacex-serious-about-building-factories-on-the-moon-its-going-to-happen-elon-musk-says",
       "image": "/images/feed/feed-9cdbefb77680.jpg",
       "source": "Space.com",
@@ -472,7 +548,7 @@
         "Starship"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 31,
       "url": "https://www.space.com/space-exploration/launches-spacecraft/not-looking-good-right-now-starship-likely-to-be-lost-at-sea-2-weeks-after-epic-13th-test-flight-elon-musk-says",
       "image": "/images/feed/feed-fcdf29139577.jpg",
       "source": "Space.com",
@@ -491,7 +567,7 @@
         "Iphone"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 50,
       "url": "https://9to5mac.com/2026/08/07/iphone-17-might-get-price-increase-next-week-per-new-rumor/",
       "image": "/images/feed/feed-59937e42c4c3.jpg",
       "source": "9to5Mac",
@@ -510,7 +586,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 30,
       "url": "https://electrek.co/2026/08/07/kias-larger-ev-van-caught-less-camo-debut-images/",
       "image": "/images/feed/feed-e445d64cf226.jpg",
       "source": "Electrek",
@@ -530,29 +606,10 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 48,
       "url": "https://www.bleepingcomputer.com/news/security/framework-tally-disclose-metabase-data-theft-attacks/",
       "image": "/images/feed/feed-6278098620d9.jpg",
       "source": "BleepingComputer",
-      "isLive": true
-    },
-    {
-      "id": "feed-5df51e90dab9",
-      "title": "iOS 27 has long-awaited fix for common iPhone wireless issue",
-      "excerpt": "In iOS 27, Apple says it took extra care to make its software “more responsive, reliable, and delightful.” There are a variety of fixes that should make your iPhone faster, including one update for ne…",
-      "body": "In iOS 27, Apple says it took extra care to make its software “more responsive, reliable, and delightful.” There are a variety of fixes that should make your iPhone faster, including one update for ne — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Iphone. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Ryan Christoffel",
-      "date": "2026-08-07",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Iphone"
-      ],
-      "featured": false,
-      "xpReward": 49,
-      "url": "https://9to5mac.com/2026/08/07/ios-27-has-long-awaited-fix-for-common-iphone-wireless-issue/",
-      "image": "/images/feed/feed-5df51e90dab9.jpg",
-      "source": "9to5Mac",
       "isLive": true
     },
     {
@@ -568,7 +625,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 30,
       "url": "https://cleantechnica.com/2026/08/07/new-mexico-court-orders-meta-to-pay-942-million-over-harm-to-children/",
       "image": "/images/feed/feed-9c27b3d0ad45.jpg",
       "source": "CleanTechnica",
@@ -587,7 +644,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 45,
       "url": "https://insideevs.com/features/804221/ev-development-cycles-too-long/",
       "image": "/images/feed/feed-d3cbe8081cd9.jpg",
       "source": "InsideEVs",
@@ -606,67 +663,10 @@
         "Breach"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 41,
       "url": "https://www.bleepingcomputer.com/news/security/unlimited-technology-systems-breach-impacts-38-million-people/",
       "image": "/images/feed/feed-8a6bf048fb5d.jpg",
       "source": "BleepingComputer",
-      "isLive": true
-    },
-    {
-      "id": "feed-ebf1ed71d6a5",
-      "title": "Podcast: Ford Fathom cheap pickup EV, Audi A2, Trump on EVs, and more",
-      "excerpt": "In the Electrek Podcast, we discuss the most popular news in the world of sustainable transport and energy. In this week’s episode, we discuss the Ford Fathom cheap pickup EV, Audi A2, Trump on EVs, a…",
-      "body": "In the Electrek Podcast , we discuss the most popular news in the world of sustainable transport and energy. In this week’s episode, we discuss the Ford Fathom cheap pickup EV, Audi A2, Trump on EVs, and more. Today’s episode is sponsored by GM . GM EV charging made easy, with Energy Pass and Plug and Charge. Learn more at https://gmenergy.gm.com/energypass",
-      "author": "Fred Lambert",
-      "date": "2026-08-07",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Ev"
-      ],
-      "featured": false,
-      "xpReward": 47,
-      "url": "https://electrek.co/2026/08/07/podcast-ford-fathom-cheap-pickup-ev-audi-a2-trump-on-evs-and-more/",
-      "image": "/images/feed/feed-ebf1ed71d6a5.jpg",
-      "source": "Electrek",
-      "isLive": true
-    },
-    {
-      "id": "feed-474411874a03",
-      "title": "Reports of Doug Burgum’s Smug Incompetence Are No Surprise",
-      "excerpt": "WASHINGTON, D.C. — Recent reporting has raised serious questions about Interior Secretary Doug Burgum’s leadership of the Department of the Interior, describing an agency plagued by dysfunction, rampa…",
-      "body": "WASHINGTON, D.C. — Recent reporting has raised serious questions about Interior Secretary Doug Burgum&#8217;s leadership of the Department of the Interior, describing an agency plagued by dysfunction, rampant staff departures, secrecy, and a management culture that has left career employees demoralized and sidelined. The reports allege that under Burgum&#8217;s leadership, experienced public ... [continued] The post Reports of Doug Burgum&#8217;s Smug Incompetence Are No Surprise appeared first on CleanTechnica .",
-      "author": "Sierra Club",
-      "date": "2026-08-07",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Cars"
-      ],
-      "featured": false,
-      "xpReward": 45,
-      "url": "https://cleantechnica.com/2026/08/07/reports-of-doug-burgums-smug-incompetence-are-no-surprise/",
-      "image": "/images/feed/feed-474411874a03.jpg",
-      "source": "CleanTechnica",
-      "isLive": true
-    },
-    {
-      "id": "feed-acf68d35f736",
-      "title": "New Anti-Energy Efficiency Bill Will Cost Consumers, Waste Energy",
-      "excerpt": "Washington, DC — Yesterday, Senator Mike Lee (R-AZ) introduced a bill that would roll back existing energy efficiency standards and prevent the Department of Energy from updating existing or implement…",
-      "body": "Washington, DC — Yesterday, Senator Mike Lee (R-AZ) introduced a bill that would roll back existing energy efficiency standards and prevent the Department of Energy from updating existing or implementing new strong efficiency standards. The bill would result in energy waste, adding extra strain to the grid and raising energy ... [continued] The post New Anti-Energy Efficiency Bill Will Cost Consumers, Waste Energy appeared first on CleanTechnica .",
-      "author": "Sierra Club",
-      "date": "2026-08-07",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Cars"
-      ],
-      "featured": false,
-      "xpReward": 46,
-      "url": "https://cleantechnica.com/2026/08/07/new-anti-energy-efficiency-bill-will-cost-consumers-waste-energy/",
-      "image": "/images/feed/feed-acf68d35f736.jpg",
-      "source": "CleanTechnica",
       "isLive": true
     },
     {
@@ -682,10 +682,29 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 50,
       "url": "https://www.space.com/space-exploration/voyager/nasa-figured-out-how-to-keep-its-48-year-old-voyager-2-probe-running-for-yet-another-year",
       "image": "/images/feed/feed-03fee12afd4f.jpg",
       "source": "Space.com",
+      "isLive": true
+    },
+    {
+      "id": "feed-d9c195a646fd",
+      "title": "2026 IGARSS Hyperwall Schedule",
+      "excerpt": "IGARSS 2026 Join NASA in the Exhibit Hall (Booth #100) for Hyperwall Storytelling by NASA experts. Full Hyperwall Agenda below. MONDAY, AUGUST 10 3:00 PM Technology Enabling the Future of Earth Scienc…",
+      "body": "Explore This Section Earth Earth Observer Editor’s Corner Feature Articles Meeting Summaries News Science in the News In Memoriam Announcements Archives IGARSS 2026 Join NASA in the Exhibit Hall (Booth #100) for Hyperwall Storytelling by NASA experts. Full Hyperwall Agenda below. MONDAY, AUGUST 10 3:00 PM Technology Enabling the Future of Earth Science Mike Seablom 3:15 PM Discovery Earth: New Missions &#038; Technical Innovation Advancing Earth System Insights Karen St. Germain TUESDAY, AUGUST 11 10:00 AM STELLA: Open-Source Multisenor Platforms For Real-Time Environmental Monitoring Mike Taylor 10:15 AM NOAA Geostationary Satellites: Valuable Data for both Research and Operational Use Dan Lindsey 3:00 PM Discovering Mineral Resources with NASA Imaging Spectroscopy Robert O.",
+      "author": "NASA Breaking News",
+      "date": "2026-08-07",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Space"
+      ],
+      "featured": false,
+      "xpReward": 38,
+      "url": "https://science.nasa.gov/earth/2026-igarss-hyperwall-schedule/",
+      "image": "/images/feed/feed-d9c195a646fd.png",
+      "source": "NASA Breaking News",
       "isLive": true
     },
     {
@@ -701,7 +720,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 39,
       "url": "https://thehackernews.com/2026/08/nearly-800-malicious-npm-packages.html",
       "image": "/images/feed/feed-22c85ae6a67d.jpg",
       "source": "The Hacker News",
@@ -720,7 +739,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 50,
       "url": "https://www.theverge.com/ai-artificial-intelligence/976948/openai-astra-model-pause-critical-cyber-capabilities",
       "image": "/images/feed/feed-65308bcbb462.jpg",
       "source": "The Verge",
@@ -739,7 +758,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 41,
       "url": "https://thehackernews.com/2026/08/clickfix-attacks-deliver-macos-stealer.html",
       "image": "/images/feed/feed-1459d2632c9c.jpg",
       "source": "The Hacker News",
@@ -758,7 +777,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 51,
       "url": "https://thehackernews.com/2026/08/unc6671-vishing-attacks-target-personal.html",
       "image": "/images/feed/feed-669f08ba97d4.jpg",
       "source": "The Hacker News",
@@ -779,7 +798,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 50,
       "url": "https://www.space.com/astronomy/james-webb-space-telescope/inside-the-mystery-of-the-james-webb-space-telescopes-little-red-dots-and-how-they-might-be-evolving",
       "image": "/images/feed/feed-5e2fc49f1ff8.jpg",
       "source": "Space.com",
@@ -798,7 +817,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 38,
       "url": "https://www.cnet.com/tech/services-and-software/details-leak-openai-doughnut-shaped-speaker/",
       "image": "/images/feed/feed-861d5fc9c4cc.jpg",
       "source": "CNET",
@@ -817,30 +836,10 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 50,
       "url": "https://spacenews.com/fcc-space-bureau-deputy-takes-the-reins-amid-licensing-overhaul/",
       "image": "/images/feed/feed-464db49d70a8.jpg",
       "source": "SpaceNews",
-      "isLive": true
-    },
-    {
-      "id": "feed-782fdb6127e3",
-      "title": "Korean lunar orbiter snaps first pics of the SpaceX Falcon 9 crash site on the moon",
-      "excerpt": "NASA believes the crater left by the rocket is around 60 feet wide.",
-      "body": "NASA believes the crater left by the rocket is around 60 feet wide.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Spacex, Orbit. As the situation continues to evolve, professionals and enthusiasts in the space exploration and astronomy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Matt Tate)",
-      "date": "2026-08-07",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Spacex",
-        "Orbit"
-      ],
-      "featured": false,
-      "xpReward": 31,
-      "url": "https://www.engadget.com/2232601/korean-lunar-orbiter-snaps-first-pics-of-the-spacex-falcon-9-crash-site-on-the-moon/",
-      "image": "/images/feed/feed-782fdb6127e3.jpg",
-      "source": "Engadget",
       "isLive": true
     },
     {
@@ -875,7 +874,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 42,
       "url": "https://openai.com/index/responding-next-frontier-critical-cyber-capabilities",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "OpenAI Blog",
@@ -894,7 +893,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 37,
       "url": "https://openai.com/index/hsp-gruppe",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "OpenAI Blog",
@@ -914,7 +913,7 @@
         "Claude"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 49,
       "url": "https://thehackernews.com/2026/08/claude-code-and-gemini-cli-flaws-let.html",
       "image": "/images/feed/feed-ce47ddc808c8.jpg",
       "source": "The Hacker News",
@@ -934,7 +933,7 @@
         "Chatgpt"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 48,
       "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/openai-rolls-out-a-major-chatgpt-upgrade-even-if-you-dont-pay-for-it/",
       "image": "/images/feed/feed-44629d3fcbba.jpg",
       "source": "BleepingComputer",
@@ -942,16 +941,16 @@
     }
   ],
   "breakingNews": [
-    "DEV.TO: I published an open dataset of every AI crawler user agent (GPTBot, ClaudeBot + 26 more)",
-    "DEV.TO: How LLM Pricing Works: Every Line on the Bill",
-    "DEV.TO: Gradient Boosting, Explained by Building Three Trees",
-    "DEV.TO: How Diffusion Models Generate an Image",
-    "DEV.TO: How Speech Recognition Works Now",
-    "DEV.TO: How AI Assistants Choose Which Pages to Cite",
-    "DEV.TO: HNSW Explained: The Index Behind Most Vector Search",
-    "POLYGON: 2025's Best Soulslike You Missed Is Officially a Sleeper Hit on Xbox Game Pass",
-    "POLYGON: Memoirium combines Dark Souls, Inception, and Backrooms in Steam's Coolest New Action RPG",
-    "TECHCRUNCH: OpenAI says it slowed Astra model development over security concerns"
+    "DEV.TO: Building a Ride-Share Zone-Balancing Agent with LangGraph — Part 5: Coordinating Two Zones at Once",
+    "DEV.TO: Building a Ride-Share Zone-Balancing Agent with LangGraph — Part 4: Letting a Human Step In",
+    "DEV.TO: Building a Ride-Share Zone-Balancing Agent with LangGraph — Part 3: Giving the Agent Memory",
+    "DEV.TO: Building a Ride-Share Zone-Balancing Agent with LangGraph — Part 2: Teaching the Agent to Read Ops Notes",
+    "CLEANTECHNICA: Waymo CEO: Don’t Move Fast & Break Things With Physical AI",
+    "DEV.TO: Building a Ride-Share Zone-Balancing Agent with LangGraph — Part 1: A Rule-Based Agent, No LLM Yet",
+    "DEV.TO: Neuron-Level Explanations and Their Limits",
+    "DEV.TO: Nested and Recursive Schemas: The Depth Limit Nobody Documents",
+    "9TO5MAC: CarPlay connection issues? This might explain why",
+    "CLEANTECHNICA: U.S. Battery Storage Capacity Averaged 70% Growth Over The Last Three Years"
   ],
   "sectionVideos": {}
 }
