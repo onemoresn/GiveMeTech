@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-08-14T03:49:38.087Z",
+  "fetchedAt": "2026-08-14T04:39:58.461Z",
   "articles": [
     {
-      "id": "feed-e8a239d90950",
-      "title": "Add Model Fallback to an OpenAI-Compatible Node.js App",
-      "excerpt": "A single model can be unavailable, rate-limited, or temporarily slow. If your application already uses an OpenAI-compatible API, a simple fallback can make testing more resilient without introducing a…",
-      "body": "A single model can be unavailable, rate-limited, or temporarily slow. If your application already uses an OpenAI-compatible API, a simple fallback can make testing more resilient without introducing another SDK. This tutorial uses Node.js and the official OpenAI JavaScript package. It tries one model first and switches to a second model only when the first request fails. 1. Install the SDK npm install openai 2. Store the API key outside your code On macOS or Linux: export JINZEAI_API_KEY = \"your_api_key_here\" On PowerShell: $ env : JINZEAI_API_KEY = \"your_api_key_here\" Never commit a real API key. Rotate it immediately if it appears in a public repository, screenshot, or support message. 3.",
-      "author": "Jinze Wang",
+      "id": "feed-b8b620f8bb77",
+      "title": "Think Offline, Win Online — splitting thought from play in YiBoard",
+      "excerpt": "-- https://yiboardgame.com/blog/think-offline-win-online Most board game sites treat \"thinking\" and \"playing\" as the same event. You open the app, you face a clock, and you're expected to be sharp on…",
+      "body": "-- canonical_url: https://yiboardgame.com/blog/think-offline-win-online title: Think Offline, Win Online — splitting thought from play in YiBoard tags: board-games, gomoku, online-community, matchmaking published: false Most board game sites treat \"thinking\" and \"playing\" as the same event. You open the app, you face a clock, and you're expected to be sharp on the spot. YiBoard takes the opposite stance, and after a few weeks of using it I think the split is the more honest design. The idea is simple to state and annoying to implement. The hard cognitive work, reading a position, planning a line, deciding what you actually believe about an opening, doesn't need an opponent. It needs quiet.",
+      "author": "ahmed isam",
       "date": "2026-08-14",
       "readTime": "2 min",
       "section": "software",
@@ -14,18 +14,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 53,
-      "url": "https://dev.to/jinzewang/add-model-fallback-to-an-openai-compatible-nodejs-app-4634",
-      "image": "/images/feed/feed-e8a239d90950.webp",
+      "xpReward": 30,
+      "url": "https://dev.to/ahmed_isam_752b775a50fd90/think-offline-win-online-splitting-thought-from-play-in-yiboard-54o0",
+      "image": "/images/feed/feed-b8b620f8bb77.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-ea8ee1ddd822",
-      "title": "Notes from getting QuickBooks to accept a generated .qbo file",
-      "excerpt": "I'm building a small tool that converts bank CSV files into .qbo files for QuickBooks (qbofile.com). When a generated file is wrong, QuickBooks rejects it with vague errors and the OFX spec doesn't te…",
-      "body": "I'm building a small tool that converts bank CSV files into .qbo files for QuickBooks ( qbofile.com ). When a generated file is wrong, QuickBooks rejects it with vague errors and the OFX spec doesn't tell you what QuickBooks actually checks. So I ran some experiments. Notes below, in case someone else hits the same wall. The file is not XML .qbo is Intuit's version of OFX 1.0.2, which is SGML. Leaf tags have no closing tag: &lt;TRNAMT&gt; -42.50 &lt;FITID&gt; 8f3a2b... Only aggregate tags close. The file also needs a 9-line key:value header, then one blank line, then the body. Line endings are CRLF. My first bug was closing every tag like XML. \"Missing bid data\" means one tag: INTU.BID QuickBooks checks &lt;INTU.BID&gt; against an internal list of banks that pay Intuit for Web Connect.",
-      "author": "Gu",
+      "id": "feed-c008aac58c1b",
+      "title": "Share Your Localhost With Anyone Using Cloudflare Tunnel",
+      "excerpt": "Vibe-coding memes aside, it is genuinely a thing We all might have faced. You're building something locally, someone asks to see it or you want to access it in your other devices, and then you realize…",
+      "body": "Vibe-coding memes aside, it is genuinely a thing We all might have faced. You're building something locally, someone asks to see it or you want to access it in your other devices, and then you realize there's no quick way to show them other than being on the same network and enabling port portforwarding and stuff. Deploying feels like overkill for a thing which may or may not be approved at all. So most end up saying \" it works on my machine \" but it doesn't exactly a sentence which drops confidence and image of yours in others perspective. Well turns out, cloudflare solves this in one (maybe two) commands. 1. Here's the whole thing: If your app is running on localhost:3000 .",
+      "author": "Shaik Mohammad Shahbaaz Alam",
       "date": "2026-08-14",
       "readTime": "2 min",
       "section": "software",
@@ -33,18 +33,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 54,
-      "url": "https://dev.to/ink_gu/notes-from-getting-quickbooks-to-accept-a-generated-qbo-file-3k5i",
-      "image": "/images/feed/feed-ea8ee1ddd822.webp",
+      "xpReward": 48,
+      "url": "https://dev.to/shahbaazx786/share-your-localhost-with-anyone-using-cloudflare-tunnel-5b9g",
+      "image": "/images/feed/feed-c008aac58c1b.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-c205c5e42e55",
-      "title": "Visual Studio 2026 Debugger Detection Failure",
-      "excerpt": "This is a submission for DEV's Summer Bug Smash: Smash Stories powered by Sentry. I was building a Coding Activity Tracker to give me realistic timing for how long I actually spend coding — typing, re…",
-      "body": "This is a submission for DEV's Summer Bug Smash: Smash Stories powered by Sentry . Background I was building a Coding Activity Tracker to give me realistic timing for how long I actually spend coding — typing, reading, debugging, idle, everything. For that to work, it needed to know when Visual Studio was debugging anything , because breakpoints completely change how an app behaves. Running the tracker standalone meant it had to detect external debugging sessions. Debugger.IsAttached only detects debugging of the current process , so standalone mode always reported “no debugger,” even when Visual Studio was actively debugging another project. That single limitation broke the entire purpose of the tracker. The tracker had to detect debugging even when it wasn’t the app being debugged .",
-      "author": "Christopher Semler",
+      "id": "feed-67f07850c007",
+      "title": "Databricks buys Electric to embed local Postgres in AI agents",
+      "excerpt": "Databricks is acquiring the startup Electric to integrate WebAssembly-based Postgres databases directly into application environments for an undisclosed amount. This strategic move provides developers…",
+      "body": "Databricks is acquiring the startup Electric to integrate WebAssembly-based Postgres databases directly into application environments for an undisclosed amount. This strategic move provides developers with a specialized method to keep data geographically and logically closer to AI agents as they construct increasingly autonomous enterprise software systems. Accelerating Agent Workflows with Local Data Traditional software applications usually function by connecting to a central database to manage all information. This architecture works well for standard apps but creates bottlenecks for the next generation of AI agents.",
+      "author": "Valentin Podkamennyi",
       "date": "2026-08-14",
       "readTime": "2 min",
       "section": "software",
@@ -53,17 +53,17 @@
       ],
       "featured": true,
       "xpReward": 33,
-      "url": "https://dev.to/sem7ac/visual-studio-2026-debugger-detection-failure-5fip",
-      "image": "/images/feed/feed-c205c5e42e55.webp",
+      "url": "https://dev.to/vpodk/databricks-buys-electric-to-embed-local-postgres-in-ai-agents-4l3",
+      "image": "/images/feed/feed-67f07850c007.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-a42286118797",
-      "title": "Zero-Trust SSH Access Blueprint: FIDO2 Hardware Keys & SSH Certificate Authority",
-      "excerpt": "Zero-Trust SSH Access Blueprint: FIDO2 Hardware Keys & SSH Certificate Authority Executive Summary Executive Summary & Key Security Takeaways ← Back to Articles Cyber Security • Zero Trust SSH By Zyek…",
-      "body": "Zero-Trust SSH Access Blueprint: FIDO2 Hardware Keys &amp; SSH Certificate Authority Executive Summary Executive Summary &amp; Key Security Takeaways ← Back to Articles Cyber Security • Zero Trust SSH Zero-Trust SSH Access Blueprint: FIDO2 Hardware Keys &amp; SSH Certificate Authority By Zyekh Abdul Qadir Jailani Published: August 3, 2026 8 min read (1,250+ Words) Share Download .md Download .pdf Zero-Trust Infrastructure Blueprint for FIDO2 Hardware Tokens &amp; SSH Certificate Authority Executive Summary &amp; Key Security Takeaways Eliminate Static Keys: Migrate from static authorized_keys deployment to short-lived SSH Certificates. FIDO2 Hardware Bound: Enforce ed25519-sk key pairs tied to physical security tokens (YubiKey/FIDO2).",
-      "author": "Aomi Qaza",
+      "id": "feed-6625a3ddea89",
+      "title": "Claude Code Assist: How Structured Output Works for Real-World Applications",
+      "excerpt": "Discover how Claude's innovative code assist feature is revolutionizing the way developers work. With its ability to provide structured output, developers can now integrate AI-generated code into thei…",
+      "body": "Discover how Claude's innovative code assist feature is revolutionizing the way developers work. With its ability to provide structured output, developers can now integrate AI-generated code into their projects. But how does it actually work? Introduction to Claude Code Assist Imagine having a personal coding assistant that can help you with tedious tasks, such as writing boilerplate code or suggesting improvements to your existing codebase. This is what Claude Code Assist offers. An embedding — a list of numbers that captures the meaning of a piece of text — is used by Claude to understand the context and generate relevant code. Before we dive into the technical aspects, it's essential to understand the why behind Claude Code Assist.",
+      "author": "Dinesh_gowtham",
       "date": "2026-08-14",
       "readTime": "2 min",
       "section": "software",
@@ -71,18 +71,37 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 50,
-      "url": "https://dev.to/aomiqaza/zero-trust-ssh-access-blueprint-fido2-hardware-keys-ssh-certificate-authority-55gj",
-      "image": "/images/feed/feed-a42286118797.webp",
+      "xpReward": 48,
+      "url": "https://dev.to/dineshgowtham/claude-code-assist-how-structured-output-works-for-real-world-applications-gcc",
+      "image": "/images/feed/feed-6625a3ddea89.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-55ace469be19",
-      "title": "Hello DEV! How I'm Blending Technical SEO with Vibe Coding to Build Tools",
-      "excerpt": "Hey DEV Community! 👋 I'm Hoang, a Technical SEO Specialist and Web Builder. I'm fascinated by the intersection of search engines, web technology, and AI. While I don't come from a formal Software Eng…",
-      "body": "Hey DEV Community! 👋 I'm Hoang , a Technical SEO Specialist and Web Builder. I'm fascinated by the intersection of search engines, web technology, and AI. While I don't come from a formal Software Engineering background, I’ve been heavily leveraging AI-assisted development (Vibe Coding) to build custom web applications, utility tools, and micro-platforms. 🛠️ What I'm currently working on: SEO &amp; Entity Optimization: Deep diving into Schema markup, web infrastructure, and Knowledge Graphs. Building Micro-Tools: Creating custom PHP scripts, automated quiz systems, and web utilities powered by modern AI LLMs. Server Management: Migrating and optimizing web apps directly on Nginx setups for maximum performance.",
-      "author": "Vo Viet Hoang",
+      "id": "feed-784faed7bc17",
+      "title": "European SaaS Expired Session Cleanup: Idempotent Python Drains Rate-Limited Workers",
+      "excerpt": "For a European SaaS, cheap expired sessions cleanup sounds like a cron calling a public URL; the real constraint is proving that retries cannot delete the wrong session or flood a constrained worker p…",
+      "body": "For a European SaaS, cheap expired sessions cleanup sounds like a cron calling a public URL; the real constraint is proving that retries cannot delete the wrong session or flood a constrained worker pool. Short answer: expose an authenticated public HTTP trigger, let cron call it, and make that trigger enqueue deterministic, retry-safe cleanup batches rather than deleting expired sessions inside the request. Choose the scheduler only after this invariant holds: any invocation may be delayed, duplicated, or retried without changing the final set of live sessions. This ADR selects a thin scheduled trigger, a durable run ledger, keyset pagination, and an idempotent queue consumer. It does not select a vendor.",
+      "author": "Silhouette72591483",
+      "date": "2026-08-14",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Python"
+      ],
+      "featured": true,
+      "xpReward": 43,
+      "url": "https://dev.to/silhouette72591483/european-saas-expired-session-cleanup-idempotent-python-drains-rate-limited-workers-28lg",
+      "image": "/images/feed/feed-784faed7bc17.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-c3fb8141b1cd",
+      "title": "I Built a Puerto Rican Mountain Kitchen. The Only Image Is the Favicon.",
+      "excerpt": "This is a submission for Frontend Challenge - Comfort Food Edition, Perfect Landing. The only image file in this project is the favicon. No tag anywhere. No inline SVG. No url() in any stylesheet. The…",
+      "body": "This is a submission for Frontend Challenge - Comfort Food Edition, Perfect Landing . What I Built The only image file in this project is the favicon. No &lt;img&gt; tag anywhere. No inline SVG. No url() in any stylesheet. The pot, the broth, the steam, the fire, the rain running down the glass, the fog on the mountains, the moon, the roots floating in the bowl — every one of them is HTML and CSS. No photography, no icon set, no framework, no UI library, nothing loaded from another server. Check the source; that is the whole point. Niebla is a one-page concept kitchen in the mountains of Puerto Rico, and the hook is weather instead of a menu: when the hills disappear into fog, the sancocho comes out. It is also not a poster.",
+      "author": "Self-Correcting Systems",
       "date": "2026-08-14",
       "readTime": "2 min",
       "section": "software",
@@ -90,37 +109,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 51,
-      "url": "https://dev.to/hoangvibecode/hello-dev-how-im-blending-technical-seo-with-vibe-coding-to-build-tools-4ake",
-      "image": "/images/feed/feed-55ace469be19.webp",
+      "xpReward": 35,
+      "url": "https://dev.to/kenielzep97/i-built-a-puerto-rican-mountain-kitchen-the-only-image-is-the-favicon-27jc",
+      "image": "/images/feed/feed-c3fb8141b1cd.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-0d7ce1c534bf",
-      "title": "CSS Anchor Positioning: Building Tooltips Without JavaScript Positioning Hacks",
-      "excerpt": "Introduction Positioning a tooltip sounds simple. Put a small box next to a button. Done. But anyone who has built one knows that it can quickly turn into: position: absolute calculating coordinates l…",
-      "body": "Introduction Positioning a tooltip sounds simple. Put a small box next to a button. Done. But anyone who has built one knows that it can quickly turn into: position: absolute calculating coordinates listening for resize events handling scrolling checking whether the tooltip fits on screen and sometimes pulling in an entire positioning library Modern CSS is starting to change that. CSS Anchor Positioning lets us position one element relative to another directly in CSS. Let's look at what that means with a very simple tooltip. What Is CSS Anchor Positioning? CSS Anchor Positioning allows one element to act as an anchor and another element to position itself relative to that anchor.",
-      "author": "Niharika Pujari",
-      "date": "2026-08-14",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Javascript"
-      ],
-      "featured": true,
-      "xpReward": 41,
-      "url": "https://dev.to/niharikapujari/css-anchor-positioning-building-tooltips-without-javascript-positioning-hacks-2a7o",
-      "image": "/images/feed/feed-0d7ce1c534bf.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-c7529c661464",
-      "title": "Token Bucket vs. Sliding Window: Building Rate Limiters That Actually Hold Under Load",
-      "excerpt": "Rate limiting sounds like a solved problem until you actually implement one and watch it fail in a way your load test didn't predict: legitimate bursts getting rejected, or a limiter that lets through…",
-      "body": "Rate limiting sounds like a solved problem until you actually implement one and watch it fail in a way your load test didn't predict: legitimate bursts getting rejected, or a limiter that lets through 2x its stated limit at window boundaries. The failure modes are specific enough that it's worth working through the two dominant algorithms — token bucket and sliding window — with actual code, not just the diagrams. The problem with fixed windows The naive approach almost everyone reaches for first is a fixed window counter: pick a window size (say, 60 seconds), count requests in that window, reset the counter when the window rolls over. import time class FixedWindowLimiter : def __init__ ( self , limit : int , window_seconds : int ): self . limit = limit self .",
-      "author": "Darshil Somani",
+      "id": "feed-1d95ff4d3b31",
+      "title": "Spaghettifying DRAM: How AI Workloads Are Reshaping Memory Architecture Challenges in 2026",
+      "excerpt": "In 2026, AI training workloads will dominate global DRAM demand, overshadowing traditional computing needs. Generative AI models like GPT-5 will rely heavily on memory technologies such as High-Bandwi…",
+      "body": "In 2026, AI training workloads will dominate global DRAM demand, overshadowing traditional computing needs. Generative AI models like GPT-5 will rely heavily on memory technologies such as High-Bandwidth Memory (HBM), making HBM the backbone of AI systems. Meanwhile, consumer electronics will struggle with diminished memory supply and soaring costs. The entire memory market is undergoing a significant transformation. The traditional balance between data centers and devices like PCs, smartphones, or gaming systems is collapsing under the weight of this change. Why HBM is the Future of AI Memory High-Bandwidth Memory has become essential for AI. HBM3E and HBM4 modules offer bandwidths surpassing 22 TB/s, a performance unmatched by DDR5’s peaks of 70 GB/s.",
+      "author": "Anupam Patil",
       "date": "2026-08-14",
       "readTime": "2 min",
       "section": "software",
@@ -128,9 +128,9 @@
         "Software"
       ],
       "featured": false,
-      "xpReward": 31,
-      "url": "https://dev.to/darshilsomani019/token-bucket-vs-sliding-window-building-rate-limiters-that-actually-hold-under-load-4h7i",
-      "image": "/images/feed/feed-c7529c661464.webp",
+      "xpReward": 41,
+      "url": "https://dev.to/patilanupam/spaghettifying-dram-how-ai-workloads-are-reshaping-memory-architecture-challenges-in-2026-2jh9",
+      "image": "/images/feed/feed-1d95ff4d3b31.webp",
       "source": "Dev.to",
       "isLive": true
     },
@@ -147,7 +147,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 33,
       "url": "https://spacenews.com/cesiumastro-buys-semiconductor-specialist-to-boost-constellation-plans/",
       "image": "/images/feed/feed-f4e892b035eb.png",
       "source": "SpaceNews",
@@ -166,7 +166,7 @@
         "Xbox"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 54,
       "url": "https://www.ign.com/articles/xboxs-separation-from-compulsion-games-seems-complete-as-studio-is-listed-as-the-publisher-of-south-of-midnight-on-steam",
       "image": "/images/feed/feed-d06658846234.jpg",
       "source": "IGN",
@@ -204,7 +204,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 43,
       "url": "https://9to5mac.com/2026/08/13/apple-seeks-settlement-talks-with-epic-games-in-new-court-filing/",
       "image": "/images/feed/feed-a8f204012fc2.jpg",
       "source": "9to5Mac",
@@ -223,7 +223,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 50,
       "url": "https://www.bleepingcomputer.com/news/apple/apple-sends-new-threat-notification-alerts-over-mercenary-spyware-attacks/",
       "image": "/images/feed/feed-27953a6767ad.jpg",
       "source": "BleepingComputer",
@@ -242,7 +242,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 43,
       "url": "https://9to5mac.com/2026/08/13/apple-sends-fresh-wave-of-mercenary-spyware-warnings-worldwide/",
       "image": "/images/feed/feed-2bb3c90b9c29.jpg",
       "source": "9to5Mac",
@@ -261,7 +261,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 37,
       "url": "https://www.ign.com/articles/sabrent-voltik-8-port-252w-usb-desktop-charging-station-deal-august-2026",
       "image": "/images/feed/feed-159a3f92eacd.jpg",
       "source": "IGN",
@@ -280,7 +280,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 45,
       "url": "https://cleantechnica.com/2026/08/13/waymo-partners-with-las-vegas-raiders-allegiant-stadium/",
       "image": "/images/feed/feed-bb03a71e1fa9.jpg",
       "source": "CleanTechnica",
@@ -299,7 +299,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 46,
       "url": "https://www.ign.com/articles/sony-wh-1000xm6-wireless-noise-canceling-headphone-deal-august-2026",
       "image": "/images/feed/feed-e41ed8af6944.jpg",
       "source": "IGN",
@@ -318,7 +318,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 43,
       "url": "https://www.ign.com/articles/comhoma-big-and-tall-gaming-chair-deal-august-2026",
       "image": "/images/feed/feed-4ddcbb9681ef.jpg",
       "source": "IGN",
@@ -356,7 +356,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 38,
       "url": "https://cleantechnica.com/2026/08/13/transparency-accountability-needed-in-open-ai-contract-with-georgia-power/",
       "image": "/images/feed/feed-c228acc74314.jpg",
       "source": "CleanTechnica",
@@ -375,7 +375,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 53,
       "url": "https://cleantechnica.com/2026/08/13/red-tide-near-fort-george-inlet-is-another-warning-sign-jacksonville-needs-to-move-beyond-coal/",
       "image": "/images/feed/feed-984e867f95da.png",
       "source": "CleanTechnica",
@@ -394,7 +394,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 46,
       "url": "https://www.ign.com/articles/supergirl-featurette-wiped-from-youtube-after-fans-spot-director-using-alleged-ai-concept-art-for-lobo",
       "image": "/images/feed/feed-d853c7697a78.jpg",
       "source": "IGN",
@@ -413,7 +413,7 @@
         "Gemini"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 44,
       "url": "https://www.zdnet.com/article/dicio-free-android-assistant-gemini-keeps-data-private/",
       "image": "/images/feed/feed-7242e1251ce9.jpg",
       "source": "ZDNet",
@@ -432,7 +432,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 54,
       "url": "https://www.ign.com/articles/artist-behind-viral-spider-man-brand-new-day-poster-forced-to-take-drawing-down",
       "image": "/images/feed/feed-32864d6389eb.jpg",
       "source": "IGN",
@@ -451,7 +451,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 48,
       "url": "https://insideevs.com/news/804819/lucid-gravity-gt-s-specs-photos-official/",
       "image": "/images/feed/feed-18fc2abe89e7.jpg",
       "source": "InsideEVs",
@@ -470,7 +470,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 42,
       "url": "https://www.engadget.com/2236741/mico-microsofts-weird-lil-ai-guy-has-been-demoted/",
       "image": "/images/feed/feed-c19447d7359a.jpg",
       "source": "Engadget",
@@ -490,7 +490,7 @@
         "Macbook"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 32,
       "url": "https://9to5mac.com/2026/08/13/daily-august-13-2026/",
       "image": "/images/feed/feed-ab25ee48e4f7.jpg",
       "source": "9to5Mac",
@@ -509,7 +509,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 46,
       "url": "https://www.wired.com/story/openai-safety-security-ai-agents-culture/",
       "image": "/images/feed/feed-ad5eaa369611.jpg",
       "source": "Wired",
@@ -528,7 +528,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 52,
       "url": "https://electrek.co/2026/08/13/electric-aircraft-rescue-fire-truck-rosenbauer-dallas/",
       "image": "/images/feed/feed-4520edc7ca83.jpg",
       "source": "Electrek",
@@ -547,7 +547,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 54,
       "url": "https://www.cnet.com/tech/mobile/pixel-watch-5-vs-galaxy-watch-9-comparing-google-and-samsungs-new-watches/",
       "image": "/images/feed/feed-854bc5f22cb4.jpg",
       "source": "CNET",
@@ -566,7 +566,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 32,
       "url": "https://cleantechnica.com/2026/08/13/back-up-your-refrigerator-and-cut-electricity-costs-with-bluetti-fridgepower/",
       "image": "/images/feed/feed-b7098a116ad4.jpg",
       "source": "CleanTechnica",
@@ -585,7 +585,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 51,
       "url": "https://9to5mac.com/2026/08/13/apple-proposes-commissions-of-up-to-15-for-off-app-store-purchases-in-the-us/",
       "image": "/images/feed/feed-3279c4903487.jpg",
       "source": "9to5Mac",
@@ -604,7 +604,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 40,
       "url": "https://www.engadget.com/2236717/cloud-storage-great-until-vendor-goes-out-of-business-nine-pbs/",
       "image": "/images/feed/feed-dfd87c2d5f46.jpg",
       "source": "Engadget",
@@ -624,7 +624,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 50,
       "url": "https://spacenews.com/space-force-awards-five-companies-60-million-for-multi-vendor-satellite-network-tests/",
       "image": "/images/feed/feed-ed80498d5148.jpg",
       "source": "SpaceNews",
@@ -644,7 +644,7 @@
         "Chatgpt"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 33,
       "url": "https://www.cnet.com/tech/services-and-software/openai-now-has-a-chatgpt-desktop-app-for-linux/",
       "image": "/images/feed/feed-e2e2a4451595.jpg",
       "source": "CNET",
@@ -663,7 +663,7 @@
         "Copilot"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 49,
       "url": "https://www.theverge.com/tech/979871/microsoft-copilot-mico-retired",
       "image": "/images/feed/feed-a202a998008f.png",
       "source": "The Verge",
@@ -682,7 +682,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 36,
       "url": "https://www.bleepingcomputer.com/news/security/ukraine-shuts-down-94-fraudulent-call-centers-seize-millions-in-cash/",
       "image": "/images/feed/feed-3245e687afff.jpg",
       "source": "BleepingComputer",
@@ -703,7 +703,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 45,
       "url": "https://www.space.com/space-exploration/human-spaceflight/nasa-astronaut-mike-fincke-retires-after-30-years-at-the-space-agency",
       "image": "/images/feed/feed-9b2b8da18da5.jpg",
       "source": "Space.com",
@@ -722,7 +722,7 @@
         "Hacker"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 36,
       "url": "https://www.bleepingcomputer.com/news/security/akira-hackers-disable-edr-with-safe-mode-steal-data-but-fail-to-encrypt/",
       "image": "/images/feed/feed-b47a05616e36.jpg",
       "source": "BleepingComputer",
@@ -741,7 +741,7 @@
         "Chatgpt"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 30,
       "url": "https://www.zdnet.com/article/openai-brings-the-chatgpt-desktop-app-to-linux/",
       "image": "/images/feed/feed-769f4ae3f078.jpg",
       "source": "ZDNet",
@@ -760,29 +760,10 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 33,
       "url": "https://www.space.com/astronomy/black-holes/supermassive-black-hole-spews-energy-300-000-light-years-into-deep-space",
       "image": "/images/feed/feed-c8131e82ae0f.jpg",
       "source": "Space.com",
-      "isLive": true
-    },
-    {
-      "id": "feed-626f4575649a",
-      "title": "NASA’s 737 Reveals New Paint",
-      "excerpt": "NASA’s 737 aircraft was painted this week in Oklahoma as it progresses with modifications for use as a reduced gravity test aircraft for the agency. NASA’s Armstrong Flight Research Center in Edwards,…",
-      "body": "1 min read Preparations for Next Moonwalk Simulations Underway (and Underwater) A newly painted NASA 737 aircraft sits on a ramp in Oklahoma on Thursday, Aug. 13, 2026. NASA/Carla Escamilla NASA’s 737 aircraft was painted this week in Oklahoma as it progresses with modifications for use as a reduced gravity test aircraft for the agency. NASA’s Armstrong Flight Research Center in Edwards, California, took ownership of the aircraft from the United States Air Force in June.&nbsp; The aircraft will perform lunar-gravity parabolic flights to validate astronaut lunar suits and associated crew systems required to support Artemis mission objectives. These flights will happen at NASA’s Johnson Space Center in Houston for reduced-gravity operations, with NASA Armstrong oversight.",
-      "author": "Dede Dinius",
-      "date": "2026-08-13",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Nasa"
-      ],
-      "featured": false,
-      "xpReward": 46,
-      "url": "https://www.nasa.gov/image-article/nasas-737-reveals-new-paint/",
-      "image": "/images/feed/feed-626f4575649a.jpg",
-      "source": "NASA Breaking News",
       "isLive": true
     },
     {
@@ -798,7 +779,7 @@
         "Security"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 53,
       "url": "https://arstechnica.com/security/2026/08/white-house-recruits-security-firms-to-hack-overseas-cybercriminals/",
       "image": "/images/feed/feed-e25b41ad1a2a.jpg",
       "source": "Ars Technica",
@@ -817,7 +798,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 32,
       "url": "https://www.theverge.com/ai-artificial-intelligence/979815/openai-denise-dresser-leaving-executive-departure",
       "image": "/images/feed/feed-45947aa8ee00.jpg",
       "source": "The Verge",
@@ -836,29 +817,10 @@
         "Chatgpt"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 43,
       "url": "https://cdn.openai.com/pdf/how-organizations-use-chatgpt.pdf",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-9d8d6cf5f3a0",
-      "title": "For West Virginia Engineer, Home Is Where the Heart Is… and NASA, Too",
-      "excerpt": "Growing up in Grafton, West Virginia, engrossed in Star Wars and all things science fiction, Fletcher Newell had an early interest in space exploration. That interest only grew when, in 2013, his four…",
-      "body": "NASA&#8217;s Katherine Johnson Independent Verification and Validation Facility (IV&amp;V) held a swearing-in ceremony for civil servants on Monday, Aug. 10, 2026, at the facility in Fairmont, West Virginia. In total, 51 new employees were hired at IV&amp;V as part of NASA Administrator Jared Isaacman&#8217;s directive to strengthen NASA&#8217;s technical core competencies. Growing up in Grafton, West Virginia, engrossed in Star Wars and all things science fiction, Fletcher Newell had an early interest in space exploration. That interest only grew when, in 2013, his fourth-grade class took a field trip to a nearby NASA facility he had not yet heard of – NASA’s Katherine Johnson Independent Verification &amp; Validation Facility, located in nearby.",
-      "author": "Katy Mersmann",
-      "date": "2026-08-13",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Nasa"
-      ],
-      "featured": false,
-      "xpReward": 50,
-      "url": "https://www.nasa.gov/centers-and-facilities/goddard/for-west-virginia-engineer-home-is-where-the-heart-is-and-nasa-too/",
-      "image": "/images/feed/feed-9d8d6cf5f3a0.jpg",
-      "source": "NASA Breaking News",
       "isLive": true
     },
     {
@@ -876,7 +838,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 43,
       "url": "https://www.space.com/space-exploration/artemis/nasas-canceled-lunar-space-station-tech-will-help-build-the-artemis-moon-base",
       "image": "/images/feed/feed-3d42d3e5cd7b.jpg",
       "source": "Space.com",
@@ -896,10 +858,48 @@
         "Breach"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 47,
       "url": "https://www.bleepingcomputer.com/news/security/hackers-breach-govt-webmail-while-running-parallel-crypto-fraud/",
       "image": "/images/feed/feed-11980db6f512.jpg",
       "source": "BleepingComputer",
+      "isLive": true
+    },
+    {
+      "id": "feed-bba9e9847cb1",
+      "title": "Building a practical path to post-quantum cryptography",
+      "excerpt": "Quantum computing has alternated between breakthrough darling and overhyped promise in technology circles. Its powerful new capabilities come with a threat to break current cryptography, but for busin…",
+      "body": "Quantum computing has alternated between breakthrough darling and overhyped promise in technology circles. Its powerful new capabilities come with a threat to break current cryptography, but for business leaders navigating the noise, the signal should be clear: post-quantum cryptography (PQC) is a manageable evolution, not a crisis. The mathematics behind today&#8217;s encrypted digital transactions may yield to quantum computers one day, but the transition to quantum-resistant algorithms is neither sudden nor insurmountable. For executives concerned about disruption, cost, or complexity, a structured and phased approach exists with trusted technology partners like Intel that are already beginning to deliver the infrastructure to make it possible.",
+      "author": "Jesse Schrater",
+      "date": "2026-08-13",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Space"
+      ],
+      "featured": false,
+      "xpReward": 36,
+      "url": "https://www.technologyreview.com/2026/08/13/1141041/building-a-practical-path-to-post-quantum-cryptography/",
+      "image": "/images/feed/feed-bba9e9847cb1.jpg",
+      "source": "MIT Tech Review",
+      "isLive": true
+    },
+    {
+      "id": "feed-9730100d70af",
+      "title": "'The X-Files' creator Chris Carter says new director's cut of 'I Want to Believe' is 'the horror movie that we really wanted to make' (interview)",
+      "excerpt": "Chris Carter, creator of \"The X-Files\", is revisiting the 2008 film \"The X-Files: I Want to Believe\" in an new R-rated director's cut coming to Hulu on Aug. 14.",
+      "body": "Eighteen years later, it still gives me a jump scare, even though I know it's coming. Agent Mulder, hot on the trail of a group of murderers who are harvesting their victims' organs, breaks into a makeshift laboratory in an attempt to save an abducted woman. He finds a gruesome scene of bodies on ice and surgeons, scalpels in hand, preparing to transplant the villain's head onto the abducted woman's body. Mulder turns and — there it is! The villain's severed head on ice! And it opens its eyes . It sounds less like a scene out of a science fiction mystery series and one more suited to a horror film. And that's precisely why Chris Carter, creator of \" The X-Files \", is revisiting the 2008 film \"The X-Files: I Want to Believe\" in a new R-rated director's cut coming to Hulu on Aug. 14.",
+      "author": " Brett Tingley ",
+      "date": "2026-08-13",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Space"
+      ],
+      "featured": false,
+      "xpReward": 39,
+      "url": "https://www.space.com/entertainment/space-movies-shows/the-x-files-creator-chris-carter-says-new-directors-cut-of-i-want-to-believe-is-the-horror-movie-that-we-really-wanted-to-make-interview",
+      "image": "/images/feed/feed-9730100d70af.jpg",
+      "source": "Space.com",
       "isLive": true
     },
     {
@@ -916,7 +916,7 @@
         "Vulnerability"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 34,
       "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-patches-legacyhive-windows-zero-day-vulnerability/",
       "image": "/images/feed/feed-bf20d96df5ac.jpg",
       "source": "BleepingComputer",
@@ -943,13 +943,13 @@
     }
   ],
   "breakingNews": [
-    "DEV.TO: Add Model Fallback to an OpenAI-Compatible Node.js App",
-    "DEV.TO: Notes from getting QuickBooks to accept a generated .qbo file",
-    "DEV.TO: Visual Studio 2026 Debugger Detection Failure",
-    "DEV.TO: Zero-Trust SSH Access Blueprint: FIDO2 Hardware Keys & SSH Certificate Authority",
-    "DEV.TO: Hello DEV! How I'm Blending Technical SEO with Vibe Coding to Build Tools",
-    "DEV.TO: CSS Anchor Positioning: Building Tooltips Without JavaScript Positioning Hacks",
-    "DEV.TO: Token Bucket vs. Sliding Window: Building Rate Limiters That Actually Hold Under Load",
+    "DEV.TO: Think Offline, Win Online — splitting thought from play in YiBoard",
+    "DEV.TO: Share Your Localhost With Anyone Using Cloudflare Tunnel",
+    "DEV.TO: Databricks buys Electric to embed local Postgres in AI agents",
+    "DEV.TO: Claude Code Assist: How Structured Output Works for Real-World Applications",
+    "DEV.TO: European SaaS Expired Session Cleanup: Idempotent Python Drains Rate-Limited Workers",
+    "DEV.TO: I Built a Puerto Rican Mountain Kitchen. The Only Image Is the Favicon.",
+    "DEV.TO: Spaghettifying DRAM: How AI Workloads Are Reshaping Memory Architecture Challenges in 2026",
     "SPACENEWS: CesiumAstro buys semiconductor specialist to boost constellation plans",
     "IGN: Xbox's Separation from Compulsion Games Seems Complete as Studio Is Listed as the Publisher of South of Midnight on Steam",
     "CLEANTECHNICA: Tesla Reportedly Cutting Production In China In January — Not Clear Why"
