@@ -1,0 +1,74 @@
+<svg viewBox="0 0 780 600" width="780" height="600" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" role="img" aria-label="GSDKit dependency diagram. Each layer depends only downward toward GSDModel.">
+<style>
+  /* Inkwell palette — recolor here:
+     paper #FBFAF7  ink #1C1B1A  muted #6F6A64  line #D8D3CB
+     panel #F2EFE9  accent #2E5A78  accent-soft #E7EFF4
+     db #B5542E  db-soft #F7EBE3  arrow #4A4641 */
+  .fig-bg{fill:#FBFAF7;stroke:#D8D3CB;stroke-width:1;}
+  .panel{fill:#F2EFE9;stroke:#D8D3CB;stroke-width:1;}
+  .box-shell{fill:#FBFAF7;stroke:#6F6A64;stroke-width:1.4;stroke-dasharray:5 4;}
+  .box-pkg{fill:#FFFFFF;stroke:#2E5A78;stroke-width:1.6;}
+  .box-db{fill:#F7EBE3;stroke:#B5542E;stroke-width:1.6;}
+  .box-base{fill:#E7EFF4;stroke:#2E5A78;stroke-width:1.9;}
+  .t-title{fill:#1C1B1A;font-family:Georgia,'Times New Roman',serif;font-size:21px;font-weight:600;}
+  .t-name{fill:#1C1B1A;font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;font-size:15px;font-weight:600;}
+  .t-desc{fill:#6F6A64;font-size:11.5px;}
+  .t-label{fill:#6F6A64;font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;font-size:10.5px;letter-spacing:0.1em;}
+  .t-note{fill:#2E5A78;font-size:11px;font-weight:600;}
+  .t-foot{fill:#1C1B1A;font-size:12px;}
+  .lead{stroke:#4A4641;stroke-width:1.7;fill:none;}
+  .legline{stroke:#4A4641;stroke-width:1.7;fill:none;}
+  .ah{fill:#4A4641;}
+</style>
+<defs>
+  <marker id="arw" markerWidth="9" markerHeight="9" refX="6.5" refY="3.2" orient="auto">
+    <path class="ah" d="M0,0 L7,3.2 L0,6.4 Z"/>
+  </marker>
+</defs>
+
+<rect class="fig-bg" x="1" y="1" width="778" height="598" rx="14"/>
+
+<text class="t-title" x="40" y="50">GSDKit: each layer depends only downward</text>
+<line class="legline" x1="612" y1="45" x2="638" y2="45" marker-end="url(#arw)"/>
+<text class="t-desc" x="646" y="49">depends on</text>
+
+<rect class="panel" x="70" y="208" width="640" height="336" rx="12"/>
+<text class="t-label" x="74" y="201">GSDKIT PACKAGE</text>
+
+<text class="t-label" x="110" y="84">APP TARGETS · THIN SHELLS</text>
+
+<rect class="box-shell" x="110" y="96" width="240" height="60" rx="8"/>
+<text class="t-name" x="230" y="121" text-anchor="middle">App</text>
+<text class="t-desc" x="230" y="139" text-anchor="middle">iOS + Mac targets</text>
+
+<rect class="box-shell" x="420" y="96" width="240" height="60" rx="8"/>
+<text class="t-name" x="540" y="121" text-anchor="middle">Extensions</text>
+<text class="t-desc" x="540" y="139" text-anchor="middle">Widgets + Share</text>
+
+<rect class="box-pkg" x="110" y="224" width="240" height="60" rx="8"/>
+<text class="t-name" x="230" y="249" text-anchor="middle">GSDSync</text>
+<text class="t-desc" x="230" y="267" text-anchor="middle">Sync · pure actor</text>
+
+<rect class="box-pkg" x="420" y="224" width="240" height="60" rx="8"/>
+<text class="t-name" x="540" y="249" text-anchor="middle">GSDSnapshot</text>
+<text class="t-desc" x="540" y="267" text-anchor="middle">GRDB-free contract</text>
+
+<rect class="box-db" x="110" y="340" width="240" height="60" rx="8"/>
+<text class="t-name" x="230" y="365" text-anchor="middle">GSDStore</text>
+<text class="t-desc" x="230" y="383" text-anchor="middle">Persistence · GRDB</text>
+
+<rect class="box-base" x="110" y="456" width="550" height="64" rx="8"/>
+<text class="t-name" x="385" y="482" text-anchor="middle">GSDModel</text>
+<text class="t-desc" x="385" y="500" text-anchor="middle">Pure domain types · zero dependencies</text>
+
+<line class="lead" x1="230" y1="156" x2="230" y2="222" marker-end="url(#arw)"/>
+<line class="lead" x1="230" y1="284" x2="230" y2="338" marker-end="url(#arw)"/>
+<line class="lead" x1="230" y1="400" x2="230" y2="454" marker-end="url(#arw)"/>
+<line class="lead" x1="540" y1="156" x2="540" y2="222" marker-end="url(#arw)"/>
+<line class="lead" x1="540" y1="284" x2="540" y2="454" marker-end="url(#arw)"/>
+
+<text class="t-note" x="556" y="356">no database</text>
+<text class="t-note" x="556" y="370">on this path</text>
+
+<text class="t-foot" x="40" y="576">Widgets and the Share extension reach the domain through GSDSnapshot, so they never load the database.</text>
+</svg>
