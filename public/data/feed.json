@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-08-17T05:18:28.040Z",
+  "fetchedAt": "2026-08-17T06:17:29.836Z",
   "articles": [
     {
-      "id": "feed-e39fa4052fe9",
-      "title": "Your agent's \"not done\" lies as often as its \"done\"",
-      "excerpt": "There is a well-worn rule for running agents: don't trust the agent when it says it finished. Go look at the artifact. Good rule. We follow it. It did not save us, because the failure we actually hit…",
-      "body": "There is a well-worn rule for running agents: don't trust the agent when it says it finished. Go look at the artifact. Good rule. We follow it. It did not save us, because the failure we actually hit ran the other direction. Our records said a thing was not done. It had been done four hours and twenty minutes earlier. Nobody writes verification procedures for that direction. We didn't either. Here is what it cost, measured. The incident An autonomous org keeps a small set of canonical documents. Sessions have no memory of each other, so the documents are the memory. One of them tracked a piece of writing with the field published: unpublished . A human asked the main loop: \"isn't this the same thing you posted this afternoon?\" The loop said no.",
-      "author": "Unmanned Ops",
+      "id": "feed-e7c043363e15",
+      "title": "Running Android VMs on ARM: Rebuilding the Minisforum MS-R1 Kernel for Cuttlefish",
+      "excerpt": "Part 1 of 2. This part covers getting a kernel that can actually host virtual machines. I wanted a box that could run a dozen Android instances at once — real ones, not emulated-on-x86 ones — to bench…",
+      "body": "Part 1 of 2. This part covers getting a kernel that can actually host virtual machines. Why bother I wanted a box that could run a dozen Android instances at once — real ones, not emulated-on-x86 ones — to benchmark peer-to-peer sync behaviour at scale. Native arm64 Android on native arm64 silicon, no translation layer, enough cores and RAM to make the peer count interesting. The Minisforum MS-R1 looked ideal. It's built on the CIX P1 (\"Sky1\"), a 12-core ARMv9 SoC, and it's one of the first genuinely affordable ARM desktops with server-class amounts of memory. Google's Cuttlefish — AOSP's official virtual device — runs arm64 Android guests on arm64 hosts with KVM acceleration, with a --num_instances=N flag that does exactly what I wanted. Everything lined up.",
+      "author": "Aaron LaBeau",
       "date": "2026-08-17",
       "readTime": "2 min",
       "section": "software",
@@ -14,18 +14,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 49,
-      "url": "https://dev.to/unmannedops/your-agents-not-done-lies-as-often-as-its-done-1ea2",
-      "image": "/images/feed/feed-e39fa4052fe9.webp",
+      "xpReward": 35,
+      "url": "https://dev.to/biozal/running-android-vms-on-arm-rebuilding-the-minisforum-ms-r1-kernel-for-cuttlefish-52a1",
+      "image": "/images/feed/feed-e7c043363e15.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-80beaa46b305",
-      "title": "A Bad Prompt Will Waste Your Free Model Calls. Lint the Contract First.",
-      "excerpt": "Last Tuesday, my pipeline called a free model three times on the same commit. The output looked confident every time. It was wrong every time. The model did not fail. My prompt did. I almost blamed th…",
-      "body": "Last Tuesday, my pipeline called a free model three times on the same commit. The output looked confident every time. It was wrong every time. The model did not fail. My prompt did. I almost blamed the model. Then I looked at the job log. The same ambiguous instruction went out again and again. Every retry was a fresh token budget hit on the same mistake. That made me ask a simple question: why was I paying attention to model output before I had checked the prompt? The invisible cost is not the model. It is the bad call. A free model still has a cost. Time waiting for a response. CI minutes spent on a job that should not exist. A false verdict that someone has to review manually. Confusion about whether the model or the input caused the failure.",
-      "author": "Jordan Huang",
+      "id": "feed-ff90a501b27c",
+      "title": "How to Standardize Line Endings in Git Without Committing `.gitattributes`",
+      "excerpt": "When developing with Git, differences between CRLF and LF can become an issue when working across Windows and Linux/macOS. A common solution is to place a .gitattributes file in the repository to defi…",
+      "body": "When developing with Git, differences between CRLF and LF can become an issue when working across Windows and Linux/macOS. A common solution is to place a .gitattributes file in the repository to define line-ending rules. However, there are also cases where you may want to: Avoid adding .gitattributes to the repository Standardize line endings only in your own environment Apply the same rules across multiple repositories Git allows you to configure equivalent settings without committing .gitattributes to the repository. Configure Only a Specific Repository If you want the settings to apply only to a specific repository, you can use the following file: .git/info/attributes Because this file is located inside the .git directory, it is normally not tracked by Git.",
+      "author": "vast cow",
       "date": "2026-08-17",
       "readTime": "2 min",
       "section": "software",
@@ -33,18 +33,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 42,
-      "url": "https://dev.to/gitlab_3188/a-bad-prompt-will-waste-your-free-model-calls-lint-the-contract-first-16ln",
-      "image": "/images/feed/feed-80beaa46b305.webp",
+      "xpReward": 30,
+      "url": "https://dev.to/vast-cow/how-to-standardize-line-endings-in-git-without-committing-gitattributes-1k29",
+      "image": "/images/feed/feed-ff90a501b27c.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-fb8666eb9f10",
-      "title": "Spring proxies: JDK dynamic vs CGLIB",
-      "excerpt": "You put @Transactional on a method and a database transaction opens before it runs and commits when it returns — yet you never wrote a line to start or end one. You add @Cacheable, and the second call…",
-      "body": "You put @Transactional on a method and a database transaction opens before it runs and commits when it returns — yet you never wrote a line to start or end one. You add @Cacheable , and the second call with the same arguments skips your method body entirely. You didn't touch the code inside those methods. So where does the extra behaviour actually run? It runs inside a proxy : a stand-in object that Spring slips between whoever calls your bean and the real bean itself. You meet proxies the moment you use any Spring annotation that wraps behaviour around a method — transactions, caching, security, retries, async. Most of the time you never see it.",
-      "author": "Ankit Verma",
+      "id": "feed-0956826a6477",
+      "title": "Recursion vs Iteration: Choosing Your Path Like Neo in The Matrix",
+      "excerpt": "The Quest Begins (The \"Why\") I was knee‑deep in a coding interview when the interviewer tossed me a seemingly innocent problem: “Given a binary tree, return the sum of all its nodes.” My first instinc…",
+      "body": "The Quest Begins (The \"Why\") I was knee‑deep in a coding interview when the interviewer tossed me a seemingly innocent problem: “Given a binary tree, return the sum of all its nodes.” My first instinct? Fire off a tidy while‑loop, push nodes onto a stack, and iterate until the stack was empty. I felt confident—loops are my comfort zone, the trusty hammer I reach for whenever I see a nail. But as I typed, a nagging voice whispered: “What if the tree is huge? What if the depth is unknown?” My iterative solution started to look clunky—managing explicit stacks, remembering to pop the right nodes, and keeping track of visited children felt like I was juggling flaming torches while blindfolded.",
+      "author": "Timevolt",
       "date": "2026-08-17",
       "readTime": "2 min",
       "section": "software",
@@ -52,18 +52,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 38,
-      "url": "https://dev.to/ankit_verma_e2fa7fb2aa95d/spring-proxies-jdk-dynamic-vs-cglib-1fg1",
-      "image": "/images/feed/feed-fb8666eb9f10.webp",
+      "xpReward": 36,
+      "url": "https://dev.to/timevolt/recursion-vs-iteration-choosing-your-path-like-neo-in-the-matrix-n8m",
+      "image": "/images/feed/feed-0956826a6477.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-ea836153b776",
-      "title": "\"I built a lying MCP server on purpose — here's how you catch it\"",
-      "excerpt": "TL;DR — A server's README can say anything. Its tools/list response either backs that up or it doesn't. I built mcp-worse — a second binary, sharing two of mcp-better's tool names, that deliberately o…",
-      "body": "TL;DR — A server's README can say anything. Its tools/list response either backs that up or it doesn't. I built mcp-worse — a second binary, sharing two of mcp-better 's tool names, that deliberately omits the list-cache stamps and serves tools in the wrong order — so a test could prove the difference. That test is contrast-smoke : one command, real MCP clients, real wire traffic. Exit code 0 only if the good server passes the contract and the bad one fails it. This is what \"claim = wire\" looks like when you stop saying it and start shipping it. The problem with trusting a README Every MCP server's docs make claims: stateless , cacheable list , stable tool order . Nothing in the protocol stops a server from claiming all three and doing none of them.",
-      "author": "wolfejam.dev",
+      "id": "feed-188b16069c5e",
+      "title": "Web Push in the Next.js App Router: Field Notes on Service Workers, VAPID, and the iOS Rule That Silently Blocks Everything",
+      "excerpt": "Headline: Web Push is a browser API that delivers a server-sent notification to a device while your site is closed, and in a Next.js App Router project it needs exactly three parts: a service worker s…",
+      "body": "Headline: Web Push is a browser API that delivers a server-sent notification to a device while your site is closed, and in a Next.js App Router project it needs exactly three parts: a service worker served from the origin root, a VAPID key pair, and a Node.js-runtime route handler that sends. On iOS Safari it needs a fourth thing nobody documents loudly enough — the user must install the site to the Home Screen first. I wired Web Push into a Next.js 16 App Router project this month. The happy path took an afternoon. The rest of the week went to iOS, to subscriptions that had quietly died months earlier, and to a service worker the browser refused to replace. These are the notes I wish I had on day one.",
+      "author": "Ahmed Mahmoud",
       "date": "2026-08-17",
       "readTime": "2 min",
       "section": "software",
@@ -71,37 +71,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 42,
-      "url": "https://dev.to/wolfejam/i-built-a-lying-mcp-server-on-purpose-heres-how-you-catch-it-102g",
-      "image": "/images/feed/feed-ea836153b776.webp",
+      "xpReward": 36,
+      "url": "https://dev.to/ahmed_mahmoud360/web-push-in-the-nextjs-app-router-field-notes-on-service-workers-vapid-and-the-ios-rule-that-1oj2",
+      "image": "/images/feed/feed-188b16069c5e.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-51428c8550a0",
-      "title": "Next.js project scope: what to define before you write a line of code",
-      "excerpt": "Scoping a Next.js project before development starts is the single fastest way to avoid mid-build surprises on budget and timeline. Most project overruns I see aren't caused by hard engineering problem…",
-      "body": "Scoping a Next.js project before development starts is the single fastest way to avoid mid-build surprises on budget and timeline. Most project overruns I see aren't caused by hard engineering problems — they're caused by vague scope that everyone interpreted differently. This post walks through the five things I pin down before quoting or starting any Next.js engagement. Why next.js project scope breaks down early A brief that says \"we need a marketing site with a blog\" could mean a five-page brochure or a 200-URL content hub with filtering, internationalisation, and a video section. Both are buildable. They are not the same price or timeline. The gap between them only becomes visible when someone writes a proper scope — so that's the starting point.",
-      "author": "Nayan Kyada",
-      "date": "2026-08-17",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 50,
-      "url": "https://dev.to/nayankyada/nextjs-project-scope-what-to-define-before-you-write-a-line-of-code-id2",
-      "image": "/images/feed/feed-51428c8550a0.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-e29542c0385a",
-      "title": "Using PixelRAG with Claude Code (August 2026) — Visual RAG for Documents with Tables and Diagrams",
-      "excerpt": "PixelRAG is a visual RAG tool that treats web pages, PDFs, and images as screenshots rather than text — preserving the layout of tables and charts so you can search and reference them as-is. This post…",
-      "body": "PixelRAG is a visual RAG tool that treats web pages, PDFs, and images as screenshots rather than text — preserving the layout of tables and charts so you can search and reference them as-is. This post covers installing it as a plugin, actual usage, how it differs from traditional text-based RAG, and the gotchas you're likely to hit — all from a Claude Code user's perspective. What you'll get out of this post You're an intermediate engineer already using Claude Code for real work You need to search or understand documents where tables, diagrams, and layout matter You want to know how this differs from traditional text RAG (embeddings + a vector DB) What is PixelRAG? PixelRAG renders documents — web pages, PDFs, images — as screenshots and feeds those images directly to the model.",
-      "author": "GridPort",
+      "id": "feed-bbe4c6d69ec3",
+      "title": "Zhipu va ouvrir les poids du meilleur chasseur de failles",
+      "excerpt": "L'essentiel Zhipu AI a publié GLM-5.3, entraîné sur un modèle de base de 743 milliards de paramètres et présenté comme dédié à la cyberdéfense et à la programmation. Le modèle obtient 84,5 points sur…",
+      "body": "L'essentiel Zhipu AI a publié GLM-5.3, entraîné sur un modèle de base de 743 milliards de paramètres et présenté comme dédié à la cyberdéfense et à la programmation. Le modèle obtient 84,5 points sur CyberGym, au-dessus de Mythos 5 et de GPT-5.6 Sol. L'éditeur annonce un accès API et des poids ouverts (les paramètres du modèle, téléchargeables) publiés par étapes, après des évaluations de sécurité. Sur les tâches de programmation agentique, Zhipu revendique un net progrès face à GLM-5.2, avec moins de tokens produits pour un meilleur résultat. Zhipu AI livrera GLM-5.3 en plusieurs fois.",
+      "author": "Thibault Monteiro",
       "date": "2026-08-17",
       "readTime": "2 min",
       "section": "software",
@@ -110,17 +91,36 @@
       ],
       "featured": true,
       "xpReward": 46,
-      "url": "https://dev.to/_02121fbe984480fd65fc/using-pixelrag-with-claude-code-august-2026-visual-rag-for-documents-with-tables-and-diagrams-82c",
-      "image": "/images/feed/feed-e29542c0385a.webp",
+      "url": "https://dev.to/thibault_monteiro/zhipu-va-ouvrir-les-poids-du-meilleur-chasseur-de-failles-16l5",
+      "image": "/images/feed/feed-bbe4c6d69ec3.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-e5231154143a",
-      "title": "The outbox pattern is four sentences in a blog post. Here are three incidents from running it.",
-      "excerpt": "Write the event into the same transaction as the row. Poll the table. Send to Kafka. Mark it sent. That's the whole pattern, and every version of it you'll find online stops right there, because at th…",
-      "body": "Write the event into the same transaction as the row. Poll the table. Send to Kafka. Mark it sent. That's the whole pattern, and every version of it you'll find online stops right there, because at that level of description it's obviously correct — one commit, so a published fact can never disagree with the row that caused it. I built one, ran it for real between two services, and hit three separate ways for \"obviously correct\" to still go wrong in practice. None of them are exotic. All three are the kind of thing that only shows up once something is actually polling a table and actually talking to a broker instead of living in a diagram. Pitfall 1 — the poison message that never gets counted The relay's job is: claim a batch of unsent rows, send each one, mark it SENT on a broker ack.",
-      "author": "Qihu Zhang",
+      "id": "feed-1bf5ea00dfc5",
+      "title": "REST API vs GraphQL in 2026 - How to Choose the Right One",
+      "excerpt": "Search interest in \"REST vs GraphQL\" has remained consistently high throughout the 2020s, with the debate gaining renewed urgency as more teams build frontend-heavy products with complex data requirem…",
+      "body": "Search interest in \"REST vs GraphQL\" has remained consistently high throughout the 2020s, with the debate gaining renewed urgency as more teams build frontend-heavy products with complex data requirements. GraphQL has been in production since Facebook open-sourced it in 2015 and is now mature, well-tooled, and genuinely adopted at scale. Yet REST remains the dominant choice for new APIs in 2026, and not without reason. The question is not which one is theoretically better but which one fits your project. This guide covers what each approach actually is, the core technical differences with a concrete code example, performance realities that the marketing does not mention, security considerations that change the calculus, and a clear recommendation for each scenario type.",
+      "author": "Mecanik1337",
+      "date": "2026-08-17",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Api"
+      ],
+      "featured": true,
+      "xpReward": 35,
+      "url": "https://dev.to/mecanik-dev/rest-api-vs-graphql-in-2026-how-to-choose-the-right-one-3k1a",
+      "image": "/images/feed/feed-1bf5ea00dfc5.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-99649afec359",
+      "title": "What Went Wrong For Copilot",
+      "excerpt": "There have been 3 amazing tools launched by Microsoft recently: Code Apps Cowork New Copilot Studio (aka GitHub Copilot Harness) These tools had me incredibly excited, as they not only allowed me to d…",
+      "body": "There have been 3 amazing tools launched by Microsoft recently: Code Apps Cowork New Copilot Studio (aka GitHub Copilot Harness) These tools had me incredibly excited, as they not only allowed me to do my job better and quicker, but also enabled me to do things that weren't possible. But then things started to go a little wrong: Vibe.powerapp.com (the user friendly version of Code Apps) which I was expecting to allow citizen dev's to use it is still half finished and in preview (launched almost a year ago 18th November 2025). Things like this either get traction and hit GA, or they die in preview (often never fully deprecated). Cowork moved to an expensive pay as you go model.",
+      "author": "david wyatt",
       "date": "2026-08-17",
       "readTime": "2 min",
       "section": "software",
@@ -128,10 +128,29 @@
         "Software"
       ],
       "featured": false,
-      "xpReward": 49,
-      "url": "https://dev.to/danzizhangdev/the-outbox-pattern-is-four-sentences-in-a-blog-post-here-are-three-incidents-from-running-it-4iek",
-      "image": "/images/feed/feed-e5231154143a.webp",
+      "xpReward": 39,
+      "url": "https://dev.to/wyattdave/what-went-wrong-for-copilot-19f2",
+      "image": "/images/feed/feed-99649afec359.webp",
       "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-0983c5d2a38e",
+      "title": "Another woman joins lawsuit accusing Grok of generating CSAM",
+      "excerpt": "A fourth party is pursuing legal action against xAI, alleging that Grok was used to create CSAM based on her childhood photos.",
+      "body": "A fourth party is pursuing legal action against xAI, alleging that Grok was used to create CSAM based on her childhood photos.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "staff@engadget.com (Jackson Chen)",
+      "date": "2026-08-17",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 53,
+      "url": "https://www.engadget.com/2237875/another-woman-joins-lawsuit-accusing-grok-of-generating-csam/",
+      "image": "/images/feed/feed-0983c5d2a38e.jpg",
+      "source": "Engadget",
       "isLive": true
     },
     {
@@ -147,7 +166,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 33,
       "url": "https://www.androidauthority.com/google-pixel-double-tap-lock-android-17-qpr2-beta-3-3699094/",
       "image": "/images/feed/feed-4040030c6fb9.jpg",
       "source": "Android Authority",
@@ -166,7 +185,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 41,
       "url": "https://cleantechnica.com/2026/08/17/netherlands-fsd-drive-raises-questions/",
       "image": "/images/feed/feed-e7ecca493188.png",
       "source": "CleanTechnica",
@@ -204,7 +223,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 48,
       "url": "https://kotaku.com/hayden-panettiere-death-until-dawn-kingdom-hearts-2000724820",
       "image": "/images/feed/feed-25b80fbd6528.jpg",
       "source": "Kotaku",
@@ -223,7 +242,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 36,
       "url": "https://www.ign.com/articles/heroes-star-hayden-panettiere-dies-at-36",
       "image": "/images/feed/feed-84db1c92c2a7.png",
       "source": "IGN",
@@ -242,7 +261,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 54,
       "url": "https://cleantechnica.com/2026/08/16/forefront-power-completes-its-first-erthos-solar-energy-system-for-the-city-of-fresno/",
       "image": "/images/feed/feed-523a3089046d.jpg",
       "source": "CleanTechnica",
@@ -261,7 +280,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 40,
       "url": "https://www.androidauthority.com/android-17-qpr2-beta-3-new-features-3699084/",
       "image": "/images/feed/feed-984ac339b869.jpg",
       "source": "Android Authority",
@@ -280,7 +299,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 48,
       "url": "https://cleantechnica.com/2026/08/16/how-much-windfall-profit-have-oil-companies-made-in-europe/",
       "image": "/images/feed/feed-c004c1c66049.png",
       "source": "CleanTechnica",
@@ -299,7 +318,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 39,
       "url": "https://www.ign.com/articles/lanterns-showrunner-hbo-surprise-ending-kyle-chandler-hal-jordan-big-and-scary-to-commit-to",
       "image": "/images/feed/feed-8ccc24c881f8.jpg",
       "source": "IGN",
@@ -318,7 +337,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 38,
       "url": "https://www.ign.com/articles/look-forward-to-meetin-ya-sugah-rogue-voice-actress-lenore-zann-reacts-to-mcu-x-men-casting-with-special-video-message-for-inde-navarrette",
       "image": "/images/feed/feed-763a1cb8b9c4.png",
       "source": "IGN",
@@ -338,7 +357,7 @@
         "Breach"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 41,
       "url": "https://www.bleepingcomputer.com/news/security/safepal-data-breach-impacts-39-798-customers-stolen-info-for-sale/",
       "image": "/images/feed/feed-552547496990.jpg",
       "source": "BleepingComputer",
@@ -357,7 +376,7 @@
         "Satellite"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 41,
       "url": "https://spacenews.com/satellite-operators-emphasize-launch-deals-in-a-constrained-market/",
       "image": "/images/feed/feed-13e1b3c81be0.jpg",
       "source": "SpaceNews",
@@ -376,7 +395,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 39,
       "url": "https://www.space.com/entertainment/space-movies-shows/how-to-watch-lanterns-hbos-gritty-new-green-lantern-show",
       "image": "/images/feed/feed-19151a0597e0.png",
       "source": "Space.com",
@@ -395,7 +414,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 50,
       "url": "https://www.polygon.com/tubi-movies-august-2026-jack-reacher/",
       "image": "/images/feed/feed-df2e6fbe8303.jpg",
       "source": "Polygon",
@@ -414,7 +433,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 52,
       "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/anthropic-confirms-claude-is-down-in-major-outage-affecting-multiple-services/",
       "image": "/images/feed/feed-d5847576e3ed.png",
       "source": "BleepingComputer",
@@ -433,7 +452,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 50,
       "url": "https://www.polygon.com/spider-man-brand-new-day-2-billion-box-office/",
       "image": "/images/feed/feed-16934458d19c.jpg",
       "source": "Polygon",
@@ -452,7 +471,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 30,
       "url": "https://www.polygon.com/4400-mahershala-ali-free-streaming-tubi/",
       "image": "/images/feed/feed-2c0b7cb14a71.jpg",
       "source": "Polygon",
@@ -471,7 +490,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 44,
       "url": "https://www.theverge.com/ai-artificial-intelligence/980817/openai-disbands-preparedness-team",
       "image": "/images/feed/feed-eb794a2fd02e.jpg",
       "source": "The Verge",
@@ -490,7 +509,7 @@
         "Android Phone"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 52,
       "url": "https://www.engadget.com/2236816/turn-on-settings-protect-android-phone-from-theft/",
       "image": "/images/feed/feed-eb907959856c.jpg",
       "source": "Engadget",
@@ -509,7 +528,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 46,
       "url": "https://www.reuters.com/business/nvidia-scales-back-250-billion-openai-data-center-guarantee-wsj-reports-2026-08-14/",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "Hacker News",
@@ -528,7 +547,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 54,
       "url": "https://www.engadget.com/2236810/is-buying-oneplus-phone-still-good-idea-in-2026/",
       "image": "/images/feed/feed-998dbee12c3e.jpg",
       "source": "Engadget",
@@ -547,7 +566,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 41,
       "url": "https://www.engadget.com/2236805/android-phones-antivirus-app-guidance/",
       "image": "/images/feed/feed-f17cf28cf192.jpg",
       "source": "Engadget",
@@ -566,28 +585,9 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 43,
       "url": "https://www.engadget.com/2236809/why-retro-games-look-better-old-crt-tv/",
       "image": "/images/feed/feed-ca0bc8f8425e.jpg",
-      "source": "Engadget",
-      "isLive": true
-    },
-    {
-      "id": "feed-caae5e22a355",
-      "title": "You might want to skip Newegg's GPU trade-in program",
-      "excerpt": "The program makes upgrading your hardware incredibly convenient, but weigh your options.",
-      "body": "The program makes upgrading your hardware incredibly convenient, but weigh your options.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Husain Parvez)",
-      "date": "2026-08-16",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 39,
-      "url": "https://www.engadget.com/2236808/might-want-to-skip-newegg-gpu-trade-in-program-reasons/",
-      "image": "/images/feed/feed-caae5e22a355.jpg",
       "source": "Engadget",
       "isLive": true
     },
@@ -604,7 +604,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 42,
       "url": "https://electrek.co/2026/08/16/jlrs-new-freelander-8-takes-off-with-10000-orders-in-first-48-hours/",
       "image": "/images/feed/feed-9f45a206505a.jpg",
       "source": "Electrek",
@@ -623,7 +623,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 44,
       "url": "https://www.bleepingcomputer.com/news/security/large-scale-ddos-attacks-disrupted-threema-secure-messaging-service/",
       "image": "/images/feed/feed-1c2776aa7eb8.png",
       "source": "BleepingComputer",
@@ -642,7 +642,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 37,
       "url": "https://techcrunch.com/2026/08/16/anthropic-ceo-says-ai-backlash-is-fundamentally-a-crisis-of-trust/",
       "image": "/images/feed/feed-9eeacf6b78b6.jpg",
       "source": "TechCrunch",
@@ -661,7 +661,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 50,
       "url": "https://electrek.co/2026/08/16/e-quipment-highlight-liugong-924fe-electric-excavator-is-coming-to-america/",
       "image": "/images/feed/feed-98d36dcd62a2.jpg",
       "source": "Electrek",
@@ -680,7 +680,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 49,
       "url": "https://electrek.co/2026/08/16/ferrari-luce-chassis-0-sells-40-million-record/",
       "image": "/images/feed/feed-64001bb3d32c.jpg",
       "source": "Electrek",
@@ -699,7 +699,7 @@
         "Malware"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 38,
       "url": "https://www.bleepingcomputer.com/news/security/new-amnesiastealer-macos-malware-hijacks-browser-sessions-via-remote-control/",
       "image": "/images/feed/feed-29bd50e6ac86.jpg",
       "source": "BleepingComputer",
@@ -718,7 +718,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 31,
       "url": "https://www.space.com/technology/nasa-funds-spherical-aerobots-that-could-explore-the-caves-of-saturns-moon-titan",
       "image": "/images/feed/feed-cc282ebe33bb.jpg",
       "source": "Space.com",
@@ -737,7 +737,7 @@
         "Chatgpt"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 42,
       "url": "https://www.theverge.com/ai-artificial-intelligence/980742/chatgpts-computer-history-tracks-your-clicks-and-keystrokes",
       "image": "/images/feed/feed-4a493f2763ae.png",
       "source": "The Verge",
@@ -756,7 +756,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 49,
       "url": "https://www.space.com/space-exploration/human-spaceflight/on-this-day-in-space-aug-16-1963-wingless-m2-f1-completes-1st-glide-flight",
       "image": "/images/feed/feed-2f75c5acdf99.jpg",
       "source": "Space.com",
@@ -776,7 +776,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 41,
       "url": "https://www.space.com/space-exploration/artemis/artemis-ii-pilot-thanks-nasa-for-letting-him-fly-orion-by-hand-im-still-blown-away-by-that-trust",
       "image": "/images/feed/feed-2aba62694a9e.jpg",
       "source": "Space.com",
@@ -795,7 +795,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 32,
       "url": "https://cleantechnica.com/2026/08/16/scrapping-working-gas-car-for-ev-can-be-greener/",
       "image": "/images/feed/feed-1d14963e5b0c.webp",
       "source": "CleanTechnica",
@@ -814,7 +814,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 51,
       "url": "https://www.wired.com/story/black-hole-stars-are-becoming-less-hypothetical/",
       "image": "/images/feed/feed-7dc5ef2c7e2d.jpg",
       "source": "Wired",
@@ -834,7 +834,7 @@
         "Claude"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 39,
       "url": "https://techcrunch.com/2026/08/15/anthropic-shares-more-details-about-how-claudes-new-watermarks-will-work/",
       "image": "/images/feed/feed-73cbb223a27a.jpg",
       "source": "TechCrunch",
@@ -853,7 +853,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 48,
       "url": "https://techcrunch.com/2026/08/15/how-to-tell-if-your-ai-platforms-accounts-have-been-hacked/",
       "image": "/images/feed/feed-0dccda6e63b0.jpg",
       "source": "TechCrunch",
@@ -891,7 +891,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 48,
       "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/how-anthropic-plans-to-watermark-claudes-ai-generated-text/",
       "image": "/images/feed/feed-7c1ca40e071c.jpg",
       "source": "BleepingComputer",
@@ -910,7 +910,7 @@
         "Chatgpt"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 34,
       "url": "https://www.cnet.com/tech/services-and-software/chatgpt-mac-activity-computer-history/",
       "image": "/images/feed/feed-326d42a3697d.jpg",
       "source": "CNET",
@@ -929,7 +929,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 30,
       "url": "https://www.zdnet.com/article/google-meet-take-notes-in-person-meetings-how-it-works/",
       "image": "/images/feed/feed-f125f8d4e0fd.jpg",
       "source": "ZDNet",
@@ -937,16 +937,16 @@
     }
   ],
   "breakingNews": [
-    "DEV.TO: Your agent's \"not done\" lies as often as its \"done\"",
-    "DEV.TO: A Bad Prompt Will Waste Your Free Model Calls. Lint the Contract First.",
-    "DEV.TO: Spring proxies: JDK dynamic vs CGLIB",
-    "DEV.TO: \"I built a lying MCP server on purpose — here's how you catch it\"",
-    "DEV.TO: Next.js project scope: what to define before you write a line of code",
-    "DEV.TO: Using PixelRAG with Claude Code (August 2026) — Visual RAG for Documents with Tables and Diagrams",
-    "DEV.TO: The outbox pattern is four sentences in a blog post. Here are three incidents from running it.",
+    "DEV.TO: Running Android VMs on ARM: Rebuilding the Minisforum MS-R1 Kernel for Cuttlefish",
+    "DEV.TO: How to Standardize Line Endings in Git Without Committing `.gitattributes`",
+    "DEV.TO: Recursion vs Iteration: Choosing Your Path Like Neo in The Matrix",
+    "DEV.TO: Web Push in the Next.js App Router: Field Notes on Service Workers, VAPID, and the iOS Rule That Silently Blocks Everything",
+    "DEV.TO: Zhipu va ouvrir les poids du meilleur chasseur de failles",
+    "DEV.TO: REST API vs GraphQL in 2026 - How to Choose the Right One",
+    "DEV.TO: What Went Wrong For Copilot",
+    "ENGADGET: Another woman joins lawsuit accusing Grok of generating CSAM",
     "ANDROID AUTHORITY: Google quietly resurrects a Pixel gesture we first spotted over a year ago",
-    "CLEANTECHNICA: Netherlands FSD Drive Raises Questions",
-    "SPACENEWS: Lynk and Omnispace form Elveo Mobile to advance D2D services"
+    "CLEANTECHNICA: Netherlands FSD Drive Raises Questions"
   ],
   "sectionVideos": {}
 }
