@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-08-21T01:35:38.341Z",
+  "fetchedAt": "2026-08-21T02:34:49.104Z",
   "articles": [
     {
-      "id": "feed-c710960881cc",
-      "title": "MCP C# SDK Array Tool Outputs: Stop Looking for a `result` Wrapper",
-      "excerpt": "MCP C# SDK array tool outputs are easy to misread after a protocol upgrade. A client written around the older wire shape may always reach for structuredContent.result. Once both sides negotiate MCP 20…",
-      "body": "MCP C# SDK array tool outputs are easy to misread after a protocol upgrade. A client written around the older wire shape may always reach for structuredContent.result . Once both sides negotiate MCP 2026-07-28 , an array is an array and a scalar is a scalar. There is no required wrapper to unwrap. I treat that as a contract change worth testing at the transport boundary. A unit test against the C# return type cannot tell me what tools/list advertised or what tools/call actually carried. The small verifier below runs both protocol versions offline and makes the difference explicit. The wire contract changed, not just the C# type The MCP 2026-07-28 tools specification allows structuredContent to contain any JSON value: object, array, string, number, Boolean, or null.",
-      "author": "Sukhpinder Singh",
+      "id": "feed-974b8598697c",
+      "title": "Your Cargo.lock Diff Is Also a Permission Diff",
+      "excerpt": "The concrete problem A Rust dependency change looks deceptively tidy in review. The pull request shows a few lines in Cargo.toml, a larger Cargo.lock diff, and perhaps a green build. But the first bui…",
+      "body": "The concrete problem A Rust dependency change looks deceptively tidy in review. The pull request shows a few lines in Cargo.toml, a larger Cargo.lock diff, and perhaps a green build. But the first build may execute code before the application itself ever runs. A transitive crate can ship a build.rs that reads files, launches tools, or reaches the network with the developer account's ambient permissions. The uncomfortable part is not only that build scripts are powerful. It is that teams have no compact way to review how that power changes with a lockfile update. A developer can inspect source, build inside a container, or watch a long syscall trace, but none of those produces a simple answer to the merge-time question: what new capability does this exact crate version request?",
+      "author": "Demi Valerith",
       "date": "2026-08-21",
       "readTime": "2 min",
       "section": "software",
@@ -14,10 +14,162 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 31,
-      "url": "https://dev.to/ssukhpinder/mcp-c-sdk-array-tool-outputs-stop-looking-for-a-result-wrapper-452c",
-      "image": "/images/feed/feed-c710960881cc.webp",
+      "xpReward": 35,
+      "url": "https://dev.to/demivalerith/your-cargolock-diff-is-also-a-permission-diff-3bg",
+      "image": "/images/feed/feed-974b8598697c.webp",
       "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-560121ce67ce",
+      "title": "Amazon Q in Production: 72 Percent Time Saved",
+      "excerpt": "Why Automate Content Creation Creating content manually for 9 channels would take 8+ hours daily. I have a full-time job as VP at JPMorgan. The math doesnt work. Trending Topic CSV ↓ AI Script (Ollama…",
+      "body": "Why Automate Content Creation Creating content manually for 9 channels would take 8+ hours daily. I have a full-time job as VP at JPMorgan. The math doesnt work. The Pipeline Trending Topic CSV ↓ AI Script (Ollama/Gemini) ↓ Google Cloud TTS (Voice) ↓ Pexels Images + MoviePy Video ↓ YouTube API Upload Scheduling with Mac LaunchAgents &lt;plist version= \"1.0\" &gt; &lt;dict&gt; &lt;key&gt; Label &lt;/key&gt; &lt;string&gt; com.gyaaninfive.youtube &lt;/string&gt; &lt;key&gt; ProgramArguments &lt;/key&gt; &lt;array&gt; &lt;string&gt; /usr/bin/python3 &lt;/string&gt; &lt;string&gt; /path/to/upload.py &lt;/string&gt; &lt;/array&gt; &lt;key&gt; StartCalendarInterval &lt;/key&gt; &lt;dict&gt; &lt;key&gt; Hour &lt;/key&gt;&lt;integer&gt; 18 &lt;/integer&gt; &lt;key&gt; Minute &lt;/key&gt;&lt;integer…",
+      "author": "Amrendra N Mishra",
+      "date": "2026-08-21",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 54,
+      "url": "https://dev.to/amrendra_n_mishra/amazon-q-in-production-72-percent-time-saved-4lfe",
+      "image": "/images/feed/feed-560121ce67ce.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-343db88b90a3",
+      "title": "I built a crypto trading bot. It lost to doing nothing.",
+      "excerpt": "Every trading bot post ends the same way: a green equity curve and a suspicious silence about whether it made real money. This post is the other one. I spent months building an algorithmic trading sys…",
+      "body": "Every trading bot post ends the same way: a green equity curve and a suspicious silence about whether it made real money. This post is the other one. I spent months building an algorithmic trading system, tested it as honestly as I know how, and here is the headline result: My best strategy returned +4.33% over three years of out-of-sample testing. Buying Bitcoin once and holding it returned +127.77%. I'm publishing that number instead of hiding it, because getting to a number I couldn't argue with turned out to be the entire project. What I built TradingAI is about 4,000 lines of Python: a strategy engine, a backtester, a walk-forward validation harness, a live paper-trading bot with Telegram alerts, a real-time dashboard, and 130+ tests running in CI.",
+      "author": "nar1-frames",
+      "date": "2026-08-21",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 46,
+      "url": "https://dev.to/nar1frames/i-built-a-crypto-trading-bot-it-lost-to-doing-nothing-355a",
+      "image": "/images/feed/feed-343db88b90a3.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-6c232b7dbad3",
+      "title": "Documenting a Narrative Horror Game: Lessons from Building a Fan Wiki",
+      "excerpt": "I recently built a fan guide for The Skin Stapler, an indie The Skin Stapler isn't a mechanics-heavy game — it's a Character perspectives (you play multiple people, including the detective and civilia…",
+      "body": "I recently built a fan guide for The Skin Stapler, an indie narrative horror game from Tainted Pact Games (creators of Suffer the Night). It launched on Steam in August 2026. Documenting a story-first horror game taught me a few things. Story Games Need Different Documentation The Skin Stapler isn't a mechanics-heavy game — it's a one-sitting narrative experience about a detective hunting a serial killer in a decaying 1980s city. The \"guide\" players actually want isn't walkthroughs, it's context: character backgrounds, timeline clarity, and thematic analysis.",
+      "author": "xiaoyumao",
+      "date": "2026-08-21",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 54,
+      "url": "https://dev.to/xiaoyumao0621/documenting-a-narrative-horror-game-lessons-from-building-a-fan-wiki-2553",
+      "image": "/images/feed/feed-6c232b7dbad3.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-32109e88fed6",
+      "title": "Waymo Fully Launches Robotaxi Service in Houston",
+      "excerpt": "Waymo fully launched robotaxi service in Houston, Texas, today. You may recall that Waymo started inviting customers to use its service in Space City about 6 months ago. I didn’t recall that at first…",
+      "body": "Waymo fully launched robotaxi service in Houston, Texas, today. You may recall that Waymo started inviting customers to use its service in Space City about 6 months ago. I didn&#8217;t recall that at first when I saw the news today that Waymo was launching in Houston, but I suspected it ... [continued] The post Waymo Fully Launches Robotaxi Service in Houston appeared first on CleanTechnica .",
+      "author": "Z. S.",
+      "date": "2026-08-21",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Cars"
+      ],
+      "featured": true,
+      "xpReward": 34,
+      "url": "https://cleantechnica.com/2026/08/20/waymo-fully-launches-robotaxi-service-in-houston/",
+      "image": "/images/feed/feed-32109e88fed6.jpg",
+      "source": "CleanTechnica",
+      "isLive": true
+    },
+    {
+      "id": "feed-8fa0bc3dc6ef",
+      "title": "Genki’s new customizable controller has a big screen and adjustable buttons",
+      "excerpt": "After collaborating with 8BitDo on a gamepad two years ago, Genki launched the first controller the company designed from the ground up today. With an unorthodox design that positions its thumbsticks…",
+      "body": "After collaborating with 8BitDo on a gamepad two years ago, Genki launched the first controller the company designed from the ground up today. With an unorthodox design that positions its thumbsticks and buttons above a large 2.9-inch LCD screen, the Manta looks a lot chunkier than competing controllers. But what really sets it apart is a deeper focus on customizability with numerous settings that can be adjusted using the controller's screen plus buttons and thumbsticks that can be tailored to each player's preferences. The Genki Manta is launching today through a Kickstarter crowdfunding campaign . The earliest backers can preorder the con … Read the full story at The Verge.",
+      "author": "Andrew Liszewski",
+      "date": "2026-08-21",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 51,
+      "url": "https://www.theverge.com/tech/981536/genki-manta-wireless-customizable-controller-tmr-screen",
+      "image": "/images/feed/feed-8fa0bc3dc6ef.jpg",
+      "source": "The Verge",
+      "isLive": true
+    },
+    {
+      "id": "feed-e525c9ed8922",
+      "title": "Memory Architecture Quality Standard for LLM Assistants",
+      "excerpt": "Memory Architecture Quality Standard for LLM Assistants Format: Audit checklist — place in front of you and verify item by item. Version: 1.1 (2026-08-21) Scope: Any LLM-based assistants and agents wi…",
+      "body": "Memory Architecture Quality Standard for LLM Assistants Format: Audit checklist — place in front of you and verify item by item. Version: 1.1 (2026-08-21) Scope: Any LLM-based assistants and agents with long-term memory (dialog, episodic, semantic, vector, graph, multimodal), regardless of stack and platform. 1. Reference Loop Model The audit follows a generalized memory loop. Each checklist item maps to a node or edge in this model.",
+      "author": "Aleksandr Kossarev",
+      "date": "2026-08-21",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 30,
+      "url": "https://dev.to/aleksandr_kossarev_e23623/memory-architecture-quality-standard-for-llm-assistants-28b3",
+      "image": "/images/feed/feed-e525c9ed8922.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-160cda4a269e",
+      "title": "Two of Our Six Graph Databases Died Under the Exact Same Load. Here's Why That's a Good Thing.",
+      "excerpt": "Take-home assignment: benchmark CognoDB against a handful of other graph databases, fairly. The fairness rule was blunt — every database gets the same tiny resource cap, 0.5 vCPU, 256MB RAM, no except…",
+      "body": "Take-home assignment: benchmark CognoDB against a handful of other graph databases, fairly. The fairness rule was blunt — every database gets the same tiny resource cap, 0.5 vCPU, 256MB RAM, no exceptions. Easy to say. Two platforms didn't survive it. Memgraph kept getting killed by the Linux OOM reaper mid-import. First guess was a missing index. Wrong, checked, fixed, still died. Second guess was storage mode. Memgraph's analytical mode skips the write-ahead log for faster imports, sounded promising. Turns out it also doesn't support the uniqueness constraint the benchmark required — you get one or the other, not both. Back to the normal mode, ran it clean, one more time, just to check. Killed again. Two clean failures with the config right isn't bad luck.",
+      "author": "Sunny Bhatkar",
+      "date": "2026-08-21",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Database"
+      ],
+      "featured": false,
+      "xpReward": 43,
+      "url": "https://dev.to/sun_eater/two-of-our-six-graph-databases-died-under-the-exact-same-load-heres-why-thats-a-good-thing-17ap",
+      "image": "/images/feed/feed-160cda4a269e.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-608e888bc1d2",
+      "title": "Waymo — “A look under our trunk: what’s in our compute”",
+      "excerpt": "Compute is the brain of the Waymo Driver, translating raw sensor data into real-time driving commands. Operating demonstrably safe, physical AI on the road demands a fundamental shift towards a system…",
+      "body": "Compute is the brain of the Waymo Driver, translating raw sensor data into real-time driving commands. Operating demonstrably safe, physical AI on the road demands a fundamental shift towards a system engineered for deterministic, low-latency performance. Over the past decade, we have co-designed our hardware, sensors, and algorithms side-by-side to solve the ... [continued] The post Waymo — &#8220;A look under our trunk: what’s in our compute&#8221; appeared first on CleanTechnica .",
+      "author": "Guest Contributor",
+      "date": "2026-08-21",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Cars"
+      ],
+      "featured": false,
+      "xpReward": 34,
+      "url": "https://cleantechnica.com/2026/08/20/waymo-a-look-under-our-trunk-whats-in-our-compute/",
+      "image": "/images/feed/feed-608e888bc1d2.png",
+      "source": "CleanTechnica",
       "isLive": true
     },
     {
@@ -32,125 +184,11 @@
       "tags": [
         "Gaming"
       ],
-      "featured": true,
-      "xpReward": 43,
+      "featured": false,
+      "xpReward": 40,
       "url": "https://www.polygon.com/steam-free-games-weekend-august-21-2026/",
       "image": "/images/feed/feed-85c9b4ff8914.jpg",
       "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-60aceba1eefa",
-      "title": "JavaScript Links Can Hide Content From AI Crawlers, a 41-Day Test Shows",
-      "excerpt": "JavaScript-injected navigation can create a material discovery gap between search crawlers and AI-focused bots. In a 41-day field experiment, pages linked only through JavaScript were not discovered b…",
-      "body": "JavaScript-injected navigation can create a material discovery gap between search crawlers and AI-focused bots. In a 41-day field experiment, pages linked only through JavaScript were not discovered by GPTBot, ClaudeBot, PerplexityBot, or other AI crawlers observed in the test. Googlebot could follow JavaScript-generated links, but its coverage declined at greater crawl depths. The experiment, conducted by SEO engineer Vinicius Stanula, is a practical warning for organizations that want content to remain accessible across conventional search and emerging AI discovery channels . A link that is absent from the raw HTML may still work perfectly for people using a browser, yet be effectively invisible to crawlers that do not render JavaScript.",
-      "author": "Ali Farhat",
-      "date": "2026-08-21",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Javascript"
-      ],
-      "featured": true,
-      "xpReward": 50,
-      "url": "https://dev.to/alifar/javascript-links-can-hide-content-from-ai-crawlers-a-41-day-test-shows-34cg",
-      "image": "/images/feed/feed-60aceba1eefa.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-5747ca2733d8",
-      "title": "Writing Mind Maps in Plain Text: An Introduction to the Mind Elixir Text Format",
-      "excerpt": "Most mind map tools rely on a graphical interface. To draw a map, you open an app and add nodes, links, and styles one by one with the mouse. This is not convenient in every situation. When you want A…",
-      "body": "Most mind map tools rely on a graphical interface. To draw a map, you open an app and add nodes, links, and styles one by one with the mouse. This is not convenient in every situation. When you want AI to quickly generate a map outline, or save a map as plain text in your note library, or simply jot down the tree structure of an idea, the graphical interface becomes an obstacle rather than a help. Mind Elixir offers a plain text format to solve this. A few lines of indented text describe an entire mind map, and you can import it into Mind Elixir for rendering whenever you need a visual view. Basic Structure Here is the simplest example: - Root Node - Child Node 1 - Child Node 1-1 - Child Node 1-2 - Child Node 2 - Child Node 2-1 The syntax matches a Markdown list.",
-      "author": "zhoudejie",
-      "date": "2026-08-21",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 44,
-      "url": "https://dev.to/ssshooter/writing-mind-maps-in-plain-text-an-introduction-to-the-mind-elixir-text-format-1cb8",
-      "image": "/images/feed/feed-5747ca2733d8.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-a7058121b440",
-      "title": "RISC-V 32-bit: What does GCC do? (Part 1)",
-      "excerpt": "1. Introduction and Problem Statement A good way to learn what a compiler really does when transforming C source code into a binary is to disassemble the binary and compare it with the C source code.…",
-      "body": "1. Introduction and Problem Statement A good way to learn what a compiler really does when transforming C source code into a binary is to disassemble the binary and compare it with the C source code. While this was traditionally true for 8-bit microcontrollers, it is equally insightful for modern 32-bit RISC architectures like RISC-V (RV32I). To test our 32-bit toolchain (GCC / Clang-LLVM), we will use the exact same Universal Test Corpus C source code: * ========================================================================== * * Universal Test Corpus - Heterogeneous Architecture Analysis * * ========================================================================== */ #include &lt;stdint.h&gt; // 1.",
-      "author": "ddupard",
-      "date": "2026-08-21",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 42,
-      "url": "https://dev.to/ddupard/risc-v-32-bit-what-does-gcc-do-part-1-1cg9",
-      "image": "/images/feed/feed-a7058121b440.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-ae3222c95ca4",
-      "title": "The smallest useful loop for a prompt-to-game tool",
-      "excerpt": "Most AI game demos focus on generation. Aurey AI puts more attention on the loop around generation: describe an idea, get something playable, react to it, and make another version. That loop is a bett…",
-      "body": "Most AI game demos focus on generation. Aurey AI puts more attention on the loop around generation: describe an idea, get something playable, react to it, and make another version. That loop is a better test of whether a tool can support actual creative work. The input is deliberately incomplete The live Studio starts with one large prompt field. It asks for a feeling, story, or rule in ordinary language. The examples are short: a cat collecting stars before sunset, a one-button garden game, a spaceship following strange signals. There is no pretense that the first prompt is a full game design document. The page says everything can change after the first version. This is sensible because many design decisions are hard to make before the player can move.",
-      "author": "NiceDayUp",
-      "date": "2026-08-21",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 42,
-      "url": "https://dev.to/nicedayup/the-smallest-useful-loop-for-a-prompt-to-game-tool-4mga",
-      "image": "/images/feed/feed-ae3222c95ca4.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-4bd4393d4918",
-      "title": "Loupe: a debug overlay that lives inside your React Native app",
-      "excerpt": "The last bug I chased in a React Native app only showed up on a real device, on cellular, in a TestFlight build. So I plugged the phone in, opened a desktop debugger, and got nothing. The network tab…",
-      "body": "The last bug I chased in a React Native app only showed up on a real device, on cellular, in a TestFlight build. So I plugged the phone in, opened a desktop debugger, and got nothing. The network tab sat there blank. Whatever I needed to see was happening inside an app I couldn't attach to. That's the gap I kept falling into. The good debugging tools live on my laptop, and the interesting bugs live on someone else's phone. So I built Loupe , an on-device debug overlay for React Native. It shows you network, logs, storage, and deep links right inside the app you're building. No desktop client, no cable. One line to start You add Loupe as the first line of index.js : import ' react-native-loupe ' ; That's the whole setup for the network, log, and deep link panels.",
-      "author": "Amanda Gama",
-      "date": "2026-08-21",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 46,
-      "url": "https://dev.to/aoligama/loupe-a-debug-overlay-that-lives-inside-your-react-native-app-20j8",
-      "image": "/images/feed/feed-4bd4393d4918.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-c9363ee3d948",
-      "title": "What I Get to Forget About Riverpod Now That I Have BlocSignal",
-      "excerpt": "The Best Feature in Software Is What You Get to Forget In software engineering, we usually measure framework upgrades by what they add: new syntax, new macros, new features, new abstractions. But as a…",
-      "body": "The Best Feature in Software Is What You Get to Forget In software engineering, we usually measure framework upgrades by what they add : new syntax, new macros, new features, new abstractions. But as any developer who has maintained large Flutter applications over several years knows, the most profound upgrade in developer experience isn't what new concepts you are forced to memorize— it’s the mental gymnastics, framework-specific edge cases, and defensive rituals you finally get to forget and unlearn. Before we dive into technical specifics, let's establish something essential: Rémi Rousselet is a pioneer and a brilliant engineer.",
-      "author": "Randal L. Schwartz",
-      "date": "2026-08-21",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 31,
-      "url": "https://dev.to/gde/what-i-get-to-forget-about-riverpod-now-that-i-have-blocsignal-1be5",
-      "image": "/images/feed/feed-c9363ee3d948.webp",
-      "source": "Dev.to",
       "isLive": true
     },
     {
@@ -166,7 +204,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 30,
       "url": "https://9to5mac.com/2026/08/20/the-dynasty-uconn-huskies-now-available-to-stream-on-apple-tv/",
       "image": "/images/feed/feed-759debc33b94.jpg",
       "source": "9to5Mac",
@@ -185,7 +223,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 47,
       "url": "https://cleantechnica.com/2026/08/20/sunrun-shifts-away-from-affiliates-to-direct-sales/",
       "image": "/images/feed/feed-b4ccfbb3c6fc.png",
       "source": "CleanTechnica",
@@ -204,7 +242,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 49,
       "url": "https://www.polygon.com/zelda-ocarina-of-time-mod-nintendo-64-replaces-games-fake-3d/",
       "image": "/images/feed/feed-ce7326da29bb.jpg",
       "source": "Polygon",
@@ -223,7 +261,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 52,
       "url": "https://cleantechnica.com/2026/08/20/tva-approves-gas-powered-data-center-plan/",
       "image": "/images/feed/feed-e921642a7953.png",
       "source": "CleanTechnica",
@@ -242,7 +280,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 35,
       "url": "https://www.ign.com/articles/netflix-reveals-new-cyberpunk-edgerunners-2-trailer-and-images-at-anime-nyc",
       "image": "/images/feed/feed-ec15425c70d2.jpg",
       "source": "IGN",
@@ -261,7 +299,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 54,
       "url": "https://www.ign.com/articles/netflix-confirms-blue-eye-samurai-will-end-with-third-and-final-season",
       "image": "/images/feed/feed-3600c8d0af24.jpg",
       "source": "IGN",
@@ -280,7 +318,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 44,
       "url": "https://www.polygon.com/blue-eye-samurai-season-3-announced/",
       "image": "/images/feed/feed-c49c9837e8cf.jpg",
       "source": "Polygon",
@@ -299,7 +337,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 50,
       "url": "https://www.polygon.com/lego-one-piece-sets-sail-with-charming-new-trailer/",
       "image": "/images/feed/feed-9347b1cdbd28.jpg",
       "source": "Polygon",
@@ -318,7 +356,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 50,
       "url": "https://www.polygon.com/cyberpunk-edgerunners-2-release-date-announced-new-trailer/",
       "image": "/images/feed/feed-8661625058ef.jpg",
       "source": "Polygon",
@@ -337,7 +375,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 42,
       "url": "https://spacenews.com/new-space-transportation-policy-focuses-on-increased-launch-rates/",
       "image": "/images/feed/feed-6f33bdf886e4.jpg",
       "source": "SpaceNews",
@@ -356,7 +394,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 53,
       "url": "https://cleantechnica.com/2026/08/20/california-solar-power-bills-move-forward-to-support-balcony-solar-community-solar-and-vpps/",
       "image": "/images/feed/feed-fc92286154de.png",
       "source": "CleanTechnica",
@@ -375,7 +413,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 30,
       "url": "https://www.wired.com/review/google-pixel-11/",
       "image": "/images/feed/feed-5d2f7965833d.jpg",
       "source": "Wired",
@@ -394,7 +432,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 45,
       "url": "https://spacenews.com/golden-dome-chief-touts-progress-as-funding-questions-loom/",
       "image": "/images/feed/feed-417b1684b332.png",
       "source": "SpaceNews",
@@ -413,7 +451,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 46,
       "url": "https://spacenews.com/elve-qualifies-millimeter-wave-amplifiers-for-spaceflight/",
       "image": "/images/feed/feed-5e7f2c46a94c.jpg",
       "source": "SpaceNews",
@@ -432,7 +470,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 51,
       "url": "https://www.engadget.com/2241281/amazons-god-of-war-show-brings-in-dave-bautista-as-its-new-kratos/",
       "image": "/images/feed/feed-193f244d3d62.jpg",
       "source": "Engadget",
@@ -451,7 +489,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 45,
       "url": "https://9to5mac.com/2026/08/20/apple-reportedly-lays-off-60-vision-employees-amid-shifting-priorities/",
       "image": "/images/feed/feed-cde519f62d23.jpg",
       "source": "9to5Mac",
@@ -471,7 +509,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 34,
       "url": "https://techcrunch.com/2026/08/20/openai-is-gaining-on-anthropic-with-business-users-new-data-indicates/",
       "image": "/images/feed/feed-08dddb48c1bd.jpg",
       "source": "TechCrunch",
@@ -490,7 +528,7 @@
         "Device"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 53,
       "url": "https://www.cnet.com/tech/services-and-software/samsung-device-rcs-messaging-issues/",
       "image": "/images/feed/feed-775d1d5ed501.png",
       "source": "CNET",
@@ -509,7 +547,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 42,
       "url": "https://www.engadget.com/2241272/github-says-commits-have-doubled-in-the-last-four-months/",
       "image": "/images/feed/feed-d697dbad0ce2.jpg",
       "source": "Engadget",
@@ -528,7 +566,7 @@
         "Chatgpt"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 33,
       "url": "https://techcrunch.com/2026/08/20/chatgpt-can-now-send-texts-for-you-with-new-apple-messages-plugin/",
       "image": "/images/feed/feed-fc53f9f20e6e.jpg",
       "source": "TechCrunch",
@@ -566,7 +604,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 37,
       "url": "https://spacenews.com/spacewerx-selects-11-firms-to-scale-technologies-for-military-space/",
       "image": "/images/feed/feed-469ae2126ba8.jpg",
       "source": "SpaceNews",
@@ -585,7 +623,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 34,
       "url": "https://www.space.com/astronomy/moon/chinas-change-7-moon-probe-will-launch-this-weekend-on-the-most-ambitious-lunar-mission-in-history",
       "image": "/images/feed/feed-5ba319ef7901.jpg",
       "source": "Space.com",
@@ -604,7 +642,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 45,
       "url": "https://www.wired.com/story/the-galaxys-fastest-star-could-reveal-the-secrets-of-a-supermassive-black-hole/",
       "image": "/images/feed/feed-32888590932c.jpg",
       "source": "Wired",
@@ -624,7 +662,7 @@
         "Starship"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 46,
       "url": "https://www.space.com/space-exploration/launches-spacecraft/spacex-will-try-for-1st-starship-tower-catch-in-a-few-months-elon-musk-says",
       "image": "/images/feed/feed-4c79da6f4c0a.jpg",
       "source": "Space.com",
@@ -643,7 +681,7 @@
         "Malware"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 30,
       "url": "https://thehackernews.com/2026/08/rust-supply-chain-attack-puts-build.html",
       "image": "/images/feed/feed-84c78cd0aebd.jpg",
       "source": "The Hacker News",
@@ -662,7 +700,7 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 32,
       "url": "https://electrek.co/2026/08/20/tesla-semi-europe-launch-iaa-transportation/",
       "image": "/images/feed/feed-0bcbfe4dd9f8.jpg",
       "source": "Electrek",
@@ -681,28 +719,9 @@
         "Solid-state Battery"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 46,
       "url": "https://insideevs.com/news/805618/volvo-geely-solid-state-2027/",
       "image": "/images/feed/feed-bca1d9cdafb2.jpg",
-      "source": "InsideEVs",
-      "isLive": true
-    },
-    {
-      "id": "feed-cc134c2d3407",
-      "title": "The Lucid Air Air Sapphire Beats Genuine Mid-Engine Supercars From 0-200-0 MPH",
-      "excerpt": "Big luxury sedans aren't supposed to be capable of such nutty performance but the fastest Lucid put on a show for Car and Driver.",
-      "body": "Big luxury sedans aren't supposed to be capable of such nutty performance but the fastest Lucid put on a show for Car and Driver.\n\nThis report, published by InsideEVs, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cars. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to InsideEVs using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "InsideEVs",
-      "date": "2026-08-20",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Cars"
-      ],
-      "featured": false,
-      "xpReward": 37,
-      "url": "https://insideevs.com/news/805634/lucid-air-sapphire-beats-supercars/",
-      "image": "/images/feed/feed-cc134c2d3407.jpg",
       "source": "InsideEVs",
       "isLive": true
     },
@@ -719,7 +738,7 @@
         "Security"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 33,
       "url": "https://techcrunch.com/2026/08/20/someone-targeted-security-researchers-using-a-fake-crypto-conference-as-a-lure/",
       "image": "/images/feed/feed-f7568c550672.jpg",
       "source": "TechCrunch",
@@ -738,29 +757,10 @@
         "Hacker"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 42,
       "url": "https://thehackernews.com/2026/08/suspected-russian-hackers-abuse-google.html",
       "image": "/images/feed/feed-30a3009e2285.jpg",
       "source": "The Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-ae86183c2dc1",
-      "title": "Tesla says FSD v15 is a ‘step-change,’ Optimus sells in 2027",
-      "excerpt": "Tesla laid out an updated timeline for Full Self-Driving, its Cybercab, and the Optimus robot in a recent meeting with JPMorgan at its Fremont factory. The bank walked away with claims that FSD v15 is…",
-      "body": "Tesla laid out an updated timeline for Full Self-Driving, its Cybercab, and the Optimus robot in a recent meeting with JPMorgan at its Fremont factory. The bank walked away with claims that FSD v15 is a “step-change,” that today’s HW4 computer can handle unsupervised driving, and that Optimus could go on sale to outside buyers as soon as the second half of 2027. Most of it repeats promises Tesla has made, and missed, before.",
-      "author": "Fred Lambert",
-      "date": "2026-08-20",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Tesla"
-      ],
-      "featured": false,
-      "xpReward": 32,
-      "url": "https://electrek.co/2026/08/20/tesla-jpmorgan-fremont-fsd-v15-hw4-optimus-2027/",
-      "image": "/images/feed/feed-ae86183c2dc1.jpg",
-      "source": "Electrek",
       "isLive": true
     },
     {
@@ -777,7 +777,7 @@
         "Hacker"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 40,
       "url": "https://www.bleepingcomputer.com/news/security/hackers-poison-arrayref-rust-crate-to-push-infostealer-malware/",
       "image": "/images/feed/feed-07de20a999a1.jpg",
       "source": "BleepingComputer",
@@ -796,7 +796,7 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 39,
       "url": "https://thehackernews.com/2026/08/threatsday-gogs-100-rce-n8n-workflow-to.html",
       "image": "/images/feed/feed-22c0a704a7f0.png",
       "source": "The Hacker News",
@@ -815,7 +815,7 @@
         "Chatgpt"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 35,
       "url": "https://techcrunch.com/2026/08/20/a-third-of-webpages-published-since-chatgpts-launch-show-signs-of-ai-authorship-study-finds/",
       "image": "/images/feed/feed-072ab33f0182.jpg",
       "source": "TechCrunch",
@@ -834,7 +834,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 54,
       "url": "https://techcrunch.com/2026/08/20/early-cerebras-investor-adit-singh-joins-mayfield-as-infrastructure-partner/",
       "image": "/images/feed/feed-626c3518cdce.jpg",
       "source": "TechCrunch",
@@ -853,7 +853,7 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 51,
       "url": "https://thehackernews.com/2026/08/ai-generated-exploit-scripts-target.html",
       "image": "/images/feed/feed-0353b12bfb34.jpg",
       "source": "The Hacker News",
@@ -872,7 +872,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 34,
       "url": "https://techcrunch.com/2026/08/20/ramp-launches-its-own-ai-model-router-called-router/",
       "image": "/images/feed/feed-28cd1afbb67e.jpg",
       "source": "TechCrunch",
@@ -891,7 +891,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 54,
       "url": "https://www.theverge.com/ai-artificial-intelligence/982774/greg-brockman-openai-role-expansion",
       "image": "/images/feed/feed-c7fbc3b1617c.jpg",
       "source": "The Verge",
@@ -910,7 +910,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 45,
       "url": "https://www.theverge.com/tech/982791/this-app-makes-the-pixel-11s-hilight-feature-actually-useful",
       "image": "/images/feed/feed-dc5b4ff3e425.jpg",
       "source": "The Verge",
@@ -930,7 +930,7 @@
         "Llm"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 35,
       "url": "https://github.com/zachahn/vomit",
       "image": "/images/feed/feed-6aad6153b20c.png",
       "source": "Hacker News",
@@ -938,16 +938,16 @@
     }
   ],
   "breakingNews": [
-    "DEV.TO: MCP C# SDK Array Tool Outputs: Stop Looking for a `result` Wrapper",
-    "POLYGON: Steam Makes Two Games Completely Free To Play Until Aug. 4",
-    "DEV.TO: JavaScript Links Can Hide Content From AI Crawlers, a 41-Day Test Shows",
-    "DEV.TO: Writing Mind Maps in Plain Text: An Introduction to the Mind Elixir Text Format",
-    "DEV.TO: RISC-V 32-bit: What does GCC do? (Part 1)",
-    "DEV.TO: The smallest useful loop for a prompt-to-game tool",
-    "DEV.TO: Loupe: a debug overlay that lives inside your React Native app",
-    "DEV.TO: What I Get to Forget About Riverpod Now That I Have BlocSignal",
-    "9TO5MAC: ‘The Dynasty: UConn Huskies’ now available to stream on Apple TV",
-    "CLEANTECHNICA: Sunrun Shifts Away from Affiliates to Direct Sales"
+    "DEV.TO: Your Cargo.lock Diff Is Also a Permission Diff",
+    "DEV.TO: Amazon Q in Production: 72 Percent Time Saved",
+    "DEV.TO: I built a crypto trading bot. It lost to doing nothing.",
+    "DEV.TO: Documenting a Narrative Horror Game: Lessons from Building a Fan Wiki",
+    "CLEANTECHNICA: Waymo Fully Launches Robotaxi Service in Houston",
+    "THE VERGE: Genki’s new customizable controller has a big screen and adjustable buttons",
+    "DEV.TO: Memory Architecture Quality Standard for LLM Assistants",
+    "DEV.TO: Two of Our Six Graph Databases Died Under the Exact Same Load. Here's Why That's a Good Thing.",
+    "CLEANTECHNICA: Waymo — “A look under our trunk: what’s in our compute”",
+    "POLYGON: Steam Makes Two Games Completely Free To Play Until Aug. 4"
   ],
   "sectionVideos": {}
 }
