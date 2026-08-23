@@ -1,6 +1,139 @@
 {
-  "fetchedAt": "2026-08-23T22:09:18.447Z",
+  "fetchedAt": "2026-08-23T23:10:14.697Z",
   "articles": [
+    {
+      "id": "feed-fcfd6b41b381",
+      "title": "Trusted AI Agent Transactions, Part 5: End-to-End Proof",
+      "excerpt": "Building and proving the complete request path The previous articles covered the identity model, PingFederate token exchange, SPIRE workload identity, and PingAuthorize policy. This final part connect…",
+      "body": "Building and proving the complete request path The previous articles covered the identity model, PingFederate token exchange , SPIRE workload identity , and PingAuthorize policy . This final part connects them into one testable application path. The application flow The browser workbench signs the user in through PingFederate with OAuth 2.0 Authorization Code and PKCE. The application never collects the user's PingFederate password.",
+      "author": "DarkEdges",
+      "date": "2026-08-23",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 41,
+      "url": "https://dev.to/darkedges/trusted-ai-agent-transactions-part-5-end-to-end-proof-44b5",
+      "image": "/images/feed/feed-fcfd6b41b381.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-16618acf0b74",
+      "title": "Trusted AI Agent Transactions, Part 4: PingAuthorize Policy Decisions",
+      "excerpt": "Making policy decisions with PingAuthorize Part 3 established the transaction context and immediate caller identity. Authorization still needs to answer a separate question: may this verified combinat…",
+      "body": "Making policy decisions with PingAuthorize Part 3 established the transaction context and immediate caller identity. Authorization still needs to answer a separate question: may this verified combination invoke this target and tool for this purpose? PingAuthorize is integrated as a remote policy decision point at the MCP gateway. It does not verify the transaction JWT or the mTLS connection. Those checks happen before policy evaluation.",
+      "author": "DarkEdges",
+      "date": "2026-08-23",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 34,
+      "url": "https://dev.to/darkedges/trusted-ai-agent-transactions-part-4-pingauthorize-policy-decisions-3ik8",
+      "image": "/images/feed/feed-16618acf0b74.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-d21a3339b22f",
+      "title": "Trusted AI Agent Transactions, Part 3: SPIRE Workload Identity",
+      "excerpt": "Binding a logical agent to a real workload with SPIRE Part 2 used a SPIRE JWT-SVID as the actor token in PingFederate token exchange. That proves more than a caller-supplied agent name, but it helps t…",
+      "body": "Binding a logical agent to a real workload with SPIRE Part 2 used a SPIRE JWT-SVID as the actor token in PingFederate token exchange. That proves more than a caller-supplied agent name, but it helps to understand exactly what it proves. A logical agent describes an approved application role. A SPIFFE ID identifies an attested running workload. They are related, but they are not interchangeable. AgentID: urn:agent:customer-support SPIFFEID: spiffe://example.org/agent/customer-support The first is a policy identity. The second is a cryptographically attested runtime identity.",
+      "author": "DarkEdges",
+      "date": "2026-08-23",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 44,
+      "url": "https://dev.to/darkedges/trusted-ai-agent-transactions-part-3-spire-workload-identity-1gfb",
+      "image": "/images/feed/feed-d21a3339b22f.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-2047815e631b",
+      "title": "Trusted AI Agent Transactions, Part 2: PingFederate Token Exchange",
+      "excerpt": "Using PingFederate as a Transaction Token Service Part 1 separated the user, logical agent, runtime workload, agent execution, and transaction identities. This part shows where they are joined safely.…",
+      "body": "Using PingFederate as a Transaction Token Service Part 1 separated the user, logical agent, runtime workload, agent execution, and transaction identities. This part shows where they are joined safely. In the Tokenetes architecture, a Transaction Token Service, or TTS, uses the RFC 8693 token exchange protocol to mint a Txn-Token. This implementation assigns that logical role to PingFederate. The agent sends: subject_token = the user's access token subject_token_type = access token actor_token = the agent workload's JWT-SVID actor_token_type = JWT requested_token_type = urn:ietf:params:oauth:token-type:txn_token audience = the transaction trust domain scope = the narrow purpose of this transaction The subject token answers who authorized the external invocation.",
+      "author": "DarkEdges",
+      "date": "2026-08-23",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 52,
+      "url": "https://dev.to/darkedges/trusted-ai-agent-transactions-part-2-pingfederate-token-exchange-35pn",
+      "image": "/images/feed/feed-2047815e631b.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-082b6a10e37d",
+      "title": "Trusted AI Agent Transactions, Part 1: The Identity Problem",
+      "excerpt": "The identity problem behind AI agents An application that calls an API for a user normally answers one identity question: who is the user? An AI agent introduces several more: Which user authorized th…",
+      "body": "The identity problem behind AI agents An application that calls an API for a user normally answers one identity question: who is the user? An AI agent introduces several more: Which user authorized the work? Which logical agent is acting? Which running workload actually made the call? Which agent execution is involved? Which transaction and purpose does the call belong to? Which service made the current network hop? Putting every answer into a single sub claim creates a dangerous illusion. A logical agent name is not cryptographic proof of the running process. A workload identity is not the user. A transaction identifier is not a caller identity.",
+      "author": "DarkEdges",
+      "date": "2026-08-23",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 54,
+      "url": "https://dev.to/darkedges/trusted-ai-agent-transactions-part-1-the-identity-problem-17aa",
+      "image": "/images/feed/feed-082b6a10e37d.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-c2ef3a977712",
+      "title": "Installing Minikube on Debian",
+      "excerpt": "Installing Minikube on Debian Minikube is a practical way to run a small Kubernetes cluster on a Debian workstation or development instance. This guide installs Minikube with the Docker driver, starts…",
+      "body": "Installing Minikube on Debian Minikube is a practical way to run a small Kubernetes cluster on a Debian workstation or development instance. This guide installs Minikube with the Docker driver, starts a named profile, runs a temporary deployment, and removes the test resources afterward. This is a local development setup, not a production Kubernetes distribution. The commands target Debian 12 (Bookworm), Debian 13 (Trixie), or a compatible newer Debian release on an x86-64 host. The goal is a repeatable local baseline rather than a particular Minikube release number. Minikube and Kubernetes change over time, so the release documentation remains the authority for supported versions and driver behavior.",
+      "author": "spmahapatra",
+      "date": "2026-08-23",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 52,
+      "url": "https://dev.to/spmahapatra/installing-minikube-on-debian-1aj4",
+      "image": "/images/feed/feed-c2ef3a977712.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-1d6032e618bf",
+      "title": "Install Docker Engine on Debian",
+      "excerpt": "Install Docker Engine on Debian Docker Engine provides the daemon, CLI, and runtime needed to build and run containers on Debian. This guide installs Docker Engine from Docker's official APT repositor…",
+      "body": "Install Docker Engine on Debian Docker Engine provides the daemon, CLI, and runtime needed to build and run containers on Debian. This guide installs Docker Engine from Docker's official APT repository, verifies the service with a test container, and configures the current user to run Docker without sudo . The repository method is preferable for a long-lived Debian instance because APT can receive Docker updates through the normal package workflow. Docker currently documents Debian 13 (Trixie), Debian 12 (Bookworm), and Debian 11 (Bullseye), with packages for amd64, armhf, arm64, and ppc64el. Package names and supported releases can change, so the official Docker Debian installation page remains the authority when this article is updated.",
+      "author": "spmahapatra",
+      "date": "2026-08-23",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 42,
+      "url": "https://dev.to/spmahapatra/install-docker-engine-on-debian-4dga",
+      "image": "/images/feed/feed-1d6032e618bf.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
     {
       "id": "feed-a9df07d63aba",
       "title": "Streamer Files Class Action Lawsuit Against Twitch Over AI Training",
@@ -13,68 +146,11 @@
       "tags": [
         "Gaming"
       ],
-      "featured": true,
-      "xpReward": 33,
+      "featured": false,
+      "xpReward": 41,
       "url": "https://kotaku.com/streamer-files-class-action-lawsuit-against-twitch-over-ai-training-2000727274",
       "image": "/images/feed/feed-a9df07d63aba.jpg",
       "source": "Kotaku",
-      "isLive": true
-    },
-    {
-      "id": "feed-3d5a458dfbc1",
-      "title": "We Taught a 230M Language Model to Keep Learning on Android",
-      "excerpt": "Small language models can now run directly on phones. But most of them stop learning the moment they ship. For personal AI, that feels like a strange stopping point. Some of the most useful signals ar…",
-      "body": "Small language models can now run directly on phones. But most of them stop learning the moment they ship. For personal AI, that feels like a strange stopping point. Some of the most useful signals arrive only after the model acts: Did the user dismiss the notification? Did they open it later? Did they rewrite the suggestion? Did they ask for it again? These interactions contain useful information about the user, but they are delayed, private, and ambiguous. They are not clean labels, and they are not reliable scalar rewards. To explore this problem, we built Online-SDFT , an open-source prototype that continually fine-tunes a small language model from delayed interactions while keeping the learning loop on the device.",
-      "author": "I-Ju Lin",
-      "date": "2026-08-23",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 52,
-      "url": "https://dev.to/ijulin/we-taught-a-230m-language-model-to-keep-learning-on-android-36hl",
-      "image": "/images/feed/feed-3d5a458dfbc1.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-102eea54406e",
-      "title": "We’re running an online hackathon for building concurrent AI agents — Sep 5–6",
-      "excerpt": "We’re joining forces with daily.dev and Hyperskill to organize the Hackathon for Building Concurrent AI Agents - September 5–6, 2026. 🚀 Most multi-agent systems today are still built around sequentia…",
-      "body": "We’re joining forces with daily.dev and Hyperskill to organize the Hackathon for Building Concurrent AI Agents - September 5–6, 2026. 🚀 Most multi-agent systems today are still built around sequential workflows: one agent does its part, waits, hands work to another, and the whole system moves step by step. We believe the next generation of agentic software will be built differently. That’s why we created Mozaik - JigJoy’s open-source TypeScript framework for building concurrent AI agents. And now we want to see what developers can build with it. Build systems where multiple autonomous agents operate concurrently, react to events, share state, and coordinate without being locked into a predefined sequence.",
-      "author": "Miodrag Vilotijević",
-      "date": "2026-08-23",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 43,
-      "url": "https://dev.to/jigjoy/were-running-an-online-hackathon-for-building-concurrent-ai-agents-sep-5-6-3n20",
-      "image": "/images/feed/feed-102eea54406e.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-d936dd180d49",
-      "title": "Atlassian Now Trains Its AI on Your Work by Default — and Full Opt-Out Is an Enterprise Feature",
-      "excerpt": "If you run a team on Jira or Confluence, the deal changed on 17 August and the change was opt-out. From that date, by Atlassian’s own account, the content your team writes into its Cloud products — Co…",
-      "body": "If you run a team on Jira or Confluence, the deal changed on 17 August and the change was opt-out. From that date, by Atlassian’s own account, the content your team writes into its Cloud products — Confluence pages, Jira tickets, the descriptions and comments where the actual work lives — is used by default to train Rovo, Atlassian’s AI assistant. You were not asked to opt in. You were, at best, given a switch and left to find it. Answer first, because the detail matters more than the outrage: there are two settings, and they are not equal. One governs your in-app data — the text itself. The other governs metadata — the derived signals about that text.",
-      "author": "The AI Downside",
-      "date": "2026-08-23",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 36,
-      "url": "https://dev.to/theaidownside/atlassian-now-trains-its-ai-on-your-work-by-default-and-full-opt-out-is-an-enterprise-feature-5661",
-      "image": "/images/feed/feed-d936dd180d49.webp",
-      "source": "Dev.to",
       "isLive": true
     },
     {
@@ -89,30 +165,11 @@
       "tags": [
         "Cars"
       ],
-      "featured": true,
-      "xpReward": 50,
+      "featured": false,
+      "xpReward": 45,
       "url": "https://cleantechnica.com/2026/08/23/byd-da-han-claims-global-flagship-status/",
       "image": "/images/feed/feed-90b1f9a50809.jpg",
       "source": "CleanTechnica",
-      "isLive": true
-    },
-    {
-      "id": "feed-b962fe8d75b0",
-      "title": "Why I Built an Ad-Free Alternative to Untappd",
-      "excerpt": "I've used Untappd for years to log the beers I drink. It works. It also drives me a little crazy every time I open it. Between the ads wedged into my feed, the check-in pressure that makes logging a b…",
-      "body": "I've used Untappd for years to log the beers I drink. It works. It also drives me a little crazy every time I open it. Between the ads wedged into my feed, the check-in pressure that makes logging a beer feel like a social performance, and an interface that's accumulated more features than I've ever asked for, opening the app to do one simple thing — \"I liked this beer, I want to remember it\" — started to feel like more work than it should be. So a few weeks ago, I decided to build my own. The idea: Letterboxd, but for beer If you haven't used Letterboxd, it's a film-logging app that took a genre Untappd basically also occupies — \"social logging app for a hobby\" — and did it with a fraction of the clutter. Clean, fast, personal-journal-first, social-second.",
-      "author": "Hop Log",
-      "date": "2026-08-23",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 49,
-      "url": "https://dev.to/brent_pilon_1a20d8529d1eb/why-i-built-an-ad-free-alternative-to-untappd-2nhc",
-      "image": "/images/feed/feed-b962fe8d75b0.webp",
-      "source": "Dev.to",
       "isLive": true
     },
     {
@@ -128,67 +185,10 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 33,
       "url": "https://www.engadget.com/2240255/vesa-tv-mount-how-to-know-type-guide/",
       "image": "/images/feed/feed-623618258bee.jpg",
       "source": "Engadget",
-      "isLive": true
-    },
-    {
-      "id": "feed-fd233002ded7",
-      "title": "Enforcing a style rule with a linter that actually fails the build",
-      "excerpt": "Background I run a fleet of static sites that publish new content every day, mostly unattended. One of the house style rules is simple: no emoji anywhere in our own copy. That rule is impossible to ho…",
-      "body": "Background I run a fleet of static sites that publish new content every day, mostly unattended. One of the house style rules is simple: no emoji anywhere in our own copy. That rule is impossible to hold by hand. A single site builds a few hundred HTML files, and emoji can slip into nav icons, button labels, &lt;title&gt; , the RSS feed, or JSON-LD (the JSON-formatted metadata embedded in a page to describe its structure to search engines). Nobody is going to review all of that before every deploy. So I wrote emoji-lint , a check that exits 1 the moment it finds a single emoji . It sits in the pre-deploy gate, which means a failure stops that day's publish. This post is not about the regex.",
-      "author": "takahiro hashito",
-      "date": "2026-08-23",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 30,
-      "url": "https://dev.to/takahiro_hashito_a1f3f0dc/enforcing-a-style-rule-with-a-linter-that-actually-fails-the-build-1k13",
-      "image": "/images/feed/feed-fd233002ded7.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-c12e40f3575c",
-      "title": "Don't validate the output. Validate that you were allowed to generate it.",
-      "excerpt": "Introduction I run a site that collects overseas viewer comments about individual anime episodes, translates them, and publishes them. It updates automatically every day. There is one failure mode tha…",
-      "body": "Introduction I run a site that collects overseas viewer comments about individual anime episodes, translates them, and publishes them. It updates automatically every day. There is one failure mode that matters more than all the others: creating a page for an episode that has not aired yet. If the page exists before the broadcast, there are no comments to put on it. But the heading \"Episode 8 — overseas reactions\" is already live. An empty page is recoverable. What is not recoverable is a pipeline that decides an empty page looks bad and fills it with something plausible. At that point invented sentences are wearing the face of real people. This post is about the check that prevents that, and about the day it actually fired.",
-      "author": "takahiro hashito",
-      "date": "2026-08-23",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 51,
-      "url": "https://dev.to/takahiro_hashito_a1f3f0dc/dont-validate-the-output-validate-that-you-were-allowed-to-generate-it-2ekh",
-      "image": "/images/feed/feed-c12e40f3575c.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-04f0f81f1e7d",
-      "title": "I Built AgentCheck Because “The Coding Agent Said Done” Wasn’t Enough",
-      "excerpt": "I Built AgentCheck Because “The Coding Agent Said Done” Wasn’t Enough AI coding agents are getting surprisingly good at writing code. I use them regularly, and they can handle increasingly large tasks…",
-      "body": "I Built AgentCheck Because “The Coding Agent Said Done” Wasn’t Enough AI coding agents are getting surprisingly good at writing code. I use them regularly, and they can handle increasingly large tasks: refactoring code, adding features, updating dependencies, modifying configuration, creating migrations, and touching files across an entire repository. But I kept running into the same problem after the agent finished: How do I independently verify what it actually changed? The agent usually gives me a perfectly reasonable summary. Something like: Done. Implemented the requested changes, updated the tests, and cleaned up the affected code. Useful? Absolutely. Enough for me to commit without checking? Not really. So I built AgentCheck .",
-      "author": "emre ordu",
-      "date": "2026-08-23",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 38,
-      "url": "https://dev.to/emre_ordu/i-built-agentcheck-because-the-coding-agent-said-done-wasnt-enough-2c1p",
-      "image": "/images/feed/feed-04f0f81f1e7d.webp",
-      "source": "Dev.to",
       "isLive": true
     },
     {
@@ -204,10 +204,30 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 49,
       "url": "https://kotaku.com/revolutionary-macintosh-fantasy-series-celebrates-40th-anniversary-with-pc-version-2000727271",
       "image": "/images/feed/feed-b8edfcf248a0.jpg",
       "source": "Kotaku",
+      "isLive": true
+    },
+    {
+      "id": "feed-c07aab5b07b4",
+      "title": "The Best Deals Today: LEGO Animal Crossing, Nintendo Switch 2, Nioh 3, and More",
+      "excerpt": "The Best Deals Today: LEGO Animal Crossing, Nintendo Switch 2, Nioh 3, and More",
+      "body": "A new weekend has arrived, and today, you can save on LEGO sets, Final Fantasy VII Rebirth, Nintendo Switch 2, Resident Evil Requiem, Civilization VII, AirPods Pro 3, and more. Check out our top picks for Sunday, August 23, below. Final Fantasy VII Rebirth with MTG Card for $34.99 Final Fantasy VII Rebirth for Nintendo Switch 2 is on sale today for $34.99 at Amazon. This physical version of the game includes an exclusive Zack Fair Magic: The Gathering - Final Fantasy card, which is perfect for fans and collectors alike. If you&#39;ve yet to experience this massive RPG, take a chance and pick up a copy this weekend at a discount. It&#39;s pretty great exploring beyond Midgar on the Switch 2, just saying.",
+      "author": "Noah Hunter",
+      "date": "2026-08-23",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Nintendo Switch",
+        "Nintendo"
+      ],
+      "featured": false,
+      "xpReward": 39,
+      "url": "https://www.ign.com/articles/best-deals-for-august-23-2026",
+      "image": "/images/feed/feed-c07aab5b07b4.png",
+      "source": "IGN",
       "isLive": true
     },
     {
@@ -223,7 +243,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 34,
       "url": "https://www.engadget.com/2240251/android-auto-vs-automotive-how-different/",
       "image": "/images/feed/feed-bc532ff2e7c4.jpg",
       "source": "Engadget",
@@ -242,7 +262,7 @@
         "Hands-on"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 50,
       "url": "https://9to5mac.com/2026/08/23/mophie-new-pocketable-battery-banks-for-iphone/",
       "image": "/images/feed/feed-aaa5fb43bf2c.jpg",
       "source": "9to5Mac",
@@ -261,7 +281,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 38,
       "url": "https://cleantechnica.com/2026/08/23/in-the-american-southwest-the-water-crisis-threatens-existential-harm-to-millions/",
       "image": "/images/feed/feed-ebdcdecd5422.jpg",
       "source": "CleanTechnica",
@@ -280,7 +300,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 52,
       "url": "https://kotaku.com/alleged-peter-pan-stalker-latest-stress-test-on-content-creation-and-boundaries-2000727266",
       "image": "/images/feed/feed-3abfd5c1e635.jpg",
       "source": "Kotaku",
@@ -299,7 +319,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 39,
       "url": "https://www.polygon.com/xkcd-best-quote-duty-calls/",
       "image": "/images/feed/feed-457aff3bd697.png",
       "source": "Polygon",
@@ -318,7 +338,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 47,
       "url": "https://www.polygon.com/gamescom-2026-confirmed-games/",
       "image": "/images/feed/feed-9e0b4e7276a5.jpg",
       "source": "Polygon",
@@ -337,7 +357,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 51,
       "url": "https://www.engadget.com/2240187/apple-carplay-stop-siri-from-interrupting/",
       "image": "/images/feed/feed-6b301eea17c7.jpg",
       "source": "Engadget",
@@ -356,7 +376,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 40,
       "url": "https://www.engadget.com/2242295/humanoid-robots-have-beaten-usain-bolts-100-meter-dash-record/",
       "image": "/images/feed/feed-e875359d2b7c.jpg",
       "source": "Engadget",
@@ -375,7 +395,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 30,
       "url": "https://www.engadget.com/2241124/fast-charging-differenent-standards-explained/",
       "image": "/images/feed/feed-26d5389cccc2.jpg",
       "source": "Engadget",
@@ -394,29 +414,10 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 43,
       "url": "https://www.ign.com/articles/the-batman-part-2-batmobile-set-video",
       "image": "/images/feed/feed-10e35a4ace43.jpg",
       "source": "IGN",
-      "isLive": true
-    },
-    {
-      "id": "feed-fc2e0d3625b5",
-      "title": "Maps, Spawn Issues, And Overall Lack Of Razzle Dazzle Is Leaving Some Players Cold On The Modern Warfare 4 Beta",
-      "excerpt": "With more competition than ever, the once immovable military shooter is going to have to earn its stripes, though some fans feel Infinity Ward's adjustments might be over-corrections",
-      "body": "With more competition than ever, the once immovable military shooter is going to have to earn its stripes, though some fans feel Infinity Ward's adjustments might be over-corrections\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Zack Kotzer",
-      "date": "2026-08-23",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 48,
-      "url": "https://kotaku.com/maps-spawn-issues-and-overall-lack-of-razzle-dazzle-leaves-players-cold-on-modern-warfare-4-beta-2000727258",
-      "image": "/images/feed/feed-fc2e0d3625b5.jpg",
-      "source": "Kotaku",
       "isLive": true
     },
     {
@@ -432,7 +433,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 46,
       "url": "https://www.engadget.com/2240184/is-analogue-3d-actually-4k/",
       "image": "/images/feed/feed-83c91d9611f1.jpg",
       "source": "Engadget",
@@ -451,7 +452,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 39,
       "url": "https://www.space.com/entertainment/space-movies-shows/new-star-trek-documentary-featuring-william-shatner-hits-theaters-this-fall-celebrating-60-years-of-trek",
       "image": "/images/feed/feed-7c8d7f3a3543.jpg",
       "source": "Space.com",
@@ -470,7 +471,7 @@
         "Malware"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 45,
       "url": "https://www.bleepingcomputer.com/news/security/toxicpanda-android-malware-uses-vpn-permissions-to-block-google-play/",
       "image": "/images/feed/feed-01df0b93320f.jpg",
       "source": "BleepingComputer",
@@ -489,7 +490,7 @@
         "Spacecraft"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 44,
       "url": "https://www.space.com/astronomy/sun/how-a-huge-fleet-of-17-spacecraft-discovered-something-surprising-about-solar-eruptions",
       "image": "/images/feed/feed-0f5779b40cea.jpg",
       "source": "Space.com",
@@ -527,7 +528,7 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 32,
       "url": "https://cleantechnica.com/2026/08/23/tesla-semi-moves-into-europe-gets-largest-order-to-date/",
       "image": "/images/feed/feed-1bfb404091fe.jpg",
       "source": "CleanTechnica",
@@ -546,7 +547,7 @@
         "Malware"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 36,
       "url": "https://securelist.com/android-head-unit-malware/121106/",
       "image": "/images/feed/feed-5aa3dc41b67b.jpg",
       "source": "Hacker News",
@@ -565,7 +566,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 49,
       "url": "https://www.space.com/technology/launching-10-000-tiny-femtosats-to-saturn-nasa-funds-18-futuristic-spaceflight-ideas",
       "image": "/images/feed/feed-612f101e1d95.jpg",
       "source": "Space.com",
@@ -584,29 +585,10 @@
         "Hacker"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 41,
       "url": "https://www.telegraph.co.uk/news/2026/08/22/iranian-hackers-shut-down-uk-power-plant/",
       "image": "/images/feed/feed-cb9402624708.jpg",
       "source": "Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-c26ad2f89520",
-      "title": "Curiosity Blog, Sols 4982–4987: Back to Our Regularly Scheduled Programming",
-      "excerpt": "By Allison Dries-Padilla, Missions Operations Specialist at Malin Space Science Systems Earth planning date: Friday, Aug. 14, 2026 This week of Curiosity Mars rover operations takes us back to our “re…",
-      "body": "Curiosity Navigation Curiosity Home Mission Overview Where is Curiosity? Mission Updates Science Overview Instruments Highlights Exploration Goals News and Features Multimedia Curiosity Raw Images Images Videos Audio Mosaics More Resources Mars Missions Mars Perseverance Rover Mars Curiosity Rover Mars Reconnaissance Orbiter Mars Odyssey More Mars Missions Mars Home 3 min read Curiosity Blog, Sols 4982–4987: Back to Our Regularly Scheduled Programming NASA’s Mars rover Curiosity acquired this image, of thin, ledge-like layers at target “Los Toldos,” using its Right Mast Camera (Mastcam). Curiosity captured the image on Aug. 12, 2026 — Sol 4982, or Martian day 4,982 of the Mars Science Laboratory mission — at 01:05:04 UTC.",
-      "author": "NASA Breaking News",
-      "date": "2026-08-23",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Space"
-      ],
-      "featured": false,
-      "xpReward": 52,
-      "url": "https://science.nasa.gov/blog/curiosity-blog-sols-4982-4987-back-to-our-regularly-scheduled-programming/",
-      "image": "/images/feed/feed-c26ad2f89520.jpg",
-      "source": "NASA Breaking News",
       "isLive": true
     },
     {
@@ -622,7 +604,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 31,
       "url": "https://cleantechnica.com/2026/08/23/hydrogen-ship-charging-tilbury-battery-test/",
       "image": "/images/feed/feed-8b01d8089207.webp",
       "source": "CleanTechnica",
@@ -641,7 +623,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 45,
       "url": "https://cleantechnica.com/2026/08/22/solar-factory-microgrids-ev-charging-startup-translucent-energy/",
       "image": "/images/topics/topic-cars.png",
       "source": "CleanTechnica",
@@ -661,7 +643,7 @@
         "Vehicle"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 47,
       "url": "https://cleantechnica.com/2026/08/22/china-tightens-restrictions-on-electric-door-handles-forcing-tesla-to-recall-3-million-vehicles/",
       "image": "/images/feed/feed-36962a34eaf0.jpg",
       "source": "CleanTechnica",
@@ -680,7 +662,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 53,
       "url": "https://cleantechnica.com/2026/08/22/for-lagging-automakers-stop-pouring-money-into-the-wrong-powertrains/",
       "image": "/images/feed/feed-8f5589d1a4d0.jpg",
       "source": "CleanTechnica",
@@ -700,7 +682,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 47,
       "url": "https://techcrunch.com/2026/08/22/inherent-founded-by-deepmind-alumni-says-its-ai-teammate-just-outperformed-anthropic-and-openai-at-replicating-research/",
       "image": "/images/feed/feed-f264c057671c.jpg",
       "source": "TechCrunch",
@@ -719,7 +701,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 54,
       "url": "https://techcrunch.com/2026/08/22/openai-says-california-should-strengthen-its-ai-safety-bill/",
       "image": "/images/feed/feed-39119bad22db.jpg",
       "source": "TechCrunch",
@@ -740,7 +722,7 @@
         "Astronaut"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 39,
       "url": "https://www.space.com/space-exploration/international-space-station/how-will-nasas-astronaut-training-hub-change-with-commercial-space-stations",
       "image": "/images/feed/feed-a93f69abdeb8.jpg",
       "source": "Space.com",
@@ -759,7 +741,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 36,
       "url": "https://thehackernews.com/2026/08/tiktok-agrees-to-400-million-settlement.html",
       "image": "/images/feed/feed-d214b3f15a54.jpg",
       "source": "The Hacker News",
@@ -779,7 +761,7 @@
         "Hacker"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 31,
       "url": "https://www.bleepingcomputer.com/news/security/hackers-infect-android-car-head-units-with-proxy-botnet-malware/",
       "image": "/images/feed/feed-0c6227e2cbbf.jpg",
       "source": "BleepingComputer",
@@ -798,9 +780,29 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 37,
       "url": "https://www.space.com/entertainment/we-want-to-believe-book-explores-the-reality-of-ufos-its-always-going-to-be-more-likely-that-someone-is-wrong-about-what-they-saw-interview",
       "image": "/images/feed/feed-f6bd020091db.jpg",
+      "source": "Space.com",
+      "isLive": true
+    },
+    {
+      "id": "feed-68cf03f664b3",
+      "title": "This Week In Space podcast: Episode 224 — The Science of Artemis",
+      "excerpt": "On Episode 224 of This Week In Space, Rod Pyle and guest co-host Rick Jenet are joined by Dr. David Kring to discuss the where, whys, and hows of the Artemis Program's lunar exploration plans.",
+      "body": "On Episode 224 of This Week In Space , Rod Pyle and guest co-host Rick Jenet are joined by Dr. David Kring to discuss the where, whys, and hows of the Artemis Program's lunar exploration plans. It has been said that the Moon is a harsh mistress, and nowhere is this more apparent than at the lunar south pole. That is, however, where the Artemis program is headed, and we need to figure out how to best explore the region. Kring of the Universities Space Research Association's Lunar and Planetary Institute joins us to explore the answers — and risks — that await us. Download or subscribe to this show at: https://twit.tv/shows/this-week-in-space . Get episodes ad-free with Club TWiT at https://twit.tv/clubtwit Space news of the week Dr. Scott Pace Model Falcon 9!",
+      "author": " Space.com Staff ",
+      "date": "2026-08-22",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Artemis",
+        "Space"
+      ],
+      "featured": false,
+      "xpReward": 35,
+      "url": "https://www.space.com/entertainment/space-movies-shows/this-week-in-space-podcast-episode-224-the-science-of-artemis",
+      "image": "/images/feed/feed-68cf03f664b3.jpg",
       "source": "Space.com",
       "isLive": true
     },
@@ -817,7 +819,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 41,
       "url": "https://www.bleepingcomputer.com/news/security/named-pipes-under-attack-securing-windows-interprocess-communication/",
       "image": "/images/feed/feed-abe687094e63.jpg",
       "source": "BleepingComputer",
@@ -836,7 +838,7 @@
         "Chatgpt"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 33,
       "url": "https://www.cnet.com/tech/services-and-software/chatgpt-take-over-imessage/",
       "image": "/images/feed/feed-a8b74793bb89.jpg",
       "source": "CNET",
@@ -855,7 +857,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 35,
       "url": "https://techcrunch.com/2026/08/21/anthropics-opus-4-6-is-a-smut-machine/",
       "image": "/images/feed/feed-d7e3e6a3a485.jpg",
       "source": "TechCrunch",
@@ -874,7 +876,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 37,
       "url": "https://thehackernews.com/2026/08/14-trojanized-npm-packages-drop-redc2.html",
       "image": "/images/feed/feed-8b46bfbdc12a.jpg",
       "source": "The Hacker News",
@@ -893,7 +895,7 @@
         "Chatgpt"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 51,
       "url": "https://www.zdnet.com/article/chatgpts-new-mac-plugin-analyzed-my-imessages-and-i-found-it-surprisingly-useful/",
       "image": "/images/feed/feed-56f67819ace4.jpg",
       "source": "ZDNet",
@@ -912,7 +914,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 38,
       "url": "https://arstechnica.com/security/2026/08/grok-exfiltrates-user-data-when-malicious-instructions-are-encrypted/",
       "image": "/images/feed/feed-2816275d64dd.jpg",
       "source": "Ars Technica",
@@ -931,7 +933,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 54,
       "url": "https://openai.com/index/introducing-ai-futures",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "OpenAI Blog",
@@ -939,16 +941,16 @@
     }
   ],
   "breakingNews": [
+    "DEV.TO: Trusted AI Agent Transactions, Part 5: End-to-End Proof",
+    "DEV.TO: Trusted AI Agent Transactions, Part 4: PingAuthorize Policy Decisions",
+    "DEV.TO: Trusted AI Agent Transactions, Part 3: SPIRE Workload Identity",
+    "DEV.TO: Trusted AI Agent Transactions, Part 2: PingFederate Token Exchange",
+    "DEV.TO: Trusted AI Agent Transactions, Part 1: The Identity Problem",
+    "DEV.TO: Installing Minikube on Debian",
+    "DEV.TO: Install Docker Engine on Debian",
     "KOTAKU: Streamer Files Class Action Lawsuit Against Twitch Over AI Training",
-    "DEV.TO: We Taught a 230M Language Model to Keep Learning on Android",
-    "DEV.TO: We’re running an online hackathon for building concurrent AI agents — Sep 5–6",
-    "DEV.TO: Atlassian Now Trains Its AI on Your Work by Default — and Full Opt-Out Is an Enterprise Feature",
     "CLEANTECHNICA: BYD Da Han Claims Global Flagship Status",
-    "DEV.TO: Why I Built an Ad-Free Alternative to Untappd",
-    "ENGADGET: What is a VESA mount and how to know what type your TV has",
-    "DEV.TO: Enforcing a style rule with a linter that actually fails the build",
-    "DEV.TO: Don't validate the output. Validate that you were allowed to generate it.",
-    "DEV.TO: I Built AgentCheck Because “The Coding Agent Said Done” Wasn’t Enough"
+    "ENGADGET: What is a VESA mount and how to know what type your TV has"
   ],
   "sectionVideos": {}
 }
