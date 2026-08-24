@@ -1,6 +1,272 @@
 {
-  "fetchedAt": "2026-08-24T10:20:19.492Z",
+  "fetchedAt": "2026-08-24T11:13:59.642Z",
   "articles": [
+    {
+      "id": "feed-1000e0d52358",
+      "title": "剖析AI漏洞：从私有 LLM API 窃取推理轨迹",
+      "excerpt": "《Stealing Reasoning Traces from Proprietary LLM APIs》 https://www.youtube.com/watch?v=gasgivVCl2U 这期视频讲的是AI领域的一个重大安全漏洞。研究员发现：顶级AI公司的“思考过程”本想保密，却被他们自己留下的“门缝”给暴露了。 用几个通俗的比喻把这件事讲明白： 现在的顶级AI（比如 OpenAI o1、…",
+      "body": "《Stealing Reasoning Traces from Proprietary LLM APIs》 https://www.youtube.com/watch?v=gasgivVCl2U 这期视频讲的是 AI领域的一个重大安全漏洞 。研究员发现：顶级AI公司的“思考过程”本想保密，却被他们自己留下的“门缝”给暴露了。 用几个通俗的比喻把这件事讲明白： 1. 什么是“思考过程”（Chain of Thought）？ 现在的顶级AI（比如 OpenAI o1、Claude 3.5 Sonnet 等）在回答复杂问题前，都会先在后台“暗自琢磨”一会。 打个比方 ：AI 就像一个学生，最终交上去的答卷是“可见答案”，而他在草稿纸上算步骤的过程就是“思考过程”。 为什么厂商想藏起来？ 这个“草稿纸”非常值钱（包含强大的逻辑推理），厂商怕竞争对手拿去抄袭（蒸馏训练），也怕暴露敏感隐私，所以用加密锁（Encrypted Blob）把草稿纸锁起来打包发给用户。 2. 漏洞是怎么发生的？（“借刀杀人”提取法） 厂商为了省服务器成本，把加密的草稿纸发给用户电脑存着，下次对话时再发回服务器解密。研究员发现这个加密设计有致命疏忽： 不验证身份 ：这封“加密信”不仅能发给大 AI，还能发给同系列的小 AI（比如小弟模型）。 破解过程 ： 攻击者拿到大 AI 产生的加密“草稿纸”。 把这份加密信塞给小 AI。 告诉小 AI：“ 你帮我把这封信里的内容，用普通大白话念出来。 ” 服务器自动帮小 AI 解密了信件，小 AI 毫无防备地把原本保密的“大 AI 草稿纸”全文朗读了出来。 3.",
+      "author": "cognitalk",
+      "date": "2026-08-24",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Api"
+      ],
+      "featured": true,
+      "xpReward": 53,
+      "url": "https://dev.to/cognitalk/stealing-reasoning-traces-from-proprietary-llm-apis-22g1",
+      "image": "/images/feed/feed-1000e0d52358.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-3375bc123b11",
+      "title": "The Kindle Accessories I Never Want to Read Without (2026)",
+      "excerpt": "Looking to better protect your Kindle or add a little personality to your favorite e-reader? From cases and covers to page turners and even charms, this is the guide for you.",
+      "body": "Looking to better protect your Kindle or add a little personality to your favorite e-reader? From cases and covers to page turners and even charms, this is the guide for you.\n\nThis report, published by Wired, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Software. As the situation continues to evolve, professionals and enthusiasts in the software development and engineering field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Wired using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": " Nena Farrell ",
+      "date": "2026-08-24",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 32,
+      "url": "https://www.wired.com/story/best-kindle-accessories/",
+      "image": "/images/feed/feed-3375bc123b11.jpg",
+      "source": "Wired",
+      "isLive": true
+    },
+    {
+      "id": "feed-b310be15b02a",
+      "title": "Embed Charts in Markdown Without Chart.js: SVG, Data URIs, and What Actually Works",
+      "excerpt": "Markdown is great until you want a real chart in a README or docs site. Most people reach for a screenshot, a hosted PNG, or a heavy client library. ProvChart takes another path: POST /api/v1/generate…",
+      "body": "Markdown is great until you want a real chart in a README or docs site. Most people reach for a screenshot, a hosted PNG, or a heavy client library. ProvChart takes another path: POST /api/v1/generate-svg returns a self-contained SVG (and optional data URI) from your data—no js on the page, no image CDN required. This article covers what different Markdown platforms allow , practical embed patterns, and when pure SVG is the better default. The idea Send series data to ProvChart’s SVG endpoint. Get back: svg — full &lt;svg xmlns=\"...\"&gt;...&lt;/svg&gt; string dataUri — data:image/svg+xml;base64,... Embed with whatever your platform supports.",
+      "author": "FSCSS ",
+      "date": "2026-08-24",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 32,
+      "url": "https://dev.to/provchart/embed-charts-in-markdown-without-chartjs-svg-data-uris-and-what-actually-works-39pi",
+      "image": "/images/feed/feed-b310be15b02a.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-15b009925aae",
+      "title": "Controllers vs Minimal APIs: Stop Picking a Winner",
+      "excerpt": "Every .NET 10 project I start now has the same five-minute argument with myself: Controllers or Minimal APIs? Both are first-class citizens in .NET 10, with the same routing, DI, filters, and model bi…",
+      "body": "Every .NET 10 project I start now has the same five-minute argument with myself: Controllers or Minimal APIs? Both are first-class citizens in .NET 10, with the same routing, DI, filters, and model binding under the hood. So the question isn't which one is \"better.\" It's which shape fits the API you're actually building. And that decision matters a lot less than what you do once you've made it. The actual tradeoff Here's how I think about it: Controllers (MVC) Minimal APIs Best for Large APIs, convention-heavy teams, model binding edge cases, existing MVC codebases, framework integration (ABP, OData) Small/medium services, vertical slices, high-throughput endpoints, AOT scenarios Discovery Attribute routing, conventions Explicit Map* calls Overhead Slightly more per request Lowest Risk \"Fa…",
+      "author": "Kazem",
+      "date": "2026-08-24",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 40,
+      "url": "https://dev.to/kazemmdev/controllers-vs-minimal-apis-stop-picking-a-winner-452g",
+      "image": "/images/feed/feed-15b009925aae.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-36b661c1c11b",
+      "title": "Hayley Atwell Slams Controversial Captain Carter Scene: 'A Complete Disservice to the Character'",
+      "excerpt": "Hayley Atwell doesn't hold back in slamming how poorly Captain Carter's death was handled in Doctor Strange's sequel film.",
+      "body": "If you thought you hated what happened to Captain Carter in Marvel 's Doctor Strange in the Multiverse of Madness when it debuted in 2022, then take comfort — you're not alone. In fact, you might not even be the one who hates it the most: Hayley Atwell has plenty of thoughts on the fate of her character, Captain Carter.",
+      "author": "Aimee Hart",
+      "date": "2026-08-24",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": true,
+      "xpReward": 52,
+      "url": "https://www.polygon.com/hayley-atwell-captain-carter-death/",
+      "image": "/images/feed/feed-36b661c1c11b.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-ffe90f0f04e6",
+      "title": "I Was Burning $1.20 a Night on Nothing: A Claude Code Skill Library That Harvests and Curates Itself",
+      "excerpt": "Going from ¥100k/month as a student to ¥1.2M/month wasn't a matter of working harder. It was a matter of building an environment that keeps running when I don't. If you use Claude Code heavily, you ev…",
+      "body": "Going from ¥100k/month as a student to ¥1.2M/month wasn't a matter of working harder. It was a matter of building an environment that keeps running when I don't. Why This Setup Works If you use Claude Code heavily, you eventually run into a contradiction. The more you use it, the smarter it gets. A procedure you notice mid-task and think \"this pattern will come up again\" gets written out to a skill file automatically. An error workaround you solved today can be pulled up instantly during a different task tomorrow. That part is genuinely convenient. But keep it up for three months and you've built a skill graveyard. A skill you created in month one quietly stops working and nobody notices. Two or three skills with similar names pile up next to each other.",
+      "author": "Lily",
+      "date": "2026-08-24",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 41,
+      "url": "https://dev.to/bokuwalily/i-was-burning-120-a-night-on-nothing-a-claude-code-skill-library-that-harvests-and-curates-itself-2l4i",
+      "image": "/images/feed/feed-ffe90f0f04e6.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-accb2d7e04fb",
+      "title": "Vibecoding: Why Flow State is the New Syntax",
+      "excerpt": "The Shift in the Mental Model For a decade, coding was about the syntax. We spent hours debugging a missing semicolon or fighting with a TypeScript generic that refused to resolve. The value was in kn…",
+      "body": "The Shift in the Mental Model For a decade, coding was about the syntax. We spent hours debugging a missing semicolon or fighting with a TypeScript generic that refused to resolve. The value was in knowing the specific API calls and the exact way to structure a loop for performance. Now, we are entering an era of \"vibecoding.\" This is not about being lazy. It is about shifting the developer's role from a writer of lines to an architect of intent. When you use LLMs to generate large chunks of logic, you are no longer focused on the how, but the what. You are coding by vibe, describing the desired behavior and iterating until the result feels right. The Danger of the Black Box There is a trap here. When you vibe-code, it is easy to enter a state of passive acceptance.",
+      "author": "Ntty",
+      "date": "2026-08-24",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 36,
+      "url": "https://dev.to/ntty/vibecoding-why-flow-state-is-the-new-syntax-2ajf",
+      "image": "/images/feed/feed-accb2d7e04fb.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-51f2c4dcaec9",
+      "title": "Article: Rightsizing Platform Engineering: Building the Platform Your Organization Actually Needs",
+      "excerpt": "Shift-left and DevOps have impacted how we flow changes from inception to production, but at the cost of increased cognitive load and duplication of effort across testing, security, and maintenance. T…",
+      "body": "Shift-left and DevOps have impacted how we flow changes from inception to production, but at the cost of increased cognitive load and duplication of effort across testing, security, and maintenance. This article explores the real-world challenges of rightsizing developer platforms and finding a cultural match for engineering teams who use them to reduce cognitive load and deliver change faster. By John Keates",
+      "author": "John Keates",
+      "date": "2026-08-24",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 31,
+      "url": "https://www.infoq.com/articles/rightsizing-platform-engineering/?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=global",
+      "image": "/images/feed/feed-51f2c4dcaec9.jpg",
+      "source": "InfoQ",
+      "isLive": true
+    },
+    {
+      "id": "feed-520e8483c1d2",
+      "title": "The new Shokz OpenFit Air 2 earbuds are nearly 20 percent lighter than the previous generation",
+      "excerpt": "They feature an open-ear design that reduces pressure and heat buildup.",
+      "body": "They feature an open-ear design that reduces pressure and heat buildup.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Earbuds. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "staff@engadget.com (Lawrence Bonk)",
+      "date": "2026-08-24",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Earbuds"
+      ],
+      "featured": false,
+      "xpReward": 52,
+      "url": "https://www.engadget.com/2232481/new-shokz-openfit-air-2-earbuds/",
+      "image": "/images/feed/feed-520e8483c1d2.jpg",
+      "source": "Engadget",
+      "isLive": true
+    },
+    {
+      "id": "feed-3cca6557b289",
+      "title": "What to expect from each stage of the partial lunar eclipse on Aug. 27-28",
+      "excerpt": "Here's what to expect during the 5 key stages of the \"almost Blood Moon\" 96% partial lunar eclipse on Aug. 27-28.",
+      "body": "Here's what to expect during each stage of the Aug. 27-28 partial lunar eclipse, as our planet's colossal shadow swallows 96% of the moon's surface for billions on the night side of Earth. August's lunar eclipse is the closing act of a dramatic two-part show, the opening act of which began on Aug. 12 as the moon covered the face of the sun to trigger a spectacular total solar eclipse over parts of Greenland, Iceland and Spain. Eclipses always come in pairs , but the stages to be expected during a lunar eclipse are staggeringly different from its solar equivalent. One major bonus of a lunar eclipse is that each stage unfolds simultaneously for everyone on the night side of Earth , where the lunar disk is above the horizon.",
+      "author": " Anthony Wood ",
+      "date": "2026-08-24",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Space"
+      ],
+      "featured": false,
+      "xpReward": 42,
+      "url": "https://www.space.com/stargazing/lunar-eclipses/what-to-expect-during-the-almost-blood-moon-lunar-eclipse-on-aug-27-28-2026-key-stages-explained",
+      "image": "/images/feed/feed-3cca6557b289.jpg",
+      "source": "Space.com",
+      "isLive": true
+    },
+    {
+      "id": "feed-9b73ca67620d",
+      "title": "CISA orders urgent patching of actively exploited Zimbra flaw",
+      "excerpt": "The Cybersecurity and Infrastructure Security Agency (CISA) has ordered U.S. government agencies to patch an actively exploited vulnerability in Zimbra Collaboration Suite (ZCS) within three days. [..…",
+      "body": "The Cybersecurity and Infrastructure Security Agency (CISA) has ordered U.S. government agencies to patch an actively exploited vulnerability in Zimbra Collaboration Suite (ZCS) within three days. [ — a development drawing significant attention in the cybersecurity and digital privacy space.\n\nThis report, published by BleepingComputer, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Exploit. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to BleepingComputer using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Sergiu Gatlan",
+      "date": "2026-08-24",
+      "readTime": "2 min",
+      "section": "cybersecurity",
+      "tags": [
+        "Exploit"
+      ],
+      "featured": false,
+      "xpReward": 53,
+      "url": "https://www.bleepingcomputer.com/news/security/cisa-orders-urgent-patching-of-actively-exploited-zimbra-flaw/",
+      "image": "/images/feed/feed-9b73ca67620d.jpg",
+      "source": "BleepingComputer",
+      "isLive": true
+    },
+    {
+      "id": "feed-adca2341d8eb",
+      "title": "With 4K/240fps slow-mo, this upcoming flagship could blow rivals out of the water",
+      "excerpt": "vivo's upcoming X500 Pro could offer better slow-mo and wider dynamic range than any other phone on the market.",
+      "body": "Credit: Tushar Mehta / Android Authority TL;DR vivo has started officially teasing the X500 series, featuring its upcoming camera-centric flagships. The vivo X500 Pro will use a custom Sony sensor that offers 17 stops of dynamic range, producing well-lit shadows even with bright highlights. The Pro is also claimed to be the first phone to capture slow-mo at 4K@240p. It’s been mere months since we took a good look at vivo’s colossal Ultra camera masquerading as a phone with one of the farthest-reaching zoom lenses . Come September, major phone giants will keep us busy with new releases. Among them, vivo is set to launch a new flagship camera phone with some serious upgrades previously unseen on phone cameras.",
+      "author": "Tushar Mehta",
+      "date": "2026-08-24",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 32,
+      "url": "https://www.androidauthority.com/vivo-x500-pro-camera-teaser-3702070/",
+      "image": "/images/feed/feed-adca2341d8eb.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-8d1b25358d05",
+      "title": "Chrome’s new rules ruined ad blockers. Here are 4 things that still work",
+      "excerpt": "You can still block ads — just not how you used to.",
+      "body": "Credit: Edgar Cervantes / Android Authority A few years ago, Chrome introduced Manifest V3 and began phasing out the older Manifest V2 technology used by some of the most advanced browser extensions. According to Google, the older version was harder to maintain and had its own real security risks, but we suspect it’s also because Google wanted to rein in extension capabilities. Unfortunately, this also made it harder to install extensions like the highly popular uBlock Origin. While workarounds still existed by using Chrome flags, that’s no longer the case . It is now virtually impossible to get MV2 extensions to work in Chrome.",
+      "author": "Andrew Grush",
+      "date": "2026-08-24",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 31,
+      "url": "https://www.androidauthority.com/chrome-ad-blockers-ruined-what-still-works-3700493/",
+      "image": "/images/feed/feed-8d1b25358d05.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-43953a061216",
+      "title": "Galaxy S26 Ultra’s portrait lighting trick could be coming to the S25 Ultra",
+      "excerpt": "The feature could help brighten subjects in uneven lighting.",
+      "body": "TL;DR A leaked One UI 9 build shows the Galaxy S25 Ultra testing a tool that brightens backlit subjects without blowing out the background. The feature, Virtual Reflector, debuted on the Galaxy S26 Ultra and simulates a physical photography reflector in software. Samsung hasn’t confirmed a One UI 9 beta for the S25 series yet, so the feature could still be changed or dropped before release. Samsung appears to be preparing more than a routine software update for the Galaxy S25 series. Recent One UI 9 internal builds have already revealed camera features such as Horizontal Lock and My FanCam , and now another Galaxy S26 Ultra feature has surfaced on the Galaxy S25 Ultra. This time, Samsung could be giving its 2025 flagship a useful new tool to help with portraits in tricky lighting.",
+      "author": "Hillary Keverenge",
+      "date": "2026-08-24",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Galaxy S"
+      ],
+      "featured": false,
+      "xpReward": 50,
+      "url": "https://www.androidauthority.com/samsung-galaxy-s25-ultra-one-ui-9-portrait-lighting-leak-3702045/",
+      "image": "/images/feed/feed-43953a061216.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
     {
       "id": "feed-3f5b7afb9740",
       "title": "Google, take note: This phone maker’s new chipset looks like an absolute beast",
@@ -13,73 +279,16 @@
       "tags": [
         "Gadgets"
       ],
-      "featured": true,
-      "xpReward": 51,
+      "featured": false,
+      "xpReward": 44,
       "url": "https://www.androidauthority.com/xiaomi-xring-03-3702037/",
       "image": "/images/feed/feed-3f5b7afb9740.jpg",
       "source": "Android Authority",
       "isLive": true
     },
     {
-      "id": "feed-52bc553f75b3",
-      "title": "What does your AI assistant remember from yesterday?",
-      "excerpt": "Context that survives Answer it without opening a chat window. What does your assistant know this morning that it learned yesterday? For most setups the honest answer is nothing, and nothing has a pri…",
-      "body": "Context that survives Answer it without opening a chat window. What does your assistant know this morning that it learned yesterday? For most setups the honest answer is nothing, and nothing has a price. But that is the easy version of the problem. The one that actually cost me an afternoon is worse: it knew, and it did not tell me. The fact was stored, it was displayed, and I made the mistake anyway. More on that below, because it is the part everybody gets wrong on the first try — and the part nobody warns you about. The cost is a number, not a feeling Take one week and count the first messages of your sessions. Not all messages, just the opening one of each. In my own week, seventeen of twenty-two opening messages were setup.",
-      "author": "Heinrich Neb",
-      "date": "2026-08-24",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 33,
-      "url": "https://dev.to/heinrichneb/what-does-your-ai-assistant-remember-from-yesterday-17b8",
-      "image": "/images/feed/feed-52bc553f75b3.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-fee2eef0754c",
-      "title": "20-50x Faster Shipping: What One Engineer's AI Workflow Reveals About Editor-Free Agent Orchestration",
-      "excerpt": "A developer posted a 270-point HN thread claiming 20-50x productivity gains by moving AI out of the editor and into a two-agent browser workflow. The claim is bold, but the architecture is simple: one…",
-      "body": "A developer posted a 270-point HN thread claiming 20-50x productivity gains by moving AI out of the editor and into a two-agent browser workflow. The claim is bold, but the architecture is simple: one agent builds, one agent reviews, and both operate on full file context instead of cursor snippets. The interesting part is not the speed number. It is the orchestration shape and what it reveals about context boundaries, diff handoffs, and failure modes when you separate reasoning from the IDE. The Two-Agent Loop The workflow uses two browser tabs (ChatGPT, Claude, or similar) and a terminal. No plugins, no LSP integration, no inline completions. Agent 1: Builder Receives entire files or modules (often cross-language). Explains approach and tradeoffs before writing code.",
-      "author": "mech.app",
-      "date": "2026-08-24",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 45,
-      "url": "https://dev.to/mech_app_ai/20-50x-faster-shipping-what-one-engineers-ai-workflow-reveals-about-editor-free-agent-1g27",
-      "image": "/images/feed/feed-fee2eef0754c.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-d4bc445de571",
-      "title": "Multi-Everything Agent Infrastructure: How AWS Teams Avoid Lock-In While Running Dozens of Agentic Systems",
-      "excerpt": "When you run one agent, you pick a framework and ship it. When you run dozens, you face a different problem: each team chose a different stack, each agent calls different models, and now you need unif…",
-      "body": "When you run one agent, you pick a framework and ship it. When you run dozens, you face a different problem: each team chose a different stack, each agent calls different models, and now you need unified observability, authentication, and deployment without rewriting everything to match a single vendor's API. AWS published this as part two of a multi-agent series, addressing the operational reality ML teams hit after proof-of-concept. The focus is not on building a single agent. It is on operating a fleet of heterogeneous systems without creating hard dependencies on any one framework, model provider, or cloud service.",
-      "author": "mech.app",
-      "date": "2026-08-24",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 33,
-      "url": "https://dev.to/mech_app_ai/multi-everything-agent-infrastructure-how-aws-teams-avoid-lock-in-while-running-dozens-of-agentic-1nff",
-      "image": "/images/feed/feed-d4bc445de571.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
       "id": "feed-69d2114f7941",
-      "title": "Killing Fish in Ridiculous Ways Pushed This New Friendslop Game to the Top of Steam Charts",
+      "title": "A Bizarre $5 Fishing Game Just Sold 1 Million Copies in Two Days on Steam",
       "excerpt": "Quirky fishing game How to Fish is number one on Steam's Top Sellers list after a successful launch weekend.",
       "body": "Following a successful launch weekend, Dazed Games's How to Fish reigns on this week's Top Sellers list on Steam. Friendslop games have become increasingly popular in recent years , as they are affordable, quick to jump into, and provide hours of knee-slapping fun among friends. Additionally, they tend to have unusual themes and not take themselves too seriously. How to Fish follows this pattern; its fun, quirky mechanics have caught the attention of gamers all over the world. As reported by Dazed Games on Steam , How to Fish sold 1 million copies in two days.",
       "author": "Ashely Claudino",
@@ -89,49 +298,11 @@
       "tags": [
         "Game"
       ],
-      "featured": true,
-      "xpReward": 48,
+      "featured": false,
+      "xpReward": 43,
       "url": "https://www.polygon.com/how-to-fish-friendslop-steam-game-launch-weekend-sales/",
       "image": "/images/feed/feed-69d2114f7941.jpg",
       "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-61374c651104",
-      "title": "Binary Search: The Matrix of Algorithms – Patterns, Edge Cases, and Real Interview Questions",
-      "excerpt": "The Quest Begins (The \"Why\") I still remember the first time I bombed an interview because I tried to solve a “find the target in a sorted array” question with a simple loop. The interviewer raised an…",
-      "body": "The Quest Begins (The \"Why\") I still remember the first time I bombed an interview because I tried to solve a “find the target in a sorted array” question with a simple loop. The interviewer raised an eyebrow, I felt the sweat start, and I walked out thinking I’d just missed a easy win. Later, after a few more rejections, I realized I was treating every sorted list like a maze I had to wander through step‑by‑step. That’s when I stumbled upon binary search – the algorithm that feels like Neo dodging bullets in slow motion. It turned a frustrating O(n) slog into a crisp O(log n) victory, and I’ve been hooked ever since. Why does it feel like magic? Because instead of checking each element, we repeatedly cut the problem in half.",
-      "author": "Timevolt",
-      "date": "2026-08-24",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 35,
-      "url": "https://dev.to/timevolt/binary-search-the-matrix-of-algorithms-patterns-edge-cases-and-real-interview-questions-1p0d",
-      "image": "/images/feed/feed-61374c651104.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-46516ed5256d",
-      "title": "Replace Your Grid Search Tonight: The Optuna Setup That Killed 12 of My 20 Trials",
-      "excerpt": "The One-Line Summary: Two extra lines inside the objective — report the score as the model grows, then ask whether to stop — let Optuna abandon 12 of 20 trials before they finished, cutting wall clock…",
-      "body": "The One-Line Summary: Two extra lines inside the objective — report the score as the model grows, then ask whether to stop — let Optuna abandon 12 of 20 trials before they finished, cutting wall clock from 13.0s to 9.4s at a cost of 0.0005 log loss; the saving is smaller than the kill rate because a pruned trial still runs its warm-up, which is the detail nobody mentions. The Two Lines That Do The Work Every grid search has the same defect: it runs every candidate to completion, including the ones that were obviously hopeless after 20% of the work. A human watching a training curve would have killed them. Pruning is that human, automated.",
-      "author": "Sachin Kr. Rajput",
-      "date": "2026-08-24",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 51,
-      "url": "https://dev.to/sachin_krrajput/replace-your-grid-search-tonight-the-optuna-setup-that-killed-12-of-my-20-trials-44pa",
-      "image": "/images/feed/feed-46516ed5256d.webp",
-      "source": "Dev.to",
       "isLive": true
     },
     {
@@ -147,29 +318,10 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 42,
       "url": "https://www.engadget.com/2242415/taiwan-reportedly-indicted-nvidia-employees-for-exporting-prohibited-ai-servers-to-china/",
       "image": "/images/feed/feed-1f8e3e0ddf72.jpg",
       "source": "Engadget",
-      "isLive": true
-    },
-    {
-      "id": "feed-0f1b70052e84",
-      "title": "Guida completa OWASP Top 10",
-      "excerpt": "Meta description: Scopri la guida completa OWASP Top 10, le dieci vulnerabilità web più critiche. Impara a riconoscerle e proteggere le tue applicazioni con strategie e codice di esempio. La sicurezza…",
-      "body": "Meta description: Scopri la guida completa OWASP Top 10, le dieci vulnerabilità web più critiche. Impara a riconoscerle e proteggere le tue applicazioni con strategie e codice di esempio. La sicurezza delle applicazioni web è una preoccupazione crescente nel panorama digitale attuale. Ogni giorno, nuove vulnerabilità vengono scoperte e sfruttate da attaccanti sempre più sofisticati. In questo contesto, l'OWASP Top 10 rappresenta un punto di riferimento fondamentale per sviluppatori, security engineer e professionisti IT che desiderano costruire applicazioni più sicure. L'Open Web Application Security Project (OWASP) è un'organizzazione no-profit dedicata al miglioramento della sicurezza del software.",
-      "author": "Cub4nH1",
-      "date": "2026-08-24",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 30,
-      "url": "https://dev.to/cub4nh1/guida-completa-owasp-top-10-efi",
-      "image": "/images/feed/feed-0f1b70052e84.webp",
-      "source": "Dev.to",
       "isLive": true
     },
     {
@@ -185,48 +337,10 @@
         "Gadget"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 41,
       "url": "https://www.zdnet.com/article/best-car-gadgets-2026/",
       "image": "/images/feed/feed-c8ce265b2001.jpg",
       "source": "ZDNet",
-      "isLive": true
-    },
-    {
-      "id": "feed-f977d7dae451",
-      "title": "Expense Report Fraud Detection: The Altered Receipt PDF Your Controls Never Inspect",
-      "excerpt": "Originally published at htpbe.tech. The version on htpbe.tech stays in sync with the latest detection algorithm — refer to it for the canonical text. The Association of Certified Fraud Examiners puts…",
-      "body": "Originally published at htpbe.tech . The version on htpbe.tech stays in sync with the latest detection algorithm — refer to it for the canonical text. The Association of Certified Fraud Examiners puts expense reimbursement fraud at a median loss of $40,000 per scheme, with a median duration of two years before detection. That two-year gap is not an accident. It is the predictable result of a control environment that validates everything about an expense claim except the one artifact the claim rests on: the receipt PDF itself. First, a quick boundary, because this site covers two different fraud classes that people often confuse.",
-      "author": "Iurii Rogulia",
-      "date": "2026-08-24",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 52,
-      "url": "https://dev.to/iurii_rogulia/expense-report-fraud-detection-the-altered-receipt-pdf-your-controls-never-inspect-da0",
-      "image": "/images/feed/feed-f977d7dae451.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-cba5fc0b0622",
-      "title": "I want to love the Pixel 11 Pro Fold, but one silly change is stopping me",
-      "excerpt": "To make the Pixel 11 Pro Fold roughly 1mm thinner, Google made this compromise.",
-      "body": "Before the Pixel 11 Pro Fold became official, I shared a wishlist of changes I wanted Google to make for its next foldable. To my surprise, the Pixel 11 Pro Fold offers many of the upgrades I needed to take Google foldables seriously again. It’s thinner and lighter, has slimmer bezels and better screens, and supports faster 25W Qi2 wireless charging. However, Google also made an unexpected change to the Pixel 11 Pro Fold that I can’t overlook. To make the Pixel 11 Pro Fold about 1mm thinner than the Pixel 10 Pro Fold, compromises had to be made. The one you probably noticed is the smaller 4,806mAh battery capacity, but that isn’t the one I care about.",
-      "author": "Brady Snyder",
-      "date": "2026-08-24",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 37,
-      "url": "https://www.androidauthority.com/pixel-11-pro-fold-uneven-thickness-3700383/",
-      "image": "/images/feed/feed-cba5fc0b0622.jpg",
-      "source": "Android Authority",
       "isLive": true
     },
     {
@@ -242,48 +356,10 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 47,
       "url": "https://www.space.com/astronomy/pluto/its-been-20-years-since-pluto-lost-planet-status-will-it-ever-get-its-title-back",
       "image": "/images/feed/feed-78f7fc376bd1.jpg",
       "source": "Space.com",
-      "isLive": true
-    },
-    {
-      "id": "feed-d4a68014ee0a",
-      "title": "My Guaranteed Steps to Tell if a New Device Is a Flock Camera",
-      "excerpt": "If you’re worried about Flock cameras, start by learning to recognize them.",
-      "body": "If you’re worried about Flock cameras, start by learning to recognize them.\n\nThis report, published by CNET, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Device. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to CNET using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Tyler Lacoma",
-      "date": "2026-08-24",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Device"
-      ],
-      "featured": false,
-      "xpReward": 38,
-      "url": "https://www.cnet.com/home/security/my-guaranteed-steps-to-tell-if-a-new-device-is-a-flock-camera/",
-      "image": "/images/feed/feed-d4a68014ee0a.jpg",
-      "source": "CNET",
-      "isLive": true
-    },
-    {
-      "id": "feed-9d002febd7b6",
-      "title": "Google fixed this Google Maps issue on mobile, but it’s back now on Android Auto",
-      "excerpt": "The traffic view works on phones but disappears behind the wheel.",
-      "body": "TL;DR Traffic lines are disappearing from Google Maps on Android Auto for some users. The issue appears limited to Android Auto, not Maps on phones. Some users say the problem started after the Immersive Navigation update arrived. Google Maps users really can’t seem to catch a break lately. Not long after Google fixed a bug that made color-coded traffic lines disappear across Android, iOS, and desktop, the same issue has now appeared in Android Auto. Several users in the Android Auto community and on Reddit are reporting that Google Maps no longer shows the familiar green, yellow, orange, and red traffic lines on their car’s screen.",
-      "author": "Hillary Keverenge",
-      "date": "2026-08-24",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 44,
-      "url": "https://www.androidauthority.com/google-maps-traffic-lines-android-auto-bug-3701930/",
-      "image": "/images/feed/feed-9d002febd7b6.jpg",
-      "source": "Android Authority",
       "isLive": true
     },
     {
@@ -299,7 +375,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 43,
       "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-shares-temporary-fix-for-windows-11-gaming-issues/",
       "image": "/images/feed/feed-2985120aa038.jpg",
       "source": "BleepingComputer",
@@ -307,7 +383,7 @@
     },
     {
       "id": "feed-93aa34b8e360",
-      "title": "Walmart's EV Charging Network Just Hit A Big Milestone",
+      "title": "Walmart's EV Charging Network Just Hit A Big Milestone: 100 Stations In 20 States",
       "excerpt": "The retail giant is ramping up installations, with the latest station opened at the Walmart Supercenter in Monument, Colorado.",
       "body": "The retail giant is ramping up installations, with the latest station opened at the Walmart Supercenter in Monument, Colorado.\n\nThis report, published by InsideEVs, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Ev Charging, Ev. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to InsideEVs using the link below. GiveMeTech will continue tracking this story as more details emerge.",
       "author": "InsideEVs",
@@ -319,29 +395,29 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 38,
       "url": "https://insideevs.com/news/805862/walmart-ev-charging-milestone/",
       "image": "/images/feed/feed-93aa34b8e360.jpg",
       "source": "InsideEVs",
       "isLive": true
     },
     {
-      "id": "feed-2b97b4f8f900",
-      "title": "The best Android weather app isn’t on the Play Store. Here’s how to install it",
-      "excerpt": "It's worth every extra tap.",
-      "body": "Credit: Megan Ellis / Android Authority The Play Store has no shortage of weather apps, but most of them are paywalled, ad-heavy, or just not that good. Breezy Weather is none of those things. It’s free, open-source, and one of the most feature-rich weather apps available for Android. But since you’re here, I’m guessing you already know all that. The real question is how to get Breezy Weather on your phone, as it’s not on the Play Store — and more importantly, how to keep it updated. There are a few ways to do it, and none of them are complicated.",
-      "author": "Pankil Shah",
+      "id": "feed-2481250532b6",
+      "title": "Peggy Carter Getting 'Frisbeed to Death' in Doctor Strange Was 'A Complete Disservice,' Hayley Atwell Says",
+      "excerpt": "Peggy Carter's untimely demise in Doctor Strange in the Multiverse of Madness was a \"complete disservice to the character,\" Marvel actress Hayley Atwell has said.",
+      "body": "After years of waiting to become a superhero herself, Peggy Carter&#39;s untimely demise in Doctor Strange in the Multiverse of Madness was a &quot;complete disservice to the character,&quot; Marvel actress Hayley Atwell has said. Speaking at the For the Love of Fantasy &amp; Sci-Fi convention in London this weekend, Atwell said that she had tried to pitch alternate versions of her character&#39;s fight to the death against Elizabeth Olsen&#39;s Wanda Maximoff/Scarlet Witch, only for her suggestions to be ignored. Doctor Strange in the Multiverse of Madness features an alternate version of Peggy Carter who has become Captain Carter, and wields a version of Captain America&#39;s shield that sports a Union Jack logo.",
+      "author": "Tom Phillips",
       "date": "2026-08-24",
       "readTime": "2 min",
-      "section": "gadgets",
+      "section": "gaming",
       "tags": [
-        "Gadgets"
+        "Gaming"
       ],
       "featured": false,
-      "xpReward": 54,
-      "url": "https://www.androidauthority.com/breezy-weather-android-app-how-to-download-3700950/",
-      "image": "/images/feed/feed-2b97b4f8f900.jpg",
-      "source": "Android Authority",
+      "xpReward": 42,
+      "url": "https://www.ign.com/articles/peggy-carter-getting-frisbeed-to-death-in-doctor-strange-was-a-complete-disservice-hayley-atwell-says",
+      "image": "/images/feed/feed-2481250532b6.jpg",
+      "source": "IGN",
       "isLive": true
     },
     {
@@ -359,7 +435,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 35,
       "url": "https://www.wired.com/story/nasa-nancy-grace-roman-space-telescope-hidden-facets-of-universe/",
       "image": "/images/feed/feed-1906353e0648.jpg",
       "source": "Wired",
@@ -378,7 +454,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 35,
       "url": "https://thehackernews.com/2026/08/uat-10147-uses-ai-to-scale-server.html",
       "image": "/images/feed/feed-94cc4991b8ba.jpg",
       "source": "The Hacker News",
@@ -416,7 +492,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 52,
       "url": "https://www.polygon.com/lanterns-inspiration-coen-brothers-no-country-for-old-men-streaming/",
       "image": "/images/feed/feed-04897f17ee2e.jpg",
       "source": "Polygon",
@@ -435,7 +511,7 @@
         "Rivian"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 45,
       "url": "https://insideevs.com/news/805826/rivian-software-update-waze-reports/",
       "image": "/images/feed/feed-62d7428e11a8.jpg",
       "source": "InsideEVs",
@@ -461,6 +537,25 @@
       "isLive": true
     },
     {
+      "id": "feed-f68441baa26c",
+      "title": "What Lake Bonneville Left Behind",
+      "excerpt": "The drying of the massive lake exposed playas that became the setting for feats of engineering and technological ingenuity, as well as epic tales of exploration and desperation.",
+      "body": "Earth Observatory Science Earth Observatory What Lake Bonneville Left Behind Earth Earth Observatory Image of the Day EO Explorer Topics All Topics Atmosphere Land Heat &#038; Radiation Life on Earth Human Dimensions Natural Events Oceans Remote Sensing Technology Snow &#038; Ice Water More Content Collections Global Maps World of Change Articles Earth Matters Blog Blue Marble: Next Generation EO Kids Mission: Biomes About About Us Subscribe 🛜 RSS Contact Us Search The rugged terrain of the Silver Island Mountains and Crater Island rises above the pale playa and bright salt flats of former Lake Bonneville. The image was acquired with the OLI (Operational Land Imager) on Landsat 8 on June 4, 2026, and overlaid on a digital elevation model .",
+      "author": "NASA Breaking News",
+      "date": "2026-08-24",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Space"
+      ],
+      "featured": false,
+      "xpReward": 50,
+      "url": "https://science.nasa.gov/earth/earth-observatory/what-lake-bonneville-left-behind/",
+      "image": "/images/feed/feed-f68441baa26c.jpg",
+      "source": "NASA Breaking News",
+      "isLive": true
+    },
+    {
       "id": "feed-38dd4ba6a699",
       "title": "5 Strongest Characters In Kaiju No. 8",
       "excerpt": "Strength manifests in many forms, be it for a human or a kaiju.",
@@ -473,7 +568,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 53,
       "url": "https://www.polygon.com/strongest-characters-kaiju-no-8-ranked/",
       "image": "/images/feed/feed-38dd4ba6a699.png",
       "source": "Polygon",
@@ -492,48 +587,10 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 51,
       "url": "https://www.ign.com/articles/lanterns-showrunner-episode-2-ending-when-and-where-to-use-the-ring-is-the-whole-ballgame",
       "image": "/images/feed/feed-b600a7e8a7bf.jpg",
       "source": "IGN",
-      "isLive": true
-    },
-    {
-      "id": "feed-80ae7c0ea1e6",
-      "title": "HBO Officially Changes a Fundamental Rule of DC Superhero Canon",
-      "excerpt": "Lanterns episode 2 gives John Stewart an extremely rare Green Lantern ability, establishing the trainee as a potential prodigy.",
-      "body": "In 2014’s Justice League: War , heroes including Superman, Wonder Woman, and the Flash unite to defend Earth from an invasion led by Darkseid. Batman and Green Lantern are among the first to stumble into an uneasy partnership. As they pursue an alien through Gotham’s sewers, Hal Jordan spends much of their first conversation flying behind Batman and showing off. When he finally lands, the Dark Knight casually slips the ring from Hal’s finger. The green costume and powers immediately disappear. He regains his Green Lantern powers only after summoning the ring back to his hand.",
-      "author": "Corey Plante",
-      "date": "2026-08-24",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 51,
-      "url": "https://www.polygon.com/hbo-lanterns-episode-2-john-stewart-green-lantern-special-powers/",
-      "image": "/images/feed/feed-80ae7c0ea1e6.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-3bfaca1c1df1",
-      "title": "‘Lanterns’ Episode 2 Ending Explained: Who Are Sinestro and the Manhunters?",
-      "excerpt": "The HBO show has introduced two of Green Lantern’s greatest villains",
-      "body": "HBO’s Lanterns is taking a very grounded approach to its portrayal of DC ’s galactic peacekeeper Green Lantern. The TV series is mostly set in the dusty town of Rushville, Nebraska, and it’s more focused on buddy cop dynamics and True Detective -style mystery than superhero action. But showrunner Chris Mundy and writer Vanessa Baden Kelly start digging into Green Lantern’s complex mythology in episode 2, introducing two very dangerous villains. If you still have questions after the episode’s cliffhanger ending, we’ll break down what’s going on.",
-      "author": "Sam Nelson",
-      "date": "2026-08-24",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 33,
-      "url": "https://www.polygon.com/lanterns-episode-2-ending-explained-sinestro-manhunters-dc-comics-lore/",
-      "image": "/images/feed/feed-3bfaca1c1df1.jpg",
-      "source": "Polygon",
       "isLive": true
     },
     {
@@ -549,7 +606,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 46,
       "url": "https://cleantechnica.com/2026/08/23/byd-da-han-claims-global-flagship-status/",
       "image": "/images/feed/feed-90b1f9a50809.jpg",
       "source": "CleanTechnica",
@@ -568,7 +625,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 49,
       "url": "https://cleantechnica.com/2026/08/23/in-the-american-southwest-the-water-crisis-threatens-existential-harm-to-millions/",
       "image": "/images/feed/feed-ebdcdecd5422.jpg",
       "source": "CleanTechnica",
@@ -587,7 +644,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 54,
       "url": "https://www.space.com/entertainment/space-movies-shows/new-star-trek-documentary-featuring-william-shatner-hits-theaters-this-fall-celebrating-60-years-of-trek",
       "image": "/images/feed/feed-7c8d7f3a3543.jpg",
       "source": "Space.com",
@@ -606,7 +663,7 @@
         "Malware"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 54,
       "url": "https://www.bleepingcomputer.com/news/security/toxicpanda-android-malware-uses-vpn-permissions-to-block-google-play/",
       "image": "/images/feed/feed-01df0b93320f.jpg",
       "source": "BleepingComputer",
@@ -625,7 +682,7 @@
         "Spacecraft"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 46,
       "url": "https://www.space.com/astronomy/sun/how-a-huge-fleet-of-17-spacecraft-discovered-something-surprising-about-solar-eruptions",
       "image": "/images/feed/feed-0f5779b40cea.jpg",
       "source": "Space.com",
@@ -644,7 +701,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 52,
       "url": "https://www.space.com/space-exploration/launches-spacecraft/bad-weather-delays-launch-of-chinas-historic-change-7-mission-to-moons-south-pole",
       "image": "/images/feed/feed-fb054db577a2.jpg",
       "source": "Space.com",
@@ -663,7 +720,7 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 48,
       "url": "https://cleantechnica.com/2026/08/23/tesla-semi-moves-into-europe-gets-largest-order-to-date/",
       "image": "/images/feed/feed-1bfb404091fe.jpg",
       "source": "CleanTechnica",
@@ -682,29 +739,10 @@
         "Malware"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 35,
       "url": "https://securelist.com/android-head-unit-malware/121106/",
       "image": "/images/feed/feed-5aa3dc41b67b.jpg",
       "source": "Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-612f101e1d95",
-      "title": "Launching 10,000 tiny 'femtosats' to Saturn? NASA funds 18 futuristic spaceflight ideas",
-      "excerpt": "NASA has chosen 18 technology proposals for its Innovative Advanced Concepts awards to help turn some out-of-the-box ideas into out-of-this-world research.",
-      "body": "NASA is giving a financial boost to nearly 20 technology investigations to help fuel the incubation of tomorrow's spaceflight research capabilities. The NASA Innovative Advanced Concepts ( NIAC ) program has selected 18 projects for this year's Phase I awards, which will each split a total of $3.2 million in development funding. NIAC is designed to bolster technology breakthroughs that NASA could use on future space missions. This year's awards include an array of mission concepts and research proposals NASA views as having \"transformative potential,\" according to a July 29 announcement of winners .",
-      "author": " Josh Dinner ",
-      "date": "2026-08-23",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Nasa"
-      ],
-      "featured": false,
-      "xpReward": 42,
-      "url": "https://www.space.com/technology/launching-10-000-tiny-femtosats-to-saturn-nasa-funds-18-futuristic-spaceflight-ideas",
-      "image": "/images/feed/feed-612f101e1d95.jpg",
-      "source": "Space.com",
       "isLive": true
     },
     {
@@ -720,7 +758,7 @@
         "Hacker"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 34,
       "url": "https://www.telegraph.co.uk/news/2026/08/22/iranian-hackers-shut-down-uk-power-plant/",
       "image": "/images/feed/feed-cb9402624708.jpg",
       "source": "Hacker News",
@@ -739,7 +777,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 52,
       "url": "https://cleantechnica.com/2026/08/23/hydrogen-ship-charging-tilbury-battery-test/",
       "image": "/images/feed/feed-8b01d8089207.webp",
       "source": "CleanTechnica",
@@ -759,7 +797,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 42,
       "url": "https://techcrunch.com/2026/08/22/inherent-founded-by-deepmind-alumni-says-its-ai-teammate-just-outperformed-anthropic-and-openai-at-replicating-research/",
       "image": "/images/feed/feed-f264c057671c.jpg",
       "source": "TechCrunch",
@@ -778,31 +816,10 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 50,
       "url": "https://techcrunch.com/2026/08/22/openai-says-california-should-strengthen-its-ai-safety-bill/",
       "image": "/images/feed/feed-39119bad22db.jpg",
       "source": "TechCrunch",
-      "isLive": true
-    },
-    {
-      "id": "feed-a93f69abdeb8",
-      "title": "How will NASA's astronaut training hub change with commercial space stations?",
-      "excerpt": "A tour of Johnson Space Center in Houston shows how NASA and private industry are already working together on the future of human spaceflight.",
-      "body": "HOUSTON — What does NASA's astronaut training hub look like these days, as the agency aims to bring more commercial space stations into the fold? It's an interesting mix of government and private companies, of space agency personnel and of contractors, all working together to keep U.S. and international astronauts flying through the end of the ISS — currently expected around 2030 — and the new breed of commercial space stations expected to take its place. Canadian reporters like myself were invited on a tour of Johnson Space Center (JSC) on Aug. 4 ahead of the launch of SpaceX Crew-13, which launches no earlier than Sept. 12.",
-      "author": " Elizabeth Howell ",
-      "date": "2026-08-22",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Space Station",
-        "Nasa",
-        "Astronaut"
-      ],
-      "featured": false,
-      "xpReward": 41,
-      "url": "https://www.space.com/space-exploration/international-space-station/how-will-nasas-astronaut-training-hub-change-with-commercial-space-stations",
-      "image": "/images/feed/feed-a93f69abdeb8.jpg",
-      "source": "Space.com",
       "isLive": true
     },
     {
@@ -818,30 +835,10 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 32,
       "url": "https://thehackernews.com/2026/08/tiktok-agrees-to-400-million-settlement.html",
       "image": "/images/feed/feed-d214b3f15a54.jpg",
       "source": "The Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-0c6227e2cbbf",
-      "title": "Hackers infect Android car head units with proxy botnet malware",
-      "excerpt": "A supply-chain attack targeting Android-based car head units is using a legitimate device-update app to spread malware that enlists compromised devices in a proxy botnet or uses them for ad fraud. [..…",
-      "body": "A supply-chain attack targeting Android-based car head units is using a legitimate device-update app to spread malware that enlists compromised devices in a proxy botnet or uses them for ad fraud. [ — a development drawing significant attention in the cybersecurity and digital privacy space.\n\nThis report, published by BleepingComputer, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Malware, Hacker. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to BleepingComputer using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Bill Toulas",
-      "date": "2026-08-22",
-      "readTime": "2 min",
-      "section": "cybersecurity",
-      "tags": [
-        "Malware",
-        "Hacker"
-      ],
-      "featured": false,
-      "xpReward": 51,
-      "url": "https://www.bleepingcomputer.com/news/security/hackers-infect-android-car-head-units-with-proxy-botnet-malware/",
-      "image": "/images/feed/feed-0c6227e2cbbf.jpg",
-      "source": "BleepingComputer",
       "isLive": true
     },
     {
@@ -857,7 +854,7 @@
         "Chatgpt"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 52,
       "url": "https://www.cnet.com/tech/services-and-software/chatgpt-take-over-imessage/",
       "image": "/images/feed/feed-a8b74793bb89.jpg",
       "source": "CNET",
@@ -876,7 +873,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 41,
       "url": "https://techcrunch.com/2026/08/21/anthropics-opus-4-6-is-a-smut-machine/",
       "image": "/images/feed/feed-d7e3e6a3a485.jpg",
       "source": "TechCrunch",
@@ -895,7 +892,7 @@
         "Chatgpt"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 41,
       "url": "https://www.zdnet.com/article/chatgpts-new-mac-plugin-analyzed-my-imessages-and-i-found-it-surprisingly-useful/",
       "image": "/images/feed/feed-56f67819ace4.jpg",
       "source": "ZDNet",
@@ -914,7 +911,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 40,
       "url": "https://arstechnica.com/security/2026/08/grok-exfiltrates-user-data-when-malicious-instructions-are-encrypted/",
       "image": "/images/feed/feed-2816275d64dd.jpg",
       "source": "Ars Technica",
@@ -933,7 +930,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 48,
       "url": "https://openai.com/index/introducing-ai-futures",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "OpenAI Blog",
@@ -941,16 +938,16 @@
     }
   ],
   "breakingNews": [
-    "ANDROID AUTHORITY: Google, take note: This phone maker’s new chipset looks like an absolute beast",
-    "DEV.TO: What does your AI assistant remember from yesterday?",
-    "DEV.TO: 20-50x Faster Shipping: What One Engineer's AI Workflow Reveals About Editor-Free Agent Orchestration",
-    "DEV.TO: Multi-Everything Agent Infrastructure: How AWS Teams Avoid Lock-In While Running Dozens of Agentic Systems",
-    "POLYGON: Killing Fish in Ridiculous Ways Pushed This New Friendslop Game to the Top of Steam Charts",
-    "DEV.TO: Binary Search: The Matrix of Algorithms – Patterns, Edge Cases, and Real Interview Questions",
-    "DEV.TO: Replace Your Grid Search Tonight: The Optuna Setup That Killed 12 of My 20 Trials",
-    "ENGADGET: Taiwan reportedly indicted NVIDIA employees for exporting prohibited AI servers to China",
-    "DEV.TO: Guida completa OWASP Top 10",
-    "ZDNET: These 10+ car gadgets upgrade your daily commute for cheap"
+    "DEV.TO: 剖析AI漏洞：从私有 LLM API 窃取推理轨迹",
+    "WIRED: The Kindle Accessories I Never Want to Read Without (2026)",
+    "DEV.TO: Embed Charts in Markdown Without Chart.js: SVG, Data URIs, and What Actually Works",
+    "DEV.TO: Controllers vs Minimal APIs: Stop Picking a Winner",
+    "POLYGON: Hayley Atwell Slams Controversial Captain Carter Scene: 'A Complete Disservice to the Character'",
+    "DEV.TO: I Was Burning $1.20 a Night on Nothing: A Claude Code Skill Library That Harvests and Curates Itself",
+    "DEV.TO: Vibecoding: Why Flow State is the New Syntax",
+    "INFOQ: Article: Rightsizing Platform Engineering: Building the Platform Your Organization Actually Needs",
+    "ENGADGET: The new Shokz OpenFit Air 2 earbuds are nearly 20 percent lighter than the previous generation",
+    "SPACE.COM: What to expect from each stage of the partial lunar eclipse on Aug. 27-28"
   ],
   "sectionVideos": {}
 }
