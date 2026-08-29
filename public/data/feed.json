@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-08-29T07:13:53.161Z",
+  "fetchedAt": "2026-08-29T08:16:18.363Z",
   "articles": [
     {
-      "id": "feed-0e9d7c292889",
-      "title": "Calling redirect() Inside a Suspense Boundary Doesn't Undo What Already Streamed to the Browser",
-      "excerpt": "Streaming is one of the genuinely great things about the App Router, the browser can start receiving and rendering parts of a page before every single piece of data has finished loading. It also intro…",
-      "body": "Streaming is one of the genuinely great things about the App Router, the browser can start receiving and rendering parts of a page before every single piece of data has finished loading. It also introduces a real ordering question that's easy to get wrong when auth checks and Suspense boundaries interact, and getting it wrong doesn't throw an error, it just occasionally shows a logged-out visitor a flash of something meant only for an authenticated user. The Setup That Looks Fine // app/dashboard/layout.tsx export default function DashboardLayout ({ children }: { children : React .",
-      "author": "Anas Sheikh",
+      "id": "feed-07a02ee5441a",
+      "title": "Design, Optimization, and Deployment of a Hybrid Agentic Retrieval-Augmented Generation (Agentic-RAG) Architecture",
+      "excerpt": "Abstract Traditional RAG pipelines usually work deterministically by using only static vector search[cite: 1]. Because of this, vocabulary mismatches can occur when searching for exact words or techni…",
+      "body": "Abstract Traditional RAG pipelines usually work deterministically by using only static vector search[cite: 1]. Because of this, vocabulary mismatches can occur when searching for exact words or technical keywords, and the agent may be unable to verify context[cite: 1]. In this research document, I explain the complete details of the Agentic Hybrid RAG architecture I engineered[cite: 1]. It combines dense semantic search (FAISS IndexFlatIP with L2-normalized embeddings) and exact keyword search (BM25Okapi), and operates through an autonomous LLM agent using the smolagents framework[cite: 1].",
+      "author": "Ajay Bazil Issac",
       "date": "2026-08-29",
       "readTime": "2 min",
       "section": "software",
@@ -14,10 +14,219 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 33,
-      "url": "https://dev.to/anas_sheikh_2/calling-redirect-inside-a-suspense-boundary-doesnt-undo-what-already-streamed-to-the-browser-4159",
-      "image": "/images/feed/feed-0e9d7c292889.webp",
+      "xpReward": 48,
+      "url": "https://dev.to/ajay_bazilissac_a8063c5b/design-optimization-and-deployment-of-a-hybrid-agentic-retrieval-augmented-generation-32e8",
+      "image": "/images/feed/feed-07a02ee5441a.webp",
       "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-54b5410ee871",
+      "title": "Structuring Variables in Figma",
+      "excerpt": "Building a scalable UI library in Figma starts with thoughtful organization of variables. As projects grow, managing primitives, semantics, and themes without proper structure can quickly become overw…",
+      "body": "Building a scalable UI library in Figma starts with thoughtful organization of variables. As projects grow, managing primitives, semantics, and themes without proper structure can quickly become overwhelming. This guide explores a clear, implementation-aligned approach to structuring variables by purpose, from foundational values to reusable design tokens and dynamic content. This approach reduces redundancy, streamlines updates, and maintains consistency across components and abstractions. Understanding variables in Figma Before diving into structuring, it helps to understand what variables are and why they matter. At their core, variables in Figma store reusable values that can be applied to various design properties and prototyping actions.",
+      "author": "abhi",
+      "date": "2026-08-29",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 37,
+      "url": "https://dev.to/planetabhi_/structuring-variables-in-figma-32d8",
+      "image": "/images/feed/feed-54b5410ee871.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-d628c03433ac",
+      "title": "Semantic Caching vs. Prompt Caching: Measuring the Break-Even Point on Real Traffic",
+      "excerpt": "The Real Business Bottleneck: 캐시는 아키텍처 계층이다 LLM API 비용 문제는 프롬프트 엔지니어링이 아니라 아키텍처 문제라는 논의가 커뮤니티에서 힘을 얻고 있습니다 (HackerNoon: \"Your LLM Bill Is an Architecture Problem, Not a Prompt Problem\"). 대부분의 프로덕션 LLM…",
+      "body": "The Real Business Bottleneck: 캐시는 아키텍처 계층이다 LLM API 비용 문제는 프롬프트 엔지니어링이 아니라 아키텍처 문제 라는 논의가 커뮤니티에서 힘을 얻고 있습니다 (HackerNoon: \"Your LLM Bill Is an Architecture Problem, Not a Prompt Problem\"). 대부분의 프로덕션 LLM 트래픽은 사람이 생각하는 것보다 훨씬 반복적입니다. 고객 지원 봇, 문서 요약 파이프라인, 코드 리뷰 어시스턴트 등은 동일하거나 의미상 유사한 입력이 하루에도 수백 번 들어옵니다. 이 반복성을 활용하지 못하면, 같은 계산에 매번 정가를 지불하는 셈입니다. 이를 활용하는 방법은 크게 두 가지입니다. Prompt Caching (프로바이더 제공): Anthropic의 공식 문서에 따르면 캐시 읽기 시 입력 토큰 비용의 0.1배 , 캐시 쓰기 시 1.25배를 과금하며, 최단 캐시 수명(TTL)은 5분입니다. 즉, 캐시된 prefix를 재사용하면 해당 부분의 입력 비용이 90% 절감됩니다. 지연 시간(latency) 역시 유의미하게 개선됩니다. Semantic Caching (직접 구축, 예: Redis Semantic Cache, GPTCache): 임베딩 벡터 유사도로 \"이전에 본 질문과 거의 같은 질문\"을 판정해, LLM 호출 자체를 생략하고 저장된 응답을 반환합니다. 호출이 완전히 사라지므로 출력 토큰 비용까지 통째로 절감되지만, false positive (없는 유사성을 잘못 판정) 시 잘못된 답을 돌려주는 신뢰성 리스크를 안고 있습니다.",
+      "author": "Jangwook Kim",
+      "date": "2026-08-29",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 52,
+      "url": "https://dev.to/jangwook_kim_e31e7291ad98/semantic-caching-vs-prompt-caching-measuring-the-break-even-point-on-real-traffic-26mh",
+      "image": "/images/feed/feed-d628c03433ac.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-d785ad3f293c",
+      "title": "The Dog Stars Release Date Window for Disney Plus Streaming, Blu-ray, and DVD",
+      "excerpt": "When will Ridley Scott’s latest film be coming to streaming (Disney Plus), Blu-ray, and DVD? Here's what we know.",
+      "body": "Ridley Scott’s latest sci-fi film, The Dog Stars , has divided critics. While Polygon loved the moody tale of a pilot (Jacob Elordi) searching for meaning in a world where most of humanity was wiped out by a deadly flu, other publications were less enthusiastic about the slow pace and wild tone shifts. Scott’s dramatic camera work is always worth seeing on a big screen, and The Dog Stars offers plenty of tense battles along with gorgeous sweeping shots from the air. But if the mixed reviews have you on the fence, you might be wondering when you’ll be able to watch it at home.",
+      "author": "Sam Nelson",
+      "date": "2026-08-29",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": true,
+      "xpReward": 45,
+      "url": "https://www.polygon.com/ridley-scott-the-dog-stars-streaming-release-date-vod-disney-plus/",
+      "image": "/images/feed/feed-d785ad3f293c.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-4fdf27ac748f",
+      "title": "Marvel Star's Forgotten 100-Minute Action Thriller Is About to Disappear From Streaming",
+      "excerpt": "Legion departs Netflix on Aug. 31",
+      "body": "There's a particular sort of movie that's fallen out of style in the 2020s, as the film industry has pivoted to a sort of feast-or-famine style for theatrical distribution. Currently, anything that gets a run on the big screen is either a blockbuster with a nine-digit budget or an indie production. It's either The Odyssey or Backrooms , with nothing in between.",
+      "author": "Thomas Hindmarch",
+      "date": "2026-08-29",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": true,
+      "xpReward": 40,
+      "url": "https://www.polygon.com/legion-2010-netflix/",
+      "image": "/images/feed/feed-4fdf27ac748f.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-78c16db398d1",
+      "title": "5 Shonen Anime That Are 10/10 Perfect Masterpieces, No Notes",
+      "excerpt": "From tactical action to dark fantasy, shonen comes in many flavors.",
+      "body": "Although some of these heavy-hitters are expected candidates for perfect shonen you could rate as 10/10, there are plenty of overlooked stories out there that are just as good. As ongoing adaptations like Daemons of the Shadow Realm and Akane-banashi require some time to prove their worth, it doesn’t hurt to shine a spotlight on less-obvious shonen masterpieces that are likely to age well.",
+      "author": "Debopriyaa Dutta",
+      "date": "2026-08-29",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": true,
+      "xpReward": 49,
+      "url": "https://www.polygon.com/best-shonen-anime-perfect-no-notes/",
+      "image": "/images/feed/feed-78c16db398d1.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-fd052a82a8e2",
+      "title": "5 Huge Pop Culture Characters You Didn't Know Had a Daily Newspaper Comic Strip",
+      "excerpt": "Franchises like Star Wars, The Simpsons, Teenage Mutant Ninja Turtles, Rugrats, and the Muppets all used to have newspaper comic strips",
+      "body": "Lots of famous pop culture characters began with daily newspaper comic strips . Garfield and the Peanuts gang are probably the most famous examples, but there are many others, like Popeye, The Addams Family, and Dick Tracy. All of those characters were originally featured in daily comic strips. Only later did they become the subject of cartoons, films and comic books.",
+      "author": "Brian VanHooker",
+      "date": "2026-08-29",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 53,
+      "url": "https://www.polygon.com/comic-strip-star-wars-muppets-tmnt-simpsons/",
+      "image": "/images/feed/feed-fd052a82a8e2.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-fd3eb838ba43",
+      "title": "Q&D: Dart/Flutter Formatter, Linter and Analyzer",
+      "excerpt": "A clean project following conventions is way better than a crappy project containing yolo code. In Dart and Flutter, everything is already available to make your life easier. A formatter is already pr…",
+      "body": "A clean project following conventions is way better than a crappy project containing yolo code. In Dart and Flutter, everything is already available to make your life easier. Formatter A formatter is already present with the Dart SDK. The command dart format will do the job. If one wants to see only the modification without applying them: $ dart format show The dart format is a shortcut for dart format write , meaning it will apply all changes by default. $ dart format write More information can be available here: Dart Format from the official Dart Documentation; Flutter Formatting from the official Flutter documentation Dart Style FAQ from the Official Dart Wiki. Analyzer An analyzer is also present by default with the SDK.",
+      "author": "Mathieu Kerjouan",
+      "date": "2026-08-29",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 34,
+      "url": "https://dev.to/niamtokik/qd-dartflutter-analyze-and-linter-2ank",
+      "image": "/images/feed/feed-fd3eb838ba43.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-799b9579fa6c",
+      "title": "Catch by Recovery Policy, Not Convenience",
+      "excerpt": "Liquid syntax error: 'raw' tag was never closed",
+      "body": "Liquid syntax error: 'raw' tag was never closed\n\nThis report, published by Dev.to, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Software. As the situation continues to evolve, professionals and enthusiasts in the software development and engineering field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Dev.to using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Ivan Rossouw",
+      "date": "2026-08-29",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 51,
+      "url": "https://dev.to/iqtechsolutions/catch-by-recovery-policy-not-convenience-12l6",
+      "image": "/images/feed/feed-799b9579fa6c.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-a757c6dbce15",
+      "title": "Programmatic SEO Engineering: Dynamic Metadata, OpenGraph & High-Performance Sitemaps",
+      "excerpt": "Liquid syntax error: Tag '{% raw %}' was not properly terminated with regexp: /\\%\\}/",
+      "body": "Liquid syntax error: Tag '{% raw %}' was not properly terminated with regexp: /\\%\\}/\n\nThis report, published by Dev.to, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Software. As the situation continues to evolve, professionals and enthusiasts in the software development and engineering field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Dev.to using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Muhammad Tahir",
+      "date": "2026-08-29",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 46,
+      "url": "https://dev.to/mtahir27/programmatic-seo-engineering-dynamic-metadata-opengraph-high-performance-sitemaps-1ji3",
+      "image": "/images/feed/feed-a757c6dbce15.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-724af00530a6",
+      "title": "From “Can I Do This?” to Becoming Part of the Team: Lessons From My Apprenticeship at ISRO",
+      "excerpt": "My first real experience working in a professional engineering environment began during my apprenticeship at ISRO On my first day, I was introduced to the project. They explained what the project was,…",
+      "body": "My first real experience working in a professional engineering environment began during my apprenticeship at ISRO On my first day, I was introduced to the project. They explained what the project was, its purpose, its scale, what my role would be, and the prerequisites I needed to understand before getting started. At that point, everything sounded exciting. I was about to work in a real engineering environment and contribute to an actual project. Then, after a day, I received my first task. And that was the first time I opened the project's codebase. Honestly? I didn't understand anything. Well, that's not entirely true. I could understand what was written. I knew the programming concepts. I could recognize classes, methods, variables, and the object-oriented structure.",
+      "author": "Chaitanya Pranav Sai Kodamasimham",
+      "date": "2026-08-29",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 49,
+      "url": "https://dev.to/chaitanya_pranavsaikoda/from-can-i-do-this-to-becoming-part-of-the-team-lessons-from-my-apprenticeship-at-isro-6lh",
+      "image": "/images/feed/feed-724af00530a6.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-4ab8af6c730e",
+      "title": "10 Greatest WWII Movies of All Time, Ranked",
+      "excerpt": "Steven Spielberg, Quentin Tarantino, and more top this list of iconic WWII films you can't miss",
+      "body": "This August marks 81 years since the atomic bombings of Hiroshima and Nagasaki during World War II, which brought history's costliest war to an end. The war shaped the world as we know it today through effects felt politically and economically, and has also secured a place in pop culture. With countless movies and TV shows focusing on those tumultuous years, such as the HBO miniseries Band of Brothers , there is no shortage of stories that can be told through events or battles that took place. Film especially has a lot to offer, as this list of best WWII films highlights. Whether you're looking for action or an exploration of the lasting effects of war, you will find it here.",
+      "author": "Rachel Tolleson",
+      "date": "2026-08-29",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 48,
+      "url": "https://www.polygon.com/10-greatest-wwii-movies-ranked/",
+      "image": "/images/feed/feed-4ab8af6c730e.jpg",
+      "source": "Polygon",
       "isLive": true
     },
     {
@@ -32,49 +241,11 @@
       "tags": [
         "Gaming"
       ],
-      "featured": true,
-      "xpReward": 54,
+      "featured": false,
+      "xpReward": 46,
       "url": "https://www.polygon.com/mission-impossible-3-free-streaming-august-2026/",
       "image": "/images/feed/feed-9f2d973b1e2a.jpg",
       "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-a9ceb34c2a5a",
-      "title": "Send Pingvera Events to a Help Desk with Webhooks",
-      "excerpt": "Send Pingvera Events to a Help Desk with Webhooks A reliable monitoring-to-help-desk integration creates one incident ticket for one confirmed failure, updates that ticket as evidence or severity chan…",
-      "body": "Send Pingvera Events to a Help Desk with Webhooks A reliable monitoring-to-help-desk integration creates one incident ticket for one confirmed failure, updates that ticket as evidence or severity changes, and resolves it only after confirmed recovery. It should not create a new ticket for every failed probe or webhook retry. Use an HTTPS ingress, authenticate and persist the raw event, process it asynchronously, normalise fields into an agency-owned schema, deduplicate deliveries, map the incident to a ticket, and monitor the adapter itself.",
-      "author": "Artem Meleshkin",
-      "date": "2026-08-29",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 53,
-      "url": "https://dev.to/artem_meleshkin_0c4e0a675/send-pingvera-events-to-a-help-desk-with-webhooks-6fa",
-      "image": "/images/feed/feed-a9ceb34c2a5a.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-61999450b680",
-      "title": "Subqueries vs CTEs: Query Optimizer Internals & Memory Spooling Explained",
-      "excerpt": "Many engineers believe Common Table Expressions (CTEs) are always faster than subqueries. In modern SQL Server (and PostgreSQL), that is a myth. Here is what actually happens under the hood: By defaul…",
-      "body": "Many engineers believe Common Table Expressions (CTEs) are always faster than subqueries. In modern SQL Server (and PostgreSQL), that is a myth . Here is what actually happens under the hood: 1. Inlining &amp; The Query Optimizer By default, the SQL optimizer treats standard CTEs and derived tables (subqueries) almost identically: The engine expands both into the same relational tree. They generate the exact same execution plan and I/O cost .",
-      "author": "Arpit Bangre",
-      "date": "2026-08-29",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 35,
-      "url": "https://dev.to/arpitmbangre/subqueries-vs-ctes-query-optimizer-internals-memory-spooling-explained-4mlm",
-      "image": "/images/feed/feed-61999450b680.webp",
-      "source": "Dev.to",
       "isLive": true
     },
     {
@@ -89,87 +260,11 @@
       "tags": [
         "Cars"
       ],
-      "featured": true,
-      "xpReward": 38,
+      "featured": false,
+      "xpReward": 44,
       "url": "https://cleantechnica.com/2026/08/29/methane-thermolysis-carbon-market-problem/",
       "image": "/images/feed/feed-f035d58d5efc.webp",
       "source": "CleanTechnica",
-      "isLive": true
-    },
-    {
-      "id": "feed-3330a6eab92f",
-      "title": "Building a Client-Side Byte to String Decoder with Unicode Support",
-      "excerpt": "Hey DEV community! 👋 When debugging network streams, parsing custom file formats, or inspecting database buffers, we often extract data as raw arrays of numbers rather than human-readable text. This…",
-      "body": "Hey DEV community! 👋 When debugging network streams, parsing custom file formats, or inspecting database buffers, we often extract data as raw arrays of numbers rather than human-readable text. This data typically presents itself as raw byte sequences formatted in either decimal or hexadecimal notation. While there are online decoders available, pasting raw byte sequences into third-party sites that process data on their backend databases introduces an unnecessary data privacy risk. To solve this, I designed a lightweight, entirely browser-based Byte to String Converter that decodes raw byte sequences locally using standard JavaScript APIs. In this post, we will look at how bytes map to character encodings and implement a client-side JavaScript utility to decode them safely.",
-      "author": "Vo Viet Hoang",
-      "date": "2026-08-29",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 32,
-      "url": "https://dev.to/hoangvibecode/building-a-client-side-byte-to-string-decoder-with-unicode-support-35n",
-      "image": "/images/feed/feed-3330a6eab92f.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-76bc2b515766",
-      "title": "okf-guard: A Security Layer for Open Knowledge Format (OKF) Pipelines",
-      "excerpt": "Catching Prompt Injection Before It Enters a Trusted Knowledge Base AI agents increasingly consume knowledge from sources they did not author and cannot independently verify: a PDF policy document, a…",
-      "body": "Catching Prompt Injection Before It Enters a Trusted Knowledge Base AI agents increasingly consume knowledge from sources they did not author and cannot independently verify: a PDF policy document, a scraped web page, a spreadsheet exported from another team's system. The prevailing approach — extract the text, write it into a knowledge base or context window, let the agent treat it as fact — has an underexamined weakness. Extraction tools capture everything present in a source document, including content a human reviewer would never see.",
-      "author": "Darshan Buddhdev",
-      "date": "2026-08-29",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 42,
-      "url": "https://dev.to/darshan_buddhdev/catching-prompt-injection-before-it-enters-a-trusted-knowledge-base-5hf4",
-      "image": "/images/feed/feed-76bc2b515766.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-1c225075d66d",
-      "title": "LeetCode ~ first 30 Hard problems, with solutions",
-      "excerpt": "Pulled live from leetcode.com/problemset/?difficulty=Hard on 29 Aug 2026 (895 hard problems in the Algorithms list). \"First 30\" = the 30 lowest problem numbers. Everything below is Python 3. Open the…",
-      "body": "Pulled live from leetcode.com/problemset/?difficulty=Hard on 29 Aug 2026 (895 hard problems in the Algorithms list). \"First 30\" = the 30 lowest problem numbers. Everything below is Python 3 . How to use this Open the problem on LeetCode and make sure the language selector says Python3 . Select all the text in the code editor and delete it. Paste the block below in its place — each block already contains the class Solution signature LeetCode generated for that problem, plus any commented-out ListNode / TreeNode header. Press Submit . Do not add import statements or redefine ListNode / TreeNode — LeetCode injects typing.List , typing.Optional , heapq , math.gcd and the node classes automatically. The blocks are written to rely on exactly that.",
-      "author": "ANIRUDDHA ADAK",
-      "date": "2026-08-29",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 45,
-      "url": "https://dev.to/aniruddha_adak/leetcode-first-30-hard-problems-with-solutions-2ioe",
-      "image": "/images/feed/feed-1c225075d66d.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-176e34f4b4a7",
-      "title": "Treat Voice-Companion Memory as a Consent Ledger, Not Prompt History",
-      "excerpt": "A personalized voice companion creates an uncomfortable trade-off: users do not want to repeat themselves, but they also do not want a misheard sentence to become a permanent “fact.” That tension is o…",
-      "body": "A personalized voice companion creates an uncomfortable trade-off: users do not want to repeat themselves, but they also do not want a misheard sentence to become a permanent “fact.” That tension is often hidden by calling conversation history memory . The implementation then retrieves old text, inserts it into a prompt, and trusts the LLM to interpret it correctly. A safer design gives memory to the application, not the model: The model may propose a typed fact. The companion must ask whether it should remember that fact. The user may confirm, reject, correct, or later revoke it. Only active, confirmed records can enter an LLM request. This tutorial builds that boundary in TypeScript and shows how it fits a Tencent RTC Conversational AI voice companion.",
-      "author": "LunarDrift",
-      "date": "2026-08-29",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 31,
-      "url": "https://dev.to/susiewang/treat-voice-companion-memory-as-a-consent-ledger-not-prompt-history-32pi",
-      "image": "/images/feed/feed-176e34f4b4a7.webp",
-      "source": "Dev.to",
       "isLive": true
     },
     {
@@ -185,7 +280,7 @@
         "Game"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 41,
       "url": "https://www.polygon.com/rust-roadmap-changes-2026/",
       "image": "/images/feed/feed-2d9bad27887a.jpg",
       "source": "Polygon",
@@ -204,7 +299,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 37,
       "url": "https://www.wired.com/story/motorola-coupon-code/",
       "image": "/images/feed/feed-2836011e46c0.png",
       "source": "Wired",
@@ -223,67 +318,10 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 32,
       "url": "https://cleantechnica.com/2026/08/29/vycarb-successfully-stores-low-purity-co2-in-seawater/",
       "image": "/images/feed/feed-2e7d0f57f30a.jpg",
       "source": "CleanTechnica",
-      "isLive": true
-    },
-    {
-      "id": "feed-389baa7c2179",
-      "title": "Henry Cavill's New Action Thriller From Guy Ritchie Is Officially a Massive Streaming Hit",
-      "excerpt": "Guy Ritchie and Henry Cavill have collaborated a few times in their career but their latest film is a streaming success.",
-      "body": "Henry Cavill has played many different roles in the action genre world. Whether it be a grounded more depressed version of Clark Kent in Zack Snyder's Man of Steel or Geralt of Rivia in a few seasons of Netflix's The Witcher , he knows how to bring very different energy to the action roles he's playing. Which is probably why he's been able to inhabit quite a few of Guy Ritchie's films , bringing something new to each role he takes on. And their latest collaboration has found success on streaming after a lackluster start (aka, people didn't really know that this was a movie to begin with).",
-      "author": "Rachel Leishman",
-      "date": "2026-08-29",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 41,
-      "url": "https://www.polygon.com/henry-cavill-guy-ritchie-in-the-grey-streaming-success/",
-      "image": "/images/feed/feed-389baa7c2179.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-13d4baa50975",
-      "title": "You Need to Watch Netflix's 7 Best Original Anime At Least Once",
-      "excerpt": "Dystopian worlds often end up being the most riveting settings.",
-      "body": "Netflix has a decent anime library that grows every month, and the streaming service has also produced some excellent original anime over the years. Some of its most popular originals — like Castlevania and Blood of Zeus — aren't technically anime, but they still boast complex storytelling and spectacular animation with an overall look that sure seems like anime. That said, when it comes to legitimate anime, Netflix does have a fair number of exclusive shows and movies that are absolutely worth watching.",
-      "author": "Debopriyaa Dutta",
-      "date": "2026-08-29",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 42,
-      "url": "https://www.polygon.com/best-netflix-original-anime-everyone-needs-to-watch-stream/",
-      "image": "/images/feed/feed-13d4baa50975.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-0ce5e943a44a",
-      "title": "The Best Sci-Fi Action Epic of All Time Is About to Be Streaming on Netflix",
-      "excerpt": "James Cameron's Aliens is the still the greatest sequel ever because it gives you more than you could expect from a sequel to Ridley Scott's Alien",
-      "body": "The best sequels expand upon everything audiences loved about the original — the action, the stakes, the world — while finding enough new ideas to justify returning to it at all. Making a worthwhile sequel can be a tricky balancing act, which is why there are as many bad sequels as there are good ones (if not more). 40 years later, though, one sequel remains the clearest example of how to pull that off.",
-      "author": "Brian VanHooker",
-      "date": "2026-08-29",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 52,
-      "url": "https://www.polygon.com/james-cameron-aliens-on-netflix/",
-      "image": "/images/feed/feed-0ce5e943a44a.jpg",
-      "source": "Polygon",
       "isLive": true
     },
     {
@@ -299,29 +337,10 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 44,
       "url": "https://cleantechnica.com/2026/08/28/the-real-electric-aviation-revolution-is-being-strangled-to-enrich-don-jr-other-trump-associates/",
       "image": "/images/feed/feed-3e46f7127265.jpg",
       "source": "CleanTechnica",
-      "isLive": true
-    },
-    {
-      "id": "feed-90922c774d0c",
-      "title": "Magic’s Next Set Is Caught in a ‘Naval Snarl’ at the Panama Canal",
-      "excerpt": "A Panama Canal traffic jam may cause a shortage of Magic: The Gathering’s Reality Fracture Play Boosters after the set’s October launch.",
-      "body": "Every Magic: The Gathering set has faced some kind of shipping delay in 2026 related to one or more products, whether that’s a generic “ shipping issue ” for Lorwyn Eclipsed Draft Night boxes or a stuffy “ logistical issue ” for Teenage Mutant Ninja Turtles Bundles. But the explanation is always rote with very little flavor. Yet on Friday, Wizards of the Coast delivered a tremendously colorful explanation for why some Reality Fracture products won’t make it to local game stores on time in October.",
-      "author": "Corey Plante",
-      "date": "2026-08-29",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 48,
-      "url": "https://www.polygon.com/mtg-reality-fracture-shipping-delay-panama-canal-explained/",
-      "image": "/images/feed/feed-90922c774d0c.jpg",
-      "source": "Polygon",
       "isLive": true
     },
     {
@@ -337,29 +356,10 @@
         "Spacex"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 41,
       "url": "https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex/",
       "image": "/images/topics/topic-space.png",
       "source": "Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-ca5d3fb5d84e",
-      "title": "'Star Wars' Officially Returns to Disney Plus Next Week with New Streaming Release",
-      "excerpt": "The Mandalorian and Grogu revived Star Wars in 2026, now it's coming home to Disney Plus.",
-      "body": "The Mandalorian and Grogu brought Star Wars back to movie theaters, and now the duo is heading to their original home. In less than a week, Din Djarin and Baby Yoda will make their Disney Plus streaming debut. After a digital release in July and a 4K Ultra HD/Blu-ray release , The Mandalorian and Grogu will finally come home to the masses in September, when the film starts streaming on Disney Plus.",
-      "author": "Polygon Staff",
-      "date": "2026-08-29",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 48,
-      "url": "https://www.polygon.com/star-wars-mandalorian-and-grogu-streaming-date-disney-plus/",
-      "image": "/images/feed/feed-ca5d3fb5d84e.jpg",
-      "source": "Polygon",
       "isLive": true
     },
     {
@@ -375,7 +375,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 40,
       "url": "https://cleantechnica.com/2026/08/28/california-sues-trump-over-ridiculous-wind-power-cancellations/",
       "image": "/images/feed/feed-9fe23c89a398.jpg",
       "source": "CleanTechnica",
@@ -414,7 +414,7 @@
         "Llm"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 45,
       "url": "https://pwning.systems/posts/llm-memory-program-analysis/",
       "image": "/images/feed/feed-c4beb1b3e392.png",
       "source": "Hacker News",
@@ -433,7 +433,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 32,
       "url": "https://cleantechnica.com/2026/08/28/as-diesel-prices-surge-trump-administration-moves-to-make-fueling-large-trucks-even-more-expensive/",
       "image": "/images/feed/feed-1d8898bdfc0e.png",
       "source": "CleanTechnica",
@@ -452,7 +452,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 45,
       "url": "https://cleantechnica.com/2026/08/28/sierra-club-slams-trump-plan-to-carve-up-yosemite-for-private-developer/",
       "image": "/images/feed/feed-a15f35ee9add.jpg",
       "source": "CleanTechnica",
@@ -471,7 +471,7 @@
         "Android Phone"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 36,
       "url": "https://www.engadget.com/2246379/how-to-use-old-android-phone-wifi-extender/",
       "image": "/images/feed/feed-a139e0929f00.jpg",
       "source": "Engadget",
@@ -490,7 +490,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 38,
       "url": "https://cleantechnica.com/2026/08/28/kentucky-psc-opens-investigation-into-high-electricity-costs-affordability-concerns/",
       "image": "/images/feed/feed-8a7bf3645be1.png",
       "source": "CleanTechnica",
@@ -509,7 +509,7 @@
         "Breach"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 42,
       "url": "https://www.bleepingcomputer.com/news/security/mckesson-discloses-breach-after-shinyhunters-claims-patient-data-theft/",
       "image": "/images/feed/feed-685c4aa45a62.jpg",
       "source": "BleepingComputer",
@@ -530,7 +530,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 48,
       "url": "https://www.space.com/space-exploration/launches-spacecraft/spacex-roman-space-telescope-falcon-heavy-launch-what-time",
       "image": "/images/feed/feed-7417e2bcebd2.png",
       "source": "Space.com",
@@ -549,7 +549,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 48,
       "url": "https://9to5mac.com/2026/08/28/most-people-overpay-phone-plan-tello-mobile-maxes-out-at-25-month/",
       "image": "/images/feed/feed-0c7cae402feb.png",
       "source": "9to5Mac",
@@ -570,7 +570,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 37,
       "url": "https://www.nasa.gov/image-article/nasas-artemis-ii-crew-receives-congressional-space-medal-of-honor/",
       "image": "/images/feed/feed-c0ba73beb91a.jpg",
       "source": "NASA Breaking News",
@@ -589,7 +589,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 52,
       "url": "https://www.engadget.com/2246846/things-you-may-have-missed-gta-6-extended-look/",
       "image": "/images/feed/feed-d7a9e8326bc4.jpg",
       "source": "Engadget",
@@ -608,7 +608,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 41,
       "url": "https://www.engadget.com/2245480/diy-retro-arcade-cabinet-what-you-need/",
       "image": "/images/feed/feed-924b9ad94829.jpg",
       "source": "Engadget",
@@ -627,7 +627,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 34,
       "url": "https://9to5mac.com/2026/08/28/steve-jobs-1968-science-fair-project-fetches-34375-at-auction/",
       "image": "/images/feed/feed-9a5326e8e37c.jpg",
       "source": "9to5Mac",
@@ -646,7 +646,7 @@
         "Hacker"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 44,
       "url": "https://thehackernews.com/2026/08/berlin-refuses-to-pay-hackers-who-stole.html",
       "image": "/images/feed/feed-e391db7dfcab.jpg",
       "source": "The Hacker News",
@@ -665,7 +665,7 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 48,
       "url": "https://thehackernews.com/2026/08/cosmos-evm-flaw-exploited-after-cosmos.html",
       "image": "/images/feed/feed-313baae0ae12.jpg",
       "source": "The Hacker News",
@@ -684,7 +684,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 52,
       "url": "https://www.nasa.gov/directorates/stmd/prizes-challenges-crowdsourcing-program/centennial-challenges/nasa-awards-first-prize-in-phase-2-of-agencys-lunarecycle-challenge/",
       "image": "https://www.nasa.gov/wp-content/uploads/2026/08/cerberuz-lunarecycle-winners.jpg",
       "source": "NASA Breaking News",
@@ -703,7 +703,7 @@
         "Telescope"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 54,
       "url": "https://www.space.com/stargazing/skywatching-kit/our-choice-as-one-of-the-best-budget-telescopes-now-has-17-percent-off-this-telescope-deal-is-worth-grabbing-fast",
       "image": "/images/feed/feed-0db42d87f14b.webp",
       "source": "Space.com",
@@ -722,7 +722,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 44,
       "url": "https://techcrunch.com/2026/08/28/an-anthropic-researcher-just-gave-us-a-peek-at-self-improving-ai/",
       "image": "/images/feed/feed-24c26e96ef00.jpg",
       "source": "TechCrunch",
@@ -741,7 +741,7 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 45,
       "url": "https://www.bleepingcomputer.com/news/security/papercut-releases-second-emergency-patch-for-exploited-flaws/",
       "image": "/images/feed/feed-30160c4f9586.jpg",
       "source": "BleepingComputer",
@@ -760,7 +760,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 50,
       "url": "https://www.cnet.com/tech/services-and-software/tech-companies-call-for-improved-cyber-defenses-after-ai-enabled-attacks/",
       "image": "https://www.cnet.com/wp-content/uploads/sites/2/681275a2-0e99-48a5-888f-6141ce14cfa4.jpg",
       "source": "CNET",
@@ -779,7 +779,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 32,
       "url": "https://www.space.com/stargazing/the-night-we-nearly-saw-a-blood-moon-and-why-i-love-near-misses-in-astronomy",
       "image": "/images/feed/feed-f4ca8bb7c146.jpg",
       "source": "Space.com",
@@ -798,7 +798,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 35,
       "url": "https://www.space.com/space-exploration/its-going-to-be-beautiful-president-trump-signs-order-to-create-us-space-academy",
       "image": "/images/feed/feed-9bdd3bbb4638.jpg",
       "source": "Space.com",
@@ -817,7 +817,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 49,
       "url": "https://www.wired.com/story/microsoft-teams-is-becoming-a-haven-for-chinese-scammers/",
       "image": "/images/feed/feed-6a5833e88efb.jpg",
       "source": "Wired",
@@ -836,7 +836,7 @@
         "Hacker"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 30,
       "url": "https://www.bleepingcomputer.com/news/security/givewp-wordpress-donation-plugin-flaw-lets-hackers-execute-server-commands/",
       "image": "/images/feed/feed-8763921ed855.jpg",
       "source": "BleepingComputer",
@@ -855,7 +855,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 38,
       "url": "https://techcrunch.com/2026/08/28/anthropic-gets-its-first-court-win-over-the-pentagons-supply-chain-risk-label/",
       "image": "/images/feed/feed-0a012eb5128e.jpg",
       "source": "TechCrunch",
@@ -874,7 +874,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 47,
       "url": "https://techcrunch.com/2026/08/28/meta-executive-leaves-for-openai-as-the-social-media-giant-faces-growing-scrutiny-in-india/",
       "image": "/images/feed/feed-354d791d28ec.jpg",
       "source": "TechCrunch",
@@ -893,7 +893,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 34,
       "url": "https://www.theverge.com/ai-artificial-intelligence/985947/anthropic-supply-chain-risk-lawsuit-judge-ruling",
       "image": "/images/feed/feed-3a080f6682cd.jpg",
       "source": "The Verge",
@@ -912,7 +912,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 43,
       "url": "https://www.wired.com/story/a-judge-has-blocked-the-pentagons-attempt-to-blacklist-anthropic/",
       "image": "https://media.wired.com/photos/6a90f2d127d3f5cec6f46d70/master/pass/2261854833",
       "source": "Wired",
@@ -931,7 +931,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 32,
       "url": "https://openai.com/index/supporting-next-generation-ai-startups-thailand",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "OpenAI Blog",
@@ -939,16 +939,16 @@
     }
   ],
   "breakingNews": [
-    "DEV.TO: Calling redirect() Inside a Suspense Boundary Doesn't Undo What Already Streamed to the Browser",
-    "POLYGON: Tom Cruise's 10/10 Action Movie That Saved a Struggling Franchise Is Officially Free on Streaming",
-    "DEV.TO: Send Pingvera Events to a Help Desk with Webhooks",
-    "DEV.TO: Subqueries vs CTEs: Query Optimizer Internals & Memory Spooling Explained",
-    "CLEANTECHNICA: Methane Thermolysis Has A Carbon Market Problem",
-    "DEV.TO: Building a Client-Side Byte to String Decoder with Unicode Support",
-    "DEV.TO: okf-guard: A Security Layer for Open Knowledge Format (OKF) Pipelines",
-    "DEV.TO: LeetCode ~ first 30 Hard problems, with solutions",
-    "DEV.TO: Treat Voice-Companion Memory as a Consent Ledger, Not Prompt History",
-    "POLYGON: Hit Survival Game Rust Releases Major Overhaul to 2026 Roadmap"
+    "DEV.TO: Design, Optimization, and Deployment of a Hybrid Agentic Retrieval-Augmented Generation (Agentic-RAG) Architecture",
+    "DEV.TO: Structuring Variables in Figma",
+    "DEV.TO: Semantic Caching vs. Prompt Caching: Measuring the Break-Even Point on Real Traffic",
+    "POLYGON: The Dog Stars Release Date Window for Disney Plus Streaming, Blu-ray, and DVD",
+    "POLYGON: Marvel Star's Forgotten 100-Minute Action Thriller Is About to Disappear From Streaming",
+    "POLYGON: 5 Shonen Anime That Are 10/10 Perfect Masterpieces, No Notes",
+    "POLYGON: 5 Huge Pop Culture Characters You Didn't Know Had a Daily Newspaper Comic Strip",
+    "DEV.TO: Q&D: Dart/Flutter Formatter, Linter and Analyzer",
+    "DEV.TO: Catch by Recovery Policy, Not Convenience",
+    "DEV.TO: Programmatic SEO Engineering: Dynamic Metadata, OpenGraph & High-Performance Sitemaps"
   ],
   "sectionVideos": {}
 }
