@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-08-31T08:20:48.507Z",
+  "fetchedAt": "2026-08-31T09:19:57.506Z",
   "articles": [
     {
-      "id": "feed-bdcb7ca8e827",
-      "title": "Delta E is a distance, not a score",
-      "excerpt": "I run a game where you get a brand name — Spotify, IKEA, Home Depot — and rebuild its primary color from memory with three sliders: hue, saturation, lightness. On submit, the guess and the target both…",
-      "body": "I run a game where you get a brand name — Spotify, IKEA, Home Depot — and rebuild its primary color from memory with three sliders: hue, saturation, lightness. On submit, the guess and the target both go to CIE Lab and the score comes from the distance between them. The scoring line was this: const score = Math . max ( 0 , 100 - deltaE * 2 ); It looks defensible. ΔE around 2 is the classic just-noticeable-difference; ΔE 50 is \"those are not the same color.\" Map 0–50 onto 100–0, done. It was wrong for three months and I couldn't see it, because I kept reading the formula instead of the distribution. The number I couldn't query The scores were on screen the whole time and nowhere in my analytics.",
-      "author": "Deland",
+      "id": "feed-6f15f42c23db",
+      "title": "Probe vs Prose: what the verifier-sharing-your-text-channel really costs",
+      "excerpt": "Probe vs Prose: what the verifier-sharing-your-text-channel really costs Agent Determinism Illusions (Part 13) 2026-08-31 Where this fits: This part doesn't extend the C3 / key-space mechanism line of…",
+      "body": "Probe vs Prose: what the verifier-sharing-your-text-channel really costs Agent Determinism Illusions (Part 13) 2026-08-31 Where this fits: This part doesn't extend the C3 / key-space mechanism line of Parts 10–12. It returns to an earlier thread — Part 4's runner-independence (Mike Czerwinski's point that \"verifiable\" is a property of the check's independence from the generator, not of the output) and Theorem 2 (the Data Processing Inequality bound on text-channel verification). A comment from nexus-lab-zen gives that thread a name on the assumption side, and an experiment forces a refinement of what \"prose rots\" actually means. 1. nexus-lab-zen and the third face of the hatch In the comments on Part 2, a many-round thread with nexus-lab-zen arrived at a useful piece of vocabulary.",
+      "author": "zxpmail",
       "date": "2026-08-31",
       "readTime": "2 min",
       "section": "software",
@@ -14,18 +14,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 42,
-      "url": "https://dev.to/deland/delta-e-is-a-distance-not-a-score-68b",
-      "image": "/images/feed/feed-bdcb7ca8e827.webp",
+      "xpReward": 32,
+      "url": "https://dev.to/zxpmail/probe-vs-prose-what-the-verifier-sharing-your-text-channel-really-costs-4p84",
+      "image": "/images/feed/feed-6f15f42c23db.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-90558f9cb890",
-      "title": "My LLM Critic Flip-Flops on Every Run. That's Fine — Because a Frozenset Decides What's Fatal.",
-      "excerpt": "This is a companion to the PlannerCritic series. Article 2 was about a specific critic bug. This one is about the design principle I extracted from fixing it — and the measurement that proved it holds…",
-      "body": "This is a companion to the PlannerCritic series . Article 2 was about a specific critic bug. This one is about the design principle I extracted from fixing it — and the measurement that proved it holds. I measured my LLM critic on identical input across five trials. It returned a different verdict every single time. label_flip_rate = 1.0. It also never let a defective plan through. underclaim_approvals = 0. Both are true. The frozenset is why. The Uncomfortable Measurement In v0.2.1 I added a test I'd been avoiding: send the same boundary-case plans through the real critic model five times and measure what changes. The live-critic boundary evaluator (#218).",
-      "author": "Debashish Ghosal",
+      "id": "feed-02dda98715d7",
+      "title": "Mozaik Hackathon 2026: Build Concurrent Multi-Agent Systems and Compete for $1,000 in Cash Prizes",
+      "excerpt": "Building a multi-agent system sounds simple on a whiteboard. Give one agent a task, let another handle the next step, add a reviewer, connect a few tools, and you have an agentic workflow. It gets mor…",
+      "body": "Building a multi-agent system sounds simple on a whiteboard. Give one agent a task, let another handle the next step, add a reviewer, connect a few tools, and you have an agentic workflow. It gets more complicated when those agents need to operate at the same time. A sequential workflow can force agents into a fixed order: one finishes, another starts, and everyone downstream waits. That model is easy to reason about, but it can become restrictive as the system grows and agents need to react to new information independently. Mozaik takes a different architectural approach.",
+      "author": "Hadil Ben Abdallah",
       "date": "2026-08-31",
       "readTime": "2 min",
       "section": "software",
@@ -33,94 +33,113 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 45,
-      "url": "https://dev.to/debashish_ghosal/my-llm-critic-flip-flops-on-every-run-thats-fine-because-a-frozenset-decides-whats-fatal-4ep9",
-      "image": "/images/feed/feed-90558f9cb890.webp",
+      "xpReward": 53,
+      "url": "https://dev.to/hadil/mozaik-hackathon-2026-build-concurrent-multi-agent-systems-and-compete-for-1000-in-cash-prizes-5edn",
+      "image": "/images/feed/feed-02dda98715d7.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-960e71f800e4",
-      "title": "Async Svelte: Using await Directly in Your Components",
-      "excerpt": "Every Svelte codebase eventually grows a little pile of scaffolding around asynchronous data. A let data = $state(null), an $effect that fetches and assigns, a loading flag, an error flag, and a {#if…",
-      "body": "Every Svelte codebase eventually grows a little pile of scaffolding around asynchronous data. A let data = $state(null) , an $effect that fetches and assigns, a loading flag, an error flag, and a {#if loading} in the template. Or the {#await} block, which is fine for one promise but nests badly the moment you need two. Either way, you end up writing plumbing rather than describing your UI. Since Svelte 5.36, you can skip most of that. The await keyword works in three places it previously did not: at the top level of a component's &lt;script&gt; , inside $derived(...) , and directly in your markup. It is still behind an experimental flag, but the design is worth understanding now because it changes how you think about loading states. Turning it on, and what changes Async Svelte is opt-in.",
-      "author": "Danny Holloran",
+      "id": "feed-e27602be9a2b",
+      "title": "I Wrote a Full SaaS UI Without a Single Line of JavaScript",
+      "excerpt": "No React. No TypeScript. No separate frontend repo. Just Python. I'm building Datanika — a data pipeline platform — and chose Reflex for the entire UI. Reflex compiles Python to React under the hood.…",
+      "body": "No React. No TypeScript. No separate frontend repo. Just Python. I'm building Datanika — a data pipeline platform — and chose Reflex for the entire UI. Reflex compiles Python to React under the hood. You write state classes and component functions in Python, and it handles the rest. Why Reflex I'm a solo developer. Maintaining two codebases (Python backend + JavaScript frontend) would have killed the project before it shipped. Every feature would need API contracts, type duplication, a separate dependency tree, and a separate CI pipeline. For a single person shipping 18 phases in a month , that's not scope control — that's guaranteed failure. With Reflex, my pipeline service, my UI state, and my page components all share the same language, the same types, the same imports.",
+      "author": "Evgenii Timofeev",
       "date": "2026-08-31",
       "readTime": "2 min",
       "section": "software",
       "tags": [
-        "Software"
+        "Javascript"
       ],
       "featured": true,
       "xpReward": 46,
-      "url": "https://dev.to/grimicorn/async-svelte-using-await-directly-in-your-components-1bgf",
-      "image": "/images/feed/feed-960e71f800e4.webp",
+      "url": "https://dev.to/eu_ti_f127c5b5d7535b7174f/i-wrote-a-full-saas-ui-without-a-single-line-of-javascript-10o8",
+      "image": "/images/feed/feed-e27602be9a2b.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-bf591c61ba42",
-      "title": "Best Resources to Learn AI (For Developers)",
-      "excerpt": "Everyone is talking about AI. But if you're a developer who actually wants to understand it, not just use ChatGPT, but genuinely learn how the models work, how to build with them, and where the field…",
-      "body": "Everyone is talking about AI. But if you're a developer who actually wants to understand it, not just use ChatGPT, but genuinely learn how the models work, how to build with them, and where the field is going, it can be hard to figure out where to start. The problem is that there are so many resources. Courses, YouTube videos, roadmaps, newsletters, books, papers... it can quickly become overwhelming. So in this post, I've put together some of the resources I think are worth checking out if you're a developer learning AI. I've included courses, hands-on platforms, YouTube channels, books, and communities. Let's jump right into it. Courses If you're starting from scratch, I'd begin with a course.",
-      "author": "Shefali",
+      "id": "feed-f476ce0cd22c",
+      "title": "VIES Uptime, Measured — 28 Member States, One Sample Every 15 Minutes",
+      "excerpt": "Originally published at vatnode.dev. The version on vatnode.dev is the canonical source — refer to it for the latest content. {/* python3 vies-report.py > report.txt Numbers currently in this file are…",
+      "body": "Originally published at vatnode.dev . The version on vatnode.dev is the canonical source — refer to it for the latest content. {/* RECOMPUTE BEFORE PUBLISHING — every figure below comes from one script run. python3 vies-report.py &gt; report.txt Numbers currently in this file are from a 5-day window (2026-08-06 → 2026-08-11), 548 samples per state. They must be replaced with the 30-day run taken on or after 2026-09-06. Figures to update, in order of appearance: description frontmatter ......... aggregate availability \"What we measure\" ............... window length, samples/state, total samples Chart 1 ......................... full block, paste verbatim from script aggregate + zero-miss count ..... paragraph under Chart 1 Germany section .................",
+      "author": "Iurii Rogulia",
       "date": "2026-08-31",
       "readTime": "2 min",
       "section": "software",
       "tags": [
-        "Developer"
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 30,
+      "url": "https://dev.to/iurii_rogulia/vies-uptime-measured-28-member-states-one-sample-every-15-minutes-bj6",
+      "image": "/images/feed/feed-f476ce0cd22c.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-f10546cdb94d",
+      "title": "Eight Frames Said Fail. Twenty-Four Said Pass.",
+      "excerpt": "Originally published on hexisteme notes. On 2026-08-14, a screen-metric experiment in my YouTube Shorts pipeline ended undeterminable. Not because the metric misbehaved, but because a threshold I had…",
+      "body": "Originally published on hexisteme notes . On 2026-08-14, a screen-metric experiment in my YouTube Shorts pipeline ended undeterminable. Not because the metric misbehaved, but because a threshold I had pre-registered depended on a number I had never pinned down. Once I fixed that, a second, quieter version of the same mistake was already waiting one layer downstream — inside the rule I wrote to fix the first one. What the threshold couldn't decide The pre-registration set a single bar: motion median has to be at least 50% of the original for a clip to pass. It said nothing about how many frames that median gets computed from. Measured across 8 frames, the clip's motion median came out at 47.5% — below the bar, falsifier fires, clip fails.",
+      "author": "John",
+      "date": "2026-08-31",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
       ],
       "featured": true,
       "xpReward": 38,
-      "url": "https://dev.to/devshefali/best-resources-to-learn-ai-for-developers-1p9m",
-      "image": "/images/feed/feed-bf591c61ba42.webp",
+      "url": "https://dev.to/hexisteme/eight-frames-said-fail-twenty-four-said-pass-4bkj",
+      "image": "/images/feed/feed-f10546cdb94d.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-9a663ef33a82",
-      "title": "How I Built a Production-Ready Design System With Claude Code, Mobbin, and Penpot",
-      "excerpt": "I started a new series on my channel on Claude Code to help you understand and use it confidently, and in this video, I show you how to build a production-ready design system. The workflow uses Mobbin…",
-      "body": "I started a new series on my channel on Claude Code to help you understand and use it confidently, and in this video, I show you how to build a production-ready design system. The workflow uses Mobbin , a platform with a huge library of real application screenshots, to research how real, shipped products solve the same design problems. Claude Code takes those references and connects to Penpot — a free, open-source design platform you can self-host — to turn that research into an actual, working design system. Using a collection of skills I built for my workflow, the /design skill returns two files when invoked: DESIGN.md and tokens.json . Claude Code derives these tokens from its research, then uses them to build consistent, traceable designs directly in Penpot.",
-      "author": "Blessed Josiah",
+      "id": "feed-4d9a42f1f723",
+      "title": "This fan-favorite image editor is the first app to support Android’s new location data controls",
+      "excerpt": "You can now choose to keep or remove location data when using Android's Photo Picker. And here's the first supported app.",
+      "body": "Credit: Mishaal Rahman / Android Authority TL;DR Snapseed is the first app to implement the new location metadata API in Android’s Photo Picker. When you use the Photo Picker to choose an image in Snapseed, it’ll now ask whether you want to include the picture’s location info. This is a welcome move as it gives users greater control over sensitive metadata. Google recently announced a major improvement to Android’s Photo Picker . The photo picker will allow users to choose whether to keep or remove location data in shared images. It seems like the waiting is over if you really want to try this feature. You’re reading an Authority Insights story.",
+      "author": "Hadlee Simons",
       "date": "2026-08-31",
       "readTime": "2 min",
-      "section": "software",
+      "section": "gadgets",
       "tags": [
-        "Software"
+        "Gadgets"
       ],
       "featured": true,
-      "xpReward": 44,
-      "url": "https://dev.to/joxiahdev/how-i-built-a-production-ready-design-system-with-claude-code-mobbin-and-penpot-40il",
-      "image": "/images/feed/feed-9a663ef33a82.webp",
-      "source": "Dev.to",
+      "xpReward": 46,
+      "url": "https://www.androidauthority.com/android-photo-picker-location-sharing-release-3704689/",
+      "image": "/images/feed/feed-4d9a42f1f723.jpg",
+      "source": "Android Authority",
       "isLive": true
     },
     {
-      "id": "feed-00b64ba8106b",
-      "title": "The difference between \"mentioned\" and \"answered\"",
-      "excerpt": "I built this for the All Things Agentic Hackathon (August 2026). Code: github.com/jwlai-cloud/intake. published: true in the front matter when you post it. A community nurse has ninety minutes and a f…",
-      "body": "I built this for the All Things Agentic Hackathon (August 2026). Code: github.com/jwlai-cloud/intake . Set published: true in the front matter when you post it. A community nurse has ninety minutes and a form she is legally required to complete. She asks about falls in the last twelve months. The answer is: \"Oh, I've had a couple of wobbles.\" Every AI scribe on the market ticks that item. It was mentioned. It was never answered. She finds the gap that evening, at her desk — and now it needs a phone call, a guess, or a second visit. The person who knew the answer was sitting three feet away an hour ago. That gap is the entire product. Why every competitor ticks the box I looked at what's shipping.",
-      "author": "JWL AI",
+      "id": "feed-d24b71f88468",
+      "title": "I expected to hate the Pixel 11 Pro, but Google proved me wrong",
+      "excerpt": "I can finally enjoy the novelty of making calls on my smartphone.",
+      "body": "I wasn’t expecting much from the Pixel 11 Pro . I didn’t plan to buy the phone, let alone love it. In fact, the original idea for this article was to discuss how Google hasn’t earned the right to make small iterations of its phones the way Samsung and Apple have, and that I was going to keep my Pixel 10 Pro . In the end, I changed my mind, and after almost a week with my Pixel 11 Pro, I can say that Google has (barely) done enough this year, and I’m glad I upgraded.",
+      "author": "Zac Kew-Denniss",
       "date": "2026-08-31",
       "readTime": "2 min",
-      "section": "software",
+      "section": "gadgets",
       "tags": [
-        "Software"
+        "Gadgets"
       ],
-      "featured": true,
-      "xpReward": 34,
-      "url": "https://dev.to/junwei_lai_71641e0a742b33/the-difference-between-mentioned-and-answered-3ekp",
-      "image": "/images/feed/feed-00b64ba8106b.webp",
-      "source": "Dev.to",
+      "featured": false,
+      "xpReward": 39,
+      "url": "https://www.androidauthority.com/proved-wrong-pixel-11-pro-3702873/",
+      "image": "/images/feed/feed-d24b71f88468.jpg",
+      "source": "Android Authority",
       "isLive": true
     },
     {
-      "id": "feed-bf08b5e8135f",
-      "title": "Stop Building Chatbots: Why Enterprise Engineering is Shifting to Agentic Workflows",
-      "excerpt": "Most enterprise AI initiatives fail. Companies spend hundreds of thousands of USD bolting a chat interface onto a proprietary database and call it innovation. But here is the hard truth: business user…",
-      "body": "Most enterprise AI initiatives fail. Companies spend hundreds of thousands of USD bolting a chat interface onto a proprietary database and call it innovation. But here is the hard truth: business users do not want to chat with their data. They want the data to execute the work. We have reached the peak of the \"ChatGPT wrapper\" era. The next evolution of enterprise software is not generative. It is agentic. The Chatbot Illusion If you look at the internal AI tools built by mid-market and enterprise companies over the last two years, they almost all look the same. They are passive conversational agents. A user asks a question, the system retrieves a document using RAG (Retrieval-Augmented Generation), and the AI summarizes it.",
-      "author": "SZG Labs (Technical Founder)",
+      "id": "feed-e7cf7a0c0e15",
+      "title": "Call Graph Planning: Adapting Effect’s Mental Model for AI",
+      "excerpt": "Saat menggunakan AI untuk melakukan koding, biasanya kita melakukan planning terlebih dahulu. Namun, pada planning yang sudah dibuat oleh AI, output planning yang dihasilkan terkadang sulit untuk kita…",
+      "body": "Saat menggunakan AI untuk melakukan koding, biasanya kita melakukan planning terlebih dahulu. Namun, pada planning yang sudah dibuat oleh AI, output planning yang dihasilkan terkadang sulit untuk kita mengerti dan juga terkesan terlalu banyak jargon teknis yang sulit dipahami. Beberapa minggu yang lalu, aku melihat Dillon Mulroy membagikan bagaimana dia menggunakan callstack untuk membuat techical spec Dan aku juga melihat Rin (r17x) menggunakan cara yang sama untuk planning. Melihat penggunaan callstack yang mereka gunakan untuk planning membuatku merasa mudah untuk mereview apa yang sedang di plan oleh AI dan juga kita bisa melihat mock functionality dari callstack tersebut dan error apa yang diproduce.",
+      "author": "Dimas Rangga",
       "date": "2026-08-31",
       "readTime": "2 min",
       "section": "software",
@@ -128,10 +147,143 @@
         "Software"
       ],
       "featured": false,
-      "xpReward": 50,
-      "url": "https://dev.to/szglabs/stop-building-chatbots-why-enterprise-engineering-is-shifting-to-agentic-workflows-3o2f",
-      "image": "/images/feed/feed-bf08b5e8135f.webp",
+      "xpReward": 51,
+      "url": "https://dev.to/derangga/call-graph-planning-adapting-effects-mental-model-for-ai-558h",
+      "image": "/images/feed/feed-e7cf7a0c0e15.webp",
       "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-500e2dbdaf55",
+      "title": "CloudWatch EMF Explained Simply: How to Emit Zero‑Overhead Custom Metrics from Your AI Node.js Service",
+      "excerpt": "Most engineers reach for the CloudWatch Metrics API and end up writing extra SDK calls that add latency and cost. Embedded Metrics Format (EMF) lets you ship rich, query‑able metrics by just writing s…",
+      "body": "Most engineers reach for the CloudWatch Metrics API and end up writing extra SDK calls that add latency and cost. Embedded Metrics Format (EMF) lets you ship rich, query‑able metrics by just writing specially‑formatted JSON logs. Learn how to turn your AI inference code into a self‑monitoring powerhouse with no extra overhead. Why EMF Matters for AI Services The problem we’re solving An LLM (large language model) inference endpoint can handle hundreds of requests per second. Each request has a latency, a token count, and sometimes an error. If you log only the raw request/response, you must later run expensive log‑scans to calculate averages, percentiles, or error rates.",
+      "author": "Dinesh_gowtham",
+      "date": "2026-08-31",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 39,
+      "url": "https://dev.to/dineshgowtham/cloudwatch-emf-explained-simply-how-to-emit-zero-overhead-custom-metrics-from-your-ai-nodejs-234g",
+      "image": "/images/feed/feed-500e2dbdaf55.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-1a5b1ba4fc81",
+      "title": "New Pokémon Movie Announced After 7 years, and It Will Be the First of Its Kind",
+      "excerpt": "The new Pokémon movie, titled Pokémon, Wild Card, will mark a significant departure from the franchise's traditions.",
+      "body": "Pokémon is getting ready to answer the question of whether its massively successful trading card game would still exist in a world where Pokémon are real, and it will do so with the franchise's first theatrical movie in seven years. Pokémon: Wild Card is a new animated feature film announced during Pokémon XP, coming to the big screen \"in 2027 and beyond.\"",
+      "author": "Francesco Cacciatore",
+      "date": "2026-08-31",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 43,
+      "url": "https://www.polygon.com/new-pokemon-movie-wild-card-tcg/",
+      "image": "/images/feed/feed-1a5b1ba4fc81.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-9b54a6c68e77",
+      "title": "Microsoft asks users to ignore 'Antivirus is turned off' errors",
+      "excerpt": "Microsoft asked customers this week to ignore incorrect alerts that Defender Antivirus has been turned off after installing the latest Defender updates. [...]",
+      "body": "Microsoft asked customers this week to ignore incorrect alerts that Defender Antivirus has been turned off after installing the latest Defender updates. [...]\n\nThis report, published by BleepingComputer, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cybersecurity. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to BleepingComputer using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Sergiu Gatlan",
+      "date": "2026-08-31",
+      "readTime": "2 min",
+      "section": "cybersecurity",
+      "tags": [
+        "Cybersecurity"
+      ],
+      "featured": false,
+      "xpReward": 44,
+      "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-asks-users-to-ignore-antivirus-is-turned-off-errors/",
+      "image": "/images/feed/feed-9b54a6c68e77.jpg",
+      "source": "BleepingComputer",
+      "isLive": true
+    },
+    {
+      "id": "feed-81ac55d56bd0",
+      "title": "Your Pixel’s built-in PA system is finally easy to find in Android 17 QPR2 Beta 4",
+      "excerpt": "The latest Android 17 QPR2 Beta makes Samsung Galaxy-like Voice broadcast feature easier to activate.",
+      "body": "Credit: Joe Maring / Android Authority TL;DR Android 17 QPR2 Beta 4, which was released last week, brings an easier way to broadcast your voice over a private network. The new Audio broadcast feature expands Pixels’ existing Auracast-based media-sharing features to transmit audio over Bluetooth LE Audio. While the feature was introduced last month, it is now much easier to access. Google is in the final legs of testing Android 17 QPR2 Beta before a significant feature drop for Pixels in September. Last Friday, it released the fourth QPR2 Beta, sorting out a long list of bugs and usability issues from previous beta builds. As part of Android 17 QPR2 Beta 4 , Google is adding a few useful features that didn’t make it into the changelog, including easier access to Voice Broadcast.",
+      "author": "Tushar Mehta",
+      "date": "2026-08-31",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 30,
+      "url": "https://www.androidauthority.com/pixel-voice-broadcast-android-17-qpr2-beta-4-3704655/",
+      "image": "/images/feed/feed-81ac55d56bd0.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-3352845b0086",
+      "title": "The latest Android 17 QPR2 beta for Pixels has hit an unexpected roadblock",
+      "excerpt": "Manual downloads are returning 404 errors days after the rollout.",
+      "body": "TL;DR Android 17 QPR2 Beta 4 is available, but its official OTA download links appear to be broken. Pixel testers trying to manually download the update are being met with 404 errors. Google hasn’t explained the issue yet, but we’ve reached out for more information. Google’s Android 17 QPR2 Beta 4 rollout appeared to be going smoothly when it landed late last week. But for those who need to manually sideload it, the experience has been considerably less straightforward. Google’s official OTA download links now appear to be broken, returning a 404 error when users attempt to download the required files. We checked Google’s manual download page and encountered the same 404 errors when attempting to access Android 17 QPR2 Beta 4 OTA images.",
+      "author": "Hillary Keverenge",
+      "date": "2026-08-31",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 53,
+      "url": "https://www.androidauthority.com/android-17-qpr2-beta-4-ota-download-404-error-3704692/",
+      "image": "/images/feed/feed-3352845b0086.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-ce07cef7f1f6",
+      "title": "Hydrogen Gets Far More Attention Than Its Deployment Justifies",
+      "excerpt": "Hydrogen occupies an unusually large share of the energy-transition information stream for the amount of physical deployment behind it. Fuel-cell trucks, buses, trains, ships, storage projects, demons…",
+      "body": "Hydrogen occupies an unusually large share of the energy-transition information stream for the amount of physical deployment behind it. Fuel-cell trucks, buses, trains, ships, storage projects, demonstrations and records recur through corporate releases, government announcements, trade publications and mainstream reporting, creating the impression that hydrogen remains a substantial parallel pathway ... [continued] The post Hydrogen Gets Far More Attention Than Its Deployment Justifies appeared first on CleanTechnica .",
+      "author": "Michael Barnard",
+      "date": "2026-08-31",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Cars"
+      ],
+      "featured": false,
+      "xpReward": 33,
+      "url": "https://cleantechnica.com/2026/08/31/hydrogen-gets-far-more-attention-than-its-deployment-justifies/",
+      "image": "/images/feed/feed-ce07cef7f1f6.webp",
+      "source": "CleanTechnica",
+      "isLive": true
+    },
+    {
+      "id": "feed-3ab513ab1611",
+      "title": "DoJ Corrects China Hacking Claim, Says U.S. Agencies Were Targets, Not Victims",
+      "excerpt": "The U.S. Department of Justice (DoJ) on Friday corrected a previously issued press statement that several of its agencies were victims of attacks carried out by Chinese threat actors, instead now poin…",
+      "body": "The U.S. Department of Justice (DoJ) on Friday corrected a previously issued press statement that several of its agencies were victims of attacks carried out by Chinese threat actors, instead now pointing out that they were among those targeted. Last week, the DoJ said the National Aeronautics and Space Administration, Federal Reserve, Department of Energy, Department of Justice, Department",
+      "author": "info@thehackernews.com (The Hacker News)",
+      "date": "2026-08-31",
+      "readTime": "2 min",
+      "section": "cybersecurity",
+      "tags": [
+        "Cybersecurity"
+      ],
+      "featured": false,
+      "xpReward": 31,
+      "url": "https://thehackernews.com/2026/08/doj-corrects-china-hacking-claim-says.html",
+      "image": "/images/feed/feed-3ab513ab1611.jpg",
+      "source": "The Hacker News",
       "isLive": true
     },
     {
@@ -147,7 +299,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 39,
       "url": "https://www.androidauthority.com/anbernic-switch-lite-clone-price-3704639/",
       "image": "/images/feed/feed-a9a09265dadd.jpg",
       "source": "Android Authority",
@@ -166,7 +318,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 46,
       "url": "https://www.androidauthority.com/google-maps-lake-ontario-america-3704644/",
       "image": "/images/feed/feed-d7199fcd3446.jpg",
       "source": "Android Authority",
@@ -185,7 +337,7 @@
         "Game"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 48,
       "url": "https://www.ign.com/articles/12tb-of-steam-files-leak-as-a-decades-worth-of-first-and-third-party-game-data-is-exposed",
       "image": "/images/feed/feed-fbe84d18881d.jpg",
       "source": "IGN",
@@ -205,7 +357,7 @@
         "Orbit"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 44,
       "url": "https://www.space.com/space-exploration/launches-spacecraft/watch-rocket-lab-launch-japanese-radar-satellite-to-orbit-early-aug-31",
       "image": "/images/feed/feed-d0408f1e4e1a.jpg",
       "source": "Space.com",
@@ -225,7 +377,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 47,
       "url": "https://science.nasa.gov/image-article/apod-2026-august-31-launch-of-the-roman-space-telescope/",
       "image": "/images/feed/feed-3d3fac278cdb.jpg",
       "source": "NASA Breaking News",
@@ -244,7 +396,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 38,
       "url": "https://kotaku.com/pokemon-world-championships-closing-ceremony-winds-waves-2000729705",
       "image": "/images/feed/feed-6d7ff6369a1b.jpg",
       "source": "Kotaku",
@@ -263,7 +415,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 54,
       "url": "https://www.ign.com/articles/pokemon-wild-card-tcg-movie-announced-for-2027",
       "image": "/images/feed/feed-3376e811beeb.png",
       "source": "IGN",
@@ -282,7 +434,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 52,
       "url": "https://www.ign.com/articles/2026-pokemon-world-championships-everything-announced",
       "image": "/images/feed/feed-257497242fc2.jpg",
       "source": "IGN",
@@ -302,7 +454,7 @@
         "Game"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 38,
       "url": "https://www.polygon.com/expanse-osiris-reborn-gamescom-preview-2026/",
       "image": "https://static0.polygonimages.com/wordpress/wp-content/uploads/2026/08/ganymede_-11.png",
       "source": "Polygon",
@@ -321,29 +473,10 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 35,
       "url": "https://kotaku.com/square-enixs-saga-saga-celebrates-saga-in-tourism-initiative-2000728165",
       "image": "/images/feed/feed-c158b8f001d5.jpg",
       "source": "Kotaku",
-      "isLive": true
-    },
-    {
-      "id": "feed-70d413d3c5ff",
-      "title": "HBO Just Officially Introduced a Notorious Batman Villain to the DC Universe",
-      "excerpt": "Lanterns episode 3 hides a Janus Cosmetics sign that connects John Stewart’s strange interview to Black Mask, Batman, and Gotham City.",
-      "body": "John Stewart (Aaron Pierre) has already spent two months training to become a Green Lantern when HBO’s Lanterns begins, but episode 3 flashes back to the strange interview that led to him landing the job. Inside an abandoned shopping mall, a Guardian of the Universe played by Laura Linney questions John about his troubled childhood, military career, and feelings about Hal Jordan (Kyle Chandler) to determine whether he deserves the ring. Leading up to the big interview, however, Lanterns delivers a major DC Comics Easter egg. Not only does it have connections to a Batman villain we’ve already seen in live-action, but it also may have ties to yet another rogue slated to debut later this year.",
-      "author": "Corey Plante",
-      "date": "2026-08-31",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 54,
-      "url": "https://www.polygon.com/lanterns-episode-3-janus-cosmetics-roman-sionis-clayface-easter-egg/",
-      "image": "/images/feed/feed-70d413d3c5ff.jpg",
-      "source": "Polygon",
       "isLive": true
     },
     {
@@ -359,7 +492,7 @@
         "Chatgpt"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 48,
       "url": "https://simonwillison.net/2026/Aug/30/understanding-chatgpt-work/",
       "image": "/images/feed/feed-82c9cc6f0884.jpg",
       "source": "Hacker News",
@@ -378,47 +511,9 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 32,
       "url": "https://www.engadget.com/2246402/improve-audio-quality-apple-carplay/",
       "image": "/images/feed/feed-d738be64a63f.jpg",
-      "source": "Engadget",
-      "isLive": true
-    },
-    {
-      "id": "feed-3d6fc05d1dbb",
-      "title": "How to soft and hard reset your iPhone",
-      "excerpt": "Is your iPhone acting up? Let's walk through the different kinds of resets, what they do and how to perform them.",
-      "body": "Is your iPhone acting up? Let's walk through the different kinds of resets, what they do and how to perform them.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Iphone. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Deven McClure)",
-      "date": "2026-08-30",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Iphone"
-      ],
-      "featured": false,
-      "xpReward": 30,
-      "url": "https://www.engadget.com/2242787/how-to-soft-hard-reset-iphone/",
-      "image": "/images/feed/feed-3d6fc05d1dbb.jpg",
-      "source": "Engadget",
-      "isLive": true
-    },
-    {
-      "id": "feed-0e45d71d58fb",
-      "title": "Getting an 'iPhone Unavailable' message? Here's how to fix it",
-      "excerpt": "If you're having trouble getting into your iPhone, you'll need your old passcode or Apple Account password.",
-      "body": "If you're having trouble getting into your iPhone, you'll need your old passcode or Apple Account password.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Iphone. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Deven McClure)",
-      "date": "2026-08-30",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Iphone"
-      ],
-      "featured": false,
-      "xpReward": 38,
-      "url": "https://www.engadget.com/2242786/iphone-unavailable-message-how-to-fix/",
-      "image": "/images/feed/feed-0e45d71d58fb.jpg",
       "source": "Engadget",
       "isLive": true
     },
@@ -442,44 +537,6 @@
       "isLive": true
     },
     {
-      "id": "feed-06555881795f",
-      "title": "How to improve your audio quality on Android Auto",
-      "excerpt": "If the sound you're getting through Android Auto is disappointing, there are several components and settings you should check.",
-      "body": "If the sound you're getting through Android Auto is disappointing, there are several components and settings you should check.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Husain Parvez)",
-      "date": "2026-08-30",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 37,
-      "url": "https://www.engadget.com/2246401/how-to-improve-android-auto-audio-quality/",
-      "image": "/images/feed/feed-06555881795f.jpg",
-      "source": "Engadget",
-      "isLive": true
-    },
-    {
-      "id": "feed-39c0d88d5a50",
-      "title": "Apple CarPlay just added a major weather app",
-      "excerpt": "While CarPlay supports hundreds of apps, Apple Weather isn’t one of them. The good news is that starting today, The Weather Channel’s Storm Radar app for iPhone now works with CarPlay.",
-      "body": "While CarPlay supports hundreds of apps, Apple Weather isn’t one of them. The good news is that starting today, The Weather Channel’s Storm Radar app for iPhone now works with CarPlay.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Zac Hall",
-      "date": "2026-08-30",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 40,
-      "url": "https://9to5mac.com/2026/08/30/apple-carplay-just-added-a-major-weather-app/",
-      "image": "/images/feed/feed-39c0d88d5a50.png",
-      "source": "9to5Mac",
-      "isLive": true
-    },
-    {
       "id": "feed-49576ec6284d",
       "title": "Trump calls in to NASA press conference to celebrate launch of Roman Space Telescope, a mission he tried to cancel",
       "excerpt": "President Trump interrupted a NASA press conference today (Aug. 30) to congratulate the Nancy Grace Roman Space Telescope team on a successful launch.",
@@ -494,7 +551,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 53,
       "url": "https://www.space.com/space-exploration/trump-calls-in-to-nasa-press-conference-to-celebrate-launch-of-roman-space-telescope-a-mission-he-tried-to-cancel",
       "image": "/images/feed/feed-49576ec6284d.png",
       "source": "Space.com",
@@ -514,7 +571,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 31,
       "url": "https://www.space.com/astronomy/what-a-glorious-dawn-launch-why-the-roman-space-telescopes-picture-perfect-liftoff-beyond-earth-is-such-a-big-deal",
       "image": "/images/feed/feed-a98048774cc4.jpg",
       "source": "Space.com",
@@ -533,7 +590,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 43,
       "url": "https://electrek.co/2026/08/30/survey-sunday-will-the-ford-fathom-steal-slate-autos-thunder/",
       "image": "/images/feed/feed-19c13ff78324.jpg",
       "source": "Electrek",
@@ -552,7 +609,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 41,
       "url": "https://9to5toys.com/2026/08/30/amazon-2026-labor-day-now-live/",
       "image": "/images/feed/feed-1ec77694484b.jpg",
       "source": "Electrek",
@@ -571,7 +628,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 34,
       "url": "https://techcrunch.com/2026/08/30/musks-faster-path-to-more-gas-turbines-comes-with-pollution-problem/",
       "image": "/images/feed/feed-d5dafdd78fb6.jpg",
       "source": "TechCrunch",
@@ -591,7 +648,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 35,
       "url": "https://www.theverge.com/science/986544/nancy-grace-roman-space-telescope-launch",
       "image": "/images/feed/feed-38bef5d92f85.jpg",
       "source": "The Verge",
@@ -611,7 +668,7 @@
         "Vehicle"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 35,
       "url": "https://cleantechnica.com/2026/08/30/hyundai-bets-big-on-extended-range-electric-vehicles/",
       "image": "/images/feed/feed-daec74135659.jpg",
       "source": "CleanTechnica",
@@ -630,7 +687,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 51,
       "url": "https://cleantechnica.com/2026/08/30/elon-musk-nepal-flood-disaster-doge-budget-cuts/",
       "image": "/images/feed/feed-09865929f9a0.jpg",
       "source": "CleanTechnica",
@@ -649,7 +706,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 35,
       "url": "https://www.bleepingcomputer.com/news/security/fulcrumsec-claims-manchester-airports-hack-theft-of-86-gb-of-data/",
       "image": "/images/feed/feed-7b2220f3a495.jpg",
       "source": "BleepingComputer",
@@ -670,7 +727,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 48,
       "url": "https://science.nasa.gov/photojournal/ribbon-cutting-event-for-nasa-deep-space-networks-deep-space-station-23/",
       "image": "/images/feed/feed-bb09e173c449.jpg",
       "source": "NASA Breaking News",
@@ -689,28 +746,9 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 38,
       "url": "https://cleantechnica.com/2026/08/30/xpeng-drives-physical-ai-to-next-level/",
       "image": "/images/feed/feed-8db8cf566314.jpg",
-      "source": "CleanTechnica",
-      "isLive": true
-    },
-    {
-      "id": "feed-9df0c00ef999",
-      "title": "Stranded Asset, What Happens When A Gas Car Becomes Worth Less Than Zero As Transportation?",
-      "excerpt": "In this article, I’ll make a five-year bet. I’m not making a claim about your local lot in 2026, but about where we’ll be in 2031. I think ordinary gasoline and diesel cars in the US will be worth les…",
-      "body": "In this article, I&#8217;ll make a five-year bet. I&#8217;m not making a claim about your local lot in 2026, but about where we&#8217;ll be in 2031. I think ordinary gasoline and diesel cars in the US will be worth less than the fuel, maintenance, and repairs it takes to keep ... [continued] The post Stranded Asset, What Happens When A Gas Car Becomes Worth Less Than Zero As Transportation? appeared first on CleanTechnica .",
-      "author": "Paul Fosse",
-      "date": "2026-08-30",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Cars"
-      ],
-      "featured": false,
-      "xpReward": 42,
-      "url": "https://cleantechnica.com/2026/08/30/stranded-asset-what-happens-when-a-gas-car-becomes-worth-less-than-zero-as-transportation/",
-      "image": "/images/feed/feed-9df0c00ef999.jpg",
       "source": "CleanTechnica",
       "isLive": true
     },
@@ -727,7 +765,7 @@
         "Malware"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 32,
       "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/anthropic-warns-infostealer-malware-is-hijacking-claude-sessions-to-drain-usage/",
       "image": "/images/feed/feed-0a4ac3f5a847.jpg",
       "source": "BleepingComputer",
@@ -746,7 +784,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 52,
       "url": "https://www.bleepingcomputer.com/news/security/chrome-web-store-extensions-caught-stealing-crypto-browser-data/",
       "image": "/images/feed/feed-ed9306155ed9.jpg",
       "source": "BleepingComputer",
@@ -765,7 +803,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 50,
       "url": "https://thehackernews.com/2026/08/terminalfix-uses-fake-cloudflare.html",
       "image": "/images/feed/feed-45d64c4fa56d.jpg",
       "source": "The Hacker News",
@@ -784,29 +822,10 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 47,
       "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/anthropic-is-cutting-claude-codes-current-weekly-limits-by-17-percent/",
       "image": "/images/feed/feed-3f7c49eff9e6.png",
       "source": "BleepingComputer",
-      "isLive": true
-    },
-    {
-      "id": "feed-72ff0d499775",
-      "title": "Alt-right troll Milo Yiannopoulos has been deported",
-      "excerpt": "Alt-right troll Milo Yiannopoulos was arrested by ICE on Thursday, and today the Department of Homeland Security confirmed to Reuters and the Washington Post that he had been deported to the UK. Yiann…",
-      "body": "Alt-right troll Milo Yiannopoulos was arrested by ICE on Thursday, and today the Department of Homeland Security confirmed to Reuters and the Washington Post that he had been deported to the UK. Yiannopoulos came to the US legally in 2019, but overstayed his visa. After he failed to appear in court for an immigration hearing, a final order of removal was issued &#8203;on July 22. The British national made a name for himself as an editor at Steve Bannon's Breitbart and an early supporter of Donald Trump's. He has had a long history of controversial statements and associations, including reportedly helping arrange Trump's dinner with Kanye West an … Read the full story at The Verge.",
-      "author": "Terrence O’Brien",
-      "date": "2026-08-29",
-      "readTime": "2 min",
-      "section": "cybersecurity",
-      "tags": [
-        "Cybersecurity"
-      ],
-      "featured": false,
-      "xpReward": 35,
-      "url": "https://www.theverge.com/policy/986456/milo-yiannopoulos-deported-ice",
-      "image": "/images/feed/feed-72ff0d499775.jpg",
-      "source": "The Verge",
       "isLive": true
     },
     {
@@ -822,7 +841,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 53,
       "url": "https://techcrunch.com/2026/08/29/sony-music-warner-sue-anthropic-alleging-a-brazen-campaign-of-intellectual-property-theft/",
       "image": "/images/feed/feed-0d18d5472b03.jpg",
       "source": "TechCrunch",
@@ -848,25 +867,6 @@
       "isLive": true
     },
     {
-      "id": "feed-7e7b8b046854",
-      "title": "Five Critical WordPress Plugin and Theme Flaws Enable Site Takeover or RCE",
-      "excerpt": "Multiple critical security flaws have been disclosed in WordPress plugins and themes, including WPMU DEV Dashboard, Avada, TranslatePress, Pods, and GiveWP, that could lead to authentication bypass, a…",
-      "body": "Multiple critical security flaws have been disclosed in WordPress plugins and themes, including WPMU DEV Dashboard, Avada, TranslatePress, Pods, and GiveWP, that could lead to authentication bypass, account takeover, and arbitrary code execution. The vulnerabilities, according to Wordfence and Patchstack, are listed below - CVE-2026-76581 (CVSS score: 9.8) - An authentication bypass flaw in",
-      "author": "info@thehackernews.com (The Hacker News)",
-      "date": "2026-08-29",
-      "readTime": "2 min",
-      "section": "cybersecurity",
-      "tags": [
-        "Cybersecurity"
-      ],
-      "featured": false,
-      "xpReward": 35,
-      "url": "https://thehackernews.com/2026/08/five-critical-wordpress-plugin-and.html",
-      "image": "/images/feed/feed-7e7b8b046854.jpg",
-      "source": "The Hacker News",
-      "isLive": true
-    },
-    {
       "id": "feed-31a9da110feb",
       "title": "A week with the Google Pixel 11 changed my mind about Gemini (for the better)",
       "excerpt": "In a year of iterative upgrades, Google is introducing smart features that make the base Pixel the standout in its generation.",
@@ -879,7 +879,7 @@
         "Gemini"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 43,
       "url": "https://www.zdnet.com/article/google-pixel-11-review/",
       "image": "/images/feed/feed-31a9da110feb.jpg",
       "source": "ZDNet",
@@ -898,7 +898,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 48,
       "url": "https://www.wired.com/story/how-to-run-your-own-local-llm/",
       "image": "/images/feed/feed-a220e1e92ffd.jpg",
       "source": "Wired",
@@ -919,7 +919,7 @@
         "Claude"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 51,
       "url": "https://www.androidauthority.com/chatgpt-gemini-claude-memory-cleanup-how-3701167/",
       "image": "/images/feed/feed-50b3c8ef7361.jpg",
       "source": "Android Authority",
@@ -938,7 +938,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 45,
       "url": "https://techcrunch.com/2026/08/28/an-anthropic-researcher-just-gave-us-a-peek-at-self-improving-ai/",
       "image": "/images/feed/feed-24c26e96ef00.jpg",
       "source": "TechCrunch",
@@ -946,16 +946,16 @@
     }
   ],
   "breakingNews": [
-    "DEV.TO: Delta E is a distance, not a score",
-    "DEV.TO: My LLM Critic Flip-Flops on Every Run. That's Fine — Because a Frozenset Decides What's Fatal.",
-    "DEV.TO: Async Svelte: Using await Directly in Your Components",
-    "DEV.TO: Best Resources to Learn AI (For Developers)",
-    "DEV.TO: How I Built a Production-Ready Design System With Claude Code, Mobbin, and Penpot",
-    "DEV.TO: The difference between \"mentioned\" and \"answered\"",
-    "DEV.TO: Stop Building Chatbots: Why Enterprise Engineering is Shifting to Agentic Workflows",
-    "ANDROID AUTHORITY: ANBERNIC’s Switch Lite clone launches today for under $150",
-    "ANDROID AUTHORITY: Lake Ontario is now ‘Lake America’ on Google Maps, but not for everyone",
-    "IGN: 12TB of Steam Files Leak as a Decade’s Worth of First- and Third-Party Game Data Is Exposed"
+    "DEV.TO: Probe vs Prose: what the verifier-sharing-your-text-channel really costs",
+    "DEV.TO: Mozaik Hackathon 2026: Build Concurrent Multi-Agent Systems and Compete for $1,000 in Cash Prizes",
+    "DEV.TO: I Wrote a Full SaaS UI Without a Single Line of JavaScript",
+    "DEV.TO: VIES Uptime, Measured — 28 Member States, One Sample Every 15 Minutes",
+    "DEV.TO: Eight Frames Said Fail. Twenty-Four Said Pass.",
+    "ANDROID AUTHORITY: This fan-favorite image editor is the first app to support Android’s new location data controls",
+    "ANDROID AUTHORITY: I expected to hate the Pixel 11 Pro, but Google proved me wrong",
+    "DEV.TO: Call Graph Planning: Adapting Effect’s Mental Model for AI",
+    "DEV.TO: CloudWatch EMF Explained Simply: How to Emit Zero‑Overhead Custom Metrics from Your AI Node.js Service",
+    "POLYGON: New Pokémon Movie Announced After 7 years, and It Will Be the First of Its Kind"
   ],
   "sectionVideos": {}
 }
