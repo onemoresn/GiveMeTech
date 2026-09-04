@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-09-04T10:19:54.518Z",
+  "fetchedAt": "2026-09-04T11:15:51.204Z",
   "articles": [
     {
-      "id": "feed-723c1a003702",
-      "title": "Shift Left was how ops got fired and devs got the pager",
-      "excerpt": "Someone on a developer forum referred to Shift Left as a \"psy-op\" last week. I found it amusing. Then I realized they were correct. The concept of Shift Left was sold as a way to empower product devel…",
-      "body": "Someone on a developer forum referred to Shift Left as a \"psy-op\" last week. I found it amusing. Then I realized they were correct. The concept of Shift Left was sold as a way to empower product developers. However, in practice, what it really meant was giving the product developers a pager and getting rid of the operations team that previously had it. ## The rebrand nobody voted for Here's how it's done. You reduce the number of employees and present it in a positive light as an improvement in company culture. The tasks didn't go away, they just shifted to the left, to the developers. The way it was presented was actually brilliant. I mean, who's going to fight back on \"empowering developers\" - You're for silos, buddy?",
-      "author": "Aditya Agarwal",
+      "id": "feed-89ce8bb95b02",
+      "title": "Persist AI Agent State on Free Servers with JSON Checkpoints",
+      "excerpt": "I stop losing AI agent insights on free ephemeral servers by writing a JSON checkpoint after every meaningful step and loading that file before the next session does any real work. Token grants fund c…",
+      "body": "I stop losing AI agent insights on free ephemeral servers by writing a JSON checkpoint after every meaningful step and loading that file before the next session does any real work. Token grants fund compute, but only an external persistence layer preserves the context the agent already paid to earn. Disclosure: This article was prepared as part of MonkeyCode's product outreach. Why Free Ephemeral Servers Wipe Agent Context I watched an AI coding agent spend an hour diagnosing a failing test, then lose every insight when the sandbox expired. The agent started the next session by re-running the same commands and re-reading the same logs, so the second hour was a replay of the first.",
+      "author": "Harper Zhu",
       "date": "2026-09-04",
       "readTime": "2 min",
       "section": "software",
@@ -14,18 +14,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 54,
-      "url": "https://dev.to/adioof/shift-left-was-how-ops-got-fired-and-devs-got-the-pager-4d2h",
-      "image": "/images/feed/feed-723c1a003702.webp",
+      "xpReward": 37,
+      "url": "https://dev.to/applab_743/persist-ai-agent-state-on-free-servers-with-json-checkpoints-5c14",
+      "image": "/images/feed/feed-89ce8bb95b02.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-c93f6a40d252",
-      "title": "I Ran 1,000 Email Validations Against HIBP. 47 Were Breached.",
-      "excerpt": "security, #api, #cybersecurity, #webdev On August 23, 2026, I tried to validate 1,000 email addresses against Have I Been Pwned using the Email Validator API on RapidAPI. The endpoint was asleep. Inst…",
-      "body": "security, #api, #cybersecurity, #webdev On August 23, 2026, I tried to validate 1,000 email addresses against Have I Been Pwned using the Email Validator API on RapidAPI . The endpoint was asleep. Instead of a thousand JSON objects, I got one cached sample. That single response was for test@gmail.com . It was valid. It was SMTP verified. It was not disposable. It was also breached three times, first on 2014-01-01 , last on 2023-05-15 , and is_trusted_identity was false . One row told the whole story.",
-      "author": "Onizuka",
+      "id": "feed-b4495867fe14",
+      "title": "Migrating Petabyte-Scale Parquet to Iceberg Without Dropping a Single Row",
+      "excerpt": "Roughly 70% of companies that migrate their data lakes to Iceberg end up with \"zombie\" datasets: half-migrated, out-of-sync, and consuming double the storage costs. They treat the migration like a swi…",
+      "body": "Roughly 70% of companies that migrate their data lakes to Iceberg end up with \"zombie\" datasets: half-migrated, out-of-sync, and consuming double the storage costs. They treat the migration like a switch-flip, and that is exactly how you cause a P0 incident. Why I chose this topic: I’ve been burned by \"big bang\" migrations in healthcare environments where downtime is measured in lost compliance certifications. After three failed attempts at manual synchronization, I settled on a shadow-table strategy that treats the migration as a background process, not a deployment window. Most engineers interact with the Hive metastore daily. They treat it like a source of truth, but it’s actually a glorified index of files that has no idea if a Parquet file is corrupted, moved, or partially deleted.",
+      "author": "Aniket Abhishek Soni",
       "date": "2026-09-04",
       "readTime": "2 min",
       "section": "software",
@@ -33,67 +33,316 @@
         "Software"
       ],
       "featured": true,
+      "xpReward": 30,
+      "url": "https://dev.to/aniketsoni/migrating-petabyte-scale-parquet-to-iceberg-without-dropping-a-single-row-3k9g",
+      "image": "/images/feed/feed-b4495867fe14.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-e9b16c8f97bd",
+      "title": "Don't put an LLM in charge of your production database",
+      "excerpt": "Last June, a junior analyst pushed a \"helpful\" GenAI assistant to our internal Tableau-connected lakehouse. Within forty minutes, the agent generated a SELECT * across a 40-terabyte partitioned table…",
+      "body": "Last June, a junior analyst pushed a \"helpful\" GenAI assistant to our internal Tableau-connected lakehouse. Within forty minutes, the agent generated a SELECT * across a 40-terabyte partitioned table joined against a cross-region S3 bucket. The query didn't just fail; it locked the Databricks SQL Warehouse, blew our monthly compute budget in a single afternoon, and triggered a PagerDuty incident that ruined my kid’s birthday dinner. That query cost us $4,200 in DBU burn and an hour of downtime for our actual business stakeholders. Why I chose this topic: I’m tired of seeing engineers treat Text-to-SQL as a magic wand rather than a dangerous, non-deterministic interface.",
+      "author": "Aniket Abhishek Soni",
+      "date": "2026-09-04",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Database"
+      ],
+      "featured": true,
+      "xpReward": 39,
+      "url": "https://dev.to/aniketsoni/dont-put-an-llm-in-charge-of-your-production-database-1o9e",
+      "image": "/images/feed/feed-e9b16c8f97bd.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-e0c02cd4b321",
+      "title": "The Best Automatic Litter Box of 2026: Petkit and Litter-Robot",
+      "excerpt": "With these high-tech automatic litter boxes, gone are the days of scooping and smells. Welcome to the future.",
+      "body": "With these high-tech automatic litter boxes, gone are the days of scooping and smells. Welcome to the future.\n\nThis report, published by Wired, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Software. As the situation continues to evolve, professionals and enthusiasts in the software development and engineering field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Wired using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Molly Higgins",
+      "date": "2026-09-04",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 53,
+      "url": "https://www.wired.com/gallery/best-automatic-cat-litter-boxes/",
+      "image": "/images/feed/feed-e0c02cd4b321.jpg",
+      "source": "Wired",
+      "isLive": true
+    },
+    {
+      "id": "feed-1a9ee655e7ba",
+      "title": "Invoice2Excel Pro – A local, privacy-focused GUI tool built with Python & CustomTkinter to extract PDF invoices to Excel",
+      "excerpt": "Invoice2Excel Pro – A Local, Privacy-Focused PDF Invoice Parser Hi everyone! I built Invoice2Excel Pro, an open-source desktop application that automatically reads PDF invoices and exports key financi…",
+      "body": "Invoice2Excel Pro – A Local, Privacy-Focused PDF Invoice Parser Hi everyone! I built Invoice2Excel Pro , an open-source desktop application that automatically reads PDF invoices and exports key financial data into structured Excel ( .xlsx ) spreadsheets. 💡 Why I Built It Many small business owners, freelancers, and accounting teams struggle with manually typing data from digital invoices into spreadsheets. Existing tools are often paid, cloud-based, or require third-party AI/API keys. I wanted a 100% local, privacy-first alternative that runs completely on your machine. ⚡ Key Features 100% Local &amp; Privacy-First: Uses pdfplumber for text extraction. No cloud APIs, no data telemetry, no external calls.",
+      "author": "GregIos",
+      "date": "2026-09-04",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Python"
+      ],
+      "featured": true,
+      "xpReward": 38,
+      "url": "https://dev.to/travletothefurureprogramming/invoice2excel-pro-a-local-privacy-focused-gui-tool-built-with-python-customtkinter-to-extract-4kde",
+      "image": "/images/feed/feed-1a9ee655e7ba.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-2bca10c74886",
+      "title": "When the Token Well Runs Dry: A Degradation State Machine for LLM Services",
+      "excerpt": "The alert fires at 3:14 AM. Your LLM service returns 500s. The free quota is gone. You check the dashboard. 10,000,000 tokens. Zero remaining. Most guides teach prevention. Budgets. Ledgers. Pre-check…",
+      "body": "The alert fires at 3:14 AM. Your LLM service returns 500s. The free quota is gone. You check the dashboard. 10,000,000 tokens. Zero remaining. Most guides teach prevention. Budgets. Ledgers. Pre-checks. This one teaches survival. What happens after the quota dies? The answer determines if your users stay. I built a degradation state machine. It turns quota exhaustion into a designed state. Not a crash. This article shows the full implementation. Disclosure: This article was prepared as part of MonkeyCode's product outreach. The four states Free tiers end. That is a fact. Design for it.",
+      "author": "Riley Wang",
+      "date": "2026-09-04",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 49,
+      "url": "https://dev.to/apprs_6334/when-the-token-well-runs-dry-a-degradation-state-machine-for-llm-services-1fhm",
+      "image": "/images/feed/feed-2bca10c74886.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-e2fd358ad101",
+      "title": "Real-Time Features Need to Match Your Infrastructure, Not Just Your Feature Spec",
+      "excerpt": "I got an email from Vercel. \"You've used 75% of your free plan resources.\" I ignored it. A few hours later, I was at 100%. I'd been building VisionBoard — AI workflows, MCPs, goal tracking, task assig…",
+      "body": "I got an email from Vercel. \"You've used 75% of your free plan resources.\" I ignored it. A few hours later, I was at 100%. I'd been building VisionBoard — AI workflows, MCPs, goal tracking, task assignments, a notification engine, the usual list of things a project management platform needs. Everything seemed to be working. Then it wasn't. The culprit I dug through the logs. One endpoint: /api/notifications/stream . I'd built the notification system with Server-Sent Events, running on a serverless function. Here's the part I didn't think through: serverless functions aren't built to stay alive forever. Vercel would kill the function on timeout. The browser would immediately reconnect. The function would spin back up. Then time out again. Then reconnect again.",
+      "author": "Ariyo Aresa",
+      "date": "2026-09-04",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 39,
+      "url": "https://dev.to/ariyoaresa/real-time-features-need-to-match-your-infrastructure-not-just-your-feature-spec-1pi3",
+      "image": "/images/feed/feed-e2fd358ad101.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-5a953cf819e9",
+      "title": "Crazy Exynos 2700 leak gives us an unprecedented look at Galaxy S27’s processor",
+      "excerpt": "An upgraded CPU, plenty of cache, and a huge NPU are the highlights here.",
+      "body": "Credit: C. Scott Brown / Android Authority TL;DR A leaked Exynos 2700 die shot has revealed plenty of details about the new flagship Android chipset. The processor could have a deca-core CPU consisting of two C2 Ultra big cores and eight C2 Pro medium cores. We’ve also got an Xclipse 970 GPU and what looks like a huge NPU, with the latter hinting at improved AI performance. Samsung is expected to use both the Snapdragon 8 Elite Gen 6 Pro and the in-house Exynos 2700 chipset in the Galaxy S27 phones . We’ve already heard a few rumors about the Exynos 2700, but a massive new leak may have revealed all the major specs. SemiAnalysis on X (thanks, Dylan H!) posted a die shot of the Exynos 2700, giving us a look at what could be the actual chipset.",
+      "author": "Hadlee Simons",
+      "date": "2026-09-04",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Galaxy S",
+        "Processor"
+      ],
+      "featured": false,
+      "xpReward": 44,
+      "url": "https://www.androidauthority.com/samsung-exynos-2700-specs-leak-3707590/",
+      "image": "/images/feed/feed-5a953cf819e9.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-39fc2753d0d7",
+      "title": "6 Upcoming Steam Games That Need To Be on Your Wishlist",
+      "excerpt": "Fresh off of Gamescom, here are six standouts from the show that should be on your Steam wishlist.",
+      "body": "Wishlister is a weekly newsletter bringing you a curated list of upcoming Steam games worth adding to your wishlist, sent on Tuesdays and published on the site on Fridays. You can subscribe here .",
+      "author": "Giovanni Colantonio",
+      "date": "2026-09-04",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 31,
+      "url": "https://www.polygon.com/wishlister-gamescom-september-4/",
+      "image": "/images/feed/feed-39fc2753d0d7.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-a344f0161244",
+      "title": "This 7-Seat EV Went 582 Miles On A Charge. But There’s A Catch",
+      "excerpt": "A production-spec Skoda Peaq traveled 582 miles on one charge, driving on secondary roads and hypermiling to achieve it.",
+      "body": "A production-spec Skoda Peaq traveled 582 miles on one charge, driving on secondary roads and hypermiling to achieve it.\n\nThis report, published by InsideEVs, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Ev. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to InsideEVs using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "InsideEVs",
+      "date": "2026-09-04",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Ev"
+      ],
+      "featured": false,
+      "xpReward": 35,
+      "url": "https://insideevs.com/news/807058/skoda-peaq-efficiency-run/",
+      "image": "/images/feed/feed-a344f0161244.jpg",
+      "source": "InsideEVs",
+      "isLive": true
+    },
+    {
+      "id": "feed-2b2651e044f8",
+      "title": "BYD’s Electric Kei Car Was Driven In Japan. It Fits Right In",
+      "excerpt": "This early English-language of BYD's kei EV reveals a roomy, comfy and thoughtfully engineered EV that feels right at home in Japan",
+      "body": "This early English-language of BYD's kei EV reveals a roomy, comfy and thoughtfully engineered EV that feels right at home in Japan\n\nThis report, published by InsideEVs, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cars. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to InsideEVs using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "InsideEVs",
+      "date": "2026-09-04",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Cars"
+      ],
+      "featured": false,
       "xpReward": 36,
-      "url": "https://dev.to/onizuka/i-ran-1000-email-validations-against-hibp-47-were-breached-4d5h",
-      "image": "/images/feed/feed-c93f6a40d252.webp",
-      "source": "Dev.to",
+      "url": "https://insideevs.com/news/807141/byd-racco-kei-driven-japan/",
+      "image": "/images/feed/feed-2b2651e044f8.jpg",
+      "source": "InsideEVs",
       "isLive": true
     },
     {
-      "id": "feed-9e400e933d7d",
-      "title": "Azure Synapse Databricks: A Migration Playbook That Survives Production",
-      "excerpt": "Azure Synapse → Databricks: A Migration Playbook That Survives Production A field-style guide for Lead / Senior Data Engineers moving Dedicated SQL Pools, pipelines, and BI off Synapse without burning…",
-      "body": "Azure Synapse → Databricks: A Migration Playbook That Survives Production A field-style guide for Lead / Senior Data Engineers moving Dedicated SQL Pools, pipelines, and BI off Synapse without burning trust, budget, or the on-call team. Table of contents Why this migration is harder than the slide deck What you are actually migrating Program shape: discovery → waves Four parallel workstreams Data movement: skip the JDBC tax Code conversion: syntax is easy, semantics bite Dimensional patterns on Delta (SCD2) Reconciliation &amp; cutover Power BI / consumption cutover 30 / 60 / 90 plan Anti-patterns I keep seeing Field rules I will not compromise on FAQ Sources 1) Why this migration is harder than the slide deck If you have lived in Azure Synapse for years, the marketing line sounds simple:…",
-      "author": "Firat Celik",
+      "id": "feed-2992c87ac03e",
+      "title": "Sam Altman apologizes for &#8216;messy&#8217; GPT-6 Astra rollout that’s locked out paying users",
+      "excerpt": "Just hours after OpenAI launched GPT-6 Astra, CEO Sam Altman was already apologizing for what he describes as a \"messy rollout\" after paying users expecting access to the new frontier model were left…",
+      "body": "Just hours after OpenAI launched GPT-6 Astra , CEO Sam Altman was already apologizing for what he describes as a \"messy rollout\" after paying users expecting access to the new frontier model were left waiting. The company hailed the model as a \"generational leap in capability\" on Thursday and described it as the start of \"the AGI era,\" a fuzzy and poorly-defined term tech executives nevertheless insist on using to promote their products. It said Astra would roll out to some enterprise customers - specifically those with access to its Daybreak cybersecurity platform - that day. This would expand to include all Plus, Pro, Business, and Enter … Read the full story at The Verge.",
+      "author": "Robert Hart",
       "date": "2026-09-04",
       "readTime": "2 min",
-      "section": "software",
+      "section": "ai",
       "tags": [
-        "Software"
+        "Gpt"
       ],
-      "featured": true,
+      "featured": false,
+      "xpReward": 39,
+      "url": "https://www.theverge.com/ai-artificial-intelligence/990060/altman-apologizes-messy-astra-rollout",
+      "image": "/images/feed/feed-2992c87ac03e.jpg",
+      "source": "The Verge",
+      "isLive": true
+    },
+    {
+      "id": "feed-22a5e4fe0303",
+      "title": "Google Photos makes finding and editing photos dead simple with Gemini Spark integration",
+      "excerpt": "Managing your Google Photos library just got easier.",
+      "body": "TL;DR Google Photos can now be connected to Gemini Spark. Spark can run multi-stage workflows in Google Photos, including photo editing and sharing. It can also perform recurring tasks on your Photos library. Gemini Spark has been getting all the love from Google over the past couple of months. The company has been trying to make Spark easier to access on mobile and is adding new features and capabilities to the AI assistant. Now, it has added yet another integration to Gemini Spark that could make it even more useful. Google announced today that Google Photos can now be integrated with Gemini Spark (spotted via PetaPixel ). This means you can finally get Spark to do all the busywork on your backed-up photos that you’ve been meaning to get to but just haven’t found the time for.",
+      "author": "Akshay Gangwar",
+      "date": "2026-09-04",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
       "xpReward": 54,
-      "url": "https://dev.to/firfircelik/azure-synapse-databricks-a-migration-playbook-that-survives-production-nge",
-      "image": "/images/feed/feed-9e400e933d7d.webp",
-      "source": "Dev.to",
+      "url": "https://www.androidauthority.com/google-photos-gemini-spark-integration-3707558/",
+      "image": "/images/feed/feed-22a5e4fe0303.jpg",
+      "source": "Android Authority",
       "isLive": true
     },
     {
-      "id": "feed-18301bcf08dd",
-      "title": "Creating sound with gestural harmony: AethericGeometry",
-      "excerpt": "A build log on Aetheric Geometry, a musical instrument you play with your bare hands in front of a webcam. The first half is how hand geometry becomes harmony. The second half is the seven things that…",
-      "body": "A build log on Aetheric Geometry, a musical instrument you play with your bare hands in front of a webcam. The first half is how hand geometry becomes harmony. The second half is the seven things that were wrong with it while it sounded perfectly good. The idea Point a webcam at yourself. MediaPipe finds 21 landmarks per hand, and the geometry of your hands becomes the sound. Pinch both hands to start a thread between your index fingers. Bring them together, or make a pyramid, and the thread becomes a polygon whose vertices are your fingertips. That polygon is the instrument.",
-      "author": "Lluis Estape",
+      "id": "feed-fdad55c858b4",
+      "title": "OpenAI agents hijacked German website in previously undisclosed AI breakout",
+      "excerpt": "",
+      "body": "This report, published by Hacker News, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Openai. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Hacker News using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "negura",
       "date": "2026-09-04",
       "readTime": "2 min",
-      "section": "software",
+      "section": "ai",
       "tags": [
-        "Software"
+        "Openai"
       ],
-      "featured": true,
-      "xpReward": 54,
-      "url": "https://dev.to/lluisestape/creating-sound-with-gestural-harmony-aethericgeometry-2dlh",
-      "image": "/images/feed/feed-18301bcf08dd.webp",
-      "source": "Dev.to",
+      "featured": false,
+      "xpReward": 53,
+      "url": "https://www.reuters.com/world/europe/openai-agents-hijacked-german-website-previously-undisclosed-ai-breakout-this-2026-09-04/",
+      "image": "/images/topics/topic-ai-ml.png",
+      "source": "Hacker News",
       "isLive": true
     },
     {
-      "id": "feed-5a20ad79b6c3",
-      "title": "Safely Test a MySQL 5.7 -> 8.0 Upgrade on Azure",
-      "excerpt": "Upgrading a production database? Don't test directly on production. A simple and safe approach: Production MySQL 5.7 ↓ Point-in-time restore ↓ Test MySQL 5.7 ↓ Run Upgrade Checker ↓ Upgrade to MySQL 8…",
-      "body": "Upgrading a production database? Don't test directly on production. A simple and safe approach: Production MySQL 5.7 ↓ Point-in-time restore ↓ Test MySQL 5.7 ↓ Run Upgrade Checker ↓ Upgrade to MySQL 8.0 ↓ Test App ↓ Upgrade production 1. Restore production Create a separate Azure MySQL server for testing. Production remains untouched. 2. Run the Upgrade Checker Using MySQL Shell: \\connect user@server.mysql.database.azure.com \\js Then: util . checkForServerUpgrade ({ targetVersion : \" 8.0.0 \" }) Always verify the server first: SELECT @@ hostname , @@ version ; 3. Test your application Point your local Laravel application to the MySQL 8.0 test server and test your important queries, migrations, APIs, queues, and jobs. The idea Restore → Check → Upgrade → Test → Backup → Upgrade production.",
-      "author": "Antonios Thanasis",
+      "id": "feed-fe144a4cdd54",
+      "title": "I refuse to buy a Pixel Watch until Google changes these 5 things",
+      "excerpt": "Google makes a compelling Wear OS watch, but it's not perfect.",
+      "body": "I’ve tried smartwatches from every major brand, and have run nearly 2,000 miles with a smartwatch on my wrist. There are plenty of excellent options on the market — I usually switch between wearing a Garmin, an Apple Watch, or a Galaxy Watch on my wrist. I enjoyed my time trying out OnePlus and Withings watches, too. Google’s Pixel Watch is the one smartwatch model that never felt right, and after playing around with the Pixel Watch 5 in a hands-on session, I’m still not ready to buy one. Google is really starting to tempt me. The domed Actua 360 display looks absolutely gorgeous, especially when paired with a polished silver aluminum case and metal band. The accuracy of the Pixel Watch’s dual-frequency GPS can hang with the best fitness watches on the market.",
+      "author": "Brady Snyder",
       "date": "2026-09-04",
       "readTime": "2 min",
-      "section": "software",
+      "section": "gadgets",
       "tags": [
-        "Software"
+        "Gadgets"
       ],
-      "featured": true,
-      "xpReward": 32,
-      "url": "https://dev.to/antoniosthanasisgit/safely-test-a-mysql-57-80-upgrade-on-azure-42bp",
-      "image": "/images/feed/feed-5a20ad79b6c3.webp",
-      "source": "Dev.to",
+      "featured": false,
+      "xpReward": 38,
+      "url": "https://www.androidauthority.com/google-pixel-watch-change-5-things-3703208/",
+      "image": "/images/feed/feed-fe144a4cdd54.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-014719f8b9fa",
+      "title": "ICE Wants to Know Who Bought a Certain Green Beanie From REI in the Last 2 Years",
+      "excerpt": "Homeland Security Investigations agents hit the outdoor retailer with a controversial subpoena as part of a dragnet search for the identities of protesters who entered a Minnesota church in March.",
+      "body": "Homeland Security Investigations agents hit the outdoor retailer with a controversial subpoena as part of a dragnet search for the identities of protesters who entered a Minnesota church in March.\n\nThis report, published by Wired, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cybersecurity. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Wired using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Maddy Varner",
+      "date": "2026-09-04",
+      "readTime": "2 min",
+      "section": "cybersecurity",
+      "tags": [
+        "Cybersecurity"
+      ],
+      "featured": false,
+      "xpReward": 40,
+      "url": "https://www.wired.com/story/ice-wants-to-know-who-bought-a-certain-green-beanie-from-rei-in-the-last-2-years/",
+      "image": "/images/feed/feed-014719f8b9fa.jpg",
+      "source": "Wired",
+      "isLive": true
+    },
+    {
+      "id": "feed-3e14dc27cd4c",
+      "title": "Xbox Is Putting a Time Limit on Cloud Gaming",
+      "excerpt": "Cloud gaming is being significantly downgraded as an Xbox Game Pass perk, as Xbox introduces playtime limits.",
+      "body": "Xbox is watering down Game Pass benefits to cut costs. Starting in November, cloud gaming will receive a major overhaul, and one of the most notable changes is the time limit that will be assigned to each Xbox account depending on its Game Pass subscription tier. Cloud gaming has been one of the subscription's selling points, so it is a shame to see it being downgraded.",
+      "author": "Ashely Claudino",
+      "date": "2026-09-04",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Xbox",
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 44,
+      "url": "https://www.polygon.com/xbox-game-pass-cloud-gaming-time-limit/",
+      "image": "/images/feed/feed-3e14dc27cd4c.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-ceb092836d27",
+      "title": "Survey shows how divisive the Pixel 11’s Tensor G6 really is",
+      "excerpt": "Readers also shed light on their hopes for the Tensor G7.",
+      "body": "The Tensor G6 is Google’s current flagship chipset, powering its flagship smartphone line, the Pixel 11 . The silicon series’ long-running focus on bolstering AI workloads continues with this release, with Google claiming significant gains over the Tensor G5 in daily tasks like web browsing and app launches, as well as machine learning-adjacent tasks. However, this also means that the Tensor G6 loses ground to the competition in other areas, namely gaming and raw performance metrics. After my colleague Rob Triggs put the G6 through its paces , he came to the following conclusion:",
+      "author": "Andy Walker",
+      "date": "2026-09-04",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 34,
+      "url": "https://www.androidauthority.com/google-tensor-g6-g7-poll-results-3707517/",
+      "image": "/images/feed/feed-ceb092836d27.jpg",
+      "source": "Android Authority",
       "isLive": true
     },
     {
@@ -108,30 +357,11 @@
       "tags": [
         "Tesla"
       ],
-      "featured": true,
-      "xpReward": 53,
+      "featured": false,
+      "xpReward": 38,
       "url": "https://insideevs.com/news/807123/tesla-cybercab-austin-ride-vide/",
       "image": "/images/feed/feed-cbabc50a751f.jpg",
       "source": "InsideEVs",
-      "isLive": true
-    },
-    {
-      "id": "feed-4040bd389de3",
-      "title": "Buzz runs coding agents in a git worktree, not a sandbox",
-      "excerpt": "I tried out Buzz, and really found some things worth noting, so I wanted to give a quick overview about the project. I really liked the mentality, and by using the Huddle (a live session where you can…",
-      "body": "I tried out Buzz, and really found some things worth noting, so I wanted to give a quick overview about the project. I really liked the mentality, and by using the Huddle (a live session where you can talk with any agent in the workspace, and I mostly stayed with the built-in @Fizz ), I asked all of my questions from project management to task creation, how it mainly works (like git worktrees or sandboxes), how to wire it up through GitHub or a similar tool, how to connect Claude Code (which it lets you do right at the beginning) through ACP (Agent Client Protocol), and workflows. I had a reason to ask that many questions.",
-      "author": "Engincan VESKE",
-      "date": "2026-09-04",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 46,
-      "url": "https://dev.to/engincanv/buzz-runs-coding-agents-in-a-git-worktree-not-a-sandbox-2876",
-      "image": "/images/feed/feed-4040bd389de3.webp",
-      "source": "Dev.to",
       "isLive": true
     },
     {
@@ -147,29 +377,10 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 45,
       "url": "https://www.androidauthority.com/samsung-galaxy-watch-8-one-ui-9-beta-2-3707529/",
       "image": "/images/feed/feed-db5d8abfcd11.jpg",
       "source": "Android Authority",
-      "isLive": true
-    },
-    {
-      "id": "feed-221f1635fd32",
-      "title": "What I learned merging seven public datasets to train a single-class shelf detector",
-      "excerpt": "The conclusion first: licence filtering matters more than dataset size when you plan to use the model commercially. I merged seven public Roboflow datasets into 11,667 images — all CC BY 4.0 — trained…",
-      "body": "The conclusion first: licence filtering matters more than dataset size when you plan to use the model commercially. I merged seven public Roboflow datasets into 11,667 images — all CC BY 4.0 — trained YOLO11n on Apple MPS, and reached mAP50 0.844 on a held-out test set of 277 images and 1,255 instances. The model now runs on a Raspberry Pi 3 as a proof-of-concept empty-shelf detector. It cost zero cloud GPU spend and took about a day of scripting before I touched any training code. Why the camera never identifies products Before dataset sourcing makes sense, the problem framing matters — because the framing determines which datasets are useful. The shelf scanner I built does not try to recognise products. It detects empty space only. Single class: empty_space .",
-      "author": "MORINAGA",
-      "date": "2026-09-04",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 43,
-      "url": "https://dev.to/morinaga/what-i-learned-merging-seven-public-datasets-to-train-a-single-class-shelf-detector-2k38",
-      "image": "/images/feed/feed-221f1635fd32.webp",
-      "source": "Dev.to",
       "isLive": true
     },
     {
@@ -185,7 +396,7 @@
         "Foldable"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 44,
       "url": "https://www.androidauthority.com/galaxy-z-fold-8-vs-razr-fold-hands-on-3704049/",
       "image": "/images/feed/feed-38fba8d08528.jpg",
       "source": "Android Authority",
@@ -204,7 +415,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 36,
       "url": "https://www.androidauthority.com/reolink-omvi-2i-ultra-launch-3707580/",
       "image": "/images/feed/feed-e4f3a04e8267.jpg",
       "source": "Android Authority",
@@ -223,7 +434,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 35,
       "url": "https://www.polygon.com/poor-things-emma-stone-leaving-netflix-september-2026/",
       "image": "/images/feed/feed-3cc5ae9d100b.jpg",
       "source": "Polygon",
@@ -242,7 +453,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 51,
       "url": "https://www.space.com/astronomy/comets/scientists-watch-a-comet-being-born-3-billion-miles-away",
       "image": "/images/feed/feed-c950458de444.jpg",
       "source": "Space.com",
@@ -287,82 +498,6 @@
       "isLive": true
     },
     {
-      "id": "feed-e7df2d3c6243",
-      "title": "Philips Hue’s new TV camera solves a big problem for TV sync lights",
-      "excerpt": "Philips Hue is giving you more ways to sync your lights with what you're watching.",
-      "body": "TL;DR Philips Hue has announced the Hue Play Screen Sync camera and Hue Play HDMI Sync Box 4K. The Screen Sync camera can sync lights with native smart TV apps and broadcast content and is priced at $119.99. The HDMI Sync Box comes with a slimmer profile and a single HDMI input for $149.99. We’ve seen several leaks of upcoming Philips Hue devices over the last couple of months, and the company has finally made almost all of them official. This includes a bunch of new hardware, smart lights , and software updates coming to Philips Hue devices. The Philips Hue Play Screen Sync camera , which leaked a few months ago, is now official. It uses a fisheye lens to capture the full content playing on a TV in real time and uses that information to sync compatible smart lights in the room.",
-      "author": "Akshay Gangwar",
-      "date": "2026-09-04",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 32,
-      "url": "https://www.androidauthority.com/philips-hue-screen-sync-camera-hdmi-box-3707473/",
-      "image": "/images/feed/feed-e7df2d3c6243.jpg",
-      "source": "Android Authority",
-      "isLive": true
-    },
-    {
-      "id": "feed-c372c8e22aea",
-      "title": "This NAS company wants to run your local smart home",
-      "excerpt": "Ugreen’s HomeAgent H100 Pro hub combines local storage, on-device AI, and a new voice assistant, Uliya, to run your smart home. | Photo by Jennifer Pattison Tuohy / The Verge Ugreen, known for its pho…",
-      "body": "Ugreen’s HomeAgent H100 Pro hub combines local storage, on-device AI, and a new voice assistant, Uliya, to run your smart home. | Photo by Jennifer Pattison Tuohy / The Verge Ugreen, known for its phone power banks, chargers, and NAS storage solutions, is moving into the smart home - in a big way. This week at the IFA tech show, the company launched its HomeAgent smart home platform that combines security camera storage, on-device AI, and smart home control in one system, managed by a voice assistant called Uliya, with the promise that everything runs locally. At the core of Ugreen's HomeAgent system is a hub that acts as the brain of your smart home, running a local-first AI (with some caveats) that you can interact with using natural language via Uliya.",
-      "author": "Jennifer Pattison Tuohy",
-      "date": "2026-09-04",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 30,
-      "url": "https://www.theverge.com/tech/990006/this-nas-company-wants-to-run-your-local-smart-home",
-      "image": "/images/feed/feed-c372c8e22aea.jpg",
-      "source": "The Verge",
-      "isLive": true
-    },
-    {
-      "id": "feed-e50b120bcad9",
-      "title": "The Galaxy S27 Pro could solve Samsung’s biggest problem — if it fixes these 5 things",
-      "excerpt": "This could be a huge moment for Galaxy flagships.",
-      "body": "It was somewhere around this time last year that we began seeing leaked renders of a purported Galaxy S26 Pro model, but this obviously didn’t pan out. Once again, we’re seeing fresh rumors that Samsung might introduce a new Pro model with the Galaxy S27 series in early 2027, and the leaks look more plausible this time around. Along with the rumored redesign of the Galaxy S27 Ultra, the new Galaxy S27 Pro is expected to feature the same design, but in a smaller form factor. I’m really excited about this change because Samsung’s non-Ultra phones have suffered from an identity crisis ever since the Galaxy S23 series. The Plus model in the Galaxy S trio has always had an awkward positioning in the lineup, as it was a bit too pricey and lacked the premium features of the Ultra.",
-      "author": "Roydon Cerejo",
-      "date": "2026-09-04",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Galaxy S"
-      ],
-      "featured": false,
-      "xpReward": 37,
-      "url": "https://www.androidauthority.com/5-features-samsung-galaxy-s27-pro-must-have-3706102/",
-      "image": "/images/feed/feed-e50b120bcad9.jpg",
-      "source": "Android Authority",
-      "isLive": true
-    },
-    {
-      "id": "feed-f71f01aef51f",
-      "title": "I tried the wild 0mm bezel Android phone that beat Apple to the punch",
-      "excerpt": "TECNO's latest concept phone takes the bezel race to zero.",
-      "body": "Credit: Adamya Sharma / Android Authority Going bezel-free has been an obsession in the smartphone industry for years. Every generation, phone makers find another millimeter to shave off, whether through clever display packaging, curved glass, or squeezing more hardware into less space. Apple, too, is reportedly on track to launch a zero-bezel device next year. But here at IFA 2026, TECNO wants to take that race to the very end with its new 0mm bezelless Android smartphone .",
-      "author": "Adamya Sharma",
-      "date": "2026-09-04",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Android Phone"
-      ],
-      "featured": false,
-      "xpReward": 36,
-      "url": "https://www.androidauthority.com/tecno-bezelless-concept-phone-hands-on-experience-3707457/",
-      "image": "/images/feed/feed-f71f01aef51f.jpg",
-      "source": "Android Authority",
-      "isLive": true
-    },
-    {
       "id": "feed-e3083f81547c",
       "title": "The Tesla Cybercab Has No Brake Lines Or Brake Fluid. Here’s How It Stops",
       "excerpt": "The two-seater doesn’t have a steering wheel or pedals. As a result, controlling the brakes and steering needed a rethink.",
@@ -375,7 +510,7 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 39,
       "url": "https://insideevs.com/news/807121/tesla-cybercab-brakes-no-fluid/",
       "image": "/images/feed/feed-e3083f81547c.jpg",
       "source": "InsideEVs",
@@ -394,7 +529,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 35,
       "url": "https://www.polygon.com/new-movies-streaming-this-weekend-netflix-september-4-6/",
       "image": "/images/feed/feed-dc0172102e17.jpg",
       "source": "Polygon",
@@ -413,7 +548,7 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 32,
       "url": "https://thehackernews.com/2026/09/over-440000-exploit-attempts-target.html",
       "image": "/images/feed/feed-915167370af2.jpg",
       "source": "The Hacker News",
@@ -432,7 +567,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 54,
       "url": "https://www.ign.com/articles/amid-concern-in-japan-dragon-ball-producer-toei-animation-denies-involvement-in-saudi-france-paris-theme-park",
       "image": "/images/feed/feed-1c365d556f84.jpg",
       "source": "IGN",
@@ -451,28 +586,9 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 35,
       "url": "https://www.polygon.com/8-best-anime-like-solo-leveling-to-watch/",
       "image": "/images/feed/feed-2876d8c2668e.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-6ab812a4c8e3",
-      "title": "DreamWorks’ 'Kpop Demon Hunters' Replacement Officially Arrives in 1 Week",
-      "excerpt": "Get ready for another colorful animated movie packed with music and demons",
-      "body": "Netflix’s animated musical Kpop Demon Hunters was an unexpected sensation, spending a full year in the streaming service’s global top 10 list. The film about a K-pop band whose music secretly empowers a mystical barrier protecting the world from demons racked up more than 500 million views, becoming Netflix’s most-watched title ever. Sony originally thought Kpop Demon Hunters was too “niche” for a theatrical release, but its success prompted Netflix to launch its widest theatrical run ever to give fans the chance to sing along in the theaters.",
-      "author": "Sam Nelson",
-      "date": "2026-09-04",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 40,
-      "url": "https://www.polygon.com/forgotten-island-premiere/",
-      "image": "/images/feed/feed-6ab812a4c8e3.jpg",
       "source": "Polygon",
       "isLive": true
     },
@@ -489,7 +605,7 @@
         "Security"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 42,
       "url": "https://thehackernews.com/2026/09/plex-urges-immediate-updates-after.html",
       "image": "/images/feed/feed-8199e5c20848.jpg",
       "source": "The Hacker News",
@@ -508,7 +624,7 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 54,
       "url": "https://insideevs.com/news/807100/tesla-cybercab-robotaxi-public-rides-austin-official/",
       "image": "/images/feed/feed-135821e582c1.jpg",
       "source": "InsideEVs",
@@ -528,29 +644,10 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 47,
       "url": "https://thehackernews.com/2026/09/google-releases-chrome-update-to-patch.html",
       "image": "/images/feed/feed-b96a9773f1ad.jpg",
       "source": "The Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-621f09668305",
-      "title": "Marvel’s Most Valuable Figure Right Now Is Based on a Bizarre 1977 Spider-Man Show",
-      "excerpt": "Fans will need the Parker luck to snag this one.",
-      "body": "Spider-Man continues to prove that he's the most popular superhero on the planet. With Spider-Man: Brand New Day continuing to break box office records and Amazing Spider-Man #1000 marking a major milestone in comics history, it looks like the sky's the limit for the web-slinger. However, the biggest example of Spidey's popularity doesn't lie in matinée tickets or comic book collections. Rather, it lies with an action figure that's gathering plenty of heat on the market, according to the collector site ActionFigure411.com.",
-      "author": "Collier Jennings",
-      "date": "2026-09-04",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 34,
-      "url": "https://www.polygon.com/marvel-spider-man-1977-action-figure-most-valuable-collectable/",
-      "image": "https://static0.polygonimages.com/wordpress/wp-content/uploads/2026/08/ultimate-spider-man-cropped.png",
-      "source": "Polygon",
       "isLive": true
     },
     {
@@ -567,7 +664,7 @@
         "Gpt"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 33,
       "url": "https://thehackernews.com/2026/09/gpt-6-astra-scores-100-on-exploitbench.html",
       "image": "/images/feed/feed-f864325c514d.jpg",
       "source": "The Hacker News",
@@ -586,7 +683,7 @@
         "Hacker"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 43,
       "url": "http://www.techdirt.com/2026/09/03/hackers-had-a-live-feed-of-every-id-this-verification-company-scanned-for-over-a-year/",
       "image": "/images/feed/feed-3fc51db17b9f.png",
       "source": "Hacker News",
@@ -605,7 +702,7 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 43,
       "url": "https://electrek.co/2026/09/03/tesla-announces-1-million-unsupervised-miles-driven-by-robotaxi/",
       "image": "/images/feed/feed-b83a47736b89.jpg",
       "source": "Electrek",
@@ -624,7 +721,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 40,
       "url": "https://techcrunch.com/2026/09/03/the-sameness-problem-behind-those-unappetizing-ai-generated-menus/",
       "image": "/images/feed/feed-3e1ba23902a5.png",
       "source": "TechCrunch",
@@ -643,7 +740,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 35,
       "url": "https://science.nasa.gov/earth/earth-observatory/a-trio-of-tropical-cyclones-in-the-pacific/",
       "image": "/images/feed/feed-e98963ee3638.jpg",
       "source": "NASA Breaking News",
@@ -662,48 +759,10 @@
         "Vehicle"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 36,
       "url": "https://cleantechnica.com/2026/09/03/eu-heavy-duty-vehicle-transition-needs-renewed-political-momentum/",
       "image": "/images/feed/feed-5c8c9b122e3f.jpg",
       "source": "CleanTechnica",
-      "isLive": true
-    },
-    {
-      "id": "feed-30e4a5af1aba",
-      "title": "The Coming Tsunami Of Wave Energy Is Still Coming",
-      "excerpt": "Wind turbines and solar panels got the thumbs-down from US President Donald Trump, but the new PacWave South wave energy test bed somehow survived the chopper. The post The Coming Tsunami Of Wave Ener…",
-      "body": "Wind turbines and solar panels got the thumbs-down from US President Donald Trump, but the new PacWave South wave energy test bed somehow survived the chopper. The post The Coming Tsunami Of Wave Ener — a development drawing significant attention in the electric vehicles, hybrids, and automotive technology space.\n\nThis report, published by CleanTechnica, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cars. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to CleanTechnica using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Tina Casey",
-      "date": "2026-09-04",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Cars"
-      ],
-      "featured": false,
-      "xpReward": 44,
-      "url": "https://cleantechnica.com/2026/09/03/wave-energy-us-pacwave-renewables-us-policy/",
-      "image": "/images/feed/feed-30e4a5af1aba.png",
-      "source": "CleanTechnica",
-      "isLive": true
-    },
-    {
-      "id": "feed-189f7c56f34e",
-      "title": "Tesla opens search for Cybercab fleet sales, but FSD owners are still left out",
-      "excerpt": "Tesla has started distributing a “Robotaxi interest form,” collecting interest from fleet buyers who would want to build a Robotaxi network or provide related infrastructure services. It’s the first s…",
-      "body": "Tesla has started distributing a “Robotaxi interest form,” collecting interest from fleet buyers who would want to build a Robotaxi network or provide related infrastructure services. It’s the first step in allowing non-Tesla entities to make money off of Tesla’s FSD driver-assist software… but the owners who were promised they could make passive income with their cars are still out of luck. more…",
-      "author": "Jameson Dow",
-      "date": "2026-09-04",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Tesla"
-      ],
-      "featured": false,
-      "xpReward": 43,
-      "url": "https://electrek.co/2026/09/03/tesla-opens-search-for-cybercab-fleet-sales-but-fsd-owners-are-still-left-out/",
-      "image": "/images/feed/feed-189f7c56f34e.jpg",
-      "source": "Electrek",
       "isLive": true
     },
     {
@@ -719,7 +778,7 @@
         "Breach"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 38,
       "url": "https://www.bleepingcomputer.com/news/security/french-hospital-fined-500-000-after-breach-exposes-data-of-727-000/",
       "image": "/images/feed/feed-fc2cead72003.jpg",
       "source": "BleepingComputer",
@@ -739,7 +798,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 38,
       "url": "https://www.wired.com/story/nobody-is-saying-why-openai-and-anthropic-had-outages-today/",
       "image": "/images/feed/feed-d625c42542ca.jpg",
       "source": "Wired",
@@ -778,29 +837,10 @@
         "Gpt"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 32,
       "url": "https://www.cnet.com/tech/services-and-software/gpt-6-stole-the-show-but-anthropic-meta-and-google-also-had-new-ai-models-this-week/",
       "image": "/images/feed/feed-1e452614c0ee.jpg",
       "source": "CNET",
-      "isLive": true
-    },
-    {
-      "id": "feed-a12de290e3e2",
-      "title": "Coder's registry infrastructure compromised to push malicious modules",
-      "excerpt": "Attackers compromised Coder's Cloudflare infrastructure and added unauthorized registry servers that delivered malicious Terraform modules containing credential-stealing code. [...]",
-      "body": "Attackers compromised Coder's Cloudflare infrastructure and added unauthorized registry servers that delivered malicious Terraform modules containing credential-stealing code. [...]\n\nThis report, published by BleepingComputer, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cybersecurity. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to BleepingComputer using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Bill Toulas",
-      "date": "2026-09-03",
-      "readTime": "2 min",
-      "section": "cybersecurity",
-      "tags": [
-        "Cybersecurity"
-      ],
-      "featured": false,
-      "xpReward": 52,
-      "url": "https://www.bleepingcomputer.com/news/security/coders-registry-infrastructure-compromised-to-push-malicious-modules/",
-      "image": "/images/feed/feed-a12de290e3e2.jpg",
-      "source": "BleepingComputer",
       "isLive": true
     },
     {
@@ -816,49 +856,10 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 41,
       "url": "https://www.space.com/entertainment/space-games/alien-isolation-2-facing-a-ruthless-and-evolved-xenomorph-in-our-gamescom-hands-on-preview",
       "image": "/images/feed/feed-7fa047b3b865.jpg",
       "source": "Space.com",
-      "isLive": true
-    },
-    {
-      "id": "feed-ca1e16b56ca3",
-      "title": "AI-Guided Hike Ends in Emergency Rescue at 11,000 Feet",
-      "excerpt": "ChatGPT can’t climb mountains, but it can give you bad advice on how to do it.",
-      "body": "ChatGPT can’t climb mountains, but it can give you bad advice on how to do it.\n\nThis report, published by CNET, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Ai. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to CNET using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Joe Hindy",
-      "date": "2026-09-03",
-      "readTime": "2 min",
-      "section": "ai",
-      "tags": [
-        "Ai"
-      ],
-      "featured": false,
-      "xpReward": 53,
-      "url": "https://www.cnet.com/tech/services-and-software/ai-guided-hike-ends-in-emergency-rescue-at-11000-feet/",
-      "image": "/images/feed/feed-ca1e16b56ca3.jpg",
-      "source": "CNET",
-      "isLive": true
-    },
-    {
-      "id": "feed-19176f8ca334",
-      "title": "AI’s Very Bad Morning: Claude, ChatGPT and Grok Had Outages at the Same Time",
-      "excerpt": "No official cause for the multiple outages has yet been revealed.",
-      "body": "No official cause for the multiple outages has yet been revealed.\n\nThis report, published by CNET, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Chatgpt, Claude. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to CNET using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Omar Gallaga",
-      "date": "2026-09-03",
-      "readTime": "2 min",
-      "section": "ai",
-      "tags": [
-        "Chatgpt",
-        "Claude"
-      ],
-      "featured": false,
-      "xpReward": 38,
-      "url": "https://www.cnet.com/tech/services-and-software/sept-3-claude-chatgpt-grok-widespread-ai-outages/",
-      "image": "/images/feed/feed-19176f8ca334.jpg",
-      "source": "CNET",
       "isLive": true
     },
     {
@@ -875,7 +876,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 50,
       "url": "https://www.space.com/astronomy/mercury/2-spacecraft-will-soon-reach-mercury-after-8-years-in-space-heres-what-bepicolombo-can-do",
       "image": "/images/feed/feed-10df7f556108.jpg",
       "source": "Space.com",
@@ -895,7 +896,7 @@
         "Spacecraft"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 52,
       "url": "https://www.nasa.gov/news-release/nasa-to-cover-progress-96-spacecraft-launch-docking/",
       "image": "/images/feed/feed-d6682337cc87.jpg",
       "source": "NASA Breaking News",
@@ -914,7 +915,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 30,
       "url": "https://www.space.com/entertainment/space-movies-shows/strange-new-worlds-latest-episode-is-a-soap-opera-spoof-but-hasnt-star-trek-always-been-a-soap-opera-in-space-anyway",
       "image": "/images/feed/feed-5d25c3baddf3.jpg",
       "source": "Space.com",
@@ -933,7 +934,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 48,
       "url": "https://www.wired.com/story/openai-elon-musk-cursor-billion-revenue/",
       "image": "/images/feed/feed-b1a49d842e91.jpg",
       "source": "Wired",
@@ -941,16 +942,16 @@
     }
   ],
   "breakingNews": [
-    "DEV.TO: Shift Left was how ops got fired and devs got the pager",
-    "DEV.TO: I Ran 1,000 Email Validations Against HIBP. 47 Were Breached.",
-    "DEV.TO: Azure Synapse Databricks: A Migration Playbook That Survives Production",
-    "DEV.TO: Creating sound with gestural harmony: AethericGeometry",
-    "DEV.TO: Safely Test a MySQL 5.7 -> 8.0 Upgrade on Azure",
-    "INSIDEEVS: Watch Tesla’s Cybercab Carry Passengers Through Austin. It’s Almost Boring",
-    "DEV.TO: Buzz runs coding agents in a git worktree, not a sandbox",
-    "ANDROID AUTHORITY: Galaxy Watch 8’s latest beta update fixes pesky AOD bug that showed the wrong time (!)",
-    "DEV.TO: What I learned merging seven public datasets to train a single-class shelf detector",
-    "ANDROID AUTHORITY: I tested 2 of the best Android foldables of 2026. Here’s how to avoid buying the wrong one"
+    "DEV.TO: Persist AI Agent State on Free Servers with JSON Checkpoints",
+    "DEV.TO: Migrating Petabyte-Scale Parquet to Iceberg Without Dropping a Single Row",
+    "DEV.TO: Don't put an LLM in charge of your production database",
+    "WIRED: The Best Automatic Litter Box of 2026: Petkit and Litter-Robot",
+    "DEV.TO: Invoice2Excel Pro – A local, privacy-focused GUI tool built with Python & CustomTkinter to extract PDF invoices to Excel",
+    "DEV.TO: When the Token Well Runs Dry: A Degradation State Machine for LLM Services",
+    "DEV.TO: Real-Time Features Need to Match Your Infrastructure, Not Just Your Feature Spec",
+    "ANDROID AUTHORITY: Crazy Exynos 2700 leak gives us an unprecedented look at Galaxy S27’s processor",
+    "POLYGON: 6 Upcoming Steam Games That Need To Be on Your Wishlist",
+    "INSIDEEVS: This 7-Seat EV Went 582 Miles On A Charge. But There’s A Catch"
   ],
   "sectionVideos": {}
 }
