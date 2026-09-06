@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-09-06T05:12:11.459Z",
+  "fetchedAt": "2026-09-06T06:18:13.351Z",
   "articles": [
     {
-      "id": "feed-4679357924b8",
-      "title": "Stop Hand-Partitioning Disks: Practical systemd-repart on Linux",
-      "excerpt": "Stop Hand-Partitioning Disks: Practical systemd-repart on Linux You ship a minimal OS image. The target disk is 64 GB, 256 GB, or 2 TB. Root is still 8 GB. Swap does not exist. /home is not a partitio…",
-      "body": "Stop Hand-Partitioning Disks: Practical systemd-repart on Linux You ship a minimal OS image. The target disk is 64 GB, 256 GB, or 2 TB. Root is still 8 GB. Swap does not exist. /home is not a partition yet. The usual fix is a one-off parted / gdisk script, a fragile installer hook, or “remember to resize after first boot.” That does not scale across VMs, bare metal, and image-based fleets. systemd-repart turns partition layout into declarative config: GPT definitions under repart.d/*.conf , incremental grow/add on every boot, optional format/encrypt/populate while building disk images (DDIs), and no shrink/move/delete of existing data by default.",
-      "author": "Lyra",
+      "id": "feed-eef62500b64b",
+      "title": "Customize the Date and Time on the Linux Mint Cinnamon Taskbar",
+      "excerpt": "When I started using Linux Mint, I spent quite a bit of time exploring small desktop customizations. One of the simple things I discovered was that Linux Mint Cinnamon lets you customize how the date…",
+      "body": "When I started using Linux Mint , I spent quite a bit of time exploring small desktop customizations. One of the simple things I discovered was that Linux Mint Cinnamon lets you customize how the date and time are displayed on the taskbar. Instead of showing only something like: Sat Aug 22 07:10 PM you can change it to something that works better for you. For example: Sat, Aug 22 • 07:10 PM or: 22 Aug 2026 | 07:10 PM or even: Saturday, 22 August • 19:10 It is a small change, but it is a nice way to personalize your desktop. Where can I change it? On Linux Mint Cinnamon, right-click the clock/date area on the taskbar and open the calendar settings.",
+      "author": "Sunil Pradhan",
       "date": "2026-09-06",
       "readTime": "2 min",
       "section": "software",
@@ -14,75 +14,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 54,
-      "url": "https://dev.to/lyraalishaikh/stop-hand-partitioning-disks-practical-systemd-repart-on-linux-58dp",
-      "image": "/images/feed/feed-4679357924b8.webp",
+      "xpReward": 52,
+      "url": "https://dev.to/sunilpradhan/customize-the-date-and-time-on-the-linux-mint-cinnamon-taskbar-5fm6",
+      "image": "/images/feed/feed-eef62500b64b.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-2820c597fd79",
-      "title": "PKCE Downgrade Attack: When the Authorization Server Accepts Both Flows",
-      "excerpt": "Two CVEs against the same identity provider, filed six months apart. CVE-2023-48228 and CVE-2024-23647, both against authentik, describe the same failure: the server accepted PKCE in one request and i…",
-      "body": "Two CVEs against the same identity provider, filed six months apart. CVE-2023-48228 and CVE-2024-23647, both against authentik, describe the same failure: the server accepted PKCE in one request and its absence in the next. RFC 7636 had been published nine years before the first advisory. PKCE binds an authorization code to a secret the client generates before the flow starts. Authorization servers that accept flows without code_challenge downgrade clients to the pre-PKCE threat model. The same applies when they accept token exchanges without code_verifier after a challenge was registered. RFC 9700 mandates enforcement at both endpoints. Most servers ship with enforcement disabled.",
-      "author": "Davi",
-      "date": "2026-09-06",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 34,
-      "url": "https://dev.to/roxdavirox/pkce-downgrade-attack-when-the-authorization-server-accepts-both-flows-199m",
-      "image": "/images/feed/feed-2820c597fd79.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-7abd649f644c",
-      "title": "HMAC Proves Origin, Not Freshness: Replay Attacks Against Signed APIs",
-      "excerpt": "HMAC Proves Origin, Not Freshness: Replay Attacks Against Signed APIs The signature verified. The secret was correct. The payment processed for the fourth time, from a request captured three hours ear…",
-      "body": "HMAC Proves Origin, Not Freshness: Replay Attacks Against Signed APIs The signature verified. The secret was correct. The payment processed for the fourth time, from a request captured three hours earlier. HMAC proves that a request came from someone who knows the secret. It does not prove when. APIs that sign requests without including a timestamp in the signed payload accept valid replays indefinitely. One captured request becomes a standing credential for that action. HMAC Signs the Message, Not the Moment HMAC-SHA256 is deterministic: same key plus same message equals the same MAC, always. That property is the mechanism's strength for origin authentication. It is also why replay is possible when no freshness field exists in the signed payload.",
-      "author": "Davi",
-      "date": "2026-09-06",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 48,
-      "url": "https://dev.to/roxdavirox/hmac-proves-origin-not-freshness-replay-attacks-against-signed-apis-1e53",
-      "image": "/images/feed/feed-7abd649f644c.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-cafb7ac84b45",
-      "title": "OAuth Flow CSRF: How a Missing State Parameter Enables Forced Authorization",
-      "excerpt": "The OAuth flow has four participants: client, authorization server, resource server, and, when state is absent, the attacker. RFC 6749 made the only CSRF control in the authorization code flow optiona…",
-      "body": "The OAuth flow has four participants: client, authorization server, resource server, and, when state is absent, the attacker. RFC 6749 made the only CSRF control in the authorization code flow optional. This is not theoretical. It is CVE-2019-10315, CVE-2023-31999, and most OAuth clients running in production today. State Binds the Flow to the Session. RFC 6749 Made It Optional The state parameter is the only mechanism that ties an OAuth callback to the session that initiated it. Without it, any authorization response can be delivered to any session. RFC 6749 §4.1.1 lists state as OPTIONAL in the authorization request. Section 10.12 says clients SHOULD use state to protect against CSRF (SHOULD, not MUST).",
-      "author": "Davi",
-      "date": "2026-09-06",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 42,
-      "url": "https://dev.to/roxdavirox/oauth-flow-csrf-how-a-missing-state-parameter-enables-forced-authorization-59am",
-      "image": "/images/feed/feed-cafb7ac84b45.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-d14f5b12f09e",
-      "title": "API Token in Query Parameter: Six Places the Credential Persists Without You Knowing",
-      "excerpt": "The developer adds ?api_key= to the URL because it is the simplest way to test an endpoint. The credential works. The endpoint returns data. What the developer does not see: that token was written int…",
-      "body": "The developer adds ?api_key= to the URL because it is the simplest way to test an endpoint. The credential works. The endpoint returns data. What the developer does not see: that token was written into six distinct stores. It was also queued for transmission to a third-party monitoring service. The assumption that a query parameter token is \"just a temporary credential\" ignores where it goes before the server even processes it. When a client sends GET /api/data?token=sk_live_abc123 , the credential has already been copied to six distinct stores. One Request, Six Copies A URL-embedded token is not one secret transmitted once. It is one secret distributed to every system that touches the HTTP request before and after the server receives it. 1. Server access log.",
-      "author": "Davi",
+      "id": "feed-f03d0c6a0cd1",
+      "title": "LLM Load Testing Is Burning Your API Budget",
+      "excerpt": "In 2026, you kick off a stress run against your OpenAI integration. The scenario is straightforward: simulate 100,000 requests at peak concurrency, confirm your queue doesn't collapse, verify retry lo…",
+      "body": "In 2026, you kick off a stress run against your OpenAI integration. The scenario is straightforward: simulate 100,000 requests at peak concurrency, confirm your queue doesn't collapse, verify retry logic holds. By the time the run fails at request 100,000, you've spent $3,000 on tokens. The infrastructure bug you found would have taken an afternoon to fix. The invoice takes a quarter to justify. This is the situation engineering teams building on top of LLM APIs face right now, and no provider has solved it. The gap is specific: there is no native test mode. No flag you pass to the API that says \"process this request, exercise the full HTTP stack, return a plausible response shape, but don't run inference.\" Every call to a live endpoint burns real compute.",
+      "author": "ForgeWorkflows",
       "date": "2026-09-06",
       "readTime": "2 min",
       "section": "software",
@@ -90,17 +33,36 @@
         "Api"
       ],
       "featured": true,
-      "xpReward": 42,
-      "url": "https://dev.to/roxdavirox/api-token-in-query-parameter-six-places-the-credential-persists-without-you-knowing-4j73",
-      "image": "/images/feed/feed-d14f5b12f09e.webp",
+      "xpReward": 43,
+      "url": "https://dev.to/forgeflows/llm-load-testing-is-burning-your-api-budget-la5",
+      "image": "/images/feed/feed-f03d0c6a0cd1.jpg",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-c294fab4c6e6",
-      "title": "The eject button is a myth: what owning an AI-built app really takes",
-      "excerpt": "AI can hand you a working prototype in a weekend. Screens render, buttons respond, data appears. It feels like the app is ninety percent done and the last step is pressing an eject button that drops y…",
-      "body": "AI can hand you a working prototype in a weekend. Screens render, buttons respond, data appears. It feels like the app is ninety percent done and the last step is pressing an eject button that drops you into clean, owned production code. That button does not exist. There is no single export that converts generated output into an app you can run, update, and answer for. What exists instead is a slower handoff: six systems you need to read, name, and take responsibility for before the app is really yours. Teams that plan for that handoff ship. Teams that wait for the button rewrite. The confusion is understandable because the old vocabulary still floats around. Expo used to talk about managed versus bare workflows and ejecting from one to the other.",
+      "id": "feed-18b72bc14e2f",
+      "title": "Building Reliable AI Agents Beyond the Hype: Lessons from $5.70/Month to 388K Stars",
+      "excerpt": "Originally published on tamiz.pro. Every wave of AI agent enthusiasm follows the same arc: early prototypes that work in isolation, rapid demos powered by generous API credits, and then a crash into p…",
+      "body": "Originally published on tamiz.pro . The Reality Behind the Hype Every wave of AI agent enthusiasm follows the same arc: early prototypes that work in isolation, rapid demos powered by generous API credits, and then a crash into production constraints where reliability becomes non-negotiable. The journey from a $5.70/month proof-of-concept to systems serving hundreds of thousands of users is littered with architectural decisions that looked clever on a weekend hackathon but collapsed under real load. This deep-dive examines the systems, data, and tooling decisions that separate toy agents from production-grade ones. We’ll trace the arc through concrete examples: cost-constrained bootstrapping, scaling reliability patterns, and the architectural shifts required when usage explodes.",
+      "author": "Tamiz Uddin",
+      "date": "2026-09-06",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 41,
+      "url": "https://dev.to/tamizuddin/building-reliable-ai-agents-beyond-the-hype-lessons-from-570month-to-388k-stars-4nk7",
+      "image": "/images/feed/feed-18b72bc14e2f.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-3f5139631f80",
+      "title": "Expo Router auth guards that survive expired sessions and deep links",
+      "excerpt": "Most Expo apps get sign-in working on the first day and get auth guards wrong for the next six months. The login screen appears, the token lands in secure storage, and everything looks fine until a us…",
+      "body": "Most Expo apps get sign-in working on the first day and get auth guards wrong for the next six months. The login screen appears, the token lands in secure storage, and everything looks fine until a user reopens the app from a push notification, lands on a protected screen with an expired session, and sees a flash of someone else's layout — or worse, a blank screen with no way back. Expo Router gives you the primitives to handle all of this: protected routes, layout-level redirects, and splash screen control that waits for async session restore. The official authentication guide covers the happy path well.",
       "author": "Dave Kurian",
       "date": "2026-09-06",
       "readTime": "2 min",
@@ -109,17 +71,36 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 50,
-      "url": "https://dev.to/davekurian/the-eject-button-is-a-myth-what-owning-an-ai-built-app-really-takes-3j3h",
-      "image": "/images/feed/feed-c294fab4c6e6.webp",
+      "xpReward": 40,
+      "url": "https://dev.to/davekurian/expo-router-auth-guards-that-survive-expired-sessions-and-deep-links-2bb1",
+      "image": "/images/feed/feed-3f5139631f80.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-512bdd3b9fc6",
-      "title": "JWT kid Parameter Attacks: SQL Injection and Path Traversal via Key ID",
-      "excerpt": "Every JWT carries a header parameter whose only job is to tell the server which key to use. The RFC does not define the format of that parameter. Most libraries do not validate what arrives in it. The…",
-      "body": "Every JWT carries a header parameter whose only job is to tell the server which key to use. The RFC does not define the format of that parameter. Most libraries do not validate what arrives in it. The kid parameter is processed before signature verification. When a server passes that value directly to a SQL query or file read without sanitization, attackers do not need to break cryptography. They redirect key selection to a value they control. kid Is a Lookup Hint the Spec Left Unguarded RFC 7517 Section 4.5 defines kid as a case-sensitive string with no required format. The spec text is explicit: the structure is \"the developer's choosing\", with no UUID requirement, no path restriction, and no character allowlist mandated.",
+      "id": "feed-eb4912290f3c",
+      "title": "AWS IAM Explained: Users, Groups, Roles and Policies",
+      "excerpt": "AWS IAM Explained: Users, Groups, Roles and Policies If you have started working with AWS, one of the first services you will come across is IAM. IAM stands for Identity and Access Management. When I…",
+      "body": "AWS IAM Explained: Users, Groups, Roles and Policies If you have started working with AWS, one of the first services you will come across is IAM. IAM stands for Identity and Access Management . When I first started learning AWS, IAM was one of those topics that looked simple at first but became confusing once I started seeing terms like users, groups, roles, policies, permissions, authentication, and authorization. So in this article, let's understand IAM from the ground up in a simple and practical way. What is AWS IAM? AWS IAM is the service that helps you control who can access your AWS resources and what they are allowed to do .",
+      "author": "Chandan Maheshwari",
+      "date": "2026-09-06",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 47,
+      "url": "https://dev.to/chandanops/aws-iam-explained-users-groups-roles-and-policies-7ic",
+      "image": "/images/feed/feed-eb4912290f3c.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-46afccdfe8ba",
+      "title": "Email Header Analysis: What SMTP Metadata Reveals About Infrastructure and Identity",
+      "excerpt": "The email your team flagged as probable phishing contains the attacker's entire infrastructure in 30 lines of plain text. Most analysts check 2 things: SPF pass/fail and the From address. The rest goe…",
+      "body": "The email your team flagged as probable phishing contains the attacker's entire infrastructure in 30 lines of plain text. Most analysts check 2 things: SPF pass/fail and the From address. The rest goes unread. Email headers are a complete infrastructure map. Every relay hop, server version, authentication result, and sending IP are preserved in plain text, and most senders, including attackers, do not know what they are broadcasting. Anyone who reads the full header has access to reconnaissance data that no endpoint tool captures. The Received Chain Is a Hop-by-Hop Confession Every Received header added by a relay includes a timestamp checkpoint and server identification that attackers cannot remove without breaking delivery, making the routing path forensically irrefutable.",
       "author": "Davi",
       "date": "2026-09-06",
       "readTime": "2 min",
@@ -127,10 +108,29 @@
       "tags": [
         "Software"
       ],
+      "featured": true,
+      "xpReward": 46,
+      "url": "https://dev.to/roxdavirox/email-header-analysis-what-smtp-metadata-reveals-about-infrastructure-and-identity-g7k",
+      "image": "/images/feed/feed-46afccdfe8ba.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-d9d47a649efe",
+      "title": "Enabling Karpenter on EKS with Terraform: What It Is, Why It's Worth It, and How to Set It Up",
+      "excerpt": "Karpenter replaces the old \"guess an instance type, set a min/max, wait for Cluster Autoscaler\" model with something simpler: watch for pods that can't schedule, and launch exactly the EC2 capacity th…",
+      "body": "Karpenter replaces the old \"guess an instance type, set a min/max, wait for Cluster Autoscaler\" model with something simpler: watch for pods that can't schedule, and launch exactly the EC2 capacity they need. This guide covers how it actually works, why teams adopt it, and the Terraform you need to wire up to run it on EKS. Prerequisites Before you begin, make sure you have: A running Amazon EKS cluster (created through either Terraform, eksctl, or the console) Terraform (v1.11+ recommended) An existing VPC and subnets Existing security groups Helm (v3+) kubectl configured to access your EKS cluster AWS CLI with credentials configured How Karpenter Actually Works Traditional autoscaling works in two disconnected layers: the Kubernetes scheduler decides where pods should go, and a separate…",
+      "author": "Ajinkya",
+      "date": "2026-09-06",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
       "featured": false,
-      "xpReward": 33,
-      "url": "https://dev.to/roxdavirox/jwt-kid-parameter-attacks-sql-injection-and-path-traversal-via-key-id-5607",
-      "image": "/images/feed/feed-512bdd3b9fc6.webp",
+      "xpReward": 42,
+      "url": "https://dev.to/ajinkya_a3/enabling-karpenter-on-eks-with-terraform-what-it-is-why-its-worth-it-and-how-to-set-it-up-5aj8",
+      "image": "/images/feed/feed-d9d47a649efe.webp",
       "source": "Dev.to",
       "isLive": true
     },
@@ -147,7 +147,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 47,
       "url": "https://www.polygon.com/netflix-haunting-bly-manor-perfect-binge-september-2026/",
       "image": "/images/feed/feed-0f0a8d35489e.jpg",
       "source": "Polygon",
@@ -166,7 +166,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 44,
       "url": "https://cleantechnica.com/2026/09/05/volkswagen-superviosory-board-approves-plan-to-slash-models-reduce-workforce-by-100000/",
       "image": "/images/feed/feed-30e286c81d5d.jpg",
       "source": "CleanTechnica",
@@ -185,7 +185,7 @@
         "Macbook"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 45,
       "url": "https://9to5mac.com/2026/09/05/macbook-ultra-pricing-lineup-rumor/",
       "image": "/images/feed/feed-a99170b7805d.jpg",
       "source": "9to5Mac",
@@ -204,7 +204,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 53,
       "url": "https://www.polygon.com/x-files-scariest-episode-home/",
       "image": "/images/feed/feed-539295fa236b.jpg",
       "source": "Polygon",
@@ -223,7 +223,7 @@
         "Gpt"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 45,
       "url": "https://openai.robocurve.org/gpt-6-astra/",
       "image": "/images/feed/feed-dd70422f29a2.jpg",
       "source": "Hacker News",
@@ -242,7 +242,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 52,
       "url": "https://www.polygon.com/fire-emblem-echoes-shadow-valentia-retrospective/",
       "image": "/images/feed/feed-8952e3b92a87.jpg",
       "source": "Polygon",
@@ -261,7 +261,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 35,
       "url": "https://9to5mac.com/2026/09/05/ipados-27-still-needs-simpler-multitasking-heres-what-id-like-to-see/",
       "image": "/images/feed/feed-0debf575ccf8.jpg",
       "source": "9to5Mac",
@@ -280,7 +280,7 @@
         "Nintendo"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 45,
       "url": "https://www.ign.com/articles/how-to-watch-the-september-2026-nintendo-direct-and-zelda-40th-anniversary-direct",
       "image": "/images/feed/feed-004de12314ca.jpg",
       "source": "IGN",
@@ -299,7 +299,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 50,
       "url": "https://www.polygon.com/quentin-tarantino-inglourious-basterds-streaming-on-hulu/",
       "image": "/images/feed/feed-c75783ff6f96.jpg",
       "source": "Polygon",
@@ -318,7 +318,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 42,
       "url": "https://www.ign.com/articles/left-4-dead-2-dev-admits-valve-intentionally-leaked-its-own-trailer-after-the-esrb-blocked-it-from-release",
       "image": "/images/feed/feed-e6e5351dab8c.png",
       "source": "IGN",
@@ -337,7 +337,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 46,
       "url": "https://www.polygon.com/blood-dawnwalker-open-world-opinion/",
       "image": "/images/feed/feed-c1f636a9cee5.jpg",
       "source": "Polygon",
@@ -356,7 +356,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 35,
       "url": "https://techcrunch.com/2026/09/05/seattle-times-and-newsday-are-the-latest-publications-to-sue-openai-and-microsoft/",
       "image": "/images/feed/feed-8a7e0f31a983.jpg",
       "source": "TechCrunch",
@@ -375,7 +375,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 36,
       "url": "https://www.engadget.com/2248094/is-steam-deck-still-worth-it/",
       "image": "/images/feed/feed-6e57b25fd665.jpg",
       "source": "Engadget",
@@ -394,7 +394,7 @@
         "Macbook"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 41,
       "url": "https://www.engadget.com/2247996/how-to-find-macbook-diagnostic-menu/",
       "image": "/images/feed/feed-b1c994a9613e.jpg",
       "source": "Engadget",
@@ -413,7 +413,7 @@
         "Orbit"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 39,
       "url": "https://www.cnet.com/tech/gaming/orbitals-review-nintendo-switch-2/",
       "image": "/images/feed/feed-d94494336f88.jpg",
       "source": "CNET",
@@ -432,7 +432,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 42,
       "url": "https://www.engadget.com/2251725/openai-responds-after-report-exposed-another-incident-in-which-its-ai-agents-went-rogue/",
       "image": "/images/feed/feed-ac46f42c8990.jpg",
       "source": "Engadget",
@@ -451,7 +451,7 @@
         "Iphone"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 49,
       "url": "https://www.theverge.com/tech/990868/iphone-handoff-ios-27",
       "image": "/images/feed/feed-2add6851b904.jpg",
       "source": "The Verge",
@@ -471,7 +471,7 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 45,
       "url": "https://thehackernews.com/2026/09/unpatched-magento-and-adobe-commerce.html",
       "image": "/images/feed/feed-c175e3560e60.jpg",
       "source": "The Hacker News",
@@ -490,7 +490,7 @@
         "Laptop"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 47,
       "url": "https://www.engadget.com/2247940/reason-why-rugged-laptops-rarely-bought-by-consumers/",
       "image": "/images/feed/feed-548921c0e559.jpg",
       "source": "Engadget",
@@ -509,7 +509,7 @@
         "Gemini"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 49,
       "url": "https://techcrunch.com/2026/09/05/hikers-rescued-after-using-google-gemini-for-planning/",
       "image": "/images/feed/feed-f774e48a95a8.jpg",
       "source": "TechCrunch",
@@ -529,7 +529,7 @@
         "Hybrid"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 51,
       "url": "https://cleantechnica.com/2026/09/05/is-owning-a-plug-in-hybrid-like-kissing-your-sister/",
       "image": "/images/feed/feed-f2035d1ec4b0.jpg",
       "source": "CleanTechnica",
@@ -548,7 +548,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 47,
       "url": "https://techcrunch.com/2026/09/05/openai-confirms-wiki-incident-says-its-working-on-a-framework-for-more-disclosure/",
       "image": "/images/feed/feed-669fdcb55695.jpg",
       "source": "TechCrunch",
@@ -567,7 +567,7 @@
         "Breach"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 48,
       "url": "https://thehackernews.com/2026/09/attackers-breached-jetbrains-cadence.html",
       "image": "/images/feed/feed-1a17e912ec35.jpg",
       "source": "The Hacker News",
@@ -586,7 +586,7 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 44,
       "url": "https://cleantechnica.com/2026/09/05/10-facts-about-the-tesla-cybercab/",
       "image": "/images/feed/feed-baf7191ec37d.jpg",
       "source": "CleanTechnica",
@@ -605,7 +605,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 33,
       "url": "https://thehackernews.com/2026/09/critical-vmware-workstation-and-fusion.html",
       "image": "/images/feed/feed-98d96dc03a65.jpg",
       "source": "The Hacker News",
@@ -624,7 +624,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 43,
       "url": "https://electrek.co/2026/09/05/answering-random-redditors-questions-with-professional-backup-home-solar-edition/",
       "image": "/images/feed/feed-8f22fa7d6ba5.jpg",
       "source": "Electrek",
@@ -643,7 +643,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 51,
       "url": "https://cleantechnica.com/2026/09/05/renewable-energy-virtual-power-plants-us-texas-octopus/",
       "image": "/images/feed/feed-aba4f2f37374.png",
       "source": "CleanTechnica",
@@ -662,7 +662,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 46,
       "url": "https://www.space.com/stargazing/venus-is-disappearing-from-the-evening-sky-heres-how-to-see-it-while-you-can",
       "image": "/images/feed/feed-4a62daf7b7dc.jpg",
       "source": "Space.com",
@@ -681,7 +681,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 46,
       "url": "https://www.bleepingcomputer.com/news/security/over-5-400-hacked-sites-serve-clickfix-payloads-stored-on-the-blockchain/",
       "image": "/images/feed/feed-3fb566f8d649.jpg",
       "source": "BleepingComputer",
@@ -700,7 +700,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 43,
       "url": "https://electrek.co/2026/09/05/when-public-charging-stations-arent-so-public-and-why-it-matters/",
       "image": "/images/feed/feed-04e911994b12.jpg",
       "source": "Electrek",
@@ -719,7 +719,7 @@
         "Breach"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 44,
       "url": "https://thehackernews.com/2026/09/trezor-says-shipmonk-breach-exposed.html",
       "image": "/images/feed/feed-1e376156c6ab.jpg",
       "source": "The Hacker News",
@@ -738,7 +738,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 49,
       "url": "https://electrek.co/2026/09/05/e-quipment-highlight-bluetti-pioneer-5000-e-generator/",
       "image": "/images/feed/feed-4933b3e879a6.jpg",
       "source": "Electrek",
@@ -757,7 +757,7 @@
         "Orbit"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 37,
       "url": "https://www.space.com/space-exploration/launches-spacecraft/isar-aerospace-second-launch-norway-andoya-spaceport-spectrum-rocket",
       "image": "/images/feed/feed-241bb99fc756.jpg",
       "source": "Space.com",
@@ -776,7 +776,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 31,
       "url": "https://www.space.com/entertainment/space-toys-lego/this-lego-star-wars-ucs-at-st-set-is-cheaper-than-ever-and-ill-always-love-this-chicken-walker",
       "image": "/images/feed/feed-e4988d7e181a.jpg",
       "source": "Space.com",
@@ -795,7 +795,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 38,
       "url": "https://www.space.com/entertainment/space-movies-shows/this-week-in-space-podcast-episode-226-who-owns-the-moon",
       "image": "/images/feed/feed-d8264577493f.jpg",
       "source": "Space.com",
@@ -815,7 +815,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 36,
       "url": "https://www.space.com/space-exploration/on-this-day-in-space-sept-5-1977-nasa-launches-voyager-1-on-epic-journey-across-the-solar-system",
       "image": "/images/feed/feed-723efd9e15a7.jpg",
       "source": "Space.com",
@@ -834,7 +834,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 34,
       "url": "https://www.theverge.com/ai-artificial-intelligence/990773/openai-german-wiki-incident",
       "image": "/images/feed/feed-b53a6cba2209.jpg",
       "source": "The Verge",
@@ -853,7 +853,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 52,
       "url": "https://www.bleepingcomputer.com/news/security/openai-admits-it-didnt-disclose-rogue-ai-wiki-hijacking-incident/",
       "image": "/images/feed/feed-ab1309d1642e.jpg",
       "source": "BleepingComputer",
@@ -872,7 +872,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 34,
       "url": "https://www.wired.com/story/security-news-this-week-openai-agents-hacked-another-website/",
       "image": "/images/feed/feed-b5a0739254fc.jpg",
       "source": "Wired",
@@ -892,7 +892,7 @@
         "Spacecraft"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 33,
       "url": "https://www.space.com/technology/nasa-funds-spacecraft-concept-that-aims-to-map-minerals-on-solar-system-planets-and-moons",
       "image": "/images/feed/feed-0ffd0b520139.jpg",
       "source": "Space.com",
@@ -911,7 +911,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 45,
       "url": "https://thehackernews.com/2026/09/thousands-of-openai-agents-quietly.html",
       "image": "/images/feed/feed-be6a11bb57fa.jpg",
       "source": "The Hacker News",
@@ -930,7 +930,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 47,
       "url": "https://techcrunch.com/2026/09/04/openais-rogue-agents-keep-escaping-with-no-formal-process-to-investigate-them/",
       "image": "/images/feed/feed-2180a1fa6f13.jpg",
       "source": "TechCrunch",
@@ -938,13 +938,13 @@
     }
   ],
   "breakingNews": [
-    "DEV.TO: Stop Hand-Partitioning Disks: Practical systemd-repart on Linux",
-    "DEV.TO: PKCE Downgrade Attack: When the Authorization Server Accepts Both Flows",
-    "DEV.TO: HMAC Proves Origin, Not Freshness: Replay Attacks Against Signed APIs",
-    "DEV.TO: OAuth Flow CSRF: How a Missing State Parameter Enables Forced Authorization",
-    "DEV.TO: API Token in Query Parameter: Six Places the Credential Persists Without You Knowing",
-    "DEV.TO: The eject button is a myth: what owning an AI-built app really takes",
-    "DEV.TO: JWT kid Parameter Attacks: SQL Injection and Path Traversal via Key ID",
+    "DEV.TO: Customize the Date and Time on the Linux Mint Cinnamon Taskbar",
+    "DEV.TO: LLM Load Testing Is Burning Your API Budget",
+    "DEV.TO: Building Reliable AI Agents Beyond the Hype: Lessons from $5.70/Month to 388K Stars",
+    "DEV.TO: Expo Router auth guards that survive expired sessions and deep links",
+    "DEV.TO: AWS IAM Explained: Users, Groups, Roles and Policies",
+    "DEV.TO: Email Header Analysis: What SMTP Metadata Reveals About Infrastructure and Identity",
+    "DEV.TO: Enabling Karpenter on EKS with Terraform: What It Is, Why It's Worth It, and How to Set It Up",
     "POLYGON: Netflix's Near-Perfect 9-Part Gothic Thriller Is So Good You'll Finish in One Weekend",
     "CLEANTECHNICA: Volkswagen Superviosory Board Approves Plan To Slash Models & Reduce Workforce By 100,000",
     "9TO5MAC: This new reveal suggests MacBook Ultra might cost more than we think"
