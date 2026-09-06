@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-09-06T04:14:07.305Z",
+  "fetchedAt": "2026-09-06T05:12:11.459Z",
   "articles": [
     {
-      "id": "feed-b9612cb2a2be",
-      "title": "DDoS Protection & Rate Limiting Abuse Cases",
-      "excerpt": "One-liner: A DDoS (Distributed Denial of Service) attack overwhelms your system with fake traffic until real users can't get through. Defense is layered — no single solution works alone. ❓ Types of At…",
-      "body": "One-liner: A DDoS (Distributed Denial of Service) attack overwhelms your system with fake traffic until real users can't get through. Defense is layered — no single solution works alone. ❓ Types of Attacks Type How Target Volumetric Flood bandwidth (Gbps UDP) Network layer Protocol Exhaust TCP connections (SYN flood) Transport layer Application (L7) HTTP flood, slowloris Your app Credential stuffing Try billions of stolen passwords Auth endpoints Scraping Extract all your data Business logic Account enumeration Guess valid emails User existence 🧱 Defense in Depth (Layers) Internet │ ▼ ┌──────────────────────────────────┐ │ CDN / DDoS Scrubbing Center │ ← Cloudflare, AWS Shield │ Filters volumetric attacks │ Absorbs Tbps-scale traffic │ IP reputation, anycast routing │ └──────────────────┬…",
-      "author": "Gouranga Das Samrat",
+      "id": "feed-4679357924b8",
+      "title": "Stop Hand-Partitioning Disks: Practical systemd-repart on Linux",
+      "excerpt": "Stop Hand-Partitioning Disks: Practical systemd-repart on Linux You ship a minimal OS image. The target disk is 64 GB, 256 GB, or 2 TB. Root is still 8 GB. Swap does not exist. /home is not a partitio…",
+      "body": "Stop Hand-Partitioning Disks: Practical systemd-repart on Linux You ship a minimal OS image. The target disk is 64 GB, 256 GB, or 2 TB. Root is still 8 GB. Swap does not exist. /home is not a partition yet. The usual fix is a one-off parted / gdisk script, a fragile installer hook, or “remember to resize after first boot.” That does not scale across VMs, bare metal, and image-based fleets. systemd-repart turns partition layout into declarative config: GPT definitions under repart.d/*.conf , incremental grow/add on every boot, optional format/encrypt/populate while building disk images (DDIs), and no shrink/move/delete of existing data by default.",
+      "author": "Lyra",
       "date": "2026-09-06",
       "readTime": "2 min",
       "section": "software",
@@ -14,18 +14,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 47,
-      "url": "https://dev.to/gouranga-das-khulna/ddos-protection-rate-limiting-abuse-cases-3aac",
-      "image": "/images/feed/feed-b9612cb2a2be.webp",
+      "xpReward": 54,
+      "url": "https://dev.to/lyraalishaikh/stop-hand-partitioning-disks-practical-systemd-repart-on-linux-58dp",
+      "image": "/images/feed/feed-4679357924b8.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-f824778ed57b",
-      "title": "Checking If a Business's Google Profile Actually Matches Its Own Website",
-      "excerpt": "If you do local SEO work, you've run into this: a client's Google Business Profile says one phone number, their website footer says another, and nobody noticed until a customer called the wrong number…",
-      "body": "If you do local SEO work, you've run into this: a client's Google Business Profile says one phone number, their website footer says another, and nobody noticed until a customer called the wrong number. Or the postal code on the GBP listing is a leftover from an old office. This kind of drift is called a NAP (Name, Address, Phone) inconsistency, and it's widely cited as a local search ranking factor. But checking it by hand means opening every listing and every website side by side. I built Google Maps NAP Consistency Checker , an Apify Actor that takes Google Maps scraper output, fetches each business's own website (lightly: homepage plus one likely subpage), and checks whether the name, postal code, and phone number on the Google Business Profile actually show up on the site.",
-      "author": "orange",
+      "id": "feed-2820c597fd79",
+      "title": "PKCE Downgrade Attack: When the Authorization Server Accepts Both Flows",
+      "excerpt": "Two CVEs against the same identity provider, filed six months apart. CVE-2023-48228 and CVE-2024-23647, both against authentik, describe the same failure: the server accepted PKCE in one request and i…",
+      "body": "Two CVEs against the same identity provider, filed six months apart. CVE-2023-48228 and CVE-2024-23647, both against authentik, describe the same failure: the server accepted PKCE in one request and its absence in the next. RFC 7636 had been published nine years before the first advisory. PKCE binds an authorization code to a secret the client generates before the flow starts. Authorization servers that accept flows without code_challenge downgrade clients to the pre-PKCE threat model. The same applies when they accept token exchanges without code_verifier after a challenge was registered. RFC 9700 mandates enforcement at both endpoints. Most servers ship with enforcement disabled.",
+      "author": "Davi",
       "date": "2026-09-06",
       "readTime": "2 min",
       "section": "software",
@@ -33,9 +33,104 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 44,
-      "url": "https://dev.to/orange_k/checking-if-a-businesss-google-profile-actually-matches-its-own-website-413o",
-      "image": "/images/feed/feed-f824778ed57b.webp",
+      "xpReward": 34,
+      "url": "https://dev.to/roxdavirox/pkce-downgrade-attack-when-the-authorization-server-accepts-both-flows-199m",
+      "image": "/images/feed/feed-2820c597fd79.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-7abd649f644c",
+      "title": "HMAC Proves Origin, Not Freshness: Replay Attacks Against Signed APIs",
+      "excerpt": "HMAC Proves Origin, Not Freshness: Replay Attacks Against Signed APIs The signature verified. The secret was correct. The payment processed for the fourth time, from a request captured three hours ear…",
+      "body": "HMAC Proves Origin, Not Freshness: Replay Attacks Against Signed APIs The signature verified. The secret was correct. The payment processed for the fourth time, from a request captured three hours earlier. HMAC proves that a request came from someone who knows the secret. It does not prove when. APIs that sign requests without including a timestamp in the signed payload accept valid replays indefinitely. One captured request becomes a standing credential for that action. HMAC Signs the Message, Not the Moment HMAC-SHA256 is deterministic: same key plus same message equals the same MAC, always. That property is the mechanism's strength for origin authentication. It is also why replay is possible when no freshness field exists in the signed payload.",
+      "author": "Davi",
+      "date": "2026-09-06",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 48,
+      "url": "https://dev.to/roxdavirox/hmac-proves-origin-not-freshness-replay-attacks-against-signed-apis-1e53",
+      "image": "/images/feed/feed-7abd649f644c.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-cafb7ac84b45",
+      "title": "OAuth Flow CSRF: How a Missing State Parameter Enables Forced Authorization",
+      "excerpt": "The OAuth flow has four participants: client, authorization server, resource server, and, when state is absent, the attacker. RFC 6749 made the only CSRF control in the authorization code flow optiona…",
+      "body": "The OAuth flow has four participants: client, authorization server, resource server, and, when state is absent, the attacker. RFC 6749 made the only CSRF control in the authorization code flow optional. This is not theoretical. It is CVE-2019-10315, CVE-2023-31999, and most OAuth clients running in production today. State Binds the Flow to the Session. RFC 6749 Made It Optional The state parameter is the only mechanism that ties an OAuth callback to the session that initiated it. Without it, any authorization response can be delivered to any session. RFC 6749 §4.1.1 lists state as OPTIONAL in the authorization request. Section 10.12 says clients SHOULD use state to protect against CSRF (SHOULD, not MUST).",
+      "author": "Davi",
+      "date": "2026-09-06",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 42,
+      "url": "https://dev.to/roxdavirox/oauth-flow-csrf-how-a-missing-state-parameter-enables-forced-authorization-59am",
+      "image": "/images/feed/feed-cafb7ac84b45.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-d14f5b12f09e",
+      "title": "API Token in Query Parameter: Six Places the Credential Persists Without You Knowing",
+      "excerpt": "The developer adds ?api_key= to the URL because it is the simplest way to test an endpoint. The credential works. The endpoint returns data. What the developer does not see: that token was written int…",
+      "body": "The developer adds ?api_key= to the URL because it is the simplest way to test an endpoint. The credential works. The endpoint returns data. What the developer does not see: that token was written into six distinct stores. It was also queued for transmission to a third-party monitoring service. The assumption that a query parameter token is \"just a temporary credential\" ignores where it goes before the server even processes it. When a client sends GET /api/data?token=sk_live_abc123 , the credential has already been copied to six distinct stores. One Request, Six Copies A URL-embedded token is not one secret transmitted once. It is one secret distributed to every system that touches the HTTP request before and after the server receives it. 1. Server access log.",
+      "author": "Davi",
+      "date": "2026-09-06",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Api"
+      ],
+      "featured": true,
+      "xpReward": 42,
+      "url": "https://dev.to/roxdavirox/api-token-in-query-parameter-six-places-the-credential-persists-without-you-knowing-4j73",
+      "image": "/images/feed/feed-d14f5b12f09e.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-c294fab4c6e6",
+      "title": "The eject button is a myth: what owning an AI-built app really takes",
+      "excerpt": "AI can hand you a working prototype in a weekend. Screens render, buttons respond, data appears. It feels like the app is ninety percent done and the last step is pressing an eject button that drops y…",
+      "body": "AI can hand you a working prototype in a weekend. Screens render, buttons respond, data appears. It feels like the app is ninety percent done and the last step is pressing an eject button that drops you into clean, owned production code. That button does not exist. There is no single export that converts generated output into an app you can run, update, and answer for. What exists instead is a slower handoff: six systems you need to read, name, and take responsibility for before the app is really yours. Teams that plan for that handoff ship. Teams that wait for the button rewrite. The confusion is understandable because the old vocabulary still floats around. Expo used to talk about managed versus bare workflows and ejecting from one to the other.",
+      "author": "Dave Kurian",
+      "date": "2026-09-06",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 50,
+      "url": "https://dev.to/davekurian/the-eject-button-is-a-myth-what-owning-an-ai-built-app-really-takes-3j3h",
+      "image": "/images/feed/feed-c294fab4c6e6.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-512bdd3b9fc6",
+      "title": "JWT kid Parameter Attacks: SQL Injection and Path Traversal via Key ID",
+      "excerpt": "Every JWT carries a header parameter whose only job is to tell the server which key to use. The RFC does not define the format of that parameter. Most libraries do not validate what arrives in it. The…",
+      "body": "Every JWT carries a header parameter whose only job is to tell the server which key to use. The RFC does not define the format of that parameter. Most libraries do not validate what arrives in it. The kid parameter is processed before signature verification. When a server passes that value directly to a SQL query or file read without sanitization, attackers do not need to break cryptography. They redirect key selection to a value they control. kid Is a Lookup Hint the Spec Left Unguarded RFC 7517 Section 4.5 defines kid as a case-sensitive string with no required format. The spec text is explicit: the structure is \"the developer's choosing\", with no UUID requirement, no path restriction, and no character allowlist mandated.",
+      "author": "Davi",
+      "date": "2026-09-06",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 33,
+      "url": "https://dev.to/roxdavirox/jwt-kid-parameter-attacks-sql-injection-and-path-traversal-via-key-id-5607",
+      "image": "/images/feed/feed-512bdd3b9fc6.webp",
       "source": "Dev.to",
       "isLive": true
     },
@@ -51,106 +146,11 @@
       "tags": [
         "Gaming"
       ],
-      "featured": true,
-      "xpReward": 30,
+      "featured": false,
+      "xpReward": 53,
       "url": "https://www.polygon.com/netflix-haunting-bly-manor-perfect-binge-september-2026/",
       "image": "/images/feed/feed-0f0a8d35489e.jpg",
       "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-65cca0457a70",
-      "title": "My First Python Project: Building a Student Performance Evaluator",
-      "excerpt": "I Built My First Python Student Evaluation Program — What Would You Improve? I’ve recently been learning Python, and I built a small student evaluation program as a practical exercise to apply the con…",
-      "body": "I Built My First Python Student Evaluation Program — What Would You Improve? I’ve recently been learning Python, and I built a small student evaluation program as a practical exercise to apply the concepts I’ve learned so far. The program: Calculates the average of Mathematics, Physics, and Chemistry marks. Evaluates academic performance using if , elif , and else . Evaluates attendance independently from academic performance. Displays the evaluation criteria used by the program. Uses round() to display the calculated average to two decimal places. One design decision I made deliberately was to keep academic performance and attendance as two independent decision systems . For example, a student could have excellent marks but poor attendance.",
-      "author": "Ram-Tech-cd",
-      "date": "2026-09-06",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Python"
-      ],
-      "featured": true,
-      "xpReward": 52,
-      "url": "https://dev.to/shree_ram_64fb22e7aece15b/my-first-python-project-building-a-student-performance-evaluator-1oe6",
-      "image": "/images/feed/feed-65cca0457a70.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-00fa374be1d5",
-      "title": "Exit code 0 is a lie: 7 ways my unattended automation silently did nothing",
-      "excerpt": "I run about thirty scheduled jobs on a single Windows box. Some are scrapers, some generate content, some are trading bots, some just check that the other jobs are alive. Most of them were written and…",
-      "body": "I run about thirty scheduled jobs on a single Windows box. Some are scrapers, some generate content, some are trading bots, some just check that the other jobs are alive. Most of them were written and are maintained by an AI coding agent that I let run unattended. Over three months, every one of the failures below reported success . The scheduler said LastTaskResult = 0 . The logs looked fine or didn't exist. And nothing had happened. If you only take one thing from this post: stop checking exit codes, start checking artifacts. I'll get to why at the end. First, the seven ways I got lied to. 1.",
-      "author": "Youfu Hsu",
-      "date": "2026-09-06",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 39,
-      "url": "https://dev.to/youfuhsu/exit-code-0-is-a-lie-7-ways-my-unattended-automation-silently-did-nothing-501j",
-      "image": "/images/feed/feed-00fa374be1d5.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-ceabd47f13a3",
-      "title": "What I Wish I Knew Before Taking My First Freelance Client",
-      "excerpt": "When I started freelancing, I thought the hard part would be the code. It wasn't. The hard part was everything around the code — scoping the work, setting expectations, and figuring out how to work wi…",
-      "body": "When I started freelancing, I thought the hard part would be the code. It wasn't. The hard part was everything around the code — scoping the work, setting expectations, and figuring out how to work with a client instead of just for one. Here are a few things I wish someone had told me earlier. A proposal is not just a price tag My first instinct was to think of a proposal as \"here's what I'll build, here's what it costs.\" Once I started writing real client proposals — website builds, booking systems, registration platforms — I realized a good proposal is really a shared understanding of scope: what's included, what isn't, what the timeline looks like phase by phase, and what \"done\" actually means.",
-      "author": "bilaal muhammad",
-      "date": "2026-09-06",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 53,
-      "url": "https://dev.to/bilaal_muhammad_5dcffc369/what-i-wish-i-knew-before-taking-my-first-freelance-client-2djb",
-      "image": "/images/feed/feed-ceabd47f13a3.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-3272ac96699f",
-      "title": "Catch Bad Validation Tags at Compile Time with checkerlint",
-      "excerpt": "Struct tags are just strings — a typo'd checker name, a wrong-typed field, or a renamed cross-field target all compile fine and fail silently at runtime. checkerlint catches all three before you ship.…",
-      "body": "Struct tags are just strings — a typo'd checker name, a wrong-typed field, or a renamed cross-field target all compile fine and fail silently at runtime. checkerlint catches all three before you ship. Struct tags are string literals. The Go compiler checks that your struct compiles — it has no idea what checkers:\"eq-field:Passwrd\" means, so a typo in a field name, a checker applied to a field of the wrong type, or a renamed field that a cross-field rule still points at all compile fine. They fail later, at runtime, sometimes silently, sometimes as a panic in the middle of handling a request.",
-      "author": "Onur Cinar",
-      "date": "2026-09-06",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 46,
-      "url": "https://dev.to/onurcinar/catch-bad-validation-tags-at-compile-time-with-checkerlint-2iaa",
-      "image": "/images/feed/feed-3272ac96699f.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-abaf9e8db399",
-      "title": "Open-source tool: Practical experience in converting large quantities of SQL code syntax : 'PIVOT' function rewrite (Case 1)",
-      "excerpt": "Background : In migration projects involving different databases, incompatibility of SQL syntax is often encountered. Question : If there is a large amount of code that needs to be rewritten, manual p…",
-      "body": "Background : In migration projects involving different databases, incompatibility of SQL syntax is often encountered. Question : If there is a large amount of code that needs to be rewritten, manual processing would be time-consuming and prone to errors. Is it possible to achieve automatic conversion of code syntax in large quantities through tools? Solution : The open-source tool ZGLanguage can be utilized to perform automated conversion of SQL code in large batches.",
-      "author": "zgl-20053779",
-      "date": "2026-09-06",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 36,
-      "url": "https://dev.to/zgl20053779/open-source-tool-practical-experience-in-converting-large-quantities-of-sql-code-syntax-pivot-1lk",
-      "image": "/images/feed/feed-abaf9e8db399.webp",
-      "source": "Dev.to",
       "isLive": true
     },
     {
@@ -166,7 +166,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 42,
       "url": "https://cleantechnica.com/2026/09/05/volkswagen-superviosory-board-approves-plan-to-slash-models-reduce-workforce-by-100000/",
       "image": "/images/feed/feed-30e286c81d5d.jpg",
       "source": "CleanTechnica",
@@ -185,7 +185,7 @@
         "Macbook"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 50,
       "url": "https://9to5mac.com/2026/09/05/macbook-ultra-pricing-lineup-rumor/",
       "image": "/images/feed/feed-a99170b7805d.jpg",
       "source": "9to5Mac",
@@ -204,7 +204,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 49,
       "url": "https://www.polygon.com/x-files-scariest-episode-home/",
       "image": "/images/feed/feed-539295fa236b.jpg",
       "source": "Polygon",
@@ -223,7 +223,7 @@
         "Gpt"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 35,
       "url": "https://openai.robocurve.org/gpt-6-astra/",
       "image": "/images/feed/feed-dd70422f29a2.jpg",
       "source": "Hacker News",
@@ -242,7 +242,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 42,
       "url": "https://www.polygon.com/fire-emblem-echoes-shadow-valentia-retrospective/",
       "image": "/images/feed/feed-8952e3b92a87.jpg",
       "source": "Polygon",
@@ -261,7 +261,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 54,
       "url": "https://9to5mac.com/2026/09/05/ipados-27-still-needs-simpler-multitasking-heres-what-id-like-to-see/",
       "image": "/images/feed/feed-0debf575ccf8.jpg",
       "source": "9to5Mac",
@@ -280,7 +280,7 @@
         "Nintendo"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 47,
       "url": "https://www.ign.com/articles/how-to-watch-the-september-2026-nintendo-direct-and-zelda-40th-anniversary-direct",
       "image": "/images/feed/feed-004de12314ca.jpg",
       "source": "IGN",
@@ -299,7 +299,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 39,
       "url": "https://www.polygon.com/quentin-tarantino-inglourious-basterds-streaming-on-hulu/",
       "image": "/images/feed/feed-c75783ff6f96.jpg",
       "source": "Polygon",
@@ -318,7 +318,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 46,
       "url": "https://www.ign.com/articles/left-4-dead-2-dev-admits-valve-intentionally-leaked-its-own-trailer-after-the-esrb-blocked-it-from-release",
       "image": "/images/feed/feed-e6e5351dab8c.png",
       "source": "IGN",
@@ -337,7 +337,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 36,
       "url": "https://www.polygon.com/blood-dawnwalker-open-world-opinion/",
       "image": "/images/feed/feed-c1f636a9cee5.jpg",
       "source": "Polygon",
@@ -356,7 +356,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 44,
       "url": "https://techcrunch.com/2026/09/05/seattle-times-and-newsday-are-the-latest-publications-to-sue-openai-and-microsoft/",
       "image": "/images/feed/feed-8a7e0f31a983.jpg",
       "source": "TechCrunch",
@@ -375,7 +375,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 45,
       "url": "https://www.engadget.com/2248094/is-steam-deck-still-worth-it/",
       "image": "/images/feed/feed-6e57b25fd665.jpg",
       "source": "Engadget",
@@ -394,7 +394,7 @@
         "Macbook"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 53,
       "url": "https://www.engadget.com/2247996/how-to-find-macbook-diagnostic-menu/",
       "image": "/images/feed/feed-b1c994a9613e.jpg",
       "source": "Engadget",
@@ -413,7 +413,7 @@
         "Orbit"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 51,
       "url": "https://www.cnet.com/tech/gaming/orbitals-review-nintendo-switch-2/",
       "image": "/images/feed/feed-d94494336f88.jpg",
       "source": "CNET",
@@ -432,7 +432,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 49,
       "url": "https://www.engadget.com/2251725/openai-responds-after-report-exposed-another-incident-in-which-its-ai-agents-went-rogue/",
       "image": "/images/feed/feed-ac46f42c8990.jpg",
       "source": "Engadget",
@@ -451,7 +451,7 @@
         "Iphone"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 51,
       "url": "https://www.theverge.com/tech/990868/iphone-handoff-ios-27",
       "image": "/images/feed/feed-2add6851b904.jpg",
       "source": "The Verge",
@@ -471,7 +471,7 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 48,
       "url": "https://thehackernews.com/2026/09/unpatched-magento-and-adobe-commerce.html",
       "image": "/images/feed/feed-c175e3560e60.jpg",
       "source": "The Hacker News",
@@ -490,7 +490,7 @@
         "Laptop"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 30,
       "url": "https://www.engadget.com/2247940/reason-why-rugged-laptops-rarely-bought-by-consumers/",
       "image": "/images/feed/feed-548921c0e559.jpg",
       "source": "Engadget",
@@ -509,7 +509,7 @@
         "Gemini"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 30,
       "url": "https://techcrunch.com/2026/09/05/hikers-rescued-after-using-google-gemini-for-planning/",
       "image": "/images/feed/feed-f774e48a95a8.jpg",
       "source": "TechCrunch",
@@ -529,7 +529,7 @@
         "Hybrid"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 42,
       "url": "https://cleantechnica.com/2026/09/05/is-owning-a-plug-in-hybrid-like-kissing-your-sister/",
       "image": "/images/feed/feed-f2035d1ec4b0.jpg",
       "source": "CleanTechnica",
@@ -548,7 +548,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 46,
       "url": "https://techcrunch.com/2026/09/05/openai-confirms-wiki-incident-says-its-working-on-a-framework-for-more-disclosure/",
       "image": "/images/feed/feed-669fdcb55695.jpg",
       "source": "TechCrunch",
@@ -567,7 +567,7 @@
         "Breach"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 31,
       "url": "https://thehackernews.com/2026/09/attackers-breached-jetbrains-cadence.html",
       "image": "/images/feed/feed-1a17e912ec35.jpg",
       "source": "The Hacker News",
@@ -586,7 +586,7 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 35,
       "url": "https://cleantechnica.com/2026/09/05/10-facts-about-the-tesla-cybercab/",
       "image": "/images/feed/feed-baf7191ec37d.jpg",
       "source": "CleanTechnica",
@@ -605,7 +605,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 41,
       "url": "https://thehackernews.com/2026/09/critical-vmware-workstation-and-fusion.html",
       "image": "/images/feed/feed-98d96dc03a65.jpg",
       "source": "The Hacker News",
@@ -643,7 +643,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 47,
       "url": "https://cleantechnica.com/2026/09/05/renewable-energy-virtual-power-plants-us-texas-octopus/",
       "image": "/images/feed/feed-aba4f2f37374.png",
       "source": "CleanTechnica",
@@ -662,7 +662,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 37,
       "url": "https://www.space.com/stargazing/venus-is-disappearing-from-the-evening-sky-heres-how-to-see-it-while-you-can",
       "image": "/images/feed/feed-4a62daf7b7dc.jpg",
       "source": "Space.com",
@@ -681,7 +681,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 34,
       "url": "https://www.bleepingcomputer.com/news/security/over-5-400-hacked-sites-serve-clickfix-payloads-stored-on-the-blockchain/",
       "image": "/images/feed/feed-3fb566f8d649.jpg",
       "source": "BleepingComputer",
@@ -700,7 +700,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 47,
       "url": "https://electrek.co/2026/09/05/when-public-charging-stations-arent-so-public-and-why-it-matters/",
       "image": "/images/feed/feed-04e911994b12.jpg",
       "source": "Electrek",
@@ -738,7 +738,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 34,
       "url": "https://electrek.co/2026/09/05/e-quipment-highlight-bluetti-pioneer-5000-e-generator/",
       "image": "/images/feed/feed-4933b3e879a6.jpg",
       "source": "Electrek",
@@ -757,7 +757,7 @@
         "Orbit"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 34,
       "url": "https://www.space.com/space-exploration/launches-spacecraft/isar-aerospace-second-launch-norway-andoya-spaceport-spectrum-rocket",
       "image": "/images/feed/feed-241bb99fc756.jpg",
       "source": "Space.com",
@@ -776,7 +776,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 40,
       "url": "https://www.space.com/entertainment/space-toys-lego/this-lego-star-wars-ucs-at-st-set-is-cheaper-than-ever-and-ill-always-love-this-chicken-walker",
       "image": "/images/feed/feed-e4988d7e181a.jpg",
       "source": "Space.com",
@@ -795,7 +795,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 51,
       "url": "https://www.space.com/entertainment/space-movies-shows/this-week-in-space-podcast-episode-226-who-owns-the-moon",
       "image": "/images/feed/feed-d8264577493f.jpg",
       "source": "Space.com",
@@ -815,7 +815,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 45,
       "url": "https://www.space.com/space-exploration/on-this-day-in-space-sept-5-1977-nasa-launches-voyager-1-on-epic-journey-across-the-solar-system",
       "image": "/images/feed/feed-723efd9e15a7.jpg",
       "source": "Space.com",
@@ -834,7 +834,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 32,
       "url": "https://www.theverge.com/ai-artificial-intelligence/990773/openai-german-wiki-incident",
       "image": "/images/feed/feed-b53a6cba2209.jpg",
       "source": "The Verge",
@@ -853,7 +853,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 49,
       "url": "https://www.bleepingcomputer.com/news/security/openai-admits-it-didnt-disclose-rogue-ai-wiki-hijacking-incident/",
       "image": "/images/feed/feed-ab1309d1642e.jpg",
       "source": "BleepingComputer",
@@ -872,7 +872,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 48,
       "url": "https://www.wired.com/story/security-news-this-week-openai-agents-hacked-another-website/",
       "image": "/images/feed/feed-b5a0739254fc.jpg",
       "source": "Wired",
@@ -892,7 +892,7 @@
         "Spacecraft"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 51,
       "url": "https://www.space.com/technology/nasa-funds-spacecraft-concept-that-aims-to-map-minerals-on-solar-system-planets-and-moons",
       "image": "/images/feed/feed-0ffd0b520139.jpg",
       "source": "Space.com",
@@ -911,7 +911,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 33,
       "url": "https://thehackernews.com/2026/09/thousands-of-openai-agents-quietly.html",
       "image": "/images/feed/feed-be6a11bb57fa.jpg",
       "source": "The Hacker News",
@@ -930,7 +930,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 42,
       "url": "https://techcrunch.com/2026/09/04/openais-rogue-agents-keep-escaping-with-no-formal-process-to-investigate-them/",
       "image": "/images/feed/feed-2180a1fa6f13.jpg",
       "source": "TechCrunch",
@@ -938,14 +938,14 @@
     }
   ],
   "breakingNews": [
-    "DEV.TO: DDoS Protection & Rate Limiting Abuse Cases",
-    "DEV.TO: Checking If a Business's Google Profile Actually Matches Its Own Website",
+    "DEV.TO: Stop Hand-Partitioning Disks: Practical systemd-repart on Linux",
+    "DEV.TO: PKCE Downgrade Attack: When the Authorization Server Accepts Both Flows",
+    "DEV.TO: HMAC Proves Origin, Not Freshness: Replay Attacks Against Signed APIs",
+    "DEV.TO: OAuth Flow CSRF: How a Missing State Parameter Enables Forced Authorization",
+    "DEV.TO: API Token in Query Parameter: Six Places the Credential Persists Without You Knowing",
+    "DEV.TO: The eject button is a myth: what owning an AI-built app really takes",
+    "DEV.TO: JWT kid Parameter Attacks: SQL Injection and Path Traversal via Key ID",
     "POLYGON: Netflix's Near-Perfect 9-Part Gothic Thriller Is So Good You'll Finish in One Weekend",
-    "DEV.TO: My First Python Project: Building a Student Performance Evaluator",
-    "DEV.TO: Exit code 0 is a lie: 7 ways my unattended automation silently did nothing",
-    "DEV.TO: What I Wish I Knew Before Taking My First Freelance Client",
-    "DEV.TO: Catch Bad Validation Tags at Compile Time with checkerlint",
-    "DEV.TO: Open-source tool: Practical experience in converting large quantities of SQL code syntax : 'PIVOT' function rewrite (Case 1)",
     "CLEANTECHNICA: Volkswagen Superviosory Board Approves Plan To Slash Models & Reduce Workforce By 100,000",
     "9TO5MAC: This new reveal suggests MacBook Ultra might cost more than we think"
   ],
