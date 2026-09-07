@@ -1,12 +1,31 @@
 {
-  "fetchedAt": "2026-09-07T05:13:55.395Z",
+  "fetchedAt": "2026-09-07T06:24:50.034Z",
   "articles": [
     {
-      "id": "feed-7574aa2be562",
-      "title": "Ask canvas for a WebP in Safari and you silently get a PNG",
-      "excerpt": "Every browser-based WebP converter I looked at is built on one line: canvas.toBlob(blob => { /* ... */ }, 'image/webp', quality) It's a reasonable place to start. It also has a failure mode that took…",
-      "body": "Every browser-based WebP converter I looked at is built on one line: canvas . toBlob ( blob =&gt; { /* ... */ }, ' image/webp ' , quality ) It's a reasonable place to start. It also has a failure mode that took me an embarrassingly long time to notice. The silent fallback Safari has never supported WebP encoding via canvas. It decodes WebP fine — that landed in Safari 14 — but it will not encode one. Here's the part that matters: toBlob doesn't throw, and it doesn't return null. The HTML spec says that if the requested type isn't supported, the browser falls back to image/png . So on Safari, that line above hands you a perfectly valid PNG.",
-      "author": "Harshit Katheria",
+      "id": "feed-7066827ec7d0",
+      "title": "N-able patches max severity N-central flaw amid ongoing attacks",
+      "excerpt": "N-able has released an emergency hotfix for a maximum-severity remote code execution (RCE) flaw affecting its N-central remote monitoring and management (RMM) platform. [...]",
+      "body": "N-able has released an emergency hotfix for a maximum-severity remote code execution (RCE) flaw affecting its N-central remote monitoring and management (RMM) platform. [...]\n\nThis report, published by BleepingComputer, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cybersecurity. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to BleepingComputer using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Sergiu Gatlan",
+      "date": "2026-09-07",
+      "readTime": "2 min",
+      "section": "cybersecurity",
+      "tags": [
+        "Cybersecurity"
+      ],
+      "featured": true,
+      "xpReward": 54,
+      "url": "https://www.bleepingcomputer.com/news/security/n-able-patches-max-severity-n-central-flaw-amid-ongoing-attacks/",
+      "image": "/images/feed/feed-7066827ec7d0.jpg",
+      "source": "BleepingComputer",
+      "isLive": true
+    },
+    {
+      "id": "feed-d402e47789be",
+      "title": "I Put `minimum` in My JSON Schema. ShapeCraft Ignored It. That Was By Design",
+      "excerpt": "I was extracting customer details from onboarding messages. The result needed a name, an age, and a country code before it could be passed to the account service. The schema looked strict enough: cons…",
+      "body": "I was extracting customer details from onboarding messages. The result needed a name, an age, and a country code before it could be passed to the account service. The schema looked strict enough: const PersonJsonSchema = { type : \" object \" , required : [ \" name \" , \" age \" , \" country \" ], properties : { name : { type : \" string \" , minLength : 3 }, age : { type : \" number \" , minimum : 18 , maximum : 120 }, country : { type : \" string \" , pattern : \" ^[A-Z]{2}$ \" }, }, }; Then a test message containing a 12-year-old came back as: { \"name\" : \"Jo\" , \"age\" : 12 , \"country\" : \"IN\" } It was valid JSON. It had every required field. Every field had the right basic type. It still should not have reached the account service.",
+      "author": "Yatin Davra",
       "date": "2026-09-07",
       "readTime": "2 min",
       "section": "software",
@@ -14,37 +33,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 36,
-      "url": "https://dev.to/harshit_katheria/ask-canvas-for-a-webp-in-safari-and-you-silently-get-a-png-5hn6",
-      "image": "/images/feed/feed-7574aa2be562.webp",
+      "xpReward": 53,
+      "url": "https://dev.to/yatindavra/i-put-minimum-in-my-json-schema-shapecraft-ignored-it-that-was-by-design-j77",
+      "image": "/images/feed/feed-d402e47789be.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-9a8b1e5b0d10",
-      "title": "Why You Shouldn’t Store Large Files in Your Database: Database vs. Amazon S3",
-      "excerpt": "Storing files in a database instead of S3 introduces two massive architectural bottlenecks as your application scales: One of the biggest advantages of S3 is how easily it works with a CDN such as Ama…",
-      "body": "Storing files in a database instead of S3 introduces two massive architectural bottlenecks as your application scales: 1. CDN becomes much harder to use One of the biggest advantages of S3 is how easily it works with a CDN such as Amazon CloudFront or Cloudflare. Imagine you have millions of users requesting the same images. With S3 and a CDN, the CDN can cache those images at locations around the world. Users can get the file from a nearby edge location instead of requesting it from your application every time. This is exactly what we want for things like: Images Videos PDFs JavaScript CSS Other static content Now imagine the image is stored as a BLOB inside your database. If your images are locked in a database, your CDN is effectively blind to them.",
-      "author": "Ammar Eyad",
-      "date": "2026-09-07",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Database"
-      ],
-      "featured": true,
-      "xpReward": 38,
-      "url": "https://dev.to/ammar_eyad/why-you-shouldnt-store-large-files-in-your-database-database-vs-amazon-s3-hec",
-      "image": "/images/feed/feed-9a8b1e5b0d10.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-da32804dffdc",
-      "title": "Stop Paying Full Reboot Downtime: Practical systemd soft-reboot on Linux",
-      "excerpt": "You finished a userspace package update. Libraries changed. Daemons need a clean boot graph. The box is “up,” but half the stack is still running the old generation. The reflex is reboot. That means f…",
-      "body": "You finished a userspace package update. Libraries changed. Daemons need a clean boot graph. The box is “up,” but half the stack is still running the old generation. The reflex is reboot . That means firmware, bootloader, kernel bring-up, initrd, and every cold-start cost that comes with them—even when the kernel itself did not change. systemd has a narrower tool for that case: soft-reboot . It tears down and restarts userspace while the kernel keeps running. Downtime shrinks from “full machine cycle” to “service manager reexec + new boot transaction.” This is a practical operator guide: when soft-reboot is the right hammer, how /run/nextroot/ root switches work, what can survive the cut, verification, and the hard boundaries where you still need a real reboot or kexec.",
-      "author": "Lyra",
+      "id": "feed-badce3c6543e",
+      "title": "How to Build AI Monitoring Agents: 4 Rules for Catching Time-Sensitive Events",
+      "excerpt": "Run a WHOIS lookup on any domain name and you get back a status code. Not a paragraph, not a guess. A code, from a standardized list of seventeen, published by ICANN, that tells you exactly where that…",
+      "body": "Run a WHOIS lookup on any domain name and you get back a status code. Not a paragraph, not a guess. A code, from a standardized list of seventeen, published by ICANN, that tells you exactly where that name sits in its life. Most of those codes are boring. A few of them are a countdown. Here is the sequence when somebody stops paying. The registry sets autoRenewPeriod , a grace window after the registration expires. If the registrar gives up on it, the name moves to redemptionPeriod , and ICANN's own description of that code is unusually precise: \"Your domain will be held in this status for 30 days. After five calendar days following the end of the redemptionPeriod, your domain is purged from the registry database and becomes available for registration.\" Then pendingDelete .",
+      "author": "Mark Fulton",
       "date": "2026-09-07",
       "readTime": "2 min",
       "section": "software",
@@ -52,10 +52,124 @@
         "Software"
       ],
       "featured": true,
+      "xpReward": 44,
+      "url": "https://dev.to/markfulton/how-to-build-ai-monitoring-agents-4-rules-for-catching-time-sensitive-events-1hhm",
+      "image": "/images/feed/feed-badce3c6543e.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-ce21980ae12d",
+      "title": "🧠 I Trained a Massive Word2Vec Model on 13 Billion Russian Fiction Words — Here’s What Happened",
+      "excerpt": "TL;DR: I built a lemma‑based Word2Vec model (CBOW, 300d) on a huge corpus of Russian fiction (13B tokens → 7.3B after cleaning). You can load it with Gensim and explore semantic neighborhoods of words…",
+      "body": "TL;DR: I built a lemma‑based Word2Vec model (CBOW, 300d) on a huge corpus of Russian fiction (13B tokens → 7.3B after cleaning). You can load it with Gensim and explore semantic neighborhoods of words like слово , язык , речь . The model captures literary semantics without stop words or grammar tags. Check it out on Hugging Face . Why another word2vec for Russian? Most pre‑trained Russian word2vec models are trained on web crawls, news, or mixed corpora. That’s fine for general NLP, but fiction has its own semantic rules . Poetic metaphors, archaic vocabulary, and author‑specific styles shift vector spaces. I wanted a model that: Is trained exclusively on fiction (from classic to modern authors). Uses lemmas (no inflection noise).",
+      "author": "Boris Orekhov",
+      "date": "2026-09-07",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 53,
+      "url": "https://dev.to/nevmenandr/i-trained-a-massive-word2vec-model-on-13-billion-russian-fiction-words-heres-what-happened-3m63",
+      "image": "/images/feed/feed-ce21980ae12d.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-9c5c63deca73",
+      "title": "Why your Lighthouse score changes when you did nothing",
+      "excerpt": "Introduction If you ship websites for a living, you have seen this. You change one thing on a page. You open Chrome, run Lighthouse, and the performance score goes up a few points. You take a screensh…",
+      "body": "Introduction If you ship websites for a living, you have seen this. You change one thing on a page. You open Chrome, run Lighthouse, and the performance score goes up a few points. You take a screenshot. You tell the team the fix worked. Later the same day you run the same URL again. No new deploy. The score drops. Sometimes it drops below where you started. That is not you failing at your job. Lab scores move even when the code does not. CPU load, network jitter, third party tags, and plain luck all show up in a single run. One number is a sample. It is not a verdict. This article gives you a short, repeatable way to read that movement so you stop celebrating noise.",
+      "author": "Femi Akinyemi",
+      "date": "2026-09-07",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 45,
+      "url": "https://dev.to/femi_akinyemi/why-your-lighthouse-score-changes-when-you-did-nothing-1d8e",
+      "image": "/images/feed/feed-9c5c63deca73.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-f78c7b95e5c7",
+      "title": "Akhtar OS — Sistem Operasi Web (Open Source!)",
+      "excerpt": "Halo! Gue Akhtar. 14 tahun. Dan gue bikin sistem operasi web dari 0. Kenapa? Bisa dipake buat kerja, belajar, dan main Bisa ngontrol hardware laptop (mode CPU/GPU) Bisa jalanin Python (3 engine!) Ada…",
+      "body": "Halo! Gue Akhtar. 14 tahun. Dan gue bikin sistem operasi web dari 0. Kenapa? Karena gue pengen sistem operasi yang: Bisa dipake buat kerja, belajar, dan main Bisa ngontrol hardware laptop (mode CPU/GPU) Bisa jalanin Python (3 engine!) Ada virtual pet 3D-nya Bisa share file P2P tanpa internet Ada incognito mode GLOBAL (bukan cuma browser) Dan yang paling penting: OPEN SOURCE. 🔥 Fitur-Fitur Gila 1. 180+ Aplikasi Browser, Terminal, File Manager 40 Game (native + iframe) Music Player, Video Editor Kalender, Todo List, Pomodoro QR Generator, Password Generator Dan masih banyak lagi... 2.",
+      "author": "akhtarnur akhtarnur",
+      "date": "2026-09-07",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Open Source"
+      ],
+      "featured": true,
+      "xpReward": 31,
+      "url": "https://dev.to/akhtarnur_akhtarnur_12aed/akhtar-os-sistem-operasi-web-open-source-4ilg",
+      "image": "https://assets.dev.to/assets/github-logo-5a155e1f9a670af7944dd5e12375bc76ed542ea80224905ecaf878b9157cdefc.svg",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-e4ea07482d77",
+      "title": "Building an Autonomous Disaster Relief Grid with Gemini AI, Eleven Labs, Solana & Snowflake for Weekend Challenge: Generosity Edition",
+      "excerpt": "This is a submission for Weekend Challenge:Generosity Edition ] During crises and natural disasters, traditional relief faces some issues, such as aid arriving with the wrong resources or a lack of tr…",
+      "body": "This is a submission for Weekend Challenge:Generosity Edition ] What I Built During crises and natural disasters, traditional relief faces some issues, such as aid arriving with the wrong resources or a lack of transparency while handling the funds. Donors rarely know whether the funds actually reach on the ground or not. Here is the comes KindLink as a solution with a decentralised autonomous disaster response system to designed to coordinate with multi-modal generosity in real time. It unifies monetary and non-monetary aid(food, ration, transport) with on-chain transactions. It also provides an impact receipt to the donor so they will actually know where the funds are utilized.",
+      "author": "Mayuresh Pandit",
+      "date": "2026-09-07",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 31,
+      "url": "https://dev.to/dreainno/building-an-autonomous-disaster-relief-grid-with-gemini-ai-eleven-labs-solana-snowflake-for-1e2h",
+      "image": "/images/feed/feed-e4ea07482d77.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-968010f264b3",
+      "title": "How a Ticket System Became My Agentic AI Lab",
+      "excerpt": "What does an AI coding agent need in order to be useful in a real software project? Not a toy repository. Not a greenfield demo with a single happy path. A project with history, conventions, old decis…",
+      "body": "What does an AI coding agent need in order to be useful in a real software project? Not a toy repository. Not a greenfield demo with a single happy path. A project with history, conventions, old decisions, security boundaries, tests, release procedures, and requirements that are never quite as complete as one would like. That question is why a project I call Lutions—a self-hosted web application for projects and ticket workflows—grew into more than just the ticket system I originally set out to build. This is an English adaptation of my original German article, Agentic AI: Wie ich zu meiner idealen Entwicklungsumgebung kam . It is not a product announcement or a claim that everyone should build their own ticketing system.",
+      "author": "Christoph Hermanns",
+      "date": "2026-09-07",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 41,
+      "url": "https://dev.to/cherware/how-a-ticket-system-became-my-agentic-ai-lab-hen",
+      "image": "/images/feed/feed-968010f264b3.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-6fe34f158434",
+      "title": "Google Photos can now help you build outfits using items you already own",
+      "excerpt": "It will also let you organize your library with Manual Photo Stacks.",
+      "body": "TL;DR Google Photos is getting two new features today: virtual wardrobe and Manual Photo Stacks. Virtual wardrobe creates a wardrobe of a user’s clothes and builds new outfits for them to try. With Manual Photo Stacks, users can select multiple photos and add them to a stack for easier organization. Google Photos is usually quite good at organizing photos and videos, and with the new Gemini Spark integration , things could get even easier. However, if you want more manual control over your library, the app is adding a couple of new features you’ll likely appreciate, including one that could help you look your best without spending hours wondering what to wear.",
+      "author": "Akshay Gangwar",
+      "date": "2026-09-07",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
       "xpReward": 39,
-      "url": "https://dev.to/lyraalishaikh/stop-paying-full-reboot-downtime-practical-systemd-soft-reboot-on-linux-13im",
-      "image": "/images/feed/feed-da32804dffdc.webp",
-      "source": "Dev.to",
+      "url": "https://www.androidauthority.com/google-photos-virtual-wardrobe-manual-photo-stacks-3708152/",
+      "image": "/images/feed/feed-6fe34f158434.jpg",
+      "source": "Android Authority",
       "isLive": true
     },
     {
@@ -70,87 +184,11 @@
       "tags": [
         "Iphone"
       ],
-      "featured": true,
-      "xpReward": 36,
+      "featured": false,
+      "xpReward": 48,
       "url": "https://9to5mac.com/2026/09/06/this-ai-generated-iphone-18-pro-mock-ad-makes-me-actually-love-dark-cherry-color/",
       "image": "/images/feed/feed-ad60c70f7028.jpg",
       "source": "9to5Mac",
-      "isLive": true
-    },
-    {
-      "id": "feed-c44cf6122a20",
-      "title": "If not Python venv, then what?",
-      "excerpt": "For years, python -m venv .venv has been the default answer to Python dependency management and isolation. It works, it’s built into Python and almost every tutorial assumes you’ll use it. But today,…",
-      "body": "For years, python -m venv .venv has been the default answer to Python dependency management and isolation. It works, it’s built into Python and almost every tutorial assumes you’ll use it. But today, more and more developers are asking a question Do I actually need venv anymore? And the answer is: not always. This article explores what modern alternatives exist and when they make sense. Option 1: uv The biggest momentum shift in Python tooling right now is probably uv . It’s a Rust-based Python package manager that aims to be extremely fast while simplifying dependency and environment management.",
-      "author": "piko::tutorial",
-      "date": "2026-09-07",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Python"
-      ],
-      "featured": true,
-      "xpReward": 34,
-      "url": "https://dev.to/pikotutorial/if-not-python-venv-then-what-3l78",
-      "image": "/images/feed/feed-c44cf6122a20.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-b2c462116808",
-      "title": "With AI, The Real Edge Is Knowing What to Build",
-      "excerpt": "\"But... how did you know what to write?\" That's what Greg Baugues' daughter asked him after her first encounter with vibe-coding. Coding used to be about the craft: But AI has changed our job descript…",
-      "body": "\"But... how did you know what to write?\" That's what Greg Baugues' daughter asked him after her first encounter with vibe-coding. She was curious if there was a time when we had to type symbols, one by one. It isn't about what symbols to type Coding used to be about the craft: Mastering symbols and perfecting the lines of code. If you knew what to type and could make it work, you could find your way as a coder. But AI has changed our job description by making code cheap. Anyone is just a few sentences away from working code. Knowing what symbols to type isn't the edge anymore. It's about what to build As I write this, I'm working on a legacy migration for a hardware shop. Its main page is an entangled mess of over 40K lines of Visual Basic code.",
-      "author": "Cesar Aguirre",
-      "date": "2026-09-07",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 44,
-      "url": "https://dev.to/canro91/with-ai-the-real-edge-is-knowing-what-to-build-204f",
-      "image": "/images/feed/feed-b2c462116808.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-d2a81a2f684c",
-      "title": "How I Built an Autonomous AI Agent That Earns USDC While I Sleep",
-      "excerpt": "How I Built an Autonomous AI Agent That Earns USDC While I Sleep The promise of the \"agentic web\" is often overshadowed by theoretical demos and vaporware. However, when you strip away the hype, auton…",
-      "body": "How I Built an Autonomous AI Agent That Earns USDC While I Sleep The promise of the \"agentic web\" is often overshadowed by theoretical demos and vaporware. However, when you strip away the hype, autonomous AI agents face a practical engineering bottleneck: monetization . Traditional payment rails (Stripe, PayPal) require human identity verification, bank accounts, and geographic compliance that software agents cannot navigate autonomously. To build an agent that truly operates, scales, and transacts independently, you need a programmatic, low-latency, friction-free payment layer.",
-      "author": "Nikhil Ranka",
-      "date": "2026-09-07",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 51,
-      "url": "https://dev.to/nikhilranka23/how-i-built-an-autonomous-ai-agent-that-earns-usdc-while-i-sleep-gmm",
-      "image": "/images/feed/feed-d2a81a2f684c.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-ff455af9a671",
-      "title": "Your auto-captioner is measuring the wrong thing: a ratio that fired on a perfectly good clip",
-      "excerpt": "I burn subtitles onto short AI-generated ad videos. The pipeline is small: generate the clip, transcribe it, write an .ass file, let ffmpeg burn it in. It broke three times, and each break taught me s…",
-      "body": "I burn subtitles onto short AI-generated ad videos. The pipeline is small: generate the clip, transcribe it, write an .ass file, let ffmpeg burn it in. It broke three times, and each break taught me something narrower and more useful than the last. The third one is the interesting one, because my fix was wrong in a way that looked completely right. Break 1: hand-written timings never match generated speech The first version used the timings from my own script. I wrote the lines, I knew roughly how long each one took to say, so I typed them in: [ \"A1_partner_snore\" , [ [ 0.0 , 3.2 , \"He snored through our entire honeymoon.\" ], [ 3.2 , 7.0 , \"I stopped hearing it on night one.\" ] ]] Every video was out of sync. Not slightly — by a second or more, drifting worse toward the end.",
-      "author": "Youfu Hsu",
-      "date": "2026-09-07",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 50,
-      "url": "https://dev.to/youfuhsu/your-auto-captioner-is-measuring-the-wrong-thing-a-ratio-that-fired-on-a-perfectly-good-clip-1dh2",
-      "image": "/images/feed/feed-ff455af9a671.webp",
-      "source": "Dev.to",
       "isLive": true
     },
     {
@@ -166,10 +204,29 @@
         "Game"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 53,
       "url": "https://www.polygon.com/brandon-sanderson-game-of-thrones-fantasy-mistake/",
       "image": "/images/feed/feed-7c6a29232311.jpg",
       "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-74222b403fe0",
+      "title": "Coop – Isolated VM Environments for Running Claude Code and Codex",
+      "excerpt": "",
+      "body": "This report, published by Hacker News, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Claude. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Hacker News using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "aggrrrh",
+      "date": "2026-09-07",
+      "readTime": "2 min",
+      "section": "ai",
+      "tags": [
+        "Claude"
+      ],
+      "featured": false,
+      "xpReward": 49,
+      "url": "https://github.com/trailofbits/coop",
+      "image": "/images/feed/feed-74222b403fe0.png",
+      "source": "Hacker News",
       "isLive": true
     },
     {
@@ -185,7 +242,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 42,
       "url": "https://science.nasa.gov/image-article/apod-2026-september-7-the-pelican-nebula-in-gas-dust-and-stars/",
       "image": "/images/feed/feed-f6884763118c.jpg",
       "source": "NASA Breaking News",
@@ -204,7 +261,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 40,
       "url": "https://science.nasa.gov/earth/earth-observatory/a-bright-spot-at-mount-michael/",
       "image": "/images/feed/feed-dfe5711be779.jpg",
       "source": "NASA Breaking News",
@@ -223,7 +280,7 @@
         "Nintendo"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 51,
       "url": "https://www.polygon.com/nintendo-zelda-direct-date-time-september-2026/",
       "image": "/images/feed/feed-70a895ed7d6c.jpg",
       "source": "Polygon",
@@ -242,7 +299,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 48,
       "url": "https://www.polygon.com/witcher-3-best-games-like/",
       "image": "/images/feed/feed-1b0c132d57fe.jpg",
       "source": "Polygon",
@@ -261,7 +318,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 36,
       "url": "https://www.polygon.com/hope-is-the-perfect-excuse-to-revisit-na-hong-jins-best-movie/",
       "image": "/images/feed/feed-9ed8333df1eb.jpg",
       "source": "Polygon",
@@ -280,7 +337,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 40,
       "url": "https://www.polygon.com/lanterns-hector-hammond-explainer/",
       "image": "/images/feed/feed-c3f73d5e38c7.jpg",
       "source": "Polygon",
@@ -299,7 +356,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 44,
       "url": "https://www.ign.com/articles/lanterns-season-1-episode-4-review-recap-the-weenie",
       "image": "/images/feed/feed-9ab46d0acabf.jpg",
       "source": "IGN",
@@ -318,7 +375,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 46,
       "url": "https://cleantechnica.com/2026/09/06/electric-trucks-clean-ports-us-epa-california-canada-mexico/",
       "image": "/images/feed/feed-877ca2c4338b.png",
       "source": "CleanTechnica",
@@ -337,7 +394,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 52,
       "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/chatgpt-astra-is-now-rolling-out-to-20-plus-subscription/",
       "image": "/images/feed/feed-65a67962595e.jpg",
       "source": "BleepingComputer",
@@ -356,7 +413,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 54,
       "url": "https://www.polygon.com/wonder-woman-dcu-james-gunn-adria-arjona-maxima/",
       "image": "/images/feed/feed-8ad127b50e3e.jpg",
       "source": "Polygon",
@@ -375,7 +432,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 49,
       "url": "https://electrek.co/2026/09/06/another-chinese-ev-myth-busted-as-gac-geely-and-leapmotor-ace-euro-ncap/",
       "image": "/images/feed/feed-8d8b11ecc02c.png",
       "source": "Electrek",
@@ -394,7 +451,7 @@
         "Iphone"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 44,
       "url": "https://www.engadget.com/2248893/is-it-safe-buy-refurbished-iphone-walmart/",
       "image": "/images/feed/feed-9e371e4ba460.jpg",
       "source": "Engadget",
@@ -413,7 +470,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 32,
       "url": "https://www.engadget.com/2248887/when-portable-apple-carplay-screen-worth-it/",
       "image": "/images/feed/feed-788d46545951.jpg",
       "source": "Engadget",
@@ -432,7 +489,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 46,
       "url": "https://www.theverge.com/ai-artificial-intelligence/990932/seattle-times-newsday-lawsuit-openai-microsoft",
       "image": "/images/feed/feed-c6a48e7fbd07.jpg",
       "source": "The Verge",
@@ -451,7 +508,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 35,
       "url": "https://www.engadget.com/2248846/pros-and-cons-wireless-android-auto/",
       "image": "/images/feed/feed-05606d79aaca.jpg",
       "source": "Engadget",
@@ -470,7 +527,7 @@
         "Gadget"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 31,
       "url": "https://www.engadget.com/2248646/smart-gadgets-could-instantly-upgrade-backyard/",
       "image": "/images/feed/feed-742dcfde430d.jpg",
       "source": "Engadget",
@@ -489,28 +546,9 @@
         "Macbook"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 49,
       "url": "https://www.engadget.com/2248819/how-to-use-time-machine-backup-macbook-dont-pay-for-cloud-storage/",
       "image": "/images/feed/feed-97dfc9f93a34.jpg",
-      "source": "Engadget",
-      "isLive": true
-    },
-    {
-      "id": "feed-c0ed4ef49768",
-      "title": "Common problems with Apple Wallet and how to fix them",
-      "excerpt": "Apple Wallet and Apple Pay are great, but only if they're working properly. There are some basic troubleshooting steps when payments won't go through.",
-      "body": "Apple Wallet and Apple Pay are great, but only if they're working properly. There are some basic troubleshooting steps when payments won't go through.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Filipe Espósito)",
-      "date": "2026-09-06",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 45,
-      "url": "https://www.engadget.com/2248762/how-to-fix-common-apple-wallet-problems/",
-      "image": "/images/feed/feed-c0ed4ef49768.jpg",
       "source": "Engadget",
       "isLive": true
     },
@@ -527,7 +565,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 52,
       "url": "https://electrek.co/2026/09/06/sany-delivered-200-electric-haul-trucks-600-ev-wheel-loaders-last-month/",
       "image": "/images/feed/feed-80a049e76b11.jpg",
       "source": "Electrek",
@@ -546,7 +584,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 31,
       "url": "https://techcrunch.com/2026/09/06/authors-push-back-as-publishers-and-agents-seek-share-of-anthropic-settlement/",
       "image": "/images/feed/feed-3997b3420fb1.jpg",
       "source": "TechCrunch",
@@ -565,7 +603,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 54,
       "url": "https://electrek.co/2026/09/06/survey-sunday-will-cybercab-transform-mobility-or-be-just-another-car/",
       "image": "/images/feed/feed-89aaba87a620.jpg",
       "source": "Electrek",
@@ -584,7 +622,7 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 39,
       "url": "https://cleantechnica.com/2026/09/06/tesla-cybercab-rollout-being-investigated/",
       "image": "/images/feed/feed-1c15307adc29.jpg",
       "source": "CleanTechnica",
@@ -603,7 +641,7 @@
         "Orbit"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 53,
       "url": "https://www.theverge.com/science/990906/isar-aerospace-europe-orbital-rocket-launch",
       "image": "/images/feed/feed-671419d8190e.jpg",
       "source": "The Verge",
@@ -622,7 +660,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 30,
       "url": "https://cleantechnica.com/2026/09/06/zoox-begins-robotaxi-testing-in-houston/",
       "image": "/images/feed/feed-f6ad3d4584be.jpg",
       "source": "CleanTechnica",
@@ -641,29 +679,10 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 30,
       "url": "https://cleantechnica.com/2026/09/06/freight-rail-electrification-study-wrong-question/",
       "image": "/images/feed/feed-f919ca6c496c.webp",
       "source": "CleanTechnica",
-      "isLive": true
-    },
-    {
-      "id": "feed-0eea7056c241",
-      "title": "YouTube had a bug – I used ChatGPT to investigate",
-      "excerpt": "",
-      "body": "This report, published by Hacker News, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Chatgpt. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Hacker News using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "theZilber",
-      "date": "2026-09-06",
-      "readTime": "2 min",
-      "section": "ai",
-      "tags": [
-        "Chatgpt"
-      ],
-      "featured": false,
-      "xpReward": 50,
-      "url": "https://blog.thezilber.com/3-youtube-had-a-bug-chatgpt-helped-me-to-investigate",
-      "image": "/images/feed/feed-0eea7056c241.png",
-      "source": "Hacker News",
       "isLive": true
     },
     {
@@ -679,7 +698,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 44,
       "url": "https://www.space.com/space-exploration/on-this-day-in-space-september-6-2026",
       "image": "/images/feed/feed-a8961455d735.jpg",
       "source": "Space.com",
@@ -700,7 +719,7 @@
         "Satellite"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 39,
       "url": "https://www.space.com/space-exploration/launches-spacecraft/spacex-starlink/group-15-24-launch-ocisly",
       "image": "/images/feed/feed-3670c7e324be.jpg",
       "source": "Space.com",
@@ -719,7 +738,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 33,
       "url": "https://openai.com/index/research-acceleration-view-inside-openai",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "Hacker News",
@@ -738,7 +757,7 @@
         "Starship"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 42,
       "url": "https://www.space.com/entertainment/space-toys-lego/feel-the-force-with-these-ten-out-of-this-world-lego-star-wars-starships",
       "image": "/images/feed/feed-08633c2200ad.jpg",
       "source": "Space.com",
@@ -757,29 +776,10 @@
         "Phishing"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 54,
       "url": "https://www.bleepingcomputer.com/news/security/attackers-conceal-phishing-lures-using-invisible-unicode-characters/",
       "image": "/images/feed/feed-a5856b104a92.jpg",
       "source": "BleepingComputer",
-      "isLive": true
-    },
-    {
-      "id": "feed-1759500f645b",
-      "title": "Your intellectual fly is open when you use an LLM to author a post (2025)",
-      "excerpt": "",
-      "body": "This report, published by Hacker News, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Llm. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Hacker News using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "cyb0rg0",
-      "date": "2026-09-06",
-      "readTime": "2 min",
-      "section": "ai",
-      "tags": [
-        "Llm"
-      ],
-      "featured": false,
-      "xpReward": 38,
-      "url": "https://bcantrill.dtrace.org/2025/12/05/your-intellectual-fly-is-open/",
-      "image": "/images/topics/topic-ai-ml.png",
-      "source": "Hacker News",
       "isLive": true
     },
     {
@@ -796,7 +796,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 49,
       "url": "https://www.space.com/astronomy/nasa-expands-deep-space-network-with-giant-new-dish-in-california-desert",
       "image": "/images/feed/feed-d0e6c4c3b165.jpg",
       "source": "Space.com",
@@ -815,7 +815,7 @@
         "Authentication"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 46,
       "url": "https://thehackernews.com/2026/09/attackers-hijack-mikrotik-routers.html",
       "image": "/images/feed/feed-c14c61d299fd.jpg",
       "source": "The Hacker News",
@@ -834,7 +834,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 34,
       "url": "https://openai.com/index/an-alien-mind",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "OpenAI Blog",
@@ -853,7 +853,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 52,
       "url": "https://thehackernews.com/2026/09/four-revstealer-linked-modules-disable.html",
       "image": "/images/feed/feed-6dd1eb7a7816.jpg",
       "source": "The Hacker News",
@@ -872,7 +872,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 31,
       "url": "https://techcrunch.com/2026/09/05/seattle-times-and-newsday-are-the-latest-publications-to-sue-openai-and-microsoft/",
       "image": "/images/feed/feed-8a7e0f31a983.jpg",
       "source": "TechCrunch",
@@ -892,10 +892,29 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 32,
       "url": "https://thehackernews.com/2026/09/unpatched-magento-and-adobe-commerce.html",
       "image": "/images/feed/feed-c175e3560e60.jpg",
       "source": "The Hacker News",
+      "isLive": true
+    },
+    {
+      "id": "feed-f774e48a95a8",
+      "title": "Hikers rescued after using Google Gemini for planning",
+      "excerpt": "The sheriff’s office said the hikers “were advised by Gemini to bring far less food and water than their group required.\"",
+      "body": "The sheriff’s office said the hikers “were advised by Gemini to bring far less food and water than their group required.\"\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gemini. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Anthony Ha",
+      "date": "2026-09-05",
+      "readTime": "2 min",
+      "section": "ai",
+      "tags": [
+        "Gemini"
+      ],
+      "featured": false,
+      "xpReward": 46,
+      "url": "https://techcrunch.com/2026/09/05/hikers-rescued-after-using-google-gemini-for-planning/",
+      "image": "/images/feed/feed-f774e48a95a8.jpg",
+      "source": "TechCrunch",
       "isLive": true
     },
     {
@@ -911,43 +930,24 @@
         "Breach"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 54,
       "url": "https://thehackernews.com/2026/09/attackers-breached-jetbrains-cadence.html",
       "image": "/images/feed/feed-1a17e912ec35.jpg",
-      "source": "The Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-98d96dc03a65",
-      "title": "Critical VMware Workstation and Fusion Flaw Lets VM Admins Execute Host Code",
-      "excerpt": "Broadcom has released security updates for two security flaws impacting VMware Workstation and Fusion, including one critical bug that could result in arbitrary code execution under certain conditions…",
-      "body": "Broadcom has released security updates for two security flaws impacting VMware Workstation and Fusion, including one critical bug that could result in arbitrary code execution under certain conditions. The vulnerability, tracked as CVE-2026-59346 (CVSS score: 9.3), is an integer-overflow vulnerability that a local attacker with elevated privileges can exploit to run arbitrary code. \"A",
-      "author": "info@thehackernews.com (The Hacker News)",
-      "date": "2026-09-05",
-      "readTime": "2 min",
-      "section": "cybersecurity",
-      "tags": [
-        "Cybersecurity"
-      ],
-      "featured": false,
-      "xpReward": 52,
-      "url": "https://thehackernews.com/2026/09/critical-vmware-workstation-and-fusion.html",
-      "image": "/images/feed/feed-98d96dc03a65.jpg",
       "source": "The Hacker News",
       "isLive": true
     }
   ],
   "breakingNews": [
-    "DEV.TO: Ask canvas for a WebP in Safari and you silently get a PNG",
-    "DEV.TO: Why You Shouldn’t Store Large Files in Your Database: Database vs. Amazon S3",
-    "DEV.TO: Stop Paying Full Reboot Downtime: Practical systemd soft-reboot on Linux",
-    "9TO5MAC: This AI-generated iPhone 18 Pro mock ad makes me actually love dark cherry color",
-    "DEV.TO: If not Python venv, then what?",
-    "DEV.TO: With AI, The Real Edge Is Knowing What to Build",
-    "DEV.TO: How I Built an Autonomous AI Agent That Earns USDC While I Sleep",
-    "DEV.TO: Your auto-captioner is measuring the wrong thing: a ratio that fired on a perfectly good clip",
-    "POLYGON: Brandon Sanderson Reveals the Fatal Fantasy Mistake That Derailed Game of Thrones",
-    "NASA BREAKING NEWS: APOD: 2026 September 7 – The Pelican Nebula in Gas, Dust, and Stars"
+    "BLEEPINGCOMPUTER: N-able patches max severity N-central flaw amid ongoing attacks",
+    "DEV.TO: I Put `minimum` in My JSON Schema. ShapeCraft Ignored It. That Was By Design",
+    "DEV.TO: How to Build AI Monitoring Agents: 4 Rules for Catching Time-Sensitive Events",
+    "DEV.TO: 🧠 I Trained a Massive Word2Vec Model on 13 Billion Russian Fiction Words — Here’s What Happened",
+    "DEV.TO: Why your Lighthouse score changes when you did nothing",
+    "DEV.TO: Akhtar OS — Sistem Operasi Web (Open Source!)",
+    "DEV.TO: Building an Autonomous Disaster Relief Grid with Gemini AI, Eleven Labs, Solana & Snowflake for Weekend Challenge: Generosity Edition",
+    "DEV.TO: How a Ticket System Became My Agentic AI Lab",
+    "ANDROID AUTHORITY: Google Photos can now help you build outfits using items you already own",
+    "9TO5MAC: This AI-generated iPhone 18 Pro mock ad makes me actually love dark cherry color"
   ],
   "sectionVideos": {}
 }
