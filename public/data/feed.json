@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-09-07T04:18:23.134Z",
+  "fetchedAt": "2026-09-07T05:13:55.395Z",
   "articles": [
     {
-      "id": "feed-3dec6bfe374f",
-      "title": "Moving Data Is Easier Than Moving Knowledge",
-      "excerpt": "This is Part 1 of a two-part technical series. Rupak's article on building AI-ready data products describes the larger destination: a machine-readable context layer, governed semantics, and engineerin…",
-      "body": "This is Part 1 of a two-part technical series. Rupak's article on building AI-ready data products describes the larger destination: a machine-readable context layer, governed semantics, and engineering guardrails. This post tackles the migration problem that comes first—recovering legacy knowledge and turning it into grounded SQL. Part 2 will cover natural-language questions, governed execution, and explained answers. All examples and names below are synthetic Moving data is often the easier part of an SAP-to-cloud migration. Moving the knowledge is harder. A pipeline can copy a table. It does not automatically carry forward why two tables are joined, which filter defines an open order, how technical statuses become business terms, or who owns the report.",
-      "author": "Krishna Tangudu",
+      "id": "feed-7574aa2be562",
+      "title": "Ask canvas for a WebP in Safari and you silently get a PNG",
+      "excerpt": "Every browser-based WebP converter I looked at is built on one line: canvas.toBlob(blob => { /* ... */ }, 'image/webp', quality) It's a reasonable place to start. It also has a failure mode that took…",
+      "body": "Every browser-based WebP converter I looked at is built on one line: canvas . toBlob ( blob =&gt; { /* ... */ }, ' image/webp ' , quality ) It's a reasonable place to start. It also has a failure mode that took me an embarrassingly long time to notice. The silent fallback Safari has never supported WebP encoding via canvas. It decodes WebP fine — that landed in Safari 14 — but it will not encode one. Here's the part that matters: toBlob doesn't throw, and it doesn't return null. The HTML spec says that if the requested type isn't supported, the browser falls back to image/png . So on Safari, that line above hands you a perfectly valid PNG.",
+      "author": "Harshit Katheria",
       "date": "2026-09-07",
       "readTime": "2 min",
       "section": "software",
@@ -14,75 +14,37 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 35,
-      "url": "https://dev.to/swaroop_krishna_e2f4b83b2/moving-data-is-easier-than-moving-knowledge-2co4",
-      "image": "/images/feed/feed-3dec6bfe374f.webp",
+      "xpReward": 36,
+      "url": "https://dev.to/harshit_katheria/ask-canvas-for-a-webp-in-safari-and-you-silently-get-a-png-5hn6",
+      "image": "/images/feed/feed-7574aa2be562.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-b363863f68bf",
-      "title": "NeedFeed 🤝 — Safe, In-Kind Mutual Aid Without Cash or Tagging",
-      "excerpt": "This is a submission for the Weekend Challenge: Generosity Edition. Best Use of Snowflake · Best Use of Google AI Most charity tech solves the wrong problem. It makes it easier to move money — when th…",
-      "body": "This is a submission for the Weekend Challenge: Generosity Edition . Prize categories: Best Use of Snowflake · Best Use of Google AI The problem I couldn't unsee Most charity tech solves the wrong problem. It makes it easier to move money — when the actual friction is moving things . It makes it easier to identify people in need — when the actual requirement is protecting them. It makes it easier to claim generosity — when the actual value is proving it. Three failure modes, and they all start before a single dollar changes hands: Cash is a liability, not a feature. When the need is \"10 kg of rice\" but the mechanism is \"send ₹500,\" you've introduced an unnecessary conversion step — and with it every failure mode: fee skimming, diversion, a middleman buying the wrong thing entirely.",
-      "author": "Pritam Patra",
+      "id": "feed-9a8b1e5b0d10",
+      "title": "Why You Shouldn’t Store Large Files in Your Database: Database vs. Amazon S3",
+      "excerpt": "Storing files in a database instead of S3 introduces two massive architectural bottlenecks as your application scales: One of the biggest advantages of S3 is how easily it works with a CDN such as Ama…",
+      "body": "Storing files in a database instead of S3 introduces two massive architectural bottlenecks as your application scales: 1. CDN becomes much harder to use One of the biggest advantages of S3 is how easily it works with a CDN such as Amazon CloudFront or Cloudflare. Imagine you have millions of users requesting the same images. With S3 and a CDN, the CDN can cache those images at locations around the world. Users can get the file from a nearby edge location instead of requesting it from your application every time. This is exactly what we want for things like: Images Videos PDFs JavaScript CSS Other static content Now imagine the image is stored as a BLOB inside your database. If your images are locked in a database, your CDN is effectively blind to them.",
+      "author": "Ammar Eyad",
       "date": "2026-09-07",
       "readTime": "2 min",
       "section": "software",
       "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 35,
-      "url": "https://dev.to/pritam_patra_429a25dedae6/needfeed-safe-in-kind-mutual-aid-without-cash-or-tagging-1166",
-      "image": "/images/feed/feed-b363863f68bf.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-44d26f99d14c",
-      "title": "I built a detector for stuck Safe transactions. 93% of what it found was already dead.",
-      "excerpt": "The idea was clean enough to be suspicious. A Safe multisig splits one act into two things that are not the same: signing is off-chain and free, and executing is an on-chain call that costs gas, can b…",
-      "body": "The idea was clean enough to be suspicious. A Safe multisig splits one act into two things that are not the same: signing is off-chain and free, and executing is an on-chain call that costs gas, can be made by anyone , and is assigned to nobody . So transactions that already hold every signature they need just sit there. The money was approved and never moved. Finding them looks trivial. The Safe Transaction Service exposes each Safe's queue, and every queued transaction carries isExecuted , confirmations and confirmationsRequired . One line: ! tx . isExecuted &amp;&amp; tx . confirmations . length &gt;= tx . confirmationsRequired I was going to build a keeper that clears them.",
-      "author": "Edy Cu",
-      "date": "2026-09-07",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
+        "Database"
       ],
       "featured": true,
       "xpReward": 38,
-      "url": "https://dev.to/edycutjong/i-built-a-detector-for-stuck-safe-transactions-93-of-what-it-found-was-already-dead-17he",
-      "image": "/images/feed/feed-44d26f99d14c.webp",
+      "url": "https://dev.to/ammar_eyad/why-you-shouldnt-store-large-files-in-your-database-database-vs-amazon-s3-hec",
+      "image": "/images/feed/feed-9a8b1e5b0d10.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-bbc79ce81f68",
-      "title": "Give back to the open source comunity",
-      "excerpt": "This is a submission for Weekend Challenge: Generosity Edition As developers, we hardly get to acknowledge the efforts of the maintainers of open source communities. I intend to support these develope…",
-      "body": "This is a submission for Weekend Challenge: Generosity Edition What I Built As developers, we hardly get to acknowledge the efforts of the maintainers of open source communities. I intend to support these developers by creating a git agnostic platform, which analyzes your github profile and gives you suggestions based on the open source projects you've benefitted from. P.S. For the hackathon, the idea is limited to only github profiles being analyzed. Demo https://himanshuc3.github.io/okaeshi Code https://github.com/himanshuc3/okaeshi How I Built It I've used the default MERN setup without the M, since the application is stateless. Users can connect to their wallets and transfer SOL based on the open source repository suggestions made to the user for contributions.",
-      "author": "Himanshu ",
-      "date": "2026-09-07",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Open Source"
-      ],
-      "featured": true,
-      "xpReward": 42,
-      "url": "https://dev.to/himanshuc3/give-back-to-the-open-source-comunity-3egm",
-      "image": "/images/feed/feed-bbc79ce81f68.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-8bf43ade6ff1",
-      "title": "Blind Replay Before Merge: Keep Only the Agent Diff a Clean Environment Recreates",
-      "excerpt": "An agent-written patch that lives only inside one long chat session is not a reviewable change for merge. Hidden constraints from that conversation never reach the repository, the failing tests, or th…",
-      "body": "An agent-written patch that lives only inside one long chat session is not a reviewable change for merge. Hidden constraints from that conversation never reach the repository, the failing tests, or the next reviewer. A pairing session that wants a durable result should keep only the diff a second memory-free environment can recreate. The brief, not the transcript, becomes the source of truth for that recreation before anyone discusses merge. Chat windows quietly store rejected files, private service names, and half-stated architecture that later readers will never see. A senior pairing partner should treat that hidden context as contamination rather than as extra helpful memory for the model.",
-      "author": "Avery Li",
+      "id": "feed-da32804dffdc",
+      "title": "Stop Paying Full Reboot Downtime: Practical systemd soft-reboot on Linux",
+      "excerpt": "You finished a userspace package update. Libraries changed. Daemons need a clean boot graph. The box is “up,” but half the stack is still running the old generation. The reflex is reboot. That means f…",
+      "body": "You finished a userspace package update. Libraries changed. Daemons need a clean boot graph. The box is “up,” but half the stack is still running the old generation. The reflex is reboot . That means firmware, bootloader, kernel bring-up, initrd, and every cold-start cost that comes with them—even when the kernel itself did not change. systemd has a narrower tool for that case: soft-reboot . It tears down and restarts userspace while the kernel keeps running. Downtime shrinks from “full machine cycle” to “service manager reexec + new boot transaction.” This is a practical operator guide: when soft-reboot is the right hammer, how /run/nextroot/ root switches work, what can survive the cut, verification, and the hard boundaries where you still need a real reboot or kexec.",
+      "author": "Lyra",
       "date": "2026-09-07",
       "readTime": "2 min",
       "section": "software",
@@ -90,18 +52,56 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 35,
-      "url": "https://dev.to/codehub_1304/blind-replay-before-merge-keep-only-the-agent-diff-a-clean-environment-recreates-5ad6",
-      "image": "/images/feed/feed-8bf43ade6ff1.webp",
+      "xpReward": 39,
+      "url": "https://dev.to/lyraalishaikh/stop-paying-full-reboot-downtime-practical-systemd-soft-reboot-on-linux-13im",
+      "image": "/images/feed/feed-da32804dffdc.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-7d0ebdc85ce4",
-      "title": "Building invite flows that don't have race conditions in SvelteKit + Postgres",
-      "excerpt": "Most invite-link implementations look correct in development and break in production. The edge cases aren't exotic — they're the normal concurrency you get when two people click the same link, or when…",
-      "body": "Most invite-link implementations look correct in development and break in production. The edge cases aren't exotic — they're the normal concurrency you get when two people click the same link, or when someone clicks an expired token, or when a seat limit is hit between the check and the insert. Here's how I built an invite flow that handles all of them, using SvelteKit, Postgres, and Drizzle ORM. The flow looks simple Owner creates invite → single-use link sent → recipient clicks → membership created → done Five steps. But each step has failure modes that compound. Edge case 1: token reuse The link gets shared (Slack, email forward, clipboard accident). Two people click it within seconds. The fix: hash the token before storing it in the database.",
-      "author": "VerdantStack",
+      "id": "feed-ad60c70f7028",
+      "title": "This AI-generated iPhone 18 Pro mock ad makes me actually love dark cherry color",
+      "excerpt": "Can you believe it’s new iPhone week already? Apple’s “Rise and Surprise” event is just a few days away on Wednesday, September 9, at 10 am PT. The company is set to unveil the foldable iPhone Ultra a…",
+      "body": "Can you believe it’s new iPhone week already? Apple’s “Rise and Surprise” event is just a few days away on Wednesday, September 9, at 10 am PT. The company is set to unveil the foldable iPhone Ultra and new iPhone 18 Pro and iPhone 18 Pro Max, among other new hardware products. The interesting new color for the Pro phones this year is rumored to be a dark cherry red finish. more…",
+      "author": "Zac Hall",
+      "date": "2026-09-07",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Iphone"
+      ],
+      "featured": true,
+      "xpReward": 36,
+      "url": "https://9to5mac.com/2026/09/06/this-ai-generated-iphone-18-pro-mock-ad-makes-me-actually-love-dark-cherry-color/",
+      "image": "/images/feed/feed-ad60c70f7028.jpg",
+      "source": "9to5Mac",
+      "isLive": true
+    },
+    {
+      "id": "feed-c44cf6122a20",
+      "title": "If not Python venv, then what?",
+      "excerpt": "For years, python -m venv .venv has been the default answer to Python dependency management and isolation. It works, it’s built into Python and almost every tutorial assumes you’ll use it. But today,…",
+      "body": "For years, python -m venv .venv has been the default answer to Python dependency management and isolation. It works, it’s built into Python and almost every tutorial assumes you’ll use it. But today, more and more developers are asking a question Do I actually need venv anymore? And the answer is: not always. This article explores what modern alternatives exist and when they make sense. Option 1: uv The biggest momentum shift in Python tooling right now is probably uv . It’s a Rust-based Python package manager that aims to be extremely fast while simplifying dependency and environment management.",
+      "author": "piko::tutorial",
+      "date": "2026-09-07",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Python"
+      ],
+      "featured": true,
+      "xpReward": 34,
+      "url": "https://dev.to/pikotutorial/if-not-python-venv-then-what-3l78",
+      "image": "/images/feed/feed-c44cf6122a20.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-b2c462116808",
+      "title": "With AI, The Real Edge Is Knowing What to Build",
+      "excerpt": "\"But... how did you know what to write?\" That's what Greg Baugues' daughter asked him after her first encounter with vibe-coding. Coding used to be about the craft: But AI has changed our job descript…",
+      "body": "\"But... how did you know what to write?\" That's what Greg Baugues' daughter asked him after her first encounter with vibe-coding. She was curious if there was a time when we had to type symbols, one by one. It isn't about what symbols to type Coding used to be about the craft: Mastering symbols and perfecting the lines of code. If you knew what to type and could make it work, you could find your way as a coder. But AI has changed our job description by making code cheap. Anyone is just a few sentences away from working code. Knowing what symbols to type isn't the edge anymore. It's about what to build As I write this, I'm working on a legacy migration for a hardware shop. Its main page is an entangled mess of over 40K lines of Visual Basic code.",
+      "author": "Cesar Aguirre",
       "date": "2026-09-07",
       "readTime": "2 min",
       "section": "software",
@@ -109,18 +109,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 43,
-      "url": "https://dev.to/verdantstack/building-invite-flows-that-dont-have-race-conditions-in-sveltekit-postgres-241o",
-      "image": "/images/feed/feed-7d0ebdc85ce4.webp",
+      "xpReward": 44,
+      "url": "https://dev.to/canro91/with-ai-the-real-edge-is-knowing-what-to-build-204f",
+      "image": "/images/feed/feed-b2c462116808.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-ffca7b982a71",
-      "title": "I tried removing burned-in text from videos with VideoDetext",
-      "excerpt": "A friend of mine works in e-commerce and often needs to reuse or edit videos that already have text or subtitles burned into them. That got me looking into ways to remove text from video without havin…",
-      "body": "A friend of mine works in e-commerce and often needs to reuse or edit videos that already have text or subtitles burned into them. That got me looking into ways to remove text from video without having to edit it frame by frame. I tried a few existing tools and APIs, and eventually found Alibaba's VideoDetext. The results were good enough for the kind of videos I was testing, and running the API directly was relatively inexpensive. The underlying API is fairly developer-oriented, though, so I built a simple web interface around it: Video Text Remover . The current workflow is straightforward: upload a video, let the tool detect the text or select the area you want removed, and process the video. It's definitely not perfect.",
-      "author": "DBHacker",
+      "id": "feed-d2a81a2f684c",
+      "title": "How I Built an Autonomous AI Agent That Earns USDC While I Sleep",
+      "excerpt": "How I Built an Autonomous AI Agent That Earns USDC While I Sleep The promise of the \"agentic web\" is often overshadowed by theoretical demos and vaporware. However, when you strip away the hype, auton…",
+      "body": "How I Built an Autonomous AI Agent That Earns USDC While I Sleep The promise of the \"agentic web\" is often overshadowed by theoretical demos and vaporware. However, when you strip away the hype, autonomous AI agents face a practical engineering bottleneck: monetization . Traditional payment rails (Stripe, PayPal) require human identity verification, bank accounts, and geographic compliance that software agents cannot navigate autonomously. To build an agent that truly operates, scales, and transacts independently, you need a programmatic, low-latency, friction-free payment layer.",
+      "author": "Nikhil Ranka",
       "date": "2026-09-07",
       "readTime": "2 min",
       "section": "software",
@@ -128,10 +128,86 @@
         "Software"
       ],
       "featured": false,
-      "xpReward": 32,
-      "url": "https://dev.to/drift_boss_a434be123b673d/i-tried-removing-burned-in-text-from-videos-with-videodetext-kb9",
-      "image": "/images/feed/feed-ffca7b982a71.webp",
+      "xpReward": 51,
+      "url": "https://dev.to/nikhilranka23/how-i-built-an-autonomous-ai-agent-that-earns-usdc-while-i-sleep-gmm",
+      "image": "/images/feed/feed-d2a81a2f684c.webp",
       "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-ff455af9a671",
+      "title": "Your auto-captioner is measuring the wrong thing: a ratio that fired on a perfectly good clip",
+      "excerpt": "I burn subtitles onto short AI-generated ad videos. The pipeline is small: generate the clip, transcribe it, write an .ass file, let ffmpeg burn it in. It broke three times, and each break taught me s…",
+      "body": "I burn subtitles onto short AI-generated ad videos. The pipeline is small: generate the clip, transcribe it, write an .ass file, let ffmpeg burn it in. It broke three times, and each break taught me something narrower and more useful than the last. The third one is the interesting one, because my fix was wrong in a way that looked completely right. Break 1: hand-written timings never match generated speech The first version used the timings from my own script. I wrote the lines, I knew roughly how long each one took to say, so I typed them in: [ \"A1_partner_snore\" , [ [ 0.0 , 3.2 , \"He snored through our entire honeymoon.\" ], [ 3.2 , 7.0 , \"I stopped hearing it on night one.\" ] ]] Every video was out of sync. Not slightly — by a second or more, drifting worse toward the end.",
+      "author": "Youfu Hsu",
+      "date": "2026-09-07",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 50,
+      "url": "https://dev.to/youfuhsu/your-auto-captioner-is-measuring-the-wrong-thing-a-ratio-that-fired-on-a-perfectly-good-clip-1dh2",
+      "image": "/images/feed/feed-ff455af9a671.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-7c6a29232311",
+      "title": "Brandon Sanderson Reveals the Fatal Fantasy Mistake That Derailed Game of Thrones",
+      "excerpt": "Game of Thrones illustrates one of epic fantasy's biggest storytelling challenges, and Brandon Sanderson broke it down in great detail.",
+      "body": "Brandon Sanderson is one of the biggest voices in the fantasy genre. More than a writer and publisher, he's an audience-friendly scholar. Somehow he finds time to expand the Cosmere on a near-annual basis and also deliver lectures on Tolkien’s magic systems . There’s a reason we turned to him once upon a time to teach us his time-management wizardry .",
+      "author": "Maria Loreto",
+      "date": "2026-09-07",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Game"
+      ],
+      "featured": false,
+      "xpReward": 38,
+      "url": "https://www.polygon.com/brandon-sanderson-game-of-thrones-fantasy-mistake/",
+      "image": "/images/feed/feed-7c6a29232311.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-f6884763118c",
+      "title": "APOD: 2026 September 7 – The Pelican Nebula in Gas, Dust, and Stars",
+      "excerpt": "APOD Science APOD APOD: 2026 September 7 – The… Today’s APOD Archive Submissions Index Search Calendar RSS Education About Discuss APOD Astronomy Picture of the Day Discover the cosmos! Each day a dif…",
+      "body": "APOD Science APOD APOD: 2026 September 7 – The… Today’s APOD Archive Submissions Index Search Calendar RSS Education About Discuss APOD Astronomy Picture of the Day Discover the cosmos! Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer. The Pelican Nebula in Gas, Dust, and Stars Explanation: The Pelican Nebula is slowly being transformed. IC 5070 (an official designation) is divided from the larger North America Nebula by a molecular cloud filled with dark dust . The deep featured picture from Utah , USA incorporates 25 hours of exposure and brings out great details of this filamentary dust .",
+      "author": "NASA Breaking News",
+      "date": "2026-09-07",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Space"
+      ],
+      "featured": false,
+      "xpReward": 41,
+      "url": "https://science.nasa.gov/image-article/apod-2026-september-7-the-pelican-nebula-in-gas-dust-and-stars/",
+      "image": "/images/feed/feed-f6884763118c.jpg",
+      "source": "NASA Breaking News",
+      "isLive": true
+    },
+    {
+      "id": "feed-dfe5711be779",
+      "title": "A Bright Spot at Mount Michael",
+      "excerpt": "With austral winter nearing its end, clouds cleared for a satellite view of volcanic activity in the remote South Atlantic.",
+      "body": "Earth Observatory Science Earth Observatory A Bright Spot at Mount Michael Earth Earth Observatory Image of the Day EO Explorer Topics All Topics Atmosphere Land Heat &#038; Radiation Life on Earth Human Dimensions Natural Events Oceans Remote Sensing Technology Snow &#038; Ice Water More Content Collections Global Maps World of Change Articles Earth Matters Blog Blue Marble: Next Generation EO Kids Mission: Biomes About About Us Subscribe 🛜 RSS Contact Us Search Mount Michael on Saunders Island, seen in this image acquired with the OLI (Operational Land Imager) on Landsat 8 on August 24, 2026, hosts a frequently active lava lake in its summit crater.",
+      "author": "NASA Breaking News",
+      "date": "2026-09-07",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Space"
+      ],
+      "featured": false,
+      "xpReward": 36,
+      "url": "https://science.nasa.gov/earth/earth-observatory/a-bright-spot-at-mount-michael/",
+      "image": "/images/feed/feed-dfe5711be779.jpg",
+      "source": "NASA Breaking News",
       "isLive": true
     },
     {
@@ -147,7 +223,7 @@
         "Nintendo"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 38,
       "url": "https://www.polygon.com/nintendo-zelda-direct-date-time-september-2026/",
       "image": "/images/feed/feed-70a895ed7d6c.jpg",
       "source": "Polygon",
@@ -166,7 +242,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 54,
       "url": "https://www.polygon.com/witcher-3-best-games-like/",
       "image": "/images/feed/feed-1b0c132d57fe.jpg",
       "source": "Polygon",
@@ -185,7 +261,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 53,
       "url": "https://www.polygon.com/hope-is-the-perfect-excuse-to-revisit-na-hong-jins-best-movie/",
       "image": "/images/feed/feed-9ed8333df1eb.jpg",
       "source": "Polygon",
@@ -204,7 +280,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 31,
       "url": "https://www.polygon.com/lanterns-hector-hammond-explainer/",
       "image": "/images/feed/feed-c3f73d5e38c7.jpg",
       "source": "Polygon",
@@ -223,7 +299,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 36,
       "url": "https://www.ign.com/articles/lanterns-season-1-episode-4-review-recap-the-weenie",
       "image": "/images/feed/feed-9ab46d0acabf.jpg",
       "source": "IGN",
@@ -242,7 +318,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 34,
       "url": "https://cleantechnica.com/2026/09/06/electric-trucks-clean-ports-us-epa-california-canada-mexico/",
       "image": "/images/feed/feed-877ca2c4338b.png",
       "source": "CleanTechnica",
@@ -261,7 +337,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 45,
       "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/chatgpt-astra-is-now-rolling-out-to-20-plus-subscription/",
       "image": "/images/feed/feed-65a67962595e.jpg",
       "source": "BleepingComputer",
@@ -280,7 +356,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 42,
       "url": "https://www.polygon.com/wonder-woman-dcu-james-gunn-adria-arjona-maxima/",
       "image": "/images/feed/feed-8ad127b50e3e.jpg",
       "source": "Polygon",
@@ -299,7 +375,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 36,
       "url": "https://electrek.co/2026/09/06/another-chinese-ev-myth-busted-as-gac-geely-and-leapmotor-ace-euro-ncap/",
       "image": "/images/feed/feed-8d8b11ecc02c.png",
       "source": "Electrek",
@@ -318,7 +394,7 @@
         "Iphone"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 45,
       "url": "https://www.engadget.com/2248893/is-it-safe-buy-refurbished-iphone-walmart/",
       "image": "/images/feed/feed-9e371e4ba460.jpg",
       "source": "Engadget",
@@ -337,7 +413,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 33,
       "url": "https://www.engadget.com/2248887/when-portable-apple-carplay-screen-worth-it/",
       "image": "/images/feed/feed-788d46545951.jpg",
       "source": "Engadget",
@@ -356,7 +432,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 45,
       "url": "https://www.theverge.com/ai-artificial-intelligence/990932/seattle-times-newsday-lawsuit-openai-microsoft",
       "image": "/images/feed/feed-c6a48e7fbd07.jpg",
       "source": "The Verge",
@@ -375,7 +451,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 44,
       "url": "https://www.engadget.com/2248846/pros-and-cons-wireless-android-auto/",
       "image": "/images/feed/feed-05606d79aaca.jpg",
       "source": "Engadget",
@@ -394,7 +470,7 @@
         "Gadget"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 50,
       "url": "https://www.engadget.com/2248646/smart-gadgets-could-instantly-upgrade-backyard/",
       "image": "/images/feed/feed-742dcfde430d.jpg",
       "source": "Engadget",
@@ -413,29 +489,10 @@
         "Macbook"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 35,
       "url": "https://www.engadget.com/2248819/how-to-use-time-machine-backup-macbook-dont-pay-for-cloud-storage/",
       "image": "/images/feed/feed-97dfc9f93a34.jpg",
       "source": "Engadget",
-      "isLive": true
-    },
-    {
-      "id": "feed-81ec93abdca1",
-      "title": "Hackers have withdrawn ~4k BTC (~$320M) from the Liquid Federation wallet",
-      "excerpt": "https://xcancel.com/Liquid_BTC/status/2096696272447218108",
-      "body": "https://xcancel.com/Liquid_BTC/status/2096696272447218108\n\nThis report, published by Hacker News, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Hacker. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Hacker News using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "felipelalli",
-      "date": "2026-09-06",
-      "readTime": "2 min",
-      "section": "cybersecurity",
-      "tags": [
-        "Hacker"
-      ],
-      "featured": false,
-      "xpReward": 35,
-      "url": "https://twitter.com/Liquid_BTC/status/2096696272447218108",
-      "image": "/images/feed/feed-81ec93abdca1.jpg",
-      "source": "Hacker News",
       "isLive": true
     },
     {
@@ -451,7 +508,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 45,
       "url": "https://www.engadget.com/2248762/how-to-fix-common-apple-wallet-problems/",
       "image": "/images/feed/feed-c0ed4ef49768.jpg",
       "source": "Engadget",
@@ -470,48 +527,10 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 37,
       "url": "https://electrek.co/2026/09/06/sany-delivered-200-electric-haul-trucks-600-ev-wheel-loaders-last-month/",
       "image": "/images/feed/feed-80a049e76b11.jpg",
       "source": "Electrek",
-      "isLive": true
-    },
-    {
-      "id": "feed-31abc46f365a",
-      "title": "Christopher Nolan's Greatest Sci-Fi Action Masterpiece Is Officially Free to Watch on YouTube",
-      "excerpt": "Christopher Nolan’s Inception is a mind-bending dream heist packed with practical effects, emotional stakes, and an ending still in hot debate.",
-      "body": "With the immense critical praise surrounding The Odyssey , Christopher Nolan has firmly secured his place as a modern cinematic icon. His movies often feel like intricate puzzle boxes that demand to be solved, from the interlocking timelines of Dunkirk to the structural sleight-of-hand in The Prestige . Looking back at his filmography reveals a director who consistently shatters genre tropes and redefines action cinema, anchoring his most mind-bending concepts in practical filmmaking.",
-      "author": "Ryan Epps",
-      "date": "2026-09-06",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 46,
-      "url": "https://www.polygon.com/christopher-nolan-sci-fi-inception-free-on-youtube/",
-      "image": "/images/feed/feed-31abc46f365a.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-4d9a219abc7c",
-      "title": "The Slate Truck is great, but this one problem may stop a lot of folks from buying it",
-      "excerpt": "Slate's build-a-truck model aims to keep costs low by only including features you'll use. But it won't be popular outside the U.S.",
-      "body": "Slate's build-a-truck model aims to keep costs low by only including features you'll use. But it won't be popular outside the U.S.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Husain Parvez)",
-      "date": "2026-09-06",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 49,
-      "url": "https://www.engadget.com/2248744/slate-truck-not-available-outside-united-states/",
-      "image": "/images/feed/feed-4d9a219abc7c.jpg",
-      "source": "Engadget",
       "isLive": true
     },
     {
@@ -527,7 +546,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 39,
       "url": "https://techcrunch.com/2026/09/06/authors-push-back-as-publishers-and-agents-seek-share-of-anthropic-settlement/",
       "image": "/images/feed/feed-3997b3420fb1.jpg",
       "source": "TechCrunch",
@@ -546,7 +565,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 42,
       "url": "https://electrek.co/2026/09/06/survey-sunday-will-cybercab-transform-mobility-or-be-just-another-car/",
       "image": "/images/feed/feed-89aaba87a620.jpg",
       "source": "Electrek",
@@ -565,7 +584,7 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 46,
       "url": "https://cleantechnica.com/2026/09/06/tesla-cybercab-rollout-being-investigated/",
       "image": "/images/feed/feed-1c15307adc29.jpg",
       "source": "CleanTechnica",
@@ -584,7 +603,7 @@
         "Orbit"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 34,
       "url": "https://www.theverge.com/science/990906/isar-aerospace-europe-orbital-rocket-launch",
       "image": "/images/feed/feed-671419d8190e.jpg",
       "source": "The Verge",
@@ -603,7 +622,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 42,
       "url": "https://cleantechnica.com/2026/09/06/zoox-begins-robotaxi-testing-in-houston/",
       "image": "/images/feed/feed-f6ad3d4584be.jpg",
       "source": "CleanTechnica",
@@ -622,7 +641,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 46,
       "url": "https://cleantechnica.com/2026/09/06/freight-rail-electrification-study-wrong-question/",
       "image": "/images/feed/feed-f919ca6c496c.webp",
       "source": "CleanTechnica",
@@ -641,7 +660,7 @@
         "Chatgpt"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 50,
       "url": "https://blog.thezilber.com/3-youtube-had-a-bug-chatgpt-helped-me-to-investigate",
       "image": "/images/feed/feed-0eea7056c241.png",
       "source": "Hacker News",
@@ -660,7 +679,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 34,
       "url": "https://www.space.com/space-exploration/on-this-day-in-space-september-6-2026",
       "image": "/images/feed/feed-a8961455d735.jpg",
       "source": "Space.com",
@@ -681,7 +700,7 @@
         "Satellite"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 37,
       "url": "https://www.space.com/space-exploration/launches-spacecraft/spacex-starlink/group-15-24-launch-ocisly",
       "image": "/images/feed/feed-3670c7e324be.jpg",
       "source": "Space.com",
@@ -700,7 +719,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 38,
       "url": "https://openai.com/index/research-acceleration-view-inside-openai",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "Hacker News",
@@ -719,7 +738,7 @@
         "Starship"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 47,
       "url": "https://www.space.com/entertainment/space-toys-lego/feel-the-force-with-these-ten-out-of-this-world-lego-star-wars-starships",
       "image": "/images/feed/feed-08633c2200ad.jpg",
       "source": "Space.com",
@@ -738,10 +757,29 @@
         "Phishing"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 46,
       "url": "https://www.bleepingcomputer.com/news/security/attackers-conceal-phishing-lures-using-invisible-unicode-characters/",
       "image": "/images/feed/feed-a5856b104a92.jpg",
       "source": "BleepingComputer",
+      "isLive": true
+    },
+    {
+      "id": "feed-1759500f645b",
+      "title": "Your intellectual fly is open when you use an LLM to author a post (2025)",
+      "excerpt": "",
+      "body": "This report, published by Hacker News, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Llm. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Hacker News using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "cyb0rg0",
+      "date": "2026-09-06",
+      "readTime": "2 min",
+      "section": "ai",
+      "tags": [
+        "Llm"
+      ],
+      "featured": false,
+      "xpReward": 38,
+      "url": "https://bcantrill.dtrace.org/2025/12/05/your-intellectual-fly-is-open/",
+      "image": "/images/topics/topic-ai-ml.png",
+      "source": "Hacker News",
       "isLive": true
     },
     {
@@ -758,7 +796,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 50,
       "url": "https://www.space.com/astronomy/nasa-expands-deep-space-network-with-giant-new-dish-in-california-desert",
       "image": "/images/feed/feed-d0e6c4c3b165.jpg",
       "source": "Space.com",
@@ -777,7 +815,7 @@
         "Authentication"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 47,
       "url": "https://thehackernews.com/2026/09/attackers-hijack-mikrotik-routers.html",
       "image": "/images/feed/feed-c14c61d299fd.jpg",
       "source": "The Hacker News",
@@ -796,7 +834,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 38,
       "url": "https://openai.com/index/an-alien-mind",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "OpenAI Blog",
@@ -815,7 +853,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 30,
       "url": "https://thehackernews.com/2026/09/four-revstealer-linked-modules-disable.html",
       "image": "/images/feed/feed-6dd1eb7a7816.jpg",
       "source": "The Hacker News",
@@ -834,29 +872,10 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 49,
       "url": "https://techcrunch.com/2026/09/05/seattle-times-and-newsday-are-the-latest-publications-to-sue-openai-and-microsoft/",
       "image": "/images/feed/feed-8a7e0f31a983.jpg",
       "source": "TechCrunch",
-      "isLive": true
-    },
-    {
-      "id": "feed-d94494336f88",
-      "title": "Orbitals Review: The Perfect Couples Co-op Game for the Switch 2",
-      "excerpt": "Developer Shapefarm’s debut adventure doesn’t ever really break away from its classic anime inspirations, but that might just work in its favor.",
-      "body": "Developer Shapefarm’s debut adventure doesn’t ever really break away from its classic anime inspirations, but that might just work in its favor.\n\nThis report, published by CNET, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Orbit. As the situation continues to evolve, professionals and enthusiasts in the space exploration and astronomy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to CNET using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Tyler Graham",
-      "date": "2026-09-05",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Orbit"
-      ],
-      "featured": false,
-      "xpReward": 32,
-      "url": "https://www.cnet.com/tech/gaming/orbitals-review-nintendo-switch-2/",
-      "image": "/images/feed/feed-d94494336f88.jpg",
-      "source": "CNET",
       "isLive": true
     },
     {
@@ -873,29 +892,10 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 44,
       "url": "https://thehackernews.com/2026/09/unpatched-magento-and-adobe-commerce.html",
       "image": "/images/feed/feed-c175e3560e60.jpg",
       "source": "The Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-f774e48a95a8",
-      "title": "Hikers rescued after using Google Gemini for planning",
-      "excerpt": "The sheriff’s office said the hikers “were advised by Gemini to bring far less food and water than their group required.\"",
-      "body": "The sheriff’s office said the hikers “were advised by Gemini to bring far less food and water than their group required.\"\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gemini. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Anthony Ha",
-      "date": "2026-09-05",
-      "readTime": "2 min",
-      "section": "ai",
-      "tags": [
-        "Gemini"
-      ],
-      "featured": false,
-      "xpReward": 34,
-      "url": "https://techcrunch.com/2026/09/05/hikers-rescued-after-using-google-gemini-for-planning/",
-      "image": "/images/feed/feed-f774e48a95a8.jpg",
-      "source": "TechCrunch",
       "isLive": true
     },
     {
@@ -911,43 +911,43 @@
         "Breach"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 49,
       "url": "https://thehackernews.com/2026/09/attackers-breached-jetbrains-cadence.html",
       "image": "/images/feed/feed-1a17e912ec35.jpg",
       "source": "The Hacker News",
       "isLive": true
     },
     {
-      "id": "feed-4a62daf7b7dc",
-      "title": "Venus is disappearing from the evening sky — here's how to see it while you can",
-      "excerpt": "Venus is sinking lower into the sunset this September, but the brilliant Evening Star won't be gone for long.",
-      "body": "Soon, the sky's most glamorous evening performer will take its leave. Since late March, Venus has been the unmistakable \"Evening Star,\" gleaming shortly after sunset and stealing attention from nearly everything else in the twilight. In June, it helped stage a striking three-planet lineup after sundown, outshining both Jupiter and Mercury . Now the curtain is beginning to fall: Venus is sinking night by night and will trade its evening role for a morning one before October is over. A familiar dance around the sun Venus moves to a remarkably regular beat. Our nearest planetary neighbor circles the sun in an almost perfect path, completing 13 orbits in 8 Earth years. From Earth , that rhythm makes Venus appear to trace five great loops across the sky in the same span.",
-      "author": " Joe Rao ",
+      "id": "feed-98d96dc03a65",
+      "title": "Critical VMware Workstation and Fusion Flaw Lets VM Admins Execute Host Code",
+      "excerpt": "Broadcom has released security updates for two security flaws impacting VMware Workstation and Fusion, including one critical bug that could result in arbitrary code execution under certain conditions…",
+      "body": "Broadcom has released security updates for two security flaws impacting VMware Workstation and Fusion, including one critical bug that could result in arbitrary code execution under certain conditions. The vulnerability, tracked as CVE-2026-59346 (CVSS score: 9.3), is an integer-overflow vulnerability that a local attacker with elevated privileges can exploit to run arbitrary code. \"A",
+      "author": "info@thehackernews.com (The Hacker News)",
       "date": "2026-09-05",
       "readTime": "2 min",
-      "section": "space",
+      "section": "cybersecurity",
       "tags": [
-        "Space"
+        "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 51,
-      "url": "https://www.space.com/stargazing/venus-is-disappearing-from-the-evening-sky-heres-how-to-see-it-while-you-can",
-      "image": "/images/feed/feed-4a62daf7b7dc.jpg",
-      "source": "Space.com",
+      "xpReward": 52,
+      "url": "https://thehackernews.com/2026/09/critical-vmware-workstation-and-fusion.html",
+      "image": "/images/feed/feed-98d96dc03a65.jpg",
+      "source": "The Hacker News",
       "isLive": true
     }
   ],
   "breakingNews": [
-    "DEV.TO: Moving Data Is Easier Than Moving Knowledge",
-    "DEV.TO: NeedFeed 🤝 — Safe, In-Kind Mutual Aid Without Cash or Tagging",
-    "DEV.TO: I built a detector for stuck Safe transactions. 93% of what it found was already dead.",
-    "DEV.TO: Give back to the open source comunity",
-    "DEV.TO: Blind Replay Before Merge: Keep Only the Agent Diff a Clean Environment Recreates",
-    "DEV.TO: Building invite flows that don't have race conditions in SvelteKit + Postgres",
-    "DEV.TO: I tried removing burned-in text from videos with VideoDetext",
-    "POLYGON: How to Watch Nintendo's Zelda 40th Anniversary Direct",
-    "POLYGON: 8 Best Games Like The Witcher 3",
-    "POLYGON: 'Hereditary' Meets 'Parasite' in This Unforgettable Mystery Thriller That’s Free on Streaming"
+    "DEV.TO: Ask canvas for a WebP in Safari and you silently get a PNG",
+    "DEV.TO: Why You Shouldn’t Store Large Files in Your Database: Database vs. Amazon S3",
+    "DEV.TO: Stop Paying Full Reboot Downtime: Practical systemd soft-reboot on Linux",
+    "9TO5MAC: This AI-generated iPhone 18 Pro mock ad makes me actually love dark cherry color",
+    "DEV.TO: If not Python venv, then what?",
+    "DEV.TO: With AI, The Real Edge Is Knowing What to Build",
+    "DEV.TO: How I Built an Autonomous AI Agent That Earns USDC While I Sleep",
+    "DEV.TO: Your auto-captioner is measuring the wrong thing: a ratio that fired on a perfectly good clip",
+    "POLYGON: Brandon Sanderson Reveals the Fatal Fantasy Mistake That Derailed Game of Thrones",
+    "NASA BREAKING NEWS: APOD: 2026 September 7 – The Pelican Nebula in Gas, Dust, and Stars"
   ],
   "sectionVideos": {}
 }
