@@ -1,80 +1,175 @@
 {
-  "fetchedAt": "2026-09-07T23:12:35.061Z",
+  "fetchedAt": "2026-09-08T00:31:38.840Z",
   "articles": [
     {
-      "id": "feed-5f90d219a2d0",
-      "title": "Node.js Account Shutdown: Token Revocation and Eventual Deletion in 3 Steps",
-      "excerpt": "In a customer-support system, the hard part of account shutdown is deciding what must stop now and what can wait. A stolen refresh token is an immediate abuse problem; an account deletion request is a…",
-      "body": "In a customer-support system, the hard part of account shutdown is deciding what must stop now and what can wait. A stolen refresh token is an immediate abuse problem; an account deletion request is a data-lifecycle problem with a different recovery window. Short answer: keep a stable user ID, mark profile state before destructive work, revoke every session for a compromise, and delete only after the recovery and audit requirements are satisfied. Profile state and session revocation are complementary controls, not competing implementations. The incident lesson: shutdown is two clocks, not one The bounded production scenario is familiar: a support agent reports that a customer session was copied from a browser.",
-      "author": "magnusberg2958",
-      "date": "2026-09-07",
+      "id": "feed-460d0e6f11d9",
+      "title": "Atomic writes — how tempfile + os.replace prevent corrupted JSON",
+      "excerpt": "What happens if the power cuts out while a process is writing to a config file? Or if antivirus software on Windows briefly locks a file mid-write? If you naively overwrite a file with open(path, 'w')…",
+      "body": "What happens if the power cuts out while a process is writing to a config file? Or if antivirus software on Windows briefly locks a file mid-write? If you naively overwrite a file with open(path, 'w') , whatever partial content existed at the moment of interruption is what remains on disk. For JSON, that usually means broken syntax — json.load() throws on the next startup, and the entire configuration is effectively lost. This article walks through a standard technique for preventing that: writing to a temporary file first, then swapping it in atomically. Note: \"Atomic\" here means an operation either completes entirely or doesn't happen at all — there's no partial, observable in-between state. It's the same sense of the word used for database transactions.",
+      "author": "Susumu Takahashi",
+      "date": "2026-09-08",
       "readTime": "2 min",
       "section": "software",
       "tags": [
         "Software"
       ],
       "featured": true,
-      "xpReward": 41,
-      "url": "https://dev.to/magnusberg2958/nodejs-account-shutdown-token-revocation-and-eventual-deletion-in-3-steps-2ho6",
-      "image": "/images/feed/feed-5f90d219a2d0.webp",
+      "xpReward": 49,
+      "url": "https://dev.to/susumun/atomic-writes-how-tempfile-osreplace-prevent-corrupted-json-2lo8",
+      "image": "/images/feed/feed-460d0e6f11d9.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-f8c2203e1318",
-      "title": "Future AWS Agent Engineer? I Didn't Write the Code. Does It Count?",
-      "excerpt": "A few weeks ago I wrote about hitting ReAct in the coursework and having a record scratch moment, because I had already met it without knowing its name. That post ended on a section called \"Building A…",
-      "body": "A few weeks ago I wrote about hitting ReAct in the coursework and having a record scratch moment, because I had already met it without knowing its name. That post ended on a section called \"Building Ahead of Understanding,\" which was me making peace with shipping things before I fully understand them. This week I shipped my first chatbot. It passed on the first attempt, on deadline day, on a project where the rubric was grading a product AWS had already discontinued. And I spent most of that day quietly worried that it did not count. Let me be clear about what the worry actually was, because it was not about cheating. Using AI agents to build a coding project is allowed here.",
-      "author": "Earl Grey",
-      "date": "2026-09-07",
+      "id": "feed-c4723368cde0",
+      "title": "x402 Explained: HTTP-Native Micropayments for AI Agents (With Real Code)",
+      "excerpt": "x402 Explained: HTTP‑Native Micropayments for AI Agents (With Real Code) Target audience: developers who are building autonomous AI agents and need a lightweight way to charge for individual API calls…",
+      "body": "x402 Explained: HTTP‑Native Micropayments for AI Agents (With Real Code) Target audience: developers who are building autonomous AI agents and need a lightweight way to charge for individual API calls without introducing a separate billing system. Why look at x402? Autonomous agents often expose fine‑grained services—think “summarize this paragraph”, “classify this image”, or “fetch the latest price for a token”. Traditional approaches (API keys + monthly invoices, subscription tiers, or ad‑hoc invoicing) add operational overhead that doesn’t scale when an agent might make thousands of micro‑calls per day. The x402 specification repurposes the HTTP 402 Payment Required status code to turn every request into a self‑contained payment negotiation.",
+      "author": "Nikhil Ranka",
+      "date": "2026-09-08",
       "readTime": "2 min",
       "section": "software",
       "tags": [
         "Software"
       ],
       "featured": true,
-      "xpReward": 37,
-      "url": "https://dev.to/earlgreyhot1701d/future-aws-agent-engineer-i-didnt-write-the-code-does-it-count-2gib",
-      "image": "/images/feed/feed-f8c2203e1318.webp",
+      "xpReward": 52,
+      "url": "https://dev.to/nikhilranka23/x402-explained-http-native-micropayments-for-ai-agents-with-real-code-2d8h",
+      "image": "/images/feed/feed-c4723368cde0.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-261eaad8aa00",
-      "title": "Inbundly – Google Inbox-style bundles for Gmail",
-      "excerpt": "Inbundly brings Google Inbox-style bundles back to Gmail: emails sharing a label are grouped into collapsible bundles so you can skim, prioritize, and archive in batches. An actively maintained, priva…",
-      "body": "Inbundly brings Google Inbox-style bundles back to Gmail: emails sharing a label are grouped into collapsible bundles so you can skim, prioritize, and archive in batches. An actively maintained, privacy-friendly continuation of the open-source Inboxy, plus custom bundles, priority rules, and label colors. 100% local. Chrome + Firefox. I built Inbundly because I still miss Inbox's way of organizing email by intent, and because I now triage my inbox together with AI agents, which work far better on a structured inbox than a firehose. Inboxy (open source) deserved a modern, actively maintained continuation, so I've been building this on weekends and polishing it until it was ready to ship. Zero data collection, GPL-3.0, full credit upstream.",
-      "author": "Ben Orozco",
-      "date": "2026-09-07",
+      "id": "feed-4a6aac5b7773",
+      "title": "How to Send Email from Cloudflare Workers",
+      "excerpt": "There are two real ways to do this: Cloudflare's own native Email Service binding, or calling an external email API like Notify over fetch(). I'll walk through both, but I want to flag something about…",
+      "body": "There are two real ways to do this: Cloudflare's own native Email Service binding, or calling an external email API like Notify over fetch() . I'll walk through both, but I want to flag something about the native option up front that's easy to miss until you're actually setting it up: it currently requires the Workers Paid plan, not just a Cloudflare account. If you're on the free Workers tier and just want to send a password reset email, that's worth knowing before you spend time on it. Option 1: Cloudflare's Native Email Service Binding Cloudflare's Email Service (which covers both sending and receiving) lets a Worker send email through a binding, with no external API key.",
+      "author": "sohom das",
+      "date": "2026-09-08",
       "readTime": "2 min",
       "section": "software",
       "tags": [
         "Software"
       ],
       "featured": true,
-      "xpReward": 44,
-      "url": "https://dev.to/benoror/inbundly-google-inbox-style-bundles-for-gmail-30j",
-      "image": "/images/feed/feed-261eaad8aa00.webp",
+      "xpReward": 47,
+      "url": "https://dev.to/sohom_47/how-to-send-email-from-cloudflare-workers-1e9p",
+      "image": "/images/feed/feed-4a6aac5b7773.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-5dc038669ca8",
-      "title": "The Anatomy of an AI Agent: Five Parts That Turn Thinking Into Doing",
-      "excerpt": "Ask a language model to book you a table for six this Thursday and it will do something quietly maddening. It will explain, fluently and with total confidence, exactly how one might book a table for s…",
-      "body": "Ask a language model to book you a table for six this Thursday and it will do something quietly maddening. It will explain, fluently and with total confidence, exactly how one might book a table for six this Thursday. Then it will stop. Articulate, helpful, and unable to lift a finger. That gap between knowing what to do and doing it is the whole difference between a chatbot and an agent. A chatbot answers and waits. An agent takes the goal and closes the gap: it plans, it acts, it keeps track of where it is, and it comes back to you when the stakes call for it. Less \"answer my question,\" more \"take care of this.\" The part worth understanding is that no single clever thing pulls this off. An agent is a small crew of ordinary parts, and the intelligence lives in how they're wired together.",
-      "author": "obiwale ayomide",
-      "date": "2026-09-07",
+      "id": "feed-810c6864a136",
+      "title": "Your team's coding rules aren't in the prompt, they're in the ingest",
+      "excerpt": "Every AI code reviewer claims it respects your team's standards. Very few can tell you what those standards actually are. The test is mechanical. Ask the tool, or the vendor, one question: where do my…",
+      "body": "Every AI code reviewer claims it respects your team's standards. Very few can tell you what those standards actually are. The test is mechanical. Ask the tool, or the vendor, one question: where do my rules live? If the honest answer is \"we loaded a generic style guide plus whatever your PR description happened to say\", then your standards aren't in the model at all. The reviewer is running on vibes and hoping your repo looks conventional enough to pass. The tools that genuinely track your rules share a shape: the standards are an input, not a hope. They read your rule files, your linter config, your past review comments, sometimes your docs.",
+      "author": "Cole Halton",
+      "date": "2026-09-08",
       "readTime": "2 min",
       "section": "software",
       "tags": [
         "Software"
       ],
       "featured": true,
-      "xpReward": 38,
-      "url": "https://dev.to/obiwale_ayomide_cdcf8b961/the-anatomy-of-an-ai-agent-five-parts-that-turn-thinking-into-doing-38ml",
-      "image": "/images/feed/feed-5dc038669ca8.webp",
+      "xpReward": 35,
+      "url": "https://dev.to/cole_halton_42f71d71b809b/your-teams-coding-rules-arent-in-the-prompt-theyre-in-the-ingest-3jp0",
+      "image": "/images/feed/feed-810c6864a136.webp",
       "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-fafb6fcf8ab6",
+      "title": "The GNU strip backdoor is the case AI code review can't see",
+      "excerpt": "This paper (arxiv 2607.24888) is worth a stop if you evaluate AI code review. It shows Ken Thompson's trusting-trust attack is not compiler-specific: the authors pull it off with GNU strip, a build ut…",
+      "body": "This paper (arxiv 2607.24888) is worth a stop if you evaluate AI code review. It shows Ken Thompson's trusting-trust attack is not compiler-specific: the authors pull it off with GNU strip, a build utility that neither reads nor generates source, using only tampered finished ELF binaries. In the NixOS bootstrap, one malicious strip in the binary seed implants a payload that propagates to the next strip generation and survives into the final standard environment after the seed is gone. The uncomfortable part for anyone building or buying AI review: these tools read the patch text and the source, and none of them reads the build path or the binary seed. And that is not a limitation a bigger model fixes.",
+      "author": "Cole Halton",
+      "date": "2026-09-08",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 50,
+      "url": "https://dev.to/cole_halton_42f71d71b809b/the-gnu-strip-backdoor-is-the-case-ai-code-review-cant-see-2j1f",
+      "image": "/images/feed/feed-fafb6fcf8ab6.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-e023fe410e40",
+      "title": "I Want More Coding Agents to Work Like This",
+      "excerpt": "💻 One thing I dislike about coding-agent setups is how quickly they become part of one specific machine. Provider config goes in one place, session state somewhere else, local models live in another…",
+      "body": "💻 One thing I dislike about coding-agent setups is how quickly they become part of one specific machine. Provider config goes in one place, session state somewhere else, local models live in another directory, and suddenly moving to a second machine means rebuilding the environment. OpenClaude-Portable takes a much cleaner approach. It packages the coding agent, runtime and persistent data into a self-contained folder. It supports cloud and local models in the same setup The project currently supports 9 provider options: Anthropic Claude OpenAI Google Gemini DeepSeek OpenRouter NVIDIA NIM Ollama LM Studio custom OpenAI-compatible APIs I like this because the portable part is not tied to one model vendor.",
+      "author": "Ian Khasky",
+      "date": "2026-09-08",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 43,
+      "url": "https://dev.to/khasky/i-want-more-coding-agents-to-work-like-this-544d",
+      "image": "/images/feed/feed-e023fe410e40.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-46e91c829e83",
+      "title": "Weekly Dev Log 2026-W18",
+      "excerpt": "🗓️ This Week We’ve still had plenty of hot days lately, but there have also been some cooler days when it rains. It’s starting to feel like summer is slowly coming to an end🎇. Work has been quite bu…",
+      "body": "🗓️ This Week We’ve still had plenty of hot days lately, but there have also been some cooler days when it rains. It’s starting to feel like summer is slowly coming to an end🎇. Work has been quite busy recently , and I haven’t been able to find as much time as I’d like for my own development projects💦. Because of that, it’s been about two weeks since my last Weekly Dev Log update . By my previous update, I had mostly finished Note Practice , the first practice mode in ToneDrill. So I’ve now started working on the next feature, Chord Tone Practice 🦾. In Chord Tone Practice, I want the player to find chord-tone patterns on the guitar fretboard based on the selected root note and chord quality, Major or Minor🎸.",
+      "author": "Umitomo",
+      "date": "2026-09-08",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 32,
+      "url": "https://dev.to/umitomo-lab/weekly-dev-log-2026-w18-33bd",
+      "image": "/images/feed/feed-46e91c829e83.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-ea37715a74d6",
+      "title": "Pros and cons of using a Chromebook as your everyday PC",
+      "excerpt": "Chromebooks are great devices, but they might not be able to do everything a Windows or Mac device can. Consider carefully before using one daily.",
+      "body": "Chromebooks are great devices, but they might not be able to do everything a Windows or Mac device can. Consider carefully before using one daily.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "staff@engadget.com (Deven McClure)",
+      "date": "2026-09-08",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 31,
+      "url": "https://www.engadget.com/2249648/chromebook-pros-and-cons-as-main-pc/",
+      "image": "/images/feed/feed-ea37715a74d6.jpg",
+      "source": "Engadget",
+      "isLive": true
+    },
+    {
+      "id": "feed-79a3a96f5508",
+      "title": "How Long Should A Laptop Battery Last On A Single Charge?",
+      "excerpt": "In the market for a new laptop? You'll want to know just how long it'll run without being plugged in, and how you can maximize the efficiency of its battery.",
+      "body": "In the market for a new laptop? You'll want to know just how long it'll run without being plugged in, and how you can maximize the efficiency of its battery.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Laptop. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "staff@engadget.com (Jack Peachey)",
+      "date": "2026-09-07",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Laptop"
+      ],
+      "featured": false,
+      "xpReward": 54,
+      "url": "https://www.engadget.com/2249568/how-long-laptop-battery-should-last-without-recharging/",
+      "image": "/images/feed/feed-79a3a96f5508.jpg",
+      "source": "Engadget",
       "isLive": true
     },
     {
@@ -89,30 +184,11 @@
       "tags": [
         "Gaming"
       ],
-      "featured": true,
-      "xpReward": 34,
+      "featured": false,
+      "xpReward": 52,
       "url": "https://www.polygon.com/hunger-games-sunrise-on-the-reaping-haymitch-new-interview/",
       "image": "/images/feed/feed-0695f93769ef.jpg",
       "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-7a31572f9358",
-      "title": "Bắt LLM trả JSON đúng chuẩn: ba lớp và vòng repair",
-      "excerpt": "Liquid syntax error: Variable '{{% raw %}' was not properly terminated with regexp: /\\}\\}/",
-      "body": "Liquid syntax error: Variable '{{% raw %}' was not properly terminated with regexp: /\\}\\}/\n\nThis report, published by Dev.to, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Software. As the situation continues to evolve, professionals and enthusiasts in the software development and engineering field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Dev.to using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "BeanBean",
-      "date": "2026-09-07",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 30,
-      "url": "https://dev.to/bean_bean/bat-llm-tra-json-dung-chuan-ba-lop-va-vong-repair-hjp",
-      "image": "/images/feed/feed-7a31572f9358.webp",
-      "source": "Dev.to",
       "isLive": true
     },
     {
@@ -128,48 +204,10 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 38,
       "url": "https://www.engadget.com/2249559/carplay-android-auto-carplay-gm-breakup-one-exception-2027-cadillac-lyriq/",
       "image": "/images/feed/feed-a25a71fcd08f.jpg",
       "source": "Engadget",
-      "isLive": true
-    },
-    {
-      "id": "feed-aaf39dddc29e",
-      "title": "The Application Shell: GtkApplicationWindow vs AdwApplicationWindow",
-      "excerpt": "This is the first proper entry in A Field Guide to GTK Widgets — a series about which widget to reach for, when, and what bites you when you do. We start where every app starts: the window. Each post…",
-      "body": "This is the first proper entry in A Field Guide to GTK Widgets — a series about which widget to reach for, when, and what bites you when you do. We start where every app starts: the window. Each post stands on its own, and the complete, runnable code for this one lives in the companion repo . Two windows, and the one you should reach for You sit down to write a GNOME app. The very first widget you need is the window, and the toolkit immediately hands you a choice it doesn't explain: GtkApplicationWindow , from GTK itself, or AdwApplicationWindow , from Libadwaita. The reference describes both accurately and tells you nothing about which one you want.",
-      "author": "Justin - FromTheArchitect",
-      "date": "2026-09-07",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 36,
-      "url": "https://dev.to/fromthearchitect/the-application-shell-gtkapplicationwindow-vs-adwapplicationwindow-494c",
-      "image": "/images/feed/feed-aaf39dddc29e.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-109e89ffa4e8",
-      "title": "Le Creuset x Star Trek Collection: Prices, availability, release date",
-      "excerpt": "Vulcan oven mitts, spaceship baking dishes, and an out-of-this-world communicator grater—you'll need warp speed to Klingon to this limited edition kitchen kit, ideal for perfecting the broth of Khan.",
-      "body": "Vulcan oven mitts, spaceship baking dishes, and an out-of-this-world communicator grater—you'll need warp speed to Klingon to this limited edition kitchen kit, ideal for perfecting the broth of Khan.\n\nThis report, published by Wired, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Software. As the situation continues to evolve, professionals and enthusiasts in the software development and engineering field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Wired using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Jeremy White",
-      "date": "2026-09-07",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 54,
-      "url": "https://www.wired.com/story/to-boldly-dough-le-creuset-sent-its-new-star-trek-cooking-collection-into-space/",
-      "image": "/images/feed/feed-109e89ffa4e8.jpg",
-      "source": "Wired",
       "isLive": true
     },
     {
@@ -185,7 +223,7 @@
         "Fortnite"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 45,
       "url": "https://www.polygon.com/fortnite-mega-man-cosmetics-tournament/",
       "image": "/images/feed/feed-4c45b6c62300.jpg",
       "source": "Polygon",
@@ -204,7 +242,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 48,
       "url": "https://www.polygon.com/zelda-tears-of-the-kingdom-best-amiibo-september-2026/",
       "image": "/images/feed/feed-6bb07131931f.jpg",
       "source": "Polygon",
@@ -223,7 +261,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 48,
       "url": "https://www.engadget.com/2252334/new-elizabeth-holmes-documentary-nathan-fielder-and-lance-oppenheim-coming-from-a24/",
       "image": "/images/feed/feed-f0f73ffbba0a.jpg",
       "source": "Engadget",
@@ -242,17 +280,36 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 34,
       "url": "https://www.engadget.com/2249521/how-to-legally-download-youtube-videos/",
       "image": "/images/feed/feed-2b4df6aa8b0c.jpg",
       "source": "Engadget",
       "isLive": true
     },
     {
+      "id": "feed-bcae626df406",
+      "title": "NHL 27 Is Using AI-Generated Voiceover for In-Game Commentators, John Buccigross Says",
+      "excerpt": "EA Sports is using generative AI to create voiceover for its in-game commentators in NHL 27, according to veteran sports commentator John Buccigross.",
+      "body": "EA Sports is using generative AI to create voiceover for its in-game commentators in NHL 27 , according to veteran sports commentator John Buccigross. When speaking on the Chirping Zebras podcast (initially spotted by Insider Gaming&#39;s Mike Straw ), Buccigross was talking about his experience working with EA Sports on the NHL games. He revealed that he will be in NHL 27, but EA also used generative AI to add voice lines as well. &quot;They&#39;re using some AI now; they played me some stuff back of my voice,&quot; said Buccigross. &quot;It&#39;s like &#39;Wow, that&#39;s pretty good!&#39; If that means less work but the same check, I&#39;ll take it. Sometimes AI will get something wrong.",
+      "author": "Cade Onder",
+      "date": "2026-09-07",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Game"
+      ],
+      "featured": false,
+      "xpReward": 37,
+      "url": "https://www.ign.com/articles/nhl-27-is-using-ai-generated-voiceover-for-in-game-commentators-john-buccigross-says",
+      "image": "/images/feed/feed-bcae626df406.png",
+      "source": "IGN",
+      "isLive": true
+    },
+    {
       "id": "feed-dbb9942340ee",
       "title": "XPENG Brings Physical AI To IFA Berlin",
       "excerpt": "IFA Berlin showcases a wide range of innovation. Many companies tout AI as the latest catch phrase. But XPENG brought technical details and insights into physical AI within current and upcoming produc…",
-      "body": "IFA Berlin showcases a wide range of innovation. Many companies tout AI as the latest catch phrase. But XPENG brought technical details and insights into physical AI within current and upcoming products that will soon become available to European customers. John MA, Senior Director, Head of ADAS &#38; Smart Cabin ... [continued] The post XPENG Brings Physical AI To IFA Berlin appeared first on CleanTechnica .",
+      "body": "IFA Berlin showcases a wide range of innovation. Many companies tout AI as the latest catch phrase. But XPENG brought technical details and insights into physical AI within current and upcoming products that will soon become available to European customers. Dr. John MA, Senior Director, Head of ADAS &#38; Smart ... [continued] The post XPENG Brings Physical AI To IFA Berlin appeared first on CleanTechnica .",
       "author": "Larry Evans",
       "date": "2026-09-07",
       "readTime": "2 min",
@@ -261,10 +318,29 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 37,
       "url": "https://cleantechnica.com/2026/09/07/xpeng-brings-physical-ai-to-ifa-berlin/",
       "image": "/images/feed/feed-dbb9942340ee.png",
       "source": "CleanTechnica",
+      "isLive": true
+    },
+    {
+      "id": "feed-fe915dd051ea",
+      "title": "Final Fantasy Resonance Mod Brings Back Classic FF Character Ariana Grande",
+      "excerpt": "If you were upset to hear that pop star Ariana Grande wouldn't return in Final Fantasy Resonance, a new mod is here to save the day.",
+      "body": "If you were upset to hear that pop star Ariana Grande wouldn&#39;t return in Final Fantasy Resonance , a new mod is here to save the day. In case you were unaware, Square Enix&#39;s Final Fantasy Resonance will arrive as the long-running RPG franchise&#39;s first proper HD-2D game when it launches next month, and it also happens to be a bit of a remake. The game it&#39;s based on, Final Fantasy Brave Exvius , is a free-to-play game with turn-based gameplay that launched for iOS and Android devices in 2015 and shut down in 2025 – but what does that have to do with Ariana Grande? The performer behind hits like &quot;break up with your girlfriend, i&#39;m bored,&quot; who also played Galinda in the recent Wicked films, isn&#39;t a newcomer for the Final Fantasy series.",
+      "author": "Michael Cripe",
+      "date": "2026-09-07",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 39,
+      "url": "https://www.ign.com/articles/final-fantasy-resonance-mod-brings-back-classic-ff-character-ariana-grande",
+      "image": "/images/feed/feed-fe915dd051ea.png",
+      "source": "IGN",
       "isLive": true
     },
     {
@@ -280,7 +356,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 53,
       "url": "https://kotaku.com/radical-dreamers-is-a-short-but-fun-reunion-with-chrono-characters-2000731448",
       "image": "/images/feed/feed-02e56d839f72.jpg",
       "source": "Kotaku",
@@ -299,10 +375,29 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 52,
       "url": "https://www.engadget.com/2249526/ways-make-most-out-of-apple-wallet/",
       "image": "/images/feed/feed-1695e76a7969.jpg",
       "source": "Engadget",
+      "isLive": true
+    },
+    {
+      "id": "feed-55a85b1144c2",
+      "title": "Pokémon TCG Prismatic Evolutions Super-Premium Collection Restocked at Amazon",
+      "excerpt": "Amazon has restocked the rare Pokémon TCG Prismatic Evolutions Super-Premium Collection featuring 15 booster packs and promo cards.",
+      "body": "As I&#39;ve mentioned in a couple of other articles today, Amazon has recently restocked a whole bunch of rare Pokémon TCG sets for Labor Day , and there are some hot goods up for grabs right now if you&#39;re fast enough. Scarlet &amp; Violet—Prismatic Evolutions Super-Premium Collection is now available again and in stock at Amazon for $274.99. The listed median price for these is around $310, according to TCGplayer , so at $274.99, you&#39;re getting a fairly good price (albeit still well above MSRP). The market price is a little lower at around $257.54 , meaning you could potentially save a few bucks by buying through the resale market on TCGplayer or eBay. Just remember that those prices don&#39;t necessarily include delivery, so the gap can narrow pretty quickly.",
+      "author": "Robert Anderson",
+      "date": "2026-09-07",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 36,
+      "url": "https://www.ign.com/articles/pokemon-tcg-prismatic-evolutions-super-premium-amazon-restock",
+      "image": "/images/feed/feed-55a85b1144c2.png",
+      "source": "IGN",
       "isLive": true
     },
     {
@@ -318,7 +413,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 53,
       "url": "https://electrek.co/2026/09/07/chinas-clean-energy-surge-is-starting-to-squeeze-out-coal/",
       "image": "/images/feed/feed-c2c39e6c54b3.jpg",
       "source": "Electrek",
@@ -337,105 +432,10 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 54,
       "url": "https://9to5mac.com/2026/09/07/whatsapp-will-soon-let-users-chat-with-up-to-five-third-party-ai-agents/",
       "image": "/images/feed/feed-0d3aa66db43b.jpg",
       "source": "9to5Mac",
-      "isLive": true
-    },
-    {
-      "id": "feed-bfb2b3581779",
-      "title": "How Ys VIII’s Unique Take On The Apocalypse Made It So Compelling",
-      "excerpt": "Ys VIII is one of the best action RPGs of the past generation",
-      "body": "Ys VIII is one of the best action RPGs of the past generation\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Peter Tieryas",
-      "date": "2026-09-07",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 42,
-      "url": "https://kotaku.com/how-ys-viiis-unique-take-on-the-apocalypse-made-it-so-compelling-2000730391",
-      "image": "/images/feed/feed-bfb2b3581779.jpg",
-      "source": "Kotaku",
-      "isLive": true
-    },
-    {
-      "id": "feed-d5a4256a8eb7",
-      "title": "Where to Play Every Grand Theft Auto Game in 2026",
-      "excerpt": "Rockstar Games GTA might be the most popular game franchise of all time, but a lot of it is hard to play. Here's a guide on how to play every game",
-      "body": "Rockstar Games seems to have an ambivalent attitude towards GTA's past, particularly the early 2D games and some spinoff titles, and its record in making these games available is decidedly spotty. Below, we break down the current state of availability of every game in the series — where you can find it, and what the best way to play it is.",
-      "author": "Oli Welsh",
-      "date": "2026-09-07",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Game"
-      ],
-      "featured": false,
-      "xpReward": 34,
-      "url": "https://www.polygon.com/gta-games-grand-theft-auto-where-to-play-all-2026/",
-      "image": "/images/feed/feed-d5a4256a8eb7.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-b72760ed95cd",
-      "title": "How to watch The Legend of Zelda 40th Anniversary Nintendo Direct",
-      "excerpt": "We're expecting details about the 'Ocarina of Time' and other Zelda projects during Nintendo's 30-minute stream.",
-      "body": "We're expecting details about the 'Ocarina of Time' and other Zelda projects during Nintendo's 30-minute stream.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Kris Holt)",
-      "date": "2026-09-07",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 47,
-      "url": "https://www.engadget.com/2252305/how-to-watch-the-legend-of-zelda-40th-anniversary-nintendo-direct/",
-      "image": "/images/feed/feed-b72760ed95cd.jpg",
-      "source": "Engadget",
-      "isLive": true
-    },
-    {
-      "id": "feed-b5b9c88dbd95",
-      "title": "Retroid takes on Nintendo nostalgia with new dual-screen Android handheld",
-      "excerpt": "Retroid is working on its first real dual-screen Android gaming handheld.",
-      "body": "Credit: Retroid TL;DR Retroid has released a teaser for a new gaming handheld. The handheld will be called the Retroid Pocket Duo, and its key feature will be two built-in screens. The video clip shows an outline that resembles a Nintendo 3DS. Android gaming handheld maker Retroid recently launched the Pocket Nova . However, the company isn’t slowing down for even a second. It’s already teasing its next release, and it will remind you of a classic Nintendo device. Retroid has shared a teaser for a new system on social media. The teaser consists of a 20-second video clip and the words “Two Screens.. One Pocket.” While leaving everything else as a mystery to be solved at a later date, the company did at least reveal the name — the “Retroid Pocket Duo.”",
-      "author": "Ryan McNeal",
-      "date": "2026-09-07",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 36,
-      "url": "https://www.androidauthority.com/retroid-pocket-duo-teaser-3708592/",
-      "image": "/images/feed/feed-b5b9c88dbd95.jpg",
-      "source": "Android Authority",
-      "isLive": true
-    },
-    {
-      "id": "feed-5799ec937269",
-      "title": "Magic: The Gathering's Hobbit Gift Bundles Are Back In Stock at Amazon",
-      "excerpt": "Save almost 20% and get a Collector Booster included with 9 Play Boosters, too.",
-      "body": "In case you missed it, Magic: The Gathering has returned to Middle-Earth with some gusto. The Lord of the Rings set is widely regarded as one of the best Universes Beyond offerings yet, and The Hobbit is getting a pretty great reception from players, too. As the set only launched recently, its Collector Boosters are harder to find than the Arkenstone in Smaug’s hoard of treasures, but Amazon has a “deal” that might get your attention. There Is A Catch, Depending On Where You Stand We say “deal” because, as with many things with this set right now, the Magic: The Gathering Hobbit Gift bundle is being sold for more than its MSRP. In fact, Wizards says it should be $89.99, so $164 is a colossal price hike.",
-      "author": "Lloyd Coombes",
-      "date": "2026-09-07",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 34,
-      "url": "https://www.ign.com/articles/magic-the-gatherings-hobbit-gift-bundles-are-back-in-stock-at-amazon",
-      "image": "/images/feed/feed-5799ec937269.jpg",
-      "source": "IGN",
       "isLive": true
     },
     {
@@ -452,7 +452,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 37,
       "url": "https://www.space.com/entertainment/space-games/the-last-starship-is-2026s-most-slept-on-space-game-you-need-to-check-out-this-ftl-like-shipbuilding-strategy-gem",
       "image": "/images/feed/feed-0b5337f77bb1.jpg",
       "source": "Space.com",
@@ -471,7 +471,7 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 47,
       "url": "https://cleantechnica.com/2026/09/07/tesla-cybercab-robotaxi-questions/",
       "image": "/images/feed/feed-880319ccbc93.jpg",
       "source": "CleanTechnica",
@@ -490,7 +490,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 50,
       "url": "https://electrek.co/2026/09/07/this-family-of-four-put-1000-km-on-a-cargo-e-bike-instead-of-buying-a-second-car/",
       "image": "/images/feed/feed-c2dac978a58e.jpg",
       "source": "Electrek",
@@ -509,7 +509,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 50,
       "url": "https://electrek.co/2026/09/07/port-authority-of-ny-and-nj-calstart-launch-45m-electric-truck-plan/",
       "image": "/images/feed/feed-132241b176e8.jpg",
       "source": "Electrek",
@@ -529,7 +529,7 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 35,
       "url": "https://electrek.co/2026/09/07/tesla-driver-assist-stop-sign-buena-vista/",
       "image": "/images/feed/feed-eb7c90a1e0e6.jpg",
       "source": "Electrek",
@@ -548,7 +548,7 @@
         "Vehicle"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 54,
       "url": "https://electrek.co/2026/09/07/kia-launches-three-gt-evs-ev3-gt-ev4-gt-ev5-gt/",
       "image": "/images/feed/feed-312b526e264c.jpg",
       "source": "Electrek",
@@ -567,7 +567,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 30,
       "url": "https://thehackernews.com/2026/09/peep-turns-chrome-and-edge-into-post.html",
       "image": "/images/feed/feed-f92e60f56be0.jpg",
       "source": "The Hacker News",
@@ -587,7 +587,7 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 34,
       "url": "https://www.bleepingcomputer.com/news/security/magento-stylesmuggler-zero-day-exploited-to-deploy-linux-backdoor/",
       "image": "/images/feed/feed-27ffc5fe388b.jpg",
       "source": "BleepingComputer",
@@ -606,7 +606,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 52,
       "url": "https://www.space.com/stargazing/the-moon-will-hide-jupiter-in-broad-daylight-on-sept-8-2026-here-is-how-to-see-it",
       "image": "/images/feed/feed-13b400f37a51.jpg",
       "source": "Space.com",
@@ -625,7 +625,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 44,
       "url": "https://www.space.com/astronomy/moon/earths-moon-could-have-formed-in-just-5-hours-after-giant-impact",
       "image": "/images/feed/feed-03de0d1e3a30.jpg",
       "source": "Space.com",
@@ -644,7 +644,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 51,
       "url": "https://thehackernews.com/2026/09/microsoft-365-attackers-use-help-desk.html",
       "image": "/images/feed/feed-cead4a452534.jpg",
       "source": "The Hacker News",
@@ -663,7 +663,7 @@
         "Phishing"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 52,
       "url": "https://www.bleepingcomputer.com/news/security/bigbear-microsoft-365-phishing-service-bypassed-mfa-at-258-organizations/",
       "image": "/images/feed/feed-9ede82718cd8.jpg",
       "source": "BleepingComputer",
@@ -684,7 +684,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 36,
       "url": "https://www.space.com/space-exploration/on-this-day-in-space-september-7-2026",
       "image": "/images/feed/feed-54eec91ea8b6.jpg",
       "source": "Space.com",
@@ -703,7 +703,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 54,
       "url": "https://thehackernews.com/2026/09/weekly-recap-chrome-0-day-router.html",
       "image": "/images/feed/feed-ba683df51c51.jpg",
       "source": "The Hacker News",
@@ -722,7 +722,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 54,
       "url": "https://www.space.com/astronomy/galaxies/galaxies-tangled-in-science-and-spirit-space-photo-of-the-day-for-sept-7-2026",
       "image": "/images/feed/feed-4cd87f8ca2b7.jpg",
       "source": "Space.com",
@@ -742,7 +742,7 @@
         "Breach"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 30,
       "url": "https://www.bleepingcomputer.com/news/security/mathspace-discloses-data-breach-affecting-over-1-million-people/",
       "image": "/images/feed/feed-5c51390d841e.jpg",
       "source": "BleepingComputer",
@@ -761,7 +761,7 @@
         "Satellite"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 37,
       "url": "https://www.space.com/astronomy/earth/the-future-of-earth-observation-private-satellites-and-ai-bring-benefits-but-also-pose-risks",
       "image": "/images/feed/feed-38a1d67c3b78.png",
       "source": "Space.com",
@@ -781,7 +781,7 @@
         "Breach"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 32,
       "url": "https://www.bleepingcomputer.com/news/security/trezor-data-breach-impact-now-reaches-81-000-customers/",
       "image": "/images/feed/feed-8fd769e22959.jpg",
       "source": "BleepingComputer",
@@ -800,7 +800,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 30,
       "url": "https://www.technologyreview.com/2026/09/07/1143592/the-download-underground-hydrogen-search-rogue-openai-agents/",
       "image": "/images/feed/feed-31c68cc130b0.jpg",
       "source": "MIT Tech Review",
@@ -819,7 +819,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 53,
       "url": "https://www.wired.com/story/astronomers-complete-largest-map-of-space-yes-you-can-play-with-it/",
       "image": "/images/feed/feed-b6f9ab2f1684.jpg",
       "source": "Wired",
@@ -838,7 +838,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 30,
       "url": "https://openai.com/index/supporting-independent-journalism-in-ukraine",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "OpenAI Blog",
@@ -857,7 +857,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 43,
       "url": "https://www.theverge.com/ai-artificial-intelligence/990932/seattle-times-newsday-lawsuit-openai-microsoft",
       "image": "/images/feed/feed-c6a48e7fbd07.jpg",
       "source": "The Verge",
@@ -876,7 +876,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 30,
       "url": "https://techcrunch.com/2026/09/06/authors-push-back-as-publishers-and-agents-seek-share-of-anthropic-settlement/",
       "image": "/images/feed/feed-3997b3420fb1.jpg",
       "source": "TechCrunch",
@@ -895,7 +895,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 52,
       "url": "https://openai.com/index/an-alien-mind",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "OpenAI Blog",
@@ -914,7 +914,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 32,
       "url": "https://openai.com/index/research-acceleration-view-inside-openai",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "OpenAI Blog",
@@ -933,7 +933,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 44,
       "url": "https://techcrunch.com/2026/09/05/seattle-times-and-newsday-are-the-latest-publications-to-sue-openai-and-microsoft/",
       "image": "/images/feed/feed-8a7e0f31a983.jpg",
       "source": "TechCrunch",
@@ -941,16 +941,16 @@
     }
   ],
   "breakingNews": [
-    "DEV.TO: Node.js Account Shutdown: Token Revocation and Eventual Deletion in 3 Steps",
-    "DEV.TO: Future AWS Agent Engineer? I Didn't Write the Code. Does It Count?",
-    "DEV.TO: Inbundly – Google Inbox-style bundles for Gmail",
-    "DEV.TO: The Anatomy of an AI Agent: Five Parts That Turn Thinking Into Doing",
-    "POLYGON: Next Hunger Games Movie 'Sunrise' Confirms Switching Genres in 'Return to Form'",
-    "DEV.TO: Bắt LLM trả JSON đúng chuẩn: ba lớp và vòng repair",
-    "ENGADGET: GM's breakup with CarPlay and Android Auto has one exception",
-    "DEV.TO: The Application Shell: GtkApplicationWindow vs AdwApplicationWindow",
-    "WIRED: Le Creuset x Star Trek Collection: Prices, availability, release date",
-    "POLYGON: Fortnite Officially Bringing Mega Man to the Island with Tournament and Skins"
+    "DEV.TO: Atomic writes — how tempfile + os.replace prevent corrupted JSON",
+    "DEV.TO: x402 Explained: HTTP-Native Micropayments for AI Agents (With Real Code)",
+    "DEV.TO: How to Send Email from Cloudflare Workers",
+    "DEV.TO: Your team's coding rules aren't in the prompt, they're in the ingest",
+    "DEV.TO: The GNU strip backdoor is the case AI code review can't see",
+    "DEV.TO: I Want More Coding Agents to Work Like This",
+    "DEV.TO: Weekly Dev Log 2026-W18",
+    "ENGADGET: Pros and cons of using a Chromebook as your everyday PC",
+    "ENGADGET: How Long Should A Laptop Battery Last On A Single Charge?",
+    "POLYGON: Next Hunger Games Movie 'Sunrise' Confirms Switching Genres in 'Return to Form'"
   ],
   "sectionVideos": {}
 }
