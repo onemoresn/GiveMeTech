@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-09-11T04:16:13.580Z",
+  "fetchedAt": "2026-09-11T05:13:51.828Z",
   "articles": [
     {
-      "id": "feed-59f6f8616138",
-      "title": "Safari 27 rewrites the module loader to fix top-level await",
-      "excerpt": "I pulled the WebKit post open in one tab and the smallest possible module graph in another, because a rewrite of the loader is not the kind of note you skim. The short version: per WebKit, Safari 27 n…",
-      "body": "I pulled the WebKit post open in one tab and the smallest possible module graph in another, because a rewrite of the loader is not the kind of note you skim. The short version: per WebKit, Safari 27 now runs top-level await on a fresh module loader that translates the ECMAScript specification's pseudocode directly into C++, replacing the old self-hosted JavaScript implementation. The longer version has some good archaeology in it. What actually changed Kai Tamkun's write-up on the WebKit blog, dated September 2, 2026, describes the switch plainly. \"The old module loader was written in JavaScript as a self-hosted builtin.\" That loader traced back to a much older spec effort.",
-      "author": "Leo",
+      "id": "feed-73bf8289878f",
+      "title": "I made my Apify Actor an AI agent tool, then read every byte it sent back",
+      "excerpt": "I have about thirty Actors on the Apify Store. Making one of them available to an AI agent through the Apify MCP server took me two minutes: add ?actors=lergassy/jobs-api to the server URL and the Act…",
+      "body": "I have about thirty Actors on the Apify Store. Making one of them available to an AI agent through the Apify MCP server took me two minutes: add ?actors=lergassy/jobs-api to the server URL and the Actor shows up as a tool. That part is a footnote. The useful part was what came back. I spent an afternoon calling my own Actor the way an agent calls it — raw JSON-RPC over the wire, no client in between — and logging every response. Four things surprised me, and three of them changed how I write input schemas. The Actor here is Jobs API : job listings from Indeed, LinkedIn and company career boards in one schema. Nothing about what follows is specific to jobs, though. If your Actor has more than three inputs, the same things will happen to you.",
+      "author": "Nikita Iakovlev",
       "date": "2026-09-11",
       "readTime": "2 min",
       "section": "software",
@@ -14,18 +14,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 37,
-      "url": "https://dev.to/leobaniak/safari-27-rewrites-the-module-loader-to-fix-top-level-await-1k01",
-      "image": "/images/feed/feed-59f6f8616138.webp",
+      "xpReward": 33,
+      "url": "https://dev.to/nikita_iakovlev_415524c19/i-made-my-apify-actor-an-ai-agent-tool-then-read-every-byte-it-sent-back-1nbj",
+      "image": "/images/feed/feed-73bf8289878f.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-58100136152e",
-      "title": "Human-in-the-Loop Metadata Inspection — Linking Extracted Text to Source Images",
-      "excerpt": "A receipt review console is only trustworthy when every extracted value can be traced to the exact pixels a reviewer is judging. Short answer: store immutable source-image identity, page dimensions, a…",
-      "body": "A receipt review console is only trustworthy when every extracted value can be traced to the exact pixels a reviewer is judging. Short answer: store immutable source-image identity, page dimensions, and normalized bounding geometry beside each text field; render that evidence on demand; and treat every human correction as a versioned, idempotent decision rather than an edit to OCR output. Moderation coverage should be explicit: fields outside the review policy remain unapproved, even if extraction produced plausible text. I've been paged by missed jobs and duplicate deliveries in cron and queue infrastructure. The lesson transfers cleanly here — a review queue is still a queue.",
-      "author": "KenjiTanaka6849",
+      "id": "feed-66cec3c626c9",
+      "title": "Advancing Embedded Go: Recoverable Panics, UEFI, Radio and Hardware Dev Kit",
+      "excerpt": "TinyGo version 0.42 introduces significant updates, including recoverable panics and support for Go 1.27 and LLVM 22, improving error handling and enabling Go code to run as UEFI applications. The Tin…",
+      "body": "TinyGo version 0.42 introduces significant updates, including recoverable panics and support for Go 1.27 and LLVM 22, improving error handling and enabling Go code to run as UEFI applications. The TinyGo Starter Kit with Seeed Studio XIAO facilitates hardware use for developers, featuring an ESP32-C3 board and modular sensors. These features enhance its functionality for embedded systems and Wasm. By Olimpiu Pop",
+      "author": "Olimpiu Pop",
       "date": "2026-09-11",
       "readTime": "2 min",
       "section": "software",
@@ -33,48 +33,239 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 51,
-      "url": "https://dev.to/kenjitanaka6849/human-in-the-loop-metadata-inspection-linking-extracted-text-to-source-images-56c0",
-      "image": "/images/feed/feed-58100136152e.webp",
+      "xpReward": 35,
+      "url": "https://www.infoq.com/news/2026/09/tinygo-devkit/?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=global",
+      "image": "/images/feed/feed-66cec3c626c9.jpg",
+      "source": "InfoQ",
+      "isLive": true
+    },
+    {
+      "id": "feed-5187c4c18fe3",
+      "title": "47GB of Compressed Memory and No Permission to Kill It: Handing a Monitoring Script Exactly One Root Command",
+      "excerpt": "Last time I wrote about picking out and reaping only the \"orphaned Chrome\" processes. This time it's the monitoring script sitting right next to it, mem-hog-guard.sh. It could detect the problem just…",
+      "body": "Last time I wrote about picking out and reaping only the \"orphaned Chrome\" processes . This time it's the monitoring script sitting right next to it, mem-hog-guard.sh . It could detect the problem just fine, but had no permission to kill anything, so all it ever did was send a notification . Here's how I handed it that permission in a way that's verified at every step, instead of in a form where one typo locks me out of sudo entirely. The problem: it can see the culprit but can't touch it The header comment of mem-hog-guard.sh records how this started.",
+      "author": "Lily",
+      "date": "2026-09-11",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 32,
+      "url": "https://dev.to/bokuwalily/47gb-of-compressed-memory-and-no-permission-to-kill-it-handing-a-monitoring-script-exactly-one-2hkg",
+      "image": "/images/feed/feed-5187c4c18fe3.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-e5817a3f5a9a",
-      "title": "Disaster Recovery Strategies for AKS Web Applications Backed by On-Prem ML Services",
-      "excerpt": "Popular DR Strategies in Cloud: Backup and Restore (Lowest Cost, Slowest Speed) Pilot Light (Low Cost, Moderate Speed) Warm Standby (Higher Cost, Fast Speed) Multi-Site (Highest Cost, Fastest Speed) W…",
-      "body": "Popular DR Strategies in Cloud: Backup and Restore (Lowest Cost, Slowest Speed) Pilot Light (Low Cost, Moderate Speed) Warm Standby (Higher Cost, Fast Speed) Multi-Site (Highest Cost, Fastest Speed) We planned below Disaster Recovery strategies for our Web applications hosted on AKS , backed up by 50 + ML Services running on On-Prem: Our Infra setup with running hybrid architectures: Many web application layers deployed on Azure Kubernetes Service (AKS) in the cloud, calling back into machine learning inference services still hosted on-premises — often because of data residency rules, GPU capex already sunk into a data center, or ML models trained on sensitive data that can't leave the corporate network.",
-      "author": "suresh devops",
+      "id": "feed-7e5160205971",
+      "title": "Corsair Discount Code: Up to 50% Off for September 2026",
+      "excerpt": "Upgrade your gaming setup or PC build for less with these verified Corsair coupon codes, student discounts, and refurbished deals.",
+      "body": "Upgrade your gaming setup or PC build for less with these verified Corsair coupon codes, student discounts, and refurbished deals.\n\nThis report, published by Wired, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Wired using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Luke Larsen",
+      "date": "2026-09-11",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": true,
+      "xpReward": 38,
+      "url": "https://www.wired.com/story/corsair-coupon/",
+      "image": "/images/feed/feed-7e5160205971.png",
+      "source": "Wired",
+      "isLive": true
+    },
+    {
+      "id": "feed-9732e4492087",
+      "title": "Lenovo Coupon Codes: 15% Off in September 2026",
+      "excerpt": "Whether you’re shopping for a ThinkPad, Yoga laptop, or Legion gaming PC, these Lenovo discount codes and promotions can help you save big on your next tech upgrade.",
+      "body": "Whether you’re shopping for a ThinkPad, Yoga laptop, or Legion gaming PC, these Lenovo discount codes and promotions can help you save big on your next tech upgrade.\n\nThis report, published by Wired, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Wired using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Luke Larsen",
+      "date": "2026-09-11",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": true,
+      "xpReward": 35,
+      "url": "https://www.wired.com/story/lenovo-coupon-code/",
+      "image": "/images/feed/feed-9732e4492087.png",
+      "source": "Wired",
+      "isLive": true
+    },
+    {
+      "id": "feed-e2534d7b72d2",
+      "title": "Skullcandy Discount Code: 30% Off | September 2026",
+      "excerpt": "Save on today’s top Skullcandy Promo Codes for Crusher Evo headphones, 36% off Crusher ANC 2 noise-canceling headphones, and more with amazing deals.",
+      "body": "Save on today’s top Skullcandy Promo Codes for Crusher Evo headphones, 36% off Crusher ANC 2 noise-canceling headphones, and more with amazing deals.\n\nThis report, published by Wired, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Wired using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Harry Rabinowitz",
+      "date": "2026-09-11",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": true,
+      "xpReward": 31,
+      "url": "https://www.wired.com/story/skullcandy-discount-code/",
+      "image": "/images/feed/feed-e2534d7b72d2.png",
+      "source": "Wired",
+      "isLive": true
+    },
+    {
+      "id": "feed-4bae9221d703",
+      "title": "Castlery Promo Codes: 15% Off for September 2026",
+      "excerpt": "Refresh your living space for less with these verified Castlery coupons, including free shipping offers and furniture set discounts.",
+      "body": "Refresh your living space for less with these verified Castlery coupons, including free shipping offers and furniture set discounts.\n\nThis report, published by Wired, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Space. As the situation continues to evolve, professionals and enthusiasts in the space exploration and astronomy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Wired using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Boutayna Chokrane ",
+      "date": "2026-09-11",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Space"
+      ],
+      "featured": false,
+      "xpReward": 34,
+      "url": "https://www.wired.com/story/castlery-promo-code/",
+      "image": "/images/feed/feed-4bae9221d703.png",
+      "source": "Wired",
+      "isLive": true
+    },
+    {
+      "id": "feed-cd1a2f13f003",
+      "title": "Home Depot Promo Codes: 30% Off in September 2026",
+      "excerpt": "Save up to 50% today with the latest Home Depot promo codes for appliances, power tools, and more this September.",
+      "body": "Save up to 50% today with the latest Home Depot promo codes for appliances, power tools, and more this September.\n\nThis report, published by Wired, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Software. As the situation continues to evolve, professionals and enthusiasts in the software development and engineering field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Wired using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Matthew Korfhage",
       "date": "2026-09-11",
       "readTime": "2 min",
       "section": "software",
       "tags": [
         "Software"
       ],
-      "featured": true,
-      "xpReward": 45,
-      "url": "https://dev.to/suresh_devops_ffa0728a190/disaster-recovery-strategies-for-aks-web-applications-backed-by-on-prem-ml-services-3c47",
-      "image": "/images/feed/feed-e5817a3f5a9a.webp",
+      "featured": false,
+      "xpReward": 43,
+      "url": "https://www.wired.com/story/home-depot-promo-code/",
+      "image": "/images/feed/feed-cd1a2f13f003.png",
+      "source": "Wired",
+      "isLive": true
+    },
+    {
+      "id": "feed-759e38e9768d",
+      "title": "50% Off DoorDash Promo Code | September 2026",
+      "excerpt": "Explore today’s top DoorDash promo codes for $25 off your first order, free delivery, and 50% off DashPass for students and select users.",
+      "body": "Explore today’s top DoorDash promo codes for $25 off your first order, free delivery, and 50% off DashPass for students and select users.\n\nThis report, published by Wired, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Software. As the situation continues to evolve, professionals and enthusiasts in the software development and engineering field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Wired using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Molly Higgins",
+      "date": "2026-09-11",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 49,
+      "url": "https://www.wired.com/story/doordash-promo-code/",
+      "image": "/images/feed/feed-759e38e9768d.jpg",
+      "source": "Wired",
+      "isLive": true
+    },
+    {
+      "id": "feed-508c9c5da1ee",
+      "title": "30% Off Canon Promo Codes | September 2026",
+      "excerpt": "Save an extra 10% or 30% with Canon coupon codes, plus up to $1,600 on cameras, printers, and more this September 2026.",
+      "body": "Save an extra 10% or 30% with Canon coupon codes, plus up to $1,600 on cameras, printers, and more this September 2026.\n\nThis report, published by Wired, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Software. As the situation continues to evolve, professionals and enthusiasts in the software development and engineering field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Wired using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Scott Gilbertson",
+      "date": "2026-09-11",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 31,
+      "url": "https://www.wired.com/story/canon-promo-code/",
+      "image": "/images/feed/feed-508c9c5da1ee.jpg",
+      "source": "Wired",
+      "isLive": true
+    },
+    {
+      "id": "feed-2f8b94167c61",
+      "title": "Surfshark Promo Codes: 87% Off | September 2026",
+      "excerpt": "Save up to 87% with a Surfshark coupon code, 3 months of VPN free today, and more from WIRED.",
+      "body": "Save up to 87% with a Surfshark coupon code, 3 months of VPN free today, and more from WIRED.\n\nThis report, published by Wired, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Software. As the situation continues to evolve, professionals and enthusiasts in the software development and engineering field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Wired using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Scott Gilbertson",
+      "date": "2026-09-11",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 48,
+      "url": "https://www.wired.com/story/surfshark-coupon/",
+      "image": "/images/feed/feed-2f8b94167c61.jpg",
+      "source": "Wired",
+      "isLive": true
+    },
+    {
+      "id": "feed-79eb51715c05",
+      "title": "Miami Beach Debates Taking Millions From Rockstar To Advertise GTA 6: ‘We’re Not Giving Away Pistols And Cocaine To People’",
+      "excerpt": "Local commissioners voted 4-3 to approve negotiating a marketing campaign after some bizarre grandstanding",
+      "body": "Local commissioners voted 4-3 to approve negotiating a marketing campaign after some bizarre grandstanding\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Ethan Gach",
+      "date": "2026-09-11",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 42,
+      "url": "https://kotaku.com/miami-beach-debates-taking-millions-from-rockstar-to-advertise-gta-6-were-not-giving-away-pistols-and-cocaine-to-people-2000733378",
+      "image": "/images/feed/feed-79eb51715c05.jpg",
+      "source": "Kotaku",
+      "isLive": true
+    },
+    {
+      "id": "feed-8128e74867eb",
+      "title": "Give Claude or ChatGPT Real-Time Product Data via Apify's MCP Server (Full Setup Guide)",
+      "excerpt": "How to Give Claude or GPT Real-Time Product Data via Apify's MCP Server Ask Claude or ChatGPT to check the price of something on a random e-commerce site, and it'll either refuse (no browsing) or gues…",
+      "body": "How to Give Claude or GPT Real-Time Product Data via Apify's MCP Server Ask Claude or ChatGPT to check the price of something on a random e-commerce site, and it'll either refuse (no browsing) or guess from stale training data. Even agents with browsing turn up empty-handed more often than you'd expect: Apify's own testing found that Claude browsing five major retailers directly pulled 0 products out of 100 — with Apify's MCP server in the loop, that became 100 out of 100 . Same model, same question, completely different result, because the bottleneck was never the model's reasoning — it was the lack of a reliable way to read a product page.",
+      "author": "DYnamicTech",
+      "date": "2026-09-11",
+      "readTime": "2 min",
+      "section": "ai",
+      "tags": [
+        "Chatgpt",
+        "Claude"
+      ],
+      "featured": false,
+      "xpReward": 46,
+      "url": "https://dev.to/dynamict3ch/give-claude-or-chatgpt-real-time-product-data-via-apifys-mcp-server-full-setup-guide-1lpi",
+      "image": "/images/feed/feed-8128e74867eb.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-506edf3a3c7b",
-      "title": "LLM, que bisho é esse?",
-      "excerpt": "O que é um LLM (Large Language Model)? Obs.: Essa é uma explicação simples para começarmos a falar de IA. Um LLM é um programa que gera texto prevendo, a cada passo, qual pedaço de texto (chamado de t…",
-      "body": "O que é um LLM (Large Language Model)? Obs.: Essa é uma explicação simples para começarmos a falar de IA. Um LLM é um programa que gera texto prevendo, a cada passo, qual pedaço de texto (chamado de token) deve vir em seguida. Ele aprendeu isso analisando uma quantidade enorme de textos durante um treinamento. Ao receber uma pergunta, o LLM escolhe um próximo token provável, acrescenta ao texto e repete o processo até formar a resposta completa. Não existe só um LLM, existe uma série de modelos. O princípio é o mesmo do primeiro parágrafo, no entanto, cada modelo tem treinamentos, tamanho, técnicas e objetivos específicos. Pensa em motores de carro, todos transformam combustível em movimento, no entanto, um motor 1.0 econômico e um V8 esportivo servem propósitos diferentes.",
-      "author": "it4lo",
+      "id": "feed-985fabe2f214",
+      "title": "Gary Larson's 10 Best The Far Side Comics, Ranked",
+      "excerpt": "Gary Larson's comic strip The Far Side was at its greatest when it was really, really funny. That's why is these are his 10 best comics",
+      "body": "What, exactly, is the measure of greatness when it comes to comic strips ? The daily newspaper comic is a very limiting art form, with only a few panels — and sometimes even just one panel — to express a joke or a sentiment. Because of its brevity, it's easy to trivialize the medium as simply the “funny papers,” a daily, disposable art form designed to pick you up after reading through the obituaries.",
+      "author": "Brian VanHooker",
       "date": "2026-09-11",
       "readTime": "2 min",
-      "section": "software",
+      "section": "gaming",
       "tags": [
-        "Software"
+        "Gaming"
       ],
-      "featured": true,
-      "xpReward": 41,
-      "url": "https://dev.to/it4lo/llm-2emb",
-      "image": "/images/feed/feed-506edf3a3c7b.webp",
-      "source": "Dev.to",
+      "featured": false,
+      "xpReward": 44,
+      "url": "https://www.polygon.com/10-best-far-side-gary-larson/",
+      "image": "/images/feed/feed-985fabe2f214.jpg",
+      "source": "Polygon",
       "isLive": true
     },
     {
@@ -89,30 +280,11 @@
       "tags": [
         "Gaming"
       ],
-      "featured": true,
-      "xpReward": 32,
+      "featured": false,
+      "xpReward": 48,
       "url": "https://www.polygon.com/x-files-streaming-free-pluto-tv/",
       "image": "https://static0.polygonimages.com/wordpress/wp-content/uploads/2026/09/x-files.jpg",
       "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-c87a24d7f673",
-      "title": "Engineering a Resilient CSV Parsing & Normalization Layer for Accounting Integrations",
-      "excerpt": "Engineering a Resilient CSV Parsing & Normalization Layer for Accounting Integrations Building apps that connect to accounting software often seems simple at first.. Once you get to the data ingestion…",
-      "body": "Engineering a Resilient CSV Parsing &amp; Normalization Layer for Accounting Integrations Building apps that connect to accounting software often seems simple at first.. Once you get to the data ingestion layer things get complicated. Financial platforms like Xero have unforgiving rules for CSV imports. If your data doesn’t match their expected schema— down to the smallest detail—your ingestion pipeline throws errors.. These errors are usually hard to understand. In this post I want to share how we built the data normalization and validation system at Sync2Zero. We made it to handle user inputs, date format differences across regions and the way Microsoft Excel changes data when you open and save files.",
-      "author": "Nishant Shaligram",
-      "date": "2026-09-11",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 32,
-      "url": "https://dev.to/nishant_shaligram/engineering-a-resilient-csv-parsing-normalization-layer-for-accounting-integrations-3nj6",
-      "image": "/images/feed/feed-c87a24d7f673.webp",
-      "source": "Dev.to",
       "isLive": true
     },
     {
@@ -128,48 +300,10 @@
         "Vehicle"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 49,
       "url": "https://cleantechnica.com/2026/09/10/china-aims-for-70-plugin-vehicle-sales-by-2030-hit-61-in-august/",
       "image": "/images/feed/feed-86e7ab5fe4f7.jpg",
       "source": "CleanTechnica",
-      "isLive": true
-    },
-    {
-      "id": "feed-bed127eb1281",
-      "title": "Appwrite shipped managed Postgres and MySQL (real engines, not our document API)",
-      "excerpt": "Hey. I'm Jake (abnegate). I work on databases at Appwrite. We just shipped managed native PostgreSQL and MySQL, and I wanted a place to talk about what that actually means before people assume it's Ta…",
-      "body": "Hey. I'm Jake (abnegate). I work on databases at Appwrite. We just shipped managed native PostgreSQL and MySQL, and I wanted a place to talk about what that actually means before people assume it's TablesDB with a SQL coat of paint. It isn't. What you get You pick Postgres or MySQL in the Console, pick a compute tier, and Appwrite provisions a real engine in your project's region. Own hostname, credentials, TLS. Connect with psql / the mysql client / Prisma / Drizzle / TypeORM / Kysely / Knex / Sequelize / whatever you already use. No Appwrite SDK between your code and the data. Defaults: PostgreSQL 18 (17 on create if you want it) MySQL 8.4 (8.0 on create if you want it) Ports: Postgres: pooler 6432 , direct 5432 MySQL: pooler 6033 , direct 3306 Same hostname for both.",
-      "author": "Jake Barnby",
-      "date": "2026-09-11",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Api"
-      ],
-      "featured": false,
-      "xpReward": 36,
-      "url": "https://dev.to/jakebarnby/appwrite-shipped-managed-postgres-and-mysql-real-engines-not-our-document-api-1kaf",
-      "image": "/images/feed/feed-bed127eb1281.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-a62586917b7d",
-      "title": "our git hook tests escaped their temporary repositories",
-      "excerpt": "our pre-push check failed 13 tests. the bigger problem was that some of those tests had changed the repository they were supposed to protect. this happened in Nobulex, the project i maintain. the inve…",
-      "body": "our pre-push check failed 13 tests. the bigger problem was that some of those tests had changed the repository they were supposed to protect. this happened in Nobulex, the project i maintain. the investigation, fix and this write-up used AI assistance. the tests create temporary Git repositories and run fixture commands inside them. we treated the subprocess working directory as the boundary. that assumption broke when the suite ran from a Git hook in an isolated worktree. Git had exported GIT_DIR into the hook's environment. the test process inherited it. changing cwd to a temporary directory did not override the repository Git had already been told to use. fixture commands reached the calling repository's metadata instead.",
-      "author": "arian gogani",
-      "date": "2026-09-11",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 51,
-      "url": "https://dev.to/arian_gogani1/our-git-hook-tests-escaped-their-temporary-repositories-232k",
-      "image": "/images/feed/feed-a62586917b7d.webp",
-      "source": "Dev.to",
       "isLive": true
     },
     {
@@ -185,7 +319,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 30,
       "url": "https://kotaku.com/marvels-wolverine-has-already-been-consumed-by-a-debate-about-fart-gas-and-its-not-even-out-yet-2000733361",
       "image": "/images/feed/feed-a0e81a1a4cf6.jpg",
       "source": "Kotaku",
@@ -204,7 +338,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 38,
       "url": "https://www.polygon.com/warframe-iceblade-narin-interview-rebecca-ford/",
       "image": "/images/feed/feed-a6567de4fa09.jpg",
       "source": "Polygon",
@@ -223,49 +357,10 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 44,
       "url": "https://www.polygon.com/naruto-streaming-free-on-youtube/",
       "image": "/images/feed/feed-c3638626d5a5.jpg",
       "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-2b933c86c650",
-      "title": "David Harbour's Santa Goes Full Hunger Games in Violent Night 2 (Exclusive)",
-      "excerpt": "For Polygon's fall preview, Violent Night 2 director Tommy Wirkola explains how his action-Christmas sequel became a modern Western",
-      "body": "Hollywood has given us pretty much every possible version of a Santa Claus movie over the years. We've had good Santa, Bad Santa , Tim Allen Santa, and even evil robot Santa. But in 2022, Violent Night managed to put a fresh spin on the character by combining Santa Claus with the gritty action-hero story of Die Hard and the expertly choreographed combat of the John Wick movies. Violent Night was a surprisingly delightful spin on the genre, and four years later, we're getting a sequel that takes the series in an even more surprising direction.",
-      "author": "Jake Kleinman",
-      "date": "2026-09-11",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 31,
-      "url": "https://www.polygon.com/violent-night-2-exclusive-preview/",
-      "image": "https://static0.polygonimages.com/wordpress/wp-content/uploads/2026/09/screenshot-2026-09-08-at-10-51-59-am.png",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-acff1498b63e",
-      "title": "LLM Visualizer – Build a Transformer from Scratch",
-      "excerpt": "",
-      "body": "This report, published by Hacker News, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Llm, Transformer. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Hacker News using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "evo_9",
-      "date": "2026-09-11",
-      "readTime": "2 min",
-      "section": "ai",
-      "tags": [
-        "Llm",
-        "Transformer"
-      ],
-      "featured": false,
-      "xpReward": 43,
-      "url": "https://jayvisaria.github.io/LLM-Visualizer/#/dashboard",
-      "image": "/images/topics/topic-ai-ml.png",
-      "source": "Hacker News",
       "isLive": true
     },
     {
@@ -281,7 +376,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 42,
       "url": "https://cleantechnica.com/2026/09/10/mn-power-ordered-to-continue-investigating-alternatives-to-new-gas-plant/",
       "image": "/images/feed/feed-f17a513c78da.png",
       "source": "CleanTechnica",
@@ -300,7 +395,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 41,
       "url": "https://cleantechnica.com/2026/09/10/tva-sued-for-violating-federal-clean-air-act-at-its-cumberland-fossil-plant/",
       "image": "/images/feed/feed-040471947255.png",
       "source": "CleanTechnica",
@@ -319,7 +414,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 49,
       "url": "https://cleantechnica.com/2026/09/10/solar-power-now-enough-for-50-million-us-homes/",
       "image": "/images/feed/feed-774b18a1e06f.jpg",
       "source": "CleanTechnica",
@@ -338,48 +433,10 @@
         "Iphone"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 31,
       "url": "https://9to5mac.com/2026/09/10/apple-extends-free-iphone-satellite-access-for-another-year/",
       "image": "/images/feed/feed-215b939ff2d3.jpg",
       "source": "9to5Mac",
-      "isLive": true
-    },
-    {
-      "id": "feed-22716a7fdb91",
-      "title": "Steel Ball Run Director Says JoJo’s Bizarre Adventure Is About to Get Even Weirder",
-      "excerpt": "The highly anticipated return of Steel Ball Run kickstarts a conspiracy-laden adventure.",
-      "body": "Steel Ball Run uses its 1890s setting to follow a grueling cross-continental horse race across North America with a $50 million grand prize attached to it. Paraplegic ex-jockey Johnny Joestar and the charismatic Gyro Zeppeli team up to win this multi-stage race, but the racetrack becomes a one-way highway to hell as a hidden national conspiracy unfolds.",
-      "author": "Debopriyaa Dutta",
-      "date": "2026-09-11",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 40,
-      "url": "https://www.polygon.com/netflix-steel-ball-run-anime-yasuhiro-kimura-interview/",
-      "image": "/images/feed/feed-22716a7fdb91.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-7c9b5d2eca78",
-      "title": "The SteelSeries Arctis Nova Pro Wireless Gaming Headset With Infinite Battery Life Drops to $250",
-      "excerpt": "Wireless free with zero downtime.",
-      "body": "One of the best wireless gaming headsets is on sale today. Both Amazon and Best Buy currently have the Steelseries Arctis Nova Pro wireless gaming headset for Xbox, PS5, and PC for just $249.99 with free shipping, a savings of $100 off the retail price. Note that although this is specifically the Xbox model, it also works with the PlayStation console. SteelSeries released a successor - the Nova Pro Omni - earlier this year, but it currently sells for $380 and the improvements are certainly not worth the $130 price premium. SteelSeries Nova Pro Wireless Gaming Headset for $250 The SteelSeries Arctis Nova Pro has long been one of IGN&#39;s highest rated wireless gaming headsets . IGN&#39;s Kevin Lee gave the Nova Pro a 10/10 &quot;Masterpiece&quot; review and I believe it still holds today.",
-      "author": "Eric Song",
-      "date": "2026-09-11",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 44,
-      "url": "https://www.ign.com/articles/steelseries-arctis-nova-pro-gaming-headset-deal-september-2026",
-      "image": "/images/feed/feed-7c9b5d2eca78.jpg",
-      "source": "IGN",
       "isLive": true
     },
     {
@@ -395,7 +452,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 30,
       "url": "https://electrek.co/2026/09/10/new-50-ton-volvo-ec500-electric-excavator-never-needs-charging/",
       "image": "/images/feed/feed-f0c645098f2c.jpg",
       "source": "Electrek",
@@ -414,7 +471,7 @@
         "Iphone"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 43,
       "url": "https://9to5mac.com/2026/09/10/daily-september-10-2026/",
       "image": "/images/feed/feed-ca0884b47fa2.jpg",
       "source": "9to5Mac",
@@ -433,7 +490,7 @@
         "Iphone"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 54,
       "url": "https://9to5mac.com/2026/09/10/t-mobile-will-charge-5-month-for-apples-new-iphone-handoff-feature/",
       "image": "/images/feed/feed-b64b869a2ab0.jpg",
       "source": "9to5Mac",
@@ -452,7 +509,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 40,
       "url": "https://cleantechnica.com/2026/09/10/californias-landmark-tire-efficiency-standards-are-a-win-for-consumers-climate-and-public-health/",
       "image": "/images/feed/feed-8ab7513df6bf.jpg",
       "source": "CleanTechnica",
@@ -471,7 +528,7 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 53,
       "url": "https://insideevs.com/news/807892/boring-company-investment-uae-tunnels/",
       "image": "/images/feed/feed-60cf4e922667.jpg",
       "source": "InsideEVs",
@@ -510,7 +567,7 @@
         "Galaxy S"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 38,
       "url": "https://www.engadget.com/2255321/iphone-18-pro-max-vs-samsung-galaxy-s26-ultra-comparison/",
       "image": "/images/feed/feed-27705963de05.jpg",
       "source": "Engadget",
@@ -529,48 +586,10 @@
         "Laptop"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 36,
       "url": "https://nasutton.notion.site/Nine-coding-harnesses-vs-your-laptop-3d139990182b80d59fa3cf500f0450ba?pvs=74",
       "image": "/images/feed/feed-536fcede4ee8.png",
       "source": "Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-4a7daf2cd637",
-      "title": "CA governor signs 'landmark' laws on youth use of social media and AI chatbots",
-      "excerpt": "They're aimed at protecting minors, but the rules are not universally supported.",
-      "body": "They're aimed at protecting minors, but the rules are not universally supported.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Anna Washenko)",
-      "date": "2026-09-10",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 47,
-      "url": "https://www.engadget.com/2255569/ca-governor-signs-landmark-laws-on-youth-use-of-social-media-and-ai-chatbots/",
-      "image": "/images/feed/feed-4a7daf2cd637.jpg",
-      "source": "Engadget",
-      "isLive": true
-    },
-    {
-      "id": "feed-adf46e0e69da",
-      "title": "DOJ wins pause on order requiring documents from 14 agencies in Apple antitrust case",
-      "excerpt": "The DOJ has won a temporary pause on an order requiring it to respond to Apple’s requests for documents from 14 federal agencies, while the government appeals the ruling in its ongoing antitrust case…",
-      "body": "The DOJ has won a temporary pause on an order requiring it to respond to Apple’s requests for documents from 14 federal agencies, while the government appeals the ruling in its ongoing antitrust case — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Marcus Mendes",
-      "date": "2026-09-10",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 53,
-      "url": "https://9to5mac.com/2026/09/10/doj-wins-pause-on-order-requiring-documents-from-14-agencies-in-apple-antitrust-case/",
-      "image": "/images/feed/feed-adf46e0e69da.jpg",
-      "source": "9to5Mac",
       "isLive": true
     },
     {
@@ -605,30 +624,10 @@
         "Hacker"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 33,
       "url": "https://www.cnet.com/tech/services-and-software/hackers-stole-153-million-drivers-licenses-from-idscan/",
       "image": "/images/feed/feed-57710b5b5eaf.jpg",
       "source": "CNET",
-      "isLive": true
-    },
-    {
-      "id": "feed-d6ee50904a59",
-      "title": "NASA Invites Media to Djibouti Artemis Accords Signing Ceremony",
-      "excerpt": "The Republic of Djibouti will sign the Artemis Accords during a ceremony at 11 a.m. EDT, Monday, Sept. 14, at NASA Headquarters in Washington, becoming the 72nd country signatory. NASA Deputy Administ…",
-      "body": "Credit: NASA The Republic of Djibouti will sign the Artemis Accords during a ceremony at 11 a.m. EDT, Monday, Sept. 14, at NASA Headquarters in Washington, becoming the 72nd country signatory. NASA Deputy Administrator Matt Anderson will host Ambassador of Djibouti to the United States Mohamed Siad Douale for the ceremony, together with U.S. State Department Assistant Secretary for African Affairs Frank Garcia. This event is in person only. Media interested in attending must RSVP no later than 8 a.m. on Sept. 14 to:&nbsp; hq-media@mail.nasa.gov . NASA’s&nbsp; media accreditation policy &nbsp;is online.",
-      "author": "Jessica Taveau",
-      "date": "2026-09-10",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Artemis",
-        "Nasa"
-      ],
-      "featured": false,
-      "xpReward": 30,
-      "url": "https://www.nasa.gov/news-release/nasa-invites-media-to-djibouti-artemis-accords-signing-ceremony/",
-      "image": "https://www.nasa.gov/wp-content/uploads/2022/02/nasa_meatball_large.jpg",
-      "source": "NASA Breaking News",
       "isLive": true
     },
     {
@@ -644,7 +643,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 41,
       "url": "https://techcrunch.com/2026/09/10/openai-puts-pro-subscriptions-on-hold-due-to-astra-demand/",
       "image": "/images/feed/feed-5a7a028d73b1.jpg",
       "source": "TechCrunch",
@@ -663,7 +662,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 52,
       "url": "https://techcrunch.com/2026/09/10/anthropic-details-distillation-campaigns-from-alibaba-moonshot-ai-and-deepseek/",
       "image": "/images/feed/feed-999f113dc0b6.jpg",
       "source": "TechCrunch",
@@ -682,7 +681,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 34,
       "url": "https://www.bleepingcomputer.com/news/microsoft/september-windows-server-updates-break-remote-desktop-services/",
       "image": "/images/feed/feed-077ceb25ebbf.jpg",
       "source": "BleepingComputer",
@@ -701,49 +700,10 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 40,
       "url": "https://www.wired.com/story/uncanny-valley-podcast-is-ai-actually-going-to-kill-us-all/",
       "image": "/images/feed/feed-38b76508010a.jpg",
       "source": "Wired",
-      "isLive": true
-    },
-    {
-      "id": "feed-d2fdebe06d71",
-      "title": "NASA Answers President’s Call to Establish United States Space Academy",
-      "excerpt": "Less than two weeks after an Executive Order was signed to create the first United States Space Academy, NASA-led work is in full swing to make the academy a reality and shape the future of America’s…",
-      "body": "President Donald Trump presents an executive order establishing the United States Space Academy during an event to award the Congressional Space Medal of Honor to the Artemis II crew as Michael Kratsios, director of the Office of Science and Technology Policy, left; Kevin Hassett, director of the National Economic Council, third from left; and NASA Administrator Jared Isaacman, right, applaud, Friday, Aug. 28, 2026, at NASA’s Johnson Space Center in Houston. Credit: NASA/John Kraus Less than two weeks after an Executive Order was signed to create the first United States Space Academy, NASA-led work is in full swing to make the academy a reality and shape the future of America’s aerospace workforce and leadership.",
-      "author": "Lauren E. Low",
-      "date": "2026-09-10",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Nasa",
-        "Space"
-      ],
-      "featured": false,
-      "xpReward": 47,
-      "url": "https://www.nasa.gov/news-release/nasa-answers-presidents-call-to-establish-united-states-space-academy/",
-      "image": "https://www.nasa.gov/wp-content/uploads/2026/09/spaceacademy.webp",
-      "source": "NASA Breaking News",
-      "isLive": true
-    },
-    {
-      "id": "feed-57a6032be58e",
-      "title": "NASA’s Life-Saving Technology Where Cell Signals Can’t Go",
-      "excerpt": "Search and rescue technology developed in part by NASA saved five lives",
-      "body": "3 Min Read NASA&#8217;s Life-Saving Technology Where Cell Signals Can&#8217;t Go Rescued after more than four hours in the water, Easton Barrett (center, red shorts) and his friend were picked up by the U.S. Coast Guard thanks to a personal locator beacon (PLB). The devise sends a distress signal to satellites that are relayed back to Earth, launching a rescue operation. Credits: Easton Barrett Memorial Day weekend 2024 started with a blue sky and a mild three- to four-foot chop in the water off the Gulf Coast of Mississippi&nbsp;—&nbsp;a perfect day for a fishing competition. A team of five was about 40 miles offshore checking their sonar, and 30 seconds later the boat was gone. They were in the water struggling to pull on life jackets and grab the coolers as they bobbed up.",
-      "author": "Andrew Wagner",
-      "date": "2026-09-10",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Nasa"
-      ],
-      "featured": false,
-      "xpReward": 49,
-      "url": "https://www.nasa.gov/technology/tech-transfer-spinoffs/nasas-life-saving-technology-where-cell-signals-cant-go/",
-      "image": "/images/topics/topic-space.png",
-      "source": "NASA Breaking News",
       "isLive": true
     },
     {
@@ -759,7 +719,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 43,
       "url": "https://www.space.com/stargazing/the-summer-triangle-3-stars-1-seasonal-mystery",
       "image": "/images/feed/feed-bb22cb14fc78.jpg",
       "source": "Space.com",
@@ -778,7 +738,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 50,
       "url": "https://developers.openai.com/api/docs/guides/agents-api/overview",
       "image": "/images/feed/feed-0f4979d2480b.png",
       "source": "Hacker News",
@@ -797,7 +757,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 45,
       "url": "https://www.cnet.com/tech/services-and-software/ex-anthropic-researcher-warning-human-extinction-ai/",
       "image": "/images/feed/feed-2f1d9349b49a.jpg",
       "source": "CNET",
@@ -817,7 +777,7 @@
         "Breach"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 30,
       "url": "https://www.bleepingcomputer.com/news/security/surfshark-vpn-says-hackers-breached-internal-testing-proxy-servers/",
       "image": "/images/feed/feed-a6bf64d3cc72.jpg",
       "source": "BleepingComputer",
@@ -836,7 +796,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 40,
       "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-excel-kb5002914-update-breaks-copy-and-paste-for-some-users/",
       "image": "/images/feed/feed-2f3b653edccf.jpg",
       "source": "BleepingComputer",
@@ -856,7 +816,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 31,
       "url": "https://www.space.com/space-exploration/on-this-day-in-space-september-10-2026",
       "image": "/images/feed/feed-ce8f44ba18c0.jpg",
       "source": "Space.com",
@@ -876,7 +836,7 @@
         "Spacecraft"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 34,
       "url": "https://www.space.com/space-exploration/missions/link-spacecraft-gets-close-to-nasas-swift-observatory-but-not-close-enough-to-save-it",
       "image": "/images/feed/feed-3661efdd447c.png",
       "source": "Space.com",
@@ -895,30 +855,29 @@
         "Phishing"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 36,
       "url": "https://thehackernews.com/2026/09/threatsday-200-android-flaws-browser.html",
       "image": "/images/feed/feed-ccaf266aefdf.jpg",
       "source": "The Hacker News",
       "isLive": true
     },
     {
-      "id": "feed-aca59b80d8c8",
-      "title": "NASA, NFL Team Up to Showcase Space, Aeronautics Innovation",
-      "excerpt": "Through a new collaboration between NASA and the National Football League (NFL), the agency will soon bring America’s strengths in space exploration and aeronautics innovation to the football field. N…",
-      "body": "A football floats in microgravity aboard the International Space Station, high above the Earth. Credit: NASA Through a new collaboration between NASA and the National Football League (NFL), the agency will soon bring America’s strengths in space exploration and aeronautics innovation to the football field. NASA will conduct flyovers, astronaut appearances, and fan engagement at NFL games across the United States as part of its new Inspiration Tour. “This is the first season NASA is taking part in flyovers at NFL games, bringing the excitement of America’s space program directly to fans across the country,” said NASA Administrator Jared Isaacman.",
-      "author": "Jessica Taveau",
+      "id": "feed-5ee833a47f43",
+      "title": "Scientists study 3,000 supernovas and discover that dark energy may be evolving",
+      "excerpt": "A catalog of almost 3,000 white dwarfs that exploded as type Ia supernovas after overfeeding on companion stars indicates that dark energy is changing over time.",
+      "body": "A catalog of almost 3,000 white dwarfs that exploded as type Ia supernovas after overfeeding on companion stars indicates that dark energy, the mysterious force accelerating the expansion of the universe, is changing over time. The discovery, in conjunction with data from the Dark Energy Survey (DES), backs results revealed from the Dark Energy Spectroscopic Instrument (DESI) published in 2024 that suggested dark energy's influence is weakening. That means that the team's research doesn't just involve the most comprehensive catalog of type Ia supernovas ; it presents the clearest picture yet of the evolution of the universe and the influence of dark energy.",
+      "author": " Robert Lea ",
       "date": "2026-09-10",
       "readTime": "2 min",
       "section": "space",
       "tags": [
-        "Nasa",
         "Space"
       ],
       "featured": false,
-      "xpReward": 48,
-      "url": "https://www.nasa.gov/news-release/nasa-nfl-team-up-to-showcase-space-aeronautics-innovation/",
-      "image": "https://www.nasa.gov/wp-content/uploads/2017/01/iss046e027528_nr.jpg",
-      "source": "NASA Breaking News",
+      "xpReward": 40,
+      "url": "https://www.space.com/astronomy/dark-universe/scientists-study-3-000-supernovas-and-discover-that-dark-energy-may-be-evolving",
+      "image": "/images/feed/feed-5ee833a47f43.png",
+      "source": "Space.com",
       "isLive": true
     },
     {
@@ -934,24 +893,62 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 47,
       "url": "https://www.bleepingcomputer.com/news/security/ai-powered-attack-exploited-papercut-flaws-to-hack-395-organizations/",
       "image": "/images/feed/feed-4c16c166dd9e.jpg",
       "source": "BleepingComputer",
       "isLive": true
+    },
+    {
+      "id": "feed-7109052a2609",
+      "title": "Technique for Manipulating Satellite Photos Now Reveals Ancient Images (2025)",
+      "excerpt": "https://dstretch.com/DecorrelationStretch.pdf https://www.nasa.gov/technology/tech-transfer-spinoffs/nasa-...",
+      "body": "https://dstretch.com/DecorrelationStretch.pdf https://www.nasa.gov/technology/tech-transfer-spinoffs/nasa- — a development drawing significant attention in the space exploration and astronomy space.\n\nThis report, published by Hacker News, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Satellite. As the situation continues to evolve, professionals and enthusiasts in the space exploration and astronomy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Hacker News using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "gumby",
+      "date": "2026-09-10",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Satellite"
+      ],
+      "featured": false,
+      "xpReward": 54,
+      "url": "https://spinoff.nasa.gov/Manipulating_Satellite_Photos_Now_Reveals_Ancient_Images",
+      "image": "/images/topics/topic-space.png",
+      "source": "Hacker News",
+      "isLive": true
+    },
+    {
+      "id": "feed-d8b7f4133b07",
+      "title": "The next 'Star Trek' movie will be inspired by 'Crimson Tide', and 'Strange New Worlds' latest episode just showed them how to do it",
+      "excerpt": "The chain of command collides with questions of right and wrong in this space-set spin on the '90s submarine classic.",
+      "body": "During the recent press rounds for Apple TV's Ryan Reynolds/Kenneth Branagh vehicle \"Mayday\", writer/director duo Jonathan Goldstein and John Francis Daley talked about their plans for the next \"Star Trek\" movie . As well as confirming their story will feature an all-new crew, they mentioned that the in-development project will be inspired by a pair of hit films from the '90s and '00s, both of which — coincidentally — feature Denzel Washington operating at very different ends of the moral spectrum. \"Training Day\" is a gritty police drama, where Ethan Hawke's rookie finds himself under the ethically dubious wing of the Oscar-winning Washington's corrupt cop Alonzo Harris.",
+      "author": " Richard Edwards ",
+      "date": "2026-09-10",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Space"
+      ],
+      "featured": false,
+      "xpReward": 41,
+      "url": "https://www.space.com/entertainment/space-movies-shows/the-next-star-trek-movie-will-be-inspired-by-crimson-tide-and-strange-new-worlds-latest-episode-just-showed-them-how-to-do-it",
+      "image": "/images/feed/feed-d8b7f4133b07.jpg",
+      "source": "Space.com",
+      "isLive": true
     }
   ],
   "breakingNews": [
-    "DEV.TO: Safari 27 rewrites the module loader to fix top-level await",
-    "DEV.TO: Human-in-the-Loop Metadata Inspection — Linking Extracted Text to Source Images",
-    "DEV.TO: Disaster Recovery Strategies for AKS Web Applications Backed by On-Prem ML Services",
-    "DEV.TO: LLM, que bisho é esse?",
-    "POLYGON: 33 Years Later, the Best Sci-Fi Show of the '90s Is Officially Streaming for Free",
-    "DEV.TO: Engineering a Resilient CSV Parsing & Normalization Layer for Accounting Integrations",
-    "CLEANTECHNICA: China Aims For 70% Plugin Vehicle Sales By 2030 — Hit 61% In August",
-    "DEV.TO: Appwrite shipped managed Postgres and MySQL (real engines, not our document API)",
-    "DEV.TO: our git hook tests escaped their temporary repositories",
-    "KOTAKU: Marvel’s Wolverine Has Already Been Consumed By A Debate About ‘Fart Gas’ And It’s Not Even Out Yet"
+    "DEV.TO: I made my Apify Actor an AI agent tool, then read every byte it sent back",
+    "INFOQ: Advancing Embedded Go: Recoverable Panics, UEFI, Radio and Hardware Dev Kit",
+    "DEV.TO: 47GB of Compressed Memory and No Permission to Kill It: Handing a Monitoring Script Exactly One Root Command",
+    "WIRED: Corsair Discount Code: Up to 50% Off for September 2026",
+    "WIRED: Lenovo Coupon Codes: 15% Off in September 2026",
+    "WIRED: Skullcandy Discount Code: 30% Off | September 2026",
+    "WIRED: Castlery Promo Codes: 15% Off for September 2026",
+    "WIRED: Home Depot Promo Codes: 30% Off in September 2026",
+    "WIRED: 50% Off DoorDash Promo Code | September 2026",
+    "WIRED: 30% Off Canon Promo Codes | September 2026"
   ],
   "sectionVideos": {}
 }
