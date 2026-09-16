@@ -1,31 +1,107 @@
 {
-  "fetchedAt": "2026-09-16T07:17:49.940Z",
+  "fetchedAt": "2026-09-16T08:17:15.411Z",
   "articles": [
     {
-      "id": "feed-b7ae252e7174",
-      "title": "Why FastAPI geolocation middleware is the wrong tool",
-      "excerpt": "Search for FastAPI geolocation middleware and you'll get the same answer every time: subclass BaseHTTPMiddleware, call an IP lookup API, stash the result on request.state.geo. It works. It's also the…",
-      "body": "Search for FastAPI geolocation middleware and you'll get the same answer every time: subclass BaseHTTPMiddleware , call an IP lookup API, stash the result on request.state.geo . It works. It's also the wrong tool, and the reason is boring rather than clever. Middleware runs before routing. It cannot know which endpoint matched, so it fires on everything: /health , /metrics , /docs , /openapi.json , your static mounts, and every CORS preflight OPTIONS . You've just put a network call in front of your liveness probe. A dependency runs after routing, only where you declare it. That one ordering difference fixes the problem and brings typing and testability along with it. TL;DR BaseHTTPMiddleware runs on every request including health checks and docs routes.",
-      "author": "ABDULLAH AFZAL",
+      "id": "feed-632ef1834050",
+      "title": "Where Should AI Stop and Code Start?",
+      "excerpt": "Why some decisions belong in AI—and others belong in five lines of code. Part 13 findings of an experiment: building an LLM-powered support agent with deterministic boundaries. The companion repo cont…",
+      "body": "Why some decisions belong in AI—and others belong in five lines of code. Part 13 findings of an experiment: building an LLM-powered support agent with deterministic boundaries. The companion repo contains the full code. \"Is this order eligible for a refund?\" is four rules: delivered, paid, inside the return window, belongs to the customer. An LLM can answer that. It would probably answer correctly almost every time. The interesting question isn't whether it can — it's what it costs to ask, multiplied by how often you ask. The number Refund eligibility gets checked on every refund request, every status enquiry that mentions a return, and every retry. Say 50,000 checks a day for a mid-sized shop.",
+      "author": "Antonio Lopes Correia",
       "date": "2026-09-16",
       "readTime": "2 min",
       "section": "software",
       "tags": [
         "Software"
+      ],
+      "featured": true,
+      "xpReward": 45,
+      "url": "https://dev.to/tonal/where-should-ai-stop-and-code-start-1gcp",
+      "image": "/images/feed/feed-632ef1834050.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-2e56c65b154a",
+      "title": "I traced the agentic calls. Here's where the token consumption comes from",
+      "excerpt": "I expected an agentic coding assistant to use more tokens than a simpler tool. I didn't expect the difference to be this large. For the exact same simple coding task, I measured: Pi Aider LLM calls 3…",
+      "body": "I expected an agentic coding assistant to use more tokens than a simpler tool. I didn't expect the difference to be this large. For the exact same simple coding task, I measured: Pi Aider LLM calls 3 1 JSON exchanged ~760 KB ~100 KB The task was very simple: a small PyQt project, two files, and a single instruction — \"Make the cards width = total_width / 3.\" I already knew exactly which two files needed to be changed. That made me curious about what was actually happening under the hood. My API bill had gone above $400/month, despite trying various techniques to reduce token usage. My company doesn't pay for it, so I wanted to understand where all those tokens were going. I therefore traced the exchanges between a coding harness and the LLM during a simple coding task.",
+      "author": "Chris Gougui",
+      "date": "2026-09-16",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 39,
+      "url": "https://dev.to/cgougui/i-traced-the-agentic-calls-heres-where-the-token-consumption-comes-from-52nf",
+      "image": "/images/feed/feed-2e56c65b154a.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-095bdb9cdf1a",
+      "title": "AWS Is Retiring App Mesh. Here Is How We Moved 40 Services",
+      "excerpt": "AWS is retiring App Mesh, with end of support in September 2026. Our whole platform ran on it, so we had no choice. We had to move. We did not pick the replacement by instinct. We ran an evaluation fi…",
+      "body": "AWS is retiring App Mesh, with end of support in September 2026. Our whole platform ran on it, so we had no choice. We had to move. We did not pick the replacement by instinct. We ran an evaluation first and wrote it up as a decision record. We listed the candidates, agreed on the criteria that mattered to us, gave each criterion a weight, and scored every option against them. Then we built a proof of concept for the shortlist. Istio Ambient Mesh came out on top. Choosing the tool was the easy part. Before we changed anything in any cluster, we wrote the plan. Not a rough idea in someone's head. A real document, reviewed by the team. It answered a small number of questions, in detail. Which service moves in which order, and why. What has to be ready before the first service moves.",
+      "author": "An Nguyen",
+      "date": "2026-09-16",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 36,
+      "url": "https://dev.to/nthienan/aws-is-retiring-app-mesh-here-is-how-we-moved-40-services-5e1a",
+      "image": "/images/feed/feed-095bdb9cdf1a.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-eedc753a9d50",
+      "title": "When an upload form says “unsupported file”, the iPhone photo is usually HEIC",
+      "excerpt": "HEIC is the default photo format on iPhones since iOS 11. It stores the same picture in fewer bytes than JPEG, using HEVC compression. Look at the file extension: .heic or .HEIC. Windows hides extensi…",
+      "body": "It's a pattern that shows up every application season: a form asks for a photo, someone picks a picture straight off their iPhone, and the site answers \"unsupported file type\". Or the upload bar finishes and the preview is a broken-image icon. The photo opens fine on the phone, so it's not obvious what went wrong. In most of these cases the file is HEIC, not JPEG, and converting it to JPG fixes the upload. The part that trips people up afterwards is that the converted JPG can end up bigger than the original. How to tell it's HEIC HEIC is the default photo format on iPhones since iOS 11. It stores the same picture in fewer bytes than JPEG, using HEVC compression. Look at the file extension: .heic or .HEIC .",
+      "author": "yue xing",
+      "date": "2026-09-16",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 38,
+      "url": "https://dev.to/token111/when-an-upload-form-says-unsupported-file-the-iphone-photo-is-usually-heic-nna",
+      "image": "/images/feed/feed-eedc753a9d50.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-9f8f6706789c",
+      "title": "The wait is over: Samsung rolls out stable One UI 9 for Galaxy S26 series",
+      "excerpt": "It's currently rolling out in Korea, with other countries expected to get the update soon.",
+      "body": "TL;DR Samsung has started rolling out the stable version of One UI 9 for the Galaxy S26 series. The update comes with build numbers S948NKSU4BZI6, S948NOKR4BZI6, and S948NKSU4BZHO. It’s currently rolling out in Korea, with other countries expected to get the update soon. Samsung has been moving exceptionally fast with its One UI 9 rollout. The company started the One UI 9 beta program with the Galaxy S26 series back in May, and after seven betas, it’s finally rolling out the stable One UI 9 update for Galaxy S26 phones. According to a post on X by tipster Tarun Vats, Samsung is rolling out the One UI 9 update based on Android 17 for Galaxy S26 devices in Korea. The update comes with build numbers S948NKSU4BZI6, S948NOKR4BZI6, and S948NKSU4BZHO for different Galaxy S26 series models.",
+      "author": "Akshay Gangwar",
+      "date": "2026-09-16",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Galaxy S"
       ],
       "featured": true,
       "xpReward": 54,
-      "url": "https://dev.to/abdullah_afzal/why-fastapi-geolocation-middleware-is-the-wrong-tool-7l4",
-      "image": "/images/feed/feed-b7ae252e7174.webp",
-      "source": "Dev.to",
+      "url": "https://www.androidauthority.com/one-ui-9-stable-rollout-galaxy-s26-3711819/",
+      "image": "/images/feed/feed-9f8f6706789c.jpg",
+      "source": "Android Authority",
       "isLive": true
     },
     {
-      "id": "feed-9025d5c107c1",
-      "title": "Grammarly vs Wordtune: ¿Cuál Elegir en 2026? Comparativa Completa",
-      "excerpt": "Escribir bien en inglés no es opcional cuando tu documentación, PRs o emails van a clientes. En 2026, Grammarly y Wordtune han añadido funciones de IA generativa, pero la diferencia de fondo sigue igu…",
-      "body": "Escribir bien en inglés no es opcional cuando tu documentación, PRs o emails van a clientes. En 2026, Grammarly y Wordtune han añadido funciones de IA generativa, pero la diferencia de fondo sigue igual. Los hemos probado durante varias semanas en flujos reales: documentación técnica, notas de release, respuestas a soporte y propuestas. No son la misma herramienta. Grammarly se comporta como un linter de prosa; Wordtune, como un compañero de reescritura. Elegir mal te hace pagar dos veces por lo mismo o quedarte corto. Cómo funcionan por dentro Grammarly analiza tu texto y sugiere correcciones de gramática, puntuación, claridad, concisión y tono.",
-      "author": "Iván Jiménez Moreno",
+      "id": "feed-22de134eeba6",
+      "title": "OpenAI's Software Factory Can Skip Human Review. Who Evaluates That Decision?",
+      "excerpt": "A pull request is green. The specialist reviewers found nothing that should block it. The risk classifier marks the change as low risk. The human-review branch disappears, and the change continues tow…",
+      "body": "A pull request is green. The specialist reviewers found nothing that should block it. The risk classifier marks the change as low risk. The human-review branch disappears, and the change continues toward production. Every component may have done exactly what it was asked to do. The remaining question is whether the system was right to stop asking a human. That question jumped out at me in Gergely Orosz's diagram of OpenAI's agentic software factory . The public workflow includes code-writing agents, CI, specialist agent reviews, risk classification, deployment agents, production monitoring, and feedback loops. The article says that areas of the codebase can opt into automatic approval for low-risk pull requests, while higher-risk changes can receive stricter review.",
+      "author": "Sara Mo",
       "date": "2026-09-16",
       "readTime": "2 min",
       "section": "software",
@@ -33,29 +109,125 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 50,
-      "url": "https://dev.to/genzetadigital/grammarly-vs-wordtune-cual-elegir-en-2026-comparativa-completa-470j",
-      "image": "/images/feed/feed-9025d5c107c1.webp",
+      "xpReward": 49,
+      "url": "https://dev.to/sara_mo/openais-software-factory-can-skip-human-review-who-evaluates-that-decision-21bf",
+      "image": "/images/feed/feed-22de134eeba6.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-9add2ac2c42f",
-      "title": "How I Understand Modern AI as a Developer",
-      "excerpt": "Nowadays AI is everywhere in software development, yet many people misunderstand its real capability. AI is not a magic solution that can solve every problem automatically. It works best as a powerful…",
-      "body": "Nowadays AI is everywhere in software development, yet many people misunderstand its real capability. AI is not a magic solution that can solve every problem automatically. It works best as a powerful assistant. It helps write boilerplate code, explain complex concepts and speed up debugging work. However, human judgment is still essential. We need to verify outputs, fix logical flaws and fit generated results into actual business requirements. For developers, the key is learning to collaborate with AI instead of fully relying on it. Mastering prompt skills and critical thinking will bring more value than blindly trusting generated answers. AI extends our ability, but human experience still leads the final decision‑making.",
-      "author": "OnaEiuspkz",
+      "id": "feed-c9371dbd5053",
+      "title": "Drishti - A JavaScript Framework. Something new or just a tweak over the existing?",
+      "excerpt": "JavaScript has always been the first choice of developers amongst since its whether it's for frontend or backend. Other languages may overcome at many instances, but the engines power full and sleek d…",
+      "body": "JavaScript has always been the first choice of developers amongst since its whether it's for frontend or backend. Other languages may overcome at many instances, but the engines power full and sleek design always attracts tech folks now and then. It's because of this that developers and engineers invest hours in building tools and methodologies to improve the development processes; whether it be ECMAScript or frameworks like React, Angular, etc the race never stops. Most of them are marvellous pieces of architecture, yet many fail to get off the ground within a few days of rollout. Today I’ll be discussing a similar framework Drishti JS Dev Site , which promises a lot, but only time will tell whether it joins the elite group or falls into the bin.",
+      "author": "Rahul Sarkar",
       "date": "2026-09-16",
       "readTime": "2 min",
       "section": "software",
       "tags": [
-        "Developer"
+        "Javascript",
+        "Framework"
       ],
-      "featured": true,
-      "xpReward": 37,
-      "url": "https://dev.to/onaeiuspkz/how-i-understand-modern-ai-as-a-developer-1al1",
-      "image": "/images/feed/feed-9add2ac2c42f.webp",
+      "featured": false,
+      "xpReward": 40,
+      "url": "https://dev.to/rahul07s/drishti-a-javascript-framework-something-new-or-just-a-tweak-over-the-existing-1oha",
+      "image": "/images/feed/feed-c9371dbd5053.webp",
       "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-0d9d57e24721",
+      "title": "Building CallRing AI: From Call Tracking to Lead Intelligence",
+      "excerpt": "Building a SaaS product from scratch is very different from building a normal web application. You don't just need to make the features work. You need to think about architecture, integrations, data i…",
+      "body": "Building a SaaS product from scratch is very different from building a normal web application. You don't just need to make the features work. You need to think about architecture, integrations, data isolation, permissions, scalability, tracking, billing, and — most importantly — how all of those pieces work together. That's what we've been working on with CallRing AI . What is CallRing AI? CallRing AI is a call tracking and lead intelligence platform designed to help businesses understand where their calls are coming from and what happens after the call. The basic idea is simple: Don't just track the call. Understand the lead behind it.",
+      "author": "Ebrahim Manj",
+      "date": "2026-09-16",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 49,
+      "url": "https://dev.to/ebrahim_manj_ecda3a00df24/building-callring-ai-from-call-tracking-to-lead-intelligence-1ci1",
+      "image": "/images/feed/feed-0d9d57e24721.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-2a332ba6a096",
+      "title": "10 BG3 Characters Fans Still Want as Companions",
+      "excerpt": "A new mod finally makes Mizora a real companion. Here are 9 more BG3 NPCs who deserve the same treatment.",
+      "body": "Baldur’s Gate 3 is full of moments like this: A great character, an intriguing story, and then no reliable way to learn what happens next. For Mizora — Wyll's patron devil, the one who granted him his warlock powers — a new mod has delivered a way around that issue. While Mizora technically does hang out in camp, she does so only on her terms — and when you see her, generally, you want to shove her back into whatever pocket of the Nine Hells she's crawled out of. Unless, of course, you can recruit her hellish talents to support your aims. Now, thanks to the brand new mod Mizora Joins the Party from modder WorldWalker42 , you can do exactly that. She's not the only NPC who deserves an upgrade to companion status. Here are 10 more.",
+      "author": "Rebecca Corgan",
+      "date": "2026-09-16",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 43,
+      "url": "https://www.polygon.com/bg3-best-non-companion-npcs/",
+      "image": "/images/feed/feed-2a332ba6a096.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-4415c4186e7d",
+      "title": "This cheap handheld can emulate games, but also plays your physical GBA cartridges",
+      "excerpt": "It won't break the bank, either.",
+      "body": "Credit: GAMEMT TL;DR The GAMEMT MTX is a new sub-$100 handheld that has a cartridge slot for Game Boy Advance games. It can also emulate SNES, Genesis, PS1, and PSP games via conventional ROM files. The MTX is available at a promotional price of $80 via the official website. The Analogue Pocket still stands out today thanks to its integrated cartridge slot, allowing you to play your physical games on a more modern handheld. Unfortunately, it doesn’t emulate digital game ROMs. But what if you don’t want to choose between a conventional emulation experience and physical cartridges? That’s where the GAMEMT MTX comes in, from the same company that brought you the Pocket Super Knob 5000 . GAMEMT has recently released the MTX (h/t: Retro Handhelds ).",
+      "author": "Hadlee Simons",
+      "date": "2026-09-16",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 40,
+      "url": "https://www.androidauthority.com/gamemt-mtx-handheld-game-boy-advance-cartridge-slot-3711752/",
+      "image": "/images/feed/feed-4415c4186e7d.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-bff57fe6b329",
+      "title": "Google’s new wallpaper puts the Pixel 11’s blueprint on your lock screen",
+      "excerpt": "Peeking inside your Pixel has never looked quite this good.",
+      "body": "TL;DR Google Japan has shared a new Pixel 11 wallpaper that recreates the phone’s internal hardware. The monochrome, blueprint-like design makes your lock screen look almost transparent while keeping widgets and icons readable. You can use the wallpaper on older Pixel phones, too, for a little Pixel 11 makeover. It’s been a little over a month since Google launched the Pixel 11 series , but the company has one more small treat for Pixel fans. Google Japan has shared a new Pixel 11 wallpaper on X , and if you enjoy seeing what’s hiding beneath all that glass and metal, you’ll probably want this one. Instead of another abstract design, the wallpaper makes your phone look transparent.",
+      "author": "Shimul Sood",
+      "date": "2026-09-16",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 40,
+      "url": "https://www.androidauthority.com/google-pixel-11-wallpapers-3711775/",
+      "image": "/images/feed/feed-bff57fe6b329.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-04ff36db86b6",
+      "title": "You can now pay Meta up to $499 every month for the pleasure of using more Meta AI",
+      "excerpt": "More AI, more features, and more monthly bills, brought to you by Meta One.",
+      "body": "TL;DR Meta has introduced “Meta One” — a set of new subscription plans for individuals, creators, and businesses. It keeps existing single-app plans and adds bundled plans starting from $14.99 per month. The subscription will offer additional Meta AI usage as well as professional tools for businesses. Meta is no stranger to app subscriptions. The company already offers single-app plans such as Instagram Plus, WhatsApp Plus, and Facebook Plus. However, it is now introducing several new bundled plans for individuals, creators, and businesses, and bringing all of its subscriptions under the “Meta One” umbrella.",
+      "author": "Akshay Gangwar",
+      "date": "2026-09-16",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 40,
+      "url": "https://www.androidauthority.com/meta-one-subscription-plans-3711755/",
+      "image": "/images/feed/feed-04ff36db86b6.jpg",
+      "source": "Android Authority",
       "isLive": true
     },
     {
@@ -70,30 +242,11 @@
       "tags": [
         "Gadgets"
       ],
-      "featured": true,
-      "xpReward": 51,
+      "featured": false,
+      "xpReward": 44,
       "url": "https://www.androidauthority.com/google-maps-android-auto-driving-avatar-rollout-3711764/",
       "image": "/images/feed/feed-c5f678498e58.jpg",
       "source": "Android Authority",
-      "isLive": true
-    },
-    {
-      "id": "feed-d00d634fe17f",
-      "title": "Data Modelling,Relationships & Joins",
-      "excerpt": "1.Data Modelling Data Modelling refers to the process of structuring and organising tables,columns and relationships in Power BI so that they work together logically. Deciding which tables you need an…",
-      "body": "1.Data Modelling Data Modelling refers to the process of structuring and organising tables,columns and relationships in Power BI so that they work together logically. It typically involves Deciding which tables you need and their relationships Managing relationships Creating schema Setting data types ,hierarchies and naming conventions Think of data modelling as essentially the foundation of the house where reports,dashboard and DAX functions are built on top.A weak foundation will ofcourse not sustain whats on top What are the importance of data modelling ?",
-      "author": "Mburu Kibandi",
-      "date": "2026-09-16",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 53,
-      "url": "https://dev.to/mburu_kefoi/data-modellingrelationships-joins-3g2j",
-      "image": "/images/feed/feed-d00d634fe17f.webp",
-      "source": "Dev.to",
       "isLive": true
     },
     {
@@ -109,8 +262,8 @@
         "Zero-day",
         "Exploit"
       ],
-      "featured": true,
-      "xpReward": 42,
+      "featured": false,
+      "xpReward": 30,
       "url": "https://www.bleepingcomputer.com/news/security/google-fixes-actively-exploited-android-zero-day-on-pixel-devices/",
       "image": "/images/feed/feed-84d02548c3fe.jpg",
       "source": "BleepingComputer",
@@ -129,67 +282,10 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 36,
       "url": "https://kotaku.com/trails-in-the-sky-2nd-chapter-the-kotaku-review-2000734716",
       "image": "/images/feed/feed-985fcf7f2bf3.jpg",
       "source": "Kotaku",
-      "isLive": true
-    },
-    {
-      "id": "feed-3a7dc4b2dade",
-      "title": "Implementing Postgres Row-Level Security in Next.js: The Drizzle Multi-Tenant Pattern",
-      "excerpt": "The first time we turned on Row-Level Security, nothing happened. Policies were in place, ENABLE ROW LEVEL SECURITY had run, and every query still returned every tenant's rows. Took a minute to rememb…",
-      "body": "The first time we turned on Row-Level Security, nothing happened. Policies were in place, ENABLE ROW LEVEL SECURITY had run, and every query still returned every tenant's rows. Took a minute to remember: we were connected as postgres , the superuser, and superusers ignore RLS entirely. That one gotcha basically shaped the rest of this setup. The problem we were actually trying to solve is boring and everyone's had it: a route handler forgets WHERE organization_id = ? , code review doesn't catch it because the query still \"works,\" and Tenant A quietly gets to see Tenant B's data. Nobody notices until someone does. Our answer was to stop trusting application code to remember the filter and push isolation into Postgres itself with Row-Level Security .",
-      "author": "uninterrupted",
-      "date": "2026-09-16",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 46,
-      "url": "https://dev.to/u11d/implementing-postgres-row-level-security-in-nextjs-the-drizzle-multi-tenant-pattern-428l",
-      "image": "/images/feed/feed-3a7dc4b2dade.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-522875ea664a",
-      "title": "What stops one queue consumer from starving your account?",
-      "excerpt": "A reader's comment turned into issue #87 on my infrastructure-context tool, and that issue had three sections. I built section 1, wrote a post about it, and left sections 2 and 3 sitting in the tracke…",
-      "body": "A reader's comment turned into issue #87 on my infrastructure-context tool, and that issue had three sections. I built section 1, wrote a post about it, and left sections 2 and 3 sitting in the tracker for months. Section 2 was four sentences long: Reserved concurrency. Unbounded scaling from a queue can exhaust account concurrency or overwhelm a downstream database. Needs GetFunctionConcurrency or the Concurrency block from GetFunction , which is one more call per function. The reason it sat there is in the commit that finally closed it: \"GetFunctionConcurrency is one call per function, which is why this sat unbuilt.\" One extra API call per function, multiplied across an account, on every analysis.",
-      "author": "Siddharth Pandey",
-      "date": "2026-09-16",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 40,
-      "url": "https://dev.to/siddharth_pandey_27/what-stops-one-queue-consumer-from-starving-your-account-cf0",
-      "image": "/images/feed/feed-522875ea664a.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-68c8a0f92c08",
-      "title": "AI Agents - What They Are and Why Every Company Wants One",
-      "excerpt": "You have 50 tasks to complete today. Emails to send. You cannot do all of them manually. Neither can one person on your team. That's exactly the problem AI Agents solve. An AI Agent is not just a chat…",
-      "body": "You have 50 tasks to complete today. Emails to send. Data to analyze. Reports to generate. Code to test. Meetings to schedule. You cannot do all of them manually. Neither can one person on your team. That's exactly the problem AI Agents solve. What Is an AI Agent? An AI Agent is not just a chatbot that answers questions. A chatbot waits for you to ask something. An AI Agent goes and does something. You give it a goal not just a question. And it figures out the steps, takes actions, uses tools, makes decisions, and completes the task. On its own. Simple definition: An AI Agent is an AI system that can perceive its environment, make decisions, and take actions to achieve a goal without someone guiding every single step. The Difference Between AI and AI Agents Regular AI: You ask it answers.",
-      "author": "Anushka Quietly Building",
-      "date": "2026-09-16",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 44,
-      "url": "https://dev.to/anushka_shinde_99/ai-agents-what-they-are-and-why-every-company-wants-one-5am0",
-      "image": "/images/feed/feed-68c8a0f92c08.webp",
-      "source": "Dev.to",
       "isLive": true
     },
     {
@@ -205,7 +301,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 46,
       "url": "https://www.engadget.com/2259838/meta-smart-glasses-without-a-camera/",
       "image": "/images/feed/feed-b2951097a8e9.jpg",
       "source": "Engadget",
@@ -224,7 +320,7 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 35,
       "url": "https://thehackernews.com/2026/09/attackers-exploit-woocommerce-wholesale.html",
       "image": "/images/feed/feed-5d19381ad63d.jpg",
       "source": "The Hacker News",
@@ -243,7 +339,7 @@
         "Iphone"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 34,
       "url": "https://www.androidauthority.com/apple-reference-image-vs-android-c2pa-3711734/",
       "image": "/images/feed/feed-cb6dc2a9b175.jpg",
       "source": "Android Authority",
@@ -262,7 +358,7 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 35,
       "url": "https://thehackernews.com/2026/09/active-exploitation-attempts-target.html",
       "image": "/images/feed/feed-b29057a89c4d.jpg",
       "source": "The Hacker News",
@@ -281,86 +377,10 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 39,
       "url": "https://www.polygon.com/5-litrpg-books-to-read-after-dungeon-crawler-carl/",
       "image": "/images/feed/feed-eb83c26eafd7.jpg",
       "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-340f4380b0ee",
-      "title": "Bose Promo Code: 40% Off for September 2026",
-      "excerpt": "Get at least 40% off headphones, speakers, soundbars, and other audio products from Bose.",
-      "body": "Get at least 40% off headphones, speakers, soundbars, and other audio products from Bose.\n\nThis report, published by Wired, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Wired using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Molly Higgins",
-      "date": "2026-09-16",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 40,
-      "url": "https://www.wired.com/story/bose-coupon-code/",
-      "image": "/images/feed/feed-340f4380b0ee.png",
-      "source": "Wired",
-      "isLive": true
-    },
-    {
-      "id": "feed-63c7da3f8b3e",
-      "title": "OnePlus Promo Codes: 30% Off September 2026",
-      "excerpt": "Save 30% with a OnePlus coupon in September 2026, plus save up to 10% on earbuds, phones, and more.",
-      "body": "Save 30% with a OnePlus coupon in September 2026, plus save up to 10% on earbuds, phones, and more.\n\nThis report, published by Wired, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Wired using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Molly Higgins",
-      "date": "2026-09-16",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 54,
-      "url": "https://www.wired.com/story/oneplus-promo-code/",
-      "image": "/images/feed/feed-63c7da3f8b3e.jpg",
-      "source": "Wired",
-      "isLive": true
-    },
-    {
-      "id": "feed-b63ad04a0939",
-      "title": "Jabra Promo Codes: 30% Off  Headphones, Headsets & More",
-      "excerpt": "Unlock significant savings on Jabra headphones, headsets, and speakers with our verified promo codes, exclusive coupons, and limited-time deals.",
-      "body": "Unlock significant savings on Jabra headphones, headsets, and speakers with our verified promo codes, exclusive coupons, and limited-time deals.\n\nThis report, published by Wired, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Headphones. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Wired using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Christopher Null",
-      "date": "2026-09-16",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Headphones"
-      ],
-      "featured": false,
-      "xpReward": 54,
-      "url": "https://www.wired.com/story/jabra-promo-codes-coupons/",
-      "image": "/images/feed/feed-b63ad04a0939.png",
-      "source": "Wired",
-      "isLive": true
-    },
-    {
-      "id": "feed-9301f2ca095e",
-      "title": "Samsung Goes to Couples Therapy to Unpack iPhone-to-Android Tension",
-      "excerpt": "Featuring Orna Guralnik of Couples Therapy, Samsung’s latest ads uncover the emotions behind switching phone brands.",
-      "body": "Featuring Orna Guralnik of Couples Therapy, Samsung’s latest ads uncover the emotions behind switching phone brands.\n\nThis report, published by CNET, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Iphone. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to CNET using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Anna Gragert",
-      "date": "2026-09-16",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Iphone"
-      ],
-      "featured": false,
-      "xpReward": 40,
-      "url": "https://www.cnet.com/tech/mobile/samsung-goes-couples-therapy-unpack-iphone-android-tension/",
-      "image": "/images/feed/feed-9301f2ca095e.jpg",
-      "source": "CNET",
       "isLive": true
     },
     {
@@ -376,7 +396,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 54,
       "url": "https://science.nasa.gov/image-article/apod-2026-september-16-webbs-view-of-m64/",
       "image": "/images/feed/feed-2826dbbb3bc4.jpg",
       "source": "NASA Breaking News",
@@ -395,7 +415,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 47,
       "url": "https://www.polygon.com/10-darkest-calvin-and-hobbes-snowman-jokes-that-reveal-bill-wattersons-twisted-genius/",
       "image": "/images/feed/feed-ee1d349c3831.jpg",
       "source": "Polygon",
@@ -414,7 +434,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 42,
       "url": "https://www.ign.com/articles/wo-long-2-wings-of-ember-gets-release-date-demo-available-now",
       "image": "/images/feed/feed-d3b28f42c51a.jpg",
       "source": "IGN",
@@ -434,7 +454,7 @@
         "Nintendo"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 53,
       "url": "https://www.polygon.com/best-nintendo-switch-2-games/",
       "image": "/images/feed/feed-3f23fa2469cf.jpg",
       "source": "Polygon",
@@ -453,28 +473,9 @@
         "Game"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 48,
       "url": "https://www.ign.com/articles/all-fourth-wing-board-game-adaptions",
       "image": "/images/feed/feed-e7796fd8b632.jpg",
-      "source": "IGN",
-      "isLive": true
-    },
-    {
-      "id": "feed-32d2c4d571f6",
-      "title": "'This Is a Place You Come to Work Hard' — Wardogs CEO Justifies Crunch as a Balancing Act",
-      "excerpt": "Joe Brammer, the CEO of Wardogs developer Bulkhead, has stated that the studio avoids hiring people that aren't willing to crunch.",
-      "body": "Joe Brammer, the CEO of Wardogs developer Bulkhead, has stated that the studio avoids hiring people who aren&#39;t willing to crunch. In an interview with The Game Business , Brammer was asked about the studio&#39;s approach to crunch. He noted that he values balance, but not in the way people may think. Instead of traditional work weeks, the team will push harder for a handful of months, but then have the opportunity to take their foot off the gas without fear of retaliation. &quot;For the last three months, Wardogs has been a lot more important than a lot of their family lives,&quot; said Brammer. &quot;It has been, because that&#39;s what pays the money for them. But now Bulkhead has to acknowledge that it needs to go the other way.",
-      "author": "Cade Onder",
-      "date": "2026-09-16",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 48,
-      "url": "https://www.ign.com/articles/this-is-a-place-you-come-to-work-hard-wardogs-ceo-justifies-crunch-as-a-balancing-act",
-      "image": "/images/feed/feed-32d2c4d571f6.jpg",
       "source": "IGN",
       "isLive": true
     },
@@ -491,7 +492,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 34,
       "url": "https://www.nasa.gov/general/nasa-ames-stars-of-the-month-september-2026/",
       "image": "/images/feed/feed-f9436e37f04e.jpg",
       "source": "NASA Breaking News",
@@ -511,7 +512,7 @@
         "Hybrid"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 36,
       "url": "https://cleantechnica.com/2026/09/15/volvo-upgrades-the-xc60-xc90-plug-in-hybrids-with-significantly-more-fully-electric-range/",
       "image": "/images/feed/feed-de300b442ca9.jpg",
       "source": "CleanTechnica",
@@ -530,7 +531,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 31,
       "url": "https://cleantechnica.com/2026/09/15/over-110-groups-to-congress-dont-criminalize-protest-in-pipeline-safety-bill/",
       "image": "/images/feed/feed-f2c0342cbb5d.png",
       "source": "CleanTechnica",
@@ -549,7 +550,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 34,
       "url": "https://cleantechnica.com/2026/09/15/congress-must-reject-attack-on-clean-air-protections-for-port-communities/",
       "image": "/images/feed/feed-efe08c808b05.jpg",
       "source": "CleanTechnica",
@@ -568,7 +569,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 52,
       "url": "https://cleantechnica.com/2026/09/15/new-report-examining-apss-massive-gas-buildout-demonstrates-how-ratepayers-could-be-on-the-hook-for-decades/",
       "image": "/images/feed/feed-1291a29eaf47.png",
       "source": "CleanTechnica",
@@ -587,7 +588,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 49,
       "url": "https://insideevs.com/news/808408/ford-bluecruise-f150-handsfree-towing/",
       "image": "/images/feed/feed-097cc08a7a38.jpg",
       "source": "InsideEVs",
@@ -606,7 +607,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 38,
       "url": "https://electrek.co/2026/09/15/hyundai-raised-ioniq-5-lease-rates-still-great-deal/",
       "image": "/images/feed/feed-4542c0f97f7b.jpg",
       "source": "Electrek",
@@ -625,7 +626,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 33,
       "url": "https://cleantechnica.com/2026/09/15/holcim-integrates-two-joule-hive-thermal-batteries-into-its-cement-making-facility/",
       "image": "/images/feed/feed-1391a9a4e9df.png",
       "source": "CleanTechnica",
@@ -644,7 +645,7 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 35,
       "url": "https://www.bleepingcomputer.com/news/security/acronis-warns-of-actively-exploited-flaw-in-its-cpanel-backup-plugin/",
       "image": "/images/feed/feed-daa4d5694c77.jpg",
       "source": "BleepingComputer",
@@ -665,7 +666,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 30,
       "url": "https://www.space.com/astronomy/22-years-of-science-nasas-roman-space-telescope-doubles-its-lifetime-with-super-precise-engine-burn",
       "image": "/images/feed/feed-b2e13235f069.jpg",
       "source": "Space.com",
@@ -684,7 +685,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 46,
       "url": "https://www.bleepingcomputer.com/news/security/malcious-admin-menu-editor-pro-plugin-backdoors-1-500-wordpress-sites/",
       "image": "/images/feed/feed-dff728f54d1e.jpg",
       "source": "BleepingComputer",
@@ -703,7 +704,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 43,
       "url": "https://techcrunch.com/2026/09/15/meta-now-lets-ai-agents-handle-the-boring-parts-of-whatsapp-business-setup/",
       "image": "/images/feed/feed-c8e966977fdf.jpg",
       "source": "TechCrunch",
@@ -722,7 +723,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 52,
       "url": "https://www.space.com/entertainment/space-games/new-starcraft-game-announced-but-its-a-grim-open-world-shooter-and-its-not-coming-until-2030",
       "image": "/images/feed/feed-2db0161ae75f.jpg",
       "source": "Space.com",
@@ -742,7 +743,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 44,
       "url": "https://www.space.com/space-exploration/satellites/us-space-force-says-it-operates-weapons-in-orbit-our-aim-is-deterrence",
       "image": "/images/feed/feed-ce33105da563.jpg",
       "source": "Space.com",
@@ -761,7 +762,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 51,
       "url": "https://techcrunch.com/2026/09/15/the-ai-graveyard-a-running-list-of-projects-and-startups-that-didnt-make-it/",
       "image": "/images/feed/feed-7eb39231f1ba.jpg",
       "source": "TechCrunch",
@@ -780,7 +781,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 49,
       "url": "https://www.nasa.gov/news-release/nasa-invites-media-to-international-observe-the-moon-night/",
       "image": "/images/feed/feed-91c3e1d4e635.jpg",
       "source": "NASA Breaking News",
@@ -799,7 +800,7 @@
         "Malware"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 37,
       "url": "https://thehackernews.com/2026/09/kremlin-banking-malware-hijacks-chrome.html",
       "image": "/images/feed/feed-473024f0de55.jpg",
       "source": "The Hacker News",
@@ -820,7 +821,7 @@
         "Orbit"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 37,
       "url": "https://www.space.com/space-exploration/launches-spacecraft/spacexs-next-starship-launch-will-lift-off-on-sept-22-and-aim-to-reach-orbit-for-1st-time",
       "image": "/images/feed/feed-be8b5813b6b4.jpg",
       "source": "Space.com",
@@ -839,7 +840,7 @@
         "Gemini"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 41,
       "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/",
       "image": "/images/feed/feed-2bb653c70c81.png",
       "source": "Hacker News",
@@ -858,7 +859,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 33,
       "url": "https://www.bleepingcomputer.com/news/security/centerpoint-energy-confirms-customer-data-stolen-in-cyberattack/",
       "image": "/images/feed/feed-7e210e5019d3.jpg",
       "source": "BleepingComputer",
@@ -877,7 +878,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 45,
       "url": "https://blog.google/innovation-and-ai/technology/ai/ai-for-societal-impact/",
       "image": "/images/feed/feed-a56de3e90322.jpg",
       "source": "Google AI Blog",
@@ -896,7 +897,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 40,
       "url": "https://blog.google/innovation-and-ai/technology/ai/ai-applications-science-people/",
       "image": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/SocialShare_hD2gcAw.max-600x600.format-webp.webp",
       "source": "Google AI Blog",
@@ -915,7 +916,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 32,
       "url": "https://blog.google/innovation-and-ai/technology/ai/ai-for-every-language/",
       "image": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/AI_languages_blog_social.max-600x600.format-webp.webp",
       "source": "Google AI Blog",
@@ -935,7 +936,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 31,
       "url": "https://techcrunch.com/2026/09/15/openai-anthropic-google-have-been-in-talks-on-ai-safety-for-weeks/",
       "image": "/images/feed/feed-7ca41db25b66.jpg",
       "source": "TechCrunch",
@@ -943,16 +944,16 @@
     }
   ],
   "breakingNews": [
-    "DEV.TO: Why FastAPI geolocation middleware is the wrong tool",
-    "DEV.TO: Grammarly vs Wordtune: ¿Cuál Elegir en 2026? Comparativa Completa",
-    "DEV.TO: How I Understand Modern AI as a Developer",
-    "ANDROID AUTHORITY: Android Auto is finally letting you ditch that boring blue arrow straight from your dashboard",
-    "DEV.TO: Data Modelling,Relationships & Joins",
-    "BLEEPINGCOMPUTER: Google fixes actively exploited Android zero-day on Pixel devices",
-    "KOTAKU: Trails In The Sky 2nd Chapter: The Kotaku Review",
-    "DEV.TO: Implementing Postgres Row-Level Security in Next.js: The Drizzle Multi-Tenant Pattern",
-    "DEV.TO: What stops one queue consumer from starving your account?",
-    "DEV.TO: AI Agents - What They Are and Why Every Company Wants One"
+    "DEV.TO: Where Should AI Stop and Code Start?",
+    "DEV.TO: I traced the agentic calls. Here's where the token consumption comes from",
+    "DEV.TO: AWS Is Retiring App Mesh. Here Is How We Moved 40 Services",
+    "DEV.TO: When an upload form says “unsupported file”, the iPhone photo is usually HEIC",
+    "ANDROID AUTHORITY: The wait is over: Samsung rolls out stable One UI 9 for Galaxy S26 series",
+    "DEV.TO: OpenAI's Software Factory Can Skip Human Review. Who Evaluates That Decision?",
+    "DEV.TO: Drishti - A JavaScript Framework. Something new or just a tweak over the existing?",
+    "DEV.TO: Building CallRing AI: From Call Tracking to Lead Intelligence",
+    "POLYGON: 10 BG3 Characters Fans Still Want as Companions",
+    "ANDROID AUTHORITY: This cheap handheld can emulate games, but also plays your physical GBA cartridges"
   ],
   "sectionVideos": {}
 }
