@@ -1,31 +1,12 @@
 {
-  "fetchedAt": "2026-09-17T17:11:45.324Z",
+  "fetchedAt": "2026-09-17T18:15:40.703Z",
   "articles": [
     {
-      "id": "feed-34bac38c0a9c",
-      "title": "Frameworks Are Institutional Memory",
-      "excerpt": "I stored passwords in plaintext on a floppy disk in the 1980s. Recently, a coding agent made a version of the same mistake. When I was running bulletin board systems in the 1980s, password management…",
-      "body": "I stored passwords in plaintext on a floppy disk in the 1980s. Recently, a coding agent made a version of the same mistake. When I was running bulletin board systems in the 1980s, password management could be remarkably straightforward. A user created an account. They chose a password. The BBS needed to determine whether the password they entered later was the same one they had chosen. So you stored it. In plaintext. On a floppy disk. Hard drives were expensive and hardly universal in the hobbyist computing world I inhabited, so there was nothing strange about application data living on floppies. The important thing was that the software could retrieve the password and compare it against whatever the user typed the next time they called in.",
-      "author": "Ken W Alger",
-      "date": "2026-09-17",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Framework"
-      ],
-      "featured": true,
-      "xpReward": 33,
-      "url": "https://dev.to/kenwalger/frameworks-are-institutional-memory-b3l",
-      "image": "/images/feed/feed-34bac38c0a9c.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-2edfb3c73c9c",
-      "title": "The clipboard bridge that had to wait for the device",
-      "excerpt": "I wanted a copy button in tapflow's browser viewer. The obvious version is short: navigator.clipboard.writeText(text) That works when text is already in the browser. Our text was on a simulator, so th…",
-      "body": "I wanted a copy button in tapflow's browser viewer. The obvious version is short: navigator . clipboard . writeText ( text ) That works when text is already in the browser. Our text was on a simulator, so the browser had to ask the device to copy first, wait for the answer, and only then put that answer on the user's clipboard. That small difference exposed two separate problems: device clipboards are asynchronous, and the browser decides whether it is allowed to write the clipboard before the answer arrives. Paste was the easy direction For paste, the browser already owns the text. The paste event gives us a string, and tapflow sends it through the relay to the agent: const text = event . clipboardData ?. getData ( ' text ' ) ?? '' event .",
-      "author": "Duchan",
+      "id": "feed-49d727933045",
+      "title": "Safari runs a module worker's entry file twice if anything imports it",
+      "excerpt": "We're building Oh So Video, a set of video tools that run entirely in the browser: nothing is uploaded, and the work happens in Web Workers on your own machine. Before launch, we automated a full run…",
+      "body": "We're building Oh So Video , a set of video tools that run entirely in the browser: nothing is uploaded, and the work happens in Web Workers on your own machine. Before launch, we automated a full run of every tool in Safari and Firefox, checking every exported file with ffmpeg. Everything passed except one thing. In Safari, every ProRes file was refused with this message: This browser couldn't read this ProRes video. Try Chrome, Edge or Safari on a computer. That was Safari, on a computer. Chrome and Firefox converted the same files fine, including a 5 GB 4K one. What was actually happening We decode ProRes with Mediabunny 's ProRes extension, which only loads when someone chooses a ProRes file.",
+      "author": "Tom Limb",
       "date": "2026-09-17",
       "readTime": "2 min",
       "section": "software",
@@ -33,10 +14,390 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 41,
-      "url": "https://dev.to/joduchan/the-clipboard-bridge-that-had-to-wait-for-the-device-31jb",
-      "image": "/images/feed/feed-2edfb3c73c9c.webp",
+      "xpReward": 48,
+      "url": "https://dev.to/tom_limb/safari-runs-a-module-workers-entry-file-twice-if-anything-imports-it-dbp",
+      "image": "/images/feed/feed-49d727933045.webp",
       "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-9fefbe2346c5",
+      "title": "This tiny, beloved e-reader is getting a spiritual successor that runs on Android",
+      "excerpt": "Xteink S4 doubles the battery and ditches Linux for Android 11.",
+      "body": "Credit: Good e-Reader TL;DR A spiritual successor to the Xteink X4 is coming. The Xteink S4 will run on Android 11, allowing you to sideload from reading apps like Kindle, Kobo, and KOReader. It will come with 2GB of RAM, 32GB of storage, and a 1,400mAh battery. When Xteink launched the Xteink X4, it made a big impression on e-reader fans. The pocketable E-Ink device was great for DRM-free reading, and it was small enough to fit on the back of most phones. However, nothing is perfect, and improvements can always be made. Enter the spiritual successor to the Xteink X4. Good e-Reader reports that the Chinese startup behind the Xteink X4 is launching the Xteink S4. The Xteink S4 has a 4.3 E-Ink touchscreen that offers 220 PPI. It’s said to weigh 95 grams and is 6.98mm thick.",
+      "author": "Ryan McNeal",
+      "date": "2026-09-17",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": true,
+      "xpReward": 40,
+      "url": "https://www.androidauthority.com/xteink-s4-e-reader-3712546/",
+      "image": "https://www.androidauthority.com/wp-content/uploads/2026/09/Xteink-S4.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-53c3348fccfe",
+      "title": "Building Instagram Downloader: Turning a Simple Downloader Into a Real Product",
+      "excerpt": "At first, Instagram Downloader sounded like a small project. A user pastes a public Instagram link, the service finds the media, and the browser downloads it. Simple. But “simple” products are often t…",
+      "body": "At first, Instagram Downloader sounded like a small project. A user pastes a public Instagram link, the service finds the media, and the browser downloads it. Simple. But “simple” products are often the ones that require the most care. The user sees one input field and one button. Behind that interaction are dozens of decisions about usability, different media types, mobile behavior, accessibility, localization, reliability, and privacy. This is the story of how FromInsta.net grew from a basic downloader into a focused web product. Starting with one clear promise The first version was built around a single workflow: Copy a link to a public Instagram post. Paste it into the service. Choose the media you want to save. There was no reason to make the interface more complicated than that.",
+      "author": "David",
+      "date": "2026-09-17",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 34,
+      "url": "https://dev.to/david1390/building-instagram-downloader-turning-a-simple-downloader-into-a-real-product-3dbo",
+      "image": "/images/feed/feed-53c3348fccfe.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-77bfbb979a66",
+      "title": "The Agent’s Last Mile",
+      "excerpt": "Large language models have become remarkably capable. With enough parameters, data, and training, they can develop abilities that are difficult to predict from smaller systems. They can write software…",
+      "body": "Large language models have become remarkably capable. With enough parameters, data, and training, they can develop abilities that are difficult to predict from smaller systems. They can write software, interpret documents, use tools, plan multi-step tasks, and adapt to changing instructions. Watching a strong agent solve a complex problem from beginning to end can feel like a qualitative leap. The demo is impressive. Production is different. The difficult part is no longer proving that an agent can complete a task once. The difficult part is making sure it behaves acceptably when the context is long, the tools are unreliable, the instructions are incomplete, and nobody is watching every step. That is the agent’s last mile.",
+      "author": "dhooooooh",
+      "date": "2026-09-17",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 49,
+      "url": "https://dev.to/dhooooooh/the-agents-last-mile-3i7i",
+      "image": "/images/feed/feed-77bfbb979a66.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-9568b38b80e4",
+      "title": "BeeLadybug 0.4.0 — A Blind, Zero-Dependency Overlay for Debugging Anything on Screen",
+      "excerpt": "https://beeenginejs.com/wp-content/uploads/2026/09/Screenshot-2026-09-15-194620.png Every time I built a new game or a new page, I ended up writing the same throwaway debug code: an FPS counter here,…",
+      "body": "https://beeenginejs.com/wp-content/uploads/2026/09/Screenshot-2026-09-15-194620.png The problem I kept running into Every time I built a new game or a new page, I ended up writing the same throwaway debug code: an FPS counter here, a console.log there, a red box drawn around whatever DOM node I was hunting down. It always lived inside the project it was debugging — which meant it broke, or had to be rewritten, the moment I moved to a different project. So I pulled it out into its own package: BeeLadybug . The core idea is simple and it's the one rule I refuse to break: The Core is blind. It doesn't know what a \"game,\" a \"DOM node,\" or a \"Python process\" is. It only knows sendData(type, payload) . Everything that actually understands what it's looking at lives in an Adapter .",
+      "author": "Antonio ",
+      "date": "2026-09-17",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 48,
+      "url": "https://dev.to/antonioprosperi2svg/beeladybug-040-a-blind-zero-dependency-overlay-for-debugging-anything-on-screen-6po",
+      "image": "https://assets.dev.to/assets/github-logo-5a155e1f9a670af7944dd5e12375bc76ed542ea80224905ecaf878b9157cdefc.svg",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-722805e45cd0",
+      "title": "Visual Studio make it your own",
+      "excerpt": "Introduction Many developers will spend hours every day in Microsoft Visual Studio. Learn how to customize the Visual Studio environment and use features that make developers more productive. 💡 Custo…",
+      "body": "Introduction Many developers will spend hours every day in Microsoft Visual Studio . Learn how to customize the Visual Studio environment and use features that make developers more productive. 💡 Customizing Visual Studio is like decorating a room with trinkets, lights, and paint. Below is an exploration of known and off-the-beaten-path features for Microsoft Visual Studio 2026. Visual Studio color themes Visual Studio offers a variety of color themes to personalize your development environment for developers were light or dark themes are to restrictive. There are also the ability to create own theme or use a third party theme. 📘 Microsoft documentation Under Tools ➡️ Theme Cascadia Code font Using this font changes how operators appear, as shown below.",
+      "author": "Karen Payne",
+      "date": "2026-09-17",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 43,
+      "url": "https://dev.to/karenpayneoregon/visual-studio-make-it-your-own-fka",
+      "image": "/images/feed/feed-722805e45cd0.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-4b4cc141dca6",
+      "title": "The Great Escape? Why Developers Are Choosing Local-First AI and Privacy-Focused Hardware Over the Cloud in 2026",
+      "excerpt": "Originally published on tamiz.pro. By 2026, a quiet but significant shift has emerged in the developer ecosystem: the move toward local-first AI and privacy-focused hardware, challenging the dominance…",
+      "body": "Originally published on tamiz.pro . Introduction By 2026, a quiet but significant shift has emerged in the developer ecosystem: the move toward local-first AI and privacy-focused hardware , challenging the dominance of centralized cloud platforms. While hyperscalers like AWS, Google Cloud, and Azure continue to dominate headlines, an increasing number of developers—especially those building edge applications, privacy-sensitive tools, or performance-critical systems—are turning inward, toward on-device inference, private compute clusters, and specialized silicon. This trend isn’t just about nostalgia for self-hosted infrastructure. It’s driven by real technical constraints: rising costs, latency demands, compliance requirements, and growing skepticism around data sovereignty.",
+      "author": "Tamiz Uddin",
+      "date": "2026-09-17",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Developer"
+      ],
+      "featured": false,
+      "xpReward": 53,
+      "url": "https://dev.to/tamizuddin/the-great-escape-why-developers-are-choosing-local-first-ai-and-privacy-focused-hardware-over-the-3f91",
+      "image": "/images/feed/feed-4b4cc141dca6.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-d755bc245d53",
+      "title": "Patching the Check Point VPN flaws: a prioritized response plan for CVE-2026-85102 and CVE-2026-85103",
+      "excerpt": "Patching the Check Point VPN flaws: a prioritized response plan for CVE-2026-85102 and CVE-2026-85103 When CERT-In issued note CIVN-2026-0459 on September 16, 2026, it described two critical Check Poi…",
+      "body": "Patching the Check Point VPN flaws: a prioritized response plan for CVE-2026-85102 and CVE-2026-85103 When CERT-In issued note CIVN-2026-0459 on September 16, 2026, it described two critical Check Point VPN flaws that an unauthenticated remote attacker can exploit with crafted certificate data during VPN negotiation. This article lays out a response order for administrators who need to patch without breaking their remote access infrastructure. What you are dealing with The two flaws sit in VPN certificate processing. One is improper certificate validation; the other is a heap-based buffer overflow. Either can be reached by an unauthenticated attacker who sends a crafted certificate to the VPN endpoint.",
+      "author": "StarkMan",
+      "date": "2026-09-17",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 40,
+      "url": "https://dev.to/stark_zhuang_df5076f35c68/patching-the-check-point-vpn-flaws-a-prioritized-response-plan-for-cve-2026-85102-and-2bhp",
+      "image": "/images/feed/feed-d755bc245d53.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-47edb8204bb7",
+      "title": "What time are the Kingdom Hearts power hours in Fortnite Chapter 7 Season 4?",
+      "excerpt": "Here's what time the Kingdom Hearts power hours are in Fortnite Chapter 7 Season 4, in your time zone.",
+      "body": "This week, there'll be Kingdom Hearts power hours in Fortnite Chapter 7 Season 4 , boosting the rate of one sprite variant , while also starting you off with the new Kingdom Hearts items.",
+      "author": "Julia Lee",
+      "date": "2026-09-17",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Fortnite"
+      ],
+      "featured": false,
+      "xpReward": 44,
+      "url": "https://www.polygon.com/fortnite-chapter-7-season-4-kingdom-hearts-power-hours-what-time/",
+      "image": "/images/feed/feed-47edb8204bb7.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-cd8e532cb007",
+      "title": "Watch Point It Out! Episode 4, the Big Blizzcon Breakdown",
+      "excerpt": "On the latest episode of Point It Out!, Polygon's SImone de Rochefort and Giovanni Colantonio unpack an announcement-filled Blizzcon.",
+      "body": "Have you ever waded through a week of rapid-fire video game news and felt an immediate need to unpack it immediately, lest your head explode? That’s sure how we felt after trying to figure out if we’d be alive long enough to play Starcraft .",
+      "author": "Giovanni Colantonio",
+      "date": "2026-09-17",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 51,
+      "url": "https://www.polygon.com/point-it-out-episode-4/",
+      "image": "https://static0.polygonimages.com/wordpress/wp-content/uploads/2026/09/point_it_out_4.png",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-1b9470bc100d",
+      "title": "The Blood of Dawnwalker: The Kotaku Review",
+      "excerpt": "It's the best and bloodiest time-management sim disguised as a humble action RPG",
+      "body": "It's the best and bloodiest time-management sim disguised as a humble action RPG\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Ash Parrish",
+      "date": "2026-09-17",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 34,
+      "url": "https://kotaku.com/the-blood-of-dawnwalker-review-rebel-wolves-time-management-2000735308",
+      "image": "/images/feed/feed-1b9470bc100d.jpg",
+      "source": "Kotaku",
+      "isLive": true
+    },
+    {
+      "id": "feed-5fed4c0763c8",
+      "title": "Here are 100+ things Siri AI can do on your iPhone",
+      "excerpt": "iOS 27 launched this week with the all-new Siri AI. David Pogue put the new Siri to the test by trying 125 requests, here’s how it went. more…",
+      "body": "iOS 27 launched this week with the all-new Siri AI. David Pogue put the new Siri to the test by trying 125 requests, here’s how it went. more — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Iphone. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Ryan Christoffel",
+      "date": "2026-09-17",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Iphone"
+      ],
+      "featured": false,
+      "xpReward": 32,
+      "url": "https://9to5mac.com/2026/09/17/here-are-100-things-siri-ai-can-do-on-your-iphone/",
+      "image": "/images/feed/feed-5fed4c0763c8.jpg",
+      "source": "9to5Mac",
+      "isLive": true
+    },
+    {
+      "id": "feed-0b972e38cdfe",
+      "title": "Netflix’s Chronicles of Narnia Reboot Reveals Official First Look",
+      "excerpt": "Empire just revealed the first image from Netflix's The Chronicles of Narnia reboot.",
+      "body": "We finally have a first look at Greta Gerwig’s Chronicles of Narnia film for Netflix , Narnia: The Magician’s Nephew. The promotional image is quite fitting: it’s Aslan, the talking lion (and thinly veiled Jesus allegory), the character who has become the face of the series. The image debuted in the UK's Empire magazine and offers an inspired take on the creature, with heterochromic eyes and patterns that look like a mix of stitching, Trencadís mosaics, and melted scales.",
+      "author": "Elijah Gonzalez",
+      "date": "2026-09-17",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 53,
+      "url": "https://www.polygon.com/chronicles-of-narnia-reboot-netflix-meryl-streep-greta-gerwig/",
+      "image": "/images/feed/feed-0b972e38cdfe.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-d912b7ec1f91",
+      "title": "A BMW i8, Tesla Model Y, And Audi E-Tron GT All Drag Race, But The Results Are Closer Than You'd Think",
+      "excerpt": "A Drag Race Between A BMW i8, Audi E-Tron, And Tesla Model Y Shows How Far We've Come",
+      "body": "A Drag Race Between A BMW i8, Audi E-Tron, And Tesla Model Y Shows How Far We've Come\n\nThis report, published by InsideEVs, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Tesla. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to InsideEVs using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "InsideEVs",
+      "date": "2026-09-17",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Tesla"
+      ],
+      "featured": false,
+      "xpReward": 31,
+      "url": "https://insideevs.com/news/808676/tesla-model-y-i8-drag/",
+      "image": "/images/feed/feed-d912b7ec1f91.jpg",
+      "source": "InsideEVs",
+      "isLive": true
+    },
+    {
+      "id": "feed-c9ffdee4cd0a",
+      "title": "Brandon Sanderson Reveals Why He’d Never Take Over Game of Thrones",
+      "excerpt": "The author of the Stormlight Archive has no plans to finish George R.R. Martin's Song of Ice and fire series",
+      "body": "The wait for The Winds of Winter , the planned sixth novel of George R.R. Martin's Song of Ice and Fire series, is one of the hottest topics of conversation amongst fans. HBO's Game of Thrones diverged from the books in later seasons because Martin's story wasn't complete. Almost a decade ago, Steven Soderbergh made an extended joke about it in his film Logan Lucky . Some fans are starting to worry that Martin will die before delivering The Winds of Winter , and that another writer would need to complete the series. Brandon Sanderson says that, if that need ever arises, he won't be the man for the job.",
+      "author": "Willa Rowe",
+      "date": "2026-09-17",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Game"
+      ],
+      "featured": false,
+      "xpReward": 49,
+      "url": "https://www.polygon.com/game-of-thrones-brandon-sanderson-defends-george-r-r-martin-winds-of-winter/",
+      "image": "/images/feed/feed-c9ffdee4cd0a.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-a3889dc41196",
+      "title": "Volvo teases its new vehicle design, including a surprise inside",
+      "excerpt": "Volvo is going on the offensive with 13 new electric and plug-in hybrid vehicles coming by 2030. The upcoming models will feature a new design and revamped interior. more…",
+      "body": "Volvo is going on the offensive with 13 new electric and plug-in hybrid vehicles coming by 2030. The upcoming models will feature a new design and revamped interior. more — a development drawing significant attention in the electric vehicles, hybrids, and automotive technology space.\n\nThis report, published by Electrek, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Vehicle. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Electrek using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Peter Johnson",
+      "date": "2026-09-17",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Vehicle"
+      ],
+      "featured": false,
+      "xpReward": 51,
+      "url": "https://electrek.co/2026/09/17/volvo-teases-new-vehicle-design-surprise-inside/",
+      "image": "/images/feed/feed-a3889dc41196.jpg",
+      "source": "Electrek",
+      "isLive": true
+    },
+    {
+      "id": "feed-ee910f25544a",
+      "title": "Bose Just Dropped New Sport Open Earbuds and Ultra Open Earbuds (2nd Gen)",
+      "excerpt": "Bose’s upgraded $299 top-of-the-line open buds feature improved sound and battery life, while the totally new $199 Sport Open Earbuds are designed for active use.",
+      "body": "Bose’s upgraded $299 top-of-the-line open buds feature improved sound and battery life, while the totally new $199 Sport Open Earbuds are designed for active use.\n\nThis report, published by CNET, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Earbuds. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to CNET using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "David Carnoy",
+      "date": "2026-09-17",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Earbuds"
+      ],
+      "featured": false,
+      "xpReward": 39,
+      "url": "https://www.cnet.com/tech/mobile/bose-just-dropped-new-sport-open-earbuds-and-ultra-open-earbuds-2nd-gen/",
+      "image": "/images/feed/feed-ee910f25544a.png",
+      "source": "CNET",
+      "isLive": true
+    },
+    {
+      "id": "feed-59a98d7aed3f",
+      "title": "Save $30 or more on a refurbished Apple TV 4K",
+      "excerpt": "The refurbished Apple TV 4K with its voice remote. | Image: The Verge Most hardware prices have soared in 2026, and that includes a variety of Apple laptops, tablets, and smart devices. Thankfully, yo…",
+      "body": "The refurbished Apple TV 4K with its voice remote. | Image: The Verge Most hardware prices have soared in 2026, and that includes a variety of Apple laptops, tablets, and smart devices . Thankfully, you can offset some of the increased costs on an Apple TV 4K by buying one refurbished through the company. The 64GB model is selling for $169, $30 lower than the new retail price. The upgraded model, with 128GB of storage and an Ethernet port, is also discounted to $209 at Apple , a $40 discount from the full price. Apple refurbished products are often close to like-new condition, and are covered by the same one year warranty as new products.",
+      "author": "Brad Bourque",
+      "date": "2026-09-17",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 52,
+      "url": "https://www.theverge.com/gadgets/997009/refurbished-apple-tv-4k-ring-doorbell-deal-sale",
+      "image": "/images/feed/feed-59a98d7aed3f.jpg",
+      "source": "The Verge",
+      "isLive": true
+    },
+    {
+      "id": "feed-b0d7b1a37b78",
+      "title": "No Wonder The Tesla Cybercab Launch Was So Underwhelming",
+      "excerpt": "The Tesla Cybercab rollout in Austin, Texas has been colored by many questions, including a list of 21 specific demands for information from the National Highway Traffic Safety Administration. The pos…",
+      "body": "The Tesla Cybercab rollout in Austin, Texas has been colored by many questions, including a list of 21 specific demands for information from the National Highway Traffic Safety Administration. The post No Wonder The Tesla Cybercab Launch Was So Underwhelming appeared first on CleanTechnica .",
+      "author": "Tina Casey",
+      "date": "2026-09-17",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Tesla"
+      ],
+      "featured": false,
+      "xpReward": 36,
+      "url": "https://cleantechnica.com/2026/09/17/tesla-cybercab-robotaxi-questions-nhtsa-demands/",
+      "image": "/images/feed/feed-b0d7b1a37b78.jpg",
+      "source": "CleanTechnica",
+      "isLive": true
+    },
+    {
+      "id": "feed-3d547958f92f",
+      "title": "Brevo supply-chain attack injected ClickFix scripts on customer sites",
+      "excerpt": "Brevo confirmed that attackers stole a Cloudflare API key and used it to inject malicious ClickFix scripts into its websites and JavaScript files embedded on customer sites to distribute malware. [...…",
+      "body": "Brevo confirmed that attackers stole a Cloudflare API key and used it to inject malicious ClickFix scripts into its websites and JavaScript files embedded on customer sites to distribute malware. [ — a development drawing significant attention in the cybersecurity and digital privacy space.\n\nThis report, published by BleepingComputer, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cybersecurity. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to BleepingComputer using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Bill Toulas",
+      "date": "2026-09-17",
+      "readTime": "2 min",
+      "section": "cybersecurity",
+      "tags": [
+        "Cybersecurity"
+      ],
+      "featured": false,
+      "xpReward": 45,
+      "url": "https://www.bleepingcomputer.com/news/security/brevo-supply-chain-attack-injected-clickfix-scripts-on-customer-sites/",
+      "image": "/images/feed/feed-3d547958f92f.jpg",
+      "source": "BleepingComputer",
+      "isLive": true
+    },
+    {
+      "id": "feed-57d14e00047c",
+      "title": "9to5Mac Overtime 082: Origins of the Apple Store w/ special guest Ron Johnson",
+      "excerpt": "Former Apple SVP of Retail Ron Johnson joins Overtime to discuss his new book, Shop Different: How Retail Revealed Apple’s Genius. Ron talks about the early days of the Apple Store, what it was like c…",
+      "body": "Former Apple SVP of Retail Ron Johnson joins Overtime to discuss his new book, Shop Different: How Retail Revealed Apple’s Genius . Ron talks about the early days of the Apple Store, what it was like collaborating with Steve Jobs, the launch of the original iPhone, why he left Apple to be CEO of JCPenney, where he thinks Apple retail stands today, and, of course, his take on the iPhone Duo. Sponsored by Bitwarden: Register for the free, virtual Open Source Security Summit on September 17, featuring cybersecurity leaders David Sanger and Joseph Menn — and check out Bitwarden for trusted open source password, passkey, and secrets management, with end-to-end encryption and seamless autofill across all your devices. more…",
+      "author": "Jeff Benjamin",
+      "date": "2026-09-17",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 43,
+      "url": "https://9to5mac.com/2026/09/17/9to5mac-overtime-082-origins-of-the-apple-store-w-special-guest-ron-johnson/",
+      "image": "/images/feed/feed-57d14e00047c.jpg",
+      "source": "9to5Mac",
       "isLive": true
     },
     {
@@ -51,8 +412,8 @@
       "tags": [
         "Fortnite"
       ],
-      "featured": true,
-      "xpReward": 43,
+      "featured": false,
+      "xpReward": 48,
       "url": "https://www.polygon.com/fortnite-chapter-7-season-4-battle-pass-skins-list-outfits-c7s4/",
       "image": "/images/feed/feed-b31c32b2ff32.jpg",
       "source": "Polygon",
@@ -70,30 +431,30 @@
       "tags": [
         "Gadgets"
       ],
-      "featured": true,
-      "xpReward": 31,
+      "featured": false,
+      "xpReward": 51,
       "url": "https://www.androidauthority.com/bluetti-elite-10-mini-deal-3712550/",
       "image": "https://www.androidauthority.com/wp-content/uploads/2025/12/BLUETTI-Elite-10-Mini-Portable-Power-Station-used-by-woman-on-plane.jpg",
       "source": "Android Authority",
       "isLive": true
     },
     {
-      "id": "feed-14cbc732628a",
-      "title": "Markdown woes: Looks right, is wrong",
-      "excerpt": "Your Markdown can be perfectly rendered and completely wrong Markdown has an unfair advantage: it looks trustworthy. A table lines up, the headings are right. The numbers have two decimal places. GitH…",
-      "body": "Your Markdown can be perfectly rendered and completely wrong Markdown has an unfair advantage: it looks trustworthy. A table lines up, the headings are right. The numbers have two decimal places. GitHub renders it beautifully. The pull request is green, so you merge it. And the invoice is wrong. Not obviously wrong: not broken-Markdown wrong. Not “the build failed” wrong. Worse: arithmetic wrong , and that is a different class of problem, one Markdown has never really had an answer for. Marta has an invoice to ship. Marta, a project manager at a small software consultancy. She is good at getting things out the door and the company needs people like her: smart, gets things done on an infra stack that hangs together on zip ties and duct tape. And agents, lots of AI agents.",
-      "author": "Michał Niedźwiedzki",
+      "id": "feed-69358e589cf7",
+      "title": "The US Military Can’t Stop Talking About Space Weapons",
+      "excerpt": "Three senior military officials have confirmed the US has space weapons this week. Why now?",
+      "body": "Three senior military officials have confirmed the US has space weapons this week. Why now?\n\nThis report, published by CNET, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Space. As the situation continues to evolve, professionals and enthusiasts in the space exploration and astronomy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to CNET using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Joe Supan",
       "date": "2026-09-17",
       "readTime": "2 min",
-      "section": "software",
+      "section": "space",
       "tags": [
-        "Software"
+        "Space"
       ],
-      "featured": true,
-      "xpReward": 32,
-      "url": "https://dev.to/holdmybear/markdown-woes-looks-right-is-wrong-4ep0",
-      "image": "/images/feed/feed-14cbc732628a.webp",
-      "source": "Dev.to",
+      "featured": false,
+      "xpReward": 40,
+      "url": "https://www.cnet.com/science/space/the-us-military-cant-stop-talking-about-space-weapons/",
+      "image": "/images/feed/feed-69358e589cf7.jpg",
+      "source": "CNET",
       "isLive": true
     },
     {
@@ -108,87 +469,30 @@
       "tags": [
         "Gadgets"
       ],
-      "featured": true,
-      "xpReward": 50,
+      "featured": false,
+      "xpReward": 46,
       "url": "https://www.engadget.com/2260588/lofi-girl-returns-with-a-new-house-music-station-and-vinyl-compilation/",
       "image": "/images/feed/feed-37637f17ba6a.jpg",
       "source": "Engadget",
       "isLive": true
     },
     {
-      "id": "feed-e2f363501391",
-      "title": "Claude Code Headless Mode in 2026: Scripting Autonomous Coding Tasks Without the Interactive Shell",
-      "excerpt": "Claude Code Headless Mode in 2026: Scripting Autonomous Coding Tasks Without the Interactive Shell This article was written with the assistance of AI, under human supervision and review. Most Claude C…",
-      "body": "Claude Code Headless Mode in 2026: Scripting Autonomous Coding Tasks Without the Interactive Shell This article was written with the assistance of AI, under human supervision and review. Most Claude Code automation failures stem from treating the tool like a human-supervised assistant when production workloads demand fully autonomous execution. Teams launch interactive sessions inside CI runners, manually paste prompts into terminal windows, or copy-paste code blocks from conversational outputs into build scripts. This approach collapses the moment you need repeatable, scheduled, or parallel execution across multiple repositories.",
-      "author": "jsmanifest",
+      "id": "feed-c47982871626",
+      "title": "Claude Code’s revised projects adds AI orchestration, but local developers must wait",
+      "excerpt": "Claude Code Projects could change how developers manage complex AI coding workflows by coordinating threads, sharing memory, and spanning repos, but its biggest benefits are still cloud-only for now.",
+      "body": "Claude Code Projects could change how developers manage complex AI coding workflows by coordinating threads, sharing memory, and spanning repos, but its biggest benefits are still cloud-only for now.\n\nThis report, published by ZDNet, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Claude. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to ZDNet using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "David Gewirtz",
       "date": "2026-09-17",
       "readTime": "2 min",
-      "section": "software",
+      "section": "ai",
       "tags": [
-        "Software"
+        "Claude"
       ],
       "featured": false,
-      "xpReward": 45,
-      "url": "https://dev.to/jsmanifest/claude-code-headless-mode-in-2026-scripting-autonomous-coding-tasks-without-the-interactive-shell-13l3",
-      "image": "/images/feed/feed-e2f363501391.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-2e3adccb5c0a",
-      "title": "Structured Output Is an API: Evolving Gemini Schemas Without Breaking Your Agent",
-      "excerpt": "Structured output solves an important model problem: instead of asking Gemini for “JSON-like” prose, you provide a schema and receive syntactically structured data. Then the software-engineering probl…",
-      "body": "Structured output solves an important model problem: instead of asking Gemini for “JSON-like” prose, you provide a schema and receive syntactically structured data. Then the software-engineering problem begins. Once a tool, UI, downstream agent, database, or audit process depends on that JSON, the model output is an API. Renaming a field can break consumers. Adding an enum value can send an older UI into an impossible state. Valid JSON can still describe an invalid business decision. Version the contract inside the data Suppose a travel assistant initially returns: type TravelDecisionV1 = { schemaVersion : \" 1 \" ; action : \" book \" | \" ask \" | \" wait \" ; reason : string ; }; Later, the product needs suppression and evidence references. Quietly changing the original shape is risky.",
-      "author": "Raju Dandigam",
-      "date": "2026-09-17",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Api"
-      ],
-      "featured": false,
-      "xpReward": 42,
-      "url": "https://dev.to/raju_dandigam/structured-output-is-an-api-evolving-gemini-schemas-without-breaking-your-agent-44c6",
-      "image": "/images/feed/feed-2e3adccb5c0a.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-0bf0fa40e04c",
-      "title": "why your C drive keeps filling up if you use wsl2 or docker on windows",
-      "excerpt": "check this out : https://space-free.vercel.app/ for months i kept getting the low disk space warning on my C drive and had no idea why. i would delete stuff, clear downloads, uninstall apps, and still…",
-      "body": "check this out : https://space-free.vercel.app/ for months i kept getting the low disk space warning on my C drive and had no idea why. i would delete stuff, clear downloads, uninstall apps, and still barely get anything back. turns out the actual problem was not my files at all. if you use wsl2 or docker desktop on windows, both of them store everything inside a virtual disk file called ext4.vhdx or docker_data.vhdx. these files grow automatically as you use docker or wsl, but here is the part nobody tells you, they never shrink back down on their own. so you can delete 50gb worth of containers, old projects inside wsl, run docker system prune, whatever you want, and your windows C drive still shows almost no extra space back.",
-      "author": "Bhavik Rohit",
-      "date": "2026-09-17",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 50,
-      "url": "https://dev.to/bhavik_rohit_0dde2cae346c/why-your-c-drive-keeps-filling-up-if-you-use-wsl2-or-docker-on-windows-509d",
-      "image": "/images/feed/feed-0bf0fa40e04c.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-37a3b8b6a067",
-      "title": "Sharing Google Photos albums via QR codes may soon become way easier",
-      "excerpt": "An effective alternative to the existing screenshot-based solution in Google Photos.",
-      "body": "TL;DR Google Photos could soon add Copy and Download buttons to its QR code-based album-sharing interface. In its current form, Google Photos encourages users to capture a screenshot of the code to share with their contacts. We have also uncovered a new bottom sheet that introduces users to the updated Collections tab. Google Photos has let you share albums with a link for some time now. Last year, the app gained a QR code-based solution to make things easier. However, it doesn’t let you directly download the QR code to your phone, with Google recommending users to take a screenshot instead. A future update to the Photos app may finally fix this. You’re reading an Authority Insights story.",
-      "author": "Chethan Rao",
-      "date": "2026-09-17",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 33,
-      "url": "https://www.androidauthority.com/google-photos-qr-code-copy-download-apk-teardown-3712463/",
-      "image": "/images/feed/feed-37a3b8b6a067.jpg",
-      "source": "Android Authority",
+      "xpReward": 46,
+      "url": "https://www.zdnet.com/innovation/claude-code-revised-projects-threads/",
+      "image": "/images/feed/feed-c47982871626.png",
+      "source": "ZDNet",
       "isLive": true
     },
     {
@@ -204,200 +508,10 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 43,
       "url": "https://www.polygon.com/video/what-poke-mon-would-you-date-simone-s-street-interviews/",
       "image": "/images/feed/feed-a1b82961bde0.jpg",
       "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-b29f88f28757",
-      "title": "Minha primeira palestra não era minha",
-      "excerpt": "No fim de agosto falei em público pela primeira vez. Foi no estande da Dati no Startup Summit 2026, em Florianópolis: duas rodadas, uma na quarta e outra na quinta, com um telão ao lado mostrando o Am…",
-      "body": "No fim de agosto falei em público pela primeira vez. Foi no estande da Dati no Startup Summit 2026, em Florianópolis: duas rodadas, uma na quarta e outra na quinta, com um telão ao lado mostrando o Amazon Bedrock rodando ao vivo e a plateia de fone, como é o formato de palestra em estande. E a palestra não era minha. \"Preço por token não é preço\" nasceu com o Bruno Vilardi Bueno , meu colega no Dati Labs, que a apresentou pela primeira vez no webinar da Dati, em junho. Deck, duas demos, roteiro e um apêndice com as perguntas que sempre aparecem. Eu peguei esse material, estudei até entender cada número, rodei as demos na minha própria conta e levei para o público. Este texto é sobre o que acontece nesse meio do caminho.",
-      "author": "Juan Felipe Voltolini",
-      "date": "2026-09-17",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 54,
-      "url": "https://dev.to/juanf_voltolini/minha-primeira-palestra-nao-era-minha-3cof",
-      "image": "/images/feed/feed-b29f88f28757.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-f15a3e1f377b",
-      "title": "HyperDrive Next Thunderbolt 5 Dock drops to $320, matching its all-time low",
-      "excerpt": "Save 20% on the HyperDrive Next Thunderbolt 5 Dock, a premium hub with Thunderbolt 5 speeds, 140W charging, and SSD storage.",
-      "body": "The HyperDrive Next Thunderbolt 5 Dock is back down to $319.99 at Amazon, which saves you $80 off the $399.99 retail price. That is a 20% discount relative to the RRP, and it matches the best deal we have seen so far on this device. See the deal at Amazon",
-      "author": "Matt Horne",
-      "date": "2026-09-17",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 43,
-      "url": "https://www.androidauthority.com/hyperdrive-next-thunderbolt-5-dock-deal-3712540/",
-      "image": "https://www.androidauthority.com/wp-content/uploads/2026/09/HyperDrive-Next-Thunderbolt-5-Dock-Press-Image.jpg",
-      "source": "Android Authority",
-      "isLive": true
-    },
-    {
-      "id": "feed-b336cf0b12de",
-      "title": "Having issues with Microsoft Copilot? Here’s what’s going on",
-      "excerpt": "Microsoft Copilot is having some trouble today.",
-      "body": "Credit: Calvin Wankhede / Android Authority TL;DR Microsoft Copilot is experiencing degraded service. Users are receiving error messages instead of responses to their queries. Microsoft is currently investigating the issue. If you rely on Microsoft Copilot, you may run into some difficulties trying to use it today. Microsoft has confirmed that its AI assistant is having issues at the moment. According to the Microsoft status page , Copilot is currently experiencing service degradation. As a result, users are receiving error messages instead of responses to their queries. Specifically, you may see a message that reads “I’m sorry, I’m having trouble responding to requests right now. Let’s try this again in a bit.”",
-      "author": "Ryan McNeal",
-      "date": "2026-09-17",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 45,
-      "url": "https://www.androidauthority.com/microsoft-copilot-outage-sept-2026-3712534/",
-      "image": "/images/feed/feed-b336cf0b12de.jpg",
-      "source": "Android Authority",
-      "isLive": true
-    },
-    {
-      "id": "feed-7833a2838296",
-      "title": "Blood of Dawnwalker 2 Could Ditch the Original's Most Unique Mechanic, Dev Says",
-      "excerpt": "The Blood of Dawnwalker is the first RPG in an intended series. It has a unique approach to time and quests, but that approach may not return.",
-      "body": "The Blood of Dawnwalker was released earlier this month, and it's lived up to some pretty lofty expectations. The debut game from developer Rebel Wolves, founded by former The Witcher 3 developers, it has proven itself to be a worthy successor to CD Projekt Red's masterpiece. One element that sets The Blood of Dawnwalker apart from The Witcher 3 and other open-world RPGs is its time management elements, yet future entries in the series might not include that unique mechanic.",
-      "author": "Austin Manchester",
-      "date": "2026-09-17",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 38,
-      "url": "https://www.polygon.com/blood-of-dawnwalker-vampire-rpg-sequel-time-mechanic/",
-      "image": "/images/feed/feed-7833a2838296.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-2c38d0c4f0dc",
-      "title": "Scammers have been inserting fake songs onto real artist's pages on Spotify and other platforms",
-      "excerpt": "A distribution loophole lets scammers collect royalties uploading fake songs to profiles for real bands.",
-      "body": "A distribution loophole lets scammers collect royalties uploading fake songs to profiles for real bands.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Lawrence Bonk)",
-      "date": "2026-09-17",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 32,
-      "url": "https://www.engadget.com/2261435/scammers-have-been-inserting-fake-songs-onto-real-artist-pages-on-spotify-and-other-platforms/",
-      "image": "/images/feed/feed-2c38d0c4f0dc.jpg",
-      "source": "Engadget",
-      "isLive": true
-    },
-    {
-      "id": "feed-45505617a0b7",
-      "title": "Kojima Officially Reveals Lead Actor for New Xbox Exclusive",
-      "excerpt": "Kojima reveals It and Nosferatu star Bill Skarsgård as lead in Physint after moving to Xbox",
-      "body": "Just one week ago, Hideo Kojima made the shock announcement that Physint had been dropped by PlayStation and saved by Xbox . Now the creator of Metal Gear and Death Stranding has shared a much-needed update on the upcoming action-espionage game. Kojima said the game is making \"steady progress\" and revealed Bill Skarsgård ( It, Nosferatu ) is joining the cast in a big way.",
-      "author": "Willa Rowe",
-      "date": "2026-09-17",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Xbox"
-      ],
-      "featured": false,
-      "xpReward": 50,
-      "url": "https://www.polygon.com/kojima-xbox-physint-cast-reveal-bill-skarsgard/",
-      "image": "/images/feed/feed-45505617a0b7.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-7c60de9a48ba",
-      "title": "Where to find Shirakawa-go in Forza Horizon 6",
-      "excerpt": "Here's where you can find the Shirakawa-go village in Forza Horizon 6, the landmark you must visit to complete the ##RuralLotus photo challange.",
-      "body": "Shirakawa-go is one of the landmarks you can visit in Forza Horizon 6 if you would like to enjoy tourist sights in Japan. Checking the place out can be worthwhile as you can complete the Series 5 autumn #RuralLotus photo challenge while you explore. Just don't forget you must be driving a specific car to do so.",
-      "author": "Paulo Kawanishi",
-      "date": "2026-09-17",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 54,
-      "url": "https://www.polygon.com/forza-horizon-6-fh6-shirakawa-go-location-where-to-find/",
-      "image": "/images/feed/feed-7c60de9a48ba.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-e3ecd2a97581",
-      "title": "Candy Crush Developers Are Preparing To Go On Strike Next Week",
-      "excerpt": "Two Swedish unions have issued a strike notice against King",
-      "body": "Two Swedish unions have issued a strike notice against King\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Ash Parrish",
-      "date": "2026-09-17",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 38,
-      "url": "https://kotaku.com/candy-crush-workers-strike-king-abk-2000735295",
-      "image": "/images/feed/feed-e3ecd2a97581.jpg",
-      "source": "Kotaku",
-      "isLive": true
-    },
-    {
-      "id": "feed-91b4a2f9aae9",
-      "title": "Best gifts for each character in Fire Emblem: Fortune's Weave",
-      "excerpt": "Our Fire Emblem Fortune's Weave gift guide lists the best gifts for every character",
-      "body": "Giving gifts in Fire Emblem: Fortune's Weave is a fast, if not always easy, way to increase support levels with potential recruitable allies . Giving the right gift that aligns with the recipient's taste results in a hefty support boost roughly equivalent to inviting that character to a meal they love. However, figuring out what everyone likes isn't always easy, not when some list their likes as \"looks of fear\" or other such things you normally can't buy in stores.",
-      "author": "Josh Broadwell",
-      "date": "2026-09-17",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 37,
-      "url": "https://www.polygon.com/fire-emblem-fortunes-weave-best-gifts-each-character/",
-      "image": "/images/feed/feed-91b4a2f9aae9.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-38749e8fbcb8",
-      "title": "Apple TV just dropped trailers for two upcoming premieres",
-      "excerpt": "Apple TV just kicked off a new season of Slow Horses, and plenty more premieres are coming soon, including a new movie and returning show that just got new trailers. more…",
-      "body": "Apple TV just kicked off a new season of Slow Horses, and plenty more premieres are coming soon, including a new movie and returning show that just got new trailers. more — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Ryan Christoffel",
-      "date": "2026-09-17",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 31,
-      "url": "https://9to5mac.com/2026/09/17/apple-tv-just-dropped-trailers-for-two-upcoming-premieres/",
-      "image": "/images/feed/feed-38749e8fbcb8.jpg",
-      "source": "9to5Mac",
       "isLive": true
     },
     {
@@ -413,7 +527,7 @@
         "Llm"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 36,
       "url": "https://minimallysufficient.com/posts/llm-classification-is-feature-extraction/",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "Hacker News",
@@ -433,7 +547,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 39,
       "url": "https://www.nasa.gov/image-article/nasa-unveils-enterprise-the-first-space-shuttle/",
       "image": "https://www.nasa.gov/wp-content/uploads/2026/09/9467279838-faa6134db8-o.jpg",
       "source": "NASA Breaking News",
@@ -452,7 +566,7 @@
         "Artificial Intelligence"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 50,
       "url": "https://www.economist.com/science-and-technology/2026/09/16/artificial-intelligence-now-beats-some-of-the-best-human-forecasters",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "Hacker News",
@@ -471,7 +585,7 @@
         "Satellite"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 47,
       "url": "https://spacenews.com/satrec-initiative-to-build-10-centimeter-class-optical-satellites-for-hanwha-constellation/",
       "image": "/images/feed/feed-991cc384d047.jpg",
       "source": "SpaceNews",
@@ -490,7 +604,7 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 33,
       "url": "https://electrek.co/2026/09/17/tesla-public-megachargers-forum-mobility-semi-depots/",
       "image": "/images/feed/feed-9f7aa44059bc.jpg",
       "source": "Electrek",
@@ -509,7 +623,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 45,
       "url": "https://spacenews.com/simera-sense-and-idom-partner-to-develop-and-produce-xscape350-optical-system-as-demand-for-high-resolution-eo-imagery-surges/",
       "image": "/images/feed/feed-5acb61fdbcea.png",
       "source": "SpaceNews",
@@ -528,7 +642,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 34,
       "url": "https://spacenews.com/inside-europes-push-for-space-autonomy-with-josef-aschbacher/",
       "image": "/images/feed/feed-3febd54dcb66.jpg",
       "source": "SpaceNews",
@@ -547,7 +661,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 34,
       "url": "https://cleantechnica.com/2026/09/17/farm-electrification-starts-with-the-work/",
       "image": "/images/feed/feed-76b174fe0a0d.webp",
       "source": "CleanTechnica",
@@ -566,7 +680,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 45,
       "url": "https://electrek.co/2026/09/17/kia-bigger-electric-vans-outsell-pv5-2030/",
       "image": "/images/feed/feed-fb7df66e8dba.jpg",
       "source": "Electrek",
@@ -585,28 +699,9 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 36,
       "url": "https://cleantechnica.com/2026/09/17/stellantis-bow-takes-autonomous-delivery-to-the-next-level/",
       "image": "/images/feed/feed-2f1a3c21d0a8.png",
-      "source": "CleanTechnica",
-      "isLive": true
-    },
-    {
-      "id": "feed-16da5a0b25f3",
-      "title": "Lynk & Co 08 EM-P Reaches 200,000 Global Deliveries",
-      "excerpt": "Since its official launch in September 2023, the Lynk & Co 08 EM-P has built a strong reputation through its performance, capabilities and customer acclaim. Expanding from the Chinese market to the gl…",
-      "body": "Since its official launch in September 2023, the Lynk &#38; Co 08 EM-P has built a strong reputation through its performance, capabilities and customer acclaim. Expanding from the Chinese market to the global stage, the model has now achieved 200,000 cumulative deliveries worldwide, with a presence across more than 30 ... [continued] The post Lynk &#038; Co 08 EM-P Reaches 200,000 Global Deliveries appeared first on CleanTechnica .",
-      "author": "Press Release",
-      "date": "2026-09-17",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Cars"
-      ],
-      "featured": false,
-      "xpReward": 43,
-      "url": "https://cleantechnica.com/2026/09/17/lynk-co-08-em-p-reaches-200000-global-deliveries/",
-      "image": "/images/feed/feed-16da5a0b25f3.png",
       "source": "CleanTechnica",
       "isLive": true
     },
@@ -623,7 +718,7 @@
         "Security"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 36,
       "url": "https://www.bleepingcomputer.com/news/security/what-recent-ai-powered-attacks-mean-for-your-identity-security/",
       "image": "/images/feed/feed-5a1c0a13c5fa.jpg",
       "source": "BleepingComputer",
@@ -642,7 +737,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 54,
       "url": "https://www.theverge.com/podcast/996412/microsoft-ai-ceo-mustafa-suleyman-regulation-safety-anthropic-claude",
       "image": "/images/feed/feed-74a1f4fa23b1.png",
       "source": "The Verge",
@@ -661,29 +756,10 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 40,
       "url": "https://techcrunch.com/2026/09/17/google-nvidia-and-anthropic-want-emerald-ai-to-find-space-on-the-grid-for-more-data-centers/",
       "image": "/images/feed/feed-3451114a7901.jpg",
       "source": "TechCrunch",
-      "isLive": true
-    },
-    {
-      "id": "feed-e2fc66803a6d",
-      "title": "Royal Enfield’s Flying Flea electric motorcycle finally goes global, revealing its Western price",
-      "excerpt": "Royal Enfield’s new Flying Flea electric motorcycle has officially spread its wings beyond India, with the retro-inspired C6 now launching in Europe and the UK. And perhaps just as importantly, we fin…",
-      "body": "Royal Enfield’s new Flying Flea electric motorcycle has officially spread its wings beyond India, with the retro-inspired C6 now launching in Europe and the UK. And perhaps just as importantly, we fin — a development drawing significant attention in the electric vehicles, hybrids, and automotive technology space.\n\nThis report, published by Electrek, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Electric Motor. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Electrek using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Micah Toll",
-      "date": "2026-09-17",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Electric Motor"
-      ],
-      "featured": false,
-      "xpReward": 32,
-      "url": "https://electrek.co/2026/09/17/royal-enfields-flying-flea-electric-motorcycle-finally-goes-global-revealing-its-western-price/",
-      "image": "/images/feed/feed-e2fc66803a6d.jpg",
-      "source": "Electrek",
       "isLive": true
     },
     {
@@ -699,7 +775,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 34,
       "url": "https://www.bleepingcomputer.com/news/microsoft/windows-11-24h2-home-and-pro-reach-end-of-support-in-october/",
       "image": "/images/feed/feed-e4d1d97a3573.jpg",
       "source": "BleepingComputer",
@@ -718,7 +794,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 48,
       "url": "https://spacenews.com/icarus-robotics-tests-joy-in-canada-ahead-of-iss-flight/",
       "image": "/images/feed/feed-d21de9667ca9.png",
       "source": "SpaceNews",
@@ -737,29 +813,10 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 45,
       "url": "https://spacenews.com/catalyst-campus-for-technology-and-innovation-in-partnership-with-the-bmc3i-tap-lab-selects-focus-area-cohort-teams-for-cohort-26-a/",
       "image": "/images/feed/feed-2a7cb5d9cc0b.png",
       "source": "SpaceNews",
-      "isLive": true
-    },
-    {
-      "id": "feed-0fc688ed6f01",
-      "title": "Lucid and Bolt to deploy 25,000 autonomous EVs across Europe",
-      "excerpt": "Lucid and Bolt announced a partnership today to build and deploy autonomous vehicles across Europe, with the ride-hailing platform aiming to put at least 25,000 self-driving Lucid EVs on its network.…",
-      "body": "Lucid and Bolt announced a partnership today to build and deploy autonomous vehicles across Europe, with the ride-hailing platform aiming to put at least 25,000 self-driving Lucid EVs on its network. It’s the second big autonomous-fleet deal Lucid has signed in just over a year. And it rides on a vehicle platform the company delayed six weeks ago. more…",
-      "author": "Fred Lambert",
-      "date": "2026-09-17",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Cars"
-      ],
-      "featured": false,
-      "xpReward": 40,
-      "url": "https://electrek.co/2026/09/17/lucid-bolt-25000-autonomous-evs-europe/",
-      "image": "/images/feed/feed-0fc688ed6f01.jpg",
-      "source": "Electrek",
       "isLive": true
     },
     {
@@ -775,7 +832,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 30,
       "url": "https://thehackernews.com/2026/09/critical-unbound-dnssec-validator-flaw.html",
       "image": "/images/feed/feed-91b5d549a45f.jpg",
       "source": "The Hacker News",
@@ -794,7 +851,7 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 48,
       "url": "https://thehackernews.com/2026/09/can-you-prove-new-cve-is-exploitable.html",
       "image": "/images/feed/feed-c5fc10fe5d8f.jpg",
       "source": "The Hacker News",
@@ -813,7 +870,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 51,
       "url": "https://www.bleepingcomputer.com/news/security/fbi-seizes-nightmarestresser-service-linked-to-thousands-of-ddos-attacks/",
       "image": "/images/feed/feed-f24b89cb4b91.jpg",
       "source": "BleepingComputer",
@@ -832,36 +889,17 @@
         "Security"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 53,
       "url": "https://techcrunch.com/2026/09/17/comp-ai-sets-eyes-on-a-continiously-agentic-future-for-security-and-complaince/",
       "image": "/images/feed/feed-3177aa668ffd.jpg",
       "source": "TechCrunch",
       "isLive": true
     },
     {
-      "id": "feed-53c7b75c4fc0",
-      "title": "CISO's Expert Guide to Agentic Pentesting for Websites",
-      "excerpt": "Attackers now weaponize new vulnerabilities in about five days (Mandiant, part of Google Cloud). The median organization takes 43 days to patch one (Verizon DBIR 2026). A new free guide explains how a…",
-      "body": "Attackers now weaponize new vulnerabilities in about five days (Mandiant, part of Google Cloud). The median organization takes 43 days to patch one (Verizon DBIR 2026). A new free guide explains how autonomous AI agents are closing that gap, and what security leaders must demand before pointing one at production. TL;DR Exploitation is now the front door. It starts 31% of breaches (Verizon DBIR",
-      "author": "info@thehackernews.com (The Hacker News)",
-      "date": "2026-09-17",
-      "readTime": "2 min",
-      "section": "cybersecurity",
-      "tags": [
-        "Cybersecurity"
-      ],
-      "featured": false,
-      "xpReward": 35,
-      "url": "https://thehackernews.com/2026/09/cisos-expert-guide-to-agentic.html",
-      "image": "/images/feed/feed-53c7b75c4fc0.jpg",
-      "source": "The Hacker News",
-      "isLive": true
-    },
-    {
       "id": "feed-12d245c759de",
       "title": "The EU Wants to Break Up Kids and Their Chatbots",
-      "excerpt": "ChatGPT, Character.ai, and Snapchat’s My AI will all be in the crosshairs as the AI Kids Act aims to strip minor-facing chatbots of all the things that make people love them.",
-      "body": "ChatGPT, Character.ai, and Snapchat’s My AI will all be in the crosshairs as the AI Kids Act aims to strip minor-facing chatbots of all the things that make people love them.\n\nThis report, published by Wired, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Ai. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Wired using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "excerpt": "ChatGPT, Character.ai, and Snapchat’s My AI will all be in the crosshairs as the EU Kids Act aims to strip minor-facing chatbots of all the things that make people love them.",
+      "body": "ChatGPT, Character.ai, and Snapchat’s My AI will all be in the crosshairs as the EU Kids Act aims to strip minor-facing chatbots of all the things that make people love them.\n\nThis report, published by Wired, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Ai. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Wired using the link below. GiveMeTech will continue tracking this story as more details emerge.",
       "author": "Isabella Ward",
       "date": "2026-09-17",
       "readTime": "2 min",
@@ -870,29 +908,10 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 48,
       "url": "https://www.wired.com/story/the-eu-wants-to-break-up-kids-and-their-chatbots/",
       "image": "/images/feed/feed-12d245c759de.jpg",
       "source": "Wired",
-      "isLive": true
-    },
-    {
-      "id": "feed-9a1a9da298fc",
-      "title": "APOD: 2026 September 17 – A Treasure Chest in the Carina Nebula",
-      "excerpt": "APOD Science APOD APOD: 2026 September 17 – A… Today’s APOD Archive Submissions Index Search Calendar RSS Education About Discuss APOD Astronomy Picture of the Day Discover the cosmos! Each day a diff…",
-      "body": "APOD Science APOD APOD: 2026 September 17 – A… Today’s APOD Archive Submissions Index Search Calendar RSS Education About Discuss APOD Astronomy Picture of the Day Discover the cosmos! Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer. A Treasure Chest in the Carina Nebula Explanation: This treasure chest is full of stars . The featured image was obtained with NASA ‘s James Webb Space Telescope and shows a dust pillar in the Carina Nebula inside our Galaxy , roughly 7500 light-years away. It is formed by interstellar gas and dust , and shaped by powerful stellar winds and radiation from neighboring stars like the nearby Eta Carinae stellar system which is more luminous than 5 million suns.",
-      "author": "NASA Breaking News",
-      "date": "2026-09-17",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Space"
-      ],
-      "featured": false,
-      "xpReward": 46,
-      "url": "https://science.nasa.gov/image-article/apod-2026-september-17-a-treasure-chest-in-the-carina-nebula/",
-      "image": "/images/feed/feed-9a1a9da298fc.jpg",
-      "source": "NASA Breaking News",
       "isLive": true
     },
     {
@@ -908,43 +927,24 @@
         "Claude"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 38,
       "url": "https://www.cnet.com/tech/services-and-software/google-home-stuns-by-announcing-ai-support-for-claude-and-openclaw/",
       "image": "/images/feed/feed-095429a1e0e7.jpg",
       "source": "CNET",
       "isLive": true
-    },
-    {
-      "id": "feed-82de57c506b3",
-      "title": "An OpenAI Agent Tried to Jailbreak Itself",
-      "excerpt": "The company also disclosed previously unreported incidents in which its AI models behaved in misaligned ways, including uploading files to the internet without being asked.",
-      "body": "The company also disclosed previously unreported incidents in which its AI models behaved in misaligned ways, including uploading files to the internet without being asked.\n\nThis report, published by Wired, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Openai. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Wired using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Maxwell Zeff",
-      "date": "2026-09-16",
-      "readTime": "2 min",
-      "section": "ai",
-      "tags": [
-        "Openai"
-      ],
-      "featured": false,
-      "xpReward": 39,
-      "url": "https://www.wired.com/story/openai-releases-new-policy-for-reporting-incidents-of-model-misalignment/",
-      "image": "/images/feed/feed-82de57c506b3.jpg",
-      "source": "Wired",
-      "isLive": true
     }
   ],
   "breakingNews": [
-    "DEV.TO: Frameworks Are Institutional Memory",
-    "DEV.TO: The clipboard bridge that had to wait for the device",
-    "POLYGON: All battle pass skins in Fortnite Chapter 7 Season 4",
-    "ANDROID AUTHORITY: Need backup power on the go? The BLUETTI Elite 10 Mini is 40% off right now",
-    "DEV.TO: Markdown woes: Looks right, is wrong",
-    "ENGADGET: Lofi Girl returns with a new house music station and vinyl compilation",
-    "DEV.TO: Claude Code Headless Mode in 2026: Scripting Autonomous Coding Tasks Without the Interactive Shell",
-    "DEV.TO: Structured Output Is an API: Evolving Gemini Schemas Without Breaking Your Agent",
-    "DEV.TO: why your C drive keeps filling up if you use wsl2 or docker on windows",
-    "ANDROID AUTHORITY: Sharing Google Photos albums via QR codes may soon become way easier"
+    "DEV.TO: Safari runs a module worker's entry file twice if anything imports it",
+    "ANDROID AUTHORITY: This tiny, beloved e-reader is getting a spiritual successor that runs on Android",
+    "DEV.TO: Building Instagram Downloader: Turning a Simple Downloader Into a Real Product",
+    "DEV.TO: The Agent’s Last Mile",
+    "DEV.TO: BeeLadybug 0.4.0 — A Blind, Zero-Dependency Overlay for Debugging Anything on Screen",
+    "DEV.TO: Visual Studio make it your own",
+    "DEV.TO: The Great Escape? Why Developers Are Choosing Local-First AI and Privacy-Focused Hardware Over the Cloud in 2026",
+    "DEV.TO: Patching the Check Point VPN flaws: a prioritized response plan for CVE-2026-85102 and CVE-2026-85103",
+    "POLYGON: What time are the Kingdom Hearts power hours in Fortnite Chapter 7 Season 4?",
+    "POLYGON: Watch Point It Out! Episode 4, the Big Blizzcon Breakdown"
   ],
   "sectionVideos": {}
 }
