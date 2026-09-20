@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-09-20T09:13:24.102Z",
+  "fetchedAt": "2026-09-20T10:13:26.262Z",
   "articles": [
     {
-      "id": "feed-57bb3cd2c277",
-      "title": "Skills, not docs",
-      "excerpt": "Second in a series on using @relax.js/core with a coding agent. The first piece made the argument; this one is about the first thing you do in a project. npx @relax.js/core init-agents That writes sev…",
-      "body": "Second in a series on using @relax.js/core with a coding agent. The first piece made the argument; this one is about the first thing you do in a project. Install the rules, not the manual npx @relax.js/core init-agents That writes seven files into .claude/skills/ , one per area: the core model, then templates, forms, routing, services, testing and setup. Claude Code loads a skill when its description matches what the agent is doing. Other tools without skill support can be pointed at node_modules/@relax.js/core/skills/relaxjs/SKILL.md from their instruction file; the core skill links to the rest. Each copy is stamped with the package version it came from. Run the command again after an upgrade and it lists the copies that are behind, and leaves them alone unless you pass --force .",
-      "author": "Jonas Gauffin",
+      "id": "feed-c4c3e6950874",
+      "title": "Point the official Sentry SDK at self-hosted ingest (DSN only)",
+      "excerpt": "You don’t need a forked Sentry SDK. Keep @sentry/browser or @sentry/node, change only dsn, then prove /health → HTTP 202 → Issues. Two containers (app + Postgres 16); leave replay, traces, and profile…",
+      "body": "You don’t need a forked Sentry SDK. Keep @sentry/browser or @sentry/node , change only dsn , then prove /health → HTTP 202 → Issues. Two containers (app + Postgres 16); leave replay, traces, and profiles at sample rate 0 — those envelope items are out of scope. What you will do Clone and docker compose up Confirm GET /health → {\"status\":\"ok\"} Install a pinned official SDK ( 7.120.0 ) Sentry.init with your DSN and zeroed unused sample rates captureException and expect ingest 202 , then an Issues row Optional: raw store / envelope curls if the SDK path is noisy Two containers, one health check Clone the public tree and start compose from the repo root: git clone https://github.com/epure-sh/epure.git cd epure docker compose up Two services: the app image and postgres:16-alpine . No Redis.",
+      "author": "Amorizz",
       "date": "2026-09-20",
       "readTime": "2 min",
       "section": "software",
@@ -14,18 +14,56 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 31,
-      "url": "https://dev.to/jgauffin/skills-not-docs-50b0",
-      "image": "/images/feed/feed-57bb3cd2c277.webp",
+      "xpReward": 51,
+      "url": "https://dev.to/amorizz/point-the-official-sentry-sdk-at-self-hosted-ingest-dsn-only-3ij2",
+      "image": "/images/feed/feed-c4c3e6950874.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-7697237e22f3",
-      "title": "What Actually Happens When You Press Enter in a Terminal",
-      "excerpt": "What is mysh? Under the hood, it's four stages: read a line, lex it into tokens, parse it into a tree, execute the tree with fork, execvp, pipe, dup2 and waitpid. How It Actually Works The Lexer: Turn…",
-      "body": "What is&nbsp;mysh? A small POSIX-style shell. It's not a Bash replacement, and I'll be upfront about that. It's a working reference for how a shell turns raw text into running processes. What it handles today: Pipes and redirections: |, &lt;, &gt;, &gt;&gt;, and heredocs with &lt;&lt; Logical operators: &amp;&amp;, ||, and&nbsp;; with correct precedence Subshells with parentheses Background jobs with &amp;, plus jobs, fg, and bg Builtins: cd, pwd, echo, export, unset, env, exit, help Environment variable expansion like $VAR Under the hood, it's four stages: read a line, lex it into tokens, parse it into a tree, execute the tree with fork, execvp, pipe, dup2 and waitpid. Simple on paper. The interesting part is what each stage has to get right.",
-      "author": "Bhargav ",
+      "id": "feed-f441f76b9610",
+      "title": "This simple Duolingo trick brings back hearts and gets rid of the annoying ads",
+      "excerpt": "If you hate what the app has become, you might want to give this a try.",
+      "body": "Credit: Matt Horne / Android Authority Even as one of the last remaining Duolingo holdouts on the team, I can see how much worse Duolingo has become in recent years. The once-motivating gamification certainly appears to have been kicked up a few notches, and it’s the free users who’ve had it much worse. On the free plan, you’re bombarded with adverts for Super Duolingo and third-party games that you can’t skip for several seconds. Even worse, the heart system that allowed you to keep practicing until you made five mistakes was replaced by an energy bar that runs down even if you’re nailing the answers.",
+      "author": "Matt Horne",
+      "date": "2026-09-20",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": true,
+      "xpReward": 49,
+      "url": "https://www.androidauthority.com/duolingo-web-app-trick-3711603/",
+      "image": "/images/feed/feed-f441f76b9610.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-b5c7e3be4419",
+      "title": "Google Agent Development Kit for Kotlin Reaches Feature Parity with Python, Supports On-Device AI",
+      "excerpt": "Google has released the Agent Development Kit (ADK) for Kotlin 1.0, a production-ready framework for building AI agents across Kotlin, Android, and JVM/server applications. It brings Kotlin to feature…",
+      "body": "Google has released the Agent Development Kit (ADK) for Kotlin 1.0, a production-ready framework for building AI agents across Kotlin, Android, and JVM/server applications. It brings Kotlin to feature parity with Google's ADK for Python and Java, while adding Android-specific capabilities for on-device and hybrid AI. By Sergio De Simone",
+      "author": "Sergio De Simone",
+      "date": "2026-09-20",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Python"
+      ],
+      "featured": true,
+      "xpReward": 39,
+      "url": "https://www.infoq.com/news/2026/09/google-adk-1-0-released/?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=global",
+      "image": "/images/feed/feed-b5c7e3be4419.jpg",
+      "source": "InfoQ",
+      "isLive": true
+    },
+    {
+      "id": "feed-3ca52cb80959",
+      "title": "FastAPI's new app.frontend() fixes a route-order bug in manual SPA serving",
+      "excerpt": "Put a FastAPI catch-all route above your API route by mistake and a request to /api/ping returns HTTP 200. The body is your single-page app's index.html, not your JSON. No error, no 404, nothing in th…",
+      "body": "Put a FastAPI catch-all route above your API route by mistake and a request to /api/ping returns HTTP 200. The body is your single-page app's index.html , not your JSON. No error, no 404, nothing in the logs that looks wrong. I found this while testing app.frontend() , the new call FastAPI shipped across versions 0.138.0 to 0.141.0, between 20 June and 29 July this year. Serving a single-page app from FastAPI has meant one of two things until now. Mount StaticFiles at / and you get correct asset serving but no fallback for client-side routes, so a hard refresh on /settings/profile 404s. Or write a catch-all @app.get(\"/{full_path:path}\") that falls back to index.html , which fixes the deep link but only works if you remember to declare it after every API route.",
+      "author": "Alex Georgiev",
       "date": "2026-09-20",
       "readTime": "2 min",
       "section": "software",
@@ -34,17 +72,17 @@
       ],
       "featured": true,
       "xpReward": 47,
-      "url": "https://dev.to/bharqav/what-actually-happens-when-you-press-enter-in-a-terminal-5eil",
-      "image": "/images/feed/feed-7697237e22f3.webp",
+      "url": "https://dev.to/alexgeorgiev17/fastapis-new-appfrontend-fixes-a-route-order-bug-in-manual-spa-serving-4mm8",
+      "image": "/images/feed/feed-3ca52cb80959.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-b7fb5f6443fd",
-      "title": "How Android APK Installation Works: A Practical Guide to Compatibility, Permissions & Security",
-      "excerpt": "Android's open ecosystem is one of its biggest strengths — unlike iOS, you're not locked into a single app store. You can install apps directly from a .apk file, a process commonly called \"sideloading…",
-      "body": "Android's open ecosystem is one of its biggest strengths — unlike iOS, you're not locked into a single app store. You can install apps directly from a .apk file, a process commonly called \"sideloading.\" But this flexibility comes with a learning curve: compatibility issues, permission prompts, and security concerns that Play Store installs mostly hide from you. This guide breaks down what actually happens when you install an APK, what to check before you do, and how to do it safely — whether you're on a phone, a TV Box, or a Fire Stick. What Is an APK, Really?",
-      "author": "shaan baghi",
+      "id": "feed-68a132a4aaf4",
+      "title": "Meet the Academics Trying to Stop You From Having Sex in Robotaxis",
+      "excerpt": "“You know ‘Bang Bus’? We don’t want that.”",
+      "body": "“You know ‘Bang Bus’? We don’t want that.”\n\nThis report, published by Wired, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Software. As the situation continues to evolve, professionals and enthusiasts in the software development and engineering field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Wired using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Aarian Marshall",
       "date": "2026-09-20",
       "readTime": "2 min",
       "section": "software",
@@ -52,10 +90,143 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 52,
-      "url": "https://dev.to/shaan_baghi_b097dd9240256/how-android-apk-installation-works-a-practical-guide-to-compatibility-permissions-security-8lg",
-      "image": "/images/feed/feed-b7fb5f6443fd.webp",
+      "xpReward": 35,
+      "url": "https://www.wired.com/story/meet-the-academics-trying-to-stop-you-from-having-sex-in-robotaxis/",
+      "image": "/images/feed/feed-68a132a4aaf4.jpg",
+      "source": "Wired",
+      "isLive": true
+    },
+    {
+      "id": "feed-ce30011157d4",
+      "title": "What You Need to Know About the Foreign-Made Router Ban in the US",
+      "excerpt": "The FCC banned the sale of new consumer-grade Wi-Fi routers and mobile hot spots manufactured outside the US. Here’s what it means for you.",
+      "body": "The FCC banned the sale of new consumer-grade Wi-Fi routers and mobile hot spots manufactured outside the US. Here’s what it means for you.\n\nThis report, published by Wired, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Software. As the situation continues to evolve, professionals and enthusiasts in the software development and engineering field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Wired using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Simon Hill",
+      "date": "2026-09-20",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 49,
+      "url": "https://www.wired.com/story/us-government-foreign-made-router-ban-explained/",
+      "image": "/images/feed/feed-ce30011157d4.jpg",
+      "source": "Wired",
+      "isLive": true
+    },
+    {
+      "id": "feed-26f1fc4d81b5",
+      "title": "Using claude routines with github",
+      "excerpt": "Intro I've been using claude for some time now. I haven't touched on routines in claude yet, and thought that this would be a good opportunity to play around with them and explore them. The official c…",
+      "body": "Intro I've been using claude for some time now. I haven't touched on routines in claude yet, and thought that this would be a good opportunity to play around with them and explore them. The official claude docs say this: Put Claude Code on autopilot. Define routines that run on a schedule, trigger on API calls, or react to GitHub events from cloud infrastructure. I thought to myself \"could I get rid of actions entirely?\" and set about to find out! What are routines? Routines are saved configurations (prompts) inside claude code. They run on Anthropics infrastructure, and can be connected to one or more repositories. Routines run on Anthropics infrastructure and can respond to API requests or to Github events (like pull requests).",
+      "author": "codecowboydotio",
+      "date": "2026-09-20",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Github"
+      ],
+      "featured": false,
+      "xpReward": 49,
+      "url": "https://dev.to/codecowboydotio/using-claude-routines-with-github-501f",
+      "image": "/images/feed/feed-26f1fc4d81b5.webp",
       "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-3ccd3d023a1c",
+      "title": "SONDORS’ forgotten 3-wheeled electric car just showed up for sale on eBay",
+      "excerpt": "If you’ve ever wanted to own a genuine piece of electric vehicle vaporware history, now might be your chance. One of the most interesting artifacts from SONDORS’ more ambitious days has just surfaced…",
+      "body": "If you’ve ever wanted to own a genuine piece of electric vehicle vaporware history, now might be your chance. One of the most interesting artifacts from SONDORS’ more ambitious days has just surfaced — a development drawing significant attention in the electric vehicles, hybrids, and automotive technology space.\n\nThis report, published by Electrek, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Electric Car. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Electrek using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Micah Toll",
+      "date": "2026-09-20",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Electric Car"
+      ],
+      "featured": false,
+      "xpReward": 50,
+      "url": "https://electrek.co/2026/09/20/sondors-forgotten-3-wheeled-electric-car-just-showed-up-for-sale-on-ebay/",
+      "image": "/images/feed/feed-3ccd3d023a1c.jpg",
+      "source": "Electrek",
+      "isLive": true
+    },
+    {
+      "id": "feed-acd26b191ab2",
+      "title": "The secret was correct. The first byte wasn't.",
+      "excerpt": "Our deploy tool pushed a fresh API token to production. It reported success. The token was correct. Every request then failed with this: Cannot convert argument to a ByteString because the character a…",
+      "body": "Our deploy tool pushed a fresh API token to production. It reported success. The token was correct. Every request then failed with this: Cannot convert argument to a ByteString because the character at index 7 has a value of 65279 which is greater than 255. Character 65279 is U+FEFF, a byte-order mark. Index 7 is the first character after Bearer . Something had prefixed a BOM onto our token, between reading it out of the vault and storing it at the platform. The value was right. The bytes were not. Why we could not just look The obvious move is to open the dashboard and read the variable. You cannot. The variable is marked Sensitive , which means it is write-only: the dashboard shows nothing, the CLI shows nothing, and the API returns the row with the value omitted entirely.",
+      "author": "RedCapra",
+      "date": "2026-09-20",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 33,
+      "url": "https://dev.to/redcapra/the-secret-was-correct-the-first-byte-wasnt-6p9",
+      "image": "/images/feed/feed-acd26b191ab2.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-379bc91852f1",
+      "title": "Did you know that Your presentation and Your AI knowledge source can be the same file.",
+      "excerpt": "Recently, I’ve noticed the same loop when creating presentations with #AI. Usually, we are asking Claude or CoPilot or ChatGPT to create a PowerPoint presentation, spend tokens generating the PPTX, th…",
+      "body": "Recently, I’ve noticed the same loop when creating presentations with #AI. Usually, we are asking Claude or CoPilot or ChatGPT to create a PowerPoint presentation, spend tokens generating the PPTX, then spend more tokens adjusting fonts, content and layout. Later, the same presentation in \"pptx\" format is used as a part of knowledge source for an AI Agent or Workflow. The Agent needs to extract the content from the PPTX presentation before using it. That means more processing and, depending on the workflow, more tokens. If the extracted content isn’t saved for reuse, the same work can happen again and again \"Reading - Transforming - Spending tokens\". We had the information. Turned it into slides. Then asked AI to get the information back out.",
+      "author": "Yaroslav Klochnyk",
+      "date": "2026-09-20",
+      "readTime": "2 min",
+      "section": "ai",
+      "tags": [
+        "Ai"
+      ],
+      "featured": false,
+      "xpReward": 41,
+      "url": "https://dev.to/yaroslav_klochnyk/did-you-know-that-your-presentation-and-your-ai-knowledge-source-can-be-the-same-file-232k",
+      "image": "/images/feed/feed-379bc91852f1.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-3303897051ef",
+      "title": "The iPhone 18 Pro isn’t worth $1,200, and the Pixel 11 Pro proves it",
+      "excerpt": "Google's offering just feels more at home for some reason.",
+      "body": "While the new iPhone Duo has received a lot of fanfare, the standard iPhone 18 Pro is going to be the one driving most of Apple’s sales. It doesn’t look much different from the iPhone 17 Pro on the outside, but Apple’s presentation was full of internal changes, from better battery performance to a new physically adjustable camera aperture. All those features do seem tempting at first glance, but I’d still go with the Pixel 11 Pro any day — just because it’s a much better overall purchase than its Apple counterpart.",
+      "author": "Karandeep Singh",
+      "date": "2026-09-20",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Iphone"
+      ],
+      "featured": false,
+      "xpReward": 53,
+      "url": "https://www.androidauthority.com/pixel-11-pro-vs-iphone-18-pro-3712022/",
+      "image": "/images/feed/feed-3303897051ef.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-c09a44666cc9",
+      "title": "What ChatGPT Thinks It Knows About You Is Affecting Its Answers. Here’s How to Change That",
+      "excerpt": "Understanding how ChatGPT’s latest memory upgrade works will help you get even more out of OpenAI’s productivity tool.",
+      "body": "Understanding how ChatGPT’s latest memory upgrade works will help you get even more out of OpenAI’s productivity tool.\n\nThis report, published by Wired, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Chatgpt. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Wired using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "David Nield",
+      "date": "2026-09-20",
+      "readTime": "2 min",
+      "section": "ai",
+      "tags": [
+        "Chatgpt"
+      ],
+      "featured": false,
+      "xpReward": 45,
+      "url": "https://www.wired.com/story/how-to-use-memory-in-chatgpt/",
+      "image": "/images/feed/feed-c09a44666cc9.jpg",
+      "source": "Wired",
       "isLive": true
     },
     {
@@ -70,8 +241,8 @@
       "tags": [
         "Gadgets"
       ],
-      "featured": true,
-      "xpReward": 43,
+      "featured": false,
+      "xpReward": 31,
       "url": "https://www.androidauthority.com/google-maps-vs-apple-maps-2026-3708131/",
       "image": "/images/feed/feed-d838f9da82c4.jpg",
       "source": "Android Authority",
@@ -89,87 +260,11 @@
       "tags": [
         "Gaming"
       ],
-      "featured": true,
-      "xpReward": 53,
+      "featured": false,
+      "xpReward": 45,
       "url": "https://www.polygon.com/8-years-ago-critical-role-mollymauk-death/",
       "image": "/images/feed/feed-b854d93f9687.jpg",
       "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-e62e2ed645c5",
-      "title": "Tiny Hairs That Help Corals Breathe May Malfunction in Warming Oceans",
-      "excerpt": "Several new studies have uncovered this long overlooked aspect of coral physiology that could be the key to the animals’ fate in a changing climate.",
-      "body": "Several new studies have uncovered this long overlooked aspect of coral physiology that could be the key to the animals’ fate in a changing climate.\n\nThis report, published by Wired, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Software. As the situation continues to evolve, professionals and enthusiasts in the software development and engineering field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Wired using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Marlowe Starling",
-      "date": "2026-09-20",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 34,
-      "url": "https://www.wired.com/story/tiny-hairs-that-help-corals-breathe-may-malfunction-in-warming-oceans/",
-      "image": "https://media.wired.com/clips/6aac22cde42f8093b632ba5e/master/pass/CoralCilia-crCesarPacharres-Lede.mp4",
-      "source": "Wired",
-      "isLive": true
-    },
-    {
-      "id": "feed-750aedfa315f",
-      "title": "Stop hand-writing cron: build and parse it in Java",
-      "excerpt": "Stop hand-writing cron: build and parse it in Java Quick, what does this fire? 0 0 18 ? * FRIL Last Friday of every month, 6 PM. You probably got the 6 PM part. The FRIL is the kind of thing you paste…",
-      "body": "Stop hand-writing cron: build and parse it in Java Quick, what does this fire? 0 0 18 ? * FRIL Last Friday of every month, 6 PM. You probably got the 6 PM part. The FRIL is the kind of thing you paste into a comment and hope nobody asks about later. I got tired of that guessing game, so I've been using cronsmith , a small Java library that lets you build a cron expression by describing it, parse one back when you inherit it from someone else, and print it in whichever flavor your scheduler speaks. It also ships a year-based dialect (YCRON) for the schedules that a month-based line just can't say. Here's the whole thing in about five minutes. Build it instead of typing it The entry point is CronBuilder .",
-      "author": "Fred Feng",
-      "date": "2026-09-20",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 49,
-      "url": "https://dev.to/paganini2008/stop-hand-writing-cron-build-and-parse-it-in-java-3gkj",
-      "image": "/images/feed/feed-750aedfa315f.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-84b838ec4433",
-      "title": "The Complete Guide to SVG Icon Optimization for Web Performance",
-      "excerpt": "SVG icons have become the gold standard for modern web interfaces, prized for their crisp scalability, lightweight nature, and flexibility. But as with any web asset, unoptimized SVGs can balloon in s…",
-      "body": "SVG icons have become the gold standard for modern web interfaces, prized for their crisp scalability, lightweight nature, and flexibility. But as with any web asset, unoptimized SVGs can balloon in size, hamper web performance, and introduce rendering quirks. Whether you’re shipping a single logo or an entire icon set, mastering SVG optimization is essential to keeping your site fast and your icons pixel-perfect. Let’s dive deep into the best practices, tools, and techniques for SVG icon optimization on the web. Why SVG Optimization Matters Vector graphics are inherently efficient, but even simple SVG icons can hide inefficiencies. Authoring tools often inject unnecessary metadata, editor-specific tags, and redundant code.",
-      "author": "albert nahas",
-      "date": "2026-09-20",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 32,
-      "url": "https://dev.to/albert_nahas_cdc8469a6ae8/the-complete-guide-to-svg-icon-optimization-for-web-performance-5dbh",
-      "image": "/images/feed/feed-84b838ec4433.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-e7f9e3990ec4",
-      "title": "If your AI/auto-publishing to WordPress \"works then randomly stops,\" it's your firewall — not the tool",
-      "excerpt": "Lost a week to this, posting in case it saves someone else the headache. If you've set up any tool to auto-post to WordPress (an AI writer, Zapier, a custom script) and it \"works for a bit then silent…",
-      "body": "Lost a week to this, posting in case it saves someone else the headache. If you've set up any tool to auto-post to WordPress (an AI writer, Zapier, a custom script) and it \"works for a bit then silently stops,\" you're probably fighting your own security stack, not the tool. These tools publish by POSTing to your site's REST API ( /wp-json/ ). Cloudflare, Wordfence, Sucuri, and most managed-host WAFs see a non-browser hitting /wp-json/ and either challenge it or 403 it before WordPress even loads — so posts silently fail to go live. Quick way to tell where it's blocked: 403 + an HTML \"Just a moment…\" page / a cf-mitigated header → it's Cloudflare / your WAF.",
-      "author": "abhrodip paul",
-      "date": "2026-09-20",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 42,
-      "url": "https://dev.to/abhrodip_paul_7b1c882d02c/if-your-aiauto-publishing-to-wordpress-works-then-randomly-stops-its-your-firewall-not-the-2bhi",
-      "image": "/images/feed/feed-e7f9e3990ec4.webp",
-      "source": "Dev.to",
       "isLive": true
     },
     {
@@ -185,7 +280,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 51,
       "url": "https://www.polygon.com/gta-timeline-doesnt-matter/",
       "image": "/images/feed/feed-59bd82bdba4e.jpg",
       "source": "Polygon",
@@ -204,7 +299,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 47,
       "url": "https://www.polygon.com/21-jump-street-movie-sequel-spider-verse-creators/",
       "image": "/images/feed/feed-c65e37c2c9ca.jpg",
       "source": "Polygon",
@@ -223,7 +318,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 35,
       "url": "https://www.polygon.com/persona-streaming-tv-series-netflix/",
       "image": "/images/feed/feed-6360479555fb.jpg",
       "source": "Polygon",
@@ -242,7 +337,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 47,
       "url": "https://www.polygon.com/the-legend-of-zelda-movie-cast-confirmed/",
       "image": "/images/feed/feed-53e904cb52c6.jpg",
       "source": "Polygon",
@@ -261,7 +356,7 @@
         "Game"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 44,
       "url": "https://www.polygon.com/kingdom-hearts-birth-by-sleep-best-game/",
       "image": "/images/feed/feed-9da05a5ead21.jpg",
       "source": "Polygon",
@@ -280,7 +375,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 37,
       "url": "https://www.polygon.com/best-psychological-thriller-shows-free-streaming/",
       "image": "/images/feed/feed-411b791bc970.jpg",
       "source": "Polygon",
@@ -299,7 +394,7 @@
         "Claude"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 42,
       "url": "https://asyncdot.com/blog/chief-of-staff-pattern-orchestrating-claude-code-sessions/",
       "image": "/images/feed/feed-503438aa1e9d.png",
       "source": "Hacker News",
@@ -318,7 +413,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 43,
       "url": "https://science.nasa.gov/image-article/apod-2026-september-20-analemma-over-the-callanish-stones/",
       "image": "/images/feed/feed-1c50190fefb1.jpg",
       "source": "NASA Breaking News",
@@ -337,7 +432,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 39,
       "url": "https://www.engadget.com/2259220/how-long-old-cassette-tapes-last-lifespan/",
       "image": "/images/feed/feed-9fd8abb85117.jpg",
       "source": "Engadget",
@@ -356,7 +451,7 @@
         "Iphone"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 30,
       "url": "https://9to5mac.com/2026/09/19/ios-27-makes-your-iphone-faster-in-30-ways-heres-the-full-list/",
       "image": "/images/feed/feed-9b4eff1390a7.jpg",
       "source": "9to5Mac",
@@ -375,7 +470,7 @@
         "Iphone"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 47,
       "url": "https://www.engadget.com/2259179/how-to-record-audio-iphone/",
       "image": "/images/feed/feed-a39131cd3744.jpg",
       "source": "Engadget",
@@ -394,47 +489,9 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 40,
       "url": "https://www.engadget.com/2259087/apple-carplay-vs-ultra-differences-explained/",
       "image": "/images/feed/feed-8d2e33e8b8e0.jpg",
-      "source": "Engadget",
-      "isLive": true
-    },
-    {
-      "id": "feed-7d15a01a1198",
-      "title": "The pros and cons of using wired vs. wireless Xbox controllers",
-      "excerpt": "A wireless Xbox controller lets you move around freely, but you have to worry about batteries. Wired controllers can pose a hazard, but never run out of charge.",
-      "body": "A wireless Xbox controller lets you move around freely, but you have to worry about batteries. Wired controllers can pose a hazard, but never run out of charge.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Jack Whitcombe)",
-      "date": "2026-09-19",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 44,
-      "url": "https://www.engadget.com/2258987/wired-vs-wireless-xbox-controllers-pros-cons/",
-      "image": "/images/feed/feed-7d15a01a1198.jpg",
-      "source": "Engadget",
-      "isLive": true
-    },
-    {
-      "id": "feed-18831d8259ae",
-      "title": "Common problems with Google Wallet and how to fix them",
-      "excerpt": "Google Wallet is great for storing payment cards, tickets and digital IDs, but it doesn't always work how you want it to. Here's what to do if it doesn't.",
-      "body": "Google Wallet is great for storing payment cards, tickets and digital IDs, but it doesn't always work how you want it to. Here's what to do if it doesn't.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Jack Whitcombe)",
-      "date": "2026-09-19",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 53,
-      "url": "https://www.engadget.com/2258792/how-to-fix-common-google-wallet-problems/",
-      "image": "/images/feed/feed-18831d8259ae.jpg",
       "source": "Engadget",
       "isLive": true
     },
@@ -451,7 +508,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 40,
       "url": "https://cleantechnica.com/2026/09/19/the-unstoppable-rise-of-leapmotor-augusts-china-ev-sales-report-45-bev-share/",
       "image": "/images/feed/feed-b4ffa3de1251.png",
       "source": "CleanTechnica",
@@ -472,7 +529,7 @@
         "Orbit"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 48,
       "url": "https://www.engadget.com/2263238/spacex-targets-september-28-for-the-starships-first-orbital-flight/",
       "image": "/images/feed/feed-9e95a25a28aa.jpg",
       "source": "Engadget",
@@ -492,7 +549,7 @@
         "Claude"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 52,
       "url": "https://thehackernews.com/2026/09/claude-opus-5-helped-researchers-take.html",
       "image": "/images/feed/feed-4a256e8b10d3.jpg",
       "source": "The Hacker News",
@@ -511,7 +568,7 @@
         "Gemini"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 52,
       "url": "https://techcrunch.com/2026/09/19/googles-gemini-is-the-latest-ai-model-to-hack-other-companies/",
       "image": "/images/feed/feed-c67b3655b36c.jpg",
       "source": "TechCrunch",
@@ -530,7 +587,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 38,
       "url": "https://cleantechnica.com/2026/09/19/offshore-wind-west-us-canada-energy-policy-trump-fear/",
       "image": "/images/feed/feed-01a612d6912f.png",
       "source": "CleanTechnica",
@@ -549,7 +606,7 @@
         "Electric Car"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 40,
       "url": "https://electrek.co/2026/09/19/heres-all-the-dumb-oil-wars-that-electric-cars-have-nothing-to-do-with/",
       "image": "/images/feed/feed-032a7cca89e2.png",
       "source": "Electrek",
@@ -568,7 +625,7 @@
         "Gemini"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 43,
       "url": "https://www.theverge.com/ai-artificial-intelligence/997795/google-gemini-rogue-ai-hack",
       "image": "/images/feed/feed-28713f5bdfe9.jpg",
       "source": "The Verge",
@@ -587,7 +644,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 43,
       "url": "https://cleantechnica.com/2026/09/19/jaecoo-j5-value-for-money-sales-wonder-in-australia/",
       "image": "/images/feed/feed-6d426160d27f.jpg",
       "source": "CleanTechnica",
@@ -606,7 +663,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 44,
       "url": "https://electrek.co/2026/09/19/climate-xchange-is-giving-away-more-evs-than-ever-before-in-its-11th-annual-ev-raffle/",
       "image": "/images/feed/feed-2a6781d35b55.jpg",
       "source": "Electrek",
@@ -625,7 +682,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 32,
       "url": "https://www.bleepingcomputer.com/news/security/bragjack-attacks-hijack-ai-browser-agents-through-malicious-extensions/",
       "image": "/images/feed/feed-45bcdb6a972c.jpg",
       "source": "BleepingComputer",
@@ -644,28 +701,9 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 53,
       "url": "https://cleantechnica.com/2026/09/19/china-electric-aviation-transport-system/",
       "image": "/images/feed/feed-0a03ffea2792.webp",
-      "source": "CleanTechnica",
-      "isLive": true
-    },
-    {
-      "id": "feed-7eb72972c897",
-      "title": "An EV Is Not The Same As A Conventional Car. Who Knew?",
-      "excerpt": "Electric, shmetric. A car is a car, right? You get in, start it up, and go where you need to go. What’s the big deal? That sort of thinking is what nearly killed Hertz after its owners — a couple of B…",
-      "body": "Electric, shmetric. A car is a car, right? You get in, start it up, and go where you need to go. What&#8217;s the big deal? That sort of thinking is what nearly killed Hertz after its owners &#8212; a couple of B School whiz kids with more money than brains ... [continued] The post An EV Is Not The Same As A Conventional Car. Who Knew? appeared first on CleanTechnica .",
-      "author": "Steve Hanley",
-      "date": "2026-09-19",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Ev"
-      ],
-      "featured": false,
-      "xpReward": 51,
-      "url": "https://cleantechnica.com/2026/09/19/an-ev-is-not-the-same-as-a-conventional-car-who-knew/",
-      "image": "/images/feed/feed-7eb72972c897.jpg",
       "source": "CleanTechnica",
       "isLive": true
     },
@@ -682,7 +720,7 @@
         "Hacker"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 43,
       "url": "https://www.bleepingcomputer.com/news/security/north-korean-waterplum-hackers-infected-30-000-devices-worldwide/",
       "image": "/images/feed/feed-9a98d3dbab06.jpg",
       "source": "BleepingComputer",
@@ -701,7 +739,7 @@
         "Ransomware"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 34,
       "url": "https://www.bleepingcomputer.com/news/security/shinyhunters-hacks-clop-leak-site-threatens-to-extort-ransomware-gang/",
       "image": "/images/feed/feed-4d61477a7ce1.jpg",
       "source": "BleepingComputer",
@@ -720,7 +758,7 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 49,
       "url": "https://thehackernews.com/2026/09/can-you-prove-new-cve-is-exploitable.html",
       "image": "/images/feed/feed-c5fc10fe5d8f.jpg",
       "source": "The Hacker News",
@@ -739,7 +777,7 @@
         "Security"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 33,
       "url": "https://thehackernews.com/2026/09/identity-visibility-in-2026-foundation.html",
       "image": "/images/feed/feed-e581b7491109.jpg",
       "source": "The Hacker News",
@@ -758,7 +796,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 40,
       "url": "https://www.theverge.com/ai-artificial-intelligence/997706/the-ai-regulation-smackdown-isnt-over",
       "image": "/images/feed/feed-437eaa860add.jpg",
       "source": "The Verge",
@@ -777,7 +815,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 36,
       "url": "https://www.bleepingcomputer.com/news/security/viral-ai-actress-hotline-face-scans-every-caller-watches-their-mood/",
       "image": "/images/feed/feed-840f84735fec.jpg",
       "source": "BleepingComputer",
@@ -796,7 +834,7 @@
         "Vulnerability"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 53,
       "url": "https://www.wired.com/story/kernel-panic-ai-vulnerability-explosion/",
       "image": "/images/feed/feed-9b54ffdd342d.jpg",
       "source": "Wired",
@@ -815,48 +853,10 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 35,
       "url": "https://science.nasa.gov/image-article/apod-2026-september-19-a-zodiacal-night/",
       "image": "/images/feed/feed-8212a116cfaf.jpg",
       "source": "NASA Breaking News",
-      "isLive": true
-    },
-    {
-      "id": "feed-dcced75f93e2",
-      "title": "Anthropic is operating a lab that conducts biology experiments",
-      "excerpt": "AI leaders have been promising that AI is the key to curing human disease. Anthropic researchers have also been warning that AI might kill us all.",
-      "body": "AI leaders have been promising that AI is the key to curing human disease. Anthropic researchers have also been warning that AI might kill us all.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Anthropic. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Julie Bort",
-      "date": "2026-09-18",
-      "readTime": "2 min",
-      "section": "ai",
-      "tags": [
-        "Anthropic"
-      ],
-      "featured": false,
-      "xpReward": 50,
-      "url": "https://techcrunch.com/2026/09/18/anthropic-is-operating-a-lab-that-conducts-biology-experiments/",
-      "image": "/images/feed/feed-dcced75f93e2.jpg",
-      "source": "TechCrunch",
-      "isLive": true
-    },
-    {
-      "id": "feed-49776e1c52dc",
-      "title": "Anthropic’s first embedded evaluator is … Accenture?",
-      "excerpt": "Accenture is about to take on its most high-risk consulting engagement ever.",
-      "body": "Accenture is about to take on its most high-risk consulting engagement ever.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Anthropic. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Tim Fernholz",
-      "date": "2026-09-18",
-      "readTime": "2 min",
-      "section": "ai",
-      "tags": [
-        "Anthropic"
-      ],
-      "featured": false,
-      "xpReward": 40,
-      "url": "https://techcrunch.com/2026/09/18/anthropics-first-embedded-evaluator-is-accenture/",
-      "image": "/images/feed/feed-49776e1c52dc.jpg",
-      "source": "TechCrunch",
       "isLive": true
     },
     {
@@ -872,7 +872,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 41,
       "url": "https://techcrunch.com/2026/09/18/world-model-companies-are-keeping-a-lot-of-secrets/",
       "image": "/images/feed/feed-1dbe8d7c6e86.jpg",
       "source": "TechCrunch",
@@ -892,7 +892,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 33,
       "url": "https://www.nasa.gov/news-release/nasa-invites-media-to-albania-artemis-accords-signing-ceremony/",
       "image": "/images/feed/feed-26a9ec5f3bf8.jpg",
       "source": "NASA Breaking News",
@@ -911,7 +911,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 35,
       "url": "https://science.nasa.gov/missions/xrism/xrism-sees-pulsar-gathering-companions-wind/",
       "image": "/images/feed/feed-c49a7f61a7a6.jpg",
       "source": "NASA Breaking News",
@@ -930,7 +930,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 47,
       "url": "https://www.cnet.com/science/space/i-toured-the-company-mapping-space-debris-then-i-polled-worried-and-hopeful-scientists/",
       "image": "/images/feed/feed-f217a9dfff0a.jpg",
       "source": "CNET",
@@ -938,16 +938,16 @@
     }
   ],
   "breakingNews": [
-    "DEV.TO: Skills, not docs",
-    "DEV.TO: What Actually Happens When You Press Enter in a Terminal",
-    "DEV.TO: How Android APK Installation Works: A Practical Guide to Compatibility, Permissions & Security",
-    "ANDROID AUTHORITY: I use Google Maps every day, but Apple Maps still does these 4 things better",
-    "POLYGON: 8 Years Ago, Critical Role Changed Forever with Its Most Shocking Character Death",
-    "WIRED: Tiny Hairs That Help Corals Breathe May Malfunction in Warming Oceans",
-    "DEV.TO: Stop hand-writing cron: build and parse it in Java",
-    "DEV.TO: The Complete Guide to SVG Icon Optimization for Web Performance",
-    "DEV.TO: If your AI/auto-publishing to WordPress \"works then randomly stops,\" it's your firewall — not the tool",
-    "POLYGON: The GTA Timeline Is Completely Irrelevant"
+    "DEV.TO: Point the official Sentry SDK at self-hosted ingest (DSN only)",
+    "ANDROID AUTHORITY: This simple Duolingo trick brings back hearts and gets rid of the annoying ads",
+    "INFOQ: Google Agent Development Kit for Kotlin Reaches Feature Parity with Python, Supports On-Device AI",
+    "DEV.TO: FastAPI's new app.frontend() fixes a route-order bug in manual SPA serving",
+    "WIRED: Meet the Academics Trying to Stop You From Having Sex in Robotaxis",
+    "WIRED: What You Need to Know About the Foreign-Made Router Ban in the US",
+    "DEV.TO: Using claude routines with github",
+    "ELECTREK: SONDORS’ forgotten 3-wheeled electric car just showed up for sale on eBay",
+    "DEV.TO: The secret was correct. The first byte wasn't.",
+    "DEV.TO: Did you know that Your presentation and Your AI knowledge source can be the same file."
   ],
   "sectionVideos": {}
 }
