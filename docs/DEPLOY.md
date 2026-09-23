@@ -64,7 +64,7 @@ DNS can take **15 minutes to 48 hours** to propagate.
 
 ```bash
 npm run dev          # http://localhost:5173
-npm run fetch-feeds  # Refresh feed.json locally
+npm run fetch-feeds  # Refresh feed.json locally (Gemma 4 e2b via Ollama if running)
 npm run build        # Production build (base path /)
 npm run preview
 ```

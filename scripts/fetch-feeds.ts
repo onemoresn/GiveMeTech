@@ -24,7 +24,7 @@ import {
   slugify,
 } from './lib/categorize'
 import { cleanExcerpt, makeArticleId, resolveArticleImage, cleanBody, expandBody } from './lib/imageResolver'
-import { generateSummary, hasGeminiKey, isGeminiActive, getGeminiUsage } from './lib/gemini'
+import { generateSummary, isGemmaEnabled, isGemmaActive, getGemmaUsage } from './lib/gemma'
 import {
   fetchSectionVideos,
   fetchArticleVideo,
@@ -176,7 +176,7 @@ async function buildFeedArticles(stories: RawStory[]): Promise<FeedArticle[]> {
     return resolveArticleImage(story.item, story.section, id, story.title, story.url)
   })
 
-  // Phase 2 — build bodies. Gemini stays sequential so we respect its rate limit.
+  // Phase 2 — build bodies. Gemma stays sequential so a local Ollama instance is not overloaded.
   const articles: FeedArticle[] = []
   for (let i = 0; i < stories.length; i++) {
     const story = stories[i]
@@ -186,13 +186,13 @@ async function buildFeedArticles(stories: RawStory[]): Promise<FeedArticle[]> {
     const cleanedBody = cleanBody(rawBody)
     const tags = extractTags(story.title, story.section)
 
-    // If RSS gave us substantially more than the excerpt, use it; otherwise ask Gemini or expand from metadata
+    // If RSS gave us substantially more than the excerpt, use it; otherwise ask Gemma or expand from metadata
     let body: string
     if (cleanedBody.length > story.excerpt.length + 80) {
       body = cleanedBody
     } else {
-      const geminiBody = await generateSummary(story.title, story.excerpt, story.section, story.source)
-      body = geminiBody ?? expandBody(story.title, story.excerpt, story.section, story.source, tags)
+      const gemmaBody = await generateSummary(story.title, story.excerpt, story.section, story.source)
+      body = gemmaBody ?? expandBody(story.title, story.excerpt, story.section, story.source, tags)
     }
 
     articles.push({
@@ -292,13 +292,13 @@ async function main() {
   console.log(`✓ ${selected.length} stories selected`)
   printSectionBreakdown(selected)
 
-  if (hasGeminiKey() && isGeminiActive()) {
-    const { maxCalls } = getGeminiUsage()
-    console.log(`\n✨ Gemini enabled — up to ${maxCalls} summaries per run`)
-  } else if (hasGeminiKey()) {
-    console.log('\n⚠  GEMINI_API_KEY set but GEMINI_ENABLED is not true — using template summaries')
+  if (isGemmaEnabled() && isGemmaActive()) {
+    const { maxCalls, model, host } = getGemmaUsage()
+    console.log(`\n✨ Gemma enabled — ${model} at ${host}, up to ${maxCalls} summaries per run`)
+  } else if (!isGemmaEnabled()) {
+    console.log('\n⚠  GEMMA_ENABLED is false — using template summaries')
   } else {
-    console.log('\n⚠  No GEMINI_API_KEY — using template summaries for short excerpts')
+    console.log('\n⚠  Gemma cap already reached — using template summaries for short excerpts')
   }
 
   console.log('\n🖼  Resolving images…')
@@ -341,11 +341,11 @@ async function main() {
   console.log(`\n✅ Wrote ${articles.length} articles to ${FEED_DATA_PATH}`)
   console.log(`   Last updated: ${feed.fetchedAt}`)
 
-  const gemini = getGeminiUsage()
-  if (gemini.enabled && gemini.calls > 0) {
-    console.log(`   Gemini: ${gemini.calls}/${gemini.maxCalls} summaries generated this run`)
-  } else if (gemini.enabled) {
-    console.log('   Gemini: enabled but 0 summaries generated (API errors or no short excerpts)')
+  const gemma = getGemmaUsage()
+  if (gemma.enabled && gemma.calls > 0) {
+    console.log(`   Gemma: ${gemma.calls}/${gemma.maxCalls} summaries generated this run (${gemma.model})`)
+  } else if (gemma.enabled) {
+    console.log('   Gemma: enabled but 0 summaries generated (Ollama down, model missing, or no short excerpts)')
   }
 }
 

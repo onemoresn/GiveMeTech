@@ -9,7 +9,7 @@ on:
 permissions:
   contents: write
 
-# Prevent overlapping hourly runs (long image/Gemini steps can exceed 1 hour).
+# Prevent overlapping hourly runs (long image/summary steps can exceed 1 hour).
 concurrency:
   group: update-news-feed
   cancel-in-progress: true
@@ -37,9 +37,8 @@ jobs:
         run: npm run fetch-feeds
         env:
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          GEMINI_ENABLED: 'true'
-          GEMINI_MAX_CALLS: '12'
+          # GitHub-hosted runners have no Ollama. Template summaries are used instead.
+          GEMMA_ENABLED: 'false'
 
       - name: Commit updated feed
         run: |

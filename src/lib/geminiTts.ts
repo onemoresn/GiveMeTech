@@ -1,7 +1,7 @@
 /**
  * Gemini TTS via Google AI Studio (generateContent API).
  * Get an API key at https://aistudio.google.com/apikey
- * Same key as GEMINI_API_KEY — expose to the browser as VITE_GEMINI_API_KEY.
+ * Expose the AI Studio key to the browser as VITE_GEMINI_API_KEY.
  */
 
 const API_KEY = import.meta.env.VITE_GEMINI_API_KEY?.trim()
