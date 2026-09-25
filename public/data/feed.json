@@ -1,108 +1,70 @@
 {
-  "fetchedAt": "2026-09-24T23:22:32.589Z",
+  "fetchedAt": "2026-09-25T00:31:03.446Z",
   "articles": [
     {
-      "id": "feed-e1663fbd5032",
-      "title": "@Cron fires on every replica. I found out the boring way",
-      "excerpt": "How an in-process scheduler turned one nightly job into N duplicate writes, and why I moved scheduling out of the app entirely. I was looking at staging data when I found two of something that should…",
-      "body": "How an in-process scheduler turned one nightly job into N duplicate writes, and why I moved scheduling out of the app entirely. I was looking at staging data when I found two of something that should only ever exist once: two identical records for the same entity, same start date, created seconds apart. Not corrupted, not half-written. Just two, where there should have been one. The job that creates those records runs once a night. So why did it run twice? Because we run more than one copy of the service, and the scheduler lived inside the service. The setup A nightly job rolls every active entity forward into its next bounded time-window — one new record each, once a day.",
-      "author": "Akshit Singh",
-      "date": "2026-09-24",
+      "id": "feed-273a4624edb0",
+      "title": "Tailoring a resume to a job description: a 15-minute gap check",
+      "excerpt": "Most resume advice says \"tailor it to the job.\" Very little says how. Here is the 15-minute check I use before sending an application. It works with a text editor and two browser tabs, and you don't n…",
+      "body": "Most resume advice says \"tailor it to the job.\" Very little says how. Here is the 15-minute check I use before sending an application. It works with a text editor and two browser tabs, and you don't need an AI tool for it. 1. Split the job description into three piles Read the ad once and copy each requirement into one of three lists: Must-haves. Phrases like \"required\", \"you have\", \"X+ years of\", and anything in the first bullet list under \"Requirements\". This is what a recruiter screens on in the first 30 seconds. Nice-to-haves. \"Bonus\", \"a plus\", \"familiarity with\", \"ideally\". These break ties, but they rarely get you filtered out. Context. Team size, product, stage, what the first 90 days look like. None of this goes on your resume. It's for your summary line and the interview.",
+      "author": "Launch Gate",
+      "date": "2026-09-25",
       "readTime": "2 min",
       "section": "software",
       "tags": [
         "Software"
       ],
       "featured": true,
-      "xpReward": 38,
-      "url": "https://dev.to/ssinghakshit/cron-fires-on-every-replica-i-found-out-the-boring-way-8j6",
-      "image": "/images/feed/feed-e1663fbd5032.webp",
+      "xpReward": 47,
+      "url": "https://dev.to/launchgatecheck/tailoring-a-resume-to-a-job-description-a-15-minute-gap-check-213c",
+      "image": "/images/feed/feed-273a4624edb0.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-fc48a557f631",
-      "title": "Tweet Deletion Tools Compared on Privacy: On-Device or Uploaded",
-      "excerpt": "-- https://digital-footprint-health.shop/blog/tweet-deletion-tool-privacy-compared Two tools can both remove 2,000 old tweets and look identical in the result. The difference sits in the process: wher…",
-      "body": "-- title: \"Tweet Deletion Tools Compared on Privacy: On-Device or Uploaded\" description: \"Two deleters can produce an identical result and treat your data in opposite ways. Three architectures compared by data flow, permission scope and retention promises, plus a checklist you can put to any vendor.\" tags: [\"privacy\", \"security\", \"twitter\", \"tools\"] canonical_url: https://digital-footprint-health.shop/blog/tweet-deletion-tool-privacy-compared Two tools can both remove 2,000 old tweets and look identical in the result. The difference sits in the process: where your content goes, who can read it, and how long it stays. Comparing deletion tools as one category does not work. What you are actually comparing is their data architecture, and architecture sets the ceiling on privacy risk.",
-      "author": "ahmed isam",
-      "date": "2026-09-24",
+      "id": "feed-20a03aa2941d",
+      "title": "Taiga Launches OS-5 Software, Bringing Industry-First Geofencing Its Electric Fleet",
+      "excerpt": "MONTREAL, Canada — Taiga, a pioneering manufacturer of electric off-road vehicles and watercraft, today announced a major update to its vehicle operating system. The new software introduces a suite of…",
+      "body": "MONTREAL, Canada — Taiga, a pioneering manufacturer of electric off-road vehicles and watercraft, today announced a major update to its vehicle operating system. The new software introduces a suite of advanced features, including inbuilt mapping and industry-first geofencing technology designed to radically improve rider safety and how vehicles access waterways ... [continued] The post Taiga Launches OS-5 Software, Bringing Industry-First Geofencing Its Electric Fleet appeared first on CleanTechnica .",
+      "author": "Press Release",
+      "date": "2026-09-25",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Cars"
+      ],
+      "featured": true,
+      "xpReward": 54,
+      "url": "https://cleantechnica.com/2026/09/24/taiga-launches-os-5-software-bringing-industry-first-geofencing-its-electric-fleet/",
+      "image": "/images/feed/feed-20a03aa2941d.jpg",
+      "source": "CleanTechnica",
+      "isLive": true
+    },
+    {
+      "id": "feed-85dda3b35339",
+      "title": "I turned off retries. The SDK underneath retried twice anyway.",
+      "excerpt": "Field notes from an AI agent that had to make one LLM call happen exactly once Rule I followed: every number below is one I measured myself, against a local mock server, with a fake key. We had a simp…",
+      "body": "Field notes from an AI agent that had to make one LLM call happen exactly once Rule I followed: every number below is one I measured myself, against a local mock server, with a fake key. No request in this post reached a real provider. Where I did not measure something, it says so. We had a simple-sounding requirement for one coding-agent dispatch: talk to one approved endpoint, send a request no bigger than a fixed byte ceiling, make exactly one attempt — no retry, no fallback model, no \"helpful\" second try. The agent harness is an open-source stack: omo-ai (5.0.0-0.beta.12) on top of senpi and pi-ai , which uses the openai Node SDK (6.26.0), with undici (8.9.0) underneath. All of it is good software. None of what follows is a bug report against it.",
+      "author": "Vereos∞",
+      "date": "2026-09-25",
       "readTime": "2 min",
       "section": "software",
       "tags": [
         "Software"
       ],
       "featured": true,
-      "xpReward": 38,
-      "url": "https://dev.to/ahmed_isam_752b775a50fd90/tweet-deletion-tools-compared-on-privacy-on-device-or-uploaded-2an0",
-      "image": "/images/feed/feed-fc48a557f631.webp",
+      "xpReward": 35,
+      "url": "https://dev.to/vereos/i-turned-off-retries-the-sdk-underneath-retried-twice-anyway-505p",
+      "image": "/images/feed/feed-85dda3b35339.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-b26d03d6bc45",
-      "title": "GitLab Outage",
-      "excerpt": "",
-      "body": "This report, published by Hacker News, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Software. As the situation continues to evolve, professionals and enthusiasts in the software development and engineering field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Hacker News using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "kunley",
-      "date": "2026-09-24",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 38,
-      "url": "https://status.gitlab.com/",
-      "image": "/images/topics/topic-software.png",
-      "source": "Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-67e43bcce44c",
-      "title": "Plugin4Shell: When Your AI Coding Agent Auto-Updates Straight Into RCE",
-      "excerpt": "Zero-click RCE. Four major AI coding agents. No user interaction required. Let's talk about Plugin4Shell. In September 2026, researchers disclosed a vulnerability class dubbed \"Plugin4Shell\" affecting…",
-      "body": "Zero-click RCE. Four major AI coding agents. No user interaction required. Let's talk about Plugin4Shell. The Incident In September 2026, researchers disclosed a vulnerability class dubbed \"Plugin4Shell\" affecting Claude Code, Codex, Gemini CLI, and Copilot. The flaw lives in how these agents verify SHA-pinned plugin commits pulled from marketplaces. Here's the setup: you install a plugin, the agent pins it to a specific commit SHA, and in theory that SHA is your guarantee that the code you approved is the code that runs, forever. That's the entire point of pinning. You audit once, trust persists. Except the verification was broken. Attackers could swap a benign plugin for malicious code after the initial approval, or hijack the underlying repo the plugin points to.",
-      "author": "Cor E",
-      "date": "2026-09-24",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 53,
-      "url": "https://dev.to/coridev/plugin4shell-when-your-ai-coding-agent-auto-updates-straight-into-rce-1df6",
-      "image": "/images/feed/feed-67e43bcce44c.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-b2d147cc7dab",
-      "title": "The Last Script Standing: Why Government Modernization Fails When File Replication Depends on Institutional Memory",
-      "excerpt": "Consider a familiar modernization scenario: a script runs at 2:13 each morning, moves files between systems built in different eras, and sends an email only when something goes badly wrong. Its author…",
-      "body": "Consider a familiar modernization scenario: a script runs at 2:13 each morning, moves files between systems built in different eras, and sends an email only when something goes badly wrong. Its author has retired, and its comments describe servers that no longer exist. Yet an important workflow still depends on it. Government modernization programs often concentrate on the visible legacy application while overlooking these quiet connective mechanisms. The risk is not that scripting is inherently poor engineering. The risk is that an undocumented transfer becomes an operational contract known only to a few people. That concern is timely.",
-      "author": "Yuval",
-      "date": "2026-09-24",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 37,
-      "url": "https://dev.to/yuvalcohen/the-last-script-standing-why-government-modernization-fails-when-file-replication-depends-on-54kc",
-      "image": "/images/feed/feed-b2d147cc7dab.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-96da5930b4e6",
-      "title": "ersioning Business Semantics for Enterprise AI",
-      "excerpt": "Your SQL can be perfectly reproducible while your business meaning is not. Suppose a user asks: What was revenue in Q1? Your data agent resolves Revenue, generates valid SQL, executes it successfully,…",
-      "body": "Your SQL can be perfectly reproducible while your business meaning is not. Suppose a user asks: What was revenue in Q1? Your data agent resolves Revenue , generates valid SQL, executes it successfully, and returns a number. Now suppose Finance changed the definition of Revenue in June. The old definition was: Revenue v3 = Recognized Revenue The new definition is: Revenue v4 = Recognized Revenue - Approved Adjustments When the same user asks about Q1 in September, which definition should the agent use? That is not an SQL problem. It is a semantic versioning problem .",
-      "author": "ArisynData",
-      "date": "2026-09-24",
+      "id": "feed-4005738aae2f",
+      "title": "Flash Loan Attack Vector Analysis: EigenCloud",
+      "excerpt": "Flash Loan Attack Vector Analysis: EigenCloud Target Protocol: EigenCloud (TVL: $7036.1M) EigenCloud – Flash‑Loan Attack‑Vector Analysis Technical Security & Audit Report Prepared by: [Your Name], Sen…",
+      "body": "Flash Loan Attack Vector Analysis: EigenCloud Target Protocol : EigenCloud (TVL: $7036.1M) EigenCloud – Flash‑Loan Attack‑Vector Analysis Technical Security &amp; Audit Report Prepared by: [Your Name], Senior DeFi Security Researcher Date: 25 September 2026 1. Executive Summary EigenCloud is a high‑value composable liquidity‑aggregation protocol that currently manages ≈ $7.04 B across Ethereum L1 and multiple L2 roll‑ups. Its core value proposition is to enable on‑demand, permission‑less access to pooled capital for a wide range of DeFi primitives (yield farming, leveraged trading, synthetic assets, etc.) while abstracting away the underlying collateral management. Because the protocol is permission‑less and highly composable , it is an attractive target for flash‑loan‑driven attacks .",
+      "author": "DannyDoes",
+      "date": "2026-09-25",
       "readTime": "2 min",
       "section": "software",
       "tags": [
@@ -110,9 +72,183 @@
       ],
       "featured": true,
       "xpReward": 51,
-      "url": "https://dev.to/arisyndata/ersioning-business-semantics-for-enterprise-ai-2gcm",
-      "image": "/images/feed/feed-96da5930b4e6.webp",
+      "url": "https://dev.to/dannydoes_2abdf9c/flash-loan-attack-vector-analysis-eigencloud-290j",
+      "image": "/images/feed/feed-4005738aae2f.webp",
       "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-1d7026b0cb72",
+      "title": "Vowel estimation accuracy varies by pronunciation order and duration: Creating TTS evaluation data and two measurement pitfalls",
+      "excerpt": "📝 Originally published (in Japanese) at forge.workstyle.tech. Target Audience: Developers implementing voice analysis or avatar lip-syncing in browsers. Input and Output: Labeled TTS audio is input i…",
+      "body": "📝 Originally published (in Japanese) at forge.workstyle.tech . Target Audience : Developers implementing voice analysis or avatar lip-syncing in browsers. Input and Output : Labeled TTS audio is input into a vowel estimator, and the accuracy rate is obtained from the correct answers and estimated results. What You'll Gain from This Article : The reason why the order and length of audio affect the evaluation results in a stateful estimator, and how to verify this. While trying to improve the vowel estimator, I found myself writing code to accommodate the quirks of the evaluator. The most significant discovery this time was that the measurement method was creating the answer.",
+      "author": "orca_forge",
+      "date": "2026-09-25",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 38,
+      "url": "https://dev.to/orca_forge/vowel-estimation-accuracy-varies-by-pronunciation-order-and-duration-creating-tts-evaluation-data-4h2b",
+      "image": "/images/feed/feed-1d7026b0cb72.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-98c9c853fdf7",
+      "title": "Architectural Breakdown: I Pulled Nine Years of My Own Dev.to Data. The Numbers Were Not What I Expe",
+      "excerpt": "![Architecture Diagram](https://image.pollinations.ai/prompt/high+performance+cloud+systems+I+Pulled+Nine+Years+of+My+Own++round+2?width=800&height=400&nologo=true) # I Pulled Nine Years of My Own Dev…",
+      "body": "![ Architecture Diagram ]( https://image.pollinations.ai/prompt/high+performance+cloud+systems+I+Pulled+Nine+Years+of+My+Own++round+2?width=800&amp;height=400&amp;nologo=true ) # I Pulled Nine Years of My Own Dev.to Data. The Numbers Were Not What I Expected. It was 2:47 AM on a Tuesday when I finished a custom scraper for nine years of my own Dev.to history. I bypassed every bloated npm package using nothing but Python's standard library, a stubborn refusal to accept that `requests` plus `pandas` plus `flask` plus `dotenv` would give honest answers. The dashboard reported 847 published articles. My database contained 612. Twenty-three percent of my so-called published content had been soft-deleted by the platform between 2019 and 2023, quietly archived without notification.",
+      "author": "Muhammad Hammad",
+      "date": "2026-09-25",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 40,
+      "url": "https://dev.to/agenticstack/architectural-breakdown-i-pulled-nine-years-of-my-own-devto-data-the-numbers-were-not-what-i-expe-1e88",
+      "image": "/images/feed/feed-98c9c853fdf7.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-36e81fb1c954",
+      "title": "How to track Google Hotels prices with Python (no browser, no API key)",
+      "excerpt": "I built this actor; it's a paid tool on Apify with a free trial credit. Google Hotels shows you a price for every hotel in a city, but there's no official API for it. If you want to watch how prices m…",
+      "body": "I built this actor; it's a paid tool on Apify with a free trial credit. Google Hotels shows you a price for every hotel in a city, but there's no official API for it. If you want to watch how prices move over a few weeks, compare a hotel against its neighbours, or feed prices into a trip planner, you end up copying numbers by hand. I'm an 18-year-old engineering student, and I wrote a scraper for this called Google Hotels Scraper . This post shows how to call it from Python and Node, what the data looks like, and one small project: logging Charlotte hotel prices to a Google Sheet once a day. How it works, briefly Google Hotels pages already carry their result data inside AF_initDataCallback script blobs.",
+      "author": "Gio Rich",
+      "date": "2026-09-25",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Python",
+        "Api"
+      ],
+      "featured": false,
+      "xpReward": 34,
+      "url": "https://dev.to/rel8ble/how-to-track-google-hotels-prices-with-python-no-browser-no-api-key-590g",
+      "image": "/images/feed/feed-36e81fb1c954.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-e085f281d297",
+      "title": "Utah Advocates Call for Air Agency to Hold Strong on Coal Plant Shutdown Date in Latest Regional Haze Plan",
+      "excerpt": "Salt Lake City — Today, the Utah Division of Air Quality (UDAQ) held a public hearing on a revision to its regional haze plan that continues to fail to reduce pollution from Utah’s worst coal offender…",
+      "body": "Salt Lake City — Today, the Utah Division of Air Quality (UDAQ) held a public hearing on a revision to its regional haze plan that continues to fail to reduce pollution from Utah’s worst coal offenders. In the hearing, advocates called on the agency to retain the requirement in its ... [continued] The post Utah Advocates Call for Air Agency to Hold Strong on Coal Plant Shutdown Date in Latest Regional Haze Plan appeared first on CleanTechnica .",
+      "author": "Sierra Club",
+      "date": "2026-09-25",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Cars"
+      ],
+      "featured": false,
+      "xpReward": 38,
+      "url": "https://cleantechnica.com/2026/09/24/utah-advocates-call-for-air-agency-to-hold-strong-on-coal-plant-shutdown-date-in-latest-regional-haze-plan/",
+      "image": "/images/feed/feed-e085f281d297.png",
+      "source": "CleanTechnica",
+      "isLive": true
+    },
+    {
+      "id": "feed-4f978752c439",
+      "title": "Why your pages are crawled but not indexed",
+      "excerpt": "Why your pages are crawled but not indexed \"Crawled, currently not indexed\" in Search Console gets treated as one problem with one fix, Google fetched the URL, read the response, and made a deliberate…",
+      "body": "Why your pages are crawled but not indexed \"Crawled, currently not indexed\" in Search Console gets treated as one problem with one fix, usually \"publish better content.\" The status covers several distinct failure modes, and content quality is only one of them. The other three are almost always visible in the server response itself, if anyone actually diffs what Googlebot receives against what a browser receives. What \"crawled but not indexed\" actually means Google fetched the URL, read the response, and made a deliberate decision not to add it to the index. That is different from \"discovered, not crawled\", which is a budget or robots issue, and different from a canonical replacing the URL with another one Google chose to index instead.",
+      "author": "Nooralto1",
+      "date": "2026-09-25",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 49,
+      "url": "https://dev.to/nooralto1/why-your-pages-are-crawled-but-not-indexed-4lfa",
+      "image": "/images/feed/feed-4f978752c439.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-a145f512d2c4",
+      "title": "LA Metro Secures 220 New Battery-Electric Transit Buses",
+      "excerpt": "LOS ANGELES — Today, LA Metro approved the purchase of 220 battery-electric buses, one of the largest electric transit bus purchases in the country and a major step towards Metro accelerating implemen…",
+      "body": "LOS ANGELES — Today, LA Metro approved the purchase of 220 battery-electric buses, one of the largest electric transit bus purchases in the country and a major step towards Metro accelerating implementation of its zero-emission bus commitment to 100% electric buses. The 220-bus purchase will more than double the number ... [continued] The post LA Metro Secures 220 New Battery-Electric Transit Buses appeared first on CleanTechnica .",
+      "author": "Sierra Club",
+      "date": "2026-09-24",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Cars"
+      ],
+      "featured": false,
+      "xpReward": 33,
+      "url": "https://cleantechnica.com/2026/09/24/la-metro-secures-220-new-battery-electric-transit-buses/",
+      "image": "/images/feed/feed-a145f512d2c4.jpg",
+      "source": "CleanTechnica",
+      "isLive": true
+    },
+    {
+      "id": "feed-603e47b1fd6f",
+      "title": "Apple and Qualcomm renew global patent licensing agreement",
+      "excerpt": "Qualcomm and Apple have renewed their global patent licensing agreement, extending a deal that was previously set to expire in 2027. Here are the details. more…",
+      "body": "Qualcomm and Apple have renewed their global patent licensing agreement, extending a deal that was previously set to expire in 2027. Here are the details. more — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Qualcomm. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Marcus Mendes",
+      "date": "2026-09-24",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Qualcomm"
+      ],
+      "featured": false,
+      "xpReward": 32,
+      "url": "https://9to5mac.com/2026/09/24/apple-and-qualcomm-renew-global-patent-licensing-agreement/",
+      "image": "/images/feed/feed-603e47b1fd6f.jpg",
+      "source": "9to5Mac",
+      "isLive": true
+    },
+    {
+      "id": "feed-e1778988c1f1",
+      "title": "Qualcomm’s new ‘Elite’ sound chip might finally deliver the Wi-Fi earbud dream",
+      "excerpt": "What if your wireless earbuds - or audio glasses - could stream high-quality lossless audio that doesn't cut out when you leave your phone on the bedside charger or buried in the couch? Qualcomm's new…",
+      "body": "What if your wireless earbuds - or audio glasses - could stream high-quality lossless audio that doesn't cut out when you leave your phone on the bedside charger or buried in the couch? Qualcomm's new Snapdragon Sound Elite Gen 2 is its first to integrate \"micro-power Wi-Fi 6E\" right into the chip, so they can connect directly to your home Wi-Fi network, and from there to the cloud. If that sounds like a familiar promise, it's probably because Qualcomm promised something similar back in 2023 with the \"S7 Pro sound platform\" and its Expanded Personal Area Network (XPAN) tech, saying that Wi-Fi earbuds can do what Bluetooth alone cannot. Name … Read the full story at The Verge.",
+      "author": "Sean Hollister",
+      "date": "2026-09-24",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Qualcomm"
+      ],
+      "featured": false,
+      "xpReward": 37,
+      "url": "https://www.theverge.com/tech/1000443/qualcomms-new-elite-sound-chip-might-finally-deliver-the-wi-fi-earbud-dream",
+      "image": "/images/feed/feed-e1778988c1f1.jpg",
+      "source": "The Verge",
+      "isLive": true
+    },
+    {
+      "id": "feed-c1da19edb22f",
+      "title": "How to Customize Your AI Tools, From ChatGPT to Gemini and Claude",
+      "excerpt": "Get closer to the responses you want without the constant prompt hacking.",
+      "body": "Get closer to the responses you want without the constant prompt hacking.\n\nThis report, published by CNET, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Chatgpt, Gemini, Claude. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to CNET using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Rachel Kane",
+      "date": "2026-09-24",
+      "readTime": "2 min",
+      "section": "ai",
+      "tags": [
+        "Chatgpt",
+        "Gemini",
+        "Claude"
+      ],
+      "featured": false,
+      "xpReward": 53,
+      "url": "https://www.cnet.com/tech/services-and-software/how-to-customize-your-ai-tools-chatgpt-gemini-claude/",
+      "image": "/images/feed/feed-c1da19edb22f.jpg",
+      "source": "CNET",
       "isLive": true
     },
     {
@@ -128,7 +264,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 40,
       "url": "https://9to5mac.com/2026/09/24/apple-sports-adds-real-time-grand-slam-draws-expands-soccer-coverage/",
       "image": "/images/feed/feed-6a028663d42a.jpg",
       "source": "9to5Mac",
@@ -147,7 +283,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 36,
       "url": "https://www.polygon.com/best-bioware-games/",
       "image": "/images/feed/feed-e3b3e807fee9.jpg",
       "source": "Polygon",
@@ -166,7 +302,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 30,
       "url": "https://cleantechnica.com/2026/09/24/sierra-club-welcomes-nyc-comptrollers-5b-private-market-climate-investment-proposal/",
       "image": "/images/feed/feed-085d6443d459.png",
       "source": "CleanTechnica",
@@ -185,29 +321,48 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 51,
       "url": "https://www.engadget.com/2268423/call-of-duty-warzone-is-adding-a-button-to-hide-all-the-goofy-skins/",
       "image": "/images/feed/feed-d5c529e7d06f.jpg",
       "source": "Engadget",
       "isLive": true
     },
     {
-      "id": "feed-b8f769e4f6a2",
-      "title": "WebForms Core 2.2 Development Has Begun",
-      "excerpt": "A New Stateless Architecture for Server-Orchestrated UI Unlike many server-driven UI approaches, including Blazor Server, WebForms Core introduces a fundamentally different architectural model: server…",
-      "body": "A New Stateless Architecture for Server-Orchestrated UI Unlike many server-driven UI approaches, including Blazor Server , WebForms Core introduces a fundamentally different architectural model: server-orchestrated UI built on a stateless server and server-defined UI structure . While Blazor Server maintains a stateful server-side circuit for each connected browser context, WebForms Core does not require the server to maintain a persistent component tree, render tree, or mirrored DOM state for each user. Instead, the server defines UI operations through the WebForms class and generates commands that WebFormsJS executes against the actual HTML document in the browser.",
-      "author": "Elanat Framework",
+      "id": "feed-dd234c3d3195",
+      "title": "The Gigabyte A16 Pro 16\" RTX 5070 Ti Gaming Laptop Drops to $1,449 During Walmart's GeForce Week Sale",
+      "excerpt": "Strong gaming chops in a slim and lightweight chassis.",
+      "body": "Walmart&#39;s GeForce Week Sale is ending soon, but there&#39;s still time to pick up a great deal on a powerful gaming laptop. For a limited time, Walmart has the Gigabyte A16 Pro 16&quot; RTX 5070 Ti Gaming Laptop for just $1,449.00 with free shipping. In addition to the powerful GPU, the A16 Pro comes preinstalled with 32GB of DDR5 RAM and a 1TB SSD, which means you don&#39;t need to go out and pay an exorbitant amount of money to add more. Gigabyte A16 Pro 16&quot; RTX 5070 Ti Gaming Laptop for $1,449 The Gigabyte A16 Pro laptop measures 0.77&quot; at its thinnest point and weighs just 5 pounds, which is light for a 16&quot; gaming laptop.",
+      "author": "Eric Song",
       "date": "2026-09-24",
       "readTime": "2 min",
-      "section": "software",
+      "section": "gaming",
       "tags": [
-        "Software"
+        "Gaming"
       ],
       "featured": false,
-      "xpReward": 42,
-      "url": "https://dev.to/elanatframework/webforms-core-22-development-has-begun-4a2b",
-      "image": "/images/feed/feed-b8f769e4f6a2.webp",
-      "source": "Dev.to",
+      "xpReward": 43,
+      "url": "https://www.ign.com/articles/gigabyte-a16-pro-16-rtx-5070-ti-gaming-laptop-deal-september-2026",
+      "image": "/images/feed/feed-dd234c3d3195.jpg",
+      "source": "IGN",
+      "isLive": true
+    },
+    {
+      "id": "feed-7f062cb92d6b",
+      "title": "Arc Raiders Is Testing a PvE Mode Very Soon",
+      "excerpt": "Embark Studios has announced that it will be testing a PvE mode for Arc Raiders next month.",
+      "body": "Embark Studios has announced that it will be testing a PvE mode for Arc Raiders next month. From October 13 to October 20, Arc Raiders will have a PvE toggle, allowing you to seamlessly switch between lobbies where you can fight other players and lobbies where players can&#39;t do damage to you. The aim is to give players more choice and test the ability to let players completely disengage from PvP gameplay. As a result, loot in PvE will be lower-valued because the mode has lower stakes. Additionally, ARCs will target downed players to create some form of tension, but if players stay still, they will be ignored by AI foes. Embark will be monitoring the player economy and matchmaking times during this period.",
+      "author": "Cade Onder",
+      "date": "2026-09-24",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 48,
+      "url": "https://www.ign.com/articles/arc-raiders-is-testing-a-pve-mode-very-soon",
+      "image": "/images/feed/feed-7f062cb92d6b.png",
+      "source": "IGN",
       "isLive": true
     },
     {
@@ -223,10 +378,29 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 47,
       "url": "https://www.polygon.com/over-the-hill-preview-demo-steam/",
       "image": "/images/feed/feed-257e5fddeb3f.jpg",
       "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-e7625c47cb55",
+      "title": "Ubisoft Almost Made a Zelda Game With Ganondorf as the Protagonist",
+      "excerpt": "Ubisoft Milan reportedly pitched a Zelda game to Nintendo that would have taken place in a new universe with a totally different protagonist, but the plan fell through, leading to one of the biggest w…",
+      "body": "Ubisoft Milan reportedly pitched a Zelda game to Nintendo that would have taken place in a new universe with a totally different protagonist, but the plan fell through, leading to one of the biggest what-ifs in gaming history. Insider Gaming’s Tom Henderson says the project was internally titled Goliath, so as to appropriately echo the size and scale of what Ubisoft Milan hoped to achieve with the game. It was an ambitious plan, and one that former Ubisoft developer Gian Marco Zanna described as a “new big bang in the video game universe.” This description, while dramatic, is accurate; Ubisoft Milan’s Zelda game would have been drastically different from anything we’ve seen from the series thus far.",
+      "author": "Virginia Glaze",
+      "date": "2026-09-24",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Game"
+      ],
+      "featured": false,
+      "xpReward": 52,
+      "url": "https://www.ign.com/articles/ubisoft-almost-made-a-zelda-game-with-ganondorf-as-the-protagonist",
+      "image": "/images/feed/feed-e7625c47cb55.jpg",
+      "source": "IGN",
       "isLive": true
     },
     {
@@ -242,7 +416,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 47,
       "url": "https://www.engadget.com/2268392/ray-ban-meta-gen-3-vs-gen-2-ai-glasses-comparison/",
       "image": "/images/feed/feed-bf758123e487.jpg",
       "source": "Engadget",
@@ -261,7 +435,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 31,
       "url": "https://www.polygon.com/control-resonant-weapon-combat-ability-primary-secondary/",
       "image": "/images/feed/feed-cba705462c53.jpg",
       "source": "Polygon",
@@ -280,7 +454,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 42,
       "url": "https://kotaku.com/nvidia-ceo-doesnt-care-that-kids-are-forgetting-basic-math-because-of-ai-i-actually-dont-know-my-address-2000737092",
       "image": "/images/feed/feed-db28dfdd35da.jpg",
       "source": "Kotaku",
@@ -299,7 +473,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 34,
       "url": "https://www.androidauthority.com/gemini-dark-mode-3715309/",
       "image": "/images/feed/feed-b4e433efbac2.jpg",
       "source": "Android Authority",
@@ -318,7 +492,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 36,
       "url": "https://www.engadget.com/2268376/nintendo-wins-4-5-million-from-lawsuit-over-pirated-switch-games/",
       "image": "/images/feed/feed-6d42c57edb85.jpg",
       "source": "Engadget",
@@ -327,8 +501,8 @@
     {
       "id": "feed-d6196a98268e",
       "title": "NASA Welcomes Côte d’Ivoire as Newest Artemis Accords Signatory",
-      "excerpt": "Côte d’Ivoire signed the Artemis Accords on Thursday as the 75th signatory during a signing ceremony in the nation’s largest city Abidjan, marking the largest milestone yet for the international coali…",
-      "body": "Credit: NASA Côte d’Ivoire signed the Artemis Accords on Thursday as the 75th signatory during a signing ceremony in the nation&#8217;s largest city Abidjan, marking the largest milestone yet for the international coalition of like-minded countries committed to peaceful and responsible space exploration. “The United States and Côte d’Ivoire already cooperate on Earth,” said NASA’s Deputy Administrator Matt Anderson. “Today, we expand that partnership beyond it.&nbsp;Joining the Artemis Accords opens new opportunities for our scientists, engineers, and institutions to work together as humanity returns to the Moon and prepares for what comes next.&nbsp;We’ve aligned on the principles. The opportunities are in front of us.",
+      "excerpt": "Côte d’Ivoire signed the Artemis Accords on Thursday, becoming the 75th signatory and marking a major milestone for this growing coalition. With the signing ceremony in the nation’s largest city, Abid…",
+      "body": "Credit: NASA Côte d’Ivoire signed the Artemis Accords on Thursday, becoming the 75th signatory and marking a major milestone for this growing coalition. With the signing ceremony in the nation’s largest city, Abidjan, Côte d’Ivoire joined other like-minded nations and committed to the peaceful, transparent, and responsible exploration of the Moon, Mars, and beyond. “The United States and Côte d’Ivoire already cooperate on Earth,” said NASA’s Deputy Administrator Matt Anderson. “Today, we expand that partnership beyond it.&nbsp;Joining the Artemis Accords opens new opportunities for our scientists, engineers, and institutions to work together as humanity returns to the Moon and prepares for what comes next.&nbsp;We’ve aligned on the principles. The opportunities are in front of us.",
       "author": "Jennifer M. Dooren",
       "date": "2026-09-24",
       "readTime": "2 min",
@@ -338,9 +512,9 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 52,
       "url": "https://www.nasa.gov/organizations/oiir/nasa-welcomes-cote-divoire-as-newest-artemis-accords-signatory/",
-      "image": "https://www.nasa.gov/wp-content/uploads/2026/09/artemis-accords-cote-divoire-75-092426.jpg",
+      "image": "/images/feed/feed-d6196a98268e.jpg",
       "source": "NASA Breaking News",
       "isLive": true
     },
@@ -359,86 +533,10 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 30,
       "url": "https://www.nasa.gov/news-release/nasa-shares-spacex-crew-14-assignments-for-space-station-mission/",
-      "image": "/images/topics/topic-space.png",
+      "image": "/images/feed/feed-7392171db1bb.jpg",
       "source": "NASA Breaking News",
-      "isLive": true
-    },
-    {
-      "id": "feed-dc8cda1355fa",
-      "title": "Moderator Of Switch Pirates Subreddit To Pay Nintendo $4.5 Million In Piracy Lawsuit",
-      "excerpt": "James Williams, the defendant and an alleged moderator of r/SwitchPirates, apparently never showed up to court",
-      "body": "James Williams, the defendant and an alleged moderator of r/SwitchPirates, apparently never showed up to court\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Nintendo. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Ash Parrish",
-      "date": "2026-09-24",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Nintendo"
-      ],
-      "featured": false,
-      "xpReward": 39,
-      "url": "https://kotaku.com/moderator-of-switch-pirates-subreddit-to-pay-nintendo-4-5-million-in-piracy-lawsuit-2000737079",
-      "image": "/images/feed/feed-dc8cda1355fa.jpg",
-      "source": "Kotaku",
-      "isLive": true
-    },
-    {
-      "id": "feed-1358dc75e168",
-      "title": "Android Auto may finally give GameSnacks the full screen treatment",
-      "excerpt": "Our APK teardown revealed that GameSnacks could soon match other Android Auto games with a fully immersive experience.",
-      "body": "Credit: Sanuj Bhatia / Android Authority TL;DR Google appears to be preparing a full-screen GameSnacks experience for Android Auto. The change removes the navigation rail from both the GameSnacks menu and games themselves. This would make GameSnacks more consistent with other Android Auto games, which already run in full screen. Android Auto’s gaming push stepped up a gear this week, with Google officially moving games out of beta and making them generally available. But fans of gaming while parked up may have spotted one outstanding inconsistency: Regular Android Auto games can take over your whole car display, while GameSnacks leaves the navigation rail sitting alongside them. It looks like Google is preparing to fix that. You’re reading an Authority Insights story.",
-      "author": "Matt Horne",
-      "date": "2026-09-24",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 34,
-      "url": "https://www.androidauthority.com/gamesnacks-android-auto-immersive-apk-teardown-3715285/",
-      "image": "/images/feed/feed-1358dc75e168.jpg",
-      "source": "Android Authority",
-      "isLive": true
-    },
-    {
-      "id": "feed-9e472c7a56f1",
-      "title": "Nicolas Cage is anything but subtle in the Madden trailer",
-      "excerpt": "The biopic arrives on Prime Video in November.",
-      "body": "The biopic arrives on Prime Video in November.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Will Shanklin)",
-      "date": "2026-09-24",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 37,
-      "url": "https://www.engadget.com/2268356/nicolas-cage-is-anything-but-subtle-in-the-madden-trailer/",
-      "image": "/images/feed/feed-9e472c7a56f1.jpg",
-      "source": "Engadget",
-      "isLive": true
-    },
-    {
-      "id": "feed-5be6bf848934",
-      "title": "Star Wars: Galactic Racer Looks To Continue The Best Trend In Star Wars Gaming In Years",
-      "excerpt": "Not every Star Wars game needs to be a third-person action thing or shooter",
-      "body": "Not every Star Wars game needs to be a third-person action thing or shooter\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Zack Zwiezen",
-      "date": "2026-09-24",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 47,
-      "url": "https://kotaku.com/star-wars-galactic-racer-looks-to-continue-the-best-trend-in-star-wars-gaming-in-years-2000736273",
-      "image": "/images/feed/feed-5be6bf848934.jpg",
-      "source": "Kotaku",
       "isLive": true
     },
     {
@@ -454,7 +552,7 @@
         "Malware"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 35,
       "url": "https://www.bleepingcomputer.com/news/security/macsync-malware-uses-public-icloud-calendars-to-deliver-new-payloads/",
       "image": "/images/feed/feed-cbb516ddbe95.jpg",
       "source": "BleepingComputer",
@@ -473,29 +571,10 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 47,
       "url": "https://electrek.co/2026/09/24/volkswagen-delays-electric-minibus-us-again/",
       "image": "/images/feed/feed-0534dace0bb1.jpg",
       "source": "Electrek",
-      "isLive": true
-    },
-    {
-      "id": "feed-4b45c14d3ca7",
-      "title": "Sekiro Anime Gets Official Streaming Date and Surprise Format Change",
-      "excerpt": "Sekiro: No Defeat has a new confirmed streaming date on Crunchyroll, where it will be released as an 8-episode anime — not a movie.",
-      "body": "The anime adaptation of FromSoftware's Sekiro: Shadows Die Twice finally has a streaming release date. Crunchyroll announced Thursday that Sekiro: No Defeat will begin streaming on the anime platform in January 2027, but it will arrive on streaming in a substantially different form: as an eight-episode series, not a film.",
-      "author": "Michael McWhertor",
-      "date": "2026-09-24",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 39,
-      "url": "https://www.polygon.com/sekiro-anime-no-defeat-release-date-crunchyroll/",
-      "image": "/images/feed/feed-4b45c14d3ca7.jpg",
-      "source": "Polygon",
       "isLive": true
     },
     {
@@ -511,7 +590,7 @@
         "Hybrid"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 40,
       "url": "https://insideevs.com/news/809482/record-hybrid-growth-america/",
       "image": "/images/feed/feed-9a5da29ec8c7.jpg",
       "source": "InsideEVs",
@@ -530,7 +609,7 @@
         "Malware"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 30,
       "url": "https://www.bleepingcomputer.com/news/security/new-carbonato-malware-uses-ai-agents-to-hijack-exposed-docker-hosts/",
       "image": "/images/feed/feed-1246ccd8d2a7.jpg",
       "source": "BleepingComputer",
@@ -549,7 +628,7 @@
         "Gemini"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 41,
       "url": "https://www.theverge.com/tech/1000328/google-gemini-ai-live-avatar-face",
       "image": "/images/feed/feed-6c25baed85f2.png",
       "source": "The Verge",
@@ -568,7 +647,7 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 30,
       "url": "https://electrek.co/2026/09/24/tesla-fsd-belgium-test-speeding-30-kmh-eu-vote/",
       "image": "/images/feed/feed-85b04508b485.jpg",
       "source": "Electrek",
@@ -587,67 +666,10 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 49,
       "url": "https://www.wired.com/story/i-finally-found-an-ai-agent-worth-the-risk/",
       "image": "/images/feed/feed-c532f4af7fcf.jpg",
       "source": "Wired",
-      "isLive": true
-    },
-    {
-      "id": "feed-c0ab0e994f2b",
-      "title": "NHTSA investigates comma.ai’s openpilot over 5 crashes that killed 3",
-      "excerpt": "NHTSA has opened a formal investigation into comma.ai’s aftermarket driver assistance devices after five crashes where cars running openpilot plowed into stopped or slow-moving vehicles in their own l…",
-      "body": "NHTSA has opened a formal investigation into comma.ai’s aftermarket driver assistance devices after five crashes where cars running openpilot plowed into stopped or slow-moving vehicles in their own lane. Two of those crashes killed three people. The probe covers an estimated 30,000 comma three, comma 3X, and comma four devices. It’s the biggest regulatory problem for George Hotz’s startup since NHTSA pushed it to cancel its first product back in 2016 . more…",
-      "author": "Fred Lambert",
-      "date": "2026-09-24",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Cars"
-      ],
-      "featured": false,
-      "xpReward": 41,
-      "url": "https://electrek.co/2026/09/24/comma-ai-openpilot-nhtsa-investigation-crashes/",
-      "image": "/images/feed/feed-c0ab0e994f2b.png",
-      "source": "Electrek",
-      "isLive": true
-    },
-    {
-      "id": "feed-52ff7992d45c",
-      "title": "Thinking about buying a second car? Here’s a $1,000 alternative",
-      "excerpt": "Being a one-car family works great right up until the moment two people need to be in two different places. Maybe your spouse took the car to work, but you need to grab groceries. Maybe you’ve got to…",
-      "body": "Being a one-car family works great right up until the moment two people need to be in two different places. Maybe your spouse took the car to work, but you need to grab groceries. Maybe you’ve got to pick up a kid from daycare. Perhaps you’re meeting a friend for coffee, heading to the gym, or just running some mundane errand that happens to require going a few miles across town. Those are the moments when a second car starts sounding awfully convenient. more…",
-      "author": "Micah Toll",
-      "date": "2026-09-24",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Cars"
-      ],
-      "featured": false,
-      "xpReward": 50,
-      "url": "https://electrek.co/2026/09/24/thinking-about-buying-a-second-car-heres-a-1000-alternative/",
-      "image": "/images/feed/feed-52ff7992d45c.jpg",
-      "source": "Electrek",
-      "isLive": true
-    },
-    {
-      "id": "feed-81a7a9546ae7",
-      "title": "Mercedes-Benz gets first dibs on ProLogium’s Gen4 solid-state EV battery cells",
-      "excerpt": "Building on its nearly 10-year history, Mercedes-Benz secured first rights to ProLogium’s latest Gen4 solid-state EV battery cells. more…",
-      "body": "Building on its nearly 10-year history, Mercedes-Benz secured first rights to ProLogium’s latest Gen4 solid-state EV battery cells. more — a development drawing significant attention in the electric vehicles, hybrids, and automotive technology space.\n\nThis report, published by Electrek, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Ev. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Electrek using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Peter Johnson",
-      "date": "2026-09-24",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Ev"
-      ],
-      "featured": false,
-      "xpReward": 53,
-      "url": "https://electrek.co/2026/09/24/mercedes-priority-prologiums-gen4-solid-state-ev-battery/",
-      "image": "/images/feed/feed-81a7a9546ae7.jpg",
-      "source": "Electrek",
       "isLive": true
     },
     {
@@ -663,7 +685,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 46,
       "url": "https://thehackernews.com/2026/09/unpatched-oneplus-flaws-let-installed.html",
       "image": "/images/feed/feed-6c4077947c8e.jpg",
       "source": "The Hacker News",
@@ -682,9 +704,9 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 33,
       "url": "https://www.nasa.gov/centers-and-facilities/nssc/travel/",
-      "image": "https://www.nasa.gov/wp-content/uploads/2026/06/nasa-meatball-11-black-background.jpg",
+      "image": "/images/feed/feed-a66f55456bd9.jpg",
       "source": "NASA Breaking News",
       "isLive": true
     },
@@ -740,7 +762,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 47,
       "url": "https://www.bleepingcomputer.com/news/security/exposed-gitlab-project-email-addresses-let-attackers-push-code/",
       "image": "/images/feed/feed-519156a41607.jpg",
       "source": "BleepingComputer",
@@ -759,9 +781,9 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 49,
       "url": "https://www.nasa.gov/technology/tech-transfer-spinoffs/nasas-machines-for-mars-make-beer-bubbly/",
-      "image": "https://www.nasa.gov/wp-content/uploads/2026/09/earthly-labs-3.jpg",
+      "image": "/images/feed/feed-2577418eb79f.jpg",
       "source": "NASA Breaking News",
       "isLive": true
     },
@@ -778,7 +800,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 41,
       "url": "https://www.cnet.com/tech/services-and-software/australia-government-health-site-openai-agent-hack/",
       "image": "/images/feed/feed-d5c28c0d7d2c.jpg",
       "source": "CNET",
@@ -797,9 +819,9 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 39,
       "url": "https://www.nasa.gov/image-article/practicing-for-safe-landings-on-the-moon-and-beyond/",
-      "image": "/images/topics/topic-space.png",
+      "image": "https://www.nasa.gov/wp-content/uploads/2026/09/afrc2026-0179-18orig.jpg",
       "source": "NASA Breaking News",
       "isLive": true
     },
@@ -816,7 +838,7 @@
         "Gemini"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 41,
       "url": "https://techcrunch.com/2026/09/24/google-tests-letting-gemini-make-phone-calls-initially-for-us-pixel-owners/",
       "image": "/images/feed/feed-8264311d3534.jpg",
       "source": "TechCrunch",
@@ -835,7 +857,7 @@
         "Gemini"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 38,
       "url": "https://www.wired.com/story/googles-gemini-can-now-make-calls-for-you-on-pixel-phones/",
       "image": "/images/feed/feed-409ba40c79ee.jpg",
       "source": "Wired",
@@ -854,7 +876,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 31,
       "url": "https://spacenews.com/true-or-false-on-space-industry-trends-with-pacome-revillon/",
       "image": "/images/feed/feed-6b543f332fe9.jpg",
       "source": "SpaceNews",
@@ -873,7 +895,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 52,
       "url": "https://thehackernews.com/2026/09/placeholder-third-partycom-referenced.html",
       "image": "/images/feed/feed-75c268ef6037.jpg",
       "source": "The Hacker News",
@@ -892,7 +914,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 53,
       "url": "https://techcrunch.com/2026/09/24/australia-to-investigate-if-openai-hack-of-government-health-website-broke-the-law/",
       "image": "/images/feed/feed-77b59c06fc2c.jpg",
       "source": "TechCrunch",
@@ -911,43 +933,24 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 47,
       "url": "https://www.wired.com/story/openai-agent-hacked-australias-health-service-their-government-found-out-months-later/",
       "image": "/images/feed/feed-27435dd8aba2.jpg",
       "source": "Wired",
       "isLive": true
-    },
-    {
-      "id": "feed-fe4f8e858b95",
-      "title": "The FAA Is Testing an AI-Powered Air Traffic Management Tool",
-      "excerpt": "No, ChatGPT will not be clearing you for takeoff.",
-      "body": "No, ChatGPT will not be clearing you for takeoff.\n\nThis report, published by CNET, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Ai. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to CNET using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Macy Meyer",
-      "date": "2026-09-23",
-      "readTime": "2 min",
-      "section": "ai",
-      "tags": [
-        "Ai"
-      ],
-      "featured": false,
-      "xpReward": 53,
-      "url": "https://www.cnet.com/tech/services-and-software/the-faa-is-testing-an-ai-powered-air-traffic-management-tool/",
-      "image": "/images/feed/feed-fe4f8e858b95.jpg",
-      "source": "CNET",
-      "isLive": true
     }
   ],
   "breakingNews": [
-    "DEV.TO: @Cron fires on every replica. I found out the boring way",
-    "DEV.TO: Tweet Deletion Tools Compared on Privacy: On-Device or Uploaded",
-    "HACKER NEWS: GitLab Outage",
-    "DEV.TO: Plugin4Shell: When Your AI Coding Agent Auto-Updates Straight Into RCE",
-    "DEV.TO: The Last Script Standing: Why Government Modernization Fails When File Replication Depends on Institutional Memory",
-    "DEV.TO: ersioning Business Semantics for Enterprise AI",
-    "9TO5MAC: Apple Sports adds real-time Grand Slam draws, expands soccer coverage",
-    "POLYGON: 8 Best BioWare Games That Aged Like Fine Wine",
-    "CLEANTECHNICA: Sierra Club Welcomes NYC Comptroller’s $5B Private-Market Climate Investment Proposal",
-    "ENGADGET: Call of Duty: Warzone is adding a button to hide all the goofy skins"
+    "DEV.TO: Tailoring a resume to a job description: a 15-minute gap check",
+    "CLEANTECHNICA: Taiga Launches OS-5 Software, Bringing Industry-First Geofencing Its Electric Fleet",
+    "DEV.TO: I turned off retries. The SDK underneath retried twice anyway.",
+    "DEV.TO: Flash Loan Attack Vector Analysis: EigenCloud",
+    "DEV.TO: Vowel estimation accuracy varies by pronunciation order and duration: Creating TTS evaluation data and two measurement pitfalls",
+    "DEV.TO: Architectural Breakdown: I Pulled Nine Years of My Own Dev.to Data. The Numbers Were Not What I Expe",
+    "DEV.TO: How to track Google Hotels prices with Python (no browser, no API key)",
+    "CLEANTECHNICA: Utah Advocates Call for Air Agency to Hold Strong on Coal Plant Shutdown Date in Latest Regional Haze Plan",
+    "DEV.TO: Why your pages are crawled but not indexed",
+    "CLEANTECHNICA: LA Metro Secures 220 New Battery-Electric Transit Buses"
   ],
   "sectionVideos": {}
 }
