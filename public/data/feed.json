@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-09-26T14:14:14.973Z",
+  "fetchedAt": "2026-09-26T15:13:36.959Z",
   "articles": [
     {
-      "id": "feed-6d830e0c6e63",
-      "title": "I Built Tic-Tac-Toe the Old Way — Before Coding Agents",
-      "excerpt": "What I did. I recently built a multiplayer Tic-Tac-Toe backend in Go. At first, it sounds almost too simple to be worth writing about. It has a 3×3 board. Two players. Some HTTP endpoints. A WebSocket…",
-      "body": "What I did. I recently built a multiplayer Tic-Tac-Toe backend in Go. At first, it sounds almost too simple to be worth writing about. It has a 3×3 board. Two players. Some HTTP endpoints. A WebSocket connection. Done. But somewhere along the way, a tiny game turned into a surprisingly good exercise in backend engineering. And I deliberately built this one the old way . No coding agent writing the implementation. No prompt → generate → test → fix loop. I wanted to sit with the problem, make the design decisions myself, write the code, break it, debug it, and understand why every piece existed. That was the actual point of the project. The final result The frontend ended up looking much nicer than the backend deserves.",
-      "author": "Satyam Shree",
+      "id": "feed-251e7afbdb41",
+      "title": "Claude Code said \"Done.\" My tests said otherwise. Here's the 20-line fix.",
+      "excerpt": "If you use Claude Code, you've seen this: claude: Done! Partial refunds are implemented. ✅ Then you run the tests yourself and four of them fail. Claude isn't lying. It stops when the work looks done,…",
+      "body": "If you use Claude Code, you've seen this: claude: Done! Partial refunds are implemented. ✅ Then you run the tests yourself and four of them fail. Claude isn't lying. It stops when the work looks done, because it has no other signal. If nothing tells it the tests are red, \"looks done\" is all it has. So you become the test runner: you check, paste the errors back, wait, and check again. This post shows how to make Claude run that check itself, every time, before it's allowed to say it's finished. Why this is the highest-leverage fix Anthropic's best practices for Claude Code put this first: give Claude a way to verify its work, such as tests, a build, a linter or a script, anything that returns pass or fail.",
+      "author": "elijahmanlockedin112",
       "date": "2026-09-26",
       "readTime": "2 min",
       "section": "software",
@@ -14,18 +14,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 38,
-      "url": "https://dev.to/satyam_shree_087caef77512/i-built-tic-tac-toe-the-old-way-before-coding-agents-1j7o",
-      "image": "/images/feed/feed-6d830e0c6e63.webp",
+      "xpReward": 30,
+      "url": "https://dev.to/elijahmanlockedin112/claude-code-said-done-my-tests-said-otherwise-heres-the-20-line-fix-jc",
+      "image": "/images/feed/feed-251e7afbdb41.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-bb3ce24e950b",
-      "title": "TCP Isn't Reliable Because It's Magic. It's Reliable Because It Never Trusts the Network.",
-      "excerpt": "\"Reliable, ordered delivery over IP\" is a fine one-line summary of TCP, and it's also the kind of definition that tells you almost nothing about why TCP is built the way it is. Why does every connecti…",
-      "body": "\"Reliable, ordered delivery over IP\" is a fine one-line summary of TCP, and it's also the kind of definition that tells you almost nothing about why TCP is built the way it is. Why does every connection start with three messages instead of one? What's actually making delivery reliable under the hood? Why are flow control and congestion control treated as two separate mechanisms instead of one? And why can a packet loss rate of a fraction of a percent tank throughput on an otherwise fast connection? Those questions all have the same root: TCP is built entirely on top of a network layer, IP, that makes no promises at all. IP doesn't guarantee a packet arrives, arrives exactly once, or arrives in the order it was sent.",
-      "author": "MANGESH MANDLIK",
+      "id": "feed-1b67ba98f83c",
+      "title": "AI Cloned My Voice From a 3-Second Video. Here Is What My Parent Almost Did With It.",
+      "excerpt": "` AI Cloned My Voice From a 3-Second Video. Here Is What My Parent Almost Did With It. This is not a hypothetical. A scammer lifted 15 seconds of audio from a family video posted on social media, ran…",
+      "body": "` AI Cloned My Voice From a 3-Second Video. Here Is What My Parent Almost Did With It. This is not a hypothetical. A scammer lifted 15 seconds of audio from a family video posted on social media, ran it through a voice cloning tool, and called an elderly parent claiming to be their child in an emergency. The voice was exact. The panic was convincing. The money was almost sent. The FBI's 2025 Internet Crime Report recorded 352 million dollars in losses from adults over 60 tied to AI voice cloning scams. A McAfee survey found 77 percent of people who received a cloned voice call lost money. Average loss: between 500 and 15,000 dollars per victim. This is a developer community. We understand how this technology works better than most people do.",
+      "author": "Utilvance",
       "date": "2026-09-26",
       "readTime": "2 min",
       "section": "software",
@@ -33,18 +33,37 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 41,
-      "url": "https://dev.to/mangeshmandlik/tcp-isnt-reliable-because-its-magic-its-reliable-because-it-never-trusts-the-network-b5d",
-      "image": "/images/feed/feed-bb3ce24e950b.webp",
+      "xpReward": 44,
+      "url": "https://dev.to/utilvance/ai-cloned-my-voice-from-a-3-second-video-here-is-what-my-parent-almost-did-with-it-205p",
+      "image": "/images/feed/feed-1b67ba98f83c.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-c8be3ca1c4a3",
-      "title": "Validate Readable Source IDs in Content Pipelines",
-      "excerpt": "The queue boundary is part of your data model Automated publishing systems often fail Audit Macos System Data Before Deleting they reach the interesting parts of the workflow. A source card can contai…",
-      "body": "The queue boundary is part of your data model Automated publishing systems often fail Audit Macos System Data Before Deleting they reach the interesting parts of the workflow. A source card can contain a useful topic, a clear editorial angle, and enough evidence for a good article, yet never become a candidate because one boundary parser rejects its identifier. The failure is especially confusing when the identifier looks obviously valid to a person. This happens when a system begins with an opaque ID rule such as SRC-[A-Z0-9]+ , then gradually adopts readable IDs such as SRC-WORKER-SOURCEID-2026 . The card is still safe, but the old expression accepts only one segment after SRC- .",
-      "author": "Uray Febri",
+      "id": "feed-6775b65745a4",
+      "title": "Your link previews are blank because og:image is missing. Here is a stdlib-only Python fix",
+      "excerpt": "When you paste a link to your product, docs page or side project into Slack, Discord, X or LinkedIn, the platform builds a preview card from your page's Open Graph tags. If og:image is missing or poin…",
+      "body": "When you paste a link to your product, docs page or side project into Slack, Discord, X or LinkedIn, the platform builds a preview card from your page's Open Graph tags. If og:image is missing or points at a generic platform default, the preview is a grey box or a stock logo. That hurts clicks, and you usually don't notice because you never see your own link the way other people do. This post covers three things: A 10-second check for whether your pages have this problem A PNG generator in pure Python (standard library only: no Pillow, no ImageMagick) that makes a 1280x720 cover image How to wire the image into your page 1. Check your og:image in 10 seconds curl -s https://your-site.example/page | grep -io '&lt;meta[^&gt;]*og:image[^&gt;]*&gt;' Three things can come back: Nothing.",
+      "author": "rene",
+      "date": "2026-09-26",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Python"
+      ],
+      "featured": true,
+      "xpReward": 40,
+      "url": "https://dev.to/renev3408/your-link-previews-are-blank-because-ogimage-is-missing-here-is-a-stdlib-only-python-fix-o1e",
+      "image": "/images/feed/feed-6775b65745a4.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-f6e87e90a2db",
+      "title": "Let's test dark mode and reduced motion",
+      "excerpt": "Originally published on anton.qa. A browser can report dark mode while the page stays white. Let's build a check that catches it, then deliberately break the page. This walkthrough uses Playwright, a…",
+      "body": "Originally published on anton.qa . A browser can report dark mode while the page stays white. Checking the setting alone would miss that broken page. Let's build a check that catches it, then deliberately break the page. We will do the same for reduced motion, a request for less movement. This walkthrough uses Playwright, a browser testing tool, and a small practice page. The complete project includes the correct page, two broken versions and three tests. The result we want The practice page has a card and an animated notice. Its styling rules should respond to two browser preferences: Dark mode: use the expected dark background, light text and lighter border. Reduced motion: make the notice's visual change immediate. These are requirements for this example.",
+      "author": "Anton Gulin",
       "date": "2026-09-26",
       "readTime": "2 min",
       "section": "software",
@@ -52,75 +71,94 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 46,
-      "url": "https://dev.to/ufebri/validate-readable-source-ids-in-content-pipelines-206h",
-      "image": "/images/feed/feed-c8be3ca1c4a3.png",
+      "xpReward": 50,
+      "url": "https://dev.to/aiwithanton/lets-test-dark-mode-and-reduced-motion-532p",
+      "image": "/images/feed/feed-f6e87e90a2db.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-7318b9027b0f",
-      "title": "Has Apache Iceberg Really Solved Vendor Lock-in? Some Thoughts",
-      "excerpt": "Original Japanese article: Icebergは本当にベンダーロックインを解消したのか考えてみた I'm Aki, an AWS Community Builder (@jitepengin). With the spread of Apache Iceberg, I hear more and more that data platforms have become mor…",
-      "body": "Original Japanese article : Icebergは本当にベンダーロックインを解消したのか考えてみた Introduction I'm Aki, an AWS Community Builder ( @jitepengin ). With the spread of Apache Iceberg, I hear more and more that data platforms have become more open. \"Iceberg is an open format, so you can avoid vendor lock-in\" is an explanation I see often, and one I've given myself. Working with data platforms built on AWS, as well as Databricks, Snowflake, and Microsoft Fabric, I've found plenty of situations where that explanation holds true. But I started wondering how far it really goes, so this time I want to sort out which kinds of lock-in Iceberg has solved, and which it hasn't. To give the conclusion up front: what Iceberg achieved is data portability .",
-      "author": "Aki",
+      "id": "feed-e0145db21479",
+      "title": "26 years ago, 'Buffy the Vampire Slayer's Worst Season Premiere Redefined a Legendary Villain",
+      "excerpt": "A campy, yet subversive episode that's worth revisiting.",
+      "body": "Ever since, Dracula has evolved into an enduring figure, often treated as the final boss in most vampiric tier lists. Dracula has appeared in everything from Nosferatu (1922) to Blade (1998). He typically symbolizes a grand threat that must be defeated before it's too late.",
+      "author": "Debopriyaa Dutta",
       "date": "2026-09-26",
       "readTime": "2 min",
-      "section": "software",
+      "section": "gaming",
       "tags": [
-        "Software"
+        "Gaming"
       ],
       "featured": true,
-      "xpReward": 54,
-      "url": "https://dev.to/aws-builders/has-apache-iceberg-really-solved-vendor-lock-in-some-thoughts-527c",
-      "image": "/images/feed/feed-7318b9027b0f.webp",
-      "source": "Dev.to",
+      "xpReward": 49,
+      "url": "https://www.polygon.com/buffy-the-vampire-slayer-season-five-premiere-retrospective/",
+      "image": "/images/feed/feed-e0145db21479.jpg",
+      "source": "Polygon",
       "isLive": true
     },
     {
-      "id": "feed-8c9cc08d91e9",
-      "title": "Migrating from WindTerm to VsTerm — one SSH session for shell, files, and a few ops checks",
-      "excerpt": "I used WindTerm for a long time. It is fine at the shell. My friction was everything around the shell: open SFTP in another window, rz/sz in a third habit, then jump to a browser when a host “feels wr…",
-      "body": "I used WindTerm for a long time. It is fine at the shell. My friction was everything around the shell: open SFTP in another window, rz / sz in a third habit, then jump to a browser when a host “feels wrong” on the network path. That context switch cost more than the actual work. So I moved my daily SSH into VsTerm — a native Rust SSH terminal (not Electron) where the session, transfers, and a few ops panels stay attached. What I kept the same Hosts, keys, and the muscle memory of a tabbed terminal Importing an existing setup instead of retyping everything What changed in practice Import WindTerm hosts into VsTerm instead of rebuilding the tree by hand. Stay in one SSH session for shell + bottom SFTP / elevated SFTP / ZMODEM ( rz / sz ) with visible progress.",
-      "author": "Vesa Zheng",
+      "id": "feed-6706831edeae",
+      "title": "Get better audio quality from your vinyl by upgrading this part",
+      "excerpt": "Swapping out your turntable's stylus is an easy upgrade.",
+      "body": "Swapping out your turntable's stylus is an easy upgrade.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "staff@engadget.com (Alec Hively)",
       "date": "2026-09-26",
       "readTime": "2 min",
-      "section": "software",
+      "section": "gadgets",
       "tags": [
-        "Software"
+        "Gadgets"
       ],
       "featured": true,
       "xpReward": 52,
-      "url": "https://dev.to/vesaa/migrating-from-windterm-to-vsterm-one-ssh-session-for-shell-files-and-a-few-ops-checks-5f",
-      "image": "/images/feed/feed-8c9cc08d91e9.webp",
+      "url": "https://www.engadget.com/2265869/vinyl-better-audio-quality-best-upgrade/",
+      "image": "/images/feed/feed-6706831edeae.jpg",
+      "source": "Engadget",
+      "isLive": true
+    },
+    {
+      "id": "feed-2eaf88b96e0c",
+      "title": "Three timestamp bugs worth catching before they reach your API",
+      "excerpt": "A timestamp can be a perfectly valid number and still produce the wrong date. The useful questions are: what unit does it use, how is it displayed, and what precision must survive the conversion? Here…",
+      "body": "A timestamp can be a perfectly valid number and still produce the wrong date. The useful questions are: what unit does it use, how is it displayed, and what precision must survive the conversion? Here are three small checks you can reproduce in JavaScript. The examples use Date because it is common in existing API integrations. 1. Passing Unix seconds to a millisecond constructor Start with this value: const unixSeconds = 1711972800 ; console . log ( new Date ( unixSeconds ). toISOString ()); // 1970-01-20T19:32:52.800Z console . log ( new Date ( unixSeconds * 1000 ). toISOString ()); // 2024-04-01T12:00:00.000Z JavaScript's numeric Date constructor expects milliseconds. Both calls produce valid dates, so an Invalid Date check alone will not catch the first mistake.",
+      "author": "Timestampinfo",
+      "date": "2026-09-26",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Api"
+      ],
+      "featured": false,
+      "xpReward": 43,
+      "url": "https://dev.to/timestampinfo/three-timestamp-bugs-worth-catching-before-they-reach-your-api-53m5",
+      "image": "/images/feed/feed-2eaf88b96e0c.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-4b2241d9a081",
-      "title": "Building Local-First AI Apps: What Changes When the Data Stays on the Device",
-      "excerpt": "Building Local-First AI Apps: What Changes When the Data Stays on the Device AI applications are usually designed around a cloud-first architecture: App → API → Server → Database → AI Model It is simp…",
-      "body": "Building Local-First AI Apps: What Changes When the Data Stays on the Device AI applications are usually designed around a cloud-first architecture: App → API → Server → Database → AI Model It is simple to start with, but it also creates dependencies on internet connectivity, server costs, latency, privacy, and recurring infrastructure. A different approach is becoming increasingly interesting: App → Local Storage → Local AI / On-Device Processing This is the idea behind local-first AI . Instead of treating the device as a thin client, we can make it the primary computing and storage environment. What Is a Local-First AI App? A local-first AI application tries to keep as much of the user's work as possible on their device. For example, imagine a notes application with AI features.",
-      "author": "Sanskar",
+      "id": "feed-838bc314298d",
+      "title": "A Roman Name for Software",
+      "excerpt": "",
+      "body": "This report, published by Hacker News, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Software. As the situation continues to evolve, professionals and enthusiasts in the software development and engineering field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Hacker News using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "dimonomid",
       "date": "2026-09-26",
       "readTime": "2 min",
       "section": "software",
       "tags": [
         "Software"
       ],
-      "featured": true,
-      "xpReward": 41,
-      "url": "https://dev.to/sanskarin/building-local-first-ai-apps-what-changes-when-the-data-stays-on-the-device-15mi",
-      "image": "/images/feed/feed-4b2241d9a081.webp",
-      "source": "Dev.to",
+      "featured": false,
+      "xpReward": 35,
+      "url": "https://marcosmagueta.com/blog/a-roman-name-for-software/",
+      "image": "/images/topics/topic-software.png",
+      "source": "Hacker News",
       "isLive": true
     },
     {
-      "id": "feed-1a2a2d302642",
-      "title": "Kiteworks Tells Customers to Go Dark for 9 Hours on a Federal Tip",
-      "excerpt": "TL;DR what: Kiteworks asked customers to shut down their systems for nine hours this weekend after federal intelligence authorities warned that a threat actor may target some Kiteworks systems. impact…",
-      "body": "TL;DR what: Kiteworks asked customers to shut down their systems for nine hours this weekend after federal intelligence authorities warned that a threat actor may target some Kiteworks systems. impact: No compromise has been confirmed, but customers lose their secure file transfer service for the whole window, and the company has not named the agency, the actor, or the attack vector. fix: Follow the shutdown window in the Kiteworks customer email and upgrade to release 9.5.1, which Kiteworks says addresses all known vulnerabilities. who: Organizations running Kiteworks systems; Kiteworks says its subsidiaries Zivver, DRACOON, totemo, ownCloud, WAMNET, Maytech, Bonfy.ai, and 123FormBuilder are not affected.",
-      "author": "Etairos.ai",
+      "id": "feed-0f5b2bf4d164",
+      "title": "How to Come Up With the Raft Consensus Algorithm Yourself",
+      "excerpt": "If someone asks you to explain Raft, you might hear a list of terms like: Leader election Terms RequestVote AppendEntries Log replication Commit index Quorum nextIndex matchIndex It can feel like a lo…",
+      "body": "If someone asks you to explain Raft, you might hear a list of terms like: Leader election Terms RequestVote AppendEntries Log replication Commit index Quorum nextIndex matchIndex It can feel like a lot of unrelated rules. But what if we didn't start with Raft? What if we started with a problem and tried to design the system ourselves? That's what we're going to do. We will start with three completely ordinary servers and gradually add rules whenever something breaks. By the end, we'll discover that we've recreated most of Raft's core ideas.",
+      "author": "Vishal Shukla",
       "date": "2026-09-26",
       "readTime": "2 min",
       "section": "software",
@@ -129,9 +167,85 @@
       ],
       "featured": false,
       "xpReward": 42,
-      "url": "https://dev.to/etairos/kiteworks-tells-customers-to-go-dark-for-9-hours-on-a-federal-tip-1o2o",
-      "image": "/images/feed/feed-1a2a2d302642.webp",
+      "url": "https://dev.to/vishaaxl/how-to-come-up-with-the-raft-consensus-algorithm-yourself-22f3",
+      "image": "/images/feed/feed-0f5b2bf4d164.webp",
       "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-65bf36eb5f51",
+      "title": "Spider-Man Star Tom Holland's Next Film Adds Sabrina Carpenter To Its Cast",
+      "excerpt": "Spider-Man actor Tom Holland, Sabrina Carpenter, and Margaret Qualley will star in a Fred Astaire biopic from the director of Paddington and Wonka",
+      "body": "Following the record-breaking success of Spider-Man: Brand New Day and The Odyssey , Tom Holland is preparing to star in his next film, a biopic about Fred Astaire. Now, we've learned that he will co-star alongside Sabrina Carpenter and Margaret Qualley in that movie.",
+      "author": "Tomas Franzese",
+      "date": "2026-09-26",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 49,
+      "url": "https://www.polygon.com/tom-holland-sabrina-carpenter-fred-astaire-movie/",
+      "image": "/images/feed/feed-65bf36eb5f51.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-ff5686306f73",
+      "title": "Magic: The Gathering Meets D&D-Style Dice Battles in the Best New TCG at PAX West 2026",
+      "excerpt": "The 1990s are back, or at least its war between TCGs is",
+      "body": "2026 has been, in several crucial ways, an HD remake of the late '90s and early 2000s. My old boot-cut jeans are inexplicably back in fashion, live-action Spider-Man and Resident Evil movies are hitting theaters, no one will shut up about Wolverine , and the last nerd convention I went to hosted a direct battle between several competing collectible card games.",
+      "author": "Thomas Hindmarch",
+      "date": "2026-09-26",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 46,
+      "url": "https://www.polygon.com/world-of-kylia-ascendant-tcg-pax-west-2026-impressions-review/",
+      "image": "/images/feed/feed-ff5686306f73.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-4d6d3881d0ab",
+      "title": "Is your Roku TV talking to you? Here's why and how to turn it off",
+      "excerpt": "Relax, that voice you're hearing from your Roku is pretty easy to turn off.",
+      "body": "Relax, that voice you're hearing from your Roku is pretty easy to turn off.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "staff@engadget.com (Giancarlo Valdes)",
+      "date": "2026-09-26",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 32,
+      "url": "https://www.engadget.com/2265732/why-roku-tv-talking-to-you-how-turn-off/",
+      "image": "/images/feed/feed-4d6d3881d0ab.jpg",
+      "source": "Engadget",
+      "isLive": true
+    },
+    {
+      "id": "feed-3c32ba838ab9",
+      "title": "GitHub Actions re-enabled with Mini Shai-Hulud payload still active",
+      "excerpt": "Two third-party GitHub Actions previously compromised in a Mini Shai-Hulud campaign were re-enabled by their maintainer and remained accessible for more than a week despite still pointing to malicious…",
+      "body": "Two third-party GitHub Actions previously compromised in a Mini Shai-Hulud campaign were re-enabled by their maintainer and remained accessible for more than a week despite still pointing to malicious — a development drawing significant attention in the cybersecurity and digital privacy space.\n\nThis report, published by BleepingComputer, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cybersecurity. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to BleepingComputer using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Bill Toulas",
+      "date": "2026-09-26",
+      "readTime": "2 min",
+      "section": "cybersecurity",
+      "tags": [
+        "Cybersecurity"
+      ],
+      "featured": false,
+      "xpReward": 40,
+      "url": "https://www.bleepingcomputer.com/news/security/github-actions-re-enabled-with-mini-shai-hulud-payload-still-active/",
+      "image": "/images/feed/feed-3c32ba838ab9.jpg",
+      "source": "BleepingComputer",
       "isLive": true
     },
     {
@@ -147,7 +261,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 54,
       "url": "https://cleantechnica.com/2026/09/26/publish-your-book-through-cleantechnica-press/",
       "image": "/images/feed/feed-428c0f5920a0.jpg",
       "source": "CleanTechnica",
@@ -167,7 +281,7 @@
         "Game"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 32,
       "url": "https://www.polygon.com/control-resonant-lore-logs/",
       "image": "https://static0.polygonimages.com/wordpress/wp-content/uploads/2026/09/ctrl_r_launch_4k_media_02.png",
       "source": "Polygon",
@@ -187,7 +301,7 @@
         "Apple Watch"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 33,
       "url": "https://www.engadget.com/2265684/app-to-use-apple-watch-with-android-phone/",
       "image": "/images/feed/feed-31197ab73116.jpg",
       "source": "Engadget",
@@ -206,7 +320,7 @@
         "Iphone"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 34,
       "url": "https://9to5mac.com/2026/09/26/these-are-my-favorite-iphone-18-pro-pro-max-cases-so-far-video/",
       "image": "/images/feed/feed-6914492a57c3.jpg",
       "source": "9to5Mac",
@@ -225,7 +339,7 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 50,
       "url": "https://cleantechnica.com/2026/09/26/tesla-full-self-driving-unsupervised-soon-and-further-conversations-with-ara-the-grok-ai-bot/",
       "image": "/images/feed/feed-6b86dcbb8f07.jpg",
       "source": "CleanTechnica",
@@ -244,7 +358,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 32,
       "url": "https://www.engadget.com/2265327/how-to-check-samsung-galaxy-phone-health-diagnostics-test/",
       "image": "/images/feed/feed-41b018e896ac.jpg",
       "source": "Engadget",
@@ -263,7 +377,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 42,
       "url": "https://cleantechnica.com/2026/09/26/nissan-releases-pixo-for-europe/",
       "image": "/images/feed/feed-f1bf809bdf46.jpg",
       "source": "CleanTechnica",
@@ -282,7 +396,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 33,
       "url": "https://www.polygon.com/wolverine-turn-off-scent-trails/",
       "image": "/images/feed/feed-89f3c97f0846.jpg",
       "source": "Polygon",
@@ -301,7 +415,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 45,
       "url": "https://www.engadget.com/2265682/does-gaming-console-orientation-matter-vertical-vs-horizontal/",
       "image": "/images/feed/feed-f8222ea33ff8.jpg",
       "source": "Engadget",
@@ -320,7 +434,7 @@
         "Llm"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 44,
       "url": "https://www.lasso.security/blog/the-provenance-tax-understanding-the-impact-of-llm-watermarking-on-ai-agent-behavior",
       "image": "/images/feed/feed-5d4941ce9bdd.png",
       "source": "Hacker News",
@@ -339,7 +453,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 39,
       "url": "https://www.polygon.com/forgotten-island-anime-references-director-interview/",
       "image": "/images/feed/feed-e1e7cf985a66.jpg",
       "source": "Polygon",
@@ -358,29 +472,10 @@
         "Iphone"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 50,
       "url": "https://www.engadget.com/2265555/iphone-always-on-display-one-problem-simple-fix/",
       "image": "/images/feed/feed-416e085cf404.jpg",
       "source": "Engadget",
-      "isLive": true
-    },
-    {
-      "id": "feed-f0aab86db206",
-      "title": "Apple @ Work: The enterprise needs to kill the SSO tax, and it’s an opportunity for Apple",
-      "excerpt": "Apple @ Work is exclusively brought to you by Mosyle, the only Apple Unified Platform. Mosyle is the only solution that integrates in a single professional grade platform all the solutions necessary t…",
-      "body": "Apple @ Work is exclusively brought to you by Mosyle , the only Apple Unified Platform. Mosyle is the only solution that integrates in a single professional grade platform all the solutions necessary to seamlessly and automatically deploy, manage, and protect Apple devices at work. Over 45,000 organizations trust Mosyle to make millions of Apple devices work ready with no effort and at an affordable cost. Request your EXTENDED TRIAL today and understand why Mosyle is everything you need to work with Apple . The SSO tax might be the most backward pricing model in enterprise software. Single sign-on should be required for sign-up, yet SaaS vendors routinely lock it behind their most expensive tiers. It should be the opposite. You should have to pay more not to have SSO.",
-      "author": "Bradley C",
-      "date": "2026-09-26",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 36,
-      "url": "https://9to5mac.com/2026/09/26/apple-work-the-enterprise-needs-to-kill-the-sso-tax-and-its-an-opportunity-for-apple/",
-      "image": "/images/feed/feed-f0aab86db206.jpg",
-      "source": "9to5Mac",
       "isLive": true
     },
     {
@@ -396,7 +491,7 @@
         "Game"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 33,
       "url": "https://www.theverge.com/games/1000818/control-resonant-reading-collectibles-documents-logs",
       "image": "/images/feed/feed-719eb6890ad8.jpg",
       "source": "The Verge",
@@ -415,7 +510,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 31,
       "url": "https://insideevs.com/news/809604/catl-lfp-prismatic-cell-age-test/",
       "image": "/images/feed/feed-f81478124b0a.jpg",
       "source": "InsideEVs",
@@ -434,29 +529,10 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 44,
       "url": "https://electrek.co/2026/09/26/renault-8-gordini-reborn-as-270-hp-electric-rally-retromobile/",
       "image": "/images/feed/feed-1c1cd2f18831.jpg",
       "source": "Electrek",
-      "isLive": true
-    },
-    {
-      "id": "feed-74e34f7e8d8a",
-      "title": "Improve your Windows 11 experience by changing these settings",
-      "excerpt": "Windows 11 is solid out of the box, but it doesn't always get things right. You can get a lot more out of the OS when you enable some things and disable others.",
-      "body": "Windows 11 is solid out of the box, but it doesn't always get things right. You can get a lot more out of the OS when you enable some things and disable others.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Ben Stegner)",
-      "date": "2026-09-26",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 33,
-      "url": "https://www.engadget.com/2265283/improve-windows-11-experience-change-these-settings/",
-      "image": "/images/feed/feed-74e34f7e8d8a.jpg",
-      "source": "Engadget",
       "isLive": true
     },
     {
@@ -472,7 +548,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 36,
       "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/openais-ai-agents-accidentally-uploaded-user-provided-images-to-third-party-sites/",
       "image": "/images/feed/feed-8e6dbe36e7e7.jpg",
       "source": "BleepingComputer",
@@ -491,48 +567,10 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 45,
       "url": "https://cleantechnica.com/2026/09/26/op-ed-how-america-is-ceding-the-clean-tech-century-to-china/",
       "image": "/images/feed/feed-73e28f640fcf.jpg",
       "source": "CleanTechnica",
-      "isLive": true
-    },
-    {
-      "id": "feed-0d5c5595c450",
-      "title": "World of Warcraft Forever's Plan to Bring 'Classic Plus' to New and Old Players",
-      "excerpt": "Blizzard reveals how World of Warcraft Forever will cater to 'Classic Plus' fans and newcomers who are jumping in 22 years later.",
-      "body": "World of Warcraft Forever is WoW in a time bubble, without the creep of major expansions and changes that have altered the beloved MMO over the past two decades. Forever will have new content — zones, quests, dungeons, and a new playable race — plus quality-of-life improvements that make the game distinct from the original World of Warcraft . But the developers behind the latest version of Blizzard's MMO are thinking very strategically about how to preserve what was great about WoW in its earliest years. They want to keep players curious, surprise them, and let them play World of Warcraft at their own (leisurely) pace.",
-      "author": "Michael McWhertor",
-      "date": "2026-09-26",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 47,
-      "url": "https://www.polygon.com/world-of-warcraft-forever-interview-blizzcon-2026-blizzard/",
-      "image": "/images/feed/feed-0d5c5595c450.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-01736131eee7",
-      "title": "Nintendo Should Make More Games About People",
-      "excerpt": "Switch 2 exclusive Fire Emblem: Fortune's Weave has more messy humanity, sex, and romance than most Nintendo games",
-      "body": "Switch 2 exclusive Fire Emblem: Fortune's Weave has more messy humanity, sex, and romance than most Nintendo games\n\nThis report, published by Polygon, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Nintendo. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Polygon using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Oli Welsh",
-      "date": "2026-09-26",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Nintendo"
-      ],
-      "featured": false,
-      "xpReward": 44,
-      "url": "https://www.polygon.com/switchboard-fire-emblem-fortunes-weave/",
-      "image": "https://static0.polygonimages.com/wordpress/wp-content/uploads/2026/09/fire-emblem-fortunes-weave-cast.png",
-      "source": "Polygon",
       "isLive": true
     },
     {
@@ -548,29 +586,48 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 46,
       "url": "https://electrek.co/2026/09/26/juna-puts-more-than-100-scania-electric-semi-trucks-to-work/",
       "image": "/images/feed/feed-c0b29d3808f9.jpg",
       "source": "Electrek",
       "isLive": true
     },
     {
-      "id": "feed-83e0bf0b5858",
-      "title": "Overwatch Seasonal Hero Releases 'The Right Thing for the Game,' Blizzard Says",
-      "excerpt": "Blizzard confirms that Overwatch will get new seasonal hero releases ahead of Overwatch Spotlight 2027 and the release of new hero Doctrine.",
-      "body": "2026 has been a big year for Overwatch . In addition to a yearlong power-struggle narrative arc running throughout the revitalized hero shooter, Blizzard Entertainment will make good on plans to release a whopping 10 heroes for Overwatch this year. That's a massive difference from the game's previous cadence, which averaged around three heroes per year. And while the 10th anniversary for Overwatch was something of an anomaly, Blizzard says it plans to stick with seasonal hero releases.",
-      "author": "Michael McWhertor",
+      "id": "feed-52bc0f63fece",
+      "title": "Attackers Bypass WAFs to Exploit Oracle PeopleSoft Flaw and Deploy Web Shells",
+      "excerpt": "Google is warning of renewed mass exploitation of a known security vulnerability in Oracle PeopleSoft as part of a campaign targeting multiple sectors globally. The ShinyHunters-linked activity involv…",
+      "body": "Google is warning of renewed mass exploitation of a known security vulnerability in Oracle PeopleSoft as part of a campaign targeting multiple sectors globally. The ShinyHunters-linked activity involves the weaponization of CVE-2026-35273 (CVSS score: 9.8), a critical security flaw that could result in unauthenticated remote code execution. The vulnerability was first exploited as a zero-day",
+      "author": "info@thehackernews.com (The Hacker News)",
       "date": "2026-09-26",
       "readTime": "2 min",
-      "section": "gaming",
+      "section": "cybersecurity",
       "tags": [
-        "Game"
+        "Exploit"
       ],
       "featured": false,
-      "xpReward": 34,
-      "url": "https://www.polygon.com/overwatch-2027-new-heroes-every-season/",
-      "image": "/images/feed/feed-83e0bf0b5858.jpg",
-      "source": "Polygon",
+      "xpReward": 50,
+      "url": "https://thehackernews.com/2026/09/attackers-bypass-wafs-to-exploit-oracle.html",
+      "image": "/images/feed/feed-52bc0f63fece.jpg",
+      "source": "The Hacker News",
+      "isLive": true
+    },
+    {
+      "id": "feed-3618d6c1d166",
+      "title": "Zero Trust for AI Agents Starts With Fixing Zero Visibility",
+      "excerpt": "The way we talk about AI agents is shifting, and the way we implement them requires an even more fundamental shift. While earlier discourse focused on how quickly organizations could stand up agents a…",
+      "body": "The way we talk about AI agents is shifting, and the way we implement them requires an even more fundamental shift. While earlier discourse focused on how quickly organizations could stand up agents and how much productivity they could promise, a string of recent incidents, including a widely discussed intrusion at Hugging Face during an evaluation of OpenAI agents, has spurred organizations to",
+      "author": "info@thehackernews.com (The Hacker News)",
+      "date": "2026-09-26",
+      "readTime": "2 min",
+      "section": "cybersecurity",
+      "tags": [
+        "Cybersecurity"
+      ],
+      "featured": false,
+      "xpReward": 31,
+      "url": "https://thehackernews.com/2026/09/zero-trust-for-ai-agents-starts-with.html",
+      "image": "/images/feed/feed-3618d6c1d166.jpg",
+      "source": "The Hacker News",
       "isLive": true
     },
     {
@@ -586,7 +643,7 @@
         "Copilot"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 43,
       "url": "https://www.windowscentral.com/microsoft/windows-11/the-copilot-pc-brand-is-dead-microsoft-and-pc-makers-quietly-pull-back-on-tarnished-windows-11-ai-pc-branding",
       "image": "/images/feed/feed-e9ce6988929d.jpg",
       "source": "Hacker News",
@@ -605,7 +662,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 35,
       "url": "https://thehackernews.com/2026/09/elementor-csrf-flaw-lets-attackers-take.html",
       "image": "/images/feed/feed-40ca30546fb3.jpg",
       "source": "The Hacker News",
@@ -624,7 +681,7 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 44,
       "url": "https://thehackernews.com/2026/09/sharepoint-rce-and-mikrotik-routeros.html",
       "image": "/images/feed/feed-9715c431c607.jpg",
       "source": "The Hacker News",
@@ -643,10 +700,29 @@
         "Cyber Attack"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 45,
       "url": "https://thehackernews.com/2026/09/kiteworks-urges-customers-to-shut-down.html",
       "image": "/images/feed/feed-6bb1fe42e183.jpg",
       "source": "The Hacker News",
+      "isLive": true
+    },
+    {
+      "id": "feed-e48dc538a8d3",
+      "title": "APOD: 2026 September 26 – Mirrored Meteor and Milky Way",
+      "excerpt": "APOD Science APOD APOD: 2026 September 26 –… Today’s APOD Archive Submissions Index Search Calendar RSS Education About Discuss APOD Astronomy Picture of the Day Discover the cosmos! Each day a differ…",
+      "body": "APOD Science APOD APOD: 2026 September 26 –… Today’s APOD Archive Submissions Index Search Calendar RSS Education About Discuss APOD Astronomy Picture of the Day Discover the cosmos! Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer. Mirrored Meteor and Milky Way Explanation: On August 15, this perseid meteor streaked through night skies over the Observatorio del Roque de los Muchachos at La Palma, Canary Islands, Spain. The bright and colorful meteor trail was captured next to the central Milky Way, whose dark interstellar dust clouds and luminous starlight reach above the horizon.",
+      "author": "NASA Breaking News",
+      "date": "2026-09-26",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Space"
+      ],
+      "featured": false,
+      "xpReward": 38,
+      "url": "https://science.nasa.gov/image-article/apod-2026-september-26-mirrored-meteor-and-milky-way/",
+      "image": "/images/feed/feed-e48dc538a8d3.jpg",
+      "source": "NASA Breaking News",
       "isLive": true
     },
     {
@@ -662,48 +738,29 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 39,
       "url": "https://techcrunch.com/2026/09/25/unsecured-openai-agents-posted-53-user-images-on-the-internet-without-the-labs-knowledge/",
       "image": "/images/feed/feed-9550a58b2b1b.jpg",
       "source": "TechCrunch",
       "isLive": true
     },
     {
-      "id": "feed-9a3c108ea3f4",
-      "title": "U.S. Soldier Gets 70 Months in Prison for AT&T, Verizon Extortions",
-      "excerpt": "A U.S. Army soldier who pleaded guilty to hacking into multiple telecommunications companies and stealing mobile call and text metadata for more than 100 million AT&T customers in 2024 was sentenced t…",
-      "body": "A U.S. Army soldier who pleaded guilty to hacking into multiple telecommunications companies and stealing mobile call and text metadata for more than 100 million AT&amp;T customers in 2024 was sentenced to 70 months in federal prison today and ordered to pay nearly $300,000 in restitution to victims. One of several selfies from the Facebook page of Cameron Wagenius. Cameron John Wagenius , 22, was stationed at a U.S. Army base in South Korea when he adopted the cybercriminal persona &#8220; Kiberphant0m .&#8221; Working with three alleged co-conspirators, Kiberphant0m downloaded data from several large customers of the cloud data storage service Snowflake that had exposed credentials and did not enforce multi-factor authentication (Snowflake has since mandated MFA on all accounts).",
-      "author": "BrianKrebs",
+      "id": "feed-44ca3ccd60f7",
+      "title": "NASA, Boeing to Provide Update on Starliner Development",
+      "excerpt": "During a news conference at 3 p.m. EDT on Monday, Sept. 28, NASA and Boeing leadership will discuss Starliner’s development and plans for regular crew flights to and from the International Space Stati…",
+      "body": "Boeing&#8217;s Starliner spacecraft that launched NASA&#8217;s Crew Flight Test astronauts Butch Wilmore and Suni Williams to the International Space Station is pictured docked to the Harmony module&#8217;s forward port. Credit: NASA During a news conference at 3 p.m. EDT on Monday, Sept. 28, NASA and Boeing leadership will discuss Starliner’s development and plans for regular crew flights to and from the International Space Station.",
+      "author": "Lauren E. Low",
       "date": "2026-09-25",
       "readTime": "2 min",
-      "section": "cybersecurity",
+      "section": "space",
       "tags": [
-        "Cybersecurity"
+        "Nasa"
       ],
       "featured": false,
-      "xpReward": 48,
-      "url": "https://krebsonsecurity.com/2026/09/u-s-soldier-gets-70-months-in-prison-for-att-verizon-extortions/",
-      "image": "/images/topics/topic-cybersecurity.png",
-      "source": "Krebs on Security",
-      "isLive": true
-    },
-    {
-      "id": "feed-f60b9ca9b62d",
-      "title": "Kiteworks urges 6-hour server shutdown over potential zero-day attacks",
-      "excerpt": "Secure file-sharing software company Kiteworks is urging customers worldwide to temporarily shut down their servers on Saturday for a six-hour window after receiving threat intelligence warning of a p…",
-      "body": "Secure file-sharing software company Kiteworks is urging customers worldwide to temporarily shut down their servers on Saturday for a six-hour window after receiving threat intelligence warning of a p — a development drawing significant attention in the cybersecurity and digital privacy space.\n\nThis report, published by BleepingComputer, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Zero-day. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to BleepingComputer using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Lawrence Abrams",
-      "date": "2026-09-25",
-      "readTime": "2 min",
-      "section": "cybersecurity",
-      "tags": [
-        "Zero-day"
-      ],
-      "featured": false,
-      "xpReward": 43,
-      "url": "https://www.bleepingcomputer.com/news/security/kiteworks-urges-6-hour-server-shutdown-over-potential-zero-day-attacks/",
-      "image": "/images/feed/feed-f60b9ca9b62d.jpg",
-      "source": "BleepingComputer",
+      "xpReward": 32,
+      "url": "https://www.nasa.gov/news-release/nasa-boeing-to-provide-update-on-starliner-development/",
+      "image": "/images/feed/feed-44ca3ccd60f7.jpg",
+      "source": "NASA Breaking News",
       "isLive": true
     },
     {
@@ -719,29 +776,49 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 40,
       "url": "https://swarmtraces.org/",
       "image": "/images/feed/feed-58caad8d7264.jpg",
       "source": "Hacker News",
       "isLive": true
     },
     {
-      "id": "feed-aebbf454a9b7",
-      "title": "ShinyHunters hacked Clop leak site using Grav CMS path traversal flaw",
-      "excerpt": "The Clop ransomware gang has moved its data leak site to a new Tor address after confirming its previous server was compromised and defaced through an unpatched Grav CMS flaw that BleepingComputer has…",
-      "body": "The Clop ransomware gang has moved its data leak site to a new Tor address after confirming its previous server was compromised and defaced through an unpatched Grav CMS flaw that BleepingComputer has — a development drawing significant attention in the cybersecurity and digital privacy space.\n\nThis report, published by BleepingComputer, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cybersecurity. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to BleepingComputer using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Lawrence Abrams",
+      "id": "feed-09bb646849b5",
+      "title": "NASA Welcomes San Marino Signing the Artemis Accords",
+      "excerpt": "The Republic of San Marino became the 76th signatory to the Artemis Accords during a ceremony in the city of Rimini on Friday with NASA and U.S. Department of State officials present. “San Marino join…",
+      "body": "Minister of Industry and Technological Research Rossano Fabbri signed on behalf of San Marino. Gregory Mann, NASA Europe representative, and U.S. Consul General in Florence Joseph Tordella participated in the event on Friday, Sept. 25, 2026. Credit: U.S. Department of State The Republic of San Marino became the 76th signatory to the Artemis Accords during a ceremony in the city of Rimini on Friday with NASA and U.S. Department of State officials present. “San Marino joins a growing coalition of like-minded nations committed to the peaceful, transparent, and responsible exploration of space,” said NASA Deputy Administrator Matt Anderson. “President Trump has directed NASA to build a Moon Base and establish an enduring presence on the lunar surface.",
+      "author": "Elizabeth Shaw",
       "date": "2026-09-25",
       "readTime": "2 min",
-      "section": "cybersecurity",
+      "section": "space",
       "tags": [
-        "Cybersecurity"
+        "Artemis",
+        "Nasa"
       ],
       "featured": false,
-      "xpReward": 34,
-      "url": "https://www.bleepingcomputer.com/news/security/shinyhunters-hacked-clop-leak-site-using-grav-cms-path-traversal-flaw/",
-      "image": "/images/feed/feed-aebbf454a9b7.jpg",
-      "source": "BleepingComputer",
+      "xpReward": 36,
+      "url": "https://www.nasa.gov/organizations/oiir/nasa-welcomes-san-marino-signing-the-artemis-accords/",
+      "image": "/images/feed/feed-09bb646849b5.jpg",
+      "source": "NASA Breaking News",
+      "isLive": true
+    },
+    {
+      "id": "feed-fcc0f09fe98f",
+      "title": "NASA Tests Dual Mode Propulsion CubeSat Ahead of Launch",
+      "excerpt": "Spacecraft propulsion traditionally relies on volatile fuels and separate, bulky systems for different types of maneuvering in space. NASA is working to change that paradigm. Engineers at NASA’s Marsh…",
+      "body": "Spacecraft propulsion traditionally relies on volatile fuels and separate, bulky systems for different types of maneuvering in space. NASA is working to change that paradigm. Engineers at NASA’s Marshall Space Flight Center in Huntsville, Alabama, recently completed a rigorous series of environmental and physical tests on a new small satellite designed to make spaceflight safer and more efficient. The ASCENT (Advanced Spacecraft Energetic Non-Toxic) Propulsion Dual Mode mission is a flight demonstration of a spacecraft about the size of a large shoebox. The mission will test a single, integrated propulsion system that uses a common fuel tank to feed two different types of engines. Dr.",
+      "author": "Lee Mohon",
+      "date": "2026-09-25",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Nasa"
+      ],
+      "featured": false,
+      "xpReward": 36,
+      "url": "https://www.nasa.gov/directorates/rtmd/nasa-tests-dual-mode-propulsion-cubesat-ahead-of-launch/",
+      "image": "/images/feed/feed-fcc0f09fe98f.jpg",
+      "source": "NASA Breaking News",
       "isLive": true
     },
     {
@@ -757,7 +834,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 41,
       "url": "https://techcrunch.com/2026/09/25/anthropic-to-pay-akamai-11-6-billion-over-seven-years-in-cloud-deal/",
       "image": "/images/feed/feed-4b9cd4f252fe.jpg",
       "source": "TechCrunch",
@@ -776,7 +853,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 30,
       "url": "https://openai.com/index/proaction",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "OpenAI Blog",
@@ -795,141 +872,81 @@
         "Gemini"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 39,
       "url": "https://www.cnet.com/tech/services-and-software/geminis-live-avatar-puts-a-face-on-its-ai-agent-its-freaking-me-out/",
       "image": "/images/feed/feed-e10249235c70.png",
       "source": "CNET",
       "isLive": true
     },
     {
-      "id": "feed-19e03bef1138",
-      "title": "An Imminent Google Satellite Test Is Another Step Toward Data Centers in Space",
-      "excerpt": "Google is testing to see if its AI computing equipment can handle being launched into orbit.",
-      "body": "Google is testing to see if its AI computing equipment can handle being launched into orbit.\n\nThis report, published by CNET, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Satellite, Space. As the situation continues to evolve, professionals and enthusiasts in the space exploration and astronomy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to CNET using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Omar Gallaga",
+      "id": "feed-5e6a9bdf73f7",
+      "title": "2026-2027 DWU: Middle School Design Challenge",
+      "excerpt": "2026-2027 DWU: Middle School Design Challenge Overview The 2026-2027 challenge theme is, “Fueling Flight Design Challenge: New Energy Systems.” As more and more aircraft are a part of the US’ National…",
+      "body": "10 min read Preparations for Next Moonwalk Simulations Underway (and Underwater) 2026-2027 DWU: Middle School Design Challenge Overview The 2026-2027 challenge theme is, “Fueling Flight Design Challenge: New Energy Systems.”&nbsp; As more and more aircraft are a part of the US’ National Airspace System (NAS), NASA and partners at the FAA, at universities, and in the aviation industry are searching for ways to increase safety, make flight more affordable, find new fuels for aircraft, and reduce the amount of time passengers and cargo spend in the air.",
+      "author": "Lillian Gipson",
       "date": "2026-09-25",
       "readTime": "2 min",
       "section": "space",
       "tags": [
-        "Satellite",
         "Space"
       ],
       "featured": false,
-      "xpReward": 34,
-      "url": "https://www.cnet.com/tech/services-and-software/google-satellite-space-data-center/",
-      "image": "/images/feed/feed-19e03bef1138.jpg",
-      "source": "CNET",
+      "xpReward": 35,
+      "url": "https://www.nasa.gov/aeronautics/aeronautics-stem/2026-2027-dwu-middle-school-design-challenge/",
+      "image": "/images/feed/feed-5e6a9bdf73f7.jpg",
+      "source": "NASA Breaking News",
       "isLive": true
     },
     {
-      "id": "feed-d74c95f2181b",
-      "title": "SpaceX Starship's first orbital flight test on track after successful launch rehearsal",
-      "excerpt": "SpaceX has completed a wet dress rehearsal for Starship, in preparation for its first orbital test flight.",
-      "body": "SpaceX has completed a wet dress rehearsal for Starship, in preparation for its first orbital test flight.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Spacex, Starship, Orbit. As the situation continues to evolve, professionals and enthusiasts in the space exploration and astronomy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Mariella Moon)",
+      "id": "feed-69c9abcd6799",
+      "title": "2026-2027 DWU: High School Engineering Challenge",
+      "excerpt": "2026-2027 DWU: High School Engineering Challenge Challenge Materials Overview The 2026-2027 challenge theme is, “Fueling Flight Design Challenge: New Energy Systems.” As more and more aircraft are a p…",
+      "body": "9 min read Preparations for Next Moonwalk Simulations Underway (and Underwater) 2026-2027 DWU: High School Engineering Challenge Challenge Materials Engineering Notebook Template Scoring Rubric Overview The 2026-2027 challenge theme is, “Fueling Flight Design Challenge: New Energy Systems.” As more and more aircraft are a part of the US’ National Airspace System (NAS), NASA and partners at the FAA,&nbsp;at universities, and in the aviation industry are searching for ways to increase safety, make flight more affordable,&nbsp;find new fuels for aircraft, and reduce the amount of time passengers and cargo spend in the air.",
+      "author": "Lillian Gipson",
       "date": "2026-09-25",
       "readTime": "2 min",
       "section": "space",
       "tags": [
-        "Spacex",
-        "Starship",
-        "Orbit"
+        "Space"
+      ],
+      "featured": false,
+      "xpReward": 37,
+      "url": "https://www.nasa.gov/aeronautics/aeronautics-stem/2026-2027-dwu-high-school-engineering-challenge/",
+      "image": "/images/feed/feed-69c9abcd6799.jpg",
+      "source": "NASA Breaking News",
+      "isLive": true
+    },
+    {
+      "id": "feed-8030f2e384db",
+      "title": "Hubble Spots Chaotic Secret in Galaxy",
+      "excerpt": "A chaotic secret hides within this seemingly serene image of spiral galaxy NGC 4698 taken by NASA’s Hubble Space Telescope and released on Sept. 18, 2026. As a spiral galaxy like our own Milky Way gal…",
+      "body": "ESA/Hubble &amp; NASA, D. Thilker, the MAUVE-HST Team A chaotic secret hides within this seemingly serene image of spiral galaxy NGC 4698 taken by NASA&#8217;s Hubble Space Telescope and released on Sept. 18, 2026. As a spiral galaxy like our own Milky Way galaxy, NGC 4698 has spiral arms that curl around within a thin disk of stars, gas, and dust. These arms are marked by opaque clumps of brown dust and dotted with small collections of bright blue stars. Unlike many other spiral galaxies, NGC 4698’s delicate spiral arms are only prominent in the outer reaches of the disk; spiral arms often wind down to the very center of a galaxy, but NGC 4698’s spiral arms appear to shy away from its glowing center. The arms instead hover in a ring-like structure around the perimeter of the galaxy.",
+      "author": "HQ Web Team",
+      "date": "2026-09-25",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Space"
       ],
       "featured": false,
       "xpReward": 43,
-      "url": "https://www.engadget.com/2268608/spacex-starship-first-orbit-flight-set-for-september-28/",
-      "image": "/images/feed/feed-d74c95f2181b.jpg",
-      "source": "Engadget",
-      "isLive": true
-    },
-    {
-      "id": "feed-6b543f332fe9",
-      "title": "True or false on space industry trends with Pacôme Révillon",
-      "excerpt": "In this episode, SpaceNews’ Mike Gruss and Novaspace CEO Pacôme Révillon look at what to expect from the space industry in the next year by playing a game of true […] The post True or false on space i…",
-      "body": "In this episode, SpaceNews’ Mike Gruss and Novaspace CEO Pacôme Révillon look at what to expect from the space industry in the next year by playing a game of true […] The post True or false on space i — a development drawing significant attention in the space exploration and astronomy space.\n\nThis report, published by SpaceNews, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Space. As the situation continues to evolve, professionals and enthusiasts in the space exploration and astronomy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to SpaceNews using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "SpaceNews Editor",
-      "date": "2026-09-24",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Space"
-      ],
-      "featured": false,
-      "xpReward": 40,
-      "url": "https://spacenews.com/true-or-false-on-space-industry-trends-with-pacome-revillon/",
-      "image": "/images/feed/feed-6b543f332fe9.jpg",
-      "source": "SpaceNews",
-      "isLive": true
-    },
-    {
-      "id": "feed-3de7b560119c",
-      "title": "Moog Completes ISO Class 8 Clean Room at Niagara Falls Facility to Expand Thruster Production",
-      "excerpt": "East Aurora, NY — Moog Inc. (NYSE: MOG.A and MOG.B) announced the completion and commissioning of a new ISO Class 8 certified clean room at its Niagara Falls facility. This […] The post Moog Completes…",
-      "body": "East Aurora, NY &#8212; Moog Inc. (NYSE: MOG.A and MOG.B) announced the completion and commissioning of a new ISO Class 8 certified clean room at its Niagara Falls facility. This [&#8230;] The post Moog Completes ISO Class 8 Clean Room at Niagara Falls Facility to Expand Thruster Production appeared first on SpaceNews .",
-      "author": "Moog Inc.",
-      "date": "2026-09-24",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Space"
-      ],
-      "featured": false,
-      "xpReward": 33,
-      "url": "https://spacenews.com/moog-completes-iso-class-8-clean-room-at-niagara-falls-facility-to-expand-thruster-production/",
-      "image": "/images/feed/feed-3de7b560119c.png",
-      "source": "SpaceNews",
-      "isLive": true
-    },
-    {
-      "id": "feed-810c17a95023",
-      "title": "Ethereal Space Awarded NOAA SBEM Task Order 1",
-      "excerpt": "DENVER, Colorado – September 2026 – Ethereal Space, Inc. today announced that it has been awarded Task Order 1 under NOAA’s ProTech 2.0 Space-Based Environmental Monitoring (SBEM) program, following N…",
-      "body": "DENVER, Colorado &#8211; September 2026 &#8211; Ethereal Space, Inc. today announced that it has been awarded Task Order 1 under NOAA’s ProTech 2.0 Space-Based Environmental Monitoring (SBEM) program, following NOAA’s [&#8230;] The post Ethereal Space Awarded NOAA SBEM Task Order 1 appeared first on SpaceNews .",
-      "author": "Ethereal Space, Inc.",
-      "date": "2026-09-23",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Space"
-      ],
-      "featured": false,
-      "xpReward": 44,
-      "url": "https://spacenews.com/ethereal-space-awarded-noaa-sbem-task-order-1/",
-      "image": "/images/feed/feed-810c17a95023.png",
-      "source": "SpaceNews",
-      "isLive": true
-    },
-    {
-      "id": "feed-df54f483f987",
-      "title": "Commercial Space Federation (CSF) Welcomes Two New Members",
-      "excerpt": "September 21, 2026— Washington, D.C.—The Commercial Space Federation (CSF) is pleased to welcome ORBITInsure and Renaissance Strategic Advisors (RSA) as its newest members. ORBITInsure joins CSF as a…",
-      "body": "September 21, 2026— Washington, D.C.—The Commercial Space Federation (CSF) is pleased to welcome ORBITInsure and Renaissance Strategic Advisors (RSA) as its newest members. ORBITInsure joins CSF as a Space Supply [&#8230;] The post Commercial Space Federation (CSF) Welcomes Two New Members appeared first on SpaceNews .",
-      "author": "Commercial Space Federation",
-      "date": "2026-09-21",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Space"
-      ],
-      "featured": false,
-      "xpReward": 38,
-      "url": "https://spacenews.com/commercial-space-federation-csf-welcomes-two-new-members/",
-      "image": "/images/feed/feed-df54f483f987.jpg",
-      "source": "SpaceNews",
+      "url": "https://www.nasa.gov/image-article/hubble-spots-chaotic-secret-in-galaxy/",
+      "image": "https://www.nasa.gov/wp-content/uploads/2026/09/55534741297-34e5a9d414-o.jpg",
+      "source": "NASA Breaking News",
       "isLive": true
     }
   ],
   "breakingNews": [
-    "DEV.TO: I Built Tic-Tac-Toe the Old Way — Before Coding Agents",
-    "DEV.TO: TCP Isn't Reliable Because It's Magic. It's Reliable Because It Never Trusts the Network.",
-    "DEV.TO: Validate Readable Source IDs in Content Pipelines",
-    "DEV.TO: Has Apache Iceberg Really Solved Vendor Lock-in? Some Thoughts",
-    "DEV.TO: Migrating from WindTerm to VsTerm — one SSH session for shell, files, and a few ops checks",
-    "DEV.TO: Building Local-First AI Apps: What Changes When the Data Stays on the Device",
-    "DEV.TO: Kiteworks Tells Customers to Go Dark for 9 Hours on a Federal Tip",
-    "CLEANTECHNICA: Publish Your Book Through CleanTechnica Press",
-    "POLYGON: Control Resonant Violates the Number One Commandment of Video Game Lore",
-    "ENGADGET: This app lets you use an Apple Watch with an Android phone"
+    "DEV.TO: Claude Code said \"Done.\" My tests said otherwise. Here's the 20-line fix.",
+    "DEV.TO: AI Cloned My Voice From a 3-Second Video. Here Is What My Parent Almost Did With It.",
+    "DEV.TO: Your link previews are blank because og:image is missing. Here is a stdlib-only Python fix",
+    "DEV.TO: Let's test dark mode and reduced motion",
+    "POLYGON: 26 years ago, 'Buffy the Vampire Slayer's Worst Season Premiere Redefined a Legendary Villain",
+    "ENGADGET: Get better audio quality from your vinyl by upgrading this part",
+    "DEV.TO: Three timestamp bugs worth catching before they reach your API",
+    "HACKER NEWS: A Roman Name for Software",
+    "DEV.TO: How to Come Up With the Raft Consensus Algorithm Yourself",
+    "POLYGON: Spider-Man Star Tom Holland's Next Film Adds Sabrina Carpenter To Its Cast"
   ],
   "sectionVideos": {}
 }
