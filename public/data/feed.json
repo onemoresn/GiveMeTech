@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-09-26T10:12:47.404Z",
+  "fetchedAt": "2026-09-26T11:11:45.691Z",
   "articles": [
     {
-      "id": "feed-a6fe15426a14",
-      "title": "Sticky Routing That Never Expires Isn't Sticky It's Permanent",
-      "excerpt": "Session affinity is a simple idea: route a client to the same backend node it used The failure mode isn't in the assignment logic. It's in what happens after the A routing layer assigns each client to…",
-      "body": "Session affinity is a simple idea: route a client to the same backend node it used last time, so state that lives on that node (a cache, a connection, an in-memory session) doesn't have to move. Assign once, store the assignment, reuse it on every subsequent request. It's a standard pattern, and on its own it's fine. The failure mode isn't in the assignment logic. It's in what happens after the assignment specifically, in never asking the question \"when does this stop being true?\" The setup A routing layer assigns each client to a specific backend instance and persists that assignment in a table a row per client, pointing at a node.",
-      "author": "Haripriya Veluchamy",
+      "id": "feed-1a2ad5c14c9a",
+      "title": "5,000+ inserts/sec: Thread-safe connection pooling and WAL mode",
+      "excerpt": "Think SQLite can't handle high concurrency? Think again. With Write-Ahead Logging (WAL) and wsqlite's thread-safe connection pool, you can achieve over 5,000 inserts per second with zero locked databa…",
+      "body": "Think SQLite can't handle high concurrency? Think again. With Write-Ahead Logging (WAL) and wsqlite's thread-safe connection pool, you can achieve over 5,000 inserts per second with zero locked database errors. Here is how you use ConnectionPool &amp; Write-Ahead Logging (WAL) in production with wsqlite : from pydantic import BaseModel from wsqlite import WSQLite class LogEntry ( BaseModel ): id : int message : str # Configured with thread-safe connection pooling db = WSQLite ( LogEntry , \" events.db \" , pool_size = 20 , min_pool_size = 4 , use_pool = True ) # Ready for high-concurrency multi-threaded workers db . insert ( LogEntry ( id = 1 , message = \" System initialized \" )) Why developers love wsqlite: Define database tables using standard Pydantic v2 models.",
+      "author": "William Rodriguez",
       "date": "2026-09-26",
       "readTime": "2 min",
       "section": "software",
@@ -14,37 +14,56 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 38,
-      "url": "https://dev.to/techwithhari/sticky-routing-that-never-expires-isnt-sticky-its-permanent-1lgd",
-      "image": "/images/feed/feed-a6fe15426a14.webp",
+      "xpReward": 35,
+      "url": "https://dev.to/william_rodriguez_65a5898/5000-insertssec-thread-safe-connection-pooling-and-wal-mode-3ch2",
+      "image": "/images/feed/feed-1a2ad5c14c9a.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-0544a965c8ca",
-      "title": "Shopify to GA4 without GTM: native events plus a server-side Measurement Protocol fallback",
-      "excerpt": "If you run a Shopify store, the GA4 setup question usually gets answered with \"install Google Tag Manager.\" You don't need it. Shopify's Google & YouTube sales channel emits the whole GA4 ecommerce ev…",
-      "body": "If you run a Shopify store, the GA4 setup question usually gets answered with \"install Google Tag Manager.\" You don't need it. Shopify's Google &amp; YouTube sales channel emits the whole GA4 ecommerce event set natively, and it takes about five minutes. The part nobody covers is what happens after: your GA4 purchase count drifts below your Shopify order count and stays there. That gap is browser-side event loss — ITP, ad blockers, iOS — and no amount of tag configuration fixes it, because the event never leaves the client. The fix is a server-side purchase event hitting GA4's Measurement Protocol from a webhook. This walks through both layers.",
-      "author": "Luke Sandelands",
+      "id": "feed-e6640f7d5825",
+      "title": "Enviar un frame (no un byte) es una decisión de API. WKafka lo resuelve con format=\"image\"",
+      "excerpt": "Kafka entrega bytes. No le importa si son un contrato, una foto de gato o un frame de satélite. Para un equipo que transmite datos de visión, \"bytes crudos\" significa que cada consumidor reimplementa…",
+      "body": "Kafka entrega bytes. No le importa si son un contrato, una foto de gato o un frame de satélite. Para un equipo que transmite datos de visión, \"bytes crudos\" significa que cada consumidor reimplementa decoding, adivinanza de shape y manejo de canales. La respuesta de WKafka es un contrato que la librería hace cumplir: las imágenes son un mensaje de primera clase. Día 03 de la serie open-source de WKafka — basado en decoradores, MIT, reproducible. Qué significa \"imagen\" como formato El productor envía un array de NumPy, no un blob: import numpy as np import cv2 frame = np . zeros (( 480 , 640 , 3 ), dtype = np . uint8 ) # lienzo BGR cv2 . circle ( frame , ( 320 , 240 ), 100 , ( 0 , 0 , 255 ), - 1 ) with kafka . producer () as p : p .",
+      "author": "William Rodriguez",
       "date": "2026-09-26",
       "readTime": "2 min",
       "section": "software",
       "tags": [
-        "Software"
+        "Api"
       ],
       "featured": true,
-      "xpReward": 40,
-      "url": "https://dev.to/stack_architect/shopify-to-ga4-without-gtm-native-events-plus-a-server-side-measurement-protocol-fallback-2g25",
-      "image": "/images/feed/feed-0544a965c8ca.webp",
+      "xpReward": 34,
+      "url": "https://dev.to/william_rodriguez_65a5898/enviar-un-frame-no-un-byte-es-una-decision-de-api-wkafka-lo-resuelve-con-formatimage-531f",
+      "image": "/images/feed/feed-e6640f7d5825.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-5cf456531e4c",
-      "title": "I turned my AI into a Senior Python Educator for self-taught devs, Here’s the open SKILL.md template",
-      "excerpt": "Boot camps cost £5,000+. College CS degrees cost even more. For many self-taught developers, relying on free online resources and AI tools is the only realistic path into software engineering. However…",
-      "body": "Boot camps cost £5,000+. College CS degrees cost even more. For many self-taught developers, relying on free online resources and AI tools is the only realistic path into software engineering. However, default AI models make terrible teachers . When you ask standard ChatGPT, Claude, or Lumo \"How do I do X in Python?\", they hand you a complete, copy-pasteable solution instantly. It feels satisfying, but it bypasses the most critical phase of learning: struggle, active recall, and problem-solving. I wanted an AI that acts less like an automated Stack Overflow and more like an authentic, patient Senior Software Engineer and CS Professor . Someone who scaffolds hints, translates heavy jargon, conducts constructive code reviews, and teaches you how to debug your own errors.",
-      "author": "Carl Henderson",
+      "id": "feed-4b957ee5f1c3",
+      "title": "Sending a frame (not a byte) is a Kafka API choice. WKafka makes it format=\"image\"",
+      "excerpt": "Kafka delivers bytes. It does not care if they are a contract, a cat photo or a satellite frame. For a team that streams vision data, \"raw bytes\" means every consumer re-implements decoding, shape-gue…",
+      "body": "Kafka delivers bytes. It does not care if they are a contract, a cat photo or a satellite frame. For a team that streams vision data, \"raw bytes\" means every consumer re-implements decoding, shape-guessing and channel-order handling. WKafka's answer is a contract the library enforces: images are a first-class message. Day 03 of the WKafka open-source series — decorator-based, MIT, reproducible. What \"image\" means as a format Producer sends a NumPy array, not a blob: import numpy as np import cv2 frame = np . zeros (( 480 , 640 , 3 ), dtype = np . uint8 ) # BGR canvas cv2 . circle ( frame , ( 320 , 240 ), 100 , ( 0 , 0 , 255 ), - 1 ) with kafka . producer () as p : p .",
+      "author": "William Rodriguez",
+      "date": "2026-09-26",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Api"
+      ],
+      "featured": true,
+      "xpReward": 36,
+      "url": "https://dev.to/william_rodriguez_65a5898/sending-a-frame-not-a-byte-is-a-kafka-api-choice-wkafka-makes-it-formatimage-4pmn",
+      "image": "/images/feed/feed-4b957ee5f1c3.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-dca0eefb9ca8",
+      "title": "Ingestión confiable de eventos en Python: Redis Streams y Consumer Groups con WRedis",
+      "excerpt": "Cuando tu aplicación supera las capacidades de Redis Pub/Sub tradicional, requieres persistencia en disco, control de offsets por consumidor y distribución horizontal de carga sin la complejidad de de…",
+      "body": "Cuando tu aplicación supera las capacidades de Redis Pub/Sub tradicional, requieres persistencia en disco, control de offsets por consumidor y distribución horizontal de carga sin la complejidad de desplegar un broker pesado. WRedis v1.0.0 LTS implementa abstracciones declarativas para Redis Streams ( XADD , XREADGROUP ) con decoradores automáticos para grupos de consumidores y parada limpia ante señales del sistema. Este es el Día 03 de la serie técnica WRedis Open Source (MIT, Python 3.10+, 95%+ test coverage). ¿Por qué elegir Redis Streams frente a Pub/Sub? Historial Persistente: Los eventos se almacenan en el log de Redis y no se pierden si un worker se reinicia. Consumer Groups: Balanceo automático del procesamiento entre múltiples instancias sin duplicar mensajes.",
+      "author": "William Rodriguez",
       "date": "2026-09-26",
       "readTime": "2 min",
       "section": "software",
@@ -52,48 +71,220 @@
         "Python"
       ],
       "featured": true,
-      "xpReward": 53,
-      "url": "https://dev.to/henderson01/i-turned-my-ai-into-a-senior-python-educator-for-self-taught-devs-heres-the-open-skillmd-template-1d20",
-      "image": "/images/feed/feed-5cf456531e4c.webp",
+      "xpReward": 42,
+      "url": "https://dev.to/william_rodriguez_65a5898/ingestion-confiable-de-eventos-en-python-redis-streams-y-consumer-groups-con-wredis-19f4",
+      "image": "/images/feed/feed-dca0eefb9ca8.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-74c31370365a",
-      "title": "Understanding Subqueries and CTE's",
-      "excerpt": "Introduction Imagine you are a data analyst working for a retail company. Your manager asks you to identify customers who spend more than the average customer, employees earning above their department…",
-      "body": "Introduction Imagine you are a data analyst working for a retail company. Your manager asks you to identify customers who spend more than the average customer, employees earning above their department's average salary, or products generating the highest revenue. You already know how to retrieve data using SELECT, filter records using WHERE, and combine tables using JOIN. However, some business questions require you to perform multiple calculations before arriving at the final answer. For example, how would you identify employees earning above the company's average salary without knowing the average salary beforehand? You would first need to calculate the average salary and then use that result to identify employees whose salaries exceed it.",
-      "author": "Gideon Kiprono",
+      "id": "feed-68a90a1fe582",
+      "title": "Reliable Event Ingestion in Python: Redis Streams and Consumer Groups with WRedis",
+      "excerpt": "When your application outgrows fire-and-forget Redis Pub/Sub, you need message persistence, consumer offsets, and distributed worker balancing without spinning up a heavy broker. WRedis v1.0.0 LTS pro…",
+      "body": "When your application outgrows fire-and-forget Redis Pub/Sub, you need message persistence, consumer offsets, and distributed worker balancing without spinning up a heavy broker. WRedis v1.0.0 LTS provides first-class primitives for Redis Streams ( XADD , XREADGROUP ) with declarative consumer decorators, automatic group creation, and clean shutdown handling. This is Day 03 of the WRedis Open-Source Technical Series (MIT, Python 3.10+, 95%+ test coverage). Why Redis Streams Over Pub/Sub? Persistent History: Messages are logged to disk rather than dropped if a worker is momentarily offline. Consumer Groups: Workloads are balanced across multiple worker processes without double processing.",
+      "author": "William Rodriguez",
       "date": "2026-09-26",
       "readTime": "2 min",
       "section": "software",
       "tags": [
-        "Software"
+        "Python"
       ],
       "featured": true,
+      "xpReward": 37,
+      "url": "https://dev.to/william_rodriguez_65a5898/reliable-event-ingestion-in-python-redis-streams-and-consumer-groups-with-wredis-290n",
+      "image": "/images/feed/feed-68a90a1fe582.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-3b208164afb6",
+      "title": "Pipelines tolerantes a fallos en Python: Reanudación con Checkpoints SQLite",
+      "excerpt": "¿Qué ocurre cuando tu pipeline de datos en Python falla en el paso 19 de 20 por un timeout de red o una desconexión inesperada? En scripts lineales sin persistencia, debes reiniciar desde cero, duplic…",
+      "body": "¿Qué ocurre cuando tu pipeline de datos en Python falla en el paso 19 de 20 por un timeout de red o una desconexión inesperada? En scripts lineales sin persistencia, debes reiniciar desde cero, duplicando costes de cómputo y generando efectos secundarios no deseados. WPipe v2.2.0 introduce Checkpoints Inteligentes sobre SQLite (Modo WAL) para garantizar cero pérdida de datos y reanudación automática paso a paso. Este es el Día 03 de la serie técnica WPipe Open Source (MIT, Python 3.9–3.14). Los Problemas Reales en Pipelines Convencionales Ejecución Todo o Nada: Un error al final del pipeline descarta todo el cómputo intermedio. Fallos por Serialización Pickle: Las referencias circulares o conexiones abiertas rompen el guardado de estado clásico.",
+      "author": "William Rodriguez",
+      "date": "2026-09-26",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Python"
+      ],
+      "featured": true,
+      "xpReward": 49,
+      "url": "https://dev.to/william_rodriguez_65a5898/pipelines-tolerantes-a-fallos-en-python-reanudacion-con-checkpoints-sqlite-6e0",
+      "image": "/images/feed/feed-3b208164afb6.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-cdf806aadc0c",
+      "title": "Fault-Tolerant Python Pipelines: Resuming Execution with SQLite Checkpoints",
+      "excerpt": "What happens when your Python data pipeline crashes at step 19 out of 20 due to an unhandled network timeout or pod preemption? In naive scripts, you re-run from scratch, burning compute and duplicati…",
+      "body": "What happens when your Python data pipeline crashes at step 19 out of 20 due to an unhandled network timeout or pod preemption? In naive scripts, you re-run from scratch, burning compute and duplicating side-effects. WPipe v2.2.0 introduces Smart SQLite Checkpoints (WAL mode) to guarantee zero data loss and automated step-level resume. This is Day 03 of the WPipe Open-Source Engineering Series (MIT, Python 3.9–3.14). The Problem with Naive Workflows All-or-Nothing Execution: Crashing near completion discards all intermediate state. Circular Reference Failures: Standard pickling crashes when pipeline contexts contain complex object graphs. Heavy Infrastructure Overhead: Pulling in heavyweight orchestrators just to get persistent checkpoints overcomplicates deployments.",
+      "author": "William Rodriguez",
+      "date": "2026-09-26",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Python"
+      ],
+      "featured": false,
+      "xpReward": 36,
+      "url": "https://dev.to/william_rodriguez_65a5898/fault-tolerant-python-pipelines-resuming-execution-with-sqlite-checkpoints-5552",
+      "image": "/images/feed/feed-cdf806aadc0c.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-ac2db59a9d7e",
+      "title": "9 excellent iOS apps I wish would come to Android (but probably never will)",
+      "excerpt": "I can keep dreaming.",
+      "body": "Credit: Ryan Haines / Android Authority There was a time when the best apps and games were mostly exclusive to the iPhone and iPad family, but that has been less true over the last few years. Nowadays, many of the most popular games and apps end up on Android, even if they often appear much later than on iOS. Unfortunately, many apps have held off on adding Android support for so long that it is pretty much guaranteed they will never make the move. Below are some of the best iOS apps out there, and ones I would highly recommend if only they would come to Android. While most on this list likely never will, let’s look at nine apps that I wish would come to Google Play.",
+      "author": "Andrew Grush",
+      "date": "2026-09-26",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 36,
+      "url": "https://www.androidauthority.com/ios-apps-i-want-on-android-2026-3713705/",
+      "image": "/images/feed/feed-ac2db59a9d7e.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-8286cc2f1143",
+      "title": "3 Perfect Calvin and Hobbes Stories From the 1980S That Prove Bill Watterson Is a Genius",
+      "excerpt": "The best spaceships are red wagons and cardboard boxes",
+      "body": "One of the most interesting parts of any long-running newspaper comic is often its first few years. The first entries in any new comic strip are often significantly different from what they’d later become, especially if they're given time in which to evolve. The jokes are rougher, different characters cycle in and out of the spotlight, and the cartoonist hasn’t quite finalized their art style yet.",
+      "author": "Thomas Hindmarch",
+      "date": "2026-09-26",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 48,
+      "url": "https://www.polygon.com/calvin-hobbes-best-80s-stories/",
+      "image": "/images/feed/feed-8286cc2f1143.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-8c64fda8dc63",
+      "title": "Bentley Goes Electric As China's EV Charging War Gets Ridiculous",
+      "excerpt": "On this week's Plugged-In Podcast, we talk Bentley Torcal, Geely's 2.2-megawatt charger, and more.",
+      "body": "On this week's Plugged-In Podcast, we talk Bentley Torcal, Geely's 2.2-megawatt charger, and more.\n\nThis report, published by InsideEVs, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Ev Charging, Ev. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to InsideEVs using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "InsideEVs",
+      "date": "2026-09-26",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Ev Charging",
+        "Ev"
+      ],
+      "featured": false,
       "xpReward": 40,
-      "url": "https://dev.to/gideon_kiprono_bfdedde010/understanding-subqueries-and-ctes-120m",
-      "image": "/images/feed/feed-74c31370365a.webp",
-      "source": "Dev.to",
+      "url": "https://insideevs.com/features/809673/bentley-torcal-geely-ev-charging-ceer-exobot-podcast/",
+      "image": "/images/feed/feed-8c64fda8dc63.jpg",
+      "source": "InsideEVs",
       "isLive": true
     },
     {
-      "id": "feed-e6f0db3d39e5",
-      "title": "I Almost Built a Startup This Week. The Evidence Said No — In One Afternoon.",
-      "excerpt": "title: \"I Almost Built a Startup This Week. The Evidence Said No — In One Afternoon.\" I nearly threw the next six months of my nights and weekends at a startup idea I was genuinely excited about. Hot…",
-      "body": "title: \"I Almost Built a Startup This Week. The Evidence Said No — In One Afternoon.\" published: true description: \"I found a hot market, a funded competitor, and a technical edge. Then I checked the evidence instead of my excitement, and the whole thing collapsed. Here's the checklist that saved me six months.\" tags: discuss, startup, career, ai I nearly threw the next six months of my nights and weekends at a startup idea I was genuinely excited about. Hot market. A funded competitor proving people cared. A technical angle they didn't have. Every signal a builder waits for, all lit up at once. I didn't build it. And the only reason is that I made myself answer four questions with evidence before I let myself open an editor.",
-      "author": "Rudratosh Shastri",
+      "id": "feed-942efa9e2fd4",
+      "title": "Nissan Taps China JV To Power Philippine EV Push",
+      "excerpt": "With Plug-In Navara And Primera EV MANILA — Nissan Philippines is anchoring its upcoming electrified vehicle lineup on products developed in China, turning to its joint venture with Dongfeng Motor to…",
+      "body": "With Plug-In Navara And Primera EV MANILA — Nissan Philippines is anchoring its upcoming electrified vehicle lineup on products developed in China, turning to its joint venture with Dongfeng Motor to bring the Navara Pro Plug-in Hybrid pickup and Primera EV sedan to the local market on Nov. 6. The ... [continued] The post Nissan Taps China JV To Power Philippine EV Push appeared first on CleanTechnica .",
+      "author": "Raymond Tribdino",
       "date": "2026-09-26",
       "readTime": "2 min",
-      "section": "software",
+      "section": "cars",
       "tags": [
-        "Startup"
+        "Ev"
       ],
-      "featured": true,
-      "xpReward": 52,
-      "url": "https://dev.to/rudratosh/i-almost-built-a-startup-this-week-the-evidence-said-no-in-one-afternoon-2jd0",
-      "image": "/images/feed/feed-e6f0db3d39e5.webp",
-      "source": "Dev.to",
+      "featured": false,
+      "xpReward": 31,
+      "url": "https://cleantechnica.com/2026/09/26/nissan-taps-china-jv-to-power-philippine-ev-push/",
+      "image": "/images/feed/feed-942efa9e2fd4.jpg",
+      "source": "CleanTechnica",
+      "isLive": true
+    },
+    {
+      "id": "feed-3f7891044e34",
+      "title": "The Motorola Signature 27 has one huge advantage over other Samsung rivals",
+      "excerpt": "It's time for a new challenger.",
+      "body": "I couldn’t contain my excitement when I heard that Motorola plans to bring its Signature 27 phone to the US. For the last few years, Motorola has teased a return with a traditional slab flagship, but each time it turned out to be an overseas release. Thankfully, Motorola seems serious this time, and the phone is shaping up to be a true flagship. It’ll run on the new (wonderfully named) Snapdragon 8 Elite Extreme Gen 6 chipset, with a premium camera system and excellent sound. We don’t know many details about the phone yet, but I do know it has a legitimate shot at success in the US.",
+      "author": "Stephen Radochia",
+      "date": "2026-09-26",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 34,
+      "url": "https://www.androidauthority.com/motorola-signature-27-advantage-over-other-samsung-rivals-3714695/",
+      "image": "/images/feed/feed-3f7891044e34.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-893d1b1134ff",
+      "title": "Meta’s Muse Is Adults-Only. Why Does It Look Like a Kids’ Toy?",
+      "excerpt": "Meta says Muse is just for adults, though its cuddly, Labubu-like mascot—and upcoming Tamagotchi-style AI device—may be disarming for users of all ages.",
+      "body": "Meta says Muse is just for adults, though its cuddly, Labubu-like mascot—and upcoming Tamagotchi-style AI device—may be disarming for users of all ages.\n\nThis report, published by Wired, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Wired using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Reece Rogers",
+      "date": "2026-09-26",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 48,
+      "url": "https://www.wired.com/story/meta-muse-is-adults-only-why-does-it-look-like-a-cute-kids-toy/",
+      "image": "https://media.wired.com/photos/6ab6a33ebc7793cf754905a1/master/pass/GettyImages-2296209094.jpg",
+      "source": "Wired",
+      "isLive": true
+    },
+    {
+      "id": "feed-becfd9c553f9",
+      "title": "The Galaxy Z Fold 8 is exactly what I’ve wanted in a foldable, but I’m more excited for the Z Fold 9",
+      "excerpt": "The Galaxy Z Fold 8 is easily the closest I've come to pulling the trigger on a foldable. But I still can't do it.",
+      "body": "Samsung launched three foldable phones at its Unpacked event in July, but the Galaxy Z Fold 8 caught my eye and commanded my attention at the company’s pre-briefing. The new foldable differed from the Galaxy Z Fold 8 Ultra and previous Galaxy Folds thanks to its short yet wide form factor. It’s not the first wide foldable phone on the market, as Google, OPPO, and HUAWEI have all offered them before. But Samsung’s is clearly the most popular one running Android, and it comes just as Apple is getting in on the scene, too, with its first-ever foldable and the Galaxy Fold’s de facto biggest rival, the iPhone Duo . I came extremely close to pre-ordering the Z Fold 8, but couldn’t bring myself to hit the checkout button.",
+      "author": "Hadlee Simons",
+      "date": "2026-09-26",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Foldable"
+      ],
+      "featured": false,
+      "xpReward": 48,
+      "url": "https://www.androidauthority.com/samsung-galaxy-z-fold-8-review-3708629/",
+      "image": "/images/feed/feed-becfd9c553f9.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-ae33413b5919",
+      "title": "'Star Wars' Meets 'Firefly' in this 10/10 Sci-Fi Series That's Free on Streaming Right Now",
+      "excerpt": "The original guardians of the galaxy",
+      "body": "Each generation has a science fiction show that captures its imagination, and has an impact even when it's off the air. Fans of Stargate SG-1 were probably devastated when the planned reboot skidded to a halt . Some people probably still binge-watch Fringe or Battlestar Galactica . Yet there's one sci-fi show that might have flown under the radar, despite featuring a unique story and a compelling cast of characters. Said series is now available to stream on Tubi, and sci-fi fans owe it to themselves to check it out.",
+      "author": "Collier Jennings",
+      "date": "2026-09-26",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 51,
+      "url": "https://www.polygon.com/farscape-tubi-free-to-watch-sci-fi-series/",
+      "image": "/images/feed/feed-ae33413b5919.jpg",
+      "source": "Polygon",
       "isLive": true
     },
     {
@@ -108,30 +299,11 @@
       "tags": [
         "Android Phone"
       ],
-      "featured": true,
-      "xpReward": 53,
+      "featured": false,
+      "xpReward": 38,
       "url": "https://www.androidauthority.com/pixel-11-pro-favorite-feature-face-unlock-why-3713749/",
       "image": "/images/feed/feed-1f47c74ccaca.jpg",
       "source": "Android Authority",
-      "isLive": true
-    },
-    {
-      "id": "feed-8e18373f4760",
-      "title": "One Key for Every PBX: The Issabel Framework Hardcoded JWT Flaw (CVE-2026-89026)",
-      "excerpt": "One Key for Every PBX: The Issabel Framework Hardcoded JWT Flaw (CVE-2026-89026) Issabel Framework, an open-source unified communications platform built around Asterisk, shipped with a single HS256 si…",
-      "body": "One Key for Every PBX: The Issabel Framework Hardcoded JWT Flaw (CVE-2026-89026) Issabel Framework, an open-source unified communications platform built around Asterisk, shipped with a single HS256 signing key hardcoded in its pbxapi component. Because every deployment used the same value, an attacker who learned it could mint a valid bearer token for any installation. The vulnerability is tracked as CVE-2026-89026, carries a CVSS base score of 9.8, and was fixed in commit b97dbaf. Shadowserver reported its first exploitation evidence on 9 September 2026. Public proof-of-concept code exists. How the token becomes a command The pbxapi layer validates JSON Web Tokens signed with that shared secret.",
-      "author": "OnaEiuspkz",
-      "date": "2026-09-26",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Framework"
-      ],
-      "featured": false,
-      "xpReward": 50,
-      "url": "https://dev.to/onaeiuspkz/one-key-for-every-pbx-the-issabel-framework-hardcoded-jwt-flaw-cve-2026-89026-3bii",
-      "image": "/images/feed/feed-8e18373f4760.webp",
-      "source": "Dev.to",
       "isLive": true
     },
     {
@@ -147,29 +319,10 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 31,
       "url": "https://www.polygon.com/classic-sci-fi-perfect-start-finish/",
       "image": "/images/feed/feed-f9e7d093a0b4.jpg",
       "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-1f75f118cdcc",
-      "title": "Building a Multi-Agent Valet Trash Command Center: Supabase Edge Functions, VAPI, and PostgreSQL at Scale",
-      "excerpt": "OPENING PARAGRAPH: We built a production command center for Quiet Hours Valet that orchestrates 8 concurrent AI voice agents, 8 automation scenarios, and real-time customer management across a vertica…",
-      "body": "OPENING PARAGRAPH: We built a production command center for Quiet Hours Valet that orchestrates 8 concurrent AI voice agents, 8 automation scenarios, and real-time customer management across a vertically integrated real estate and services empire—all on Supabase, VAPI, and self-hosted infrastructure. This article breaks down the architecture: a 5-page Next.js frontend, 8-table Postgres schema for scheduling and routing, Supabase Edge Functions handling VAPI webhook callbacks, and the orchestration logic that lets a single operator manage multiple autonomous agents simultaneously.",
-      "author": "Domonique Luchin",
-      "date": "2026-09-26",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 36,
-      "url": "https://dev.to/domoniqueluchin/building-a-multi-agent-valet-trash-command-center-supabase-edge-functions-vapi-and-postgresql-at-3k79",
-      "image": "/images/feed/feed-1f75f118cdcc.webp",
-      "source": "Dev.to",
       "isLive": true
     },
     {
@@ -185,7 +338,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 43,
       "url": "https://insideevs.com/news/809662/vw-ontario-battery-plant-delay/",
       "image": "/images/feed/feed-82779c0e5d53.jpg",
       "source": "InsideEVs",
@@ -204,7 +357,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 38,
       "url": "https://thehackernews.com/2026/09/elementor-csrf-flaw-lets-attackers-take.html",
       "image": "/images/feed/feed-40ca30546fb3.jpg",
       "source": "The Hacker News",
@@ -223,10 +376,29 @@
         "Snapdragon"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 44,
       "url": "https://www.androidauthority.com/snapdragon-8-elite-gen-6-downgrades-vs-gen-5-3715153/",
       "image": "/images/feed/feed-81c9ea033b42.jpg",
       "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-6f3d27b1bdfc",
+      "title": "Delta Force Celebrates Its Second Anniversary with New Season Reorientation",
+      "excerpt": "Delta Force Celebrates Its Second Anniversary with New Season Reorientation",
+      "body": "Delta Force’s mission has always been to incorporate player feedback to create the best experience possible for its players. As Delta Force players prepare for the free-to-play first-person tactical shooter’s second anniversary, the developers at Team Jade have been hard at work, listening to two years of player feedback as the game has evolved since its initial PC launch, since coming to mobile and Xbox Series X|S. The second-anniversary celebration kicks off September 26th, with daily tasks that offer players the chance to grab up to 3900 limited-time Delta Tickets, and new collectibles like a new legendary appearance for the AUG, called Golden State.",
+      "author": "Alison Rowley",
+      "date": "2026-09-26",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 47,
+      "url": "https://www.ign.com/articles/delta-force-celebrates-its-second-anniversary-with-new-season-reorientation",
+      "image": "/images/feed/feed-6f3d27b1bdfc.jpg",
+      "source": "IGN",
       "isLive": true
     },
     {
@@ -242,7 +414,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 45,
       "url": "https://cleantechnica.com/2026/09/26/green-sm-starts-amsterdam-taxi-pilot-bringing-the-green-ev-to-europe/",
       "image": "/images/feed/feed-a5313e9c1756.jpg",
       "source": "CleanTechnica",
@@ -261,7 +433,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 38,
       "url": "https://www.androidauthority.com/turned-old-pixel-into-tv-box-security-camera-worth-it-3714104/",
       "image": "/images/feed/feed-8a76f46ac882.jpg",
       "source": "Android Authority",
@@ -280,7 +452,7 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 41,
       "url": "https://thehackernews.com/2026/09/sharepoint-rce-and-mikrotik-routeros.html",
       "image": "/images/feed/feed-9715c431c607.jpg",
       "source": "The Hacker News",
@@ -299,7 +471,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 46,
       "url": "https://www.polygon.com/best-anime-like-frieren-to-watch-stream-cozy-fantasy/",
       "image": "/images/feed/feed-fbfe016f2df0.jpg",
       "source": "Polygon",
@@ -318,7 +490,7 @@
         "Game"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 53,
       "url": "https://www.polygon.com/dropout-game-changer-sam-reich-interview-rulette-2026/",
       "image": "/images/feed/feed-dd0f3f3b6523.jpg",
       "source": "Polygon",
@@ -337,18 +509,18 @@
         "Cyber Attack"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 51,
       "url": "https://thehackernews.com/2026/09/kiteworks-urges-customers-to-shut-down.html",
       "image": "/images/feed/feed-6bb1fe42e183.jpg",
       "source": "The Hacker News",
       "isLive": true
     },
     {
-      "id": "feed-31781acf9906",
-      "title": "CBS's Legendary 156-Episode Sci-Fi Anthology Series is Officially Free to Watch on Streaming",
-      "excerpt": "The CBS anthology series The Twilight Zone is one of the greatest science fiction shows ever made. Catch it while it's free to stream on Tubi.",
-      "body": "The CBS anthology series The Twilight Zone is one of the greatest science fiction shows ever made. Catch it while it's free to stream on Tubi.\n\nThis report, published by Polygon, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Polygon using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Brian VanHooker",
+      "id": "feed-42f6133d5764",
+      "title": "Marvel's Wolverine Dev Adds Option to Turn Off Controversial Scent Trails and More in New Update",
+      "excerpt": "Insomniac Games has published a new Marvel's Wolverine update that adds an option to turn off those controversial scent trails for collectibles.",
+      "body": "Insomniac Games has published a new Marvel&#39;s Wolverine update that adds an option to turn off those controversial scent trails for collectibles. The Sony developer made good on its promise to investigate a proper on/off option when version 1.001.006 launched just hours ago. Its patch notes reveal more targeted changes as the studio works out the remaining kinks that have emerged in the days since Marvel&#39;s Wolverine launched for PlayStation 5. There are three new toggle settings that players can now use to customize their gameplay experience: one for Whiskey Bottle scent trails, one for Material Crate Audio Clues, and one for Nightmare Door Roots.",
+      "author": "Michael Cripe",
       "date": "2026-09-26",
       "readTime": "2 min",
       "section": "gaming",
@@ -356,29 +528,10 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 49,
-      "url": "https://www.polygon.com/cbs-sci-fi-shows-twilight-zone-free-streaming-september-2026/",
-      "image": "/images/feed/feed-31781acf9906.png",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-d6a3e071ee64",
-      "title": "Ridley Scott's Near-Perfect Sci-Fi Masterpiece is Officially Streaming on YouTube for Free",
-      "excerpt": "One of the best films in Ridley Scott's filmography and a key entry into the sci-fi canon is now free to stream on YouTube.",
-      "body": "By the ‘80s, that pessimism curdled into a fully realized vision, and no film played a larger role in that than Scott’s Blade Runner. Its production is also one of the most infamous studio-creator struggles in Hollywood, with five different cuts released over the years. It wasn’t until 2007 that Blade Runner: Final Cut arrived, delivering the movie that Scott had envisioned all along — the fullest version of a film that, even in its mangled theatrical form, reshaped science fiction forever. That version is currently streaming for free on YouTube, and it's worth checking out if you've ever watched another cut of Blade Runner and wondered what else was hiding beneath its cyberpunk surface.",
-      "author": "Maria Loreto",
-      "date": "2026-09-26",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 42,
-      "url": "https://www.polygon.com/ridley-scott-blade-runner-final-cut-free-youtube-september-2026/",
-      "image": "/images/feed/feed-d6a3e071ee64.jpg",
-      "source": "Polygon",
+      "xpReward": 38,
+      "url": "https://www.ign.com/articles/marvels-wolverine-dev-adds-option-to-turn-off-controversial-scent-trails-and-more-in-new-update",
+      "image": "/images/feed/feed-42f6133d5764.png",
+      "source": "IGN",
       "isLive": true
     },
     {
@@ -394,29 +547,10 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 42,
       "url": "https://science.nasa.gov/image-article/apod-2026-september-26-mirrored-meteor-and-milky-way/",
       "image": "/images/feed/feed-e48dc538a8d3.jpg",
       "source": "NASA Breaking News",
-      "isLive": true
-    },
-    {
-      "id": "feed-83493456f672",
-      "title": "Apple's Smartest Sci-Fi Series Is No Match For This Canceled Cult Classic With the Same Name",
-      "excerpt": "No, you're not confused, there are two of these",
-      "body": "Recently, a great many people have recommended that I watch Dark Matter , the second season of which premiered in August on Apple TV. The first couple of times it happened, I was confused, as I'd already seen Dark Matter and it had gone off the air almost a decade ago. Did someone get around to reviving it?",
-      "author": "Thomas Hindmarch",
-      "date": "2026-09-26",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 38,
-      "url": "https://www.polygon.com/dark-matter-2015-canada/",
-      "image": "/images/feed/feed-83493456f672.jpg",
-      "source": "Polygon",
       "isLive": true
     },
     {
@@ -432,7 +566,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 40,
       "url": "https://cleantechnica.com/2026/09/25/xpeng-grows-in-malaysia-readies-g9l-for-global-launch/",
       "image": "/images/feed/feed-9ab2a7b60530.jpg",
       "source": "CleanTechnica",
@@ -451,7 +585,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 42,
       "url": "https://cleantechnica.com/2026/09/25/donut-battery-vindicated-element-analysis-proves-battery-not-lithium-or-sodium/",
       "image": "/images/feed/feed-d58f16676ae3.png",
       "source": "CleanTechnica",
@@ -477,120 +611,6 @@
       "isLive": true
     },
     {
-      "id": "feed-3514a5f5d1d3",
-      "title": "OpenAI accuses Apple of improperly adding new evidence to trade secrets case",
-      "excerpt": "OpenAI and the other defendants in Apple’s trade secret misappropriation lawsuit made a new filing, asking the court to strike two expert declarations and disregard other evidence Apple recently submi…",
-      "body": "OpenAI and the other defendants in Apple’s trade secret misappropriation lawsuit made a new filing, asking the court to strike two expert declarations and disregard other evidence Apple recently submi — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Marcus Mendes",
-      "date": "2026-09-26",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 43,
-      "url": "https://9to5mac.com/2026/09/25/openai-accuses-apple-of-improperly-adding-new-evidence-to-trade-secrets-case/",
-      "image": "/images/feed/feed-3514a5f5d1d3.jpg",
-      "source": "9to5Mac",
-      "isLive": true
-    },
-    {
-      "id": "feed-e1fca06a5da2",
-      "title": "How to Play the Silent Hill Games in Order",
-      "excerpt": "How to Play the Silent Hill Games in Order",
-      "body": "Silent Hill has appeared in the restless dreams of horror fans for almost three decades now. The foggy town and its various iterations, plagued by the Otherworld, continue to define the mechanics and ambience of psychological horror to this day. Each Silent Hill game contains a relatively standalone story, tied to whatever character the Otherworld has decided to bring to its doorstep. However, the lore of Silent Hill develops across games through returning characters as well as memos, posters, and other small details. Despite its fill of contradictions, some of which are only natural for games with multiple endings, there’s a larger story lurking in the background of each protagonist’s path to atonement (or madness).",
-      "author": "Blythe Dujardin",
-      "date": "2026-09-26",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 37,
-      "url": "https://www.ign.com/articles/silent-hill-games-in-order",
-      "image": "/images/feed/feed-e1fca06a5da2.jpg",
-      "source": "IGN",
-      "isLive": true
-    },
-    {
-      "id": "feed-3f29c5384786",
-      "title": "Sierra Club’s Utility Report Card Shows NV Energy’s Sierra Pacific Power Company Receives Lowest Grade Yet",
-      "excerpt": "Reno, Nevada — Sierra Club released its sixth Dirty Truth Report Tuesday that grades utilities across the country based on how much coal they are retiring, how much gas they are planning, and how much…",
-      "body": "Reno, Nevada — Sierra Club released its sixth Dirty Truth Report Tuesday that grades utilities across the country based on how much coal they are retiring, how much gas they are planning, and how much renewable energy they are adding. NV Energy’s two subsidiary companies are featured in the report, which ... [continued] The post Sierra Club’s Utility Report Card Shows NV Energy’s Sierra Pacific Power Company Receives Lowest Grade Yet appeared first on CleanTechnica .",
-      "author": "Sierra Club",
-      "date": "2026-09-26",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Cars"
-      ],
-      "featured": false,
-      "xpReward": 38,
-      "url": "https://cleantechnica.com/2026/09/25/sierra-clubs-utility-report-card-shows-nv-energys-sierra-pacific-power-company-receives-lowest-grade-yet/",
-      "image": "/images/feed/feed-3f29c5384786.png",
-      "source": "CleanTechnica",
-      "isLive": true
-    },
-    {
-      "id": "feed-39a9e7e5b443",
-      "title": "Groups Sue TVA Over Clean Air Act Violations at Kingston Site",
-      "excerpt": "Harriman, Tennessee — On Thursday, the Southern Environmental Law Center, on behalf of Appalachian Voices and the Sierra Club, sued the Tennessee Valley Authority for violating the Clean Air Act and p…",
-      "body": "Harriman, Tennessee — On Thursday, the Southern Environmental Law Center, on behalf of Appalachian Voices and the Sierra Club, sued the Tennessee Valley Authority for violating the Clean Air Act and putting public health at risk by building its new Kingston Gas Plant, which TVA plans to operate alongside its ... [continued] The post Groups Sue TVA Over Clean Air Act Violations at Kingston Site appeared first on CleanTechnica .",
-      "author": "Sierra Club",
-      "date": "2026-09-25",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Cars"
-      ],
-      "featured": false,
-      "xpReward": 45,
-      "url": "https://cleantechnica.com/2026/09/25/groups-sue-tva-over-clean-air-act-violations-at-kingston-site/",
-      "image": "/images/feed/feed-39a9e7e5b443.png",
-      "source": "CleanTechnica",
-      "isLive": true
-    },
-    {
-      "id": "feed-aab6c1ec49a3",
-      "title": "macOS 27 adds new Apple Intelligence features to your favorite apps",
-      "excerpt": "9to5Mac is brought to you by CleanMyMac by MacPaw. With the release of macOS 27 Golden Gate, use CleanMyMac first to free up space, optimize your system, and ensure your new Mac runs at 100% on day on…",
-      "body": "9to5Mac is brought to you by CleanMyMac by MacPaw . With the release of macOS 27 Golden Gate, use CleanMyMac first to free up space, optimize your system, and ensure your new Mac runs at 100% on day one. Learn more . Apple has released macOS 27 Golden Gate to the public after several months of beta testing. The update is headlined by Siri AI, but there are also Apple Intelligence enhancements to many of Apple’s own Mac apps. Here are a few of my favorites. more…",
-      "author": "Chance Miller",
-      "date": "2026-09-25",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 34,
-      "url": "https://9to5mac.com/2026/09/25/macos-27-adds-new-apple-intelligence-features-to-your-favorite-apps/",
-      "image": "/images/feed/feed-aab6c1ec49a3.jpg",
-      "source": "9to5Mac",
-      "isLive": true
-    },
-    {
-      "id": "feed-feb50743731e",
-      "title": "Apple’s dimensional drawings offer a fascinating look at its product designs",
-      "excerpt": "Not everyone knows this (and I won’t even pretend that I did), but Apple publishes remarkably detailed dimensional drawings for dozens of its devices to help accessory makers design products around th…",
-      "body": "Not everyone knows this (and I won’t even pretend that I did), but Apple publishes remarkably detailed dimensional drawings for dozens of its devices to help accessory makers design products around th — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Marcus Mendes",
-      "date": "2026-09-25",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 53,
-      "url": "https://9to5mac.com/2026/09/25/apples-dimensional-drawings-offer-a-fascinating-look-at-its-product-designs/",
-      "image": "/images/feed/feed-feb50743731e.jpg",
-      "source": "9to5Mac",
-      "isLive": true
-    },
-    {
       "id": "feed-9550a58b2b1b",
       "title": "Unsecured OpenAI agents posted 53 user images on the internet without the lab’s knowledge",
       "excerpt": "AI agents operating in OpenAI's research environment posted user images on public image-hosting sites without the lab's knowledge.",
@@ -603,29 +623,10 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 30,
       "url": "https://techcrunch.com/2026/09/25/unsecured-openai-agents-posted-53-user-images-on-the-internet-without-the-labs-knowledge/",
       "image": "/images/feed/feed-9550a58b2b1b.jpg",
       "source": "TechCrunch",
-      "isLive": true
-    },
-    {
-      "id": "feed-47b922f002f8",
-      "title": "TestFlight now works in landscape as Apple prepares for iPhone Duo",
-      "excerpt": "Apple updated TestFlight this week with support for landscape orientation, and for macOS 27 Golden Gate’s new resizable iPhone Mirroring window. Here are the details. more…",
-      "body": "Apple updated TestFlight this week with support for landscape orientation, and for macOS 27 Golden Gate’s new resizable iPhone Mirroring window. Here are the details. more — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Iphone. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Marcus Mendes",
-      "date": "2026-09-25",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Iphone"
-      ],
-      "featured": false,
-      "xpReward": 50,
-      "url": "https://9to5mac.com/2026/09/25/testflight-now-works-in-landscape-as-apple-prepares-for-iphone-duo/",
-      "image": "/images/feed/feed-47b922f002f8.jpg",
-      "source": "9to5Mac",
       "isLive": true
     },
     {
@@ -641,7 +642,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 54,
       "url": "https://www.nasa.gov/news-release/nasa-boeing-to-provide-update-on-starliner-development/",
       "image": "/images/feed/feed-44ca3ccd60f7.jpg",
       "source": "NASA Breaking News",
@@ -660,7 +661,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 37,
       "url": "https://krebsonsecurity.com/2026/09/u-s-soldier-gets-70-months-in-prison-for-att-verizon-extortions/",
       "image": "/images/topics/topic-cybersecurity.png",
       "source": "Krebs on Security",
@@ -717,7 +718,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 39,
       "url": "https://www.bleepingcomputer.com/news/security/shinyhunters-hacked-clop-leak-site-using-grav-cms-path-traversal-flaw/",
       "image": "/images/feed/feed-aebbf454a9b7.jpg",
       "source": "BleepingComputer",
@@ -737,7 +738,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 36,
       "url": "https://www.nasa.gov/organizations/oiir/nasa-welcomes-san-marino-signing-the-artemis-accords/",
       "image": "/images/feed/feed-09bb646849b5.jpg",
       "source": "NASA Breaking News",
@@ -756,7 +757,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 31,
       "url": "https://www.nasa.gov/directorates/rtmd/nasa-tests-dual-mode-propulsion-cubesat-ahead-of-launch/",
       "image": "/images/feed/feed-fcc0f09fe98f.jpg",
       "source": "NASA Breaking News",
@@ -775,7 +776,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 32,
       "url": "https://techcrunch.com/2026/09/25/anthropic-to-pay-akamai-11-6-billion-over-seven-years-in-cloud-deal/",
       "image": "/images/feed/feed-4b9cd4f252fe.jpg",
       "source": "TechCrunch",
@@ -794,7 +795,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 31,
       "url": "https://openai.com/index/proaction",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "OpenAI Blog",
@@ -813,7 +814,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 34,
       "url": "https://www.bleepingcomputer.com/news/security/elementor-wordpress-flaw-lets-attackers-create-admin-accounts/",
       "image": "/images/feed/feed-b43aa1afdc0d.jpg",
       "source": "BleepingComputer",
@@ -832,7 +833,7 @@
         "Gemini"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 38,
       "url": "https://www.cnet.com/tech/services-and-software/geminis-live-avatar-puts-a-face-on-its-ai-agent-its-freaking-me-out/",
       "image": "/images/feed/feed-e10249235c70.png",
       "source": "CNET",
@@ -851,7 +852,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 50,
       "url": "https://www.nasa.gov/aeronautics/aeronautics-stem/2026-2027-dwu-middle-school-design-challenge/",
       "image": "/images/feed/feed-5e6a9bdf73f7.jpg",
       "source": "NASA Breaking News",
@@ -870,7 +871,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 47,
       "url": "https://www.nasa.gov/aeronautics/aeronautics-stem/2026-2027-dwu-high-school-engineering-challenge/",
       "image": "/images/feed/feed-69c9abcd6799.jpg",
       "source": "NASA Breaking News",
@@ -889,7 +890,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 45,
       "url": "https://www.wired.com/story/appeals-court-lets-the-pentagon-designate-anthropic-a-supply-chain-risk/",
       "image": "/images/feed/feed-b681df8c10a1.jpg",
       "source": "Wired",
@@ -908,7 +909,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 51,
       "url": "https://techcrunch.com/video/will-metas-ai-tamagotchi-bet-isworking/",
       "image": "/images/feed/feed-6c6baa7010d7.jpg",
       "source": "TechCrunch",
@@ -927,7 +928,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 43,
       "url": "https://www.nasa.gov/image-article/hubble-spots-chaotic-secret-in-galaxy/",
       "image": "https://www.nasa.gov/wp-content/uploads/2026/09/55534741297-34e5a9d414-o.jpg",
       "source": "NASA Breaking News",
@@ -935,16 +936,16 @@
     }
   ],
   "breakingNews": [
-    "DEV.TO: Sticky Routing That Never Expires Isn't Sticky It's Permanent",
-    "DEV.TO: Shopify to GA4 without GTM: native events plus a server-side Measurement Protocol fallback",
-    "DEV.TO: I turned my AI into a Senior Python Educator for self-taught devs, Here’s the open SKILL.md template",
-    "DEV.TO: Understanding Subqueries and CTE's",
-    "DEV.TO: I Almost Built a Startup This Week. The Evidence Said No — In One Afternoon.",
-    "ANDROID AUTHORITY: My favorite Pixel 11 Pro feature is something no other Android phone can match",
-    "DEV.TO: One Key for Every PBX: The Issabel Framework Hardcoded JWT Flaw (CVE-2026-89026)",
-    "POLYGON: 5 Classic Sci-Fi Books That Are Perfect From Start to Finish",
-    "DEV.TO: Building a Multi-Agent Valet Trash Command Center: Supabase Edge Functions, VAPI, and PostgreSQL at Scale",
-    "INSIDEEVS: Volkswagen Delays Ontario Battery Plant"
+    "DEV.TO: 5,000+ inserts/sec: Thread-safe connection pooling and WAL mode",
+    "DEV.TO: Enviar un frame (no un byte) es una decisión de API. WKafka lo resuelve con format=\"image\"",
+    "DEV.TO: Sending a frame (not a byte) is a Kafka API choice. WKafka makes it format=\"image\"",
+    "DEV.TO: Ingestión confiable de eventos en Python: Redis Streams y Consumer Groups con WRedis",
+    "DEV.TO: Reliable Event Ingestion in Python: Redis Streams and Consumer Groups with WRedis",
+    "DEV.TO: Pipelines tolerantes a fallos en Python: Reanudación con Checkpoints SQLite",
+    "DEV.TO: Fault-Tolerant Python Pipelines: Resuming Execution with SQLite Checkpoints",
+    "ANDROID AUTHORITY: 9 excellent iOS apps I wish would come to Android (but probably never will)",
+    "POLYGON: 3 Perfect Calvin and Hobbes Stories From the 1980S That Prove Bill Watterson Is a Genius",
+    "INSIDEEVS: Bentley Goes Electric As China's EV Charging War Gets Ridiculous"
   ],
   "sectionVideos": {}
 }
