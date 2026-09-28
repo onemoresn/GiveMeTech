@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-09-28T04:17:13.113Z",
+  "fetchedAt": "2026-09-28T05:15:35.825Z",
   "articles": [
     {
-      "id": "feed-8d540c9dbee6",
-      "title": "I Built an AI Text-to-Video Generator — Here's What I Learned About Prompt Engineering for Video",
-      "excerpt": "When I started building CineGen, an AI text-to-video generator, I assumed prompt engineering for video would be \"image prompting, plus the word moving.\" It is not. After hundreds of test renders and a…",
-      "body": "When I started building CineGen , an AI text-to-video generator, I assumed prompt engineering for video would be \"image prompting, plus the word moving .\" It is not. After hundreds of test renders and a lot of embarrassing outputs (a seagull with nine wings remains burned in my memory), I learned that prompting for video is closer to directing a 5-second film than describing a photograph. Here are the lessons that actually changed the quality of my outputs. No hype, just what works. 1. A video prompt is a timeline, not a painting The single biggest mindset shift: an image prompt describes one moment . A video prompt describes a sequence of moments . If your prompt only describes a static scene, the model has to invent the motion — and it will invent something weird.",
-      "author": "Micheal Zh",
+      "id": "feed-abfc9eaff7fa",
+      "title": "From Playground to Caching: Learning Amazon Bedrock",
+      "excerpt": "This post is part of my notes from Formação AWS, a course by Henrylle Maia. It covers a class from Desafio Labs (one of the course's sections) that focuses on Amazon Bedrock. In this class, I start wi…",
+      "body": "This post is part of my notes from Formação AWS , a course by Henrylle Maia. It covers a class from Desafio Labs (one of the course's sections) that focuses on Amazon Bedrock. In this class, I start with the Playground to get a feel for how Bedrock behaves, and then move on to scripts to learn how to actually use the Bedrock API. To learn by doing, I created a simple chatbot that works like a clerk selling tickets for an AWS Course. It starts as a single Bash script that sends one message and prints the response, then I make it interactive so I can actually chat with it. From there, I move it to Node so I can stream the answers as they come in, and finally add a cache checkpoint so the same System Prompt doesn't get billed at full price on every message.",
+      "author": "Pedro Ribeiro",
       "date": "2026-09-28",
       "readTime": "2 min",
       "section": "software",
@@ -14,18 +14,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 51,
-      "url": "https://dev.to/micheal_zh_e114bbd789e4c3/i-built-an-ai-text-to-video-generator-heres-what-i-learned-about-prompt-engineering-for-video-4gll",
-      "image": "/images/feed/feed-8d540c9dbee6.webp",
+      "xpReward": 45,
+      "url": "https://dev.to/pribeiro/from-playground-to-caching-learning-amazon-bedrock-3g4e",
+      "image": "/images/feed/feed-abfc9eaff7fa.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-989e5b912484",
-      "title": "'No tools listed' should mean deny, not allow-all",
-      "excerpt": "Here's a config bug that has shipped in more systems than anyone would like to admit: # grant this service access to... nothing? everything? allowedOrigins: [] In a surprising number of frameworks, an…",
-      "body": "Here's a config bug that has shipped in more systems than anyone would like to admit: # grant this service access to... nothing? everything? allowedOrigins : [] In a surprising number of frameworks, an empty or missing list doesn't mean \"no access.\" It means all access . Empty CORS origins → reflect any origin. A Kubernetes pod with no NetworkPolicy selecting it → all traffic allowed. A firewall with the rules commented out → wide open. The pattern is everywhere, and it has a name worth calling out: privilege by omission — the widest possible access, granted not by a decision but by the absence of one. Why omission is the dangerous default The danger isn't that someone types \"allow everything.\" Someone typing that has made a choice you can see in code review.",
-      "author": "Rojaneer",
+      "id": "feed-964cf05cd6c6",
+      "title": "Markdown Kitchen Sink: A Comprehensive Demo",
+      "excerpt": "Markdown Kitchen Sink Heading 1 This is a paragraph of text. You can use bold, italic, or a combination of both. You can also use inline code. Here is a link to my portfolio. Here is an unordered list…",
+      "body": "Markdown Kitchen Sink Heading 1 This is a paragraph of text. You can use bold , italic , or a combination of both . You can also use inline code . Heading 2 Here is a link to my portfolio . Heading 3 Here is an unordered list: Item 1 Item 2 Sub-item 2.1 Sub-item 2.2 Item 3 Heading 4 Here is an ordered list: First item Second item Third item Heading 5 Here is a blockquote: \"The only way to do great work is to love what you do.\" - Steve Jobs Heading 6 Here is a code block: export default defineNuxtConfig ({ devtools : { enabled : true }, }); Here is a table: Header 1 Header 2 Header 3 Align Left Align Center Align Right Cell 1 Cell 2 Cell 3 Cell 4 Cell 5 Cell 6 Here is an image: A single track trail outside of Albuquerque, New Mexico.",
+      "author": "jantolentino",
       "date": "2026-09-28",
       "readTime": "2 min",
       "section": "software",
@@ -33,18 +33,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 49,
-      "url": "https://dev.to/rojaneerdev/no-tools-listed-should-mean-deny-not-allow-all-9e7",
-      "image": "/images/feed/feed-989e5b912484.webp",
+      "xpReward": 38,
+      "url": "https://dev.to/jantolentino/markdown-kitchen-sink-a-comprehensive-demo-1d7g",
+      "image": "/images/feed/feed-964cf05cd6c6.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-43b2c5dfc679",
-      "title": "High-Throughput PDF Redaction: Split Chapter Ranges from Parsed Contents Safely",
-      "excerpt": "TL;DR: Parse the table of contents into ordered printed-page starts, translate those starts to zero-based PDF indexes once, and derive every chapter end from the next start. Redact the source before a…",
-      "body": "TL;DR: Parse the table of contents into ordered printed-page starts, translate those starts to zero-based PDF indexes once, and derive every chapter end from the next start. Redact the source before any chapter bytes cross the sharing boundary. For large fintech bundles, keep parsing and range validation serial, then copy validated ranges with bounded concurrency. Input condition Boundary method Pick this when Throughput consequence Main check Reliable contents text and one stable page offset Parsed contents entries Statements have consistent numbering One parse feeds every copy Starts increase and remain in bounds Native outline with usable destinations Outline destinations The producer preserves bookmarks No contents text parser Every destination resolves Neither source is trustworthy Pa…",
-      "author": "evanshepherd5623",
+      "id": "feed-3883ff36d6e7",
+      "title": "How to Reuse an Existing TON Connect Instance with Omniston Widget Integrated Mode",
+      "excerpt": "If your TON dApp already has wallet connectivity, you should not create another TON Connect instance just for the Omniston Widget. Instead, configure the widget in integrated mode and pass it the same…",
+      "body": "If your TON dApp already has wallet connectivity, you should not create another TON Connect instance just for the Omniston Widget. Instead, configure the widget in integrated mode and pass it the same initialized instance that the rest of your application already uses. The result is one shared wallet session across your interface. A wallet connected through your navigation, account panel, or another TON feature can also be used by the embedded Omniston swap interface. More importantly, this follows the architecture required by the current STON.fi widget integration, which warns against running multiple TON Connect instances inside the same application. Why reuse the connection instead of creating another one? Imagine a TON dashboard that already has a wallet button in its header.",
+      "author": "Ivan “Crypto Vazima” Zimanov",
       "date": "2026-09-28",
       "readTime": "2 min",
       "section": "software",
@@ -52,18 +52,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 32,
-      "url": "https://dev.to/evanshepherd5623/high-throughput-pdf-redaction-split-chapter-ranges-from-parsed-contents-safely-3mof",
-      "image": "/images/feed/feed-43b2c5dfc679.webp",
+      "xpReward": 35,
+      "url": "https://dev.to/ivan_cryptovazimazima/how-to-reuse-an-existing-ton-connect-instance-with-omniston-widget-integrated-mode-1p6m",
+      "image": "/images/feed/feed-3883ff36d6e7.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-239fe6831f80",
-      "title": "Security Audit Report: Reentrancy & Access Control Review: Gemini",
-      "excerpt": "Security Audit Report: Reentrancy & Access Control Review: Gemini Target Protocol: Gemini (TVL: $5648.1M) Security Audit Report – Reentrancy & Access‑Control Review Protocol: Gemini (TVL ≈ $5.65 B acr…",
-      "body": "Security Audit Report: Reentrancy &amp; Access Control Review: Gemini Target Protocol : Gemini (TVL: $5648.1M) Security Audit Report – Reentrancy &amp; Access‑Control Review Protocol: Gemini (TVL ≈ $5.65 B across Ethereum + L2s) Audit Window: 2024‑10‑01 → 2024‑10‑21 (code‑base v2.7.4) Prepared By: Senior DeFi Security Researcher – [Your Name] Date: 2026‑09‑28 1. Executive Summary Gemini is a high‑value, cross‑chain liquidity hub that aggregates deposits, executes swaps, and provides lending/borrowing services on Ethereum and several L2 roll‑ups. The platform’s total value locked (TVL) of ~$5.65 B makes it a prime target for sophisticated adversaries.",
-      "author": "DannyDoes",
+      "id": "feed-b9e1b6e0fb45",
+      "title": "Supercharging Your Security Audits: My Deep Dive into a Game-Changing AI Skill",
+      "excerpt": "Have you ever stared at a complex codebase, knowing there are hidden security vulnerabilities lurking, but feeling overwhelmed by the sheer scale of manual auditing? Or perhaps you've wished for a way…",
+      "body": "Have you ever stared at a complex codebase, knowing there are hidden security vulnerabilities lurking, but feeling overwhelmed by the sheer scale of manual auditing? Or perhaps you've wished for a way to scale your security efforts without scaling your human team linearly? If so, you're not alone. As a Lead SWE, I constantly grapple with the challenge of building secure applications at speed. This past week, something truly remarkable caught my attention: a particular security-audit-skill from Cloudflare that absolutely exploded on GitHub Trending, racking up roughly +15.4k stars in just 7 days. While the repository itself has been around since June, this sudden surge in interest is the real story, and it immediately sent me down a rabbit hole.",
+      "author": "Ishank Choudhary",
       "date": "2026-09-28",
       "readTime": "2 min",
       "section": "software",
@@ -71,10 +71,105 @@
         "Software"
       ],
       "featured": true,
+      "xpReward": 36,
+      "url": "https://dev.to/ishank-dev/supercharging-your-security-audits-my-deep-dive-into-a-game-changing-ai-skill-5efe",
+      "image": "/images/feed/feed-b9e1b6e0fb45.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-9516186ddbae",
+      "title": "India’s Top 10 IoT Platforms for Education in 2026",
+      "excerpt": "IoT education in India is moving beyond basic Arduino experiments. Students are increasingly working with ESP32, ESP8266, Arduino, sensors, MQTT, dashboards, cloud platforms, APIs, automation, and AIo…",
+      "body": "IoT education in India is moving beyond basic Arduino experiments. Students are increasingly working with ESP32, ESP8266, Arduino, sensors, MQTT, dashboards, cloud platforms, APIs, automation, and AIoT to build practical projects. But this creates an important question: Which IoT platforms can students and educational institutions use for learning and projects in India? There is no single IoT platform that fits every student, classroom, or engineering project. The right choice depends on the hardware, programming skills, project requirements, dashboard needs, communication protocols, and learning objectives. Here are 10 IoT platforms and technologies worth exploring for education in India in 2026. 1.",
+      "author": "Keerthi",
+      "date": "2026-09-28",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 53,
+      "url": "https://dev.to/marsomelody/indias-top-10-iot-platforms-for-education-in-2026-pe8",
+      "image": "/images/feed/feed-9516186ddbae.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-65209129d40a",
+      "title": "Dear Coder: Open This If You're Feeling AI FOMO",
+      "excerpt": "It's all over the headlines. Every so often, someone reveals a model X% faster. AI has also brought new buzzwords. Agents, prompts, workflows, integrations... FOMO is real. Almost every week, I find t…",
+      "body": "It's all over the headlines. Every so often, someone reveals a model X% faster. A tech CEO makes bold claims about the future of coding. The stock market reacts with euphoria. Prices go up. AI has also brought new buzzwords. Agents, prompts, workflows, integrations... Pick your&nbsp;battles FOMO is real. Almost every week, I find tutorials about MCP, agents, loop engineering...or whatever it's the new trend. I skip most of them. I've chosen my battles to stay sane in the hype cycle. I'm still figuring out how to adopt AI without losing my skills and identifying the problems it brings . That's keeping me busy enough. Some things haven't&nbsp;changed If you're also experiencing FOMO: Don't worry. Fundamentals matter more than ever.",
+      "author": "Cesar Aguirre",
+      "date": "2026-09-28",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 33,
+      "url": "https://dev.to/canro91/dear-coder-open-this-if-youre-feeling-ai-fomo-58d4",
+      "image": "/images/feed/feed-65209129d40a.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-8b455d63fb39",
+      "title": "AWS Introduces Foreign Key Constraints in Aurora DSQL",
+      "excerpt": "AWS recently announced that Aurora DSQL now supports foreign key constraints, allowing applications to enforce referential integrity directly in the database, including CASCADE, SET NULL, and other re…",
+      "body": "AWS recently announced that Aurora DSQL now supports foreign key constraints, allowing applications to enforce referential integrity directly in the database, including CASCADE, SET NULL, and other referential actions. The addition addresses a long-standing gap that users had explicitly called out as an adoption blocker. By Renato Losio",
+      "author": "Renato Losio",
+      "date": "2026-09-28",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
       "xpReward": 39,
-      "url": "https://dev.to/dannydoes_2abdf9c/security-audit-report-reentrancy-access-control-review-gemini-5d6d",
-      "image": "/images/feed/feed-239fe6831f80.webp",
-      "source": "Dev.to",
+      "url": "https://www.infoq.com/news/2026/09/aurora-dsql-foreign-keys/?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=global",
+      "image": "/images/feed/feed-8b455d63fb39.jpg",
+      "source": "InfoQ",
+      "isLive": true
+    },
+    {
+      "id": "feed-7473e6252eee",
+      "title": "Tone-Deaf Trillionaire Launches $200,000 Electric Car Into Sour US Market",
+      "excerpt": "The long-awaited unveiling of the new $200,000 Tesla Roadster electric sports car is set for October 1, just in time to stoke the fires of the affordability crisis in the runup to Election Day 2026. T…",
+      "body": "The long-awaited unveiling of the new $200,000 Tesla Roadster electric sports car is set for October 1, just in time to stoke the fires of the affordability crisis in the runup to Election Day 2026. The post Tone-Deaf Trillionaire Launches $200,000 Electric Car Into Sour US Market appeared first on CleanTechnica .",
+      "author": "Tina Casey",
+      "date": "2026-09-28",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Electric Car"
+      ],
+      "featured": false,
+      "xpReward": 48,
+      "url": "https://cleantechnica.com/2026/09/28/tesla-roadster-electric-sports-car-expensive-aspirational-elections2026/",
+      "image": "/images/feed/feed-7473e6252eee.png",
+      "source": "CleanTechnica",
+      "isLive": true
+    },
+    {
+      "id": "feed-a6898b617547",
+      "title": "XPENG VLA 2.0 vs. Tesla FSD in Amsterdam — Part 1: XPENG L03",
+      "excerpt": "I recently became the first person outside of XPENG to ride in a L03 prototype using XNGP with VLA 2.0 followed by a Tesla Model 3 using FSD on the same roads. Many have experienced FSD, but not on ro…",
+      "body": "I recently became the first person outside of XPENG to ride in a L03 prototype using XNGP with VLA 2.0 followed by a Tesla Model 3 using FSD on the same roads. Many have experienced FSD, but not on roads where VLA 2.0 is available. People have also driven or ... [continued] The post XPENG VLA 2.0 vs. Tesla FSD in Amsterdam — Part 1: XPENG L03 appeared first on CleanTechnica .",
+      "author": "Larry Evans",
+      "date": "2026-09-28",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Tesla"
+      ],
+      "featured": false,
+      "xpReward": 54,
+      "url": "https://cleantechnica.com/2026/09/28/xpeng-vla-2-0-vs-tesla-fsd-in-amsterdam-part-1-xpeng-l03/",
+      "image": "/images/feed/feed-a6898b617547.jpg",
+      "source": "CleanTechnica",
       "isLive": true
     },
     {
@@ -89,68 +184,30 @@
       "tags": [
         "Gaming"
       ],
-      "featured": true,
-      "xpReward": 32,
+      "featured": false,
+      "xpReward": 41,
       "url": "https://www.polygon.com/dark-shadows-revival-free-youtube-september-2026/",
       "image": "/images/feed/feed-27e868a65f52.jpg",
       "source": "Polygon",
       "isLive": true
     },
     {
-      "id": "feed-28fcecb7deb8",
-      "title": "Don't Ship Dev Keys! Set Up Production-Ready Google OAuth in React",
-      "excerpt": "Learn how to integrate production-ready Gmail / Google Sign-In into your applications using Auth0. In this complete, step-by-step tutorial, Layla (Senior Developer Advocate at Auth0) walks you through…",
-      "body": "Learn how to integrate production-ready Gmail / Google Sign-In into your applications using Auth0. In this complete, step-by-step tutorial, Layla (Senior Developer Advocate at Auth0) walks you through setting up an Auth0 SPA, integrating the @auth0/auth0-react SDK with the useAuth0 hook, and configuring Google Cloud Console OAuth credentials to safely replace default development keys for production deployment. What You'll Learn: How to create and configure a Single Page Application (SPA) in the Auth0 Dashboard. Integrating the @auth0/auth0-react SDK using Auth0Provider and useAuth0. Wiring up a custom \"Sign in with Google\" button with loginWithRedirect. Configuring Auth0 allowed callback, logout, and web origin URLs (localhost).",
-      "author": "Auth0 DevRel",
+      "id": "feed-0fbe308826fc",
+      "title": "Uncovering the Valleys Hidden Below Greenland’s Ice",
+      "excerpt": "A new map of the terrain beneath the Greenland Ice Sheet links hundreds of valleys that previous maps missed or left fragmented.",
+      "body": "Earth Observatory Science Earth Observatory Uncovering the Valleys Hidden… Earth Earth Observatory Image of the Day EO Explorer Topics All Topics Atmosphere Land Heat &#038; Radiation Life on Earth Human Dimensions Natural Events Oceans Remote Sensing Technology Snow &#038; Ice Water More Content Collections Global Maps World of Change Articles Earth Matters Blog Blue Marble: Next Generation EO Kids Mission: Biomes About About Us Subscribe 🛜 RSS Contact Us Search A newly developed method for mapping the bedrock beneath Greenland’s ice sheet reveals the island’s hidden topography. Among the most striking finds are long, straight valleys in the west-central region, some mapped for the first time and others extending farther inland than previously known (inset 3).",
+      "author": "NASA Breaking News",
       "date": "2026-09-28",
       "readTime": "2 min",
-      "section": "software",
+      "section": "space",
       "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 43,
-      "url": "https://dev.to/auth0/dont-ship-dev-keys-set-up-production-ready-google-oauth-in-react-1fl8",
-      "image": "/images/feed/feed-28fcecb7deb8.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-29acf210102c",
-      "title": "Upserts reales en un mundo append-only: ReplacingMergeTree y FINAL.",
-      "excerpt": "Upserts reales en un mundo append-only: ReplacingMergeTree y FINAL. Día 07 de la serie técnica WClickHouse Open Source. No necesitas sentencias UPDATE lentas para mantener el estado actual en ClickHou…",
-      "body": "Upserts reales en un mundo append-only: ReplacingMergeTree y FINAL. Día 07 de la serie técnica WClickHouse Open Source. No necesitas sentencias UPDATE lentas para mantener el estado actual en ClickHouse. WClickHouse aprovecha ReplacingMergeTree para upserts ultrarrápidos. Los Problemas Reales Intentar mutaciones UPDATE pesadas en miles de millones de filas Lidiar con estados duplicados en pipelines de eventos en streaming Consultas analíticas lentas que devuelven revisiones obsoletas La Implementación # Configure ReplacingMergeTree with version column for upserts db = WClickHouse ( OrderStateModel , db_config , engine = \" ReplacingMergeTree(version) ORDER BY order_id \" ) # Append updated version: ClickHouse deduplicates on merge! db .",
-      "author": "William Rodriguez",
-      "date": "2026-09-28",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
+        "Space"
       ],
       "featured": false,
-      "xpReward": 41,
-      "url": "https://dev.to/william_rodriguez_65a5898/upserts-reales-en-un-mundo-append-only-replacingmergetree-y-final-31a0",
-      "image": "/images/feed/feed-29acf210102c.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-0c40cfc303e1",
-      "title": "True upserts in an append-only world: ReplacingMergeTree and FINAL.",
-      "excerpt": "True upserts in an append-only world: ReplacingMergeTree and FINAL. Day 07 of the WClickHouse Open-Source Engineering Series. You don't need slow SQL UPDATE statements to maintain current state in Cli…",
-      "body": "True upserts in an append-only world: ReplacingMergeTree and FINAL. Day 07 of the WClickHouse Open-Source Engineering Series. You don't need slow SQL UPDATE statements to maintain current state in ClickHouse. WClickHouse harnesses ReplacingMergeTree for lightning-fast upserts. The Pain Points We Faced Attempting expensive UPDATE mutations on billions of ClickHouse rows Dealing with duplicate state updates in streaming event pipelines Slow analytical queries returning outdated record revisions The Implementation # Configure ReplacingMergeTree with version column for upserts db = WClickHouse ( OrderStateModel , db_config , engine = \" ReplacingMergeTree(version) ORDER BY order_id \" ) # Append updated version: ClickHouse deduplicates on merge! db .",
-      "author": "William Rodriguez",
-      "date": "2026-09-28",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 54,
-      "url": "https://dev.to/william_rodriguez_65a5898/true-upserts-in-an-append-only-world-replacingmergetree-and-final-3pha",
-      "image": "/images/feed/feed-0c40cfc303e1.webp",
-      "source": "Dev.to",
+      "xpReward": 48,
+      "url": "https://science.nasa.gov/earth/earth-observatory/uncovering-the-valleys-hidden-below-greenlands-ice/",
+      "image": "/images/feed/feed-0fbe308826fc.jpg",
+      "source": "NASA Breaking News",
       "isLive": true
     },
     {
@@ -166,7 +223,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 54,
       "url": "https://www.polygon.com/stargate-movie-streaming-free-youtube-september-2026/",
       "image": "/images/feed/feed-405be690ec25.jpg",
       "source": "Polygon",
@@ -185,7 +242,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 36,
       "url": "https://www.polygon.com/fire-emblem-fortunes-weave-metaphor-refantazio/",
       "image": "/images/feed/feed-568084aa9a72.jpg",
       "source": "Polygon",
@@ -204,7 +261,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 44,
       "url": "https://cleantechnica.com/2026/09/27/kia-ph-brings-ev3-to-shake-up-compact-electric-crossover-market/",
       "image": "/images/feed/feed-eb6e952d26cb.png",
       "source": "CleanTechnica",
@@ -223,7 +280,7 @@
         "Copilot"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 48,
       "url": "https://www.tomshardware.com/tablets/microsoft-surface/microsoft-quietly-drops-copilot-branding-from-its-new-laptops-surface-cvp-confirms-new-devices-meet-hardware-requirements-but-lack-controversial-branding",
       "image": "/images/feed/feed-38fe2f538b68.jpg",
       "source": "Hacker News",
@@ -242,7 +299,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 43,
       "url": "https://www.polygon.com/lanterns-episode-7-ending-explained-what-planet-is-sinestro-on/",
       "image": "/images/feed/feed-489e254a2507.jpg",
       "source": "Polygon",
@@ -261,7 +318,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 41,
       "url": "https://www.polygon.com/hbo-lanterns-episode-7-john-stewart-powers-green-lantern/",
       "image": "/images/feed/feed-e31f96ecfc70.jpg",
       "source": "Polygon",
@@ -280,7 +337,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 33,
       "url": "https://www.ign.com/articles/lanterns-season-1-episode-7-review-recap-the-jordan-boys-legacy",
       "image": "/images/feed/feed-3fa74b835f44.jpg",
       "source": "IGN",
@@ -299,7 +356,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 54,
       "url": "https://electrek.co/2026/09/27/nio-power-geely-30-stake-battery-swap-rmb16-billion/",
       "image": "/images/feed/feed-c8079c28b31e.jpg",
       "source": "Electrek",
@@ -318,7 +375,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 40,
       "url": "https://www.polygon.com/best-far-side-comics-about-cats/",
       "image": "/images/feed/feed-475fda8161e2.jpg",
       "source": "Polygon",
@@ -337,7 +394,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 50,
       "url": "https://www.engadget.com/2267893/level-1-2-vs-3-ev-charger-which-is-better/",
       "image": "/images/feed/feed-42264e3a6647.jpg",
       "source": "Engadget",
@@ -375,7 +432,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 31,
       "url": "https://www.engadget.com/2267835/3d-printer-is-it-still-worth-buying/",
       "image": "/images/feed/feed-f1708c90e798.jpg",
       "source": "Engadget",
@@ -394,7 +451,7 @@
         "Iphone"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 50,
       "url": "https://9to5mac.com/2026/09/27/ios-27-makes-it-easier-to-switch-between-apple-pay-cards/",
       "image": "/images/feed/feed-0bce4b2c700e.jpg",
       "source": "9to5Mac",
@@ -413,7 +470,7 @@
         "Foldable"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 31,
       "url": "https://www.engadget.com/2267906/what-foldable-phone-cases-protect/",
       "image": "/images/feed/feed-6a7f2bbcca86.jpg",
       "source": "Engadget",
@@ -432,7 +489,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 43,
       "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/openai-is-preparing-o-an-always-on-chatgpt-assistant-that-could-handle-email/",
       "image": "/images/feed/feed-cc73e76ea2eb.jpg",
       "source": "BleepingComputer",
@@ -451,7 +508,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 40,
       "url": "https://www.engadget.com/2267833/surround-sound-system-worth-it-vs-soundbar/",
       "image": "/images/feed/feed-ff8b3f5eede2.jpg",
       "source": "Engadget",
@@ -470,7 +527,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 54,
       "url": "https://9to5mac.com/2026/09/27/apple-rumored-screenless-fitness-tracker-whoop-competitor/",
       "image": "/images/feed/feed-b172a97beac4.jpg",
       "source": "9to5Mac",
@@ -489,7 +546,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 31,
       "url": "https://cleantechnica.com/2026/09/27/community-solar-power-plants-tight-spaces-high-density/",
       "image": "/images/feed/feed-d8413fc076ee.png",
       "source": "CleanTechnica",
@@ -527,7 +584,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 48,
       "url": "https://techcrunch.com/2026/09/27/anthropics-ceo-is-about-to-have-dinner-with-president-trump/",
       "image": "/images/feed/feed-920676792664.jpg",
       "source": "TechCrunch",
@@ -546,7 +603,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 34,
       "url": "https://techcrunch.com/2026/09/27/can-muse-overcome-metas-trust-issues/",
       "image": "/images/feed/feed-ee2957dde3ef.jpg",
       "source": "TechCrunch",
@@ -565,29 +622,10 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 46,
       "url": "https://electrek.co/2026/09/27/survey-sunday-when-self-driving-cars-crash-who-gets-the-blame/",
       "image": "/images/feed/feed-2ecdffbf6e83.jpg",
       "source": "Electrek",
-      "isLive": true
-    },
-    {
-      "id": "feed-ce7c7ef4674c",
-      "title": "The Case For Buying A Used EV Just Got Loads Better",
-      "excerpt": "Car dealers in the UK can add high-mileage reliability to their sales pitch for used EVs, as supported by a new study of standard road safety tests comparing electric cars with gas-powered cars. The p…",
-      "body": "Car dealers in the UK can add high-mileage reliability to their sales pitch for used EVs, as supported by a new study of standard road safety tests comparing electric cars with gas-powered cars. The post The Case For Buying A Used EV Just Got Loads Better appeared first on CleanTechnica .",
-      "author": "Tina Casey",
-      "date": "2026-09-27",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Ev"
-      ],
-      "featured": false,
-      "xpReward": 47,
-      "url": "https://cleantechnica.com/2026/09/27/used-evs-more-reliable-high-mileage-new-study-uk-data/",
-      "image": "/images/feed/feed-ce7c7ef4674c.jpg",
-      "source": "CleanTechnica",
       "isLive": true
     },
     {
@@ -603,29 +641,10 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 33,
       "url": "https://www.theverge.com/ai-artificial-intelligence/1001178/openai-agents-bruteforce-un-website",
       "image": "/images/feed/feed-113b2d34672f.jpg",
       "source": "The Verge",
-      "isLive": true
-    },
-    {
-      "id": "feed-549e845d0fdf",
-      "title": "Mazda adds LiDAR to CX-6e, rolls out “self driving” tech in China",
-      "excerpt": "Mazda’s CX-6e just got a major tech update in the form of a new LiDAR suite that makes the sporty electric SUV capable of delivering “advanced L2” autonomy, navigation on autopilot (NOA), and automate…",
-      "body": "Mazda’s CX-6e just got a major tech update in the form of a new LiDAR suite that makes the sporty electric SUV capable of delivering “advanced L2” autonomy, navigation on autopilot (NOA), and automate — a development drawing significant attention in the electric vehicles, hybrids, and automotive technology space.\n\nThis report, published by Electrek, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cars. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Electrek using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Jo Borrás",
-      "date": "2026-09-27",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Cars"
-      ],
-      "featured": false,
-      "xpReward": 49,
-      "url": "https://electrek.co/2026/09/27/mazda-adds-lidar-to-cx-6e-rolls-out-self-driving-tech-in-china/",
-      "image": "/images/feed/feed-549e845d0fdf.jpg",
-      "source": "Electrek",
       "isLive": true
     },
     {
@@ -641,7 +660,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 36,
       "url": "https://techcrunch.com/2026/09/27/anthropics-dario-amodei-gets-the-snl-treatment/",
       "image": "/images/feed/feed-62faa8b88a01.jpg",
       "source": "TechCrunch",
@@ -661,7 +680,7 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 44,
       "url": "https://www.bleepingcomputer.com/news/security/citrix-admins-warned-to-shut-down-netscalers-over-2-exploited-zero-days/",
       "image": "/images/feed/feed-82b35445d519.jpg",
       "source": "BleepingComputer",
@@ -680,7 +699,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 48,
       "url": "https://www.bleepingcomputer.com/news/security/cloudflare-fixes-containers-cross-tenant-flaw-exposing-customer-data/",
       "image": "/images/feed/feed-861901950abc.jpg",
       "source": "BleepingComputer",
@@ -700,7 +719,7 @@
         "Gemini"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 52,
       "url": "https://www.engadget.com/2266889/gemini-live-vs-gpt-live-which-offers-more-natural-conversation/",
       "image": "/images/feed/feed-4f087ad63a26.jpg",
       "source": "Engadget",
@@ -719,7 +738,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 34,
       "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/anthropic-turns-claude-into-an-ai-marketplace-with-2-000-plus-plugins-and-connectors/",
       "image": "/images/feed/feed-f79240ef1a66.jpg",
       "source": "BleepingComputer",
@@ -739,7 +758,7 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 30,
       "url": "https://thehackernews.com/2026/09/warning-two-unpatched-citrix-netscaler.html",
       "image": "/images/feed/feed-41c656f86bde.jpg",
       "source": "The Hacker News",
@@ -758,7 +777,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 44,
       "url": "https://science.nasa.gov/image-article/apod-2026-september-27-andromeda-before-photoshop/",
       "image": "/images/feed/feed-de3c0ec231f3.jpg",
       "source": "NASA Breaking News",
@@ -777,7 +796,7 @@
         "Gemini"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 30,
       "url": "https://techcrunch.com/2026/09/26/google-tests-buying-from-walmart-owned-flipkart-through-gemini-and-ai-mode-in-india/",
       "image": "/images/feed/feed-7fbf00bb0a9a.jpg",
       "source": "TechCrunch",
@@ -796,7 +815,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 42,
       "url": "https://www.bleepingcomputer.com/news/security/shinyhunters-uses-waf-bypass-trick-in-oracle-peoplesoft-attacks/",
       "image": "/images/feed/feed-ff39f222ff72.jpg",
       "source": "BleepingComputer",
@@ -815,7 +834,7 @@
         "Security"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 46,
       "url": "https://thehackernews.com/2026/09/lunex-stealer-abuses-amd-driver-to.html",
       "image": "/images/feed/feed-a8d9d3427b00.jpg",
       "source": "The Hacker News",
@@ -834,7 +853,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 31,
       "url": "https://science.nasa.gov/image-article/apod-2026-september-26-mirrored-meteor-and-milky-way/",
       "image": "/images/feed/feed-e48dc538a8d3.jpg",
       "source": "NASA Breaking News",
@@ -853,7 +872,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 38,
       "url": "https://www.nasa.gov/news-release/nasa-boeing-to-provide-update-on-starliner-development/",
       "image": "/images/feed/feed-44ca3ccd60f7.jpg",
       "source": "NASA Breaking News",
@@ -873,7 +892,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 30,
       "url": "https://www.nasa.gov/organizations/oiir/nasa-welcomes-san-marino-signing-the-artemis-accords/",
       "image": "/images/feed/feed-09bb646849b5.jpg",
       "source": "NASA Breaking News",
@@ -892,7 +911,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 45,
       "url": "https://www.nasa.gov/directorates/rtmd/nasa-tests-dual-mode-propulsion-cubesat-ahead-of-launch/",
       "image": "/images/feed/feed-fcc0f09fe98f.jpg",
       "source": "NASA Breaking News",
@@ -911,43 +930,24 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 39,
       "url": "https://www.nasa.gov/aeronautics/aeronautics-stem/2026-2027-dwu-middle-school-design-challenge/",
       "image": "/images/feed/feed-5e6a9bdf73f7.jpg",
-      "source": "NASA Breaking News",
-      "isLive": true
-    },
-    {
-      "id": "feed-69c9abcd6799",
-      "title": "2026-2027 DWU: High School Engineering Challenge",
-      "excerpt": "2026-2027 DWU: High School Engineering Challenge Challenge Materials Overview The 2026-2027 challenge theme is, “Fueling Flight Design Challenge: New Energy Systems.” As more and more aircraft are a p…",
-      "body": "9 min read Preparations for Next Moonwalk Simulations Underway (and Underwater) 2026-2027 DWU: High School Engineering Challenge Challenge Materials Engineering Notebook Template Scoring Rubric Overview The 2026-2027 challenge theme is, “Fueling Flight Design Challenge: New Energy Systems.” As more and more aircraft are a part of the US’ National Airspace System (NAS), NASA and partners at the FAA,&nbsp;at universities, and in the aviation industry are searching for ways to increase safety, make flight more affordable,&nbsp;find new fuels for aircraft, and reduce the amount of time passengers and cargo spend in the air.",
-      "author": "Lillian Gipson",
-      "date": "2026-09-25",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Space"
-      ],
-      "featured": false,
-      "xpReward": 49,
-      "url": "https://www.nasa.gov/aeronautics/aeronautics-stem/2026-2027-dwu-high-school-engineering-challenge/",
-      "image": "/images/feed/feed-69c9abcd6799.jpg",
       "source": "NASA Breaking News",
       "isLive": true
     }
   ],
   "breakingNews": [
-    "DEV.TO: I Built an AI Text-to-Video Generator — Here's What I Learned About Prompt Engineering for Video",
-    "DEV.TO: 'No tools listed' should mean deny, not allow-all",
-    "DEV.TO: High-Throughput PDF Redaction: Split Chapter Ranges from Parsed Contents Safely",
-    "DEV.TO: Security Audit Report: Reentrancy & Access Control Review: Gemini",
-    "POLYGON: 35 Years Later, the '90s Remake of a Cult Classic Thriller Is Officially Free to Watch on YouTube",
-    "DEV.TO: Don't Ship Dev Keys! Set Up Production-Ready Google OAuth in React",
-    "DEV.TO: Upserts reales en un mundo append-only: ReplacingMergeTree y FINAL.",
-    "DEV.TO: True upserts in an append-only world: ReplacingMergeTree and FINAL.",
-    "POLYGON: The Definitive ’90s Sci-Fi Action Blockbuster Is Officially Streaming for Free on YouTube",
-    "POLYGON: 2024's Best RPG Is a Must-Play for Fire Emblem Fans"
+    "DEV.TO: From Playground to Caching: Learning Amazon Bedrock",
+    "DEV.TO: Markdown Kitchen Sink: A Comprehensive Demo",
+    "DEV.TO: How to Reuse an Existing TON Connect Instance with Omniston Widget Integrated Mode",
+    "DEV.TO: Supercharging Your Security Audits: My Deep Dive into a Game-Changing AI Skill",
+    "DEV.TO: India’s Top 10 IoT Platforms for Education in 2026",
+    "DEV.TO: Dear Coder: Open This If You're Feeling AI FOMO",
+    "INFOQ: AWS Introduces Foreign Key Constraints in Aurora DSQL",
+    "CLEANTECHNICA: Tone-Deaf Trillionaire Launches $200,000 Electric Car Into Sour US Market",
+    "CLEANTECHNICA: XPENG VLA 2.0 vs. Tesla FSD in Amsterdam — Part 1: XPENG L03",
+    "POLYGON: 35 Years Later, the '90s Remake of a Cult Classic Thriller Is Officially Free to Watch on YouTube"
   ],
   "sectionVideos": {}
 }
