@@ -1,12 +1,69 @@
 {
-  "fetchedAt": "2026-09-28T22:14:17.532Z",
+  "fetchedAt": "2026-09-28T23:11:37.246Z",
   "articles": [
     {
-      "id": "feed-5119cd25eb31",
-      "title": "My Google AI API 500 errors stopped being scary when I stopped retrying the whole workflow",
-      "excerpt": "I knew something was wrong when one flaky Gemini call turned into: 3 duplicate HubSpot updates 1 duplicate Jira issue 4 Slack messages and a very annoyed ops channel At first it looked like a normal \"…",
-      "body": "I knew something was wrong when one flaky Gemini call turned into: 3 duplicate HubSpot updates 1 duplicate Jira issue 4 Slack messages and a very annoyed ops channel At first it looked like a normal \"Google AI API is throwing random 500s\" problem. It wasn’t. The real bug was that we were retrying the entire automation instead of retrying the model call. That distinction matters a lot once your workflow has side effects. If you’re seeing intermittent 500 , 502 , 503 , or 429 errors from Gemini or Vertex AI, the fix usually is not “add more retries everywhere.” The fix is to move the retry boundary. The first thing that surprised me: Google was already retrying If you use the Gemini Python SDK, Google already retries transient failures by default.",
-      "author": "Lars Winstand",
+      "id": "feed-0eea4cf711b2",
+      "title": "Node.js 24 Runbook for Explicit Retention Gates Before Deleting Campaign Images and Videos",
+      "excerpt": "Short answer: Give every temporary image and generated video an explicit retention deadline, preserve source and derivative IDs separately, and delete only one confirmed ID per idempotent operation. T…",
+      "body": "Short answer: Give every temporary image and generated video an explicit retention deadline, preserve source and derivative IDs separately, and delete only one confirmed ID per idempotent operation. Temporary campaign media needs a deletion contract, not a vague retention hope. For a B2B SaaS uploader that creates responsive thumbnails and occasionally generated videos, keep source and derivative identifiers separate, record the retention deadline with the campaign, and delete only after the storage service confirms the exact identifier. That policy protects bandwidth and makes retries safe. I have been paged for missed jobs and duplicate deliveries.",
+      "author": "GageSterling2648",
+      "date": "2026-09-28",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 53,
+      "url": "https://dev.to/gagesterling2648/nodejs-24-runbook-for-explicit-retention-gates-before-deleting-campaign-images-and-videos-4jgk",
+      "image": "/images/feed/feed-0eea4cf711b2.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-d5968b31f1df",
+      "title": "What California's New Privacy Law Means for Developers Building Compliance Tools",
+      "excerpt": "I spent some time reading through California's SB 923, and the implications for anyone building privacy compliance tools are worth talking about. Starting January 1, 2027, deletion requests under CCPA…",
+      "body": "I spent some time reading through California's SB 923, and the implications for anyone building privacy compliance tools are worth talking about. Starting January 1, 2027, deletion requests under CCPA will cover third-party data too. If your app enriches user profiles using external sources, those records now fall under the same deletion obligations. And if you're running an online-only business, a simple email address won't cut it anymore—companies need an actual form or portal for requests to know, delete, or correct. This is a genuine gap in the market. Most small teams handling user data aren't set up to maintain suppression lists across every vendor system, track which third-party sources feed their databases, or build out the request infrastructure from scratch.",
+      "author": "Richard Smith",
+      "date": "2026-09-28",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Developer"
+      ],
+      "featured": true,
+      "xpReward": 47,
+      "url": "https://dev.to/richard_smith_154156d471ef/what-californias-new-privacy-law-means-for-developers-building-compliance-tools-5f1f",
+      "image": "/images/feed/feed-d5968b31f1df.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-0bad2d1e46a5",
+      "title": "Navigating the Android background lifecycle: Lessons from building Muffle",
+      "excerpt": "It was the middle of a Friday afternoon, and I was sitting in a quiet, hushed room for a Jumu'ah prayer. The space was packed, the atmosphere solemn, and then, right as the sermon reached its most ref…",
+      "body": "It was the middle of a Friday afternoon, and I was sitting in a quiet, hushed room for a Jumu'ah prayer. The space was packed, the atmosphere solemn, and then, right as the sermon reached its most reflective point, a phone in the third row began blasting a high-pitched, upbeat ringtone. The embarrassment was palpable. The owner fumbled, dropped his device, and the sound echoed off the walls. I sat there thinking about how many times I had been that person, and how often we rely on manual memory to manage something as fundamental as our phone's sound profile. That moment was the seed for Muffle. The problem is that manual intervention is inherently flawed. We are human; we get distracted.",
+      "author": "Haseeb",
+      "date": "2026-09-28",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 35,
+      "url": "https://dev.to/haseebthedev0/navigating-the-android-background-lifecycle-lessons-from-building-muffle-3aog",
+      "image": "/images/feed/feed-0bad2d1e46a5.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-6d09f7472027",
+      "title": "AI API call hangs in production, then 504: timeouts and budgets",
+      "excerpt": "We read 1,662 public posts from builders whose apps broke at or after launch and verified 215 recent cases. AI model and API failures make up 4% of them. Six of the verified cases share one pattern: a…",
+      "body": "We read 1,662 public posts from builders whose apps broke at or after launch and verified 215 recent cases. AI model and API failures make up 4% of them. Six of the verified cases share one pattern: an outbound or AI call with no timeout, no budget and no fallback. In most of the six, nobody noticed for a while, because the app didn't log model calls or their outcomes. From the builder's side it shows up as one of these: A spinner that runs for minutes, then a 504 from Vercel or a 524 from Cloudflare. On localhost it was fine. Users read polite fallback text while the spend dashboard looks normal, because failed calls cost almost nothing. An agent or background job burns a week's budget in a day. Then the provider's spend limit trips and every user is cut off at once.",
+      "author": "Ahmed",
       "date": "2026-09-28",
       "readTime": "2 min",
       "section": "software",
@@ -14,10 +71,295 @@
         "Api"
       ],
       "featured": true,
-      "xpReward": 39,
-      "url": "https://dev.to/lars_winstand/my-google-ai-api-500-errors-stopped-being-scary-when-i-stopped-retrying-the-whole-workflow-ko1",
-      "image": "/images/feed/feed-5119cd25eb31.webp",
+      "xpReward": 54,
+      "url": "https://dev.to/gemmein/ai-api-call-hangs-in-production-then-504-timeouts-and-budgets-1bel",
+      "image": "/images/feed/feed-6d09f7472027.webp",
       "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-5699d6b5665f",
+      "title": "Claude e Obsidian - Como uma QA utiliza essas ferramentas no dia-a-dia",
+      "excerpt": "Ser QA nessa era de IA tem sido bem desafiador, principalmente quando a velocidade de entrega é maior, fica o grande questionamento: Como eu vou conseguir garantir que não me esqueci de nada? Será que…",
+      "body": "Ser QA nessa era de IA tem sido bem desafiador, principalmente quando a velocidade de entrega é maior, fica o grande questionamento: Como eu vou conseguir garantir que não me esqueci de nada? Será que estou cobrindo os cenários que realmente precisam ser cobertos? Ter uma boa organização é essencial pra todas áreas da vida, e dentro da área de QA não seria diferente, por isso atualmente o Obsidian tem sido uma ferramenta bem presente no meu dia-a-dia, e vim falar pra vocês como eu tenho utilizado ela. Por que o Obsidian? Basicamente, o Obsidian é um aplicativo de anotações e gestão de conhecimento que funciona com arquivos Markdown(.md) que são guardados localmente no seu computador, tendo a possibilidade de te-los na nuvem utilizando a versão paga ou algum plugin da comunidade.",
+      "author": "Alicia Marianne Gonçalves",
+      "date": "2026-09-28",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 47,
+      "url": "https://dev.to/he4rt/claude-e-obsidian-como-uma-qa-utiliza-essas-ferramentas-no-dia-a-dia-51jc",
+      "image": "/images/feed/feed-5699d6b5665f.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-9b19e3de116f",
+      "title": "Silicon Valley 101: Unpacking the Wild Growth of the AI‑Data Industry | 硅谷101：深度解析AI数据行业的野蛮生长",
+      "excerpt": "https://www.youtube.com/watch?v=I-rLxiIGf-4 说明：百分比按照文档token总长度12876做占比估算，代表内容在全文的位置占比。 节目开篇预告：线下AI活动介绍（0%‑7%） 1 主持人开场首先宣传《硅谷101》即将在湾区举办的黑客松活动，活动归属Alignment 2026年度大会，活动名称为STORY101 LAB AI视频创作挑战赛。 行业现象：A…",
+      "body": "https://www.youtube.com/watch?v=I-rLxiIGf-4 谁在出题、卖题、判卷？深度解析AI数据行业的野蛮生长 说明：百分比按照文档token总长度12876做占比估算，代表内容在全文的位置占比。 第（一）部分 节目开篇预告：线下AI活动介绍 （0%‑7%） 1 主持人开场首先宣传《硅谷101》即将在湾区举办的黑客松活动，活动归属Alignment 2026年度大会，活动名称为STORY101 LAB AI视频创作挑战赛。 2 赛事面向两类人群，一类是已经使用AI拍片的专业团队，另一类是想要尝试AI视频创作的新手；赛事划分探索组与专业组，会配套免费实操培训。 3 参赛优胜作品可以获得奖金，同时能够在千人规模的线下活动进行公开展映；活动举办时间为10月10‑11日，地点位于桑尼维尔的Plug and Play科技中心，报名入口放在本期节目的附信息当中。 4 Alignment 2026大会本身也开放报名，已经邀约OpenAI、英伟达等多家知名企业机构嘉宾参与线下交流。 第（二）部分 行业现象：AI数据赛道迎来爆发式估值增长 （7%‑17%） 1 很多投资人近期高度关注AI数据赛道，随着大模型能力迭代升级，模型企业对于训练数据的需求变得更加复杂、更加细分，硅谷涌现一大批高速增长的数据服务企业。 2 举例新秀企业AfterQuery，不到半年估值从3亿美元暴涨至32亿美元，创下YC孵化企业最快独角兽纪录；老牌数据企业同样估值惊人，Meta入股时Scale AI估值超290亿美元，Mercor融资估值达到100亿美元。 3 高估值的背后，外界很难看懂数据公司实际业务模式，由此引出核心疑问：这些数据公司究竟售卖什么，为什么大模型企业愿意付出巨额资金采购。 4 简单科普传统数据标注与当下新增业务差异：过去的数据标注主要是图片打标签、给模型输出打分；如今需要…",
+      "author": "cognitalk",
+      "date": "2026-09-28",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 34,
+      "url": "https://dev.to/cognitalk/silicon-valley-101-unpacking-the-wild-growth-of-the-ai-data-industry-2e5n",
+      "image": "/images/feed/feed-9b19e3de116f.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-78377001b3b2",
+      "title": "Era Agentic Engineering: Ketika Developer Berhenti Menulis Kode dan Mulai Merancang Niat",
+      "excerpt": "Era Agentic Engineering: Ketika Developer Berhenti Menulis Kode dan Mulai Merancang Niat Ada satu perasaan aneh yang muncul kalau kita melihat cara kerja software engineering di tahun 2026 ini. Kalau…",
+      "body": "Era Agentic Engineering: Ketika Developer Berhenti Menulis Kode dan Mulai Merancang Niat Ada satu perasaan aneh yang muncul kalau kita melihat cara kerja software engineering di tahun 2026 ini. Kalau beberapa tahun lalu kita merasa AI adalah \"asisten\" yang membantu autocomplete baris kode kita, sekarang rasanya lebih seperti kita sedang mengelola tim kecil yang sangat efisien. Kita tidak lagi berkutat dengan syntax error atau menghabiskan waktu berjam-jam hanya untuk mencari tahu kenapa sebuah state di React tidak terupdate. Kita sedang memasuki era Agentic Engineering . Pergeseran ini bukan sekadar tentang alat yang lebih pintar, tapi tentang perubahan fundamental dalam cara kita memandang proses pembuatan software.",
+      "author": "Agung Gumelar",
+      "date": "2026-09-28",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Developer"
+      ],
+      "featured": false,
+      "xpReward": 30,
+      "url": "https://dev.to/hellogung/era-agentic-engineering-ketika-developer-berhenti-menulis-kode-dan-mulai-merancang-niat-4gbo",
+      "image": "/images/feed/feed-78377001b3b2.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-3cf3c10fef19",
+      "title": "Control Resonant Director Explains The Game’s Lack Of Yellow Paint: ‘It Was A Conscious Decision, Obviously’",
+      "excerpt": "'If you want to get the most out of this world, you have to participate'",
+      "body": "'If you want to get the most out of this world, you have to participate'\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Game. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Zack Zwiezen",
+      "date": "2026-09-28",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Game"
+      ],
+      "featured": false,
+      "xpReward": 44,
+      "url": "https://kotaku.com/control-resonant-director-explains-the-games-lack-of-yellow-paint-it-was-a-conscious-decision-obviously-2000738062",
+      "image": "/images/feed/feed-3cf3c10fef19.jpg",
+      "source": "Kotaku",
+      "isLive": true
+    },
+    {
+      "id": "feed-a3c762eea133",
+      "title": "GTA 6’s $400 Collector’s Edition Is the Latest Example of a Horrible Trend",
+      "excerpt": "A new Grand Theft Auto 6 collectors box is the latest example of the games industry prioritizing high-spending customers above all else",
+      "body": "Spendy deluxe editions are nothing new in the world of video games. For many years now, players have had the option to pay a bit more than retail price — often between $20 and $50 extra — for a bundle of extra goodies to enhance a new game they're looking forward to playing. These special editions typically include stuff like alternate cover art, powerful in-game items, soundtracks, art books, or the occasional display-worthy figurine. But lately, the prices have started to get pretty wild. Grand Theft Auto 6 is no exception.",
+      "author": "Jen Glennon",
+      "date": "2026-09-28",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 40,
+      "url": "https://www.polygon.com/gta-6-good-time-state-collectors-editions/",
+      "image": "/images/feed/feed-a3c762eea133.png",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-47213a6aeec2",
+      "title": "How to improve your Android phone's battery life",
+      "excerpt": "Don't give up just yet on your Android. If the poor battery is your main complaint, give these usage and settings tips a try.",
+      "body": "Don't give up just yet on your Android. If the poor battery is your main complaint, give these usage and settings tips a try.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Android Phone. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "staff@engadget.com (Gabriela Vătu)",
+      "date": "2026-09-28",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Android Phone"
+      ],
+      "featured": false,
+      "xpReward": 31,
+      "url": "https://www.engadget.com/2269187/android-phone-how-to-improve-battery-life/",
+      "image": "/images/feed/feed-47213a6aeec2.jpg",
+      "source": "Engadget",
+      "isLive": true
+    },
+    {
+      "id": "feed-b96047091f90",
+      "title": "SOLARLAP — Around Australia on Green Power",
+      "excerpt": "Sick of the cartoons and comments insisting that all electric cars are powered by electricity generated by fossil fuels, Andrew Mangano set out to show it is possible to travel around Australia using…",
+      "body": "Sick of the cartoons and comments insisting that all electric cars are powered by electricity generated by fossil fuels, Andrew Mangano set out to show it is possible to travel around Australia using mainly solar energy. You probably know the cartoons I am referring to — showing an EV linked ... [continued] The post SOLARLAP — Around Australia on Green Power appeared first on CleanTechnica .",
+      "author": "David Waterworth",
+      "date": "2026-09-28",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Cars"
+      ],
+      "featured": false,
+      "xpReward": 50,
+      "url": "https://cleantechnica.com/2026/09/28/solarlap-around-australia-on-green-power/",
+      "image": "/images/feed/feed-b96047091f90.jpg",
+      "source": "CleanTechnica",
+      "isLive": true
+    },
+    {
+      "id": "feed-43f53c9e284a",
+      "title": "California is banning public officials from making memecoins",
+      "excerpt": "The state has enacted several new rules around cryptocurrencies.",
+      "body": "The state has enacted several new rules around cryptocurrencies.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "staff@engadget.com (Anna Washenko)",
+      "date": "2026-09-28",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 33,
+      "url": "https://www.engadget.com/2271475/california-is-banning-public-officials-from-making-memecoins/",
+      "image": "/images/feed/feed-43f53c9e284a.jpg",
+      "source": "Engadget",
+      "isLive": true
+    },
+    {
+      "id": "feed-8cd18de0f9f0",
+      "title": "macOS 27: How to use the new ‘Notify Me’ feature in Safari",
+      "excerpt": "9to5Mac is brought to you by CleanMyMac by MacPaw. With the release of macOS 27 Golden Gate, use CleanMyMac first to free up space, optimize your system, and ensure your new Mac runs at 100% on day on…",
+      "body": "9to5Mac is brought to you by CleanMyMac by MacPaw . With the release of macOS 27 Golden Gate, use CleanMyMac first to free up space, optimize your system, and ensure your new Mac runs at 100% on day one. Learn more . One of the many new features included in macOS 27 Golden Gate is Safari’s new “Notify Me” feature, which lets users get alerted when a website updates content they’re interested in. Here’s how to use it. more…",
+      "author": "Marcus Mendes",
+      "date": "2026-09-28",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 43,
+      "url": "https://9to5mac.com/2026/09/28/macos-27-how-to-use-the-new-notify-me-feature-in-safari/",
+      "image": "/images/feed/feed-8cd18de0f9f0.jpg",
+      "source": "9to5Mac",
+      "isLive": true
+    },
+    {
+      "id": "feed-640947da9f7b",
+      "title": "Volkswagen Is Going Big On Cheaper LFP Batteries In Europe",
+      "excerpt": "Volkswagen announced multiple deals with China's Gotion to make LFP batteries for mass-market EVs.",
+      "body": "Volkswagen announced multiple deals with China's Gotion to make LFP batteries for mass-market EVs.\n\nThis report, published by InsideEVs, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cars. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to InsideEVs using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "InsideEVs",
+      "date": "2026-09-28",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Cars"
+      ],
+      "featured": false,
+      "xpReward": 53,
+      "url": "https://insideevs.com/news/809952/volkswagen-gotion-cheaper-lfp-batteries-europe/",
+      "image": "/images/feed/feed-640947da9f7b.jpg",
+      "source": "InsideEVs",
+      "isLive": true
+    },
+    {
+      "id": "feed-5780fe770aa9",
+      "title": "My iPhone hit 1,000 charge cycles — Here's how it's holding up",
+      "excerpt": "I've had my iPhone 15 Pro Max for three years and have completed 1,000 battery charge cycles. Here's what the experience has been like.",
+      "body": "I've had my iPhone 15 Pro Max for three years and have completed 1,000 battery charge cycles. Here's what the experience has been like.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Iphone. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "staff@engadget.com (Adnan Ahmed)",
+      "date": "2026-09-28",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Iphone"
+      ],
+      "featured": false,
+      "xpReward": 53,
+      "url": "https://www.engadget.com/2269075/iphone-hit-1000-charge-cycles-how-holding-up/",
+      "image": "/images/feed/feed-5780fe770aa9.jpg",
+      "source": "Engadget",
+      "isLive": true
+    },
+    {
+      "id": "feed-490721898d4e",
+      "title": "Spider-Man: Brand New Day Getting Official New Version, Report Says",
+      "excerpt": "Sony will reportedly rerelease Spider-Man: Brand New Day in movie theaters with new footage, including cut cameos of other MCU characters.",
+      "body": "As Marvel Studios' recent release of Avengers Endgame: Encore proves, blockbuster movies can still dominate the box office , even after a multibillion dollar run. Sony is reportedly planning a rerelease of Spider-Man: Brand New Day to bring web-head-heads back to movie theaters — and like Endgame: Encore , the studio is adding new footage of Spider-Man's latest flick as an incentive.",
+      "author": "Michael McWhertor",
+      "date": "2026-09-28",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 37,
+      "url": "https://www.polygon.com/spider-man-brand-new-day-rerelease-new-footage/",
+      "image": "/images/feed/feed-490721898d4e.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-24bf59374fd5",
+      "title": "SNL Skewers Anthropic CEO: ‘I Urge You to Urge Me to Stop’",
+      "excerpt": "Jane Wickline plays a sweaty, Gollum-esque Dario Amodei in this sharp satire.",
+      "body": "Jane Wickline plays a sweaty, Gollum-esque Dario Amodei in this sharp satire.\n\nThis report, published by CNET, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Anthropic. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to CNET using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Gael Cooper",
+      "date": "2026-09-28",
+      "readTime": "2 min",
+      "section": "ai",
+      "tags": [
+        "Anthropic"
+      ],
+      "featured": false,
+      "xpReward": 36,
+      "url": "https://www.cnet.com/tech/services-and-software/snl-skewers-anthropic-ceo-i-urge-you-to-urge-me-to-stop/",
+      "image": "/images/feed/feed-24bf59374fd5.png",
+      "source": "CNET",
+      "isLive": true
+    },
+    {
+      "id": "feed-13814a09d0ee",
+      "title": "US clean energy jobs fell for the first time since the pandemic",
+      "excerpt": "The US lost 36,949 clean energy jobs in 2025, ending four straight years of growth. That’s the direct impact of the Trump administration and the Republican-controlled Congress rolling back federal sup…",
+      "body": "The US lost 36,949 clean energy jobs in 2025, ending four straight years of growth. That’s the direct impact of the Trump administration and the Republican-controlled Congress rolling back federal support for clean energy and EVs, which led companies to cancel or scale back projects. more…",
+      "author": "Michelle Lewis",
+      "date": "2026-09-28",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Cars"
+      ],
+      "featured": false,
+      "xpReward": 31,
+      "url": "https://electrek.co/2026/09/28/us-clean-energy-jobs-fell-for-the-first-time-since-the-pandemic/",
+      "image": "/images/feed/feed-13814a09d0ee.jpg",
+      "source": "Electrek",
+      "isLive": true
+    },
+    {
+      "id": "feed-980121f77114",
+      "title": "Best new video games of 2026 (so far)",
+      "excerpt": "The best new video games of 2026 include Cairn, Pragmata, Blood of Dawnwalker, and more. 2026 GOTY is going to be a tough race.",
+      "body": "We've still got a bit to go until we can seriously start considering Polygon's 2026 game of the year, but as December quickly approaches, plenty of games from 2026 remain on our minds. These are just some of the games that have resonated with us throughout the year, and it's only the tip of the iceberg. We'll be working through our 2026 backlogs for years to come at this rate, and the year isn't even over yet.",
+      "author": "Giovanni Colantonio",
+      "date": "2026-09-28",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Video Game"
+      ],
+      "featured": false,
+      "xpReward": 30,
+      "url": "https://www.polygon.com/best-2026-games-xbox-ps5-switch-pc/",
+      "image": "/images/feed/feed-980121f77114.jpg",
+      "source": "Polygon",
       "isLive": true
     },
     {
@@ -32,125 +374,31 @@
       "tags": [
         "Gaming"
       ],
-      "featured": true,
-      "xpReward": 51,
+      "featured": false,
+      "xpReward": 53,
       "url": "https://kotaku.com/avengers-endgame-encore-viewers-shocked-to-find-out-one-scene-teasing-doomsday-was-exclusive-to-imax-2000738063",
       "image": "/images/feed/feed-dcb2a62e65fe.jpg",
       "source": "Kotaku",
       "isLive": true
     },
     {
-      "id": "feed-e8e0928d3108",
-      "title": "Why “compress this image to 100 KB” is a constraint problem",
-      "excerpt": "An upload form that accepts only a small image is asking for several things at once: a supported file format, acceptable dimensions, a maximum byte count, and a picture that is still readable. Optimiz…",
-      "body": "An upload form that accepts only a small image is asking for several things at once: a supported file format, acceptable dimensions, a maximum byte count, and a picture that is still readable. Optimizing only one of those can produce a file that looks successful in a preview but fails at the destination. I maintain FitToKB , a browser image utility for this workflow. Here is the engineering model behind the problem, including the cases where an honest tool should report that it cannot meet the requested target. Start with bytes, not the displayed KB label Write the acceptance condition explicitly: output.size &lt;= targetBytes . A rounded label such as “100 KB” is not sufficient to prove a file meets a limit. A destination might interpret KB as 1,000 bytes or use 1,024-byte units.",
-      "author": "Aryan Gupta",
+      "id": "feed-c28463300f4c",
+      "title": "Apple Ordered to Pay $5.7 Billion for Infringing Haptics Patent in iPhone, Apple Watch",
+      "excerpt": "A jury awards Taction Technology damages for Apple allegedly using its patented vibration-based tactile technology in its own devices.",
+      "body": "A jury awards Taction Technology damages for Apple allegedly using its patented vibration-based tactile technology in its own devices.\n\nThis report, published by CNET, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Iphone, Apple Watch. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to CNET using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Ty Pendlebury",
       "date": "2026-09-28",
       "readTime": "2 min",
-      "section": "software",
+      "section": "gadgets",
       "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 44,
-      "url": "https://dev.to/aryangupta99/why-compress-this-image-to-100-kb-is-a-constraint-problem-3b27",
-      "image": "/images/feed/feed-e8e0928d3108.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-b36b671910f0",
-      "title": "I Stopped Writing Separate Instructions for Claude Code, Codex, and Cursor - Here's My 2026 Setup",
-      "excerpt": "AGENTS.md vs CLAUDE.md vs Cursor Rules vs Skills vs MCP: What Actually Belongs Where? I use multiple AI coding agents in my development workflow. Claude Code for some tasks. Codex for others. Cursor w…",
-      "body": "AGENTS.md vs CLAUDE.md vs Cursor Rules vs Skills vs MCP: What Actually Belongs Where? I use multiple AI coding agents in my development workflow. Claude Code for some tasks. Codex for others. Cursor when I want to work directly inside the editor. At first, my approach was simple: Give each AI tool enough instructions to understand the project. That worked. Until it didn't. My repositories gradually started accumulating instructions everywhere: AGENTS.md CLAUDE.md .cursor/rules/ README.md architecture docs feature plans skills MCP configurations random prompts Many of these files contained overlapping information. I was mixing project conventions, architecture decisions, feature requirements, and agent workflows into the same documents.",
-      "author": "Nael M. Awadallah",
-      "date": "2026-09-28",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 41,
-      "url": "https://dev.to/naelawadallah/i-stopped-writing-separate-instructions-for-claude-code-codex-and-cursor-heres-my-2026-setup-47ih",
-      "image": "/images/feed/feed-b36b671910f0.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-085e84525a53",
-      "title": "How to Debug Blurry Marketplace Product Images in Go (Quality by Content Type)",
-      "excerpt": "The page says compressed product images look blurry enough to breach the marketplace thumbnail SLO, and the on-call sees a healthy queue, successful encoders, and a bandwidth graph that looks almost s…",
-      "body": "The page says compressed product images look blurry enough to breach the marketplace thumbnail SLO, and the on-call sees a healthy queue, successful encoders, and a bandwidth graph that looks almost suspiciously good. The least complex fix is to stop treating every product asset as a photograph: classify graphics separately, preserve transparency and hard edges for them, and tune lossy photo compression against a measured visual-quality floor rather than one global quality number. Short answer: record the source type, dimensions, alpha channel, chosen output format, encoded bytes, and a quality score for every transformation. Use those fields to isolate the bad class before changing an encoder setting. A low byte count is not success when search results have unreadable seller marks.",
-      "author": "LiamFoster1844",
-      "date": "2026-09-28",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 45,
-      "url": "https://dev.to/liamfoster1844/how-to-debug-blurry-marketplace-product-images-in-go-quality-by-content-type-5b1b",
-      "image": "/images/feed/feed-085e84525a53.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-2ca4862e82a1",
-      "title": "Avatar Composition: 4 Trade-offs Between Fixed Crop and Smart Crop",
-      "excerpt": "A fixed crop gives profile photos predictable geometry; a smart crop gives them a better chance of preserving the subject. For a B2B SaaS upload pipeline, the practical answer is to generate both cand…",
-      "body": "A fixed crop gives profile photos predictable geometry; a smart crop gives them a better chance of preserving the subject. For a B2B SaaS upload pipeline, the practical answer is to generate both candidates, choose the fixed crop when its subject-safety checks pass, and use the smart crop only when it produces a meaningfully safer composition. That keeps responsive thumbnails stable without spending extra bandwidth on several near-identical variants. The data flow is compact. Decode one upload, normalize its orientation, derive a square target, calculate a centered fixed candidate and a subject-aware candidate, then run the same acceptance checks on both. Store the original plus the selected derivative sizes your interface actually renders.",
-      "author": "CrimsonWave9361502",
-      "date": "2026-09-28",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 43,
-      "url": "https://dev.to/crimsonwave9361502/avatar-composition-4-trade-offs-between-fixed-crop-and-smart-crop-epm",
-      "image": "/images/feed/feed-2ca4862e82a1.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-71a168b5a93b",
-      "title": "Day 52: Undo Rolls Forward, and the Disk Already Mounted Is the One Not to Trust",
-      "excerpt": "Day 52 of DevOps, Day 2 of Azure. Both tasks today were about commands that do something a little different from what their names suggest. kubectl rollout undo sounds like a rewind. It is not one; it…",
-      "body": "Day 52 of DevOps, Day 2 of Azure. Both tasks today were about commands that do something a little different from what their names suggest. kubectl rollout undo sounds like a rewind. It is not one; it rolls forward to an old template. And az vm create sounds like it creates a VM. It does, along with a network, a firewall rule, a public address and one more disk than I asked for, and that extra disk is the one not to keep anything on. One Kubernetes task, one Azure task. Roll a Deployment back to its previous version, then create an Azure VM with a specific image, size and disk type. The tasks come from the KodeKloud Engineer platform.",
-      "author": "Nnamdi Felix Ibe",
-      "date": "2026-09-28",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 31,
-      "url": "https://dev.to/ndcodes/day-52-undo-rolls-forward-and-the-disk-already-mounted-is-the-one-not-to-trust-32bb",
-      "image": "/images/feed/feed-71a168b5a93b.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-4439b008d767",
-      "title": "From 47 Scattered Tickets to a Live Cause Node: Building an Interactive Feedback Dashboard with Hindsight Memory",
-      "excerpt": "On the 12th of July the sentiment score of our export feature decreased by 41 points in one day. No one on the engineering team realized what was happening until 3 days later, when a support lead manu…",
-      "body": "On the 12th of July the sentiment score of our export feature decreased by 41 points in one day. No one on the engineering team realized what was happening until 3 days later, when a support lead manually pasted 19 similar tickets in a slack channel. By that point 47 customers had already been impacted by the same crash. This number of 47 tickets, the three day span, is what caused us to rethink customer feedback as a living memory system.",
-      "author": "Rafsha Khaisar",
-      "date": "2026-09-28",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
+        "Iphone",
+        "Apple Watch"
       ],
       "featured": false,
       "xpReward": 30,
-      "url": "https://dev.to/raven-xoxo/from-47-scattered-tickets-to-a-live-cause-node-building-an-interactive-feedback-dashboard-with-1iod",
-      "image": "/images/feed/feed-4439b008d767.webp",
-      "source": "Dev.to",
+      "url": "https://www.cnet.com/tech/mobile/apple-5-billion-dollars-haptics-patent-iphone-apple-watch/",
+      "image": "/images/feed/feed-c28463300f4c.jpg",
+      "source": "CNET",
       "isLive": true
     },
     {
@@ -166,18 +414,18 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 39,
       "url": "https://www.engadget.com/2268998/how-to-improve-fps-better-gaming-no-new-hardware/",
       "image": "/images/feed/feed-7242aff5cd66.jpg",
       "source": "Engadget",
       "isLive": true
     },
     {
-      "id": "feed-e61e8c2ceba1",
-      "title": "The Guy Who Saved The Predator Franchise Is Reportedly Making A Sleeping Beauty Movie",
-      "excerpt": "Uhhhh...okay then, Disney, that's an idea",
-      "body": "Uhhhh...okay then, Disney, that's an idea\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Zack Zwiezen",
+      "id": "feed-5866e7c9eef8",
+      "title": "Doctor Doom Appears to Be Abducting Heroes in Avengers: Doomsday",
+      "excerpt": "The directors of Avengers: Doomsday seem to be teasing that Doctor Doom is abducting different heroes from around the Marvel universe.",
+      "body": "The directors of Avengers: Doomsday seem to be teasing that Doctor Doom is abducting different heroes from around the Marvel universe. At the end of Avengers: Endgame Encore, a recent re-release of the 2019 film with additional footage, Bruce Banner is seen recording a video message in a bunker . He has isolated himself following the events of Spider-Man: Brand New Day, but his moment of isolation is interrupted when Doctor Doom suddenly appears and seemingly kidnaps him. It&#39;s unclear exactly what Doom is planning, but it goes beyond just snatching the Incredible Hulk. Speaking to Empire , director Joe Russo teased that Banner is just one part of Doom&#39;s larger plan. &quot;I mean, look, his interest may extend beyond just Banner,&quot; said Russo.",
+      "author": "Cade Onder",
       "date": "2026-09-28",
       "readTime": "2 min",
       "section": "gaming",
@@ -185,18 +433,18 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 52,
-      "url": "https://kotaku.com/the-guy-who-saved-the-predator-franchise-is-reportedly-making-a-sleeping-beauty-movie-2000738053",
-      "image": "/images/feed/feed-e61e8c2ceba1.jpg",
-      "source": "Kotaku",
+      "xpReward": 51,
+      "url": "https://www.ign.com/articles/doctor-doom-appears-to-be-abducting-heroes-in-avengers-doomsday",
+      "image": "/images/feed/feed-5866e7c9eef8.png",
+      "source": "IGN",
       "isLive": true
     },
     {
-      "id": "feed-247dfa1b973b",
-      "title": "Dressmaker's Chaotic Evil Endings Prove Why it's Dominating Steam Right Now",
-      "excerpt": "Dressmaker's sabotage system lets you ruin customers' day on purpose…all the way to five hilarious unlockable endings",
-      "body": "Every service job has that one customer that really has it coming to them. Dressmaker is the rare game that offers you a hilarious opportunity for catharsis, should you be so inclined. On its surface, this is a cozy little sewing sim: You pick fabric, cut a pattern, and stitch buttons on by hand. You deliver a dress, then get a nice thank-you and a tip. It’s the kind of game you’d expect to play with a cup of tea and zero stakes for the ASMR vibes and quick burst of dopamine a la Powerwash Simulator or Unpacking . But then, when you meet a customer rude enough, you might just find yourself wondering if the fabric you select for their commission absolutely must match their specifications. It would seem the game’s developers were hoping you’d ask that question.",
-      "author": "Rebecca Corgan",
+      "id": "feed-ac3667811283",
+      "title": "Everything Coming to HBO Max in October",
+      "excerpt": "Everything Coming to HBO Max in October",
+      "body": "We&#39;re headed into spooky season, and HBO Max is picking up some big horror franchises like A Nightmare on Elm Street to celebrate. The streamer will also be closing out the first season of Lanterns, the latest DC series, while premiering movies from the Warner Bros. slate as well as studios like A24 and Lionsgate. There&#39;s even a splattering of live sports. Highlights Coming to HBO Max A Nightmare on Elm Street Movies - October 1 It wouldn’t be an October list without some good ol&#39; horror. Expect to see plenty of dedicated “Halloween” sections compiling all of the existing horror movies and shows on the service.",
+      "author": "Blythe Dujardin",
       "date": "2026-09-28",
       "readTime": "2 min",
       "section": "gaming",
@@ -204,10 +452,10 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 32,
-      "url": "https://www.polygon.com/dressmaker-sabotage-revenge-customers/",
-      "image": "/images/feed/feed-247dfa1b973b.jpg",
-      "source": "Polygon",
+      "xpReward": 46,
+      "url": "https://www.ign.com/articles/whats-new-on-hbo-max-october-2026",
+      "image": "/images/feed/feed-ac3667811283.jpg",
+      "source": "IGN",
       "isLive": true
     },
     {
@@ -223,7 +471,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 43,
       "url": "https://insideevs.com/news/809936/lexus-tz-pricing-specs/",
       "image": "/images/feed/feed-186673e719ad.jpg",
       "source": "InsideEVs",
@@ -242,68 +490,10 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 34,
       "url": "https://www.androidauthority.com/claude-sonnet-5-5-3716475/",
       "image": "/images/feed/feed-0e2c7cf1a707.jpg",
       "source": "Android Authority",
-      "isLive": true
-    },
-    {
-      "id": "feed-1a44f4b393c5",
-      "title": "You Should Download iOS 27.0.1 Now for These iPhone Fixes",
-      "excerpt": "The update includes a fix for a bug that might cause your touchscreen to stop working.",
-      "body": "The update includes a fix for a bug that might cause your touchscreen to stop working.\n\nThis report, published by CNET, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Iphone. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to CNET using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Zachary McAuliffe",
-      "date": "2026-09-28",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Iphone"
-      ],
-      "featured": false,
-      "xpReward": 33,
-      "url": "https://www.cnet.com/tech/services-and-software/you-should-download-ios-27-0-1-now-for-these-iphone-fixes/",
-      "image": "/images/feed/feed-1a44f4b393c5.jpg",
-      "source": "CNET",
-      "isLive": true
-    },
-    {
-      "id": "feed-0a461ff43d6a",
-      "title": "watchOS 27.0.1 is now available for all compatible Apple Watch models",
-      "excerpt": "Apple today expanded the availability of watchOS 27.0.1 to more Apple Watch models, following last week’s initial release for Apple Watch Series 12 and Apple Watch Ultra 4. Here are the details. more…",
-      "body": "Apple today expanded the availability of watchOS 27.0.1 to more Apple Watch models, following last week’s initial release for Apple Watch Series 12 and Apple Watch Ultra 4. Here are the details. more — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Apple Watch. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Marcus Mendes",
-      "date": "2026-09-28",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Apple Watch"
-      ],
-      "featured": false,
-      "xpReward": 31,
-      "url": "https://9to5mac.com/2026/09/28/watchos-27-0-1-is-now-available-for-all-compatible-apple-watch-models/",
-      "image": "/images/feed/feed-0a461ff43d6a.jpg",
-      "source": "9to5Mac",
-      "isLive": true
-    },
-    {
-      "id": "feed-8801c031c116",
-      "title": "Watch a YouTuber Emulate PlayStation 5 Games on an Xbox Series X",
-      "excerpt": "“Xbox backward compatibility is getting out of hand,” he writes.",
-      "body": "“Xbox backward compatibility is getting out of hand,” he writes.\n\nThis report, published by CNET, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Playstation, Xbox. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to CNET using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Zachary McAuliffe",
-      "date": "2026-09-28",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Playstation",
-        "Xbox"
-      ],
-      "featured": false,
-      "xpReward": 48,
-      "url": "https://www.cnet.com/tech/gaming/watch-a-youtuber-run-playstation-5-games-on-an-xbox-series-x/",
-      "image": "/images/feed/feed-8801c031c116.jpg",
-      "source": "CNET",
       "isLive": true
     },
     {
@@ -319,7 +509,7 @@
         "Ransomware"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 32,
       "url": "https://www.bleepingcomputer.com/news/security/japans-keio-confirms-ransomware-attack-disrupted-business-systems/",
       "image": "/images/feed/feed-e3dad7796b38.jpg",
       "source": "BleepingComputer",
@@ -338,48 +528,10 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 35,
       "url": "https://electrek.co/2026/09/28/lexus-reveals-2027-tz-prices-start-65000-up-to-315-miles-range/",
       "image": "/images/feed/feed-dbfeff1075cb.jpg",
       "source": "Electrek",
-      "isLive": true
-    },
-    {
-      "id": "feed-f6aa25175d62",
-      "title": "Your T-Mobile price lock guarantee won’t save you from this latest hike",
-      "excerpt": "T-Mobile will inflating one of your fees next month.",
-      "body": "Credit: Joe Maring / Android Authority TL;DR T-Mobile is notifying customers of an upcoming change to their monthly bills. The Regulatory Programs and Telco Recovery fee will increase by $1 per line for voice lines and $0.50 per line for mobile internet. The change is scheduled to go into effect on October 12, 2026. T-Mobile customers had a few things to be happy about last week. For example, a recent report suggests that the Un-carrier could expand its perk lineup and let customers choose which benefits they want . The company also announced that it and Jio achieved the world’s first 5G standalone roaming connection, which could soon be used to improve 5G roaming. While it was nice to have some wins, it looks like the good news is already coming to an end.",
-      "author": "Ryan McNeal",
-      "date": "2026-09-28",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 43,
-      "url": "https://www.androidauthority.com/t-mobile-telco-fee-price-hike-3716436/",
-      "image": "/images/feed/feed-f6aa25175d62.jpg",
-      "source": "Android Authority",
-      "isLive": true
-    },
-    {
-      "id": "feed-90274c3da979",
-      "title": "iOS 27.0.1 released: Apple fixes annoying iPhone 18 Pro restart and freezing issues",
-      "excerpt": "The first update to iOS 27 squashes a bug in which the iPhone 18 Pro and Pro Max would freeze or restart when you try to use Face ID.",
-      "body": "The first update to iOS 27 squashes a bug in which the iPhone 18 Pro and Pro Max would freeze or restart when you try to use Face ID.\n\nThis report, published by ZDNet, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Iphone. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to ZDNet using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Lance Whitney",
-      "date": "2026-09-28",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Iphone"
-      ],
-      "featured": false,
-      "xpReward": 51,
-      "url": "https://www.zdnet.com/tech/iphone-18-pro-freeze-restart-ios-27-0-1-fix/",
-      "image": "/images/feed/feed-90274c3da979.jpg",
-      "source": "ZDNet",
       "isLive": true
     },
     {
@@ -396,30 +548,10 @@
         "Breach"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 50,
       "url": "https://www.bleepingcomputer.com/news/security/times-car-confirms-data-breach-affecting-66-million-user-accounts/",
       "image": "/images/feed/feed-43f9c8860fbb.jpg",
       "source": "BleepingComputer",
-      "isLive": true
-    },
-    {
-      "id": "feed-f61fa8ee8c8a",
-      "title": "The Publisher Of Ys, Disgaea, Trails Wants To Do More Worldwide, Simultaneous Game Releases",
-      "excerpt": "Ys X: Nordics took over a year to make it out of Japan",
-      "body": "Ys X: Nordics took over a year to make it out of Japan\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Game Release, Game. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Rebekah Valentine",
-      "date": "2026-09-28",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Game Release",
-        "Game"
-      ],
-      "featured": false,
-      "xpReward": 31,
-      "url": "https://kotaku.com/publisher-ys-trails-disgaea-global-simultaneous-releases-2000737996",
-      "image": "/images/feed/feed-f61fa8ee8c8a.jpg",
-      "source": "Kotaku",
       "isLive": true
     },
     {
@@ -435,67 +567,10 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 40,
       "url": "https://www.cnet.com/tech/services-and-software/did-anthropic-find-a-novel-enzyme/",
       "image": "/images/feed/feed-62d610798028.jpg",
       "source": "CNET",
-      "isLive": true
-    },
-    {
-      "id": "feed-b2d7279609dd",
-      "title": "Pokémon TCG's Next Big Set Available Weeks Before It Officially Releases",
-      "excerpt": "The set after Pokémon's 30th Anniversary release is not one to sleep on for TCG collectors or fans looking for a good deal on Delta Reign",
-      "body": "It's hard to remember that with the Pokémon 30th Anniversary set soaking up so much attention the Pokémon Trading Card Game is getting a new set in early November. The Rayquaza-themed Delta Reign set comes with some of the year's best special illustration cards and a two-card Stadium mechanic that will keep players on their toes. The best part about the release, however, has to be the official options for purchasing it.",
-      "author": "Patricia Hernandez",
-      "date": "2026-09-28",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 33,
-      "url": "https://www.polygon.com/pokemon-tcg-prerelease-event-delta-reign-where-price-promo-cards/",
-      "image": "/images/feed/feed-b2d7279609dd.png",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-4736f5ecc5d6",
-      "title": "Apple’s Taptic Engine patent defeat sends litigation funder’s shares up 9%",
-      "excerpt": "Shares in litigation funder Burford Capital jumped more than 9% today as a result of Apple’s $5.7 billion verdict over Taptic Engine patent infringement. Here are the details. more…",
-      "body": "Shares in litigation funder Burford Capital jumped more than 9% today as a result of Apple’s $5.7 billion verdict over Taptic Engine patent infringement. Here are the details. more — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Marcus Mendes",
-      "date": "2026-09-28",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 41,
-      "url": "https://9to5mac.com/2026/09/28/apples-taptic-engine-patent-defeat-sends-litigation-funders-shares-up-9/",
-      "image": "/images/feed/feed-4736f5ecc5d6.jpg",
-      "source": "9to5Mac",
-      "isLive": true
-    },
-    {
-      "id": "feed-199e62b06ac6",
-      "title": "All taxi locations in Control Resonant",
-      "excerpt": "In this guide, we explain where to find every taxi as part of \"The Last Taxi\" quest in Control Resonant, and how to solve each taxi's puzzle.",
-      "body": "During \"The Last Taxi\" side quest in Control Resonant , you'll encounter driverless taxis that honk their horn at you and open their passenger door when you walk nearby. Entering the suspicious taxi will take you to a threshold, which is a different realm full of paranatural abnormalities. In this threshold, you find out there is another woman who is trapped inside, and needs to find a way out. However, to do that, you'll need to solve a few puzzles and find every taxi cab.",
-      "author": "Johnny Yu",
-      "date": "2026-09-28",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 32,
-      "url": "https://www.polygon.com/control-resonant-taxi-locations-last-quest-puzzle-solution-walkthrough/",
-      "image": "/images/feed/feed-199e62b06ac6.jpg",
-      "source": "Polygon",
       "isLive": true
     },
     {
@@ -511,7 +586,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 50,
       "url": "https://www.bleepingcomputer.com/news/security/dutch-police-confirm-arrest-in-shinyhunters-hacking-investigation/",
       "image": "/images/feed/feed-8f80729c18e8.jpg",
       "source": "BleepingComputer",
@@ -530,7 +605,7 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 36,
       "url": "https://insideevs.com/news/809920/tesla-roadster-reveal-event-delayed-october-15/",
       "image": "/images/feed/feed-f86e2985f559.jpg",
       "source": "InsideEVs",
@@ -549,7 +624,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 37,
       "url": "https://electrek.co/2026/09/28/new-york-considering-20-new-e-bike-laws-including-outlawing-class-3-electric-bikes/",
       "image": "/images/feed/feed-c933fa873474.jpg",
       "source": "Electrek",
@@ -568,86 +643,10 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 44,
       "url": "https://techcrunch.com/2026/09/28/tesla-delays-roadster-2-event-again-due-to-bad-weather/",
       "image": "/images/feed/feed-822fdbef3582.jpg",
       "source": "TechCrunch",
-      "isLive": true
-    },
-    {
-      "id": "feed-ec56995e77a3",
-      "title": "NASA, Boeing Share Update on Commercial Starliner Development Plans",
-      "excerpt": "On Monday, NASA and Boeing provided an update on the company’s Starliner spacecraft, including adding additional crew missions and certifying a new rocket for crew transportation to low Earth orbit. “…",
-      "body": "Boeing&#8217;s Starliner spacecraft that launched NASA&#8217;s Crew Flight Test astronauts Butch Wilmore and Suni Williams to the International Space Station is pictured docked to the Harmony module&#8217;s forward port. This long-duration photograph was taken on July 3, 2024, from the orbital complex as it soared 256 miles above the Arabian Sea off the coast of Mumbai, India. Credit: NASA On Monday, NASA and Boeing provided an update on the company’s Starliner spacecraft, including adding additional crew missions and certifying a new rocket for crew transportation to low Earth orbit. “We are living through the most exciting era of space exploration since Apollo,” said NASA Administrator Jared Isaacman.",
-      "author": "Gerelle Q. Dodson",
-      "date": "2026-09-28",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Nasa"
-      ],
-      "featured": false,
-      "xpReward": 42,
-      "url": "https://www.nasa.gov/news-release/nasa-boeing-share-update-on-commercial-starliner-development-plans/",
-      "image": "/images/feed/feed-ec56995e77a3.jpg",
-      "source": "NASA Breaking News",
-      "isLive": true
-    },
-    {
-      "id": "feed-8be0e739c43c",
-      "title": "EIA: 83 GW of renewables and storage coming in 12 months as fossil fuel capacity to fall",
-      "excerpt": "Renewables and battery storage are projected to add about 82.7 gigawatts (GW) of new generating capacity in the US in the next 12 months, while total fossil fuel and nuclear power capacity will fall b…",
-      "body": "Renewables and battery storage are projected to add about 82.7 gigawatts (GW) of new generating capacity in the US in the next 12 months, while total fossil fuel and nuclear power capacity will fall by more than 1.4 GW, according to new data released by the US Energy Information Administration (EIA), and reviewed by the SUN DAY Campaign. more…",
-      "author": "Michelle Lewis",
-      "date": "2026-09-28",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Cars"
-      ],
-      "featured": false,
-      "xpReward": 37,
-      "url": "https://electrek.co/2026/09/28/eia-83-gw-of-renewables-and-storage-coming-in-12-months-as-fossil-fuel-capacity-to-fall/",
-      "image": "/images/feed/feed-8be0e739c43c.jpg",
-      "source": "Electrek",
-      "isLive": true
-    },
-    {
-      "id": "feed-2359d1ccac71",
-      "title": "Tesla delays Roadster demo two weeks to October 15, blames weather",
-      "excerpt": "Tesla has officially pushed its Roadster demo from October 1 to October 15, blaming “severe conditions” in the forecast for central Texas. It’s the latest in a long line of delays for the next-gen Roa…",
-      "body": "Tesla has officially pushed its Roadster demo from October 1 to October 15, blaming “severe conditions” in the forecast for central Texas. It’s the latest in a long line of delays for the next-gen Roadster, and this one moves the event back two full weeks for what Tesla describes as a weather problem. more…",
-      "author": "Fred Lambert",
-      "date": "2026-09-28",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Tesla"
-      ],
-      "featured": false,
-      "xpReward": 39,
-      "url": "https://electrek.co/2026/09/28/tesla-roadster-demo-delayed-october-15-weather/",
-      "image": "/images/feed/feed-2359d1ccac71.jpg",
-      "source": "Electrek",
-      "isLive": true
-    },
-    {
-      "id": "feed-af8e5a1b75bd",
-      "title": "NASA Armstrong Celebrates 80 Years of Flight Innovation",
-      "excerpt": "On Sept. 30, 1946, five National Advisory Committee of Aeronautics (NACA) engineers arrived at Muroc Army Airfield in California’s high desert to achieve supersonic flight for the first time. In less…",
-      "body": "On Sept. 30, 1946, five National Advisory Committee of Aeronautics (NACA) engineers arrived at Muroc Army Airfield in California’s high desert to achieve supersonic flight for the first time. In less than two years, NACA flew the X-1 aircraft faster than the speed of sound, marking an important milestone in aviation history. Fast forward 80 years, and that former NACA outpost is now NASA’s Armstrong Flight Research Center in Edwards, California, flying the X-59 supersonic X-plane in the same skies to demonstrate that supersonic flight doesn’t have to come with a boom. Over Armstrong’s 80-year history, the center has supported milestone missions ranging from space shuttle landings to SR-71 flights, shaping the evolution of science, aeronautics, and space research.",
-      "author": "Dede Dinius",
-      "date": "2026-09-28",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Nasa"
-      ],
-      "featured": false,
-      "xpReward": 38,
-      "url": "https://www.nasa.gov/news-release/nasa-armstrong-celebrates-80-years-of-flight-innovation/",
-      "image": "https://www.youtube.com/embed/TNClJ3sxSKg",
-      "source": "NASA Breaking News",
       "isLive": true
     },
     {
@@ -663,29 +662,10 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 48,
       "url": "https://thehackernews.com/2026/09/apple-patches-coregraphics-flaw.html",
       "image": "/images/feed/feed-a3e09de1bae3.jpg",
       "source": "The Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-83689305b31e",
-      "title": "BYD Will Put Solid-State Batteries In An EV Next Year: Executive",
-      "excerpt": "In a recent interview, BYD's Stella Li said that the company will \"have one model\" with solid-state batteries next year.",
-      "body": "In a recent interview, BYD's Stella Li said that the company will \"have one model\" with solid-state batteries next year.\n\nThis report, published by InsideEVs, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Ev. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to InsideEVs using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "InsideEVs",
-      "date": "2026-09-28",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Ev"
-      ],
-      "featured": false,
-      "xpReward": 49,
-      "url": "https://insideevs.com/news/809893/byd-solid-state-battery-2027/",
-      "image": "/images/feed/feed-83689305b31e.jpg",
-      "source": "InsideEVs",
       "isLive": true
     },
     {
@@ -701,7 +681,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 32,
       "url": "https://blog.google/innovation-and-ai/technology/ai/winner-future-vision-xprize/",
       "image": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/futurevisionxprize_social.max-600x600.format-webp.webp",
       "source": "Google AI Blog",
@@ -720,7 +700,7 @@
         "Llm"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 47,
       "url": "https://stateofutopia.com/experiments/microllmlab/",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "Hacker News",
@@ -758,7 +738,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 38,
       "url": "https://www.theverge.com/ai-artificial-intelligence/1001590/openai-devday-2026-aeon-ai-agent",
       "image": "/images/feed/feed-b85fb137645b.jpg",
       "source": "The Verge",
@@ -778,7 +758,7 @@
         "Breach"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 49,
       "url": "https://thehackernews.com/2026/09/hackers-use-needymantis-to-maintain.html",
       "image": "/images/feed/feed-06bbc320bc31.jpg",
       "source": "The Hacker News",
@@ -797,7 +777,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 40,
       "url": "https://thehackernews.com/2026/09/iam-for-ai-agent.html",
       "image": "/images/feed/feed-097b65f90159.jpg",
       "source": "The Hacker News",
@@ -816,7 +796,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 48,
       "url": "https://techcrunch.com/2026/09/28/anthropic-releases-sonnet-5-5-which-it-calls-a-significantly-cheaper-faster-work-partner/",
       "image": "/images/feed/feed-342eef48a635.jpg",
       "source": "TechCrunch",
@@ -837,29 +817,10 @@
         "Orbit"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 31,
       "url": "https://www.cnet.com/science/space/spacex-starship-into-orbit-first-time/",
       "image": "/images/feed/feed-16ec965790f0.jpg",
       "source": "CNET",
-      "isLive": true
-    },
-    {
-      "id": "feed-03c9b8fa842c",
-      "title": "NASA Highlights Lessons Learned From Swift Boost Mission",
-      "excerpt": "A commercial mission to boost NASA’s Swift observatory concluded without raising the spacecraft’s orbit, but the agency and industry vendor gained valuable experience that will benefit future in-space…",
-      "body": "6 min read NASA Highlights Lessons Learned From Swift Boost Mission A commercial mission to boost NASA’s Neil Gehrels Swift Observatory concluded without raising the spacecraft’s orbit, but the agency and industry vendor Katalyst Space have gained valuable experience that will benefit future in-space servicing programs. “From the beginning, this was a high-risk, high-reward mission,” said Shawn Domagal-Goldman, Astrophysics Division director at NASA Headquarters in Washington. “Without intervention, Swift was going to re-enter the atmosphere by year’s end. And while we’ll be sad to see Swift’s mission come to a close, we knew this boost effort would be valuable to the agency on multiple levels — advancing U.S.",
-      "author": "NASA Breaking News",
-      "date": "2026-09-28",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Nasa"
-      ],
-      "featured": false,
-      "xpReward": 43,
-      "url": "https://science.nasa.gov/missions/swift/nasa-highlights-lessons-learned-from-swift-boost-mission/",
-      "image": "/images/feed/feed-03c9b8fa842c.jpg",
-      "source": "NASA Breaking News",
       "isLive": true
     },
     {
@@ -875,7 +836,7 @@
         "Gemini"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 44,
       "url": "https://techcrunch.com/2026/09/28/google-is-killing-off-geminis-gems-in-favor-of-skills/",
       "image": "/images/feed/feed-fc22beaf1f7b.jpg",
       "source": "TechCrunch",
@@ -896,63 +857,100 @@
         "Orbit"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 37,
       "url": "https://www.engadget.com/2270992/spacexs-latest-starship-mission-reached-low-earth-orbit/",
       "image": "/images/feed/feed-17b7b6868e85.jpg",
       "source": "Engadget",
       "isLive": true
     },
     {
-      "id": "feed-f53aca4c59c8",
-      "title": "OpenAI still doesn’t seem to have a handle on all of its rogue AI activity",
-      "excerpt": "On Friday, OpenAI published a new site devoted to “misalignment reports” and the breadth of the incidents is alarming.",
-      "body": "On Friday, OpenAI published a new site devoted to “misalignment reports” and the breadth of the incidents is alarming.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Openai. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Russell Brandom",
-      "date": "2026-09-28",
-      "readTime": "2 min",
-      "section": "ai",
-      "tags": [
-        "Openai"
-      ],
-      "featured": false,
-      "xpReward": 49,
-      "url": "https://techcrunch.com/2026/09/28/openai-still-doesnt-seem-to-have-a-handle-on-all-of-its-rogue-ai-activity/",
-      "image": "/images/feed/feed-f53aca4c59c8.jpg",
-      "source": "TechCrunch",
-      "isLive": true
-    },
-    {
-      "id": "feed-6f90bd7be42c",
-      "title": "NASA Celebrates as Artemis Accords Surpasses 75 Signatories",
-      "excerpt": "Marking a significant expansion in the number of signatories to the Artemis Accords, NASA welcomed Albania, Croatia, Côte d’Ivoire, and San Marino, bringing total participation to 76 countries. “Our m…",
-      "body": "Credit: NASA Marking a significant expansion in the number of signatories to the Artemis Accords, NASA welcomed Albania , Croatia , Côte d’Ivoire , and San Marino , bringing total participation to 76 countries.&nbsp; “Our momentum reflects a growing commitment to peaceful, responsible exploration and a shared understanding that the future in space will be shaped by those willing to lead,” said NASA Administrator Jared Isaacman. “Nearly one-third of all signatories have joined since the start of President Trump’s second term.",
-      "author": "Jennifer M. Dooren",
+      "id": "feed-824dbcefeb14",
+      "title": "Space is everyone’s business: Economist Enterprise’s 4th annual Space Economy Summit returns to Orlando",
+      "excerpt": "ORLANDO, FL — September 28th, 2026 — Space is rapidly becoming a practical business tool for industries far beyond aerospace, as satellite intelligence, resilient connectivity and other space-enabled…",
+      "body": "ORLANDO, FL — September 28th, 2026 — Space is rapidly becoming a practical business tool for industries far beyond aerospace, as satellite intelligence, resilient connectivity and other space-enabled technologies create [&#8230;] The post Space is everyone’s business: Economist Enterprise&#8217;s 4th annual Space Economy Summit returns to Orlando appeared first on SpaceNews .",
+      "author": "Economist Enterprise",
       "date": "2026-09-28",
       "readTime": "2 min",
       "section": "space",
       "tags": [
-        "Artemis",
-        "Nasa"
+        "Space"
       ],
       "featured": false,
-      "xpReward": 52,
-      "url": "https://www.nasa.gov/news-release/nasa-celebrates-as-artemis-accords-surpasses-75-signatories/",
-      "image": "/images/feed/feed-6f90bd7be42c.jpg",
-      "source": "NASA Breaking News",
+      "xpReward": 51,
+      "url": "https://spacenews.com/space-is-everyones-business-economist-enterprises-4th-annual-space-economy-summit-returns-to-orlando/",
+      "image": "/images/feed/feed-824dbcefeb14.png",
+      "source": "SpaceNews",
+      "isLive": true
+    },
+    {
+      "id": "feed-b32a6c6d8f18",
+      "title": "Agile Space Industries Expands Leadership Structure to Support Next Phase of Growth",
+      "excerpt": "DURANGO, Colo., Sept. 28, 2026 – Agile Space Industries today announced that Jason Wright will join the company as President in early October, strengthening Agile’s operational leadership as the compa…",
+      "body": "DURANGO, Colo., Sept. 28, 2026 – Agile Space Industries today announced that Jason Wright will join the company as President in early October, strengthening Agile’s operational leadership as the company [&#8230;] The post Agile Space Industries Expands Leadership Structure to Support Next Phase of Growth appeared first on SpaceNews .",
+      "author": "Agile Space Industries",
+      "date": "2026-09-28",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Space"
+      ],
+      "featured": false,
+      "xpReward": 53,
+      "url": "https://spacenews.com/agile-space-industries-expands-leadership-structure-to-support-next-phase-of-growth/",
+      "image": "/images/feed/feed-b32a6c6d8f18.png",
+      "source": "SpaceNews",
+      "isLive": true
+    },
+    {
+      "id": "feed-a2d3c2718cf1",
+      "title": "Space Lasers Are About to Get Their First Real Test Generating Energy",
+      "excerpt": "Startup Star Catcher is launching a system that, if successful, would be the first time energy has been beamed between two separate spacecraft.",
+      "body": "Startup Star Catcher is launching a system that, if successful, would be the first time energy has been beamed between two separate spacecraft.\n\nThis report, published by Wired, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Space. As the situation continues to evolve, professionals and enthusiasts in the space exploration and astronomy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Wired using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Brian Kahn",
+      "date": "2026-09-28",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Space"
+      ],
+      "featured": false,
+      "xpReward": 34,
+      "url": "https://www.wired.com/story/space-lasers-are-about-to-get-their-first-real-test-generating-energy/",
+      "image": "/images/feed/feed-a2d3c2718cf1.jpg",
+      "source": "Wired",
+      "isLive": true
+    },
+    {
+      "id": "feed-6b543f332fe9",
+      "title": "True or false on space industry trends with Pacôme Révillon",
+      "excerpt": "In this episode, SpaceNews’ Mike Gruss and Novaspace CEO Pacôme Révillon look at what to expect from the space industry in the next year by playing a game of true […] The post True or false on space i…",
+      "body": "In this episode, SpaceNews’ Mike Gruss and Novaspace CEO Pacôme Révillon look at what to expect from the space industry in the next year by playing a game of true […] The post True or false on space i — a development drawing significant attention in the space exploration and astronomy space.\n\nThis report, published by SpaceNews, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Space. As the situation continues to evolve, professionals and enthusiasts in the space exploration and astronomy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to SpaceNews using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "SpaceNews Editor",
+      "date": "2026-09-24",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Space"
+      ],
+      "featured": false,
+      "xpReward": 30,
+      "url": "https://spacenews.com/true-or-false-on-space-industry-trends-with-pacome-revillon/",
+      "image": "/images/feed/feed-6b543f332fe9.jpg",
+      "source": "SpaceNews",
       "isLive": true
     }
   ],
   "breakingNews": [
-    "DEV.TO: My Google AI API 500 errors stopped being scary when I stopped retrying the whole workflow",
-    "KOTAKU: Avengers: Endgame Encore Viewers Shocked To Find Out One Scene Teasing Doomsday Was Exclusive To IMAX",
-    "DEV.TO: Why “compress this image to 100 KB” is a constraint problem",
-    "DEV.TO: I Stopped Writing Separate Instructions for Claude Code, Codex, and Cursor - Here's My 2026 Setup",
-    "DEV.TO: How to Debug Blurry Marketplace Product Images in Go (Quality by Content Type)",
-    "DEV.TO: Avatar Composition: 4 Trade-offs Between Fixed Crop and Smart Crop",
-    "DEV.TO: Day 52: Undo Rolls Forward, and the Disk Already Mounted Is the One Not to Trust",
-    "DEV.TO: From 47 Scattered Tickets to a Live Cause Node: Building an Interactive Feedback Dashboard with Hindsight Memory",
-    "ENGADGET: How to improve your FPS for better gaming (without buying new hardware)",
-    "KOTAKU: The Guy Who Saved The Predator Franchise Is Reportedly Making A Sleeping Beauty Movie"
+    "DEV.TO: Node.js 24 Runbook for Explicit Retention Gates Before Deleting Campaign Images and Videos",
+    "DEV.TO: What California's New Privacy Law Means for Developers Building Compliance Tools",
+    "DEV.TO: Navigating the Android background lifecycle: Lessons from building Muffle",
+    "DEV.TO: AI API call hangs in production, then 504: timeouts and budgets",
+    "DEV.TO: Claude e Obsidian - Como uma QA utiliza essas ferramentas no dia-a-dia",
+    "DEV.TO: Silicon Valley 101: Unpacking the Wild Growth of the AI‑Data Industry | 硅谷101：深度解析AI数据行业的野蛮生长",
+    "DEV.TO: Era Agentic Engineering: Ketika Developer Berhenti Menulis Kode dan Mulai Merancang Niat",
+    "KOTAKU: Control Resonant Director Explains The Game’s Lack Of Yellow Paint: ‘It Was A Conscious Decision, Obviously’",
+    "POLYGON: GTA 6’s $400 Collector’s Edition Is the Latest Example of a Horrible Trend",
+    "ENGADGET: How to improve your Android phone's battery life"
   ],
   "sectionVideos": {}
 }
