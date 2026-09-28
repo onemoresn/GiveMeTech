@@ -1,6 +1,272 @@
 {
-  "fetchedAt": "2026-09-28T21:12:05.178Z",
+  "fetchedAt": "2026-09-28T22:14:17.532Z",
   "articles": [
+    {
+      "id": "feed-5119cd25eb31",
+      "title": "My Google AI API 500 errors stopped being scary when I stopped retrying the whole workflow",
+      "excerpt": "I knew something was wrong when one flaky Gemini call turned into: 3 duplicate HubSpot updates 1 duplicate Jira issue 4 Slack messages and a very annoyed ops channel At first it looked like a normal \"…",
+      "body": "I knew something was wrong when one flaky Gemini call turned into: 3 duplicate HubSpot updates 1 duplicate Jira issue 4 Slack messages and a very annoyed ops channel At first it looked like a normal \"Google AI API is throwing random 500s\" problem. It wasn’t. The real bug was that we were retrying the entire automation instead of retrying the model call. That distinction matters a lot once your workflow has side effects. If you’re seeing intermittent 500 , 502 , 503 , or 429 errors from Gemini or Vertex AI, the fix usually is not “add more retries everywhere.” The fix is to move the retry boundary. The first thing that surprised me: Google was already retrying If you use the Gemini Python SDK, Google already retries transient failures by default.",
+      "author": "Lars Winstand",
+      "date": "2026-09-28",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Api"
+      ],
+      "featured": true,
+      "xpReward": 39,
+      "url": "https://dev.to/lars_winstand/my-google-ai-api-500-errors-stopped-being-scary-when-i-stopped-retrying-the-whole-workflow-ko1",
+      "image": "/images/feed/feed-5119cd25eb31.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-dcb2a62e65fe",
+      "title": "Avengers: Endgame Encore Viewers Shocked To Find Out One Scene Teasing Doomsday Was Exclusive To IMAX",
+      "excerpt": "Regular viewers only got access to three of the four new scenes",
+      "body": "Regular viewers only got access to three of the four new scenes\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Ethan Gach",
+      "date": "2026-09-28",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": true,
+      "xpReward": 51,
+      "url": "https://kotaku.com/avengers-endgame-encore-viewers-shocked-to-find-out-one-scene-teasing-doomsday-was-exclusive-to-imax-2000738063",
+      "image": "/images/feed/feed-dcb2a62e65fe.jpg",
+      "source": "Kotaku",
+      "isLive": true
+    },
+    {
+      "id": "feed-e8e0928d3108",
+      "title": "Why “compress this image to 100 KB” is a constraint problem",
+      "excerpt": "An upload form that accepts only a small image is asking for several things at once: a supported file format, acceptable dimensions, a maximum byte count, and a picture that is still readable. Optimiz…",
+      "body": "An upload form that accepts only a small image is asking for several things at once: a supported file format, acceptable dimensions, a maximum byte count, and a picture that is still readable. Optimizing only one of those can produce a file that looks successful in a preview but fails at the destination. I maintain FitToKB , a browser image utility for this workflow. Here is the engineering model behind the problem, including the cases where an honest tool should report that it cannot meet the requested target. Start with bytes, not the displayed KB label Write the acceptance condition explicitly: output.size &lt;= targetBytes . A rounded label such as “100 KB” is not sufficient to prove a file meets a limit. A destination might interpret KB as 1,000 bytes or use 1,024-byte units.",
+      "author": "Aryan Gupta",
+      "date": "2026-09-28",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 44,
+      "url": "https://dev.to/aryangupta99/why-compress-this-image-to-100-kb-is-a-constraint-problem-3b27",
+      "image": "/images/feed/feed-e8e0928d3108.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-b36b671910f0",
+      "title": "I Stopped Writing Separate Instructions for Claude Code, Codex, and Cursor - Here's My 2026 Setup",
+      "excerpt": "AGENTS.md vs CLAUDE.md vs Cursor Rules vs Skills vs MCP: What Actually Belongs Where? I use multiple AI coding agents in my development workflow. Claude Code for some tasks. Codex for others. Cursor w…",
+      "body": "AGENTS.md vs CLAUDE.md vs Cursor Rules vs Skills vs MCP: What Actually Belongs Where? I use multiple AI coding agents in my development workflow. Claude Code for some tasks. Codex for others. Cursor when I want to work directly inside the editor. At first, my approach was simple: Give each AI tool enough instructions to understand the project. That worked. Until it didn't. My repositories gradually started accumulating instructions everywhere: AGENTS.md CLAUDE.md .cursor/rules/ README.md architecture docs feature plans skills MCP configurations random prompts Many of these files contained overlapping information. I was mixing project conventions, architecture decisions, feature requirements, and agent workflows into the same documents.",
+      "author": "Nael M. Awadallah",
+      "date": "2026-09-28",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 41,
+      "url": "https://dev.to/naelawadallah/i-stopped-writing-separate-instructions-for-claude-code-codex-and-cursor-heres-my-2026-setup-47ih",
+      "image": "/images/feed/feed-b36b671910f0.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-085e84525a53",
+      "title": "How to Debug Blurry Marketplace Product Images in Go (Quality by Content Type)",
+      "excerpt": "The page says compressed product images look blurry enough to breach the marketplace thumbnail SLO, and the on-call sees a healthy queue, successful encoders, and a bandwidth graph that looks almost s…",
+      "body": "The page says compressed product images look blurry enough to breach the marketplace thumbnail SLO, and the on-call sees a healthy queue, successful encoders, and a bandwidth graph that looks almost suspiciously good. The least complex fix is to stop treating every product asset as a photograph: classify graphics separately, preserve transparency and hard edges for them, and tune lossy photo compression against a measured visual-quality floor rather than one global quality number. Short answer: record the source type, dimensions, alpha channel, chosen output format, encoded bytes, and a quality score for every transformation. Use those fields to isolate the bad class before changing an encoder setting. A low byte count is not success when search results have unreadable seller marks.",
+      "author": "LiamFoster1844",
+      "date": "2026-09-28",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 45,
+      "url": "https://dev.to/liamfoster1844/how-to-debug-blurry-marketplace-product-images-in-go-quality-by-content-type-5b1b",
+      "image": "/images/feed/feed-085e84525a53.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-2ca4862e82a1",
+      "title": "Avatar Composition: 4 Trade-offs Between Fixed Crop and Smart Crop",
+      "excerpt": "A fixed crop gives profile photos predictable geometry; a smart crop gives them a better chance of preserving the subject. For a B2B SaaS upload pipeline, the practical answer is to generate both cand…",
+      "body": "A fixed crop gives profile photos predictable geometry; a smart crop gives them a better chance of preserving the subject. For a B2B SaaS upload pipeline, the practical answer is to generate both candidates, choose the fixed crop when its subject-safety checks pass, and use the smart crop only when it produces a meaningfully safer composition. That keeps responsive thumbnails stable without spending extra bandwidth on several near-identical variants. The data flow is compact. Decode one upload, normalize its orientation, derive a square target, calculate a centered fixed candidate and a subject-aware candidate, then run the same acceptance checks on both. Store the original plus the selected derivative sizes your interface actually renders.",
+      "author": "CrimsonWave9361502",
+      "date": "2026-09-28",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 43,
+      "url": "https://dev.to/crimsonwave9361502/avatar-composition-4-trade-offs-between-fixed-crop-and-smart-crop-epm",
+      "image": "/images/feed/feed-2ca4862e82a1.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-71a168b5a93b",
+      "title": "Day 52: Undo Rolls Forward, and the Disk Already Mounted Is the One Not to Trust",
+      "excerpt": "Day 52 of DevOps, Day 2 of Azure. Both tasks today were about commands that do something a little different from what their names suggest. kubectl rollout undo sounds like a rewind. It is not one; it…",
+      "body": "Day 52 of DevOps, Day 2 of Azure. Both tasks today were about commands that do something a little different from what their names suggest. kubectl rollout undo sounds like a rewind. It is not one; it rolls forward to an old template. And az vm create sounds like it creates a VM. It does, along with a network, a firewall rule, a public address and one more disk than I asked for, and that extra disk is the one not to keep anything on. One Kubernetes task, one Azure task. Roll a Deployment back to its previous version, then create an Azure VM with a specific image, size and disk type. The tasks come from the KodeKloud Engineer platform.",
+      "author": "Nnamdi Felix Ibe",
+      "date": "2026-09-28",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 31,
+      "url": "https://dev.to/ndcodes/day-52-undo-rolls-forward-and-the-disk-already-mounted-is-the-one-not-to-trust-32bb",
+      "image": "/images/feed/feed-71a168b5a93b.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-4439b008d767",
+      "title": "From 47 Scattered Tickets to a Live Cause Node: Building an Interactive Feedback Dashboard with Hindsight Memory",
+      "excerpt": "On the 12th of July the sentiment score of our export feature decreased by 41 points in one day. No one on the engineering team realized what was happening until 3 days later, when a support lead manu…",
+      "body": "On the 12th of July the sentiment score of our export feature decreased by 41 points in one day. No one on the engineering team realized what was happening until 3 days later, when a support lead manually pasted 19 similar tickets in a slack channel. By that point 47 customers had already been impacted by the same crash. This number of 47 tickets, the three day span, is what caused us to rethink customer feedback as a living memory system.",
+      "author": "Rafsha Khaisar",
+      "date": "2026-09-28",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 30,
+      "url": "https://dev.to/raven-xoxo/from-47-scattered-tickets-to-a-live-cause-node-building-an-interactive-feedback-dashboard-with-1iod",
+      "image": "/images/feed/feed-4439b008d767.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-7242aff5cd66",
+      "title": "How to improve your FPS for better gaming (without buying new hardware)",
+      "excerpt": "Frame rates and graphical fidelity have an inverse relationship, so making your games look a little less beautiful runs them much better.",
+      "body": "Frame rates and graphical fidelity have an inverse relationship, so making your games look a little less beautiful runs them much better.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "staff@engadget.com (Dave Meikleham)",
+      "date": "2026-09-28",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 50,
+      "url": "https://www.engadget.com/2268998/how-to-improve-fps-better-gaming-no-new-hardware/",
+      "image": "/images/feed/feed-7242aff5cd66.jpg",
+      "source": "Engadget",
+      "isLive": true
+    },
+    {
+      "id": "feed-e61e8c2ceba1",
+      "title": "The Guy Who Saved The Predator Franchise Is Reportedly Making A Sleeping Beauty Movie",
+      "excerpt": "Uhhhh...okay then, Disney, that's an idea",
+      "body": "Uhhhh...okay then, Disney, that's an idea\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Zack Zwiezen",
+      "date": "2026-09-28",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 52,
+      "url": "https://kotaku.com/the-guy-who-saved-the-predator-franchise-is-reportedly-making-a-sleeping-beauty-movie-2000738053",
+      "image": "/images/feed/feed-e61e8c2ceba1.jpg",
+      "source": "Kotaku",
+      "isLive": true
+    },
+    {
+      "id": "feed-247dfa1b973b",
+      "title": "Dressmaker's Chaotic Evil Endings Prove Why it's Dominating Steam Right Now",
+      "excerpt": "Dressmaker's sabotage system lets you ruin customers' day on purpose…all the way to five hilarious unlockable endings",
+      "body": "Every service job has that one customer that really has it coming to them. Dressmaker is the rare game that offers you a hilarious opportunity for catharsis, should you be so inclined. On its surface, this is a cozy little sewing sim: You pick fabric, cut a pattern, and stitch buttons on by hand. You deliver a dress, then get a nice thank-you and a tip. It’s the kind of game you’d expect to play with a cup of tea and zero stakes for the ASMR vibes and quick burst of dopamine a la Powerwash Simulator or Unpacking . But then, when you meet a customer rude enough, you might just find yourself wondering if the fabric you select for their commission absolutely must match their specifications. It would seem the game’s developers were hoping you’d ask that question.",
+      "author": "Rebecca Corgan",
+      "date": "2026-09-28",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 32,
+      "url": "https://www.polygon.com/dressmaker-sabotage-revenge-customers/",
+      "image": "/images/feed/feed-247dfa1b973b.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-186673e719ad",
+      "title": "The 2027 Lexus TZ Will Cost $65,000 But Have Way Less Power Than Expected",
+      "excerpt": "The TZ will have less power than its Subaru sibling. But at least it'll go on sale first.",
+      "body": "The TZ will have less power than its Subaru sibling. But at least it'll go on sale first.\n\nThis report, published by InsideEVs, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cars. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to InsideEVs using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "InsideEVs",
+      "date": "2026-09-28",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Cars"
+      ],
+      "featured": false,
+      "xpReward": 53,
+      "url": "https://insideevs.com/news/809936/lexus-tz-pricing-specs/",
+      "image": "/images/feed/feed-186673e719ad.jpg",
+      "source": "InsideEVs",
+      "isLive": true
+    },
+    {
+      "id": "feed-0e2c7cf1a707",
+      "title": "Faster, safer, smarter, cheaper: Anthropic makes the case for Claude Sonnet 5.5",
+      "excerpt": "Because you don't need the full power of Claude Opus 5.5 for everything.",
+      "body": "TL;DR Anthropic is introducing Claude Sonnet 5.5 as an optimized alternative to Opus 5.5. While Opus 5.5 edges still edges out Sonnet in many tasks, Sonnet’s speed and low cost of operation make it still worth considering. Sonnet 5.5 represents an even more significant improvement over Sonnet 5, while retaining the same low cost. With as fast as things move in AI, you can’t just innovate along one narrow axis and expect to get ahead. Outshining your competition means delivering palpable gains across a whole spectrum of angles — and somehow, the biggest AI models around keep managing to do that, nearly week after week. We already saw how Claude Sonnet 5 delivered some real benefits over Opus 4.8, and now Anthropic is back to hype up Claude Sonnet 5.5.",
+      "author": "Stephen Schenck",
+      "date": "2026-09-28",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 30,
+      "url": "https://www.androidauthority.com/claude-sonnet-5-5-3716475/",
+      "image": "/images/feed/feed-0e2c7cf1a707.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-1a44f4b393c5",
+      "title": "You Should Download iOS 27.0.1 Now for These iPhone Fixes",
+      "excerpt": "The update includes a fix for a bug that might cause your touchscreen to stop working.",
+      "body": "The update includes a fix for a bug that might cause your touchscreen to stop working.\n\nThis report, published by CNET, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Iphone. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to CNET using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Zachary McAuliffe",
+      "date": "2026-09-28",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Iphone"
+      ],
+      "featured": false,
+      "xpReward": 33,
+      "url": "https://www.cnet.com/tech/services-and-software/you-should-download-ios-27-0-1-now-for-these-iphone-fixes/",
+      "image": "/images/feed/feed-1a44f4b393c5.jpg",
+      "source": "CNET",
+      "isLive": true
+    },
     {
       "id": "feed-0a461ff43d6a",
       "title": "watchOS 27.0.1 is now available for all compatible Apple Watch models",
@@ -13,106 +279,31 @@
       "tags": [
         "Apple Watch"
       ],
-      "featured": true,
-      "xpReward": 51,
+      "featured": false,
+      "xpReward": 31,
       "url": "https://9to5mac.com/2026/09/28/watchos-27-0-1-is-now-available-for-all-compatible-apple-watch-models/",
       "image": "/images/feed/feed-0a461ff43d6a.jpg",
       "source": "9to5Mac",
       "isLive": true
     },
     {
-      "id": "feed-6a98241b4fa3",
-      "title": "I Used Hindsight to Remember Human Invoice Decisions",
-      "excerpt": "The first useful question I asked about invoice automation was not “Can the model read an invoice?” It was “What happens when the same vendor sends its fiftieth invoice?” Reading one invoice is straig…",
-      "body": "The first useful question I asked about invoice automation was not “Can the model read an invoice?” It was “What happens when the same vendor sends its fiftieth invoice?” Reading one invoice is straightforward. The harder problem is context. A human reviewer remembers that a vendor normally uses a particular purchase-order format, stays within a familiar amount range, keeps the same payment terms, and has had previous invoices approved after specific checks. A stateless model has to rediscover that context every time. I built VendorSense around that gap. It is an Accounts Payable agent that combines invoice extraction, Hindsight memory, and LLM reasoning so previous human decisions can influence future invoice evaluations.",
-      "author": "Harini Meesa",
+      "id": "feed-8801c031c116",
+      "title": "Watch a YouTuber Emulate PlayStation 5 Games on an Xbox Series X",
+      "excerpt": "“Xbox backward compatibility is getting out of hand,” he writes.",
+      "body": "“Xbox backward compatibility is getting out of hand,” he writes.\n\nThis report, published by CNET, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Playstation, Xbox. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to CNET using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Zachary McAuliffe",
       "date": "2026-09-28",
       "readTime": "2 min",
-      "section": "software",
+      "section": "gaming",
       "tags": [
-        "Software"
+        "Playstation",
+        "Xbox"
       ],
-      "featured": true,
-      "xpReward": 35,
-      "url": "https://dev.to/harini_varma_a5c641756f3e/i-used-hindsight-to-remember-human-invoice-decisions-4ilb",
-      "image": "/images/feed/feed-6a98241b4fa3.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-8e9696cb080a",
-      "title": "SupportMind: A support agent that remembers every customer",
-      "excerpt": "Giving AI Customer Support a Memory: Building SupportMind with Hindsight Most AI customer-support systems can answer questions. But there is one frustrating problem: they often forget you. Imagine con…",
-      "body": "Giving AI Customer Support a Memory: Building SupportMind with Hindsight agents #ai #llm #python #hackathon Most AI customer-support systems can answer questions. But there is one frustrating problem: they often forget you. Imagine contacting support because your WiFi keeps disconnecting. You explain the issue, try several solutions, finally discover that updating your router firmware fixes it, and close the ticket. A week later, the same problem happens. You contact support again. “Have you tried restarting your router?” Now you have to explain everything again. For our hackathon project, we wanted to solve this problem. We built SupportMind, an AI-powered customer support assistant that remembers previous customer interactions and uses those memories when handling future requests.",
-      "author": "raghavi707",
-      "date": "2026-09-28",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 53,
-      "url": "https://dev.to/raghavi707/supportmind-a-support-agent-that-remembers-every-customer-2kh3",
-      "image": "/images/feed/feed-8e9696cb080a.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-9c460f2786de",
-      "title": "Google Gemini 3.8 Live Avatar Reaches GA for Real-Time Enterprise Agents",
-      "excerpt": "Google has made Gemini 3.8 Live with Live Avatar generally available in Gemini Enterprise. The release gives production conversational agents an on-screen avatar that generates video in near real time…",
-      "body": "Google has made Gemini 3.8 Live with Live Avatar generally available in Gemini Enterprise. The release gives production conversational agents an on-screen avatar that generates video in near real time and synchronizes with Gemini's spoken responses. Combined with live voice and video understanding, it is designed to let agents see, hear and respond in more natural customer-facing interactions. The announcement is a significant step beyond text-only assistants and earlier voice-based Gemini Live experiences. For businesses, the practical opportunity is not simply a more animated chatbot. It is the ability to build live support, sales and marketing interactions that pair an organization's knowledge and workflows with a visible, speaking interface.",
-      "author": "Ali Farhat",
-      "date": "2026-09-28",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 30,
-      "url": "https://dev.to/alifar/google-gemini-38-live-avatar-reaches-ga-for-real-time-enterprise-agents-524h",
-      "image": "/images/feed/feed-9c460f2786de.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-2d0738463fcc",
-      "title": "MobileTopUP: Designing a Reliable Recharge Transaction Workflow",
-      "excerpt": "Distributed transactions become interesting exactly when the happy path stops being reliable. A basic recharge implementation might look like this: charge card ↓ call recharge provider ↓ return succes…",
-      "body": "Distributed transactions become interesting exactly when the happy path stops being reliable. A basic recharge implementation might look like this: charge card ↓ call recharge provider ↓ return success In a local test environment, that can appear perfectly adequate. Production introduces: duplicate requests; timeouts; delayed provider responses; asynchronous status updates; partial failures; process crashes; payment success followed by fulfilment uncertainty; users refreshing the page; workers retrying jobs. The underlying prepaid mobile top-up use case is a useful example because a single user action can involve payment, external fulfilment, asynchronous confirmation and an operation that should never be executed twice accidentally. The solution is not to add more try/catch blocks.",
-      "author": "MobileTopUP",
-      "date": "2026-09-28",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 32,
-      "url": "https://dev.to/mobiletopup/mobiletopup-designing-a-reliable-recharge-transaction-workflow-1m23",
-      "image": "/images/feed/feed-2d0738463fcc.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-2e14102344f1",
-      "title": "Write a Python function once, call it from anywhere",
-      "excerpt": "Every notebook or script I start begins the same way: copy-pasting the same helper functions from the last one. A Sharpe ratio here, a position-size calculator there, a small risk model… and when I fi…",
-      "body": "Every notebook or script I start begins the same way: copy-pasting the same helper functions from the last one. A Sharpe ratio here, a position-size calculator there, a small risk model… and when I fix a bug in one place, the other five copies still have the old version. So I built Fintech Hub : a free online library for your own Python functions. You write a function once, and call it by name from anywhere: Jupyter, Google Colab, VS Code, a plain script, or your own server. How it works Write a function or class in the online editor, and test it with Run right in your browser. Save it and press Go Live . Call it from any Python by its name.",
-      "author": "Royal Gurbanov",
-      "date": "2026-09-28",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Python"
-      ],
-      "featured": true,
-      "xpReward": 44,
-      "url": "https://dev.to/royalgbv/write-a-python-function-once-call-it-from-anywhere-g51",
-      "image": "/images/feed/feed-2e14102344f1.webp",
-      "source": "Dev.to",
+      "featured": false,
+      "xpReward": 48,
+      "url": "https://www.cnet.com/tech/gaming/watch-a-youtuber-run-playstation-5-games-on-an-xbox-series-x/",
+      "image": "/images/feed/feed-8801c031c116.jpg",
+      "source": "CNET",
       "isLive": true
     },
     {
@@ -128,48 +319,10 @@
         "Ransomware"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 35,
       "url": "https://www.bleepingcomputer.com/news/security/japans-keio-confirms-ransomware-attack-disrupted-business-systems/",
       "image": "/images/feed/feed-e3dad7796b38.jpg",
       "source": "BleepingComputer",
-      "isLive": true
-    },
-    {
-      "id": "feed-2b50d74179be",
-      "title": "SGLang vs. vLLM: Runtimes de Inferência e RadixAttention",
-      "excerpt": "Se a primeira fase da inteligência artificial foi dominada pela expansão exponencial de parâmetros de treinamento, o ano de 2026 consolidou uma mudança irreversível de prioridades: a verdadeira guerra…",
-      "body": "Se a primeira fase da inteligência artificial foi dominada pela expansão exponencial de parâmetros de treinamento, o ano de 2026 consolidou uma mudança irreversível de prioridades: a verdadeira guerra da computação neural moderna é travada no runtime de inferência. Com a explosão de agentes autônomos, chamadas repetidas de ferramentas e esteiras de raciocínio de múltiplos passos, o custo e a viabilidade dos produtos de IA deixaram de depender da quantidade de GPUs brutas no datacenter e passaram a ser ditados pela eficiência algorítmica da gestão de memória de vídeo (VRAM).",
-      "author": "Ricardo A. Oliveira",
-      "date": "2026-09-28",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 54,
-      "url": "https://dev.to/ricardofriba/sglang-vs-vllm-runtimes-de-inferencia-e-radixattention-4hlc",
-      "image": "/images/feed/feed-2b50d74179be.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-92ffc885ccbf",
-      "title": "Scrape any website into JSON by just listing the fields you want",
-      "excerpt": "Writing a scraper usually means inspecting the page, finding CSS selectors, handling edge cases, and then fixing it all again when the site changes its layout. For a lot of jobs that's overkill: you j…",
-      "body": "Writing a scraper usually means inspecting the page, finding CSS selectors, handling edge cases, and then fixing it all again when the site changes its layout. For a lot of jobs that's overkill: you just want these five facts from these pages . So I built an extractor that works the other way around. You describe the data, an LLM reads the page, and you get JSON back. The whole input { \"startUrls\" : [{ \"url\" : \"https://github.com/apify/crawlee\" }], \"fields\" : { \"name\" : \"string\" , \"description\" : \"string\" , \"license\" : \"string\" , \"primary_language\" : \"string\" } } The output (a real run) { \"url\" : \"https://github.com/apify/crawlee\" , \"success\" : true , \"data\" : { \"name\" : \"crawlee\" , \"description\" : \"Crawlee—A web scraping and browser automation library for Node.js to build reliable crawler…",
-      "author": "Tidy Tools",
-      "date": "2026-09-28",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 47,
-      "url": "https://dev.to/tidytools/scrape-any-website-into-json-by-just-listing-the-fields-you-want-5bbi",
-      "image": "/images/feed/feed-92ffc885ccbf.webp",
-      "source": "Dev.to",
       "isLive": true
     },
     {
@@ -185,7 +338,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 44,
       "url": "https://electrek.co/2026/09/28/lexus-reveals-2027-tz-prices-start-65000-up-to-315-miles-range/",
       "image": "/images/feed/feed-dbfeff1075cb.jpg",
       "source": "Electrek",
@@ -204,7 +357,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 43,
       "url": "https://www.androidauthority.com/t-mobile-telco-fee-price-hike-3716436/",
       "image": "/images/feed/feed-f6aa25175d62.jpg",
       "source": "Android Authority",
@@ -223,7 +376,7 @@
         "Iphone"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 51,
       "url": "https://www.zdnet.com/tech/iphone-18-pro-freeze-restart-ios-27-0-1-fix/",
       "image": "/images/feed/feed-90274c3da979.jpg",
       "source": "ZDNet",
@@ -243,7 +396,7 @@
         "Breach"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 38,
       "url": "https://www.bleepingcomputer.com/news/security/times-car-confirms-data-breach-affecting-66-million-user-accounts/",
       "image": "/images/feed/feed-43f9c8860fbb.jpg",
       "source": "BleepingComputer",
@@ -263,7 +416,7 @@
         "Game"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 31,
       "url": "https://kotaku.com/publisher-ys-trails-disgaea-global-simultaneous-releases-2000737996",
       "image": "/images/feed/feed-f61fa8ee8c8a.jpg",
       "source": "Kotaku",
@@ -282,10 +435,29 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 32,
       "url": "https://www.cnet.com/tech/services-and-software/did-anthropic-find-a-novel-enzyme/",
       "image": "/images/feed/feed-62d610798028.jpg",
       "source": "CNET",
+      "isLive": true
+    },
+    {
+      "id": "feed-b2d7279609dd",
+      "title": "Pokémon TCG's Next Big Set Available Weeks Before It Officially Releases",
+      "excerpt": "The set after Pokémon's 30th Anniversary release is not one to sleep on for TCG collectors or fans looking for a good deal on Delta Reign",
+      "body": "It's hard to remember that with the Pokémon 30th Anniversary set soaking up so much attention the Pokémon Trading Card Game is getting a new set in early November. The Rayquaza-themed Delta Reign set comes with some of the year's best special illustration cards and a two-card Stadium mechanic that will keep players on their toes. The best part about the release, however, has to be the official options for purchasing it.",
+      "author": "Patricia Hernandez",
+      "date": "2026-09-28",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 33,
+      "url": "https://www.polygon.com/pokemon-tcg-prerelease-event-delta-reign-where-price-promo-cards/",
+      "image": "/images/feed/feed-b2d7279609dd.png",
+      "source": "Polygon",
       "isLive": true
     },
     {
@@ -301,37 +473,18 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 41,
       "url": "https://9to5mac.com/2026/09/28/apples-taptic-engine-patent-defeat-sends-litigation-funders-shares-up-9/",
       "image": "/images/feed/feed-4736f5ecc5d6.jpg",
       "source": "9to5Mac",
       "isLive": true
     },
     {
-      "id": "feed-bcc1fec71559",
-      "title": "Google Messages is closing in on RCS video call support",
-      "excerpt": "Google is getting all the pieces in place for RCS video calls.",
-      "body": "TL;DR The RCS standard has announced support for native video calls in chats. Earlier this year, we saw Google Messages make its first reference to supporting RCS video calls. The feature still isn’t live, but new evidence reveals that Google’s been making further progress. The arrival of RCS has already proven huge for Google Messages, helping to modernize the features Android users expect from their text messaging, all while helping to level the playing field with iOS . RCS is far from a one-trick pony, and even now that it’s here, we’re always on the lookout for the arrival of the latest RCS upgrades . One that’s been on our radar recently has been support for RCS video calls, and this week we’re spotting some new progress in Messages. You’re reading an Authority Insights story.",
-      "author": "Stephen Schenck",
-      "date": "2026-09-28",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 46,
-      "url": "https://www.androidauthority.com/rcs-video-calls-messages-3716426/",
-      "image": "/images/feed/feed-bcc1fec71559.jpg",
-      "source": "Android Authority",
-      "isLive": true
-    },
-    {
-      "id": "feed-c9cd40281863",
-      "title": "Keepsake County Is A Nihilistic Delinquency Simulator Where Anything That Isn’t Bolted Down Is Yours For The Taking",
-      "excerpt": "The creators of Midnight Ultra return for a cartoony immersive sim about surviving in America",
-      "body": "The creators of Midnight Ultra return for a cartoony immersive sim about surviving in America\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Zack Kotzer",
+      "id": "feed-199e62b06ac6",
+      "title": "All taxi locations in Control Resonant",
+      "excerpt": "In this guide, we explain where to find every taxi as part of \"The Last Taxi\" quest in Control Resonant, and how to solve each taxi's puzzle.",
+      "body": "During \"The Last Taxi\" side quest in Control Resonant , you'll encounter driverless taxis that honk their horn at you and open their passenger door when you walk nearby. Entering the suspicious taxi will take you to a threshold, which is a different realm full of paranatural abnormalities. In this threshold, you find out there is another woman who is trapped inside, and needs to find a way out. However, to do that, you'll need to solve a few puzzles and find every taxi cab.",
+      "author": "Johnny Yu",
       "date": "2026-09-28",
       "readTime": "2 min",
       "section": "gaming",
@@ -339,29 +492,10 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 46,
-      "url": "https://kotaku.com/keepsake-county-is-a-nihilistic-delinquency-simulator-where-anything-that-isnt-bolted-down-is-yours-for-the-taking-2000736544",
-      "image": "/images/feed/feed-c9cd40281863.jpg",
-      "source": "Kotaku",
-      "isLive": true
-    },
-    {
-      "id": "feed-90d15af9c095",
-      "title": "Discord is testing a lightweight mode to free up resources while gaming",
-      "excerpt": "Unsurprisingly, it's called Game Mode.",
-      "body": "Unsurprisingly, it's called Game Mode.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Anna Washenko)",
-      "date": "2026-09-28",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 30,
-      "url": "https://www.engadget.com/2271273/discord-is-testing-a-lightweight-mode-to-free-up-resources-while-gaming/",
-      "image": "/images/feed/feed-90d15af9c095.jpg",
-      "source": "Engadget",
+      "xpReward": 32,
+      "url": "https://www.polygon.com/control-resonant-taxi-locations-last-quest-puzzle-solution-walkthrough/",
+      "image": "/images/feed/feed-199e62b06ac6.jpg",
+      "source": "Polygon",
       "isLive": true
     },
     {
@@ -377,7 +511,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 44,
       "url": "https://www.bleepingcomputer.com/news/security/dutch-police-confirm-arrest-in-shinyhunters-hacking-investigation/",
       "image": "/images/feed/feed-8f80729c18e8.jpg",
       "source": "BleepingComputer",
@@ -396,29 +530,10 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 41,
       "url": "https://insideevs.com/news/809920/tesla-roadster-reveal-event-delayed-october-15/",
       "image": "/images/feed/feed-f86e2985f559.jpg",
       "source": "InsideEVs",
-      "isLive": true
-    },
-    {
-      "id": "feed-ea44b181c2e7",
-      "title": "Siri AI is available on newer Apple devices only, here’s the full list",
-      "excerpt": "Siri AI is a major upgrade and highlight of iOS 27 and more. But only newer Apple devices support the overhauled Siri. Here’s the full list of Siri AI-compatible hardware across iPhone, iPad, Mac, App…",
-      "body": "Siri AI is a major upgrade and highlight of iOS 27 and more. But only newer Apple devices support the overhauled Siri. Here’s the full list of Siri AI-compatible hardware across iPhone, iPad, Mac, App — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Ryan Christoffel",
-      "date": "2026-09-28",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 33,
-      "url": "https://9to5mac.com/2026/09/28/siri-ai-is-available-on-newer-apple-devices-only-heres-the-full-list/",
-      "image": "/images/feed/feed-ea44b181c2e7.jpg",
-      "source": "9to5Mac",
       "isLive": true
     },
     {
@@ -434,7 +549,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 35,
       "url": "https://electrek.co/2026/09/28/new-york-considering-20-new-e-bike-laws-including-outlawing-class-3-electric-bikes/",
       "image": "/images/feed/feed-c933fa873474.jpg",
       "source": "Electrek",
@@ -453,7 +568,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 40,
       "url": "https://techcrunch.com/2026/09/28/tesla-delays-roadster-2-event-again-due-to-bad-weather/",
       "image": "/images/feed/feed-822fdbef3582.jpg",
       "source": "TechCrunch",
@@ -472,7 +587,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 42,
       "url": "https://www.nasa.gov/news-release/nasa-boeing-share-update-on-commercial-starliner-development-plans/",
       "image": "/images/feed/feed-ec56995e77a3.jpg",
       "source": "NASA Breaking News",
@@ -491,7 +606,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 37,
       "url": "https://electrek.co/2026/09/28/eia-83-gw-of-renewables-and-storage-coming-in-12-months-as-fossil-fuel-capacity-to-fall/",
       "image": "/images/feed/feed-8be0e739c43c.jpg",
       "source": "Electrek",
@@ -510,29 +625,10 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 39,
       "url": "https://electrek.co/2026/09/28/tesla-roadster-demo-delayed-october-15-weather/",
       "image": "/images/feed/feed-2359d1ccac71.jpg",
       "source": "Electrek",
-      "isLive": true
-    },
-    {
-      "id": "feed-5415aae2c386",
-      "title": "Spirit Halloween Has an Official Dungeon Crawler Carl Costume, but Here's How to Build Your Own",
-      "excerpt": "Spirit Halloween Has an Official Dungeon Crawler Carl Costume, but Here's How to Build Your Own",
-      "body": "The Dungeon Crawler Carl books have really popped off this year. With the release of the eighth book in the series, the first graphic novel collection, and an official TV series announcement, there&#39;s a lot for Matt Dinniman fans to be excited about in 2026. In addition to the actual story, there&#39;s been a ton of new Dungeon Crawler Carl merch available this year. And now that Halloween is approaching, there&#39;s even an officially licensed Carl costume at Spirit Halloween. Update : The Dungeon Crawler Carl Costume is already sold out everywhere. Check your local Spirit Halloween to find if any stock is still available near you. The Spirit Halloween is known to parody a lot of popular media with its costumes each year, but this version is actually officially licensed.",
-      "author": "Jacob Kienlen",
-      "date": "2026-09-28",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 45,
-      "url": "https://www.ign.com/articles/dungeon-crawler-carl-costume-idea-spirit-halloween-2026",
-      "image": "/images/feed/feed-5415aae2c386.png",
-      "source": "IGN",
       "isLive": true
     },
     {
@@ -548,7 +644,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 38,
       "url": "https://www.nasa.gov/news-release/nasa-armstrong-celebrates-80-years-of-flight-innovation/",
       "image": "https://www.youtube.com/embed/TNClJ3sxSKg",
       "source": "NASA Breaking News",
@@ -567,7 +663,7 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 31,
       "url": "https://thehackernews.com/2026/09/apple-patches-coregraphics-flaw.html",
       "image": "/images/feed/feed-a3e09de1bae3.jpg",
       "source": "The Hacker News",
@@ -586,48 +682,10 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 49,
       "url": "https://insideevs.com/news/809893/byd-solid-state-battery-2027/",
       "image": "/images/feed/feed-83689305b31e.jpg",
       "source": "InsideEVs",
-      "isLive": true
-    },
-    {
-      "id": "feed-536e5572b493",
-      "title": "There’s Actually Only One Fire Emblem: Fortune’s Weave Protagonist With Main Character Energy",
-      "excerpt": "Intelligent Systems wants you to believe all four main characters are equal; I think they lied",
-      "body": "Intelligent Systems wants you to believe all four main characters are equal; I think they lied\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Ash Parrish",
-      "date": "2026-09-28",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 51,
-      "url": "https://kotaku.com/theres-actually-only-one-fire-emblem-fortunes-weave-protagonist-with-main-character-energy-2000737997",
-      "image": "/images/feed/feed-536e5572b493.jpg",
-      "source": "Kotaku",
-      "isLive": true
-    },
-    {
-      "id": "feed-b9d96c3c2601",
-      "title": "Corsair's Vanguard Air 99 Gaming Keyboard Is Already £50 Off at Amazon UK Ahead of Prime Big Deal Days",
-      "excerpt": "Score an early Amazon Prime Big Deal Days discount on the premium Corsair Vanguard Air 99 wireless gaming keyboard. Save £50 on this low-profile mechanical keyboard in the UK before the main event beg…",
-      "body": "Amazon&#39;s Prime Big Deal Days doesn&#39;t officially begin until October 6, but we&#39;re already seeing some early discounts ahead of the two-day event, including a sizeable saving on one of Corsair&#39;s latest gaming keyboards. The Corsair Vanguard Air 99 is currently £189.99 at Amazon UK , down from £239.99. That&#39;s a £50 saving before the main Prime Big Deal Days sale has even got underway, making this one to keep an eye on if you&#39;ve been considering a premium gaming keyboard. Corsair&#39;s Vanguard Air 99 Keyboard Is Already £50 Off Corsair isn&#39;t exactly known for making budget gaming peripherals, and the Vanguard Air 99 is very much aimed at the higher end of the keyboard market.",
-      "author": "Robert Anderson",
-      "date": "2026-09-28",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 48,
-      "url": "https://www.ign.com/articles/corsair-vanguard-air-99-gaming-keyboard-deal-early-prime-big-deal-days-uk",
-      "image": "/images/feed/feed-b9d96c3c2601.png",
-      "source": "IGN",
       "isLive": true
     },
     {
@@ -643,29 +701,10 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 47,
       "url": "https://blog.google/innovation-and-ai/technology/ai/winner-future-vision-xprize/",
       "image": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/futurevisionxprize_social.max-600x600.format-webp.webp",
       "source": "Google AI Blog",
-      "isLive": true
-    },
-    {
-      "id": "feed-79176b8fa3eb",
-      "title": "This Movie Deal Lets You Pick 5 Movies in 4K Digital for Just $15",
-      "excerpt": "This Fandango at Home mix-and-match sale lets you pick five 4K digital movies from a fantastic list of classics for just $15.",
-      "body": "Here’s a terrific deal on a selection of digital HD movies both new and classic. Fandango at Home is running a mix-and-match sale that lets you pick five digital movies to buy for a total of $15 . The selection has 52 movies, some of which are newer releases, like One Battle After Another and Superman (2025), while others are all-time classics, like The Wizard of Oz, Unforgiven, and Citizen Kane. It’s a great deal, but it’s unclear when it will end, so if you see five you want, grab them sooner than later. As a bonus, most of the options on this list are Movies Anywhere eligible . That means, once you sign up for a free Movies Anywhere account and connect your accounts, you’ll be able to stream these movies from apps like Prime Video, Apple TV, Google Play, YouTube, and more.",
-      "author": "Chris Reed",
-      "date": "2026-09-28",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 30,
-      "url": "https://www.ign.com/articles/this-movie-deal-lets-you-pick-5-movies-in-4k-digital-for-just-15",
-      "image": "/images/feed/feed-79176b8fa3eb.jpg",
-      "source": "IGN",
       "isLive": true
     },
     {
@@ -681,7 +720,7 @@
         "Llm"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 42,
       "url": "https://stateofutopia.com/experiments/microllmlab/",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "Hacker News",
@@ -700,29 +739,10 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 39,
       "url": "https://www.bleepingcomputer.com/news/security/misconfigured-supabase-apps-expose-data-in-over-16-000-databases/",
       "image": "/images/feed/feed-00c59c4f177b.jpg",
       "source": "BleepingComputer",
-      "isLive": true
-    },
-    {
-      "id": "feed-cd88b3ba0488",
-      "title": "The Witcher 3: Songs of the Past EP Drops, Giving First Taste of New Music from the Expansion",
-      "excerpt": "Milan Records has released a five-track EP of new original music from The Witcher 3: Wild Hunt's upcoming Songs of the Past expansion. Titled The Witcher 3: Wild Hunt – Songs of the Past (Original Sou…",
-      "body": "Milan Records has released a five-track EP of new original music from The Witcher 3: Wild Hunt&#39;s upcoming Songs of the Past expansion. Titled The Witcher 3: Wild Hunt – Songs of the Past (Original Soundtrack Gamescom 2026 EP), the first taste of the DLC&#39;s soundtrack includes compositions from Magda Urbanska, Marcin Pryzbylowicz, and Daniel Elms. &quot;I’ve worked with classical music for most of my life,&quot; Urbanska said. &quot;But folk requires a completely different sensibility — it has its own tone and form, while also offering enormous creative freedom. But our roots, our Slavic heritage, are something more than that — something that runs deep within us, something that grows out of who we are.",
-      "author": "Ryan McCaffrey",
-      "date": "2026-09-28",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 49,
-      "url": "https://www.ign.com/articles/the-witcher-3-songs-of-the-past-ep-drops-giving-first-taste-of-new-music-from-the-expansion",
-      "image": "/images/feed/feed-cd88b3ba0488.jpg",
-      "source": "IGN",
       "isLive": true
     },
     {
@@ -738,7 +758,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 42,
       "url": "https://www.theverge.com/ai-artificial-intelligence/1001590/openai-devday-2026-aeon-ai-agent",
       "image": "/images/feed/feed-b85fb137645b.jpg",
       "source": "The Verge",
@@ -758,29 +778,10 @@
         "Breach"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 41,
       "url": "https://thehackernews.com/2026/09/hackers-use-needymantis-to-maintain.html",
       "image": "/images/feed/feed-06bbc320bc31.jpg",
       "source": "The Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-d921d3f3f059",
-      "title": "A ‘Roller Coaster Ride’: What Toyota Got Right (And Wrong) About EVs, According To An Executive",
-      "excerpt": "Toyota's North American product planning boss is feeling vindicated right now.",
-      "body": "Toyota's North American product planning boss is feeling vindicated right now.\n\nThis report, published by InsideEVs, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cars. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to InsideEVs using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "InsideEVs",
-      "date": "2026-09-28",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Cars"
-      ],
-      "featured": false,
-      "xpReward": 54,
-      "url": "https://insideevs.com/news/809894/toyota-america-evs-executive-interview/",
-      "image": "/images/feed/feed-d921d3f3f059.jpg",
-      "source": "InsideEVs",
       "isLive": true
     },
     {
@@ -796,7 +797,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 34,
       "url": "https://thehackernews.com/2026/09/iam-for-ai-agent.html",
       "image": "/images/feed/feed-097b65f90159.jpg",
       "source": "The Hacker News",
@@ -815,7 +816,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 33,
       "url": "https://techcrunch.com/2026/09/28/anthropic-releases-sonnet-5-5-which-it-calls-a-significantly-cheaper-faster-work-partner/",
       "image": "/images/feed/feed-342eef48a635.jpg",
       "source": "TechCrunch",
@@ -836,7 +837,7 @@
         "Orbit"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 39,
       "url": "https://www.cnet.com/science/space/spacex-starship-into-orbit-first-time/",
       "image": "/images/feed/feed-16ec965790f0.jpg",
       "source": "CNET",
@@ -855,7 +856,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 43,
       "url": "https://science.nasa.gov/missions/swift/nasa-highlights-lessons-learned-from-swift-boost-mission/",
       "image": "/images/feed/feed-03c9b8fa842c.jpg",
       "source": "NASA Breaking News",
@@ -874,7 +875,7 @@
         "Gemini"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 42,
       "url": "https://techcrunch.com/2026/09/28/google-is-killing-off-geminis-gems-in-favor-of-skills/",
       "image": "/images/feed/feed-fc22beaf1f7b.jpg",
       "source": "TechCrunch",
@@ -895,7 +896,7 @@
         "Orbit"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 30,
       "url": "https://www.engadget.com/2270992/spacexs-latest-starship-mission-reached-low-earth-orbit/",
       "image": "/images/feed/feed-17b7b6868e85.jpg",
       "source": "Engadget",
@@ -914,7 +915,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 49,
       "url": "https://techcrunch.com/2026/09/28/openai-still-doesnt-seem-to-have-a-handle-on-all-of-its-rogue-ai-activity/",
       "image": "/images/feed/feed-f53aca4c59c8.jpg",
       "source": "TechCrunch",
@@ -934,7 +935,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 52,
       "url": "https://www.nasa.gov/news-release/nasa-celebrates-as-artemis-accords-surpasses-75-signatories/",
       "image": "/images/feed/feed-6f90bd7be42c.jpg",
       "source": "NASA Breaking News",
@@ -942,16 +943,16 @@
     }
   ],
   "breakingNews": [
-    "9TO5MAC: watchOS 27.0.1 is now available for all compatible Apple Watch models",
-    "DEV.TO: I Used Hindsight to Remember Human Invoice Decisions",
-    "DEV.TO: SupportMind: A support agent that remembers every customer",
-    "DEV.TO: Google Gemini 3.8 Live Avatar Reaches GA for Real-Time Enterprise Agents",
-    "DEV.TO: MobileTopUP: Designing a Reliable Recharge Transaction Workflow",
-    "DEV.TO: Write a Python function once, call it from anywhere",
-    "BLEEPINGCOMPUTER: Japan's Keio confirms ransomware attack disrupted business systems",
-    "DEV.TO: SGLang vs. vLLM: Runtimes de Inferência e RadixAttention",
-    "DEV.TO: Scrape any website into JSON by just listing the fields you want",
-    "ELECTREK: Lexus reveals 2027 TZ prices start under $65,000, with up to 315 miles of range"
+    "DEV.TO: My Google AI API 500 errors stopped being scary when I stopped retrying the whole workflow",
+    "KOTAKU: Avengers: Endgame Encore Viewers Shocked To Find Out One Scene Teasing Doomsday Was Exclusive To IMAX",
+    "DEV.TO: Why “compress this image to 100 KB” is a constraint problem",
+    "DEV.TO: I Stopped Writing Separate Instructions for Claude Code, Codex, and Cursor - Here's My 2026 Setup",
+    "DEV.TO: How to Debug Blurry Marketplace Product Images in Go (Quality by Content Type)",
+    "DEV.TO: Avatar Composition: 4 Trade-offs Between Fixed Crop and Smart Crop",
+    "DEV.TO: Day 52: Undo Rolls Forward, and the Disk Already Mounted Is the One Not to Trust",
+    "DEV.TO: From 47 Scattered Tickets to a Live Cause Node: Building an Interactive Feedback Dashboard with Hindsight Memory",
+    "ENGADGET: How to improve your FPS for better gaming (without buying new hardware)",
+    "KOTAKU: The Guy Who Saved The Predator Franchise Is Reportedly Making A Sleeping Beauty Movie"
   ],
   "sectionVideos": {}
 }
