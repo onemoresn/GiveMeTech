@@ -1,12 +1,31 @@
 {
-  "fetchedAt": "2026-10-02T01:30:23.042Z",
+  "fetchedAt": "2026-10-02T02:21:42.383Z",
   "articles": [
     {
-      "id": "feed-f073b5c4c8a9",
-      "title": "CVE-2026-67401 Analysis — cPanel & WHM EmailTrack SQL Injection, From Mail Account to Root",
-      "excerpt": "Item Detail CVE ID CVE-2026-67401 Component cPanel & WHM — EmailTrack (Email ▸ Track Delivery) Vulnerability class CWE-89 (SQL Injection) Disclosure date September 8, 2026 (cPanel advisory), CVE recor…",
-      "body": "Vulnerability Overview Item Detail CVE ID CVE-2026-67401 Component cPanel &amp; WHM — EmailTrack (Email ▸ Track Delivery) Vulnerability class CWE-89 (SQL Injection) Disclosure date September 8, 2026 (cPanel advisory), CVE record published September 9, 2026 Discovered by Ali Mustafa (reported via HackerOne) Affected versions All supported cPanel &amp; WHM versions (11.110, 11.134, 11.136, 11.138, WP2 line included) Attack precondition Authenticated as a standard cPanel account with mail-related privileges Impact SQL Injection → arbitrary file creation → root-level code execution EmailTrack is the \"Track Delivery\" feature that lets a cPanel user review the delivery status and logs of email sent or received on their own domain.",
-      "author": "GUIDANCE WHITE",
+      "id": "feed-02f266de776e",
+      "title": "Claude Code's Read deny rules let 4 of 11 routes through: grep -r, a Python one-liner and two CLAUDE.md @imports",
+      "excerpt": "4 of 11 routes to a file covered by Read(./secrets/**) or Read(**/.env) still put its contents in front of the model on Claude Code 2.1.285: grep -r, a Python one-liner, and an @ import in a root or a…",
+      "body": "4 of 11 routes to a file covered by Read(./secrets/**) or Read(**/.env) still put its contents in front of the model on Claude Code 2.1.285: grep -r , a Python one-liner, and an @ import in a root or a subdirectory CLAUDE.md , each in 2 of 2 runs. The other 7 held (the Read, Grep and Glob tools, cat , head and grep on a named file, and @ mentions), and when I simply asked for the token, the model's first command was a grep -rn that printed it in both runs without a single denial. A Read deny rule is the usual first answer to \"how do I keep Claude Code away from my .env ?\", and the official permissions page gives Read(./.env) and Read(./secrets/**) as its examples.",
+      "author": "Rulestack",
+      "date": "2026-10-02",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Python"
+      ],
+      "featured": true,
+      "xpReward": 46,
+      "url": "https://dev.to/rulestack/claude-codes-read-deny-rules-let-4-of-11-routes-through-grep-r-a-python-one-liner-and-two-ajf",
+      "image": "/images/feed/feed-02f266de776e.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-a4f0ff40202a",
+      "title": "Media Erasure Requests: Evidence Chains for Image and Video Deletion",
+      "excerpt": "A deletion request is complete only when you can prove that every playable or viewable copy is gone, or that a documented retention rule still applies. For an edtech product, I would process the reque…",
+      "body": "A deletion request is complete only when you can prove that every playable or viewable copy is gone, or that a documented retention rule still applies. For an edtech product, I would process the request asynchronously, freeze new derivatives, and issue an evidence record that follows the asset through storage, thumbnails, moderation queues, exports, and caches. Short answer: delete on demand, but verify against an asset lineage graph rather than trusting one successful object-storage response. Upload-time moderation and deletion are separate decisions; combining them creates gaps. The decision note: what must be true before you call an asset erased?",
+      "author": "YatesHolloway6872",
       "date": "2026-10-02",
       "readTime": "2 min",
       "section": "software",
@@ -14,18 +33,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 43,
-      "url": "https://dev.to/guidance_white/cve-2026-67401-analysis-cpanel-whm-emailtrack-sql-injection-from-mail-account-to-root-3e45",
-      "image": "/images/feed/feed-f073b5c4c8a9.webp",
+      "xpReward": 41,
+      "url": "https://dev.to/yatesholloway6872/media-erasure-requests-evidence-chains-for-image-and-video-deletion-3hpm",
+      "image": "/images/feed/feed-a4f0ff40202a.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-503349372c74",
-      "title": "Processing video in the browser without ffmpeg.wasm: WebCodecs + MediaBunny, 95s 9s",
-      "excerpt": "If your browser-based video tool feels slow, the model probably isn't your problem — the pipeline is. We run ClearPix, a set of free in-browser media tools, and our video watermark removal used to tak…",
-      "body": "If your browser-based video tool feels slow, the model probably isn't your problem — the pipeline is. We run ClearPix, a set of free in-browser media tools, and our video watermark removal used to take 95 seconds end-to-end on ffmpeg.wasm. After migrating the whole pipeline to WebCodecs for hardware decode/encode and MediaBunny for muxing, the same job takes 9 seconds. This post walks through exactly why ffmpeg.wasm was slow for us, the architecture we replaced it with (with real code), the audio passthrough trick that avoids re-encoding entirely, and how a streaming single-pass design made memory O(1) so we could raise our duration limit from 30s to 120s.",
-      "author": "Umasou",
+      "id": "feed-a5d63e1241b6",
+      "title": "AsyncLocalStorage vs Request-Scoped Providers: The DI Trap That Taxes Latency",
+      "excerpt": "Here's a logger. It's a dozen lines and it looks completely harmless: request-logger.ts import { Inject, Injectable, Scope } from '@nestjs/common'; import { REQUEST } from '@nestjs/core'; import type…",
+      "body": "Here's a logger. It's a dozen lines and it looks completely harmless: request-logger.ts import { Inject , Injectable , Scope } from ' @nestjs/common ' ; import { REQUEST } from ' @nestjs/core ' ; import type { Request } from ' express ' ; @ Injectable ({ scope : Scope . REQUEST }) export class RequestLogger { constructor (@ Inject ( REQUEST ) private readonly req : Request ) {} log ( message : string ) { console . log ( JSON . stringify ({ requestId : this . req . headers [ ' x-request-id ' ], message })); } } You wanted every log line to carry the request ID. Reasonable. Now inject that logger into OrdersRepository , which is injected into OrdersService , which is injected into OrdersController . Congratulations: none of those are singletons anymore.",
+      "author": "Andrii B.",
       "date": "2026-10-02",
       "readTime": "2 min",
       "section": "software",
@@ -33,18 +52,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 33,
-      "url": "https://dev.to/sharksevenro/processing-video-in-the-browser-without-ffmpegwasm-webcodecs-mediabunny-95s-9s-34p",
-      "image": "/images/feed/feed-503349372c74.webp",
+      "xpReward": 47,
+      "url": "https://dev.to/andriiboyko/asynclocalstorage-vs-request-scoped-providers-the-di-trap-that-taxes-latency-4pk5",
+      "image": "/images/feed/feed-a5d63e1241b6.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-0a0b9436afb4",
-      "title": "I Analyzed 2,315 Wordle Answers to Find the Best Starting Words",
-      "excerpt": "Every Wordle thread eventually turns into the same argument: is it ADIEU? AUDIO? STARE? CRANE? Everyone has a favourite starter, and everyone swears theirs is obviously the best. I got tired of guessi…",
-      "body": "Every Wordle thread eventually turns into the same argument: is it ADIEU? AUDIO? STARE? CRANE? Everyone has a favourite starter, and everyone swears theirs is obviously the best. I got tired of guessing, so I pulled the letter frequencies across all 2,315 past Wordle answers. That's 2,315 words x 5 letters = 11,575 letter slots. If a letter shows up a lot in actual answers, a good opener should probably contain it — and if a letter almost never shows up, leading with it is just burning a guess. Here's what the data actually says. The letter frequency table I counted every letter in every answer, regardless of position.",
-      "author": "michaelbrooks20760-ux",
+      "id": "feed-1b502e8a41e3",
+      "title": "The night my post pages scored 39",
+      "excerpt": "First published on yappatyih.com. This site draws a particle world behind every page, tens of thousands of points in the shape of my mark, in three.js. I chose it knowing the cost and wrote the decisi…",
+      "body": "First published on yappatyih.com . TL;DR This site draws a particle world behind every page, tens of thousands of points in the shape of my mark, in three.js. I chose it knowing the cost and wrote the decision down: weak devices are sacrificed by choice. Then I had it measured. A post page on a simulated phone scored 39 out of 100 on Lighthouse, with 3636 ms of blocked main thread and a largest paint at 5.70 s. The same page without the world scored 97. I kept the world where it is the point, the home page, and stopped loading it on post pages unless the screen is wide, the pointer is a mouse and the reader has not asked for less motion. The post page now scores 97 on a phone and still draws the world on a desktop.",
+      "author": "Yap Pat Yih",
       "date": "2026-10-02",
       "readTime": "2 min",
       "section": "software",
@@ -52,56 +71,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 49,
-      "url": "https://dev.to/michaelbrooks20760ux/i-analyzed-2315-wordle-answers-to-find-the-best-starting-words-4kg3",
-      "image": "/images/feed/feed-0a0b9436afb4.webp",
+      "xpReward": 47,
+      "url": "https://dev.to/yappatyih/the-night-my-post-pages-scored-39-2b26",
+      "image": "/images/feed/feed-1b502e8a41e3.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-33571894a4dd",
-      "title": "Silent Cron Runs: A Backend Metrics Dashboard Beyond API Failures",
-      "excerpt": "An agent dashboard has one awkward constraint: the absence of a failure event does not mean the scheduled loop ran. TL;DR: use metrics for latency, cost, completions, failures, and backlog trends, the…",
-      "body": "An agent dashboard has one awkward constraint: the absence of a failure event does not mean the scheduled loop ran. TL;DR: use metrics for latency, cost, completions, failures, and backlog trends, then pair them with a separate heartbeat monitor for missed cron runs. Keep error details beside the charts, not inside every metric label. This gives a solo operator useful signal without pretending to provide complete monitoring. The tempting first design is one giant event stream. Every tool call, exception, token count, and scheduler tick goes into it, then the dashboard tries to reconstruct reality. That approach is simple to ship but noisy to operate. High-cardinality error messages fragment charts, while a job that never starts emits nothing at all.",
-      "author": "jaxmonroe3187",
-      "date": "2026-10-02",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Api"
-      ],
-      "featured": true,
-      "xpReward": 45,
-      "url": "https://dev.to/jaxmonroe3187/silent-cron-runs-a-backend-metrics-dashboard-beyond-api-failures-1bgf",
-      "image": "/images/feed/feed-33571894a4dd.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-08357d73f999",
-      "title": "Why auto_prepend_file and On-Server WordPress Firewalls Cause TTFB Lag",
-      "excerpt": "When scaling WordPress sites, one of the most common bottlenecks developers overlook is the architectural placement of their Web Application Firewall (WAF). Most security plugins (like Wordfence) rely…",
-      "body": "When scaling WordPress sites, one of the most common bottlenecks developers overlook is the architectural placement of their Web Application Firewall (WAF). The Pre-WordPress Execution Trap Most security plugins (like Wordfence) rely on PHP's auto_prepend_file directive in .htaccess or .user.ini : [PHP Start] → [autoprependfile: wordfence-waf.php] → [Rule evaluation] → [wp-config.php] → [WordPress Core] → [Plugins/Theme] → [HTML Output] This means before a single byte of HTML is rendered , PHP must: Initialize the WAF engine in memory. Evaluate hundreds of regex patterns against the raw URI, POST body, and headers. Execute database reads/writes on wp_wfHits and wp_wflogs to track rate limits.",
-      "author": "Kevin Web",
-      "date": "2026-10-02",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 52,
-      "url": "https://dev.to/stardothosting/why-autoprependfile-and-on-server-wordpress-firewalls-cause-ttfb-lag-njh",
-      "image": "/images/feed/feed-08357d73f999.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-d86707cb7a97",
-      "title": "1,160,264 Mosquitto fingerprints: the MQTT broker that ends up on the public internet",
-      "excerpt": "Mosquitto is the reference open source MQTT broker, and it is small enough to run almost anywhere. A ZoomEye query for the application fingerprint records 1,160,264 matches. ZoomEye search result for…",
-      "body": "Mosquitto is the reference open source MQTT broker, and it is small enough to run almost anywhere. A ZoomEye query for the application fingerprint records 1,160,264 matches. How the number was obtained The query was app=\"Mosquitto\", run against the ZoomEye index on 29 September 2026 at 02:47 UTC. The unit is a fingerprint match on an internet reachable service. The number counts hosts that ZoomEye can identify as Mosquitto, and it does not indicate whether any of them are misconfigured, unpatched, or exposed without authentication. Those are separate questions that require inspection of an individual deployment. Why the population is large The broker sits inside a long list of products.",
-      "author": "jeffrey",
+      "id": "feed-27e5b61d4b33",
+      "title": "Why I run my company on a Brain and a Hand",
+      "excerpt": "First published on yappatyih.com. I run two kinds of Claude Code session. The Brain reads, investigates, decides and writes a brief. The Hand pastes that brief, builds, commits and reports back. The B…",
+      "body": "First published on yappatyih.com . TL;DR I run two kinds of Claude Code session. The Brain reads, investigates, decides and writes a brief. The Hand pastes that brief, builds, commits and reports back. The Brain never touches code. This site was rebuilt that way in two days: one Brain session, six Hand sessions, just over a hundred commits. The same split runs Lumen, the internal system at BlackRevo, and Habitus Mind. It works because it is delegation, and delegation is a craft I already had to learn as a General Manager. The problem with one session doing everything The first way everyone uses an AI coding tool is one long conversation. You think out loud, it builds, you correct, it builds again. It works for an afternoon.",
+      "author": "Yap Pat Yih",
       "date": "2026-10-02",
       "readTime": "2 min",
       "section": "software",
@@ -110,46 +91,46 @@
       ],
       "featured": true,
       "xpReward": 34,
-      "url": "https://dev.to/jeffreyciend/1160264-mosquitto-fingerprints-the-mqtt-broker-that-ends-up-on-the-public-internet-ni5",
-      "image": "/images/feed/feed-d86707cb7a97.webp",
+      "url": "https://dev.to/yappatyih/why-i-run-my-company-on-a-brain-and-a-hand-f2g",
+      "image": "/images/feed/feed-27e5b61d4b33.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-196be6c78e6a",
-      "title": "How to Build a Voice-Over Tool for YouTube Videos",
-      "excerpt": "Why Build Your Own Voice‑Over Tool? You’ve probably spent hours hunting for royalty‑free music or recording your own narration for YouTube videos. With modern text‑to‑speech (TTS) and voice���cloning…",
-      "body": "Why Build Your Own Voice‑Over Tool? You’ve probably spent hours hunting for royalty‑free music or recording your own narration for YouTube videos. With modern text‑to‑speech (TTS) and voice���cloning services, you can generate natural‑sounding narration in seconds, keep a consistent brand voice, and even create multiple language tracks without ever leaving your code editor. In this article we’ll walk through a complete, developer‑friendly pipeline: Choose a high‑quality TTS provider (we’ll use ElevenLabs – see the affiliate link below). Authenticate and call the API from Python. (Optional) Clone a custom voice from a short sample. Merge the generated audio with an existing YouTube video using ffmpeg .",
-      "author": "VoiceDeveloper",
+      "id": "feed-6cead62f1af7",
+      "title": "Kontur: an explicit project dashboard for agents, scripts and people",
+      "excerpt": "Disclosure: this article was prepared by an AI agent for the project owner. The application and documentation were developed with AI assistance. Example data is synthetic. A project status label often…",
+      "body": "Disclosure: this article was prepared by an AI agent for the project owner. The application and documentation were developed with AI assistance. Example data is synthetic. A project status label often combines several different things: a developer's report, a passed test and an owner's acceptance. Keeping those separate is useful when an AI agent helps with a project, and it is just as useful when no model is involved. Kontur is a small self-hosted dashboard for that workflow. It stores an explicit roadmap with milestone dependencies, acceptance criteria and evidence references. It displays the current milestone, blockers and the accepted portion of a selected plan. The API records supplied statements; it does not certify that work is correct.",
+      "author": "Vladimir Alekseev",
       "date": "2026-10-02",
       "readTime": "2 min",
       "section": "software",
       "tags": [
         "Software"
       ],
-      "featured": false,
-      "xpReward": 43,
-      "url": "https://dev.to/voice_developer/how-to-build-a-voice-over-tool-for-youtube-videos-56le",
-      "image": "/images/feed/feed-196be6c78e6a.webp",
+      "featured": true,
+      "xpReward": 38,
+      "url": "https://dev.to/zoomerland/kontur-an-explicit-project-dashboard-for-agents-scripts-and-people-4bm5",
+      "image": "/images/feed/feed-6cead62f1af7.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-5984db92064c",
-      "title": "One API Key Across Model Providers: Compare Token Cost for Healthtech Moderation",
-      "excerpt": "Send every moderation report through one server-side gateway, but don't choose the model by the cheapest token rate. Short answer: one API key across OpenAI, Claude, and Gemini is useful for startup o…",
-      "body": "Send every moderation report through one server-side gateway, but don't choose the model by the cheapest token rate. Short answer: one API key across OpenAI, Claude, and Gemini is useful for startup operations; it isn't a sound routing rule. For a healthtech app, compare total cost per accepted classification, validate every response, and reserve slower inference for ambiguous cases before a human reviews them. That distinction matters in a one-person SaaS. A low token invoice is irrelevant if weak classifications create more review work or if a slow first pass leaves the queue idle. I want the undifferentiated authentication and transport work behind one adapter so I can ship weekly. The business logic stays mine. How should one API key compare token cost across providers?",
-      "author": "PeterParker8991",
+      "id": "feed-5b56f67881ef",
+      "title": "5 Small SaaS Incident Tests for a Cheap Metrics Dashboard API",
+      "excerpt": "A customer-incident dashboard has one hard constraint: it must retain enough evidence to explain a failed checkout without turning every request into permanent noise. TL;DR: define a small, vendor-neu…",
+      "body": "A customer-incident dashboard has one hard constraint: it must retain enough evidence to explain a failed checkout without turning every request into permanent noise. TL;DR: define a small, vendor-neutral metric contract, test it against five incident questions, and choose the narrowest backend that passes. A custom chart backend can serve a beginner e-commerce SaaS well. It is not a replacement for Datadog or Grafana Cloud when the team needs alert routing, distributed traces, or deep filtering. That changes the purchase decision. During a checkout complaint, the useful dimensions are likely to be region, operation, and outcome. A customer ID is different: putting it in every metric label increases cardinality and mixes personal evidence into an operational signal.",
+      "author": "AidenSterling3417",
       "date": "2026-10-02",
       "readTime": "2 min",
-      "section": "ai",
+      "section": "software",
       "tags": [
-        "Ai"
+        "Api"
       ],
       "featured": false,
-      "xpReward": 44,
-      "url": "https://dev.to/peterparker8991/one-api-key-across-model-providers-compare-token-cost-for-healthtech-moderation-17a2",
-      "image": "/images/feed/feed-5984db92064c.webp",
+      "xpReward": 43,
+      "url": "https://dev.to/aidensterling3417/5-small-saas-incident-tests-for-a-cheap-metrics-dashboard-api-2od5",
+      "image": "/images/feed/feed-5b56f67881ef.webp",
       "source": "Dev.to",
       "isLive": true
     },
@@ -166,7 +147,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 52,
       "url": "https://www.polygon.com/digger-ending-explained-spoilers/",
       "image": "/images/feed/feed-fbb1ad64153a.jpg",
       "source": "Polygon",
@@ -185,7 +166,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 40,
       "url": "https://9to5mac.com/2026/10/01/apple-tvs-acclaimed-the-last-first-winter-k2-documentary-now-streaming/",
       "image": "/images/feed/feed-f39e2c3c152a.jpg",
       "source": "9to5Mac",
@@ -204,7 +185,7 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 48,
       "url": "https://electrek.co/2026/10/01/tesla-model-3-us-16-inch-screen-performance-528-hp/",
       "image": "/images/feed/feed-b7646a26b70d.jpg",
       "source": "Electrek",
@@ -223,10 +204,29 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 47,
       "url": "https://cleantechnica.com/2026/10/01/leveraging-the-iaa-to-build-europes-battery-value-chain/",
       "image": "/images/feed/feed-dca030fd21d9.png",
       "source": "CleanTechnica",
+      "isLive": true
+    },
+    {
+      "id": "feed-dd18cefb797e",
+      "title": "10 Things: Movie Night",
+      "excerpt": "Join Us for Movie Night with NASA NASA’s mission is to pioneer the future in space exploration and scientific discovery. NASA+ documentaries allow you to come along for the ride. It’s free. It’s on de…",
+      "body": "2 Min Read 10 Things: Movie Night Join Us for Movie Night with NASA NASA’s mission is to pioneer the future in space exploration and scientific discovery. NASA+ documentaries allow you to come along for the ride. It’s free. It’s on demand. And no subscription is required. Grab some popcorn and come along for the journey. Other Worlds: Europa Cosmic Dawn Planetary Defenders Our Alien Earth: The Lava Tubes of Mauna Loa, Hawai’i Our Alien Earth: Greece Other Worlds: Titan NASA Explorers: Sample Return NASA Explorers: Space School Listen to the Universe Space Out! You’ve explored Earth, tracked asteroids, visited distant worlds, and listened to the universe. It’s time to relax with some tunes and images of Earth’s beautiful Moon.",
+      "author": "NASA Breaking News",
+      "date": "2026-10-02",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Space"
+      ],
+      "featured": false,
+      "xpReward": 51,
+      "url": "https://science.nasa.gov/solar-system/10-things-movie-night/",
+      "image": "/images/feed/feed-dd18cefb797e.png",
+      "source": "NASA Breaking News",
       "isLive": true
     },
     {
@@ -242,7 +242,7 @@
         "Vehicle"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 40,
       "url": "https://cleantechnica.com/2026/10/01/european-businesses-in-the-transport-sector-call-for-eu-to-maintain-stability-ambition-on-decarbonising-heavy-duty-vehicles-hdvs/",
       "image": "/images/feed/feed-22de72f328cb.jpg",
       "source": "CleanTechnica",
@@ -261,7 +261,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 48,
       "url": "https://cleantechnica.com/2026/10/01/grid-connection-at-european-ports-airports-solutions-to-accelerate-transport-electrification/",
       "image": "/images/feed/feed-66f40bde26e5.jpg",
       "source": "CleanTechnica",
@@ -280,7 +280,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 36,
       "url": "https://www.polygon.com/verity-ending-explained-spoilers/",
       "image": "/images/feed/feed-e5cb970020f6.jpg",
       "source": "Polygon",
@@ -299,10 +299,29 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 37,
       "url": "https://kotaku.com/pubg-extraction-shooter-canceled-less-than-a-year-after-getting-revealed-2000739106",
       "image": "/images/feed/feed-8d32338d3256.jpg",
       "source": "Kotaku",
+      "isLive": true
+    },
+    {
+      "id": "feed-eaf411daf792",
+      "title": "Doom: The Dark Ages - Revelations Getting New 'Slaughter Mode' as Free Update Next Month",
+      "excerpt": "Doom: The Dark Ages developer id Software has announced a new free update coming to the first-person shooter's Revelations DLC next month: an endless single-player \"Slaughter Mode.\"",
+      "body": "Doom: The Dark Ages developer id Software has announced a new free update coming to the first-person shooter&#39;s Revelations DLC next month: an endless single-player &quot;Slaughter Mode.&quot; As announced on today&#39;s Slayers Club Live livestream with Doom: The Dark Ages game director Hugo Martin, Slaughter Mode will be &quot;an endless single player mode where players fight through escalating demon waves across multiple arenas, earning cosmetics and their personal best in round/score.&quot; Though id didn&#39;t give a specific launch date for the Slaughter Mode update, we can probably rule out November 19! And if you haven&#39;t played the stellar The Dark Ages yet, or its excellent expansion , Revelations, now&#39;s the time!",
+      "author": "Ryan McCaffrey",
+      "date": "2026-10-02",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 35,
+      "url": "https://www.ign.com/articles/doom-the-dark-ages-revelations-getting-new-slaughter-mode-as-free-update-next-month",
+      "image": "/images/feed/feed-eaf411daf792.jpg",
+      "source": "IGN",
       "isLive": true
     },
     {
@@ -318,7 +337,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 47,
       "url": "https://www.ign.com/articles/fast-furious-tv-show-greenlit-at-peacock-with-vin-diesel-as-executive-producer",
       "image": "/images/feed/feed-b08afc2de30b.jpg",
       "source": "IGN",
@@ -337,7 +356,7 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 42,
       "url": "https://electrek.co/2026/10/01/tesla-emergency-drive-away-supercharger-shooting/",
       "image": "/images/feed/feed-fba48666cd94.jpg",
       "source": "Electrek",
@@ -356,7 +375,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 39,
       "url": "https://www.ign.com/articles/viral-short-horror-film-portrait-of-god-gets-feature-length-movie-starring-chase-infiniti",
       "image": "/images/feed/feed-f4b585bab35f.jpg",
       "source": "IGN",
@@ -375,29 +394,10 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 45,
       "url": "https://kotaku.com/ram-maker-celebrates-record-profits-and-predicts-even-higher-prices-and-greater-tightness-in-the-industry-in-the-years-ahead-2000739125",
       "image": "/images/feed/feed-2a2144c5615b.jpg",
       "source": "Kotaku",
-      "isLive": true
-    },
-    {
-      "id": "feed-3b7ced54d009",
-      "title": "Gears of War: E-Day Is 100x More Fun Playing Co-op",
-      "excerpt": "Gears of War: E-Day is the rare modern game that features a local co-op campaign. The Coalition devs tell Polygon it was mandatory.",
-      "body": "Gears of War: E-Day is the rare modern game that features a local co-op campaign. The Coalition devs tell Polygon it was mandatory.\n\nThis report, published by Polygon, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Polygon using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Ari Notis",
-      "date": "2026-10-01",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 53,
-      "url": "https://www.polygon.com/gears-war-e-day-co-op-interview/",
-      "image": "/images/feed/feed-3b7ced54d009.jpg",
-      "source": "Polygon",
       "isLive": true
     },
     {
@@ -413,7 +413,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 44,
       "url": "https://www.engadget.com/2275315/florida-county-finds-11-unpermitted-flock-cameras-with-unidentified-owners/",
       "image": "/images/feed/feed-18602965f116.jpg",
       "source": "Engadget",
@@ -432,7 +432,7 @@
         "Iphone"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 52,
       "url": "https://9to5mac.com/2026/10/01/apple-commissions-photographers-for-new-shot-on-iphone-duo-campaign/",
       "image": "/images/feed/feed-3e904160a557.jpg",
       "source": "9to5Mac",
@@ -452,7 +452,7 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 35,
       "url": "https://www.bleepingcomputer.com/news/security/fortinet-warns-of-critical-fortimail-flaw-exploited-in-zero-day-attacks/",
       "image": "/images/feed/feed-ccc3390d7291.jpg",
       "source": "BleepingComputer",
@@ -471,7 +471,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 44,
       "url": "https://www.engadget.com/2275295/chatgpt-can-now-help-you-virtually-try-on-clothes/",
       "image": "/images/feed/feed-ada6b25e3e62.jpg",
       "source": "Engadget",
@@ -490,7 +490,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 51,
       "url": "https://9to5mac.com/2026/10/01/apple-among-biggest-corporate-lobbyists-in-brussels-per-report/",
       "image": "/images/feed/feed-c974b51f8687.jpg",
       "source": "9to5Mac",
@@ -509,7 +509,7 @@
         "Iphone"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 47,
       "url": "https://9to5mac.com/2026/10/01/daily-october-1-2026/",
       "image": "/images/feed/feed-34ba26ee356f.jpg",
       "source": "9to5Mac",
@@ -528,7 +528,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 35,
       "url": "https://www.engadget.com/2275278/openai-fires-three-employees-who-allegedly-shared-info-with-an-external-ai-safety-group/",
       "image": "/images/feed/feed-904dfeaa51d6.jpg",
       "source": "Engadget",
@@ -547,7 +547,7 @@
         "Security"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 30,
       "url": "https://techcrunch.com/2026/10/01/kevin-mandias-new-agent-swarm-security-startup-armadin-raises-255-5m-at-2-5b-valuation/",
       "image": "/images/feed/feed-07c30cc156c1.png",
       "source": "TechCrunch",
@@ -566,7 +566,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 40,
       "url": "https://electrek.co/2026/10/01/california-gives-the-green-light-to-balcony-solar/",
       "image": "/images/feed/feed-da303702570e.jpg",
       "source": "Electrek",
@@ -585,7 +585,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 30,
       "url": "https://electrek.co/2026/10/01/hyundai-ioniq-5-still-in-ev-sales-mix-31000-sold/",
       "image": "/images/feed/feed-9a81e1e533e2.jpg",
       "source": "Electrek",
@@ -604,10 +604,29 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 47,
       "url": "https://www.bleepingcomputer.com/news/security/autonomous-ai-agents-tried-to-hack-us-canadian-government-websites/",
       "image": "/images/feed/feed-0c169a818fc4.jpg",
       "source": "BleepingComputer",
+      "isLive": true
+    },
+    {
+      "id": "feed-f9f66491ec32",
+      "title": "NASA Awards Enterprise Logistics Support Services Agreements",
+      "excerpt": "NASA selected 16 companies to provide Enterprise Logistics Support Services under new agreements that will standardize requirements, improve reporting, and streamline the management of costs and resou…",
+      "body": "Credit: NASA NASA selected 16 companies to provide Enterprise Logistics Support Services under new agreements that will standardize requirements, improve reporting, and streamline the management of costs and resources. The $1.4 billion blanket purchase agreements will support equipment and property management, transportation, disposal, product support, flight hardware support operations, equipment maintenance and repair, export control, move operations, flight hardware, and other material purchases. Under the General Services Administration’s One Acquisition Solution for Integrated Services Plus multiple-award blanket purchase agreements, NASA has the discretion to use firm-fixed-price, time-and-materials, labor-hour, or hybrid contract types.",
+      "author": "Jessica Taveau",
+      "date": "2026-10-01",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Nasa"
+      ],
+      "featured": false,
+      "xpReward": 36,
+      "url": "https://www.nasa.gov/news-release/nasa-awards-enterprise-logistics-support-services-agreements/",
+      "image": "https://www.nasa.gov/wp-content/uploads/2022/02/nasa_meatball_large.jpg",
+      "source": "NASA Breaking News",
       "isLive": true
     },
     {
@@ -623,7 +642,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 44,
       "url": "https://arstechnica.com/security/2026/10/hacks-of-2-federal-agencies-in-a-month-have-spilled-a-bonanza-of-sensitive-data/",
       "image": "/images/feed/feed-666ab6cbe8a4.jpg",
       "source": "Ars Technica",
@@ -642,7 +661,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 37,
       "url": "https://www.theverge.com/ai-artificial-intelligence/1003756/google-gemini-live-guided-vision",
       "image": "/images/feed/feed-2ea0f44586ad.jpg",
       "source": "The Verge",
@@ -661,7 +680,7 @@
         "Threat Actor"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 32,
       "url": "https://www.bleepingcomputer.com/news/security/microsoft-says-threat-actors-are-ahead-in-the-early-ai-race/",
       "image": "/images/feed/feed-6aebd76eb7c3.jpg",
       "source": "BleepingComputer",
@@ -680,7 +699,7 @@
         "Chatgpt"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 39,
       "url": "https://techcrunch.com/2026/10/01/chatgpt-can-now-virtually-try-on-clothes-for-you/",
       "image": "/images/feed/feed-a4548c383007.jpg",
       "source": "TechCrunch",
@@ -701,7 +720,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 35,
       "url": "https://techcrunch.com/2026/10/01/google-thinks-spacexs-starship-has-to-launch-1600-times-before-space-data-centers-get-off-the-ground/",
       "image": "/images/feed/feed-a95ce7e33dd0.jpg",
       "source": "TechCrunch",
@@ -720,7 +739,7 @@
         "Gemini"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 37,
       "url": "https://www.cnet.com/tech/services-and-software/google-gemini-4-argon-ai-model-release/",
       "image": "/images/feed/feed-18368a8bd17b.png",
       "source": "CNET",
@@ -739,7 +758,7 @@
         "Security"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 35,
       "url": "https://www.cnet.com/tech/services-and-software/peoples-picks-privacy-and-security-2026/",
       "image": "/images/feed/feed-183e4e2016cb.png",
       "source": "CNET",
@@ -758,10 +777,49 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 39,
       "url": "https://techcrunch.com/2026/10/01/openai-cuts-ties-with-three-safety-researchers-wsj-reports/",
       "image": "/images/feed/feed-b56eb6fb25bd.jpg",
       "source": "TechCrunch",
+      "isLive": true
+    },
+    {
+      "id": "feed-e1b81765d4e5",
+      "title": "NASA’s SpaceX Crew-13 Launches",
+      "excerpt": "In this Oct. 1, 2026, photo, a SpaceX Falcon 9 rocket and Dragon spacecraft launch from Space Launch Complex 40 at Cape Canaveral Space Force Station in Florida. The spacecraft is carrying NASA astron…",
+      "body": "NASA/Joel Kowsky In this Oct. 1, 2026, photo, a SpaceX Falcon 9 rocket and Dragon spacecraft launch from Space Launch Complex 40 at Cape Canaveral Space Force Station in Florida. The spacecraft is carrying NASA astronauts Jessica Watkins and Luke Delaney, CSA (Canadian Space Agency) astronaut Joshua Kutryk, and Roscosmos cosmonaut Sergey Teteryatnikov to the International Space Station for a long-duration science mission. They are expected to dock at the space station at 7 p.m. EDT. NASA will stream Crew‑13’s arrival across multiple platforms. The agency&#8217;s live broadcast begins at 5:20 p.m. EDT. Learn where to watch at: https://www.nasa.gov/live Learn more about the Crew-13 launch and mission. Image credit: NASA/Joel Kowsky",
+      "author": "HQ Web Team",
+      "date": "2026-10-01",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Spacex",
+        "Nasa"
+      ],
+      "featured": false,
+      "xpReward": 35,
+      "url": "https://www.nasa.gov/image-article/nasas-spacex-crew-13-launches/",
+      "image": "https://www.nasa.gov/wp-content/uploads/2026/10/55563235995-2bae0fafbc-o.jpg",
+      "source": "NASA Breaking News",
+      "isLive": true
+    },
+    {
+      "id": "feed-7f4329c1ef43",
+      "title": "Vote on which of Hacker News' challenges for AI have been met",
+      "excerpt": "",
+      "body": "This report, published by Hacker News, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Hacker. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Hacker News using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "stabbles",
+      "date": "2026-10-01",
+      "readTime": "2 min",
+      "section": "cybersecurity",
+      "tags": [
+        "Hacker"
+      ],
+      "featured": false,
+      "xpReward": 38,
+      "url": "https://stoppels.ch/goalposts/",
+      "image": "/images/topics/topic-cybersecurity.png",
+      "source": "Hacker News",
       "isLive": true
     },
     {
@@ -777,29 +835,29 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 36,
       "url": "https://openai.com/index/the-eternal-complement",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "OpenAI Blog",
       "isLive": true
     },
     {
-      "id": "feed-122475ca3388",
-      "title": "Police Arrest 16-Year-Old Suspected of Running KillSec, Seize Ransomware Leak Site and Servers",
-      "excerpt": "Police in Spain have arrested a 16-year-old whom investigators suspect of running the KillSec ransomware group. KillSec is accused of stealing data from organizations and threatening to publish it on…",
-      "body": "Police in Spain have arrested a 16-year-old whom investigators suspect of running the KillSec ransomware group. KillSec is accused of stealing data from organizations and threatening to publish it on its leak site unless they paid. The 16-year-old was one of 3 people arrested on September 30, when police also took control of that site. Investigators identified him as KillSec's suspected",
-      "author": "info@thehackernews.com (The Hacker News)",
+      "id": "feed-cce00ed0f0d2",
+      "title": "What’s Up: October 2026 Skywatching Tips from NASA",
+      "excerpt": "A Meteor Shower and the Moon Near the Pleiades See Saturn at opposition, catch the Orionid meteor shower, and watch the Moon pass close to the Pleiades, also known as the Seven Sisters. Skywatching Hi…",
+      "body": "Skywatching Skywatching Home What’s Up Meteor Showers Eclipses Daily Moon Guide More Tips &#038; Guides Skywatching FAQ Night Sky Network A Meteor Shower and the Moon Near the Pleiades See Saturn at opposition, catch the Orionid meteor shower, and watch the Moon pass close to the Pleiades, also known as the Seven Sisters. Skywatching Highlights Oct. 4: Saturn reaches opposition, making the ringed planet visible for much of the night Oct. 6: A thin crescent Moon appears close to bright Jupiter before sunrise Oct. 21–22: The Orionid meteor shower peaks; moonlight may interfere, so look before dawn after moonset Oct.",
+      "author": "NASA Breaking News",
       "date": "2026-10-01",
       "readTime": "2 min",
-      "section": "cybersecurity",
+      "section": "space",
       "tags": [
-        "Ransomware"
+        "Nasa"
       ],
       "featured": false,
-      "xpReward": 30,
-      "url": "https://thehackernews.com/2026/10/police-arrest-16-year-old-suspected-of.html",
-      "image": "/images/feed/feed-122475ca3388.jpg",
-      "source": "The Hacker News",
+      "xpReward": 40,
+      "url": "https://science.nasa.gov/solar-system/skywatching/whats-up-october-2026-skywatching-tips-from-nasa/",
+      "image": "/images/feed/feed-cce00ed0f0d2.jpg",
+      "source": "NASA Breaking News",
       "isLive": true
     },
     {
@@ -815,10 +873,50 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 52,
       "url": "https://openai.com/index/albertsons-reimagining-retail",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "OpenAI Blog",
+      "isLive": true
+    },
+    {
+      "id": "feed-45c2da46582d",
+      "title": "Inside Microsoft’s big Copilot rethink",
+      "excerpt": "Last week, Microsoft CEO Satya Nadella hosted an intimate, invite-only event for leaders from some of its key enterprise customers. Instead of a flashy media event, Nadella outlined the future of Copi…",
+      "body": "Last week, Microsoft CEO Satya Nadella hosted an intimate, invite-only event for leaders from some of its key enterprise customers. Instead of a flashy media event, Nadella outlined the future of Copilot directly to the customers Microsoft really cares about, pitching its latest rethink of the AI assistant as the \"OS for work.\" Microsoft is adding coding and agent capabilities directly into Copilot, as well as bringing the full power of Office into Copilot for the first time. Nadella is betting that AI will change the way people work in the same way that Microsoft Office did in the '80s and '90s. \"How did a multinational company do a fore … Read the full story at The Verge.",
+      "author": "Tom Warren",
+      "date": "2026-10-01",
+      "readTime": "2 min",
+      "section": "ai",
+      "tags": [
+        "Copilot"
+      ],
+      "featured": false,
+      "xpReward": 42,
+      "url": "https://www.theverge.com/tech/1003365/microsoft-copilot-os-for-work-notepad",
+      "image": "/images/feed/feed-45c2da46582d.jpg",
+      "source": "The Verge",
+      "isLive": true
+    },
+    {
+      "id": "feed-6bba1001a2d8",
+      "title": "NASA’s SpaceX Crew-13 Launches to International Space Station",
+      "excerpt": "Four crew members of NASA’s SpaceX Crew-13 mission launched at 11:10 a.m. EDT Thursday from Space Launch Complex 40 at Cape Canaveral Space Force Station in Florida for a science expedition aboard the…",
+      "body": "A SpaceX Falcon 9 rocket carrying the company&#8217;s Dragon spacecraft launched on NASA’s SpaceX Crew-13 mission to the International Space Station with NASA astronauts Jessica Watkins and Luke Delaney, CSA (Canadian Space Agency) astronaut Joshua Kutryk, and Roscosmos cosmonaut Sergey Teteryatnikov onboard, Thursday, Oct. 1, 2026, from Cape Canaveral Space Force Station in Florida. Credit: NASA/Joel Kowsky Four crew members of NASA’s SpaceX Crew-13 mission launched at 11:10 a.m. EDT Thursday from Space Launch Complex 40 at Cape Canaveral Space Force Station in Florida for a science expedition aboard the International Space Station.",
+      "author": "Lauren E. Low",
+      "date": "2026-10-01",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Spacex",
+        "Space Station",
+        "Nasa"
+      ],
+      "featured": false,
+      "xpReward": 33,
+      "url": "https://www.nasa.gov/news-release/nasas-spacex-crew-13-launches-to-international-space-station/",
+      "image": "https://www.nasa.gov/wp-content/uploads/2026/10/spacex-crew13.jpg",
+      "source": "NASA Breaking News",
       "isLive": true
     },
     {
@@ -834,122 +932,24 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 52,
       "url": "https://spacenews.com/world-space-week-2026-celebrates-the-rocket-revolution/",
       "image": "/images/feed/feed-928bebe85e83.png",
-      "source": "SpaceNews",
-      "isLive": true
-    },
-    {
-      "id": "feed-322201065aa0",
-      "title": "Rethinking risk with electronics for space",
-      "excerpt": "In this episode, SpaceNews’ Mike Gruss speaks with Ken Stoler, the space business development lead for Arrow. They discuss how spacecraft designers and operators have changed their attitudes toward ri…",
-      "body": "In this episode, SpaceNews’ Mike Gruss speaks with Ken Stoler, the space business development lead for Arrow. They discuss how spacecraft designers and operators have changed their attitudes toward risk, [&#8230;] The post Rethinking risk with electronics for space appeared first on SpaceNews .",
-      "author": "SpaceNews Editor",
-      "date": "2026-10-01",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Space"
-      ],
-      "featured": false,
-      "xpReward": 54,
-      "url": "https://spacenews.com/rethinking-risk-with-electronics-for-space/",
-      "image": "/images/feed/feed-322201065aa0.jpg",
-      "source": "SpaceNews",
-      "isLive": true
-    },
-    {
-      "id": "feed-ffdd7204c5e8",
-      "title": "LMT Group and Novaspace partner to develop strategy for 5G/6G satellite communications hub in Latvia",
-      "excerpt": "Noordwijk, the Netherlands | September 22, 2026 – During the international Industry Space Days 2026 event at the European Space Agency’s ESTEC facility in Noordwijk, the Netherlands, the Latvian Mobil…",
-      "body": "Noordwijk, the Netherlands &#124; September 22, 2026&#160;&#8211; During the international Industry Space Days 2026 event at the European Space Agency’s ESTEC facility in Noordwijk, the Netherlands, the Latvian Mobile Telephone [&#8230;] The post LMT Group and Novaspace partner to develop strategy for 5G/6G satellite communications hub in Latvia appeared first on SpaceNews .",
-      "author": "Novaspace",
-      "date": "2026-10-01",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Satellite"
-      ],
-      "featured": false,
-      "xpReward": 51,
-      "url": "https://spacenews.com/lmt-group-and-novaspace-partner-to-develop-strategy-for-5g-6g-satellite-communications-hub-in-latvia/",
-      "image": "/images/feed/feed-ffdd7204c5e8.png",
-      "source": "SpaceNews",
-      "isLive": true
-    },
-    {
-      "id": "feed-289f8e35a156",
-      "title": "China launches Guowang, Yaogan-40 satellites, sets up busy Q4 manifest",
-      "excerpt": "HELSINKI — China completed its ninth and tenth launches of September, sending Guowang and Yaogan satellites into orbit, ahead of an intense finish to the year. A Long March 8A […] The post China launc…",
-      "body": "HELSINKI — China completed its ninth and tenth launches of September, sending Guowang and Yaogan satellites into orbit, ahead of an intense finish to the year. A Long March 8A [&#8230;] The post China launches Guowang, Yaogan-40 satellites, sets up busy Q4 manifest appeared first on SpaceNews .",
-      "author": "Andrew Jones",
-      "date": "2026-10-01",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Satellite"
-      ],
-      "featured": false,
-      "xpReward": 37,
-      "url": "https://spacenews.com/china-launches-guowang-yaogan-40-satellites-sets-up-busy-q4-manifest/",
-      "image": "/images/feed/feed-289f8e35a156.png",
-      "source": "SpaceNews",
-      "isLive": true
-    },
-    {
-      "id": "feed-4297bc1688b6",
-      "title": "Galileo Space Is Building Satellites That Turn Signals Into Answers in Orbit",
-      "excerpt": "Galileo Space is building satellites designed to turn signals into answers in orbit. Modern defense and commercial operations need fast answers about what is happening and where. Existing systems can…",
-      "body": "Galileo Space is building satellites designed to turn signals into answers in orbit. Modern defense and commercial operations need fast answers about what is happening and where. Existing systems can [&#8230;] The post Galileo Space Is Building Satellites That Turn Signals Into Answers in Orbit appeared first on SpaceNews .",
-      "author": "Galileo Space",
-      "date": "2026-10-01",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Satellite",
-        "Orbit",
-        "Space"
-      ],
-      "featured": false,
-      "xpReward": 33,
-      "url": "https://spacenews.com/galileo-space-is-building-satellites-that-turn-signals-into-answers-in-orbit/",
-      "image": "/images/feed/feed-4297bc1688b6.png",
-      "source": "SpaceNews",
-      "isLive": true
-    },
-    {
-      "id": "feed-aaaff0dd713c",
-      "title": "NaviGate successfully demonstrates onboard precise orbit determination aboard D-Orbit’s ION Satellite Carrier",
-      "excerpt": "ROME, 30/09/2026 – NaviGate, an Italian space technology company spun out of Sapienza University of Rome, has successfully completed the in-orbit demonstration (IoD) of NaviCode Caravel, its autonomou…",
-      "body": "ROME, 30/09/2026 &#8211; NaviGate, an Italian space technology company spun out of Sapienza University of Rome, has successfully completed the in-orbit demonstration (IoD) of NaviCode Caravel, its autonomous onboard precise [&#8230;] The post NaviGate successfully demonstrates onboard precise orbit determination aboard D-Orbit’s ION Satellite Carrier appeared first on SpaceNews .",
-      "author": "NaviGate",
-      "date": "2026-09-30",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Satellite",
-        "Orbit"
-      ],
-      "featured": false,
-      "xpReward": 43,
-      "url": "https://spacenews.com/navigate-successfully-demonstrates-onboard-precise-orbit-determination-aboard-d-orbits-ion-satellite-carrier/",
-      "image": "/images/feed/feed-aaaff0dd713c.png",
       "source": "SpaceNews",
       "isLive": true
     }
   ],
   "breakingNews": [
-    "DEV.TO: CVE-2026-67401 Analysis — cPanel & WHM EmailTrack SQL Injection, From Mail Account to Root",
-    "DEV.TO: Processing video in the browser without ffmpeg.wasm: WebCodecs + MediaBunny, 95s 9s",
-    "DEV.TO: I Analyzed 2,315 Wordle Answers to Find the Best Starting Words",
-    "DEV.TO: Silent Cron Runs: A Backend Metrics Dashboard Beyond API Failures",
-    "DEV.TO: Why auto_prepend_file and On-Server WordPress Firewalls Cause TTFB Lag",
-    "DEV.TO: 1,160,264 Mosquitto fingerprints: the MQTT broker that ends up on the public internet",
-    "DEV.TO: How to Build a Voice-Over Tool for YouTube Videos",
-    "DEV.TO: One API Key Across Model Providers: Compare Token Cost for Healthtech Moderation",
+    "DEV.TO: Claude Code's Read deny rules let 4 of 11 routes through: grep -r, a Python one-liner and two CLAUDE.md @imports",
+    "DEV.TO: Media Erasure Requests: Evidence Chains for Image and Video Deletion",
+    "DEV.TO: AsyncLocalStorage vs Request-Scoped Providers: The DI Trap That Taxes Latency",
+    "DEV.TO: The night my post pages scored 39",
+    "DEV.TO: Why I run my company on a Brain and a Hand",
+    "DEV.TO: Kontur: an explicit project dashboard for agents, scripts and people",
+    "DEV.TO: 5 Small SaaS Incident Tests for a Cheap Metrics Dashboard API",
     "POLYGON: 'Digger' Ending Explained: A Spoiler-Filled Breakdown of Tom Cruise's Wild New Movie",
-    "9TO5MAC: Apple TV’s acclaimed ‘The Last First: Winter K2’ documentary now streaming"
+    "9TO5MAC: Apple TV’s acclaimed ‘The Last First: Winter K2’ documentary now streaming",
+    "ELECTREK: Tesla Model 3 gets range and performance boost, plus a new 16-inch screen in US"
   ],
   "sectionVideos": {}
 }
