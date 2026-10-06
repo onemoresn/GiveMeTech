@@ -1,164 +1,183 @@
 {
-  "fetchedAt": "2026-10-06T09:16:12.031Z",
+  "fetchedAt": "2026-10-06T10:14:08.995Z",
   "articles": [
     {
-      "id": "feed-c5324952b4d7",
-      "title": "Our entire production schema is one table and 33 lines, and it has not changed in 71 days",
-      "excerpt": "server/src/db/schema.ts is 33 lines. It declares one table. The last commit to touch it was 71 days ago, and there have been 23 commits to the repository since. That is not a boast about restraint. It…",
-      "body": "server/src/db/schema.ts is 33 lines. It declares one table. The last commit to touch it was 71 days ago, and there have been 23 commits to the repository since. That is not a boast about restraint. It is a consequence of a pricing decision, and the interesting part is which columns the decision deleted. /** * One row per customer. Both purchases live here. * * The base licence (£20) unlocks monitoring and email alerts. Auto-reply is a * second one-time £20 purchase that upgrades the same licence — there is no * recurring billing anywhere, so there is no billing state to track over time: * either the licence has been upgraded or it has not. */ export const licenses = pgTable ( \" licenses \" , { id : text ( \" id \" ). primaryKey (), email : text ( \" email \" ). notNull ().",
-      "author": "Daniel Pertu",
+      "id": "feed-17294a6bc7f5",
+      "title": "Valor Mortis Comes to PS Plus and Game Pass, and You Can Try It for Free",
+      "excerpt": "Players can try the first-person soulslike Valor Mortis on launch day with a free PS Plus trial, and the game will also come to Xbox Game Pass.",
+      "body": "One More Level Games, the creators of Ghostrunner , will release their next game, Valor Mortis , on Oct. 13 on PC, Xbox Series X/S, and PlayStation 5. It will launch simultaneously on Game Pass and be available as a trial for PlayStation Plus subscribers, giving many gamers a chance to try it for free.",
+      "author": "Ashely Claudino",
       "date": "2026-10-06",
       "readTime": "2 min",
-      "section": "software",
+      "section": "gaming",
       "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 31,
-      "url": "https://dev.to/daniel_pertu/our-entire-production-schema-is-one-table-and-33-lines-and-it-has-not-changed-in-71-days-3dd6",
-      "image": "/images/feed/feed-c5324952b4d7.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-b945531be43c",
-      "title": "ForageQuest: A Single-File AI That Tells You Not to Eat the Mushroom",
-      "excerpt": "I love foraging. I also love not dying. Those two things are in tension when you're holding a mushroom with no signal and no idea if it's a chanterelle or a jack o'lantern. Every foraging app wanted a…",
-      "body": "I love foraging. I also love not dying. Those two things are in tension when you're holding a mushroom with no signal and no idea if it's a chanterelle or a jack o'lantern. Every foraging app wanted a server, an API key, and a monthly fee. That's backwards. On a trail, a cloud app is useless exactly when you need it most. So I built ForageQuest - a gamified foraging companion that runs an open-weight vision model entirely in your browser. One HTML file. No backend. No API keys. No data leaves your device. And the part I'm proudest of: it knows when it doesn't know. Why open matters here Offline safety. Trails have no signal. CLIP runs on WebGPU in your browser, cached after first load. Zero bars, still works. Privacy. Your foraging spots are your secret.",
-      "author": "Steven Harianto",
-      "date": "2026-10-06",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 35,
-      "url": "https://dev.to/steveharianto/foragequest-a-single-file-ai-that-tells-you-not-to-eat-the-mushroom-3667",
-      "image": "/images/feed/feed-b945531be43c.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-f30b1d41a71c",
-      "title": "S3 Object Lambda for AI: Transforming Images on the Fly for Claude Vision, Explained Simply",
-      "excerpt": "Developers often copy images from S3 to a server just to resize them before sending them to a LLM’s vision model. What if the transformation could happen inside S3, eliminating the extra hop? This pos…",
-      "body": "Developers often copy images from S3 to a server just to resize them before sending them to a LLM’s vision model. What if the transformation could happen inside S3, eliminating the extra hop? This post shows how to let Claude’s Vision API see resized images without any custom compute. Why Object Lambda matters for AI workloads When an AI service asks for an image, the usual pattern looks like this: A backend pulls the original file from an S3 bucket. The backend runs a resizing library (Sharp, Pillow, etc.). The resized bytes travel over the network again, this time to the AI endpoint. Each step adds latency, CPU usage, and a point of failure. Object Lambda changes the story by letting you attach a tiny piece of code (a transform function ) directly to an S3 access point .",
-      "author": "Dinesh_gowtham",
-      "date": "2026-10-06",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 44,
-      "url": "https://dev.to/dineshgowtham/s3-object-lambda-for-ai-transforming-images-on-the-fly-for-claude-vision-explained-simply-54l",
-      "image": "/images/feed/feed-f30b1d41a71c.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-5a0fbfc11bb2",
-      "title": "A failed build un-bumps our version and a failed upload does not, and one line is the difference",
-      "excerpt": "pnpm release does three things in order: bumps the version in app/package.json, builds the installers with electron-builder, and uploads them to Cloudflare R2. One command, about 500 lines of Node, no…",
-      "body": "pnpm release does three things in order: bumps the version in app/package.json , builds the installers with electron-builder, and uploads them to Cloudflare R2. One command, about 500 lines of Node, no CI involved, because the Mac installer can only be built on a Mac and the Windows one only on Windows. Most of that script is uninteresting. Four decisions in it are not, and all four are about refusing to do something. The bump has to survive a failed upload and not a failed build A version bump is a file edit that happens before the thing it describes exists. If the build then fails, package.json claims a version that was never produced. So the script registers an exit hook: let revertOnExit = bumped ; process .",
-      "author": "Daniel Pertu",
-      "date": "2026-10-06",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 42,
-      "url": "https://dev.to/daniel_pertu/a-failed-build-un-bumps-our-version-and-a-failed-upload-does-not-and-one-line-is-the-difference-3e8",
-      "image": "/images/feed/feed-5a0fbfc11bb2.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-36a56d72eda2",
-      "title": "What Really Happens When Your Phone Connects to Wi-Fi?",
-      "excerpt": "You walk into a café, open your phone, select a Wi-Fi network, and within a few seconds the familiar Wi-Fi icon appears at the top of the screen. You didn't manually configure an IP address. You didn'…",
-      "body": "You walk into a café, open your phone, select a Wi-Fi network, and within a few seconds the familiar Wi-Fi icon appears at the top of the screen. You didn't manually configure an IP address. You didn't choose a wireless channel. You didn't tell your phone which router to communicate with. You simply selected a network, entered a password, and waited for the connection to appear. It feels simple because your phone handles almost everything for you. Behind that small Wi-Fi icon, however, your phone and the network are performing several different operations to establish communication.",
-      "author": "Tanu Priya",
-      "date": "2026-10-06",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 37,
-      "url": "https://dev.to/tanu_priya/what-really-happens-when-your-phone-connects-to-wi-fi-111f",
-      "image": "/images/feed/feed-36a56d72eda2.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-03afc7537596",
-      "title": "What AI agents actually do with your MCP server",
-      "excerpt": "An MCP server can look healthy in every log and still be hard for agents to use. Requests come in, responses go out, nothing crashes. What you don't see is how the agent got there: what it asked for t…",
-      "body": "An MCP server can look healthy in every log and still be hard for agents to use. Requests come in, responses go out, nothing crashes. What you don't see is how the agent got there: what it asked for that you don't have, what it got wrong before it got it right, and where it got stuck. These are the five things that only showed up once I measured them. The screenshots are from a demo flight-booking server with simulated traffic, so the numbers are examples; the patterns are the ones agents produce. 1. Agents call tools you don't have Agents guess tool names. Some guesses are near misses: searchFlights when the tool is search_flights , seatMap instead of seat_map . Others are a tool the agent assumed should exist, like get_flight_price .",
-      "author": "Krwn",
-      "date": "2026-10-06",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
+        "Game"
       ],
       "featured": true,
       "xpReward": 30,
-      "url": "https://dev.to/krwndev/what-ai-agents-actually-do-with-your-mcp-server-14pp",
-      "image": "/images/feed/feed-03afc7537596.webp",
+      "url": "https://www.polygon.com/valor-mortis-game-pass-playstation-plus-trial/",
+      "image": "/images/feed/feed-17294a6bc7f5.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-9c3dfcf0b1ee",
+      "title": "Your API Can Create the Customer—and Still Be Broken",
+      "excerpt": "A successful POST /customers response does not prove that your API is correct. It only proves that one business operation worked under one specific set of conditions. Modern APIs are not just business…",
+      "body": "A successful POST /customers response does not prove that your API is correct. It only proves that one business operation worked under one specific set of conditions. Modern APIs are not just business functions. They are also implementations of a communication protocol. Clients depend on more than the response body: HTTP methods status codes request and response headers content types authentication behavior caching directives content negotiation idempotency consistent error handling When these rules are violated, the API may appear healthy during a happy-path test while still breaking clients, integrations, SDKs, proxies, gateways, or production workflows.",
+      "author": "Liudas",
+      "date": "2026-10-06",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Api"
+      ],
+      "featured": true,
+      "xpReward": 34,
+      "url": "https://dev.to/liudasjan/your-api-can-create-the-customer-and-still-be-broken-1ocj",
+      "image": "/images/feed/feed-9c3dfcf0b1ee.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-1d8725ec00ca",
-      "title": "PDF to markdown for LLMs",
-      "excerpt": "Converting a PDF to markdown for an LLM means turning pages into text that keeps the structure a model needs: headings as headings, tables as tables, columns in reading order. Markdown is the usual ta…",
-      "body": "Converting a PDF to markdown for an LLM means turning pages into text that keeps the structure a model needs: headings as headings, tables as tables, columns in reading order. Markdown is the usual target because models read it well, it is usually lighter than HTML, and a RAG pipeline can split it on headings instead of on arbitrary character counts. You do this for one of three reasons: to index documents for retrieval, to paste a document into a prompt without losing its tables, or to give an agent a file it can read. Plain text extraction is not enough for any of the three, because a table flattened into one cell per line is worse than no table. This page runs three open-source converters on the same PDFs, shows the code, and reports what came out.",
-      "author": "Felipe Cardona",
+      "id": "feed-2cd65be0987f",
+      "title": "Introducing SerpApi's OpenCode Plugin",
+      "excerpt": "OpenCode is an open-source, model-agnostic AI coding agent that runs locally on your machine. It can edit files, run terminal commands, and work across multiple repos at once. Because it's model-agnos…",
+      "body": "OpenCode is an open-source, model-agnostic AI coding agent that runs locally on your machine. It can edit files, run terminal commands, and work across multiple repos at once. Because it's model-agnostic, a lot of developers pair it with local LLMs like Ollama or LM Studio, so their code and data never leave their machine. But OpenCode can't search the web for live data unless you give it access. You can do that with the SerpApi OpenCode plugin . It gives OpenCode access to Google, YouTube, Amazon, Walmart, and dozens of other search engines through a single tool call. What is an OpenCode Plugin? Plugins and Skills sound similar, but they do different jobs. Skills automate boring workflows, tasks where you'd otherwise repeat the same instructions every time.",
+      "author": "Srujana Maddula",
       "date": "2026-10-06",
       "readTime": "2 min",
       "section": "software",
       "tags": [
         "Software"
       ],
-      "featured": false,
-      "xpReward": 54,
-      "url": "https://dev.to/felipe_anyformat/pdf-to-markdown-for-llms-o2e",
-      "image": "/images/feed/feed-1d8725ec00ca.webp",
+      "featured": true,
+      "xpReward": 52,
+      "url": "https://dev.to/serpapi/introducing-serpapis-opencode-plugin-4j25",
+      "image": "/images/feed/feed-2cd65be0987f.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-cba8be95051c",
-      "title": "The 13 Amazon Device Deals Actually Worth Snagging This Prime Day",
-      "excerpt": "Prime Day deals on Amazon devices aren’t as attractive as they were before the August price hike, but these discounts are still worth grabbing.",
-      "body": "Prime Day deals on Amazon devices aren’t as attractive as they were before the August price hike, but these discounts are still worth grabbing.\n\nThis report, published by Wired, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Device. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Wired using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": " Nena Farrell ",
+      "id": "feed-95ebb1bb9d80",
+      "title": "What did your last silent failure actually cost you?",
+      "excerpt": "Workflows that finish green while nothing happened — the threads are full of them. What I can’t find anywhere is the money. When it last happened — what did it cost? Refund, lost client, hours of digg…",
+      "body": "Workflows that finish green while nothing happened — the threads are full of them. What I can’t find anywhere is the money. When it last happened — what did it cost? Refund, lost client, hours of digging? What kind of workflow was it? Did you build something for it afterwards, or decide it wasn’t worth the time? Have you ever paid for a tool specifically to catch this? If yes, what and how much. If no, what would have had to be true? Asking because one person here told me diagnosing this is billable work for a consultancy, so a tool that shortens diagnosis shortens the invoice. Someone else said it’s unbillable firefighting. Opposite answers, and I can’t tell which is more common.",
+      "author": "Aditya Mishra",
+      "date": "2026-10-06",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 52,
+      "url": "https://dev.to/aditya_mishra_2417/what-did-your-last-silent-failure-actually-cost-you-4ik",
+      "image": "/images/feed/feed-95ebb1bb9d80.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-427d22b70503",
+      "title": "The live realtor model passed. The goodbye failed. published: true",
+      "excerpt": "This is a submission for the Kaggle Benchmarking Challenge I run a voice CRM for a realtor. The agent is supposed to take a lead over the phone: hear a fact, save it, ask for the one missing detail, a…",
+      "body": "This is a submission for the Kaggle Benchmarking Challenge What I Benchmarked I run a voice CRM for a realtor. The agent is supposed to take a lead over the phone: hear a fact, save it, ask for the one missing detail, and stay on the line until the realtor says that is all. In production it kept missing that script. It went silent after saving a field. A phone number made it skip the email and jump toward the close. It asked again for a name or a budget it had just been given. It stored \"call him Friday\" and never said Friday. It saved and hung up before asking whether that was everything. I turned those five failures into five Kaggle tasks. The tools return only the fields they saved. They do not hand the model its next sentence.",
+      "author": "Akin Ajobo",
+      "date": "2026-10-06",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 33,
+      "url": "https://dev.to/mistakili/the-live-realtor-model-passed-the-goodbye-failedpublished-true-3jjp",
+      "image": "/images/feed/feed-427d22b70503.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-a8999f23ee3a",
+      "title": "This Amazfit Active Max deal knocks 18% off a fitness smartwatch built for training",
+      "excerpt": "Amazfit Active Max drops to $139.99 at Amazon, bringing GPS, offline maps, and up to 25 days of battery life for less.",
+      "body": "Training stats and long battery life matter a lot when you want a smartwatch that can keep up with workouts and daily wear without costing a fortune. The Amazfit Active Max fits that kind of buyer well, and there’s a solid Amazon deal on it right now. See the deal at Amazon",
+      "author": "Matt Horne",
       "date": "2026-10-06",
       "readTime": "2 min",
       "section": "gadgets",
       "tags": [
-        "Device"
+        "Smartwatch"
       ],
-      "featured": false,
-      "xpReward": 42,
-      "url": "https://www.wired.com/story/best-amazon-alexa-device-deals-prime-day-10-06-2026/",
-      "image": "/images/feed/feed-cba8be95051c.jpg",
-      "source": "Wired",
+      "featured": true,
+      "xpReward": 30,
+      "url": "https://www.androidauthority.com/amazfit-active-max-deal-prime-day-3718188/",
+      "image": "/images/feed/feed-a8999f23ee3a.jpg",
+      "source": "Android Authority",
       "isLive": true
     },
     {
-      "id": "feed-0542f0bdc948",
-      "title": "Google just replaced Gemini Gems with Skills. Here’s how to use and master them",
-      "excerpt": "Gems were trivially easy to forget, but the new Skills give your AI chats superpowers.",
-      "body": "Google introduced Gems way back in mid-2024, before the agentic AI obsession. Gems were supposed to be AI helpers with a personality and a unique goal. You could have a Gem that helped you cook, code, or serve as your language learning partner. They all had their own chat windows and instructions, essentially turning them into mini-apps. But that didn’t work. Gems were their own silos. They could help you complete repeating tasks, sure, but you had to find and open the Gem conversation first. So in true Google fashion, it’s gone, joining the ever-growing graveyard of products Google abandoned . And in its place comes Skills .",
-      "author": "Khamosh Pathak",
+      "id": "feed-e07e68e58ff8",
+      "title": "The Test Passed Until the Cookie Banner Showed Up",
+      "excerpt": "Here's a browser automation scenario I've seen some version of many times. You create a test. It runs 100 times. Everything looks great. Then on execution 101: Click \"Start Free Trial\" FAILED Element…",
+      "body": "Here's a browser automation scenario I've seen some version of many times. You create a test. It runs 100 times. Everything looks great. Then on execution 101: Click \"Start Free Trial\" FAILED Element is not clickable You rerun it. Passes. Run it again. Passes. So someone labels it: flaky and moves on. Except maybe it wasn't flaky. Maybe the button wasn't clickable because a consent banner appeared 300 milliseconds before the click. Maybe Google Tag Manager injected something. Maybe a third-party chat widget changed the layout. Maybe a personalization script ran slowly. Maybe the browser was waiting for a WebSocket message. Maybe the application was technically loaded, but not actually ready. Modern browser automation has a funny problem. The testing frameworks have become much better.",
+      "author": "Markus Gasser",
+      "date": "2026-10-06",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 35,
+      "url": "https://dev.to/mellowthunder735/the-test-passed-until-the-cookie-banner-showed-up-gi1",
+      "image": "/images/feed/feed-e07e68e58ff8.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-adea79c4be06",
+      "title": "How to Build an AI-Powered Log Summarizer for DevOps",
+      "excerpt": "Debugging a production incident means combing through hundreds of thousands of log lines. By the time you find the root cause, the outage has already cost you an hour. An LLM-backed log summarizer doe…",
+      "body": "Debugging a production incident means combing through hundreds of thousands of log lines. By the time you find the root cause, the outage has already cost you an hour. An LLM-backed log summarizer doesn't replace your observability stack — but it gives your on-call engineer a head start that matters. The Problem with Raw Logs Log aggregation tools like Loki, Elasticsearch, and Datadog are excellent at storing and searching logs, but they leave interpretation entirely to you. You run a query, you get 10,000 lines, and you start scrolling. The gap isn't storage or retrieval — it's comprehension . You need someone (or something) to read a window of logs and say: \"Between 14:23 and 14:31, the payment service returned 503 errors on every POST to /checkout.",
+      "author": "Ayi NEDJIMI",
+      "date": "2026-10-06",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Devops"
+      ],
+      "featured": false,
+      "xpReward": 51,
+      "url": "https://dev.to/ayinedjimi-consultants/how-to-build-an-ai-powered-log-summarizer-for-devops-19j",
+      "image": "/images/feed/feed-adea79c4be06.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-dc356676e52e",
+      "title": "WILDCASE: The World Is the Case File — An Outdoor Mystery Game That Gets You Off Your Screen",
+      "excerpt": "This is a submission for the Hacktoberfest Open-Source AI Challenge Week 1: Touch Grass WILDCASE is an outdoor mystery-investigation game that turns a walk in the park into a detective case. You recei…",
+      "body": "This is a submission for the Hacktoberfest Open-Source AI Challenge Week 1: Touch Grass WILDCASE: The World Is the Case File 🔍🌳 What I Built WILDCASE is an outdoor mystery-investigation game that turns a walk in the park into a detective case. You receive a classified dossier, put your phone in your pocket, and go outside. You hunt for real physical evidence (a metal gate, weathered bark, brick masonry, a circular fastener), take a 2-5 second scan to verify it, eliminate suspects, and finally name the culprit. Most \"get outside\" apps pull you away from your phone and still end up glued to a screen. WILDCASE inverts that. The phone is an intermittent field instrument; the world is the game board.",
+      "author": "Himanshu Gangwar",
+      "date": "2026-10-06",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 35,
+      "url": "https://dev.to/shadowxor/wildcase-the-world-is-the-case-file-an-outdoor-mystery-game-that-gets-you-off-your-screen-2k1g",
+      "image": "/images/feed/feed-dc356676e52e.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-ff2b4452f8a7",
+      "title": "I tried Meta Muse for a week, and it didn’t go how I expected",
+      "excerpt": "Muse is ... actually pretty good?",
+      "body": "I’ve been slow to warm to the benefits of AI, but that transition is definitely happening. I’m more comfortable using it daily, and I enjoy finding ways to put these new tools to work. If you had told me a year ago that Meta released a new agentic agent, I wouldn’t have cared, but as AI gets more accurate and easier to use, I’m more open-minded. That’s what makes Muse genuinely exciting, and whether you love it or hate it, Meta’s done something with Muse that other AI companies haven’t yet meaningfully recreated. If you’re dipping your toe into AI, Muse should be your first stop for several reasons.",
+      "author": "Stephen Radochia",
       "date": "2026-10-06",
       "readTime": "2 min",
       "section": "gadgets",
@@ -166,10 +185,181 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 50,
-      "url": "https://www.androidauthority.com/how-to-use-gemini-skills-google-upgraded-gems-feature-3718807/",
-      "image": "/images/feed/feed-0542f0bdc948.jpg",
+      "xpReward": 38,
+      "url": "https://www.androidauthority.com/meta-muse-one-week-later-hands-on-3718233/",
+      "image": "/images/feed/feed-ff2b4452f8a7.jpg",
       "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-e39e3ecee975",
+      "title": "Charlie Brown's Halloween Special Still Rules Over Peanuts Christmas in 1 Way",
+      "excerpt": "Turnong 60 this year, the 1966 TV special It's the Great Pumpkin, Charlie Brown remains a Halloween holiday staple",
+      "body": "Come Christmas time, if you’re looking for some wholesome (but not sickeningly so), feel-good, family entertainment, you can take your pick. While A Charlie Brown Christmas is one of the best sources of that warm holiday feeling, if you didn’t want to fork over the money to buy the special from Apple TV or Prime Video, you could get a similar sensation from things like Rudolph the Red-Nosed Reindeer and How the Grinch Stole Christmas! But at Halloween time, It's the Great Pumpkin, Charlie Brown stands alone in providing that cozy feeling, which is just one of the reasons it's become essential viewing this time of year.",
+      "author": "Brian VanHooker",
+      "date": "2026-10-06",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 31,
+      "url": "https://www.polygon.com/theres-one-thing-its-the-great-pumpkin-charlie-brown-has-over-the-peanuts-christmas-special/",
+      "image": "/images/feed/feed-e39e3ecee975.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-926befd1f9df",
+      "title": "I loved using the Galaxy Z Fold 8 Ultra, but I wouldn’t spend $2,000+ on it",
+      "excerpt": "Is the Fold 8 Ultra the right foldable for you?",
+      "body": "It’s not a hyperbole to say that the Samsung Galaxy Z Fold 8 Ultra is one of the most powerful and capable folding phones available in the US this year. With its razor-thin design, outstanding displays, flagship Snapdragon chip, and oodles of One UI software features, it shouldn’t come as any surprise that the Fold 8 Ultra is about as robust as foldables come. However, the foldable world is more competitive than ever, thanks to both Samsung and its rivals, and that competition makes the Fold 8 Ultra difficult to be completely enamored with. The Fold 8 Ultra is a very good phone, and I certainly think there’s a decent audience for it, just as there always has been for Samsung foldables.",
+      "author": "Joe Maring",
+      "date": "2026-10-06",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 43,
+      "url": "https://www.androidauthority.com/samsung-galaxy-z-fold-8-ultra-review-3715709/",
+      "image": "/images/feed/feed-926befd1f9df.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-fbfdba1b9a0b",
+      "title": "ESPN 4K HDR is showing up on Google TV, but users aren’t impressed",
+      "excerpt": "The upgrade is spreading to more TVs, though the experience still looks rough.",
+      "body": "TL;DR ESPN appears to have quietly expanded its 4K HDR support to Google TV, following its initial rollout on Apple TV last month. Early Google TV reports suggest the experience still needs work, with users complaining about choppy playback and HDR not triggering properly. ESPN launched its upgraded 4K HDR streams on iOS and Apple TV last month, promising more connected TV platforms would follow this fall. Now, Google TV users are seeing 4K HDR badges inside the ESPN app, suggesting the rollout has reached another major living-room platform. Unfortunately, getting the badge and getting the picture quality ESPN promised may be two very different things. In a recent Reddit thread , a TCL Google TV owner said an ESPN app update added 4K HDR labels to supported programming.",
+      "author": "Hillary Keverenge",
+      "date": "2026-10-06",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 31,
+      "url": "https://www.androidauthority.com/espn-4k-hdr-google-tv-rollout-3719472/",
+      "image": "/images/feed/feed-fbfdba1b9a0b.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-7b015bf2ec99",
+      "title": "Evangelion Creator Returns to Direct Another Sci-Fi Anime Classic",
+      "excerpt": "A new Space Battleship Yamato movie has been announced, with Evangelion creator Hideaki Anno attached to direct.",
+      "body": "In October 1974, one of the most influential anime and sci-fi series of all time aired for the first time in Japan: Space Battleship Yamato , known in the United States as Star Blazers . Now, 52 years after the anime's debut, a legendary anime creator known for his visionary contribution to sci-fi joins the Space Battleship Yamato franchise.",
+      "author": "Francesco Cacciatore",
+      "date": "2026-10-06",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 41,
+      "url": "https://www.polygon.com/evangelion-director-will-bring-back-another-sci-fi-anime-classic/",
+      "image": "/images/feed/feed-7b015bf2ec99.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-00c854dc2fae",
+      "title": "My favorite open-source Android screen mirroring app is now way faster",
+      "excerpt": "scrcpy v5.0 brings GPU hardware decoding, native Windows on ARM support, and expanded audio capture.",
+      "body": "TL;DR scrcpy v5.0 brings hardware decoding, which essentially shifts video decoding from the CPU to the GPU, reducing desktop CPU usage by up to 10x, saving power, and potentially lowering input latency. The v5.0 release also introduces official native Windows on ARM64 binaries optimized for Snapdragon-powered laptops. Other changes in this release include the ability to capture all audio streams in audio playback capture mode, improved video buffering, and fixes for UHID keypress dropping bugs. If you have ever needed to control your Android phone from your PC , chances are you rely on scrcpy (short for “screen copy”).",
+      "author": "Aamir Siddiqui",
+      "date": "2026-10-06",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 45,
+      "url": "https://www.androidauthority.com/scrcpy-5-0-update-hardware-decoding-3719521/",
+      "image": "/images/feed/feed-00c854dc2fae.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-558e8d677750",
+      "title": "Xbox Elite Controller 3 specs leak via Xbox's own Design Lab",
+      "excerpt": "Xbox's long awaited Elite Controller 3 may finally offer drift-free joysticks.",
+      "body": "Xbox's long awaited Elite Controller 3 may finally offer drift-free joysticks.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "staff@engadget.com (Steve Dent)",
+      "date": "2026-10-06",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 37,
+      "url": "https://www.engadget.com/2278466/xbox-elite-controller-3-spec-leak/",
+      "image": "/images/feed/feed-558e8d677750.jpg",
+      "source": "Engadget",
+      "isLive": true
+    },
+    {
+      "id": "feed-9a288420a926",
+      "title": "I turned an old Android phone into a DIY smart home hub — here’s how it works",
+      "excerpt": "Everyone loves a budget smart home until excessive automation creates a mess.",
+      "body": "Credit: Thanh Nguyen / Android Authority Building a cost-effective, entry-level smart home is an experiment that should come with careful planning and an emphasis on simplicity. Overengineering can cause frustration, particularly when your devices suddenly turn on or off out of nowhere, leaving you confused with a screen full of buttons and no idea where to tap. I only put my setup together with an IR blaster, two Android phones (you only need one if you don’t want a DIY home hub), a smart plug, and a couple of apps. Before configuring anything, I anticipated the project might become convoluted rather than convenient, so optimizing the control interface and day-to-day interactions was my priority throughout.",
+      "author": "Thanh Nguyen",
+      "date": "2026-10-06",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Android Phone"
+      ],
+      "featured": false,
+      "xpReward": 34,
+      "url": "https://www.androidauthority.com/turned-old-android-phone-into-smart-home-hub-how-3718298/",
+      "image": "/images/feed/feed-9a288420a926.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-756bba0c540a",
+      "title": "Nikkei discloses breaches of employees’ Microsoft, Google email accounts",
+      "excerpt": "Over the weekend, Japanese publishing giant Nikkei disclosed that unknown attackers recently breached two employee email accounts and used one to send thousands of phishing emails. [...]",
+      "body": "Over the weekend, Japanese publishing giant Nikkei disclosed that unknown attackers recently breached two employee email accounts and used one to send thousands of phishing emails. [...]\n\nThis report, published by BleepingComputer, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Breach. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to BleepingComputer using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Sergiu Gatlan",
+      "date": "2026-10-06",
+      "readTime": "2 min",
+      "section": "cybersecurity",
+      "tags": [
+        "Breach"
+      ],
+      "featured": false,
+      "xpReward": 36,
+      "url": "https://www.bleepingcomputer.com/news/security/nikkei-discloses-breaches-of-employees-microsoft-google-email-accounts/",
+      "image": "/images/feed/feed-756bba0c540a.jpg",
+      "source": "BleepingComputer",
+      "isLive": true
+    },
+    {
+      "id": "feed-9f8147165c31",
+      "title": "Google Pauses OSS Product Bug Bounty Rewards After Surge in Invalid Automated Reports",
+      "excerpt": "Google has stopped accepting product vulnerability reports through its bug bounty program for its open-source software. The change, in effect since October 1, means researchers can no longer submit se…",
+      "body": "Google has stopped accepting product vulnerability reports through its bug bounty program for its open-source software. The change, in effect since October 1, means researchers can no longer submit security flaws in the code of projects such as Go, Angular, and Protocol Buffers there for a reward. Reports about supply chain compromises are still accepted, and reports filed before October 1 are",
+      "author": "info@thehackernews.com (The Hacker News)",
+      "date": "2026-10-06",
+      "readTime": "2 min",
+      "section": "cybersecurity",
+      "tags": [
+        "Cybersecurity"
+      ],
+      "featured": false,
+      "xpReward": 47,
+      "url": "https://thehackernews.com/2026/10/google-pauses-oss-product-bug-bounty.html",
+      "image": "/images/feed/feed-9f8147165c31.jpg",
+      "source": "The Hacker News",
       "isLive": true
     },
     {
@@ -185,86 +375,10 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 37,
       "url": "https://www.polygon.com/magic-gathering-mtg-best-white-cards/",
       "image": "/images/feed/feed-ce5042c3182b.jpg",
       "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-cb3dfbe6d2fd",
-      "title": "The $70 CUKTECH 25 Power Bank SE is impressively good, but has one catch",
-      "excerpt": "Can a budget power bank keep up? Yes, as long as you don't make it multi-task.",
-      "body": "What is an “SE” product? Most people would say it stands for “special edition”. I am still not quite sure, but in tech, we’ve learned to associate this modifier with products that cost less yet still deliver the core features and capabilities that make for a good user experience. An obvious example is the iPhone SE series, but other manufacturers have also adopted this naming strategy, and now CUKTECH is joining the party. The CUKTECH 25 Power Bank SE comes with a large 25,000mAh battery, a capacity that the industry has agreed is the sweet spot between capability and portability. The thing is, such battery packs are usually on the higher end of the price spectrum, with a bunch of fancy specs that inflate prices.",
-      "author": "Edgar Cervantes",
-      "date": "2026-10-06",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 54,
-      "url": "https://www.androidauthority.com/cuktech-25-power-bank-se-review-3711810/",
-      "image": "/images/feed/feed-cb3dfbe6d2fd.jpg",
-      "source": "Android Authority",
-      "isLive": true
-    },
-    {
-      "id": "feed-9fc14815451a",
-      "title": "Amazon cuts $60 off Razer’s travel-ready 11-port USB-C dock",
-      "excerpt": "Razer’s 11-port USB-C travel dock is down to $79.99, with 4K 60Hz HDMI, Ethernet, card readers, and up to 85W charging.",
-      "body": "The Razer USB-C Dock 11-Port Travel Charging Station is built for people who need more ports without having to carry a bulky desktop hub around. It has a compact metal design made for travel, and there’s a solid Amazon deal on it right now that makes it a lot easier to pick up. See the deal at Amazon",
-      "author": "Matt Horne",
-      "date": "2026-10-06",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 41,
-      "url": "https://www.androidauthority.com/razer-usb-c-dock-11-port-travel-charging-station-deal-3718185/",
-      "image": "/images/feed/feed-9fc14815451a.jpg",
-      "source": "Android Authority",
-      "isLive": true
-    },
-    {
-      "id": "feed-fba0b2f6fc64",
-      "title": "16 Best Prime Day Tech and Gadget Deals (October 2026)",
-      "excerpt": "Never pay full price. Bag yourself some Prime Day tech deals on our favorite WIRED-tested gadgets.",
-      "body": "Never pay full price. Bag yourself some Prime Day tech deals on our favorite WIRED-tested gadgets.\n\nThis report, published by Wired, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadget. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Wired using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Simon Hill",
-      "date": "2026-10-06",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadget"
-      ],
-      "featured": false,
-      "xpReward": 38,
-      "url": "https://www.wired.com/story/best-prime-day-tech-deals-10-06-2026/",
-      "image": "/images/feed/feed-fba0b2f6fc64.jpg",
-      "source": "Wired",
-      "isLive": true
-    },
-    {
-      "id": "feed-5f5f95f0f334",
-      "title": "Survey says few readers change this hidden Bluetooth audio setting on Android",
-      "excerpt": "Nearly a third of respondents had no idea it even exists.",
-      "body": "I wasn’t a fan of smartphone makers dropping the headphone jack back in the day, and I still lament the decision when my earbuds inevitably run out of battery. I won’t deny that Bluetooth audio technology has improved in leaps and bounds over the years, with headphones lasting longer than ever, sounding better than ever, and keeping me and my pocket tangle-free. For many, pairing a new set of headphones is pretty easy and involves the usual Bluetooth pairing dance. However, if you really care about audio quality, you might be missing an important step. As my colleague Rob Triggs discusses in a recent feature , Android lets users select their preferred Bluetooth codec — a setting that could vastly improve the audio fidelity of media streamed to your ears.",
-      "author": "Andy Walker",
-      "date": "2026-10-06",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 54,
-      "url": "https://www.androidauthority.com/bluetooth-codec-android-poll-results-3719438/",
-      "image": "/images/feed/feed-5f5f95f0f334.jpg",
-      "source": "Android Authority",
       "isLive": true
     },
     {
@@ -280,29 +394,10 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 52,
       "url": "https://www.bleepingcomputer.com/news/security/engineer-sentenced-for-locking-thousands-of-devices-on-employer-network/",
       "image": "/images/feed/feed-8bea3f28cea9.jpg",
       "source": "BleepingComputer",
-      "isLive": true
-    },
-    {
-      "id": "feed-e6b92aee1d23",
-      "title": "These are the best Prime Day tech deals you should check out",
-      "excerpt": "Get them while they last.",
-      "body": "Credit: Edgar Cervantes / Android Authority Fall is typically one of the better times to buy tech ahead of the holidays. By then, most major releases are out, with the latest and greatest vying for your attention, while older but still very capable models also get big price cuts. Amazon’s Prime Day event, officially called the Prime Big Deal Days, runs October 6 and 7 this year, so you have less than 48 hours to catch the deals. While some of the offers aren’t particularly noteworthy, the sale has triggered some very eye-catching discounts and even some record-low prices, especially on devices that only launched in the last few months. Whether you’re shopping for friends and family or want to upgrade your gadgets, here are some of the best deals you can get right now.",
-      "author": "Ankit Banerjee",
-      "date": "2026-10-06",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 37,
-      "url": "https://www.androidauthority.com/best-prime-day-deals-fall-2026-3714550/",
-      "image": "/images/feed/feed-e6b92aee1d23.jpg",
-      "source": "Android Authority",
       "isLive": true
     },
     {
@@ -318,7 +413,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 30,
       "url": "https://www.ign.com/articles/beats-studio-pro-wireless-noise-canceling-headphone-deal-october-2026",
       "image": "/images/feed/feed-4bbaad0c0eaa.jpg",
       "source": "IGN",
@@ -337,7 +432,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 40,
       "url": "https://www.polygon.com/8-burning-questions-after-lanterns-season-1-finale/",
       "image": "/images/feed/feed-068f1f2178a7.jpg",
       "source": "Polygon",
@@ -356,7 +451,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 45,
       "url": "https://insideevs.com/news/810884/lucid-sales-production-q3-2026/",
       "image": "/images/feed/feed-d46a0cbb2849.jpg",
       "source": "InsideEVs",
@@ -375,67 +470,30 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 42,
       "url": "https://www.ign.com/articles/marvel-legends-daredevil-born-again-mask-and-clubs-sale-prime-big-deal-days-2026",
       "image": "/images/feed/feed-4d294872d5d4.png",
       "source": "IGN",
       "isLive": true
     },
     {
-      "id": "feed-21daf3515152",
-      "title": "The LEGO Icons Project Hail Mary Set Gets Its First Discount During Big Deal Days",
-      "excerpt": "The LEGO Icons Project Hail Mary Set Gets Its First Discount During Big Deal Days",
-      "body": "Project Hail Mary was one of 2026&#39;s biggest movies, and with its March release came an impressively detailed LEGO recreation of the space shuttle seen in the film. If you&#39;ve been waiting for a price cut to buy this one, Prime Big Deal Days is your chance to snag it at its first-ever discounted price. The set is down to $69.99 from its $99.99 original sticker price. The 830-piece is a super detailed and to-scale recreation of the Project Hail Mary ship we see in the film. The exterior is an efficiently-crafted space shuttle with nice gray and gold accents to help it pop, and it comes with a display stand and Dr. Grace and Rocky minifigures.",
-      "author": "Myles Obenza",
+      "id": "feed-6b05a86a3459",
+      "title": "Anthropic Subscriptions Offer 5x+ More Value Than OpenAI",
+      "excerpt": "",
+      "body": "This report, published by Hacker News, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Openai, Anthropic. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Hacker News using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "nsoonhui",
       "date": "2026-10-06",
       "readTime": "2 min",
-      "section": "gaming",
+      "section": "ai",
       "tags": [
-        "Gaming"
+        "Openai",
+        "Anthropic"
       ],
       "featured": false,
-      "xpReward": 37,
-      "url": "https://www.ign.com/articles/lego-icons-project-hail-mary-set-deal-prime-big-deal-days-2026",
-      "image": "/images/feed/feed-21daf3515152.png",
-      "source": "IGN",
-      "isLive": true
-    },
-    {
-      "id": "feed-7000f644c348",
-      "title": "Escape From Tarkov’s New PvE Update Officially Makes the Game Easier for Newbies",
-      "excerpt": "The EXFIL Brothers program rewards veterans for playing with noobs, bot behavior has been overhauled, and more in Escape From Tarkov's PvE update.",
-      "body": "Escape From Tarkov's long-awaited 1.2.0.0 update is finally here, with a slew of improvements and additions to the PvE experience in the extraction shooter. The brand new \"EXFIL Brothers\" program is the biggest thing here: a system that incentivizes veteran Tarkov players to team up with newcomers and show them the ropes, with both players earning rewards.",
-      "author": "Ford James",
-      "date": "2026-10-06",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Game"
-      ],
-      "featured": false,
-      "xpReward": 37,
-      "url": "https://www.polygon.com/escape-from-tarkov-pve-update-1-2-0-0-exfil-brothers-prestige/",
-      "image": "/images/feed/feed-7000f644c348.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-58cac9bc2830",
-      "title": "The 18 Best Prime Big Deal Days Gaming Deals — Hand-Picked by Our Deals Experts",
-      "excerpt": "Amazon's latest Prime Day sale features massive discounts on PS5, Switch 2, and Xbox titles, including deals on 2026's biggest games like The Blood of Dawnwalker, Star Wars: Zero Company, Pragmata, LE…",
-      "body": "Amazon&#39;s Prime Big Deal Days sale is now live, and there are a slew of excellent gaming deals to check out as part of the limited-time offerings. These are exclusive to Prime members, with the deals available from October 6-7, so there&#39;s only a short window available to find some bargains. Whether you&#39;re on PS5, Nintendo Switch, Switch 2, Xbox, or PC (or all four!), there are plenty of discounts worth checking out across games, accessories, storage, and more. I&#39;ll leave some top highlights just below, but read on for a more in-depth analysis of the offers up for grabs over the next 48 hours. TL;DR - Best Prime Day Gaming Deals Today PSA: You&#39;ll Need an Amazon Prime Membership!",
-      "author": "Robert Anderson",
-      "date": "2026-10-06",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 33,
-      "url": "https://www.ign.com/articles/best-video-game-deals-october-prime-day-2026",
-      "image": "/images/feed/feed-58cac9bc2830.png",
-      "source": "IGN",
+      "xpReward": 32,
+      "url": "https://newsletter.semianalysis.com/p/anthropic-subscriptions-offer-5x",
+      "image": "/images/feed/feed-6b05a86a3459.jpg",
+      "source": "Hacker News",
       "isLive": true
     },
     {
@@ -451,7 +509,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 53,
       "url": "https://thehackernews.com/2026/10/critical-atlassian-flaw-lets.html",
       "image": "/images/feed/feed-91a521b73dac.jpg",
       "source": "The Hacker News",
@@ -470,7 +528,7 @@
         "Breach"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 49,
       "url": "https://thehackernews.com/2026/10/fbi-removes-accenture-contractor-after.html",
       "image": "/images/feed/feed-114e2ef5619e.jpg",
       "source": "The Hacker News",
@@ -489,7 +547,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 43,
       "url": "https://thehackernews.com/2026/10/denmark-says-attackers-accessed-cpr.html",
       "image": "/images/feed/feed-5c5b0138ef41.jpg",
       "source": "The Hacker News",
@@ -508,86 +566,10 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 53,
       "url": "https://thehackernews.com/2026/10/clickfix-smuggles-payloads-through.html",
       "image": "/images/feed/feed-511f65d76ff5.jpg",
       "source": "The Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-02b472a989f6",
-      "title": "APOD: 2026 October 6 – A Complete Auroral Oval from SMILE",
-      "excerpt": "APOD Science APOD APOD: 2026 October 6 – A… Today’s APOD Archive Submissions Index Search Calendar RSS Education About Discuss APOD Astronomy Picture of the Day Discover the cosmos! Each day a differe…",
-      "body": "APOD Science APOD APOD: 2026 October 6 – A… Today’s APOD Archive Submissions Index Search Calendar RSS Education About Discuss APOD Astronomy Picture of the Day Discover the cosmos! Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer. ESA, CAS, SMILE, UVI A Complete Auroral Oval from SMILE Explanation: Have you ever seen a complete auroral oval? You can’t see one from the ground because it makes too large a circle around one of Earth’s magnetic pole s. But spacecraft high above the Earth can see them. The featured video from ESA and CAS ‘s robotic SMILE spacecraft shows not only a full auroral oval , but using ultraviolet light , one that occurred during the day.",
-      "author": "NASA Breaking News",
-      "date": "2026-10-06",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Space"
-      ],
-      "featured": false,
-      "xpReward": 35,
-      "url": "https://science.nasa.gov/image-article/apod-2026-october-6-a-complete-auroral-oval-from-smile/",
-      "image": "/images/feed/feed-02b472a989f6.jpg",
-      "source": "NASA Breaking News",
-      "isLive": true
-    },
-    {
-      "id": "feed-86ecde87d6f7",
-      "title": "The Beaver Brown Waters of Rupert Bay",
-      "excerpt": "Dissolved organic matter and suspended sediment mingle in the southernmost extent of James Bay.",
-      "body": "Earth Observatory Science Earth Observatory The Beaver Brown Waters of… Earth Earth Observatory Image of the Day EO Explorer Topics All Topics Atmosphere Land Heat &#038; Radiation Life on Earth Human Dimensions Natural Events Oceans Remote Sensing Technology Snow &#038; Ice Water More Content Collections Global Maps World of Change Articles Earth Matters Blog Blue Marble: Next Generation EO Kids Mission: Biomes About About Us Subscribe 🛜 RSS Contact Us Search The Cree word pahtaaunaakun seems particularly apt for describing the distinctive brown hues of the waters that drain into Hannah Bay and Rupert Bay in Canada.",
-      "author": "NASA Breaking News",
-      "date": "2026-10-06",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Space"
-      ],
-      "featured": false,
-      "xpReward": 50,
-      "url": "https://science.nasa.gov/earth/earth-observatory/the-beaver-brown-waters-of-rupert-bay/",
-      "image": "/images/feed/feed-86ecde87d6f7.jpg",
-      "source": "NASA Breaking News",
-      "isLive": true
-    },
-    {
-      "id": "feed-d6e9351ef24f",
-      "title": "Curiosity Blog, Sols 5029-5035: Back in the Lab",
-      "excerpt": "Written by Michelle Minitti, MAHLI Deputy Principal Investigator Earth planning date: Friday, Oct. 1, 2026 The majority of Curiosity plans involve mosaics from Mastcam and ChemCam, chemistry analyses…",
-      "body": "Curiosity Navigation Curiosity Home Mission Overview Where is Curiosity? Mission Updates Science Overview Instruments Highlights Exploration Goals News and Features Multimedia Curiosity Raw Images Images Videos Audio Mosaics More Resources Mars Missions Mars Perseverance Rover Mars Curiosity Rover Mars Reconnaissance Orbiter Mars Odyssey More Mars Missions Mars Home 2 min read Curiosity Blog, Sols 5029-5035: Back in the Lab Image of the “Basque Lakes” drill hole and surrounding tailings (the small mound near the lower right corner of the workspace bedrock). NASA’s Mars rover Curiosity acquired this image using its Left Navigation Camera (Navcam) on Sept. 24, 2026 — Sol 5024, or Martian day 5,024 of the Mars Science Laboratory mission — at 05:46:29 UTC.",
-      "author": "NASA Breaking News",
-      "date": "2026-10-06",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Space"
-      ],
-      "featured": false,
-      "xpReward": 45,
-      "url": "https://science.nasa.gov/blog/curiosity-blog-sols-5029-5035-back-in-the-lab/",
-      "image": "/images/feed/feed-d6e9351ef24f.jpg",
-      "source": "NASA Breaking News",
-      "isLive": true
-    },
-    {
-      "id": "feed-8a29a71def96",
-      "title": "A Journey to the Depths of Ancient Mars?",
-      "excerpt": "Written by Alex Jones, Ph.D. candidate at Imperial College London Sept. 29, 2026 After spending the last six months exploring “Lac de Charmes,” a region of ancient rock beyond Jezero crater’s western…",
-      "body": "Explore This Section Perseverance Home Mission Overview Rover Components Mars Rock Samples Where is Perseverance? Ingenuity Mars Helicopter Mission Updates Science Overview Objectives Instruments Highlights Exploration Goals News and Features Multimedia Perseverance Raw Images Images Videos Audio More Resources Mars Missions Mars Perseverance Rover Mars Curiosity Rover Mars Reconnaissance Orbiter Mars Odyssey More Mars Missions Mars Home NASA’s Perseverance rover acquired this image of some light-toned boulders scattered across a hillside of a region called “Lac de Charmes,” beyond the western rim of Jezero crater. Perseverance captured the image using its Right Mastcam-Z camera on Aug.",
-      "author": "NASA Breaking News",
-      "date": "2026-10-06",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Space"
-      ],
-      "featured": false,
-      "xpReward": 50,
-      "url": "https://science.nasa.gov/blog/a-journey-to-the-depths-of-ancient-mars/",
-      "image": "/images/feed/feed-8a29a71def96.jpg",
-      "source": "NASA Breaking News",
       "isLive": true
     },
     {
@@ -622,7 +604,7 @@
         "Gemini"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 48,
       "url": "https://www.theverge.com/ai-artificial-intelligence/1005177/google-gemini-call-for-me-expansion-rumors",
       "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/08/Google-Pixel-11-Pro-Photos-of-Phone-7.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
       "source": "The Verge",
@@ -641,7 +623,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 50,
       "url": "https://electrek.co/2026/10/05/six-flags-has-installed-one-of-the-largest-solar-carports-in-the-us/",
       "image": "/images/feed/feed-c4eac9abbe66.jpg",
       "source": "Electrek",
@@ -660,29 +642,10 @@
         "Chatgpt"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 45,
       "url": "https://www.niemanlab.org/2026/10/chatgpt-is-adding-real-cartoonists-signatures-to-fake-new-yorker-cartoons/",
       "image": "/images/feed/feed-75f743a5bcd5.jpg",
       "source": "Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-7d2a322848c9",
-      "title": "OpenAI is adding invisible watermarks to ChatGPT and Codex text in the EU",
-      "excerpt": "OpenAI is preparing to add invisible watermarks to text generated by ChatGPT and Codex in the European Union. [...]",
-      "body": "OpenAI is preparing to add invisible watermarks to text generated by ChatGPT and Codex in the European Union. [...]\n\nThis report, published by BleepingComputer, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cybersecurity. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to BleepingComputer using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Mayank Parmar",
-      "date": "2026-10-05",
-      "readTime": "2 min",
-      "section": "cybersecurity",
-      "tags": [
-        "Cybersecurity"
-      ],
-      "featured": false,
-      "xpReward": 32,
-      "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/openai-is-adding-invisible-watermarks-to-chatgpt-and-codex-text-in-the-eu/",
-      "image": "/images/feed/feed-7d2a322848c9.jpg",
-      "source": "BleepingComputer",
       "isLive": true
     },
     {
@@ -698,30 +661,10 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 52,
       "url": "https://electrek.co/2026/10/05/department-of-war-drafts-ev-battery-factory-into-military-drone-duty-with-75m-grant/",
       "image": "/images/feed/feed-80dc663682ca.jpg",
       "source": "Electrek",
-      "isLive": true
-    },
-    {
-      "id": "feed-b12a36c78917",
-      "title": "NASA to Stream SpaceX Crew-12 Return, Splashdown Live",
-      "excerpt": "NASA and SpaceX are targeting no earlier than 8:05 a.m. EDT, Wednesday, Oct. 7, for the undocking of the agency’s SpaceX Crew-12 mission from the International Space Station, pending weather condition…",
-      "body": "NASA&#8217;s SpaceX Crew-12 members gather for a portrait in the pressure suits they will wear when they depart the International Space Station inside the SpaceX Dragon spacecraft. From left, Roscosmos cosmonaut and mission specialist Andrey Fedyaev, NASA astronauts Jack Hathaway and Jessica Meir, Crew-12 pilot and commander respectively, and ESA (European Space Agency) astronaut and mission specialist Sophie Adenot. Credit: NASA/Anil Menon NASA and SpaceX are targeting no earlier than 8:05 a.m. EDT, Wednesday, Oct. 7, for the undocking of the agency’s SpaceX Crew-12 mission from the International Space Station, pending weather conditions. An Oct.",
-      "author": "Jessica Taveau",
-      "date": "2026-10-05",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Spacex",
-        "Nasa"
-      ],
-      "featured": false,
-      "xpReward": 39,
-      "url": "https://www.nasa.gov/news-release/nasa-to-stream-spacex-crew-12-return-splashdown-live/",
-      "image": "/images/feed/feed-b12a36c78917.jpg",
-      "source": "NASA Breaking News",
       "isLive": true
     },
     {
@@ -737,7 +680,7 @@
         "Transformer"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 35,
       "url": "https://qlabs.sh/research/dust",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "Hacker News",
@@ -756,7 +699,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 44,
       "url": "https://electrek.co/2026/10/05/byds-flagship-suv-topped-10000-sales-3-months-straight/",
       "image": "/images/feed/feed-c934548b743f.jpg",
       "source": "Electrek",
@@ -775,7 +718,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 45,
       "url": "https://9to5toys.com/2026/10/05/free-1500-amazon-gift-card-amazon-autos/",
       "image": "/images/feed/feed-b5df50efb797.jpg",
       "source": "Electrek",
@@ -795,7 +738,7 @@
         "Chatgpt"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 52,
       "url": "https://9to5mac.com/2026/10/05/openai-details-new-text-watermarking-system-for-chatgpt-codex-and-the-api/",
       "image": "/images/feed/feed-cf47ff506f1f.jpg",
       "source": "9to5Mac",
@@ -814,7 +757,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 30,
       "url": "https://electrek.co/2026/10/05/lucid-lcid-q3-2026-deliveries-production/",
       "image": "/images/feed/feed-b13ef7a9c6d9.jpg",
       "source": "Electrek",
@@ -834,7 +777,7 @@
         "Chatgpt"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 30,
       "url": "https://techcrunch.com/2026/10/05/openai-will-start-watermarking-chatgpts-text-in-the-eu/",
       "image": "/images/feed/feed-212da1d35ed9.jpg",
       "source": "TechCrunch",
@@ -853,29 +796,10 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 47,
       "url": "https://www.cnet.com/tech/services-and-software/trump-super-intelligence-ai-rebrand-musk-spacexsi-slovenia-domain/",
       "image": "https://www.cnet.com/wp-content/uploads/sites/2/GettyImages-2297619001.jpg",
       "source": "CNET",
-      "isLive": true
-    },
-    {
-      "id": "feed-33557fc2b505",
-      "title": "Rejetto HFS servers now actively scanned for critical RCE flaw",
-      "excerpt": "Hackers are actively scanning for a Rejetto HFS weak signing key vulnerability, tracked as CVE-2026-61500, that allows session forgery, account takeover, and remote code execution (RCE). [...]",
-      "body": "Hackers are actively scanning for a Rejetto HFS weak signing key vulnerability, tracked as CVE-2026-61500, that allows session forgery, account takeover, and remote code execution (RCE). [...]\n\nThis report, published by BleepingComputer, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cybersecurity. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to BleepingComputer using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Bill Toulas",
-      "date": "2026-10-05",
-      "readTime": "2 min",
-      "section": "cybersecurity",
-      "tags": [
-        "Cybersecurity"
-      ],
-      "featured": false,
-      "xpReward": 31,
-      "url": "https://www.bleepingcomputer.com/news/security/rejetto-hfs-servers-now-actively-scanned-for-critical-rce-flaw/",
-      "image": "/images/feed/feed-33557fc2b505.jpg",
-      "source": "BleepingComputer",
       "isLive": true
     },
     {
@@ -891,7 +815,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 42,
       "url": "https://www.theverge.com/ai-artificial-intelligence/1004933/ai-math-openai-breakthrough-solution",
       "image": "/images/feed/feed-a2264bd4ba73.jpg",
       "source": "The Verge",
@@ -910,43 +834,119 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 53,
       "url": "https://spacenews.com/resource-competition-intensifies-with-surge-in-megaconstellations/",
       "image": "/images/feed/feed-aa9be7bf92d5.jpg",
       "source": "SpaceNews",
       "isLive": true
     },
     {
-      "id": "feed-aea90afb465b",
-      "title": "Wikipedia operator says OpenAI&#8217;s &#8216;rogue&#8217; bots may be linked to a May outage",
-      "excerpt": "Following many recent disclosures about AI agents accessing third-party websites and services, the Wikimedia Foundation, which hosts Wikipedia, says that it \"can confirm that we have discovered some a…",
-      "body": "Following many recent disclosures about AI agents accessing third-party websites and services, the Wikimedia Foundation, which hosts Wikipedia, says that it \"can confirm that we have discovered some activity\" by \"rogue\" OpenAI agents on Wikimedia platforms. The activity includes edits to Wikimedia wikis, \"unsuccessful attempts\" to \"exploit\" the Etherpad note-taking tool that the Wikimedia Foundation hosts, and heavy traffic that the foundation says \"may\" have contributed to a partial outage that happened in May, according to a blog post . However, the Wikimedia Foundation says it didn't find evidence that its systems were \"used for coordinat … Read the full story at The Verge.",
-      "author": "Jay Peters",
+      "id": "feed-a01eb254c832",
+      "title": "Agile Space Industries Strengthens Board and Corporate Development to Support Continued Growth",
+      "excerpt": "DURANGO, Colo., Oct. 5, 2026 — Agile Space Industries today announced that Jonathan Baliff has joined its Board of Directors, bringing extensive experience in aerospace, finance, and corporate leaders…",
+      "body": "DURANGO, Colo., Oct. 5, 2026 — Agile Space Industries today announced that Jonathan Baliff has joined its Board of Directors, bringing extensive experience in aerospace, finance, and corporate leadership. His [&#8230;] The post Agile Space Industries Strengthens Board and Corporate Development to Support Continued Growth appeared first on SpaceNews .",
+      "author": "Agile Space Industries",
       "date": "2026-10-05",
       "readTime": "2 min",
-      "section": "ai",
+      "section": "space",
       "tags": [
-        "Openai"
+        "Space"
       ],
       "featured": false,
-      "xpReward": 31,
-      "url": "https://www.theverge.com/news/1004929/wikipedia-openai-rogue-bots-wikimedia-foundation-outage",
-      "image": "/images/feed/feed-aea90afb465b.jpg",
-      "source": "The Verge",
+      "xpReward": 30,
+      "url": "https://spacenews.com/agile-space-industries-strengthens-board-and-corporate-development-to-support-continued-growth/",
+      "image": "/images/feed/feed-a01eb254c832.png",
+      "source": "SpaceNews",
+      "isLive": true
+    },
+    {
+      "id": "feed-4910fbcfd87e",
+      "title": "Why the Moon Is a Legal Wild West",
+      "excerpt": "Private companies are taking cremated remains and stunt payloads to the moon. Former NASA attorney Steve Mirmina warns that there’s nothing stopping them.",
+      "body": "Private companies are taking cremated remains and stunt payloads to the moon. Former NASA attorney Steve Mirmina warns that there’s nothing stopping them.\n\nThis report, published by CNET, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Space. As the situation continues to evolve, professionals and enthusiasts in the space exploration and astronomy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to CNET using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Joe Supan",
+      "date": "2026-10-04",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Space"
+      ],
+      "featured": false,
+      "xpReward": 53,
+      "url": "https://www.cnet.com/science/space/why-the-moon-is-a-legal-wild-west/",
+      "image": "/images/feed/feed-4910fbcfd87e.jpg",
+      "source": "CNET",
+      "isLive": true
+    },
+    {
+      "id": "feed-928bebe85e83",
+      "title": "World Space Week 2026 Celebrates the “Rocket Revolution”",
+      "excerpt": "HOUSTON, Texas (September 30, 2026)— World Space Week events, beginning October 4 in 100 nations, will celebrate how launch innovation has stimulated the rapidly-growing space economy and enabled new…",
+      "body": "HOUSTON, Texas (September 30, 2026)— World Space Week events, beginning October 4 in 100 nations, will celebrate how launch innovation has stimulated the rapidly-growing space economy and enabled new uses [&#8230;] The post World Space Week 2026 Celebrates the &#8220;Rocket Revolution&#8221; appeared first on SpaceNews .",
+      "author": "World Space Week Association",
+      "date": "2026-10-01",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Space"
+      ],
+      "featured": false,
+      "xpReward": 38,
+      "url": "https://spacenews.com/world-space-week-2026-celebrates-the-rocket-revolution/",
+      "image": "/images/feed/feed-928bebe85e83.png",
+      "source": "SpaceNews",
+      "isLive": true
+    },
+    {
+      "id": "feed-322201065aa0",
+      "title": "Rethinking risk with electronics for space",
+      "excerpt": "In this episode, SpaceNews’ Mike Gruss speaks with Ken Stoler, the space business development lead for Arrow. They discuss how spacecraft designers and operators have changed their attitudes toward ri…",
+      "body": "In this episode, SpaceNews’ Mike Gruss speaks with Ken Stoler, the space business development lead for Arrow. They discuss how spacecraft designers and operators have changed their attitudes toward risk, [&#8230;] The post Rethinking risk with electronics for space appeared first on SpaceNews .",
+      "author": "SpaceNews Editor",
+      "date": "2026-10-01",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Space"
+      ],
+      "featured": false,
+      "xpReward": 30,
+      "url": "https://spacenews.com/rethinking-risk-with-electronics-for-space/",
+      "image": "/images/feed/feed-322201065aa0.jpg",
+      "source": "SpaceNews",
+      "isLive": true
+    },
+    {
+      "id": "feed-ffdd7204c5e8",
+      "title": "LMT Group and Novaspace partner to develop strategy for 5G/6G satellite communications hub in Latvia",
+      "excerpt": "Noordwijk, the Netherlands | September 22, 2026 – During the international Industry Space Days 2026 event at the European Space Agency’s ESTEC facility in Noordwijk, the Netherlands, the Latvian Mobil…",
+      "body": "Noordwijk, the Netherlands &#124; September 22, 2026&#160;&#8211; During the international Industry Space Days 2026 event at the European Space Agency’s ESTEC facility in Noordwijk, the Netherlands, the Latvian Mobile Telephone [&#8230;] The post LMT Group and Novaspace partner to develop strategy for 5G/6G satellite communications hub in Latvia appeared first on SpaceNews .",
+      "author": "Novaspace",
+      "date": "2026-10-01",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Satellite"
+      ],
+      "featured": false,
+      "xpReward": 33,
+      "url": "https://spacenews.com/lmt-group-and-novaspace-partner-to-develop-strategy-for-5g-6g-satellite-communications-hub-in-latvia/",
+      "image": "/images/feed/feed-ffdd7204c5e8.png",
+      "source": "SpaceNews",
       "isLive": true
     }
   ],
   "breakingNews": [
-    "DEV.TO: Our entire production schema is one table and 33 lines, and it has not changed in 71 days",
-    "DEV.TO: ForageQuest: A Single-File AI That Tells You Not to Eat the Mushroom",
-    "DEV.TO: S3 Object Lambda for AI: Transforming Images on the Fly for Claude Vision, Explained Simply",
-    "DEV.TO: A failed build un-bumps our version and a failed upload does not, and one line is the difference",
-    "DEV.TO: What Really Happens When Your Phone Connects to Wi-Fi?",
-    "DEV.TO: What AI agents actually do with your MCP server",
-    "DEV.TO: PDF to markdown for LLMs",
-    "WIRED: The 13 Amazon Device Deals Actually Worth Snagging This Prime Day",
-    "ANDROID AUTHORITY: Google just replaced Gemini Gems with Skills. Here’s how to use and master them",
-    "POLYGON: 11 Most Essential White Cards Every Magic: The Gathering Player Should Know"
+    "POLYGON: Valor Mortis Comes to PS Plus and Game Pass, and You Can Try It for Free",
+    "DEV.TO: Your API Can Create the Customer—and Still Be Broken",
+    "DEV.TO: Introducing SerpApi's OpenCode Plugin",
+    "DEV.TO: What did your last silent failure actually cost you?",
+    "DEV.TO: The live realtor model passed. The goodbye failed. published: true",
+    "ANDROID AUTHORITY: This Amazfit Active Max deal knocks 18% off a fitness smartwatch built for training",
+    "DEV.TO: The Test Passed Until the Cookie Banner Showed Up",
+    "DEV.TO: How to Build an AI-Powered Log Summarizer for DevOps",
+    "DEV.TO: WILDCASE: The World Is the Case File — An Outdoor Mystery Game That Gets You Off Your Screen",
+    "ANDROID AUTHORITY: I tried Meta Muse for a week, and it didn’t go how I expected"
   ],
   "sectionVideos": {}
 }
