@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-10-06T18:17:15.188Z",
+  "fetchedAt": "2026-10-06T19:11:57.479Z",
   "articles": [
     {
-      "id": "feed-f4bdeec5b1c6",
-      "title": "agentgateway v1.6.0: Cost Tracking With No Catalog Config",
-      "excerpt": "Originally published at webofmike.com on 2026-10-06. The demo repo and every command in it were run before publishing. agentgateway v1.6.0 went GA on October 2. Two features are worth a hands-on look…",
-      "body": "Originally published at webofmike.com on 2026-10-06. The demo repo and every command in it were run before publishing. agentgateway v1.6.0 went GA on October 2. Two features are worth a hands-on look before anything else: a built-in LLM pricing catalog that gives you cost tracking with zero configuration, and per-key CEL rate limiting that buckets quota by any request attribute you pick. I ran both against a live gateway and a real Claude Sonnet 5 backend. Code and captured output are in themsquared/agw-16-hands-on . Cost tracking used to mean declaring rates by hand I wrote up agentgateway's per-API-key budgets back in v1.5.0 : a budgets list per key, a limit in tokens or USD, and a 429 before the provider ever sees the request. That post also covered the gap underneath it.",
-      "author": "Mike Moore",
+      "id": "feed-8f0cebbf2c53",
+      "title": "Indirect Prompt Injection Through Tool Descriptions and Tool Output: How Untrusted Metadata Hijacks Agents",
+      "excerpt": "TL;DR A function-calling or MCP agent reads more than the user's message. It also reads the descriptions of the tools it can call, and the content those tools return. Both are text, both flow into the…",
+      "body": "TL;DR A function-calling or MCP agent reads more than the user's message. It also reads the descriptions of the tools it can call, and the content those tools return . Both are text, both flow into the same context window, and a model does not natively distinguish \"instruction from my operator\" from \"string that showed up in a web page I fetched.\" That gap is indirect prompt injection. An attacker who controls a tool's metadata, or any data a tool returns (a web page, an email body, a file, a database row, a git issue), can plant instructions that the agent then follows as if they were yours.",
+      "author": "hugginf_expert",
       "date": "2026-10-06",
       "readTime": "2 min",
       "section": "software",
@@ -14,18 +14,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 34,
-      "url": "https://dev.to/webofmike/agentgateway-v160-cost-tracking-with-no-catalog-config-374c",
-      "image": "/images/feed/feed-f4bdeec5b1c6.webp",
+      "xpReward": 37,
+      "url": "https://dev.to/ginigenai_hp_0ae441ead91f/indirect-prompt-injection-through-tool-descriptions-and-tool-output-how-untrusted-metadata-hijacks-40go",
+      "image": "/images/feed/feed-8f0cebbf2c53.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-3f5c04012ffb",
-      "title": "Cheap Centralized Logging for 3 Small SaaS Cron Jobs — Rollback Evidence",
-      "excerpt": "TL;DR: Centralize structured events from the web app, worker, and cron runner, then make rollback evidence a required part of every release evaluation. For a small SaaS, a plain REST logging service i…",
-      "body": "TL;DR: Centralize structured events from the web app, worker, and cron runner, then make rollback evidence a required part of every release evaluation. For a small SaaS, a plain REST logging service is a reasonable low-complexity choice when the goal is searchable application and job history without operating a full ELK stack. Keep a separate heartbeat monitor for jobs that never start, and do not mistake logs for alert routing, tracing, crash symbolication, or session replay. My decision rule is blunt: choose the smallest system that can preserve enough correlated evidence to explain a customer-support incident and make a rollback call. The cheapest ingest path is irrelevant if an engineer cannot connect a complaint to a request, a background job, and the deployed version.",
-      "author": "XerxesCross2735",
+      "id": "feed-ce9cc29ba703",
+      "title": "Audio-Only Podcast? What Actually Works for Short-Form Video",
+      "excerpt": "Short-form advice for podcasters almost always assumes you have video. The tutorials show face-tracked vertical crops and karaoke captions over two-person footage, and if you record audio only, the us…",
+      "body": "Short-form advice for podcasters almost always assumes you have video. The tutorials show face-tracked vertical crops and karaoke captions over two-person footage, and if you record audio only, the usual conclusion is \"you need a camera now or give up.\" That's the wrong frame. Audio-only shows do have a path into Shorts, Reels and TikTok — it's just narrower, and the work that moves the needle happens before you open any editor. What audio-only clips actually look like Because there's no footage to reframe, the visual gets built from scratch. In practice there are four approaches, roughly ordered by how well they hold a cold viewer: 1. Caption-card video. The clip is essentially a moving quote: large word-timed captions on a branded background, audio underneath.",
+      "author": "Neu Software",
       "date": "2026-10-06",
       "readTime": "2 min",
       "section": "software",
@@ -33,10 +33,448 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 35,
-      "url": "https://dev.to/xerxescross2735/cheap-centralized-logging-for-3-small-saas-cron-jobs-rollback-evidence-3pgh",
-      "image": "/images/feed/feed-3f5c04012ffb.webp",
+      "xpReward": 52,
+      "url": "https://dev.to/neusoftware/audio-only-podcast-what-actually-works-for-short-form-video-49aj",
+      "image": "/images/feed/feed-ce9cc29ba703.webp",
       "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-c2109beae5ea",
+      "title": "The Loop Is Closed — So Who Checks the Agent's Work?",
+      "excerpt": "This week, a commenter caught my agent in a lie. Not a malicious lie. Something subtler and far more common: the agent had described a design as if it were already running. In a reply on my 50-day age…",
+      "body": "This week, a commenter caught my agent in a lie. Not a malicious lie. Something subtler and far more common: the agent had described a design as if it were already running. In a reply on my 50-day agent retrospective , I wrote that my memory entries carry a trust score, updated by a nightly consolidation pass. No trust field exists in any memory file. No downgrade rule exists anywhere in the pipeline. I presented a design sketch as running state, and I did it in a thread about agent reliability, which is the kind of irony you can't make up. The uncomfortable part isn't that the claim was false. It's that nothing in my system was positioned to catch it — including the loop I was so proud of.",
+      "author": "Clavis",
+      "date": "2026-10-06",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 47,
+      "url": "https://dev.to/mindon/the-loop-is-closed-so-who-checks-the-agents-work-253f",
+      "image": "/images/feed/feed-c2109beae5ea.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-7ba589e03921",
+      "title": "How to Get Your Tool Recommended by ChatGPT, Perplexity, and Google",
+      "excerpt": "TL;DR Getting your tool recommended by AI search isn't just about traditional SEO. You need to build the signals that ChatGPT, Perplexity, and Google use to understand, trust, and surface your product…",
+      "body": "TL;DR Getting your tool recommended by AI search isn't just about traditional SEO. You need to build the signals that ChatGPT, Perplexity, and Google use to understand, trust, and surface your product. AI recommendations depend on more than keywords. Clear positioning, authoritative content, technical depth, and consistent mentions all matter. Your documentation and technical content need to answer the exact questions developers are asking before they ever reach your website. Being mentioned across trusted websites, communities, GitHub, Reddit, and developer publications can strengthen your product's discoverability. The goal isn't to game AI search. It's to make your tool genuinely useful, easy to understand, and easy for AI systems to discover and cite.",
+      "author": "Nancy Garg",
+      "date": "2026-10-06",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 47,
+      "url": "https://dev.to/studio1hq/how-to-get-your-tool-recommended-by-chatgpt-perplexity-and-google-2dg9",
+      "image": "/images/feed/feed-7ba589e03921.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-05041052f2ed",
+      "title": "When the attacker is an agent: a defender's field guide to autonomous AI intrusions in 2026",
+      "excerpt": "TL;DR In 2026 the autonomous agent stopped being a demo and became an attacker. Public incident write ups now describe agents that scan, pick targets, launch exploits, move laterally, and exfiltrate d…",
+      "body": "TL;DR In 2026 the autonomous agent stopped being a demo and became an attacker. Public incident write ups now describe agents that scan, pick targets, launch exploits, move laterally, and exfiltrate data across thousands of actions with one human command at the start. The defensive answer is not a new product. It is a set of boring, testable controls: cap what every agent (yours and theirs) is allowed to touch, treat every tool call as an untrusted request, log at the action level, and rehearse detection at machine speed. This post maps the threat to the OWASP Top 10 for LLM Applications (2026) and the OWASP Top 10 for Agentic Applications, and gives a concrete control checklist you can start on this week.",
+      "author": "ai maya",
+      "date": "2026-10-06",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 49,
+      "url": "https://dev.to/ai_maya_063fc568e157562fd/when-the-attacker-is-an-agent-a-defenders-field-guide-to-autonomous-ai-intrusions-in-2026-25f7",
+      "image": "/images/feed/feed-05041052f2ed.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-1289bf809d7e",
+      "title": "KV Cache Quantization in LLM Serving: FP8 and INT8 Tradeoffs, the Silent config.json Trap, and How to Measure It Fairly",
+      "excerpt": "TL;DR The KV cache is often the real memory ceiling in LLM serving, not the weights. Quantizing it to FP8 or INT8 roughly halves KV memory, which lets you serve longer contexts or more concurrent requ…",
+      "body": "TL;DR The KV cache is often the real memory ceiling in LLM serving, not the weights. Quantizing it to FP8 or INT8 roughly halves KV memory, which lets you serve longer contexts or more concurrent requests on the same GPU. The catch: the quality impact is real but small when measured correctly, and it is easy to measure it wrong. A single kv_cache_dtype flag, or a scaling factor baked into a model's config.json , can quietly change your outputs while every dashboard still shows green. This post covers where the savings come from, what actually degrades, the silent-config trap, and a fair measurement protocol. Why is the KV cache the thing you should quantize?",
+      "author": "AI Tech News",
+      "date": "2026-10-06",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 48,
+      "url": "https://dev.to/wolfsea2357/kv-cache-quantization-in-llm-serving-fp8-and-int8-tradeoffs-the-silent-configjson-trap-and-how-5acc",
+      "image": "/images/feed/feed-1289bf809d7e.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-eefde36fcaca",
+      "title": "ZTC (Zero-Token Confidence): juzgar una acción de IA leyendo el estado interno del modelo, con cero tokens extra",
+      "excerpt": "TL;DR Cuando un agente de IA realiza una accion, alguien tiene que decidir si esa accion es confiable. La via habitual es preguntarle a otro modelo de lenguaje (un juez LLM), lo que cuesta tokens, lat…",
+      "body": "TL;DR Cuando un agente de IA realiza una accion, alguien tiene que decidir si esa accion es confiable. La via habitual es preguntarle a otro modelo de lenguaje (un juez LLM), lo que cuesta tokens, latencia y a veces enviar datos fuera de tu red. ZTC (Zero-Token Confidence) toma otro camino: lee el estado interno del propio modelo que ya hizo la inferencia y, a partir de esas senales, estima la confianza de la accion sin generar un solo token extra . En nuestras mediciones, ZTC alcanza un AUC de 0.7289 , practicamente a la par del juez LLM de referencia ( JEV, AUC 0.7350 ), pero resuelve cada decision en 0.06 s frente a 0.59 s del juez.",
+      "author": "김민식/학생",
+      "date": "2026-10-06",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 45,
+      "url": "https://dev.to/_0e3192755d4df45b92/ztc-zero-token-confidence-juzgar-una-accion-de-ia-leyendo-el-estado-interno-del-modelo-con-cero-2ilh",
+      "image": "/images/feed/feed-eefde36fcaca.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-cab900dd1e91",
+      "title": "Google is quietly making email verification less annoying in Chrome on Android",
+      "excerpt": "Chrome can now verify supported email addresses without sending you to your inbox.",
+      "body": "TL;DR Chrome 154 adds Email Verification support on Android, letting supported sites confirm your email address through the browser. The feature could replace the usual verification email or one-time code, but both the website and email provider must support Google’s protocol. Google says the Chrome feature is separate from Android’s Verified Email system for apps, though it is working to make the two experiences more consistent. Chrome already knows plenty about you when you’re filling out forms, from your saved addresses to payment details. But soon, it may also be able to quietly prove that an email address is really yours without sending you off to your inbox first. That idea has been taking shape on desktop for months, and with Chrome 154, it is finally making its way to Android.",
+      "author": "Hillary Keverenge",
+      "date": "2026-10-06",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 43,
+      "url": "https://www.androidauthority.com/chrome-android-email-verification-3719745/",
+      "image": "/images/feed/feed-cab900dd1e91.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-f05ac767d07e",
+      "title": "Toyota shuts down rumors claiming that it’s ‘slashing prices’ in China",
+      "excerpt": "Toyota’s joint venture, FAW Toyota, issued a statement denying reports that it’s “slashing prices” in China and may exit the market entirely. more…",
+      "body": "Toyota’s joint venture, FAW Toyota, issued a statement denying reports that it’s “slashing prices” in China and may exit the market entirely. more — a development drawing significant attention in the electric vehicles, hybrids, and automotive technology space.\n\nThis report, published by Electrek, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cars. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Electrek using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Peter Johnson",
+      "date": "2026-10-06",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Cars"
+      ],
+      "featured": false,
+      "xpReward": 31,
+      "url": "https://electrek.co/2026/10/06/toyota-shuts-down-rumors-slashing-prices-china/",
+      "image": "/images/feed/feed-f05ac767d07e.jpg",
+      "source": "Electrek",
+      "isLive": true
+    },
+    {
+      "id": "feed-a3f69d713bbb",
+      "title": "Alexa can’t control the aux input on Amazon Echo speakers anymore",
+      "excerpt": "If you've been using an older Amazon Echo device as a speaker through its 3.5mm aux input, Alexa voice commands to play or pause from line in may stop working. Ars Technica points to this Reddit poste…",
+      "body": "If you've been using an older Amazon Echo device as a speaker through its 3.5mm aux input, Alexa voice commands to play or pause from line in may stop working. Ars Technica points to this Reddit poster claiming they received a message from Amazon and says an unnamed spokesperson confirmed the change. When contacted by The Verge , Amazon did not provide an on-the-record statement. The message does not include any explanation for why the feature was removed. It also doesn't mention any changes to audio output functionality like connecting an external speaker to an Echo Dot, and it appears that control of the port from within the app's sett … Read the full story at The Verge.",
+      "author": "Stevie Bonifield",
+      "date": "2026-10-06",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 36,
+      "url": "https://www.theverge.com/tech/1006103/amazon-alexa-aux-voice-commands",
+      "image": "/images/feed/feed-a3f69d713bbb.jpg",
+      "source": "The Verge",
+      "isLive": true
+    },
+    {
+      "id": "feed-bd2c672d0bb4",
+      "title": "New Apple TV comedy hailed as ‘finest show to hit Apple’ this year",
+      "excerpt": "Apple TV is having a great year, and its latest series—Small Prophets—is getting hailed as perhaps the streamer’s best 2026 debut yet. Here’s what reviews say. more…",
+      "body": "Apple TV is having a great year, and its latest series—Small Prophets—is getting hailed as perhaps the streamer’s best 2026 debut yet. Here’s what reviews say. more — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Ryan Christoffel",
+      "date": "2026-10-06",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 54,
+      "url": "https://9to5mac.com/2026/10/06/new-apple-tv-comedy-hailed-as-finest-show-to-hit-apple-this-year/",
+      "image": "/images/feed/feed-bd2c672d0bb4.jpg",
+      "source": "9to5Mac",
+      "isLive": true
+    },
+    {
+      "id": "feed-8bd684700d9c",
+      "title": "Something Is Killing the Children is Getting a Game",
+      "excerpt": "James Tynion IV's acclaimed horror comic franchise is getting a TCG from Tiny Onion.",
+      "body": "James Tynion IV's acclaimed horror comic franchise is getting a TCG from Tiny Onion.\n\nThis report, published by Polygon, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Game. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Polygon using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Matt Patches",
+      "date": "2026-10-06",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Game"
+      ],
+      "featured": false,
+      "xpReward": 42,
+      "url": "https://www.polygon.com/something-is-killing-the-children-is-getting-a-game/",
+      "image": "/images/feed/feed-8bd684700d9c.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-f920eb2ff7df",
+      "title": "Snake’s Japanese Voice Actor Wants Another Metal Gear, But Won’t Do It Without Kojima",
+      "excerpt": "After coming up with Snake's catchphrase and working with him for decades, Akio Otsuka's loyalty to Kojima leaves him conflicted about his most beloved role",
+      "body": "After coming up with Snake's catchphrase and working with him for decades, Akio Otsuka's loyalty to Kojima leaves him conflicted about his most beloved role\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Alicia Haddick",
+      "date": "2026-10-06",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 53,
+      "url": "https://kotaku.com/snakes-japanese-voice-actor-wants-another-metal-gear-but-wont-do-it-without-kojima-2000740120",
+      "image": "/images/feed/feed-f920eb2ff7df.jpg",
+      "source": "Kotaku",
+      "isLive": true
+    },
+    {
+      "id": "feed-63075c16e93b",
+      "title": "Doom on the Vectrex turns the classic shooter into Tron-like vector art",
+      "excerpt": "With some processing caveats of course.",
+      "body": "With some processing caveats of course.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "staff@engadget.com (Will Shanklin)",
+      "date": "2026-10-06",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 51,
+      "url": "https://www.engadget.com/2279239/doom-on-the-vectrex-turns-the-classic-shooter-into-tron-like-vector-art/",
+      "image": "/images/feed/feed-63075c16e93b.jpg",
+      "source": "Engadget",
+      "isLive": true
+    },
+    {
+      "id": "feed-60e8991b7346",
+      "title": "Amazon stiffed you on a refund? You might be due a piece of this class-action settlement",
+      "excerpt": "Most affected customers won't have to do anything to get a cut.",
+      "body": "TL;DR Amazon has agreed to pay $309.5 million in a class action suit about incorrectly processed refunds. Affected customers should get restitution for incomplete refunds dating back to 2017. Amazon has also agreed to other measures, including temporary changes to its refund practices. Amazon is set to pay out more than $300 million to customers who claim the online gigaretailer’s return process failed them. Customers who received incomplete or late refunds, or no refunds at all, for returned items over the past nine years will be eligible to claim a piece of the settlement. As brought to our attention by Top Class Actions , Amazon has agreed to pay out $309.5 million to customers who weren’t correctly refunded for purchases made from September 5, 2017 to February 12 of this year.",
+      "author": "Taylor Kerns",
+      "date": "2026-10-06",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 43,
+      "url": "https://www.androidauthority.com/amazon-refund-class-action-3719739/",
+      "image": "/images/feed/feed-60e8991b7346.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-0e01d1043399",
+      "title": "Best remastered builds in The Witcher 3 Wild Hunt",
+      "excerpt": "Here's how to get the best sword- and magic-focused builds in The Witcher 3: Wild Hunt Remastered",
+      "body": "The best builds in The Witcher 3: Wild Hunt focus on a specific playstyle. Your Geralt may favor fast sword attacks that deal amazing critical damage, or he may cast his swords aside and rely on Witcher signs alone. Whichever end of the spectrum you choose, though, some Witcher 3 builds are better than others.",
+      "author": "Marloes Valentina Stella",
+      "date": "2026-10-06",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 53,
+      "url": "https://www.polygon.com/witcher-3-wild-hunt-best-remastered-builds-cat-griffin/",
+      "image": "/images/feed/feed-0e01d1043399.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-59f3487ec217",
+      "title": "‘Artificial’ Roasts AI’s Creators—and Sends a Dark Warning About Its Dangers",
+      "excerpt": "From their dorky parties to their weird walks, the movie holds OpenAI CEO Sam Altman and other stakeholders with contempt, while demonstrating their recklessness.",
+      "body": "From their dorky parties to their weird walks, the movie holds OpenAI CEO Sam Altman and other stakeholders with contempt, while demonstrating their recklessness.\n\nThis report, published by Wired, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Ai. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Wired using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "John Semley",
+      "date": "2026-10-06",
+      "readTime": "2 min",
+      "section": "ai",
+      "tags": [
+        "Ai"
+      ],
+      "featured": false,
+      "xpReward": 48,
+      "url": "https://www.wired.com/story/artificial-roasts-ais-creators-and-sends-a-dark-warning-about-its-dangers/",
+      "image": "/images/feed/feed-59f3487ec217.jpg",
+      "source": "Wired",
+      "isLive": true
+    },
+    {
+      "id": "feed-b00e2190200a",
+      "title": "Apple killed the Mac mini’s best hidden feature [Video]",
+      "excerpt": "With the release of the M6 Mac mini and its more powerful M5 Pro counterpart, Apple quietly killed off one of the machine’s most compelling features. While both new Mac mini models look like their pre…",
+      "body": "With the release of the M6 Mac mini and its more powerful M5 Pro counterpart , Apple quietly killed off one of the machine’s most compelling features. While both new Mac mini models look like their predecessors from the outside, Apple nixed the hidden feature that made the previous-generation Mac mini an incredible value. more…",
+      "author": "Jeff Benjamin",
+      "date": "2026-10-06",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 38,
+      "url": "https://9to5mac.com/2026/10/06/apple-killed-the-mac-minis-best-hidden-feature-video/",
+      "image": "/images/feed/feed-b00e2190200a.jpg",
+      "source": "9to5Mac",
+      "isLive": true
+    },
+    {
+      "id": "feed-951571efb048",
+      "title": "Apple AirPods Max 2 Are $120 Off Right Now During Prime Day",
+      "excerpt": "They’re the best over-ear headphones for Apple loyalists, and over 20 percent off at multiple retailers right now.",
+      "body": "They’re the best over-ear headphones for Apple loyalists, and over 20 percent off at multiple retailers right now.\n\nThis report, published by Wired, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Wired using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Harry Rabinowitz",
+      "date": "2026-10-06",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 34,
+      "url": "https://www.wired.com/story/apple-airpods-max-2-deal-october-2026/",
+      "image": "https://media.wired.com/photos/6ac507aafaca1c452d82d6a4/master/pass/Amazon%20Prime%20Day%20Top%20Art%20102026%20Standalone%20Apple%20AirPods%20Max%202%20ILLUSTRATION%20Isadora-Ayesa%20Lima%20SOURCE%20Amazon.jpg",
+      "source": "Wired",
+      "isLive": true
+    },
+    {
+      "id": "feed-8a998ac864de",
+      "title": "NASA to Cover Northrop Grumman CRS-24 Spacecraft Departure",
+      "excerpt": "After delivering more than 11,000 pounds of supplies, science experiments, and other cargo to the International Space Station for NASA, Northrop Grumman’s Cygnus XL spacecraft is scheduled to depart F…",
+      "body": "Northrop Grumman&#8217;s Cygnus XL cargo spacecraft rests at its capture point on April 13, 2026, 12 meters from the International Space Station, as the Canadarm2 robotic arm prepares to grapple the resupply ship. Credit: NASA/Jessica Meir After delivering more than 11,000 pounds of supplies, science experiments, and other cargo to the International Space Station for NASA, Northrop Grumman’s Cygnus XL spacecraft is scheduled to depart Friday, Oct. 9, as part of the company’s Commercial Resupply Services-24 mission, or Northrop Grumman CRS-24. Watch NASA’s live coverage of undocking and departure beginning at 12:30 p.m. EDT through a variety of platforms.",
+      "author": "Jessica Taveau",
+      "date": "2026-10-06",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Nasa",
+        "Spacecraft"
+      ],
+      "featured": false,
+      "xpReward": 34,
+      "url": "https://www.nasa.gov/news-release/nasa-to-cover-northrop-grumman-crs-24-spacecraft-departure/",
+      "image": "/images/feed/feed-8a998ac864de.jpg",
+      "source": "NASA Breaking News",
+      "isLive": true
+    },
+    {
+      "id": "feed-89b2cd9ed880",
+      "title": "Hell Is Officially Breaking Loose For The Gaming Industry Thanks To AI",
+      "excerpt": "Viral games like Minecraft inside Elden Ring, PS5 emulators, and recent jailbreaks do not bode well for Sony, Microsoft, or Nintendo",
+      "body": "There's an upheaval happening in the video game industry right now, and it's a major threat to publishers and video game developers alike. The outcome of this paradigm shift won't be fully evident for years, but the cause is obvious: Artificial intelligence has advanced faster than anyone anticipated.",
+      "author": "Patricia Hernandez",
+      "date": "2026-10-06",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 41,
+      "url": "https://www.polygon.com/ps5-jailbreak-emulator-minecraft-elden-ring-claude-opus-5-ai-games/",
+      "image": "/images/feed/feed-89b2cd9ed880.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-a8b78abaa722",
+      "title": "October 2026 Satellite Puzzler",
+      "excerpt": "Your challenge is to tell us the location of the satellite image and why it is interesting.",
+      "body": "Earth Observatory Earth Earth Observatory Image of the Day EO Explorer Topics All Topics Atmosphere Land Heat &#038; Radiation Life on Earth Human Dimensions Natural Events Oceans Remote Sensing Technology Snow &#038; Ice Water More Content Collections Global Maps World of Change Articles Earth Matters Blog Blue Marble: Next Generation EO Kids Mission: Biomes About About Us Subscribe 🛜 RSS Contact Us Search Every month, NASA Earth Observatory features a puzzling satellite image. The October 2026 puzzler appears above. Your Challenge I dentify the location shown in this satellite image. Share what clues you see, where you think it is, and what makes this place interesting or unique to you. How to Answer Submit your response using this form and select “Puzzler Answer” as the topic.",
+      "author": "NASA Breaking News",
+      "date": "2026-10-06",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Satellite"
+      ],
+      "featured": false,
+      "xpReward": 54,
+      "url": "https://science.nasa.gov/earth/earth-observatory/october-2026-satellite-puzzler/",
+      "image": "/images/feed/feed-a8b78abaa722.jpg",
+      "source": "NASA Breaking News",
+      "isLive": true
+    },
+    {
+      "id": "feed-fff6068ce219",
+      "title": "Lunar Grounding Challenge",
+      "excerpt": "As an astronaut traverses the lunar South Pole, tribocharging from walking on the lunar surface and plasma charging from the ambient plasma generate electric charge on the spacesuit. This problem is s…",
+      "body": "2 min read Preparations for Next Moonwalk Simulations Underway (and Underwater) Artist’s rendering of the lunar South Pole region. Glowing points of light scattered across the lunar surface represent surface assets supporting sustained human and robotic operations near the South Pole. NASA As an astronaut traverses the lunar South Pole, tribocharging from walking on the lunar surface and plasma charging from the ambient plasma generate electric charge on the spacesuit. This problem is severely compounded when entering lunar shadows and Permanently Shadowed Regions (PSRs). In these dark zones, the spacesuit can buildup a substantial negative potential due to a lack of ambient ion flux and the absence of photoelectron emission to balance ambient electron collection.",
+      "author": "Bailey Light",
+      "date": "2026-10-06",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Space"
+      ],
+      "featured": false,
+      "xpReward": 32,
+      "url": "https://www.nasa.gov/directorates/stmd/prizes-challenges-crowdsourcing-program/center-of-excellence-for-collaborative-innovation-coeci/lunar-grounding-challenge/",
+      "image": "/images/feed/feed-fff6068ce219.png",
+      "source": "NASA Breaking News",
+      "isLive": true
+    },
+    {
+      "id": "feed-71cb7e8bc3fe",
+      "title": "Overwatch’s Latest Patch Kills One Of The Most Fun Team-Ups In The Game",
+      "excerpt": "Sorry to the cats and cowboys in the room",
+      "body": "Sorry to the cats and cowboys in the room\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Game. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Kenneth Shepard",
+      "date": "2026-10-06",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Game"
+      ],
+      "featured": false,
+      "xpReward": 30,
+      "url": "https://kotaku.com/overwatch-season-5-patch-notes-cassidy-jetpack-cat-2000741044",
+      "image": "/images/feed/feed-71cb7e8bc3fe.jpg",
+      "source": "Kotaku",
+      "isLive": true
+    },
+    {
+      "id": "feed-bf9f645a5cc5",
+      "title": "Xbox’s CEO Says The Brutal Reset Is Already Working: ‘After An All-Time Low, We’ve Started To Return To Growth’",
+      "excerpt": "Asha Sharma reportedly pointed to green shoots during a company townhall",
+      "body": "Asha Sharma reportedly pointed to green shoots during a company townhall\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Xbox. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Ethan Gach",
+      "date": "2026-10-06",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Xbox"
+      ],
+      "featured": false,
+      "xpReward": 33,
+      "url": "https://kotaku.com/xboxs-ceo-says-the-brutal-reset-is-already-working-after-an-all-time-low-weve-started-to-return-to-growth-2000741040",
+      "image": "/images/feed/feed-bf9f645a5cc5.jpg",
+      "source": "Kotaku",
       "isLive": true
     },
     {
@@ -51,182 +489,11 @@
       "tags": [
         "Gaming"
       ],
-      "featured": true,
-      "xpReward": 46,
+      "featured": false,
+      "xpReward": 47,
       "url": "https://www.polygon.com/pokemon-aquapolis-lugia-360000-auction-record/",
       "image": "/images/feed/feed-d1189b65ca4d.jpg",
       "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-897c15ae008f",
-      "title": "114 Best Prime Day Deals We’re Shopping This October (2026)",
-      "excerpt": "Amazon Prime Big Deal Days are here and we’ve tracked down the best discounts on all the gear our team recommends.",
-      "body": "Amazon Prime Big Deal Days are here and we’ve tracked down the best discounts on all the gear our team recommends.\n\nThis report, published by Wired, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Software. As the situation continues to evolve, professionals and enthusiasts in the software development and engineering field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Wired using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Louryn Strampe",
-      "date": "2026-10-06",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 45,
-      "url": "https://www.wired.com/story/absolute-best-amazon-prime-day-deals-10-06-2026/",
-      "image": "/images/feed/feed-897c15ae008f.jpg",
-      "source": "Wired",
-      "isLive": true
-    },
-    {
-      "id": "feed-39f2e6feb1d8",
-      "title": "Detour: My Open-Source AI Entry for the Touch Grass Challenge (Challenge Week 1: Touch Grass)",
-      "excerpt": "**Detour: An AI Agent Designed to Kick You Off Your Screen 🌿 This is a submission for the Hacktoberfest Open-Source AI Challenge Week 1: Touch Grass I built Detour, an interactive AI web application…",
-      "body": "**Detour: An AI Agent Designed to Kick You Off Your Screen 🌿 This is a submission for the Hacktoberfest Open-Source AI Challenge Week 1: Touch Grass What I Built I built Detour , an interactive AI web application that flips the script on how we use technology: instead of trying to keep you on the screen, its entire purpose is to kick you off of it. It is built for anyone who suffers from digital burnout or decision paralysis. Detour guides you through a beautifully animated, soothing 3-step \"Vibe Check\" questionnaire (asking how much time you have, your current mood, and the environment you want). Based on your specific combination of answers, it generates a personalized real-world mission—like outdoor photography, walking aimlessly, creative writing, or doing a deep self-care reset.",
-      "author": "Shivani Pal",
-      "date": "2026-10-06",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 47,
-      "url": "https://dev.to/shivani_pal_/detour-my-open-source-ai-entry-for-the-touch-grass-challenge-challenge-week-1-touch-grass-4c18",
-      "image": "https://assets.dev.to/assets/github-logo-5a155e1f9a670af7944dd5e12375bc76ed542ea80224905ecaf878b9157cdefc.svg",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-648d26ab6007",
-      "title": "The Real Cost of Unreliable Tools on Your Team",
-      "excerpt": "The Problem Nobody Puts in a Post-Mortem You open your project management tool on a Monday morning in 2024, and it's down. Not catastrophically down - just slow enough to make every click feel like a…",
-      "body": "The Problem Nobody Puts in a Post-Mortem You open your project management tool on a Monday morning in 2024, and it's down. Not catastrophically down - just slow enough to make every click feel like a gamble. You switch to Slack to check if anyone else is seeing it. Slack loads. You post in #general. Three people respond with the same \"yeah, broken for me too.\" Fifteen minutes later, the tool comes back. Nobody files a ticket. Nobody writes it up. The meeting starts late, and everyone moves on. That incident cost your team roughly an hour of collective time. Multiply it by how many tools you run, how many people are on your team, and how often this happens in a quarter. The number gets uncomfortable fast.",
-      "author": "ForgeWorkflows",
-      "date": "2026-10-06",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 46,
-      "url": "https://dev.to/forgeflows/the-real-cost-of-unreliable-tools-on-your-team-3ido",
-      "image": "/images/feed/feed-648d26ab6007.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-e61ccb610692",
-      "title": "A Shopify Order From a China Warehouse Is Six Decision Points, Not One API Call",
-      "excerpt": "The mental model most sellers carry into a China fulfillment arrangement is a single arrow: an order lands in Shopify, a webhook fires, a warehouse prints a label. Everything after that is a tracking…",
-      "body": "The mental model most sellers carry into a China fulfillment arrangement is a single arrow: an order lands in Shopify, a webhook fires, a warehouse prints a label. Everything after that is a tracking number. That arrow hides six decisions. The reason it is worth naming them one by one is that each one has a place where it can be made automatically, a place where it has to be made by a person, and a place where it is currently being made by nobody. The third category is where parcels get stuck. One: intake, keyed on something stable An order arrives. Before anything physical happens, the question is whether this is a new instruction or a repeat of one you already acted on.",
-      "author": "life",
-      "date": "2026-10-06",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Api"
-      ],
-      "featured": false,
-      "xpReward": 53,
-      "url": "https://dev.to/fulfillnexa/a-shopify-order-from-a-china-warehouse-is-six-decision-points-not-one-api-call-2ohj",
-      "image": "/images/feed/feed-e61ccb610692.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-4f7f9dd90936",
-      "title": "Watch many SSH sessions at once — a live grid for humans and agents",
-      "excerpt": "tmux and csshX tile your terminals; Termalin's watch grid tiles every open SSH session as a live view and glows the ones an AI agent is driving. Anyone who has run more than a couple of servers knows…",
-      "body": "tmux and csshX tile your terminals; Termalin's watch grid tiles every open SSH session as a live view and glows the ones an AI agent is driving. Anyone who has run more than a couple of servers knows the failure mode: eight terminal windows, a deploy going out across four of them, and no single place to see whether it's working. The old answers — tmux panes, csshX , a wall of iTerm splits — tile terminals so you can glance across them. They work, and they stop working the moment the thing you're watching isn't just you . When an AI agent is driving some of those sessions, \"glance across the panes\" isn't enough: you need to know which sessions are the agent's, and you need to be able to step in. That's what a watch grid is for.",
-      "author": "Svyatoslav Pavlov",
-      "date": "2026-10-06",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 40,
-      "url": "https://dev.to/wolfhound1995/watch-many-ssh-sessions-at-once-a-live-grid-for-humans-and-agents-3l6n",
-      "image": "/images/feed/feed-4f7f9dd90936.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-22d17d97f297",
-      "title": "Your Pixel Launcher may be getting a clever new way to make app suggestions",
-      "excerpt": "Suggestions could finally start paying attention to your location",
-      "body": "TL;DR Google’s Pixel Launcher can suggest useful apps in a row on your home screen or in your app drawer. Current suggestions are based on usage, as well your routines. Google appears to be preparing support for location-based suggestions. If you’re looking to get the most out of your Pixel phone, enabling app suggestions in your launcher can be a big benefit. Suggestions help surface your most-used apps where you’re likely to need them, and save us from scrolling though the ever-growing list of everything we have installed. Today, we’re checking out one way that Google could be about to make those suggestions even more useful. You’re reading an Authority Insights story.",
-      "author": "Stephen Schenck",
-      "date": "2026-10-06",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 32,
-      "url": "https://www.androidauthority.com/pixel-launcher-app-suggestions-3719732/",
-      "image": "/images/feed/feed-22d17d97f297.jpg",
-      "source": "Android Authority",
-      "isLive": true
-    },
-    {
-      "id": "feed-18be03ca94e0",
-      "title": "8 Best Prime Day Wearable Deals: Apple, Google, Samsung (2026)",
-      "excerpt": "I’ve tested the wearables, tracked the prices, and found the Prime Day deals worth grabbing.",
-      "body": "I’ve tested the wearables, tracked the prices, and found the Prime Day deals worth grabbing.\n\nThis report, published by Wired, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Wearable. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Wired using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Boutayna Chokrane ",
-      "date": "2026-10-06",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Wearable"
-      ],
-      "featured": false,
-      "xpReward": 49,
-      "url": "https://www.wired.com/story/amazon-prime-day-wearable-deals-10-6-2026/",
-      "image": "/images/feed/feed-18be03ca94e0.jpg",
-      "source": "Wired",
-      "isLive": true
-    },
-    {
-      "id": "feed-8956a3521ed9",
-      "title": "Marvel Unlimited is Officially Shutting Down in 2026",
-      "excerpt": "Marvel's digital comics app Marvel Unlimited will shut down after 19 years as Webtoon takes over and launches the Marvel Comics app.",
-      "body": "For the past two decades, Marvel Comics fans have had one major and reliable option for reading the company's library of comic books : Marvel Unlimited. That era will soon come to an end, as Marvel announced this week that it plans to retire the Marvel Unlimited app in December and replace it with a new option from an established digital comics provider .",
-      "author": "Michael McWhertor",
-      "date": "2026-10-06",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 33,
-      "url": "https://www.polygon.com/marvel-unlimited-shutting-down-webtoon-digital-comics-app/",
-      "image": "/images/feed/feed-8956a3521ed9.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-bec1589d8427",
-      "title": "Asos hit by extortion hack that may have compromised some customer data",
-      "excerpt": "The attackers sent a push notification to Asos shoppers announcing their activity.",
-      "body": "The attackers sent a push notification to Asos shoppers announcing their activity.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Anna Washenko)",
-      "date": "2026-10-06",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 40,
-      "url": "https://www.engadget.com/2279150/asos-hit-by-extortion-hack-that-may-have-compromised-some-customer-data/",
-      "image": "/images/feed/feed-bec1589d8427.jpg",
-      "source": "Engadget",
       "isLive": true
     },
     {
@@ -242,48 +509,10 @@
         "Gemini"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 42,
       "url": "https://www.zdnet.com/innovation/google-ai-free-model-access-limited/",
       "image": "/images/feed/feed-3beb00bd8352.jpg",
       "source": "ZDNet",
-      "isLive": true
-    },
-    {
-      "id": "feed-0cc5d22cac3b",
-      "title": "Arc Raiders And The Finals Set For Movie, TV Adaptations",
-      "excerpt": "Both Embark Studios games are looking to expand their horizons in new mediums",
-      "body": "Both Embark Studios games are looking to expand their horizons in new mediums\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Alicia Haddick",
-      "date": "2026-10-06",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 35,
-      "url": "https://kotaku.com/arc-raiders-and-the-finals-set-for-movie-tv-adaptations-2000740142",
-      "image": "/images/feed/feed-0cc5d22cac3b.jpg",
-      "source": "Kotaku",
-      "isLive": true
-    },
-    {
-      "id": "feed-a48175f792fc",
-      "title": "Why it's important to regularly replace your surge protectors",
-      "excerpt": "Time and spikes take a toll on a surge protector, even with no visible signs of damage.",
-      "body": "Time and spikes take a toll on a surge protector, even with no visible signs of damage.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Thomas Godwin)",
-      "date": "2026-10-06",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 46,
-      "url": "https://www.engadget.com/2277442/why-its-important-to-replace-surge-protector/",
-      "image": "/images/feed/feed-a48175f792fc.jpg",
-      "source": "Engadget",
       "isLive": true
     },
     {
@@ -299,48 +528,10 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 49,
       "url": "https://www.nasa.gov/news-release/nasa-glenn-invites-phase-1-proposals-for-aerospace-power-systems-laboratory/",
       "image": "/images/feed/feed-da34239d1b03.jpg",
       "source": "NASA Breaking News",
-      "isLive": true
-    },
-    {
-      "id": "feed-85b918bc835e",
-      "title": "iOS 27.2 gives Apple Books new design updates as iPhone Duo nears",
-      "excerpt": "Apple Books is my favorite app for reading, and it’s getting several welcome design updates in iOS 27.2. Here’s what’s new. more…",
-      "body": "Apple Books is my favorite app for reading, and it’s getting several welcome design updates in iOS 27.2. Here’s what’s new. more — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Iphone. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Ryan Christoffel",
-      "date": "2026-10-06",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Iphone"
-      ],
-      "featured": false,
-      "xpReward": 38,
-      "url": "https://9to5mac.com/2026/10/06/ios-27-2-gives-apple-books-new-design-updates-as-iphone-duo-nears/",
-      "image": "/images/feed/feed-85b918bc835e.jpg",
-      "source": "9to5Mac",
-      "isLive": true
-    },
-    {
-      "id": "feed-e63af2525409",
-      "title": "iOS 27.2 beta 3: Here’s everything new",
-      "excerpt": "Apple released iOS 27.2 beta 3 to developers yesterday, and it includes a handful of changes and hints at future features. Here’s everything new in the latest beta. more…",
-      "body": "Apple released iOS 27.2 beta 3 to developers yesterday, and it includes a handful of changes and hints at future features. Here’s everything new in the latest beta. more — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Chance Miller",
-      "date": "2026-10-06",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 32,
-      "url": "https://9to5mac.com/2026/10/06/ios-27-2-beta-3-heres-everything-new/",
-      "image": "/images/feed/feed-e63af2525409.jpg",
-      "source": "9to5Mac",
       "isLive": true
     },
     {
@@ -356,67 +547,10 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 50,
       "url": "https://electrek.co/2026/10/06/prime-day-1-green-deals-anker-solix-ecoflow-power-stations-segway-e-scooters-engwe-more/",
       "image": "/images/feed/feed-32c084d07e4f.jpg",
       "source": "Electrek",
-      "isLive": true
-    },
-    {
-      "id": "feed-92d0e319d869",
-      "title": "The Game of Thrones Complete Series 4K Box Set Drops Under $100 for the First Time Ever",
-      "excerpt": "The Game of Thrones Complete Series 4K Box Set Drops Under $100 for the First Time Ever",
-      "body": "George R.R. Martin&#39;s A Song of Ice of Fire is deep into spin-off TV territory these days, but it was the original Game of Thrones series that started it all. If you&#39;re hoping to pick up all eight seasons for your collection, the 4K box set has dropped to its lowest price of all time for Prime Big Deal Days . This Game of Thrones collection was released back in March 2026, and this is the first time the price has dropped under $100. The box set includes every episode as well as 15 hours of added bonus features. While it&#39;s true that you can stream Game of Thrones with an HBO Max subscription, you&#39;ll need to have the most expensive tier to actually get it in 4K .",
-      "author": "Jacob Kienlen",
-      "date": "2026-10-06",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Game"
-      ],
-      "featured": false,
-      "xpReward": 35,
-      "url": "https://www.ign.com/articles/the-game-of-thrones-complete-series-4k-uhd-box-set-deal-prime-big-deal-days-2026",
-      "image": "/images/feed/feed-92d0e319d869.png",
-      "source": "IGN",
-      "isLive": true
-    },
-    {
-      "id": "feed-3d35415370b6",
-      "title": "The 24 Best Prime Day Deals Under $100 (2026)",
-      "excerpt": "Everything is so expensive in 2026, but these October Prime Day Deals are all under $100 on gadgets we recommend.",
-      "body": "Everything is so expensive in 2026, but these October Prime Day Deals are all under $100 on gadgets we recommend.\n\nThis report, published by Wired, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Wired using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Simon Hill",
-      "date": "2026-10-06",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 48,
-      "url": "https://www.wired.com/story/best-prime-day-deals-under-100-10-06-2026/",
-      "image": "/images/feed/feed-3d35415370b6.jpg",
-      "source": "Wired",
-      "isLive": true
-    },
-    {
-      "id": "feed-143a890771d8",
-      "title": "The Dungeons & Dragons And Magic: The Gathering Teams Are Forming A Union",
-      "excerpt": "If successful, this unionization effort would bring almost every Wizards of the Coast IP under union representation",
-      "body": "If successful, this unionization effort would bring almost every Wizards of the Coast IP under union representation\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Ash Parrish",
-      "date": "2026-10-06",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 52,
-      "url": "https://kotaku.com/the-dungeons-and-dragons-and-magic-the-gathering-teams-are-forming-a-union-2000741031",
-      "image": "/images/feed/feed-143a890771d8.jpg",
-      "source": "Kotaku",
       "isLive": true
     },
     {
@@ -432,48 +566,10 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 43,
       "url": "https://www.bleepingcomputer.com/news/security/atlassian-warns-of-critical-file-access-flaw-in-jira-confluence/",
       "image": "/images/feed/feed-55757333f211.jpg",
       "source": "BleepingComputer",
-      "isLive": true
-    },
-    {
-      "id": "feed-5408a969685b",
-      "title": "Warship Game Steals Nonsensical Aircraft Design And Then Tries To Sell It In-Game For $700",
-      "excerpt": "'Your design was used as a reference without proper clearance,' says Artstorm about the replicated ekranoplan",
-      "body": "'Your design was used as a reference without proper clearance,' says Artstorm about the replicated ekranoplan\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Game. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "John Walker",
-      "date": "2026-10-06",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Game"
-      ],
-      "featured": false,
-      "xpReward": 34,
-      "url": "https://kotaku.com/modern-warships-artstorm-plagiarism-alex-brady-war-thunder-2000740997",
-      "image": "/images/feed/feed-5408a969685b.jpg",
-      "source": "Kotaku",
-      "isLive": true
-    },
-    {
-      "id": "feed-9c4799299538",
-      "title": "Amazon Restocks Rare Pokémon TCG Sets for Prime Day",
-      "excerpt": "Amazon has restocked rare Pokémon TCG products for Prime Day, including 30th anniversary First Partner Collections, Surging Sparks boosters, and more.",
-      "body": "Amazon&#39;s Prime Big Deal Days sale is now fully underway, and there are more than enough standout offers to get your teeth stuck into over the next couple of days. Yes, this is a remarkably short sale by Amazon&#39;s recent standards, lasting just 48 hours through October 6-7. There are a few new Pokémon TCG items that have been restocked as part of the sale, including 30th anniversary First Partner Collections, Surging Sparks, and Perfect Order boosters, and loads more. The selection isn&#39;t quite as spectacular as we&#39;ve seen in previous restocks, such as during Pokémon Day or Labor Day, but it&#39;s still not bad at all. Let&#39;s take a look at what&#39;s up for grabs. For now, let&#39;s start with the biggest and best finds from this Labor Day restock.",
-      "author": "Robert Anderson",
-      "date": "2026-10-06",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 48,
-      "url": "https://www.ign.com/articles/amazon-restocks-rare-pokmon-tcg-sets-for-prime-day",
-      "image": "/images/feed/feed-9c4799299538.png",
-      "source": "IGN",
       "isLive": true
     },
     {
@@ -489,7 +585,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 35,
       "url": "https://www.wired.com/story/openai-is-pissing-off-a-bunch-of-mathematicians-again/",
       "image": "/images/feed/feed-e39c25c133f4.jpg",
       "source": "Wired",
@@ -508,7 +604,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 45,
       "url": "https://electrek.co/2026/10/06/mitsubishis-new-ev-costs-8000-more-than-nissan-leaf/",
       "image": "/images/feed/feed-3646742c4b2a.jpg",
       "source": "Electrek",
@@ -518,7 +614,7 @@
       "id": "feed-d182c97a0d9e",
       "title": "Tesla Model 3 and Model Y can finally power your home",
       "excerpt": "Tesla has turned on Powershare Home Backup for the Model 3 and Model Y, which means its two volume cars can now send power back into a house during an outage. Until today, the Cybertruck was the only…",
-      "body": "Tesla has turned on Powershare Home Backup for the Model 3 and Model Y, which means its two volume cars can now send power back into a house during an outage. Until today, the Cybertruck was the only Tesla that could do it. There are limits. You need a Powerwall 3, and Tesla only guarantees the feature on cars ordered since October 1. Ford and GM have been selling EVs that can back up a home for years. more…",
+      "body": "Tesla has turned on Powershare Home Backup for the Model 3 and Model Y, which means its two volume cars can now send power back into a house during an outage. Until today, the Cybertruck was the only Tesla that could do it. There are limits. You need a Powerwall 3, and Tesla only guarantees the feature on cars ordered since October 1. For years, Ford and GM have been selling EVs that can back up a home. more…",
       "author": "Fred Lambert",
       "date": "2026-10-06",
       "readTime": "2 min",
@@ -527,7 +623,7 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 45,
       "url": "https://electrek.co/2026/10/06/tesla-powershare-home-backup-model-3-model-y-powerwall-3/",
       "image": "/images/feed/feed-d182c97a0d9e.jpg",
       "source": "Electrek",
@@ -546,7 +642,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 38,
       "url": "https://insideevs.com/news/810941/russia-passes-america-ev-share/",
       "image": "/images/feed/feed-2d519e51efb5.jpg",
       "source": "InsideEVs",
@@ -565,7 +661,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 54,
       "url": "https://techcrunch.com/2026/10/06/mirror-particle-is-building-a-world-model-of-human-behavior/",
       "image": "/images/feed/feed-23d4205c2c0b.jpg",
       "source": "TechCrunch",
@@ -585,7 +681,7 @@
         "Breach"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 38,
       "url": "https://www.bleepingcomputer.com/news/security/asos-confirms-data-breach-after-hacked-in-app-notifications/",
       "image": "/images/feed/feed-b6744a76660e.jpg",
       "source": "BleepingComputer",
@@ -604,7 +700,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 41,
       "url": "https://techcrunch.com/2026/10/06/learn-all-about-scaling-fundraising-founder-how-tos-and-more-at-techcrunch-founder-summit-november-4/",
       "image": "/images/feed/feed-4819b0c7c989.jpg",
       "source": "TechCrunch",
@@ -623,7 +719,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 51,
       "url": "https://www.nasa.gov/image-article/astronomers-solve-cosmic-cold-case-with-nasa-hubble-data/",
       "image": "/images/feed/feed-458cf76d6fbf.jpg",
       "source": "NASA Breaking News",
@@ -642,7 +738,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 39,
       "url": "https://openai.com/index/atlassian-partnership",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "OpenAI Blog",
@@ -662,7 +758,7 @@
         "Claude"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 33,
       "url": "https://techcrunch.com/2026/10/06/anthropic-gives-startups-a-free-year-of-enterprise-service-and-1000-in-token-credits/",
       "image": "/images/feed/feed-e5ed95e929ea.jpg",
       "source": "TechCrunch",
@@ -681,7 +777,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 42,
       "url": "https://electrek.co/2026/10/06/bmws-new-ix4-leaks-days-ahead-of-debut-images/",
       "image": "/images/feed/feed-632f240eb37d.jpg",
       "source": "Electrek",
@@ -700,49 +796,10 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 46,
       "url": "https://www.nasa.gov/missions/mars-science-laboratory/curiosity-rover/nasas-curiosity-rover-catches-stunning-martian-dawn/",
       "image": "/images/feed/feed-000620cd8f82.png",
       "source": "NASA Breaking News",
-      "isLive": true
-    },
-    {
-      "id": "feed-b5230d49f3e1",
-      "title": "Fake ChatGPT, Gemini Sites steal advertising accounts, MFA codes",
-      "excerpt": "A new campaign targeting ad account managers uses fake ChatGPT, Gemini, Claude, and Perplexity sites that steal login credentials and multi-factor authentication (MFA) codes through browser-in-browser…",
-      "body": "A new campaign targeting ad account managers uses fake ChatGPT, Gemini, Claude, and Perplexity sites that steal login credentials and multi-factor authentication (MFA) codes through browser-in-browser — a development drawing significant attention in the artificial intelligence and machine learning space.\n\nThis report, published by BleepingComputer, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Chatgpt, Gemini. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to BleepingComputer using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Bill Toulas",
-      "date": "2026-10-06",
-      "readTime": "2 min",
-      "section": "ai",
-      "tags": [
-        "Chatgpt",
-        "Gemini"
-      ],
-      "featured": false,
-      "xpReward": 40,
-      "url": "https://www.bleepingcomputer.com/news/security/fake-chatgpt-gemini-sites-steal-advertising-accounts-mfa-codes/",
-      "image": "/images/feed/feed-b5230d49f3e1.jpg",
-      "source": "BleepingComputer",
-      "isLive": true
-    },
-    {
-      "id": "feed-21013d86aac8",
-      "title": "A Trump Mobile breach may have exposed data of more than 3,600 people",
-      "excerpt": "Trump Mobile appears to have suffered a data breach that may have exposed the data of 3,615 people, according to reports from PCMag and Straight Arrow News. The breach reportedly included names, home…",
-      "body": "Trump Mobile appears to have suffered a data breach that may have exposed the data of 3,615 people, according to reports from PCMag and Straight Arrow News . The breach reportedly included names, home addresses, emails, phone numbers, and order information. PCMag and Straight Arrow News contacted several individuals in the dataset, who confirmed that the leaked information was accurate. The leaked data may include people who never fully signed up for Trump Mobile, as one person told PCMag that they never managed to set up their account but still gave the company their email address and phone number. It also reportedly includes information re … Read the full story at The Verge.",
-      "author": "Emma Roth",
-      "date": "2026-10-06",
-      "readTime": "2 min",
-      "section": "cybersecurity",
-      "tags": [
-        "Breach"
-      ],
-      "featured": false,
-      "xpReward": 34,
-      "url": "https://www.theverge.com/tech/1005546/trump-mobile-data-breach-leak",
-      "image": "/images/feed/feed-21013d86aac8.jpg",
-      "source": "The Verge",
       "isLive": true
     },
     {
@@ -758,7 +815,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 42,
       "url": "https://electrek.co/2026/10/06/suzuki-undercuts-byd-13500-mini-ev-using-byd-batteries/",
       "image": "/images/feed/feed-ff37cc611b80.jpg",
       "source": "Electrek",
@@ -777,29 +834,10 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 31,
       "url": "https://www.bleepingcomputer.com/news/security/how-to-secure-rmm-software-8-controls-msps-should-test/",
       "image": "/images/feed/feed-4ec0d751518c.jpg",
       "source": "BleepingComputer",
-      "isLive": true
-    },
-    {
-      "id": "feed-4af6bdb6695f",
-      "title": "Tesla sold under 1,000 cars in its first year in India, but it’s ramping",
-      "excerpt": "Tesla has registered just 993 vehicles in India since it started deliveries there in September 2025, according to registration data compiled by Indian EV publication ElecTree. But 294 of those came in…",
-      "body": "Tesla has registered just 993 vehicles in India since it started deliveries there in September 2025, according to registration data compiled by Indian EV publication ElecTree . But 294 of those came in September 2026 alone. That’s a record month for Tesla in India, and it comes right after the automaker cut prices and launched the six-seat Model Y L. more…",
-      "author": "Fred Lambert",
-      "date": "2026-10-06",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Tesla"
-      ],
-      "featured": false,
-      "xpReward": 36,
-      "url": "https://electrek.co/2026/10/06/tesla-india-first-year-under-1000-cars-model-y-l-ramp/",
-      "image": "/images/feed/feed-4af6bdb6695f.jpg",
-      "source": "Electrek",
       "isLive": true
     },
     {
@@ -815,7 +853,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 30,
       "url": "https://www.zdnet.com/innovation/mistral-le-chonk-ai-cybersecurity-business/",
       "image": "/images/feed/feed-2420baa82120.jpg",
       "source": "ZDNet",
@@ -834,7 +872,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 31,
       "url": "https://science.nasa.gov/missions/webb/nasas-webb-captures-commotion-from-nebulas-stellar-jets/",
       "image": "/images/feed/feed-a5140bc1b802.png",
       "source": "NASA Breaking News",
@@ -853,7 +891,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 30,
       "url": "https://thehackernews.com/2026/10/libreoffice-and-openoffice-flaws-let.html",
       "image": "/images/feed/feed-e86b473d82e7.jpg",
       "source": "The Hacker News",
@@ -872,81 +910,43 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 41,
       "url": "https://www.bleepingcomputer.com/news/security/rogue-openai-agents-behind-potentially-malicious-wikipedia-edits/",
       "image": "/images/feed/feed-caa2932e0646.jpg",
       "source": "BleepingComputer",
       "isLive": true
     },
     {
-      "id": "feed-02b472a989f6",
-      "title": "APOD: 2026 October 6 – A Complete Auroral Oval from SMILE",
-      "excerpt": "APODScienceAPODAPOD: 2026 October 6 – A…Today’s APODArchiveSubmissionsIndexSearchCalendarRSSEducationAboutDiscuss APOD Astronomy Picture of the Day Discover the cosmos! Each day a different image or p…",
-      "body": "APOD Science APOD APOD: 2026 October 6 – A… Today’s APOD Archive Submissions Index Search Calendar RSS Education About Discuss APOD Astronomy Picture of the Day Discover the cosmos! Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer. ESA, CAS, SMILE, UVI A Complete Auroral Oval from SMILE Explanation: Have you ever seen a complete auroral oval? You can’t see one from the ground because it makes too large a circle around one of Earth’s magnetic pole s. But spacecraft high above the Earth can see them. The featured video from ESA and CAS ‘s robotic SMILE spacecraft shows not only a full auroral oval , but using ultraviolet light , one that occurred during the day.",
-      "author": "NASA Breaking News",
+      "id": "feed-bff11d5fad8b",
+      "title": "Wikimedia Says OpenAI Agents Tried to Compromise Etherpad and Use Wiki Tools as Proxies",
+      "excerpt": "The Wikimedia Foundation, which hosts Wikipedia, has confirmed that it has discovered activity by rogue OpenAI agents on its platforms, including unsuccessful efforts to compromise Etherpad, a public…",
+      "body": "The Wikimedia Foundation, which hosts Wikipedia, has confirmed that it has discovered activity by rogue OpenAI agents on its platforms, including unsuccessful efforts to compromise Etherpad, a public note-taking tool, and edit Wikipedia pages. \"The unauthorized bot activities included edits to our wikis, some unsuccessful attempts to exploit a public note-taking tool we host, and heavy traffic,",
+      "author": "info@thehackernews.com (The Hacker News)",
       "date": "2026-10-06",
       "readTime": "2 min",
-      "section": "space",
+      "section": "cybersecurity",
       "tags": [
-        "Space"
+        "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 45,
-      "url": "https://science.nasa.gov/image-article/apod-2026-october-6-a-complete-auroral-oval-from-smile/",
-      "image": "/images/feed/feed-02b472a989f6.jpg",
-      "source": "NASA Breaking News",
-      "isLive": true
-    },
-    {
-      "id": "feed-86ecde87d6f7",
-      "title": "The Beaver Brown Waters of Rupert Bay",
-      "excerpt": "Dissolved organic matter and suspended sediment mingle in the southernmost extent of James Bay.",
-      "body": "Earth Observatory Science Earth Observatory The Beaver Brown Waters of… Earth Earth Observatory Image of the Day EO Explorer Topics All Topics Atmosphere Land Heat &#038; Radiation Life on Earth Human Dimensions Natural Events Oceans Remote Sensing Technology Snow &#038; Ice Water More Content Collections Global Maps World of Change Articles Earth Matters Blog Blue Marble: Next Generation EO Kids Mission: Biomes About About Us Subscribe 🛜 RSS Contact Us Search The Cree word pahtaaunaakun seems particularly apt for describing the distinctive brown hues of the waters that drain into Hannah Bay and Rupert Bay in Canada.",
-      "author": "NASA Breaking News",
-      "date": "2026-10-06",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Space"
-      ],
-      "featured": false,
-      "xpReward": 31,
-      "url": "https://science.nasa.gov/earth/earth-observatory/the-beaver-brown-waters-of-rupert-bay/",
-      "image": "/images/feed/feed-86ecde87d6f7.jpg",
-      "source": "NASA Breaking News",
-      "isLive": true
-    },
-    {
-      "id": "feed-d6e9351ef24f",
-      "title": "Curiosity Blog, Sols 5029-5035: Back in the Lab",
-      "excerpt": "Written by Michelle Minitti, MAHLI Deputy Principal Investigator Earth planning date: Friday, Oct. 1, 2026 The majority of Curiosity plans involve mosaics from Mastcam and ChemCam, chemistry analyses…",
-      "body": "Curiosity Navigation Curiosity Home Mission Overview Where is Curiosity? Mission Updates Science Overview Instruments Highlights Exploration Goals News and Features Multimedia Curiosity Raw Images Images Videos Audio Mosaics More Resources Mars Missions Mars Perseverance Rover Mars Curiosity Rover Mars Reconnaissance Orbiter Mars Odyssey More Mars Missions Mars Home 2 min read Curiosity Blog, Sols 5029-5035: Back in the Lab Image of the “Basque Lakes” drill hole and surrounding tailings (the small mound near the lower right corner of the workspace bedrock). NASA’s Mars rover Curiosity acquired this image using its Left Navigation Camera (Navcam) on Sept. 24, 2026 — Sol 5024, or Martian day 5,024 of the Mars Science Laboratory mission — at 05:46:29 UTC.",
-      "author": "NASA Breaking News",
-      "date": "2026-10-06",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Space"
-      ],
-      "featured": false,
-      "xpReward": 43,
-      "url": "https://science.nasa.gov/blog/curiosity-blog-sols-5029-5035-back-in-the-lab/",
-      "image": "/images/feed/feed-d6e9351ef24f.jpg",
-      "source": "NASA Breaking News",
+      "xpReward": 37,
+      "url": "https://thehackernews.com/2026/10/wikimedia-says-openai-agents-tried-to.html",
+      "image": "/images/feed/feed-bff11d5fad8b.jpg",
+      "source": "The Hacker News",
       "isLive": true
     }
   ],
   "breakingNews": [
-    "DEV.TO: agentgateway v1.6.0: Cost Tracking With No Catalog Config",
-    "DEV.TO: Cheap Centralized Logging for 3 Small SaaS Cron Jobs — Rollback Evidence",
-    "POLYGON: 30th Celebration Hype Sends 23-Year-Old Pokémon Card To Staggering $360,000 Record",
-    "WIRED: 114 Best Prime Day Deals We’re Shopping This October (2026)",
-    "DEV.TO: Detour: My Open-Source AI Entry for the Touch Grass Challenge (Challenge Week 1: Touch Grass)",
-    "DEV.TO: The Real Cost of Unreliable Tools on Your Team",
-    "DEV.TO: A Shopify Order From a China Warehouse Is Six Decision Points, Not One API Call",
-    "DEV.TO: Watch many SSH sessions at once — a live grid for humans and agents",
-    "ANDROID AUTHORITY: Your Pixel Launcher may be getting a clever new way to make app suggestions",
-    "WIRED: 8 Best Prime Day Wearable Deals: Apple, Google, Samsung (2026)"
+    "DEV.TO: Indirect Prompt Injection Through Tool Descriptions and Tool Output: How Untrusted Metadata Hijacks Agents",
+    "DEV.TO: Audio-Only Podcast? What Actually Works for Short-Form Video",
+    "DEV.TO: The Loop Is Closed — So Who Checks the Agent's Work?",
+    "DEV.TO: How to Get Your Tool Recommended by ChatGPT, Perplexity, and Google",
+    "DEV.TO: When the attacker is an agent: a defender's field guide to autonomous AI intrusions in 2026",
+    "DEV.TO: KV Cache Quantization in LLM Serving: FP8 and INT8 Tradeoffs, the Silent config.json Trap, and How to Measure It Fairly",
+    "DEV.TO: ZTC (Zero-Token Confidence): juzgar una acción de IA leyendo el estado interno del modelo, con cero tokens extra",
+    "ANDROID AUTHORITY: Google is quietly making email verification less annoying in Chrome on Android",
+    "ELECTREK: Toyota shuts down rumors claiming that it’s ‘slashing prices’ in China",
+    "THE VERGE: Alexa can’t control the aux input on Amazon Echo speakers anymore"
   ],
   "sectionVideos": {}
 }
