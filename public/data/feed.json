@@ -1,31 +1,107 @@
 {
-  "fetchedAt": "2026-10-07T02:26:43.844Z",
+  "fetchedAt": "2026-10-07T03:19:23.881Z",
   "articles": [
     {
-      "id": "feed-735847af1520",
-      "title": "5 Micro-Habits That Instantly Made Me a Cleaner, Faster Developer",
-      "excerpt": "Writing code that works is only half the battle; writing code that your future self and teammates can actually read is where the real skill lives. Early in my development journey, I spent far too many…",
-      "body": "Writing code that works is only half the battle; writing code that your future self and teammates can actually read is where the real skill lives. Early in my development journey, I spent far too many hours untangling my own messy logic and chasing bugs caused by simple oversight. Over time, I realized that huge improvements rarely come from grand redesigns—they come from small, consistent habits baked directly into your daily workflow. Here are five micro-habits that completely changed how I write software: Write the Comment Before the Code (Intent-Driven Development): Before writing a function, describe what it should do in plain English as a top-line comment. If you can't explain the logic in one or two clear sentences, your function is trying to do too much.",
-      "author": "Amritesh Tripathi",
+      "id": "feed-ed80b3917894",
+      "title": "Mega Millions after taxes: the 24% withholding is the wrong number (with code)",
+      "excerpt": "Most \"how much is the jackpot after taxes\" answers start from the wrong number. They take the cash value, subtract the 24% the lottery withholds, and call the rest take-home. For a big jackpot that ov…",
+      "body": "Most \"how much is the jackpot after taxes\" answers start from the wrong number. They take the cash value, subtract the 24% the lottery withholds, and call the rest take-home. For a big jackpot that overstates what the winner keeps by millions, because withholding is a down payment, not the tax. This post builds the calculation properly in about 40 lines of JavaScript, using a public dataset of 2026 federal and state brackets, and runs it on the current Mega Millions jackpot: $345 million, or $139.6 million cash. Withholding vs. tax When a prize is claimed, the lottery withholds 24% of the winnings minus the ticket price for federal tax.",
+      "author": "LTD Atlas",
       "date": "2026-10-07",
       "readTime": "2 min",
       "section": "software",
       "tags": [
-        "Developer"
+        "Software"
       ],
       "featured": true,
-      "xpReward": 44,
-      "url": "https://dev.to/amritesh_tripathi_06e4492/5-micro-habits-that-instantly-made-me-a-cleaner-faster-developer-4g89",
-      "image": "/images/feed/feed-735847af1520.webp",
+      "xpReward": 34,
+      "url": "https://dev.to/jiankn/mega-millions-after-taxes-the-24-withholding-is-the-wrong-number-with-code-1jjn",
+      "image": "/images/feed/feed-ed80b3917894.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-932931bc8bdc",
-      "title": "Your agent's test gate runs the tests in the tree the agent just edited",
-      "excerpt": "A post in this tag (Why AI Coding Agents Can't Grade Their Own Homework) proposes an out-of-context test gate: reject any diff that touches tests/, run pytest, pass only on exit code 0. Its three name…",
-      "body": "A post in this tag ( Why AI Coding Agents Can't Grade Their Own Homework ) proposes an out-of-context test gate : reject any diff that touches tests/ , run pytest, pass only on exit code 0. Its three named evasions are assertion dilution, exit-code hijacking, and context contamination. I agree with the instinct. So I took the gate's own code, dropped it into a repo with a one-line bug, and ran the evasions against it. It passed all three. Receipts below. The setup One bug, one honest test: # app.py def add ( a , b ): return a - b # the bug # tests/test_app.py from app import add def test_add (): assert add ( 2 , 3 ) == 5 Baseline: 1 failed . Now the gate from the article, unchanged. It does catch the naive case: edit the assertion in tests/ without committing, and it says REJECTED .",
-      "author": "Maya",
+      "id": "feed-62d87812096d",
+      "title": "Podcast repurposing workflow",
+      "excerpt": "Podcast Repurposing Workflow: как превратить один эпизод в 10 единиц контента без выгорания Большинство подкастеров-одиночек бросают не из-за нехватки идей. Они бросают из-за рутины: каждый эпизод тре…",
+      "body": "Podcast Repurposing Workflow: как превратить один эпизод в 10 единиц контента без выгорания Большинство подкастеров-одиночек бросают не из-за нехватки идей. Они бросают из-за рутины: каждый эпизод требует шоу-ноутс, таймкодов, глав, постов в соцсети, рассылки, нарезки клипов. Если на это уходит 3–4 часа после каждой записи, энтузиазм заканчивается на пятом выпуске. Хорошая новость: это не творческая проблема, а проблема процесса. В этой статье — рабочий podcast repurposing workflow, который можно внедрить уже на следующем эпизоде. Без новых подписок, без сложных инструментов, без переписывания всего заново. Что такое repurposing и почему это не «нарезать клипы» Repurposing — это не просто вырезать три момента из видео.",
+      "author": "BAW BAN",
+      "date": "2026-10-07",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 50,
+      "url": "https://dev.to/baw_ban_e189b8ac0e4ae1053/podcast-repurposing-workflow-3n8e",
+      "image": "/images/feed/feed-62d87812096d.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-d7dde0f34da7",
+      "title": "Zero-Knowledge by Design: Client-Side AES-256 Encryption in SvelteKit",
+      "excerpt": "A developer pastes an API key into a conventional pastebin. The service receives the plaintext, writes it to a database, and returns a link. Anyone who can read that database can read the key: an admi…",
+      "body": "A developer pastes an API key into a conventional pastebin. The service receives the plaintext, writes it to a database, and returns a link. Anyone who can read that database can read the key: an administrator, an attacker with stolen credentials, or someone restoring a backup. HTTPS protects the connection against passive network eavesdroppers. It does not prevent the service operator from reading the request after TLS termination. A pastebin that accepts plaintext has that access by design. I built CloakBin around browser-side encryption. Senders encrypt before uploading. Recipients decrypt after downloading. The backend stores an encrypted content blob and operational metadata, without the content key or password. The source repository uses SvelteKit and TypeScript.",
+      "author": "Ishan Naik",
+      "date": "2026-10-07",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 42,
+      "url": "https://dev.to/ishannaik/zero-knowledge-by-design-client-side-aes-256-encryption-in-sveltekit-2698",
+      "image": "/images/feed/feed-d7dde0f34da7.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-14680eca78aa",
+      "title": "SiliconFlow API Review 2026: Setup, Models and Real Pricing",
+      "excerpt": "Verdict up front: SiliconFlow is a solid, OpenAI-compatible way to call open-weight LLMs (DeepSeek, Qwen, GLM, Kimi, MiniMax) from one key, with an Anthropic-compatible endpoint as a bonus. It is not…",
+      "body": "Verdict up front: SiliconFlow is a solid, OpenAI-compatible way to call open-weight LLMs (DeepSeek, Qwen, GLM, Kimi, MiniMax) from one key, with an Anthropic-compatible endpoint as a bonus. It is not automatically the cheapest host for every model. Check the specific model you need before you commit. Prices below were read off each provider's public pricing page on October 6, 2026. I went looking for a current, practical write-up on SiliconFlow and mostly found launch posts. SiliconFlow's own dev.to account announces models as they arrive, which is useful, but its two newest posts there cover GLM-4.6V and GLM-4.7, and both have since been deprecated on the platform.",
+      "author": "Greta Volkov",
+      "date": "2026-10-07",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Api"
+      ],
+      "featured": true,
+      "xpReward": 49,
+      "url": "https://dev.to/gretavolkov/siliconflow-api-review-2026-setup-models-and-real-pricing-1gdo",
+      "image": "/images/feed/feed-14680eca78aa.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-9aab779df952",
+      "title": "Zero Cloud Storage: Building a P2P File Transfer App with WebRTC DataChannels and Cloudflare Workers",
+      "excerpt": "I built Warp so two people can transfer a file without uploading it to my infrastructure. The sender keeps the source file open. The receiver accepts the offer. Their browsers exchange the bytes throu…",
+      "body": "I built Warp so two people can transfer a file without uploading it to my infrastructure. The sender keeps the source file open. The receiver accepts the offer. Their browsers exchange the bytes through an encrypted WebRTC DataChannel. That choice removes the hosted file store, its retention policy, and its bandwidth bill. It also leaves me with engineering work that an upload service would hide: NAT traversal, browser send queues, receiver storage quotas, and incomplete writes. The MIT-licensed repository contains a React 19 and TypeScript frontend in web/ , plus a Cloudflare Worker and Durable Object in server/ . The production app uses Cloudflare's free tier. File size does not determine the signaling server's bandwidth use because the browsers carry the file traffic themselves.",
+      "author": "Ishan Naik",
+      "date": "2026-10-07",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 44,
+      "url": "https://dev.to/ishannaik/zero-cloud-storage-building-a-p2p-file-transfer-app-with-webrtc-datachannels-and-cloudflare-workers-103i",
+      "image": "/images/feed/feed-9aab779df952.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-d9704cd292a0",
+      "title": "AI Coding Agents Are Leaking Your Secrets: Building a Local Pre-Commit DLP for Claude Code",
+      "excerpt": "You paste a .env file into Claude Code to debug a database connection. You remove the credentials from your next message, clean the repository, and rotate the database password. Your local conversatio…",
+      "body": "You paste a .env file into Claude Code to debug a database connection. You remove the credentials from your next message, clean the repository, and rotate the database password. Your local conversation history still contains the original paste. Claude Code keeps JSONL transcripts beneath ~/.claude/projects/ . Codex keeps session JSONL beneath ~/.codex/sessions/ . A process running as your user can read those files without asking either agent for permission. I built AgentSweep to scan that history, report credential-shaped strings, and redact them without breaking the history format. I also added a pre-commit hook so developers can check this separate store of secrets before committing code.",
+      "author": "Ishan Naik",
       "date": "2026-10-07",
       "readTime": "2 min",
       "section": "software",
@@ -34,124 +110,123 @@
       ],
       "featured": true,
       "xpReward": 53,
-      "url": "https://dev.to/mayailands/your-agents-test-gate-runs-the-tests-in-the-tree-the-agent-just-edited-574",
-      "image": "/images/feed/feed-932931bc8bdc.webp",
+      "url": "https://dev.to/ishannaik/ai-coding-agents-are-leaking-your-secrets-building-a-local-pre-commit-dlp-for-claude-code-1i9g",
+      "image": "/images/feed/feed-d9704cd292a0.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-7f43dbff8996",
-      "title": "Install Mininet on Ubuntu for Network Simulation: 3 Methods That Actually Work",
-      "excerpt": "Learning computer networking is ten times easier when you can build a topology and ping it yourself. The problem: most students do not own a stack of switches. Mininet fixes that — a free, open-source…",
-      "body": "Learning computer networking is ten times easier when you can build a topology and ping it yourself. The problem: most students do not own a stack of switches. Mininet fixes that — a free, open-source network emulator that turns one Linux machine into a complete virtual network lab in seconds. What Mininet is Mininet creates a realistic virtual network — running the real kernel, switch, and application code — on a single machine, controlled through a CLI and a Python API. It is the go-to tool for learning and researching Software-Defined Networking (SDN) with OpenFlow and P4, released under a permissive BSD license. Each virtual host runs real Linux applications like ping and iperf , so experiments behave like the real thing. 3 ways to install it on Ubuntu 1. Via APT (easiest).",
-      "author": "Miftahul Rizki",
+      "id": "feed-74d93174ef2a",
+      "title": "Lovable to App Store, Step by Step",
+      "excerpt": "Going from Lovable to App Store is not one step, it's about nine, and the slowest one has nothing to do with code. This is the order we do them in for a Lovable iOS app, with the bits that trip people…",
+      "body": "Going from Lovable to App Store is not one step, it's about nine, and the slowest one has nothing to do with code. This is the order we do them in for a Lovable iOS app, with the bits that trip people up. Whether Apple will accept a wrapped web app at all is a separate question, and I wrote about that in the guideline 4.2 post . Read that first if your app is mostly forms and lists. 1. Start the Apple Developer enrollment today $99 a year. Do it before anything else, because verification is the part you can't speed up. You can enroll as an individual or as an organization. Individual is fast, often same day, but your personal legal name shows on the App Store as the seller.",
+      "author": "Aakash",
       "date": "2026-10-07",
       "readTime": "2 min",
       "section": "software",
       "tags": [
         "Software"
       ],
-      "featured": true,
-      "xpReward": 51,
-      "url": "https://dev.to/jordi_alba_d647bfab06b462/install-mininet-on-ubuntu-for-network-simulation-3-methods-that-actually-work-59dm",
-      "image": "/images/feed/feed-7f43dbff8996.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-864053312ac3",
-      "title": "ShowDoc 3.9.2 and the username field that ends up as PHP",
-      "excerpt": "ShowDoc 3.9.2 and the username field that ends up as PHP Chinese security firm QiAnXin published QVD-2026-61708 on 4 September 2026. The advisory covers ShowDoc, a documentation and API-definition too…",
-      "body": "ShowDoc 3.9.2 and the username field that ends up as PHP Chinese security firm QiAnXin published QVD-2026-61708 on 4 September 2026. The advisory covers ShowDoc, a documentation and API-definition tool that teams commonly run on an internal host. The flaw is an unauthenticated remote code execution issue in deployments backed by SQLite, and it is fixed in version 3.9.3. How a registration endpoint becomes a shell The vulnerable entry point is registerByVerify , a registration route that accepts a verification code and creates a user account without a session. ShowDoc validates the submitted username by trimming whitespace and then storing it. Any character that survives the trim is written into the account record.",
-      "author": "yutianle",
-      "date": "2026-10-07",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 52,
-      "url": "https://dev.to/bianliang/showdoc-392-and-the-username-field-that-ends-up-as-php-81",
-      "image": "/images/feed/feed-864053312ac3.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-31878fbfdcdc",
-      "title": "AI & SaaS pricing this week: 5 raised, 1 cut (16 pages moved) - 2026-09-13",
-      "excerpt": "Every one of the 133 pricing pages in the tracked set is fetched daily. These are the ones whose price-bearing content changed in the last 7 days. Company Category Change Entry price Detected CodeRabb…",
-      "body": "Every one of the 133 pricing pages in the tracked set is fetched daily. These are the ones whose price-bearing content changed in the last 7 days. Company Category Change Entry price Detected CodeRabbit ai-coding pricing structure changed - 2026-09-09 Cursor ai-coding price increase $40 -&gt; $60 ( +50% ) 2026-09-11 Replit ai-coding pricing structure changed $17 -&gt; $18 ( +6% ) 2026-09-10 Together AI ai-infra pricing structure changed $5 -&gt; $5.08 ( +2% ) 2026-09-12 Krea ai-media new pricing introduced - 2026-09-08 QuillBot ai-writing price increase $5 -&gt; $8.33 ( +67% ) 2026-09-08 Activepieces automation price decrease - 2026-09-07 n8n automation new pricing introduced - 2026-09-10 Fly.io dev-platform price increase - 2026-09-09 PostHog dev-platform pricing structure changed - 2026-…",
-      "author": "The Pricing Diff",
-      "date": "2026-10-07",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
+      "featured": false,
       "xpReward": 33,
-      "url": "https://dev.to/pricingdiff/ai-saas-pricing-this-week-5-raised-1-cut-16-pages-moved-2026-09-13-ang",
-      "image": "/images/feed/feed-31878fbfdcdc.webp",
+      "url": "https://dev.to/batmanofweb/lovable-to-app-store-step-by-step-4agn",
+      "image": "/images/feed/feed-74d93174ef2a.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-702080c78ae2",
-      "title": "Grass Journal: a private voice journal that wants you to put your phone down",
-      "excerpt": "This is a submission for the Hacktoberfest Open-Source AI Challenge Week 1: Touch Grass I do my best thinking on walks. Not at a desk. Halfway around the block, when a thought finally finishes itself,…",
-      "body": "This is a submission for the Hacktoberfest Open-Source AI Challenge Week 1: Touch Grass What I Built I do my best thinking on walks. Not at a desk. Halfway around the block, when a thought finally finishes itself, and I need somewhere to put it before it's gone. Grass Journal is the somewhere. It's a voice and text journal that runs entirely on your device. No account, no backend, no analytics. Your entries live in your browser's local database and nowhere else. It transcribes voice notes with Whisper tiny.en and writes optional reflections with Qwen2.5-0.5B or Gemma 2 2B IT, your pick. Every model runs on-device, in the browser. The app makes zero network requests. Your thoughts stay with you. That's the whole product. Touch grass: the phone case says it before I do.",
-      "author": "Mike “Demo” Demopoulos",
+      "id": "feed-b5f77614fedb",
+      "title": "Google could soon take away an important Pixel Watch 2 and 3 safety feature",
+      "excerpt": "Google may be getting ready to drop Safety Signal from the older smartwatches.",
+      "body": "Credit: Kaitlyn Cimino / Android Authority TL;DR Google is getting ready to remove Safety Signal from the Pixel Watch 2 and Pixel Watch 3 LTE. The feature provides cellular connectivity for the watches, enabling safety features when users are away from their phones and don’t have a watch carrier plan. The latest Pixel Watch app update confirms the feature is going away, but Google hasn’t revealed when or what will replace it. It looks like Google is getting ready to remove the Safety Signal feature from the Pixel Watch 2 and Pixel Watch 3 LTE models.",
+      "author": "Adamya Sharma",
       "date": "2026-10-07",
       "readTime": "2 min",
-      "section": "software",
+      "section": "gadgets",
       "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 31,
-      "url": "https://dev.to/mpmike/grass-journal-a-private-voice-journal-that-wants-you-to-put-your-phone-down-2ini",
-      "image": "/images/feed/feed-702080c78ae2.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-29bf1a87ca8e",
-      "title": "What was filling my 1 TB drive: developer and AI tools, not my files",
-      "excerpt": "My laptop has a 1 TB drive, and one day Windows told me it was nearly full. I hadn't saved anything big. So where did it all go? When I finally measured it, very little of it was \"my files\". Most of i…",
-      "body": "My laptop has a 1 TB drive, and one day Windows told me it was nearly full. I hadn't saved anything big. So where did it all go? When I finally measured it, very little of it was \"my files\". Most of it was stuff developer and AI tools leave behind and never clean up: What Size on my PC Docker Desktop's disk 77 GB VirtualBox machines 36 GB Hugging Face model cache 32.5 GB Recycle Bin 18 GB npm, pip, uv, Gradle and other caches 15+ GB Why this happens Package caches (npm, pip, uv, Gradle, NuGet, Cargo...) keep every version you ever downloaded. They are safe to clear: the tool downloads again what it needs. AI models from Ollama, LM Studio and Hugging Face are several GB each. It's easy to try five models and forget four of them.",
-      "author": "siva",
-      "date": "2026-10-07",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Developer"
+        "Gadgets"
       ],
       "featured": false,
-      "xpReward": 51,
-      "url": "https://dev.to/ai_engineer_3ee852a01b4c0/what-was-filling-my-1-tb-drive-developer-and-ai-tools-not-my-files-3b37",
-      "image": "/images/feed/feed-29bf1a87ca8e.webp",
-      "source": "Dev.to",
+      "xpReward": 43,
+      "url": "https://www.androidauthority.com/google-pixel-watch-2-pixel-watch-3-safety-signal-3719858/",
+      "image": "/images/feed/feed-b5f77614fedb.jpg",
+      "source": "Android Authority",
       "isLive": true
     },
     {
-      "id": "feed-fef1b445d14b",
-      "title": "OpenAI Dots and GPT-6 Astra Signal a Shift From Chat to Persistent AI Agents",
-      "excerpt": "OpenAI has introduced Dots, always-on AI agents within ChatGPT that can work toward a user's goals over time using their own cloud computer. The launch, announced at DevDay 2026 in San Francisco, is l…",
-      "body": "OpenAI has introduced Dots , always-on AI agents within ChatGPT that can work toward a user's goals over time using their own cloud computer. The launch, announced at DevDay 2026 in San Francisco, is led by Dots and GPT-6 Astra , the flagship model OpenAI says powers these frontier capabilities. Together, the releases point to a product direction that goes beyond one-off chat responses toward AI that can operate across connected applications and workflows. The company described Dots in its official introduction to Dots as agents that integrate with ChatGPT across devices and workflows. Reporting around the event characterized the broader DevDay slate as a platform-wide expansion, following pre-event messaging that promised more than 20 launches.",
-      "author": "Ali Farhat",
+      "id": "feed-c2dc51de690a",
+      "title": "Formula 1 on Apple TV is getting Dolby Atmos, starting this month",
+      "excerpt": "Beginning with the U.S. Grand Prix weekend on Friday, October 23, Apple TV will offer Formula 1 coverage in Dolby Atmos on supported devices. Here are the details. more…",
+      "body": "Beginning with the U.S. Grand Prix weekend on Friday, October 23, Apple TV will offer Formula 1 coverage in Dolby Atmos on supported devices. Here are the details. more — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Marcus Mendes",
       "date": "2026-10-07",
       "readTime": "2 min",
-      "section": "ai",
+      "section": "gadgets",
       "tags": [
-        "Openai",
-        "Gpt"
+        "Gadgets"
       ],
       "featured": false,
-      "xpReward": 34,
-      "url": "https://dev.to/alifar/openai-dots-and-gpt-6-astra-signal-a-shift-from-chat-to-persistent-ai-agents-4pip",
-      "image": "/images/feed/feed-fef1b445d14b.webp",
-      "source": "Dev.to",
+      "xpReward": 32,
+      "url": "https://9to5mac.com/2026/10/06/formula-1-on-apple-tv-is-getting-dolby-atmos-starting-this-month/",
+      "image": "/images/feed/feed-c2dc51de690a.jpg",
+      "source": "9to5Mac",
+      "isLive": true
+    },
+    {
+      "id": "feed-2164a9828975",
+      "title": "8 Most Unhinged Dark Urge Lines in BG3",
+      "excerpt": "From Alfira's last night to a corpse-filled game of Pegasus Polo, these are the Dark Urge's creepiest lines in Baldur's Gate 3",
+      "body": "The Dark Urge — an origin character afflicted with amnesia and the most intense bloodlust of all time — has some extremely memorable dialogue in Baldur’s Gate 3 . At every turn, when you pause to review your response options, you’ll get lines that are funny, chilling, and heartbreaking. Sometimes, that voice belongs to the character (often referred to as, simply, “ Durge ”). Sometimes that voice belongs to the game’s narrator, Amelia Tyler, speaking as The Dark Urge’s inner monologue. Tyler noted in a December 2023 interview with TechRadar that her favorite Dark Urge line is just a creepy, demonic laugh. That’s certainly a contender for the most haunting line from this character. So are the following eight.",
+      "author": "Rebecca Corgan",
+      "date": "2026-10-07",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 43,
+      "url": "https://www.polygon.com/best-dark-urge-lines-baldurs-gate-3/",
+      "image": "https://static0.polygonimages.com/wordpress/wp-content/uploads/2025/08/baldur-s-gate-3_20250805125141_.png",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-ea83fe78b91b",
+      "title": "Googlebooks have a pretty big problem: They don’t work with Samsung phones yet",
+      "excerpt": "Googlebooks are finally here, but Samsung users are getting a raw deal.",
+      "body": "TL;DR Googlebooks currently don’t support “Better Together” cross-device features with Samsung phones, despite being designed to work closely with Android devices. Google confirmed that support for Android 17-compatible Samsung phones is coming over the next few weeks. Samsung users considering a $900-$1,300 Googlebook may want to wait until the cross-device features actually work. Googlebook laptops are finally official and available to purchase, but it looks like early users have discovered a rather disappointing omission from this initial release. The whole promise of a Googlebook rests on the fact that these laptops are supposed to work seamlessly with your Android phone .",
+      "author": "Adamya Sharma",
+      "date": "2026-10-07",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 40,
+      "url": "https://www.androidauthority.com/googlebook-samsung-phone-cross-device-features-3719854/",
+      "image": "/images/feed/feed-ea83fe78b91b.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-4daddad0803b",
+      "title": "Xbox has secured exclusive GTA 6 streaming rights",
+      "excerpt": "",
+      "body": "This report, published by Hacker News, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Xbox. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Hacker News using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "thm",
+      "date": "2026-10-07",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Xbox"
+      ],
+      "featured": false,
+      "xpReward": 37,
+      "url": "https://www.theverge.com/report/1005859/microsoft-xbox-gta-6-streaming-rights",
+      "image": "/images/feed/feed-4daddad0803b.jpg",
+      "source": "Hacker News",
       "isLive": true
     },
     {
@@ -186,7 +261,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 33,
       "url": "https://9to5mac.com/2026/10/06/acclaimed-british-comedy-series-small-prophets-now-available-on-apple-tv/",
       "image": "/images/feed/feed-5cf1f2e89d96.jpg",
       "source": "9to5Mac",
@@ -205,7 +280,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 40,
       "url": "https://www.ign.com/articles/lego-technic-peugeot-hybrid-hypercar-deal-amazon-october-prime-day-sale-2026",
       "image": "/images/feed/feed-dda336969082.jpg",
       "source": "IGN",
@@ -224,7 +299,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 32,
       "url": "https://www.ign.com/articles/lego-super-mario-world-mario-yoshi-71438-deal-amazon-october-prime-day-2026",
       "image": "/images/feed/feed-453c79bfc376.jpg",
       "source": "IGN",
@@ -243,7 +318,7 @@
         "Gadget"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 31,
       "url": "https://www.wired.com/story/best-prime-day-tech-deals-10-06-2026/",
       "image": "/images/feed/feed-fba0b2f6fc64.jpg",
       "source": "Wired",
@@ -262,7 +337,7 @@
         "Macbook"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 47,
       "url": "https://9to5mac.com/2026/10/06/prime-day-mac-deals-start-early-new-mac-mini-150-off-macbook-air-200-off-much-more/",
       "image": "/images/feed/feed-e9df0f552f8f.jpg",
       "source": "9to5Mac",
@@ -281,7 +356,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 48,
       "url": "https://www.ign.com/articles/fanttik-t1-max-cordless-soldering-iron-deal-amazon-october-prime-day-sale-2026",
       "image": "/images/feed/feed-d9b1c18174b8.jpg",
       "source": "IGN",
@@ -300,7 +375,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 30,
       "url": "https://insideevs.com/news/810986/jaguar-culture-war-result-ad/",
       "image": "/images/feed/feed-d9fb3479eeb7.jpg",
       "source": "InsideEVs",
@@ -319,7 +394,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 49,
       "url": "https://insideevs.com/news/810951/type-01-sedan-jaguar-important/",
       "image": "/images/feed/feed-eb4e1e01e43b.jpg",
       "source": "InsideEVs",
@@ -338,7 +413,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 40,
       "url": "https://insideevs.com/news/810950/jaguar-new-model-coming-soon/",
       "image": "/images/feed/feed-2607ca71e5d5.jpg",
       "source": "InsideEVs",
@@ -357,7 +432,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 37,
       "url": "https://insideevs.com/news/810839/jaguar-type-01-launch-ev/",
       "image": "/images/feed/feed-24882473f2eb.jpg",
       "source": "InsideEVs",
@@ -376,7 +451,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 49,
       "url": "https://www.ign.com/articles/best-pokemon-deals-amazon-october-prime-day-2026",
       "image": "/images/feed/feed-571065d98e7a.jpg",
       "source": "IGN",
@@ -395,48 +470,10 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 43,
       "url": "https://www.polygon.com/5-sci-fi-series-like-lanterns/",
       "image": "/images/feed/feed-75861005781e.jpg",
       "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-bd2df4231e45",
-      "title": "Critical Role's Best Member Just Officially Raised the Bar for D&D Players Everywhere",
-      "excerpt": "Critical Role Campaign 4 pushes Sam Riegel to the limit, forcing him to make bold character choices that leave Critters in tears.",
-      "body": "We’re certain Critters will agree that Critical Role ’s latest campaign, Campaign 4, has been a lesson in heartbreak. From the very first episode, which opens with a funeral, to the recurring themes of the cost of revolution and sacrifice , and the premise that any character can die , each episode of Campaign 4 has been an emotional rollercoaster.",
-      "author": "Aimee Hart",
-      "date": "2026-10-06",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 53,
-      "url": "https://www.polygon.com/critical-role-wicander-halovar-sam-riegel/",
-      "image": "/images/feed/feed-bd2df4231e45.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-b0e0b9c8a0ad",
-      "title": "How to help stop spam calls on iPhone and Android",
-      "excerpt": "Spam calls don't have to grab your attention and waste your time. Use these built-in options to silence and block them without having to pay.",
-      "body": "Spam calls don't have to grab your attention and waste your time. Use these built-in options to silence and block them without having to pay.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Iphone. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Adnan Ahmed)",
-      "date": "2026-10-06",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Iphone"
-      ],
-      "featured": false,
-      "xpReward": 37,
-      "url": "https://www.engadget.com/2277629/how-to-stop-spam-calls-iphone-android/",
-      "image": "/images/feed/feed-b0e0b9c8a0ad.jpg",
-      "source": "Engadget",
       "isLive": true
     },
     {
@@ -452,67 +489,10 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 39,
       "url": "https://www.theverge.com/ai-artificial-intelligence/1005004/openai-math-release-github",
       "image": "/images/feed/feed-9edaf582bfe5.jpg",
       "source": "The Verge",
-      "isLive": true
-    },
-    {
-      "id": "feed-61dd7aa0a8f4",
-      "title": "Pick Up a 25-in-1 Hoto Precision Electric Screwdriver Set for Just $23 During the October Prime Day Sale",
-      "excerpt": "A super handy tool if you're constantly fiddling with small electronics.",
-      "body": "If you&#39;re constantly fiddling with small electronics, building PCs, or modding consoles and controllers, a precision electric screwdriver is an extremely handy tool to have around. For Prime Day, Amazon is offering an excellent deal on just that. The Hoto 25-in-1 Precision Electric Screwdriver drops to just $22.99 after you apply coupon code &quot; 0B0H81AR &quot;. That&#39;s 43% off in savings and the best price I&#39;ve seen for this tool this year. Better yet, you don&#39;t need to be a Prime member. Hoto 25-in-1 Precision Electric Screwdriver Set for $23 The Hoto screwdriver is a handy tool for situations where your large power drill might be way too powerful and a manual screwdriver would be too tedious.",
-      "author": "Eric Song",
-      "date": "2026-10-06",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 30,
-      "url": "https://www.ign.com/articles/hoto-precision-electric-screwdriver-deal-amazon-october-prime-day-sale-2026",
-      "image": "/images/feed/feed-61dd7aa0a8f4.jpg",
-      "source": "IGN",
-      "isLive": true
-    },
-    {
-      "id": "feed-b16384467adf",
-      "title": "Why do some PCs have two Ethernet ports?",
-      "excerpt": "Dual Ethernet ports don't automatically provide faster speed, but they increase your networking options.",
-      "body": "Dual Ethernet ports don't automatically provide faster speed, but they increase your networking options.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Thomas Godwin)",
-      "date": "2026-10-06",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 42,
-      "url": "https://www.engadget.com/2277504/why-come-pc-come-with-second-ethernet-port/",
-      "image": "/images/feed/feed-b16384467adf.jpg",
-      "source": "Engadget",
-      "isLive": true
-    },
-    {
-      "id": "feed-b433e98c8848",
-      "title": "Apple reportedly worked with LG on gadgets for its upcoming smart home push",
-      "excerpt": "The doorbell, security cameras, thermostats and more could be announced next week.",
-      "body": "The doorbell, security cameras, thermostats and more could be announced next week.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadget. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Anna Washenko)",
-      "date": "2026-10-06",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadget"
-      ],
-      "featured": false,
-      "xpReward": 30,
-      "url": "https://www.engadget.com/2279541/apple-reportedly-worked-with-lg-on-gadgets-for-its-upcoming-smart-home-push/",
-      "image": "/images/feed/feed-b433e98c8848.jpg",
-      "source": "Engadget",
       "isLive": true
     },
     {
@@ -528,7 +508,7 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 30,
       "url": "https://insideevs.com/news/810989/tesla-model-y-model-3-home-backup-powershare/",
       "image": "/images/feed/feed-3749862fff88.jpg",
       "source": "InsideEVs",
@@ -547,7 +527,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 41,
       "url": "https://electrek.co/2026/10/06/fall-prime-day-2026-deals-ebike-power-stations-electric-tools/",
       "image": "/images/feed/feed-9bcb2e15a20b.png",
       "source": "Electrek",
@@ -566,7 +546,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 51,
       "url": "https://electrek.co/2026/10/06/us-gas-plant-plans-jump-44-in-just-8-months-heres-why/",
       "image": "/images/feed/feed-ceb9f8f58f67.jpg",
       "source": "Electrek",
@@ -585,7 +565,7 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 41,
       "url": "https://www.bleepingcomputer.com/news/security/ninja-forms-plugin-flaw-exploited-to-hack-wordpress-sites/",
       "image": "/images/feed/feed-6cb67863bf1b.jpg",
       "source": "BleepingComputer",
@@ -606,7 +586,7 @@
         "Hacker"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 52,
       "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-32-zero-days-on-first-day-of-pwn2own-ireland/",
       "image": "/images/feed/feed-2bbff77b17d4.jpg",
       "source": "BleepingComputer",
@@ -625,7 +605,7 @@
         "Hacker"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 35,
       "url": "https://arstechnica.com/security/2026/10/hackers-obtain-counterfeit-tls-certificates-for-google-and-other-large-services/",
       "image": "/images/feed/feed-2b13197c4045.jpg",
       "source": "Ars Technica",
@@ -644,7 +624,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 50,
       "url": "https://spacenews.com/deposition-sciences-inc-expands-sunshade-tape-offering-with-new-12-x-30-format/",
       "image": "/images/feed/feed-3546dd4b4714.png",
       "source": "SpaceNews",
@@ -663,7 +643,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 46,
       "url": "https://www.cnet.com/tech/services-and-software/oracle-health-care-data-breach/",
       "image": "/images/feed/feed-42e227c4fac2.jpg",
       "source": "CNET",
@@ -682,7 +662,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 45,
       "url": "https://www.wired.com/story/artificial-roasts-ais-creators-and-sends-a-dark-warning-about-its-dangers/",
       "image": "/images/feed/feed-59f3487ec217.jpg",
       "source": "Wired",
@@ -703,7 +683,7 @@
         "Claude"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 38,
       "url": "https://thehackernews.com/2026/10/fake-chatgpt-gemini-and-claude-ad.html",
       "image": "/images/feed/feed-b5c111ad53dd.png",
       "source": "The Hacker News",
@@ -723,7 +703,7 @@
         "Spacecraft"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 33,
       "url": "https://www.nasa.gov/news-release/nasa-to-cover-northrop-grumman-crs-24-spacecraft-departure/",
       "image": "/images/feed/feed-8a998ac864de.jpg",
       "source": "NASA Breaking News",
@@ -742,7 +722,7 @@
         "Satellite"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 52,
       "url": "https://science.nasa.gov/earth/earth-observatory/october-2026-satellite-puzzler/",
       "image": "/images/feed/feed-a8b78abaa722.jpg",
       "source": "NASA Breaking News",
@@ -761,7 +741,7 @@
         "Security"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 48,
       "url": "https://thehackernews.com/2026/10/linux-backdoors-impersonate-email.html",
       "image": "/images/feed/feed-5347986e6d4e.jpg",
       "source": "The Hacker News",
@@ -780,9 +760,9 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 48,
       "url": "https://www.nasa.gov/directorates/stmd/prizes-challenges-crowdsourcing-program/center-of-excellence-for-collaborative-innovation-coeci/lunar-grounding-challenge/",
-      "image": "https://www.nasa.gov/wp-content/uploads/2026/06/feature-moonbase-img-2f4057.png",
+      "image": "/images/feed/feed-fff6068ce219.png",
       "source": "NASA Breaking News",
       "isLive": true
     },
@@ -799,7 +779,7 @@
         "Gemini"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 40,
       "url": "https://www.zdnet.com/innovation/google-ai-free-model-access-limited/",
       "image": "/images/feed/feed-3beb00bd8352.jpg",
       "source": "ZDNet",
@@ -818,7 +798,7 @@
         "Claude"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 34,
       "url": "https://www.zohaib.cc/blog/smartest-claude-code-feature",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "Hacker News",
@@ -837,9 +817,9 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 44,
       "url": "https://www.nasa.gov/news-release/nasa-glenn-invites-phase-1-proposals-for-aerospace-power-systems-laboratory/",
-      "image": "/images/topics/topic-space.png",
+      "image": "/images/feed/feed-da34239d1b03.jpg",
       "source": "NASA Breaking News",
       "isLive": true
     },
@@ -856,7 +836,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 40,
       "url": "https://www.bleepingcomputer.com/news/security/atlassian-warns-of-critical-file-access-flaw-in-jira-confluence/",
       "image": "/images/feed/feed-55757333f211.jpg",
       "source": "BleepingComputer",
@@ -875,10 +855,29 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 52,
       "url": "https://www.wired.com/story/openai-is-pissing-off-a-bunch-of-mathematicians-again/",
       "image": "/images/feed/feed-e39c25c133f4.jpg",
       "source": "Wired",
+      "isLive": true
+    },
+    {
+      "id": "feed-23d4205c2c0b",
+      "title": "Mirror Particle is building a ‘world model’ of human behavior",
+      "excerpt": "Mirror Particle will launch at TechCrunch Disrupt's Startup Battlefield 200 with a world model built from scratch to predict human behavior, arguing that LLM role-play falls short for market research…",
+      "body": "Mirror Particle will launch at TechCrunch Disrupt's Startup Battlefield 200 with a world model built from scratch to predict human behavior, arguing that LLM role-play falls short for market research — a development drawing significant attention in the artificial intelligence and machine learning space.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Ai. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Rebecca Bellan",
+      "date": "2026-10-06",
+      "readTime": "2 min",
+      "section": "ai",
+      "tags": [
+        "Ai"
+      ],
+      "featured": false,
+      "xpReward": 32,
+      "url": "https://techcrunch.com/2026/10/06/mirror-particle-is-building-a-world-model-of-human-behavior/",
+      "image": "/images/feed/feed-23d4205c2c0b.jpg",
+      "source": "TechCrunch",
       "isLive": true
     },
     {
@@ -895,7 +894,7 @@
         "Breach"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 34,
       "url": "https://www.bleepingcomputer.com/news/security/asos-confirms-data-breach-after-hacked-in-app-notifications/",
       "image": "/images/feed/feed-b6744a76660e.jpg",
       "source": "BleepingComputer",
@@ -914,9 +913,9 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 34,
       "url": "https://www.nasa.gov/image-article/astronomers-solve-cosmic-cold-case-with-nasa-hubble-data/",
-      "image": "/images/topics/topic-space.png",
+      "image": "/images/feed/feed-458cf76d6fbf.jpg",
       "source": "NASA Breaking News",
       "isLive": true
     },
@@ -933,24 +932,24 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 30,
       "url": "https://www.nasa.gov/missions/mars-science-laboratory/curiosity-rover/nasas-curiosity-rover-catches-stunning-martian-dawn/",
-      "image": "/images/topics/topic-space.png",
+      "image": "/images/feed/feed-000620cd8f82.png",
       "source": "NASA Breaking News",
       "isLive": true
     }
   ],
   "breakingNews": [
-    "DEV.TO: 5 Micro-Habits That Instantly Made Me a Cleaner, Faster Developer",
-    "DEV.TO: Your agent's test gate runs the tests in the tree the agent just edited",
-    "DEV.TO: Install Mininet on Ubuntu for Network Simulation: 3 Methods That Actually Work",
-    "DEV.TO: ShowDoc 3.9.2 and the username field that ends up as PHP",
-    "DEV.TO: AI & SaaS pricing this week: 5 raised, 1 cut (16 pages moved) - 2026-09-13",
-    "DEV.TO: Grass Journal: a private voice journal that wants you to put your phone down",
-    "DEV.TO: What was filling my 1 TB drive: developer and AI tools, not my files",
-    "DEV.TO: OpenAI Dots and GPT-6 Astra Signal a Shift From Chat to Persistent AI Agents",
-    "9TO5MAC: Apple overtakes Samsung to lead European carrier smartphone sales in Q2, per report",
-    "9TO5MAC: Acclaimed British comedy series ‘Small Prophets’ now available on Apple TV"
+    "DEV.TO: Mega Millions after taxes: the 24% withholding is the wrong number (with code)",
+    "DEV.TO: Podcast repurposing workflow",
+    "DEV.TO: Zero-Knowledge by Design: Client-Side AES-256 Encryption in SvelteKit",
+    "DEV.TO: SiliconFlow API Review 2026: Setup, Models and Real Pricing",
+    "DEV.TO: Zero Cloud Storage: Building a P2P File Transfer App with WebRTC DataChannels and Cloudflare Workers",
+    "DEV.TO: AI Coding Agents Are Leaking Your Secrets: Building a Local Pre-Commit DLP for Claude Code",
+    "DEV.TO: Lovable to App Store, Step by Step",
+    "ANDROID AUTHORITY: Google could soon take away an important Pixel Watch 2 and 3 safety feature",
+    "9TO5MAC: Formula 1 on Apple TV is getting Dolby Atmos, starting this month",
+    "POLYGON: 8 Most Unhinged Dark Urge Lines in BG3"
   ],
   "sectionVideos": {}
 }
