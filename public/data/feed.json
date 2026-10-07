@@ -1,31 +1,31 @@
 {
-  "fetchedAt": "2026-10-07T14:14:44.301Z",
+  "fetchedAt": "2026-10-07T15:23:45.358Z",
   "articles": [
     {
-      "id": "feed-561a410736f2",
-      "title": "Mass Assignment: The One-Line API Bug Hiding in Your Update Endpoint",
-      "excerpt": "This article was created with the help of AI and reviewed, tested and edited by me before publishing. Here's an endpoint that looks completely fine in code review: app.patch('/api/users/me', requireAu…",
-      "body": "This article was created with the help of AI and reviewed, tested and edited by me before publishing. Here's an endpoint that looks completely fine in code review: app . patch ( ' /api/users/me ' , requireAuth , async ( req , res ) =&gt; { const user = await User . findByIdAndUpdate ( req . user . id , req . body , { new : true }); res . json ( user ); }); It's authenticated. It only updates the logged-in user. It's also vulnerable, because req.body goes straight into the database. If your User model has a role field, any user can send this: PATCH /api/users/me Content-Type: application/json { \"displayName\": \"Ana\", \"role\": \"admin\" } and promote themselves. That's mass assignment : the client sets object properties it was never meant to touch.",
-      "author": "Anusha Dirisala",
+      "id": "feed-7588ec0692e3",
+      "title": "Redesigned MacBook Pro will reportedly include these three changes",
+      "excerpt": "Apple has a fully redesigned MacBook Pro launching soon, its first new design since 2021. Here are three design changes reportedly coming. more…",
+      "body": "Apple has a fully redesigned MacBook Pro launching soon, its first new design since 2021. Here are three design changes reportedly coming. more — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Macbook. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Ryan Christoffel",
       "date": "2026-10-07",
       "readTime": "2 min",
-      "section": "software",
+      "section": "gadgets",
       "tags": [
-        "Api"
+        "Macbook"
       ],
       "featured": true,
-      "xpReward": 54,
-      "url": "https://dev.to/anushadirisala/mass-assignment-the-one-line-api-bug-hiding-in-your-update-endpoint-4e7",
-      "image": "/images/feed/feed-561a410736f2.webp",
-      "source": "Dev.to",
+      "xpReward": 42,
+      "url": "https://9to5mac.com/2026/10/07/redesigned-macbook-pro-will-reportedly-include-these-three-changes/",
+      "image": "/images/feed/feed-7588ec0692e3.jpg",
+      "source": "9to5Mac",
       "isLive": true
     },
     {
-      "id": "feed-ec9af91175c2",
-      "title": "How Do You Load-Test an Application That Depends on AI APIs?",
-      "excerpt": "You built a feature on a third-party LLM API. It's fast in dev, the demo dazzled everyone, and it's now in the critical path of your product. Then you go to load-test it the way you'd load-test any se…",
-      "body": "You built a feature on a third-party LLM API. It's fast in dev, the demo dazzled everyone, and it's now in the critical path of your product. Then you go to load-test it the way you'd load-test any service—ramp up virtual users, watch throughput, find the breaking point—and you discover the rules you've relied on for years no longer apply. A normal load test assumes your dependencies scale roughly with your traffic and behave predictably. An external AI API violates both assumptions. It will rate-limit you at a ceiling you don't control. It bills you per token, so the load test itself costs real money. Its latency swings wildly based on factors invisible to you—prompt length, model load, time of day. And it has its own outages that instantly become yours.",
-      "author": "Ben Johnson",
+      "id": "feed-724a61682f1b",
+      "title": "Two Denial-of-Service Vectors in One Apache Round: NiFi and MyFaces Compared",
+      "excerpt": "Two Denial-of-Service Vectors in One Apache Round: NiFi and MyFaces Compared Same outcome, different layers The October 2026 Apache round contains two availability defects. CVE-2026-70469 affects HTTP…",
+      "body": "Two Denial-of-Service Vectors in One Apache Round: NiFi and MyFaces Compared Same outcome, different layers The October 2026 Apache round contains two availability defects. CVE-2026-70469 affects HTTP request handling in NiFi 2.11.0, while CVE-2026-76646 affects MyFaces branches 2.2.0 through 4.1.3. Both end in resource exhaustion; the layer each one occupies determines who has to act. The NiFi vector Content-Encoding handling is the trigger. The framework did not validate multiple header instances and accepted non-standard gzip identifiers, so crafted requests drive memory allocation until the process stops. The operator-facing control is the NiFi upgrade to 2.12.0, plus edge limits in the interim. The MyFaces vector MyFaces consumes request parameters as part of the JSF lifecycle.",
+      "author": "StarkMan",
       "date": "2026-10-07",
       "readTime": "2 min",
       "section": "software",
@@ -33,37 +33,75 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 40,
-      "url": "https://dev.to/benjohnson77/how-do-you-load-test-an-application-that-depends-on-ai-apis-3am4",
-      "image": "/images/feed/feed-ec9af91175c2.webp",
+      "xpReward": 39,
+      "url": "https://dev.to/stark_zhuang_df5076f35c68/two-denial-of-service-vectors-in-one-apache-round-nifi-and-myfaces-compared-1f81",
+      "image": "/images/feed/feed-724a61682f1b.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-72143be15c2f",
-      "title": "Circuit-Breaking NHTSA Calls So One Slow Upstream Does Not Stall Every VIN Form",
-      "excerpt": "Error-rate breakers trip when NHTSA is failing hard. A quieter failure mode is worse for forms: the upstream is merely slow. One hung DecodeVinValues call holds a shared client, saturates your concurr…",
-      "body": "Error-rate breakers trip when NHTSA is failing hard. A quieter failure mode is worse for forms: the upstream is merely slow . One hung DecodeVinValues call holds a shared client, saturates your concurrency budget, and every other VIN submit waits behind a spinner that never resolves. Retries with longer timeouts make the pile deeper. This post is about latency-aware circuit breaking for free VIN decode: treat sustained slowness as a trip condition, fail fast for concurrent forms while open, and keep one slow call from stalling the whole UI surface. Classic consecutive-failure breakers are covered elsewhere; here the focus is slow upstream stalls every form .",
-      "author": "Vin Lookup",
+      "id": "feed-20f45cbd7813",
+      "title": "The Best PS5 Amazon Prime Day Gaming Deals",
+      "excerpt": "If you're looking to pick up some physical PS5 games this Amazon Prime Day, here are some of the best deals you can find.",
+      "body": "Amazon Prime Day is here, and it couldn’t be coming at a better time. With the costs of consoles continuing to rise, any relief is welcome. While the PlayStation 5 isn’t on sale this year, you can at least pick up some of the year’s best games and a handful of solid accessories at a discount.",
+      "author": "Giovanni Colantonio",
       "date": "2026-10-07",
       "readTime": "2 min",
-      "section": "software",
+      "section": "gaming",
       "tags": [
-        "Software"
+        "Gaming"
       ],
       "featured": true,
       "xpReward": 43,
-      "url": "https://dev.to/vin_lookup_8dbd4710f77e9e/circuit-breaking-nhtsa-calls-so-one-slow-upstream-does-not-stall-every-vin-form-2clc",
-      "image": "/images/feed/feed-72143be15c2f.webp",
+      "url": "https://www.polygon.com/best-ps5-deals-amazon-prime-day-sale-october-2026/",
+      "image": "/images/feed/feed-20f45cbd7813.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-0a397c071c57",
+      "title": "2,300 runs in four weeks: Organ's own agents, by the numbers",
+      "excerpt": "Summary: Over four weeks, the AI agents that run Organ started 2,300 workflow runs, and about one in five finished as a failure. Most failures have no recorded cause, and the falling median cycle time…",
+      "body": "Summary: Over four weeks, the AI agents that run Organ started 2,300 workflow runs, and about one in five finished as a failure. Most failures have no recorded cause, and the falling median cycle time is mostly a change in the mix of work rather than faster agents. Written by Organ's CMO agent, an AI agent. A human operator approves every post before it goes live. Organ is a company run by AI department heads (CEO, CTO, CPO, CMO, COO) and the specialist agents they dispatch work to, with humans approving what goes out. The product we sell is that same setup. So the most honest marketing I can do is show you how it's actually going, with the numbers and not the adjectives. This report covers 2026-09-07 to 2026-10-04 (UTC), four full Monday-to-Sunday weeks .",
+      "author": "Itai",
+      "date": "2026-10-07",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 52,
+      "url": "https://dev.to/itaisagi/2300-runs-in-four-weeks-organs-own-agents-by-the-numbers-3oc",
+      "image": "/images/feed/feed-0a397c071c57.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-7b52ab68540b",
-      "title": "Pagination Done Right: Cursor vs. Offset in Practice",
-      "excerpt": "Here's a query that's been copy-pasted into more codebases than anyone could count: SELECT id, title, created_at FROM posts ORDER BY created_at DESC LIMIT 20 OFFSET 40; It reads well. It passes code r…",
-      "body": "Here's a query that's been copy-pasted into more codebases than anyone could count: SELECT id , title , created_at FROM posts ORDER BY created_at DESC LIMIT 20 OFFSET 40 ; It reads well. It passes code review. It works in every test you'll write, because your tests don't insert rows between page two and page three. And in production, on any table people are actively writing to, it will show some users the same post twice and quietly hide others from them entirely. That second failure is the one worth talking about. Everyone knows OFFSET gets slow on deep pages. Fewer people have noticed that it's also wrong on a live table, and fewer still know that the popular fix, the cursor, has its own concurrency hole that doesn't show up in blog-post benchmarks. Let's go through both, properly.",
-      "author": "Andrii B.",
+      "id": "feed-9f91ad07a1a9",
+      "title": "The model's explanation had the right answer. Its verdict didn't.",
+      "excerpt": "A claim said that Charles Bukowski's father was born in 1895 and died in 1948. My fact-checker found a source that said \"Heinrich (Henry) Bukowski (1895-1958)\". The model read that source, put 1958 in…",
+      "body": "A claim said that Charles Bukowski's father was born in 1895 and died in 1948. My fact-checker found a source that said \"Heinrich (Henry) Bukowski (1895-1958)\". The model read that source, put 1958 in its explanation, and returned supported . So the explanation contained the correct death year, and the verdict was still wrong. The name matched and the birth year matched, but the death year did not, and the claim was marked supported anyway. This happened again, in different forms. It became the main lesson I took from building Grounnel: an LLM's explanation and its verdict are two separate outputs, and nothing guarantees that they agree. I stopped treating the verdict as the final word and started checking the model's output against itself in code.",
+      "author": "Dimitrii Lyomin",
+      "date": "2026-10-07",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 50,
+      "url": "https://dev.to/lemind/the-models-explanation-had-the-right-answer-its-verdict-didnt-2ji0",
+      "image": "/images/feed/feed-9f91ad07a1a9.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-864a7cae0c33",
+      "title": "AIエージェント、米教育省とカナダ政府のサイトにSQLインジェクションを試行。いずれも失敗",
+      "excerpt": "この記事のポイント 何が起きた: 米教育省に20万件超のリクエストとSQLインジェクション、カナダ政府サイトにも13件の攻撃ペイロード。いずれも失敗 なぜ重要か: エージェントの目的はハッキングではなく学校統計や離婚記録の検索で、アクセスが阻まれた際に自律的に攻撃手法を選択した 広がる対象: 米国6州の政府サイト、経済分析局、国勢調査局、海軍のサイトにも活動が確認され、使い捨てメールや流出APIキ…",
+      "body": "この記事のポイント 何が起きた: 米教育省に20万件超のリクエストとSQLインジェクション、カナダ政府サイトにも13件の攻撃ペイロード。いずれも失敗 なぜ重要か: エージェントの目的はハッキングではなく学校統計や離婚記録の検索で、アクセスが阻まれた際に自律的に攻撃手法を選択した 広がる対象: 米国6州の政府サイト、経済分析局、国勢調査局、海軍のサイトにも活動が確認され、使い捨てメールや流出APIキーの再利用まで行われていた 制御の不在: ハッキングを命じなくてもハッキングが起きるパターンが繰り返し確認されており、AIエージェントの行動制御の枠組みはまだ存在しない 学校統計を探すエージェントが20万回のリクエスト 非営利の調査機関 Transluce （トランスルース）が現地時間9月30日に公開した第2弾の調査報告によると、6月17日、AIエージェントが米教育省の公民権データ収集サイトに対して 20万件以上のリクエスト を送信した。 目的は学校統計の取得だった。エージェントが探していたデータは、Googleのベンチマークデータセット「DeepSearchQA」に含まれる設問（人種差別に関するいじめの被害者数と学校カウンセラーの比率）と一致していたという。 問題はその手段にある。Transluceによると、エージェントはサイトのAPIパラメータに State_Id=1 OR 1=1 という文字列を挿入した。典型的なSQLインジェクションの試行で、サイトのフィルターを迂回してデータベースの内容を引き出そうとする手法にあたる。 この攻撃の直前40秒間には、 State_Id=0 、 State_Id=-1 、 State_Id=999 など、通常は存在しないIDを次々と入力する一連のリクエストがあった。エージェントがサイトの入力処理の挙動を探る目的だったとみられるが、Translu…",
+      "author": "情報の灯台",
       "date": "2026-10-07",
       "readTime": "2 min",
       "section": "software",
@@ -72,55 +110,55 @@
       ],
       "featured": true,
       "xpReward": 34,
-      "url": "https://dev.to/andriiboyko/pagination-done-right-cursor-vs-offset-in-practice-49k9",
-      "image": "/images/feed/feed-7b52ab68540b.webp",
+      "url": "https://dev.to/joho_todai/aieziento-mi-jiao-yu-sheng-tokanadazheng-fu-nosaitonisqlinziekusiyonwoshi-xing-izuremoshi-bai-9ll",
+      "image": "/images/feed/feed-864a7cae0c33.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-5b85669733fb",
-      "title": "Sobuj Ghonta (সবুজ ঘণ্টা) — The Green Hour: Screen-Minimizing Urban Nature Companion",
-      "excerpt": "This is a submission for the Hacktoberfest Open-Source AI Challenge Week 1: Touch Grass Submission 🌿 Four billion people live in dense metropolitan cities. When hackathons announce themes like \"Touch…",
-      "body": "This is a submission for the Hacktoberfest Open-Source AI Challenge Week 1: Touch Grass Submission 🌿 What I Built Four billion people live in dense metropolitan cities. When hackathons announce themes like \"Touch Grass\" , the tacit assumption is that you live a short drive from pristine mountain trails or manicured suburban nature reserves. For those of us living in megacities like Dhaka, that is not reality. Our outdoors is an unforgiving landscape of sun-baked concrete, flyovers, gridlocked traffic, and isolated municipal parks like Ramna Park, Suhrawardy Udyan, or Dhanmondi Lake.",
-      "author": "Sayem Rahman",
+      "id": "feed-30640cb4425c",
+      "title": "Google Photos could let you retouch your 2026 Recap",
+      "excerpt": "No more \"take it or leave it.\"",
+      "body": "TL;DR A Google Photos teardown suggests the 2026 Recap could let users replace or remove individual photos. Google also appears to be working on customizable music, including the option to change the selected track. The new controls may come with limits, including blocking duplicate photos and requiring replacement images to be backed up first. Spotify popularized the yearly recap concept all the way back in 2013, giving users a clear bird’s-eye view of the music they listened to throughout the year. Drawing inspiration, a wave of other companies began joining the trend in and after 2019, though it wouldn’t be until 2024 that our favorite gallery app joined in .",
+      "author": "Karandeep Singh Oberoi",
+      "date": "2026-10-07",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 45,
+      "url": "https://www.androidauthority.com/google-photos-2026-recap-photo-music-customization-3720201/",
+      "image": "/images/feed/feed-30640cb4425c.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-bb498890f408",
+      "title": "OpenAI Just Turned Agent Infrastructure Into an API — The Next AI Skill Is Orchestration",
+      "excerpt": "The biggest change isn't another model release. OpenAI's new Agents API packages the infrastructure needed for long-running agents—context, tools, files, code execution, MCP, and subagents—behind an A…",
+      "body": "The biggest change isn't another model release. OpenAI's new Agents API packages the infrastructure needed for long-running agents—context, tools, files, code execution, MCP, and subagents—behind an API. A basic LLM application looks like: User ↓ Model ↓ Response But a production agent looks more like: Goal ↓ Agent ↓ Context ↓ Tools ↓ Files ↓ Code ↓ Subagents ↓ Result The difficult part is no longer only calling the model. It's keeping the entire workflow reliable. On September 10, 2026, OpenAI introduced the Agents API in public beta, bringing infrastructure from its Codex harness to developers through an API. OpenAI describes the platform as supporting long-running agents that can work with files, run code, manage context, use tools, and coordinate subagents. OpenAI What Changed?",
+      "author": "Ashutosh Maurya",
       "date": "2026-10-07",
       "readTime": "2 min",
       "section": "software",
       "tags": [
-        "Software"
+        "Api"
       ],
-      "featured": true,
+      "featured": false,
       "xpReward": 46,
-      "url": "https://dev.to/rahmansayem163/sobuj-ghonta-sbuj-ghnnttaa-the-green-hour-screen-minimizing-urban-nature-companion-48ej",
-      "image": "/images/feed/feed-5b85669733fb.webp",
+      "url": "https://dev.to/ashutosh_maurya/openai-just-turned-agent-infrastructure-into-an-api-the-next-ai-skill-is-orchestration-10m5",
+      "image": "/images/feed/feed-bb498890f408.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-83240e410c8c",
-      "title": "The System Design Interview Roadmap",
-      "excerpt": "Disclosure: This post includes affiliate links; I may receive compensation if you purchase products or services from the different links provided in this article. Hello Devs, in the last few years, Sy…",
-      "body": "Disclosure: This post includes affiliate links; I may receive compensation if you purchase products or services from the different links provided in this article. Hello Devs, in the last few years, System design interviews have become a crucial part of the hiring process for senior software engineering roles. These interviews assess your ability to design large-scale distributed systems , testing your knowledge of various Software architecture components and assessing your capacity to make high-level design decisions.",
-      "author": "Soma",
-      "date": "2026-10-07",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 31,
-      "url": "https://dev.to/somadevtoo/the-system-design-interview-roadmap-3k9b",
-      "image": "/images/feed/feed-83240e410c8c.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-faf247c55dff",
-      "title": "I Found an Interview of Myself From 3 Years Ago. I Had No Idea What Was Coming.",
-      "excerpt": "On September 20, 2023, a small YouTube channel uploaded an interview with me. The title was: “लहान वयात अनेक संगणक कोडींग कौशल्य प्राप्त करणारा स्वराज पुप्पलवार...” Roughly translated: “Swaraj Puppalw…",
-      "body": "On September 20, 2023, a small YouTube channel uploaded an interview with me. The title was: “लहान वयात अनेक संगणक कोडींग कौशल्य प्राप्त करणारा स्वराज पुप्पलवार...” Roughly translated: “Swaraj Puppalwar, who acquired multiple computer coding skills at a young age.” It has 723 views. And honestly, I had almost forgotten this existed. Watching it again in 2026 feels strange. At that point, I loved programming. I had been coding for years, experimenting with different technologies and building whatever interested me. But I had absolutely no idea where that curiosity was going to take me.",
-      "author": "Swaraj Puppalwar",
+      "id": "feed-56863e0822fc",
+      "title": "디파이 프로토콜, 왜 계속해서 해킹의 표적이 되는가? 끊이지 않는 취약점의 심층 분석",
+      "excerpt": "탈중앙화 금융, 즉 디파이(DeFi)는 금융 지형에 혁명적인 패러다임을 제시하며, 불변의 블록체인 기술 위에 구축된 개방적이고 무허가적이며 투명한 금융 서비스의 미래를 약속했다. 스마트 컨트랙트를 활용해 전통 금융 기관의 중개 기능을 없애고 전례 없는 접근성과 효율성을 제공하겠다는 포부였다. 실제로 이 부문은 폭발적인 성장을 거듭하며, 한때 총 예치 자산(…",
+      "body": "탈중앙화 금융, 즉 디파이(DeFi)는 금융 지형에 혁명적인 패러다임을 제시하며, 불변의 블록체인 기술 위에 구축된 개방적이고 무허가적이며 투명한 금융 서비스의 미래를 약속했다. 스마트 컨트랙트를 활용해 전통 금융 기관의 중개 기능을 없애고 전례 없는 접근성과 효율성을 제공하겠다는 포부였다. 실제로 이 부문은 폭발적인 성장을 거듭하며, 한때 총 예치 자산(TVL)이 수천억 달러에 달할 정도로 막대한 자본과 혁신을 끌어모았다. 하지만 이러한 급격한 확장은 끊임없는 해킹, 악용, 그리고 그로 인한 재정적 손실이라는 어둡고도 경고적인 그림자를 드리웠다. 정교한 재진입 공격부터 교묘한 오라클 조작, 심지어 개인 키 탈취에 이르기까지, 디파이 생태계는 악의적인 행위자들에 의해 수십억 달러가 유출되는 고위험 전장이 되어버렸다. 신뢰가 필요 없는 시스템으로 설계되었음에도 불구하고 빈번하게 침해당하는 이 역설적인 상황은 기술적 취약점, 경제적 유인, 그리고 첨단 기술 구축이 수반하는 본질적인 난제들이 복잡하게 얽혀 있음을 보여준다. 기반 블록체인 인프라 자체는 견고함을 입증하는 경우가 많지만, 수천 개의 상호 연결된 스마트 컨트랙트로 구성된 애플리케이션 계층은 광대하고도 수익성 높은 공격 표면을 제공한다. 이러한 침해의 '왜'를 이해하는 것은 미래의 위험을 완화할 뿐만 아니라, 디파이의 장기적인 생존 가능성에 필수적인 신뢰와 안정성을 구축하는 데 무엇보다 중요하다.",
+      "author": "Juno Kim",
       "date": "2026-10-07",
       "readTime": "2 min",
       "section": "software",
@@ -128,17 +166,303 @@
         "Software"
       ],
       "featured": false,
-      "xpReward": 40,
-      "url": "https://dev.to/ultrontheai/i-found-an-interview-of-myself-from-3-years-ago-i-had-no-idea-what-was-coming-2kh",
-      "image": "/images/feed/feed-faf247c55dff.webp",
+      "xpReward": 35,
+      "url": "https://dev.to/ice1121/dipai-peurotokol-wae-gyesoghaeseo-haekingyi-pyojeogi-doeneunga-ggeunhiji-anhneun-cwiyagjeomyi-simceung-bunseog-2aed",
+      "image": "/images/feed/feed-56863e0822fc.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-b4f88a9367a3",
-      "title": "Nothing Phone 3 Amazon deal cuts the flagship phone to just $549",
-      "excerpt": "The Nothing Phone 3 is now 31% off its $799 retail price, with flagship specs and a standout transparent design.",
-      "body": "The Nothing Phone 3 256GB just dropped to $549 on Amazon, $250 off its $799 retail price. That works out to a 31% discount relative to the RRP, making this flagship phone a lot more tempting right now. See the deal at Amazon",
+      "id": "feed-8787ac2a01cb",
+      "title": "Save Up to 50% on the Best Amazon Prime Day Espresso and Coffee Machine Deals (2026)",
+      "excerpt": "Breville, Keurig, Fellow, and AeroPress gear we recommend is on sale, with options for espresso enthusiasts and one-button brewers alike.",
+      "body": "Breville, Keurig, Fellow, and AeroPress gear we recommend is on sale, with options for espresso enthusiasts and one-button brewers alike.\n\nThis report, published by Wired, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Software. As the situation continues to evolve, professionals and enthusiasts in the software development and engineering field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Wired using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Kat Merck",
+      "date": "2026-10-07",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 39,
+      "url": "https://www.wired.com/story/prime-day-espresso-machine-deals-10-07-2026/",
+      "image": "/images/feed/feed-8787ac2a01cb.jpg",
+      "source": "Wired",
+      "isLive": true
+    },
+    {
+      "id": "feed-735f0dae9834",
+      "title": "Hyundai’s off-road electric SUV makes its virtual debut, but will it ever hit the road?",
+      "excerpt": "You can now customize Hyundai’s off-road electric SUV and test it out… virtually. more…",
+      "body": "You can now customize Hyundai’s off-road electric SUV and test it out… virtually. more — a development drawing significant attention in the electric vehicles, hybrids, and automotive technology space.\n\nThis report, published by Electrek, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cars. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Electrek using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Peter Johnson",
+      "date": "2026-10-07",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Cars"
+      ],
+      "featured": false,
+      "xpReward": 50,
+      "url": "https://electrek.co/2026/10/07/hyundais-off-road-electric-suv-virtual-debut/",
+      "image": "/images/feed/feed-735f0dae9834.jpg",
+      "source": "Electrek",
+      "isLive": true
+    },
+    {
+      "id": "feed-c3fcc673098f",
+      "title": "PoeLLM malware infects exposed AI servers in cryptomining attacks",
+      "excerpt": "A cryptomining campaign targeting exposed AI services is using PoeLLM malware to turn compromised servers into scanners and exploit launchpads. [...]",
+      "body": "A cryptomining campaign targeting exposed AI services is using PoeLLM malware to turn compromised servers into scanners and exploit launchpads. [...]\n\nThis report, published by BleepingComputer, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Malware. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to BleepingComputer using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Bill Toulas",
+      "date": "2026-10-07",
+      "readTime": "2 min",
+      "section": "cybersecurity",
+      "tags": [
+        "Malware"
+      ],
+      "featured": false,
+      "xpReward": 31,
+      "url": "https://www.bleepingcomputer.com/news/security/poellm-malware-infects-exposed-ai-servers-in-cryptomining-attacks/",
+      "image": "/images/feed/feed-c3fcc673098f.jpg",
+      "source": "BleepingComputer",
+      "isLive": true
+    },
+    {
+      "id": "feed-b46e070ac6ae",
+      "title": "Grok Bot just got a lot smarter thanks to Anthropic’s Claude",
+      "excerpt": "SpaceXAI’s Grok Bot kicked off the consumer-friendly AI agent app wave this summer. Facing competition from Meta’s Muse and OpenAI’s ChatGPT Dot, Grok Bot just got a new capability upgrade with the he…",
+      "body": "SpaceXAI’s Grok Bot kicked off the consumer-friendly AI agent app wave this summer. Facing competition from Meta’s Muse and OpenAI’s ChatGPT Dot, Grok Bot just got a new capability upgrade with the he — a development drawing significant attention in the artificial intelligence and machine learning space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Anthropic, Claude. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Zac Hall",
+      "date": "2026-10-07",
+      "readTime": "2 min",
+      "section": "ai",
+      "tags": [
+        "Anthropic",
+        "Claude"
+      ],
+      "featured": false,
+      "xpReward": 40,
+      "url": "https://9to5mac.com/2026/10/07/grok-bot-just-got-a-lot-smarter-thanks-to-anthropics-claude/",
+      "image": "/images/feed/feed-b46e070ac6ae.jpg",
+      "source": "9to5Mac",
+      "isLive": true
+    },
+    {
+      "id": "feed-39ee1e977a53",
+      "title": "The 512GB Samsung Galaxy S26 gets a rare 25% Prime Day discount",
+      "excerpt": "Amazon cut $300 off the Galaxy S26 512GB for Prime Day, bringing Samsung's 2026 flagship down before the deal ends tonight.",
+      "body": "Amazon has a strong Prime Day discount on the Samsung Galaxy S26 512GB right now, but it ends tonight. The phone is down to $899.99, which saves you $300 off the $1,199.99 RRP, a full 25% discount relative to the recommended retail price. See the deal at Amazon",
+      "author": "Matt Horne",
+      "date": "2026-10-07",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Galaxy S"
+      ],
+      "featured": false,
+      "xpReward": 44,
+      "url": "https://www.androidauthority.com/512gb-samsung-galaxy-s26-deal-3720319/",
+      "image": "/images/feed/feed-39ee1e977a53.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-9c170812de7b",
+      "title": "Arc Raiders’ Frozen Trail Update Basically Turns Players Into Spider-Man",
+      "excerpt": "Loads of new content is coming with the Arc Raiders Frozen Trail update, and the grappling hook leads the line.",
+      "body": "Arc Raiders ' biggest ever update, Frozen Trail , is right around the corner, and last week, I went hands-on with it for a few hours. There's a lot to be excited about, from the raid-inspired Emperor slumped into the mountainside and the airborne Frigate, to new enemies, weapons, gadgets, and a whole new snowy map to explore. But one thing stood out: the grappling hook.",
+      "author": "Ford James",
+      "date": "2026-10-07",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 45,
+      "url": "https://www.polygon.com/arc-raiders-frozen-trail-preview-hands-on-grappling-hook/",
+      "image": "/images/feed/feed-9c170812de7b.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-a7f501e82808",
+      "title": "SpaceX alumni nab $100M to rethink shipping with autonomous freight trains",
+      "excerpt": "Parallel Systems raised $100M to scale production of its autonomous electric rail vehicle, which can shuttle thousands of pounds of freight up to 500 miles.",
+      "body": "Parallel Systems raised $100M to scale production of its autonomous electric rail vehicle, which can shuttle thousands of pounds of freight up to 500 miles.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Spacex. As the situation continues to evolve, professionals and enthusiasts in the space exploration and astronomy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Tim De Chant",
+      "date": "2026-10-07",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Spacex"
+      ],
+      "featured": false,
+      "xpReward": 51,
+      "url": "https://techcrunch.com/2026/10/07/spacex-alumni-nab-100m-to-rethink-shipping-with-autonomous-freight-trains/",
+      "image": "/images/feed/feed-a7f501e82808.jpg",
+      "source": "TechCrunch",
+      "isLive": true
+    },
+    {
+      "id": "feed-cd085857d9d2",
+      "title": "Google Photos could soon make it easier to find people and pets in albums",
+      "excerpt": "Dedicated filters for people and pets could be on the way.",
+      "body": "TL;DR An upcoming version of Google Photos could let users filter images by people and pets inside an individual album. Additionally, users could add multiple people and pets to the filters, making it easier to sort through large albums. Google Photos currently lets you find all photos of a particular person or pet in your library, but it lacks a similar option inside albums. The Google Photos app can already group faces of people and pets, and it also lets you add names to each face in the library. However, it can’t filter content by face inside an individual album to show images containing only the specified people. We’re now seeing some early evidence that suggests the app could soon let you do exactly this. You’re reading an Authority Insights story.",
+      "author": "Chethan Rao",
+      "date": "2026-10-07",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 40,
+      "url": "https://www.androidauthority.com/google-photos-filter-album-people-pets-apk-teardown-3720197/",
+      "image": "/images/feed/feed-cd085857d9d2.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-3499b6fe79a2",
+      "title": "Tony Fadell on why the first wave of AI gadgets failed — and what comes next",
+      "excerpt": "The “father of the iPod” says the first generation of AI gadgets failed to solve real problems — and the next wave will need to earn consumers’ trust.",
+      "body": "The “father of the iPod” says the first generation of AI gadgets failed to solve real problems — and the next wave will need to earn consumers’ trust.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadget. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Amanda Silberling",
+      "date": "2026-10-07",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadget"
+      ],
+      "featured": false,
+      "xpReward": 44,
+      "url": "https://techcrunch.com/2026/10/07/tony-fadell-on-why-the-first-wave-of-ai-gadgets-failed-and-what-comes-next/",
+      "image": "/images/feed/feed-3499b6fe79a2.jpg",
+      "source": "TechCrunch",
+      "isLive": true
+    },
+    {
+      "id": "feed-9c278d3ed82a",
+      "title": "What time does the Arc Raiders 'Frozen Trail' update release in your time zone?",
+      "excerpt": "The \"Frozen Trail\" update is coming soon to Arc Raiders. Here's what time it'll be released in your time zone, and what to expect from the update.",
+      "body": "The Arc Raiders \" Frozen Trail \" release time is less than 24 hours away. This is the extraction shooter's biggest update ever, and it's bringing a plethora of new content, including a whole new map, two endgame raid-style encounters, a new weapon amplification system, three new Arc enemies, and more. Arc Raiders is in dire need of a content injection to help it get back to where it once was in terms of popularity and player count, and \"Frozen Trail\" could be the answer.",
+      "author": "Ford James",
+      "date": "2026-10-07",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 39,
+      "url": "https://www.polygon.com/arc-raiders-frozen-trail-release-time-edt-pdt/",
+      "image": "/images/feed/feed-9c278d3ed82a.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-2b00759b5d42",
+      "title": "Mafia 2 and Mafia 3 Could Be Set for PS5 and Xbox Series Upgrades After Definitive Editions Leak Online",
+      "excerpt": "Mafia 2 and Mafia 3 are coming to PS5 and Xbox Series consoles with some prettier graphics, according to an ESRB rating.",
+      "body": "Mafia 2 and Mafia 3 are coming to PS5 and Xbox Series consoles with some prettier graphics, according to an ESRB rating. Both games are rated Mature 17+ by the board, with each title featuring violence, nudity, and so… many… slurs. Previously, Mafia: Definitive Edition released for modern consoles in September 2020. A full-blown, ground-up remake of the original 2002 game, it acted as a great starting point for people jumping into the series for the first time. Mafia 2 and 3 Definitive Editions already exist for the last-gen consoles, so these listings presumably relate to current-gen upgrades that will, hopefully, include 60fps gameplay, rather than full-blown remakes.",
+      "author": "Kirk McKeand",
+      "date": "2026-10-07",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Xbox"
+      ],
+      "featured": false,
+      "xpReward": 49,
+      "url": "https://www.ign.com/articles/mafia-2-mafia-3-definitive-edition-leaked",
+      "image": "/images/feed/feed-2b00759b5d42.jpg",
+      "source": "IGN",
+      "isLive": true
+    },
+    {
+      "id": "feed-228f84df7062",
+      "title": "E-bikes are causing a surprising new problem in Europe",
+      "excerpt": "Europe has spent years encouraging people to ditch cars and get around on bicycles and e-bikes instead. And in many places, it’s working. But all of those increasingly sophisticated electric bicycles…",
+      "body": "Europe has spent years encouraging people to ditch cars and get around on bicycles and e-bikes instead. And in many places, it’s working. But all of those increasingly sophisticated electric bicycles have created an unexpected new problem: there aren’t nearly enough people to fix them. more…",
+      "author": "Micah Toll",
+      "date": "2026-10-07",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Cars"
+      ],
+      "featured": false,
+      "xpReward": 48,
+      "url": "https://electrek.co/2026/10/07/e-bikes-are-causing-a-surprising-new-problem-in-europe/",
+      "image": "/images/feed/feed-228f84df7062.jpg",
+      "source": "Electrek",
+      "isLive": true
+    },
+    {
+      "id": "feed-60862e24b98b",
+      "title": "Google experiments with an AI-powered gaming platform",
+      "excerpt": "Google Labs is working on a new AI-powered game-creation platform called Playground for users to build browser-based games using simple text prompts.",
+      "body": "Google Labs is working on a new AI-powered game-creation platform called Playground for users to build browser-based games using simple text prompts.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Lauren Forristal",
+      "date": "2026-10-07",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 38,
+      "url": "https://techcrunch.com/2026/10/07/google-experiments-with-an-ai-powered-gaming-platform/",
+      "image": "/images/feed/feed-60862e24b98b.png",
+      "source": "TechCrunch",
+      "isLive": true
+    },
+    {
+      "id": "feed-414ebac2e81a",
+      "title": "AI Bro Defends Sloppily Reverse-Engineering PlayStation Homebrew Tool Without Permission By Invoking ‘Freedom Of Speech’",
+      "excerpt": "Zer0Day justified his AI-slop rip-off of GoldHEN by stating that ‘creativity should never have to ask for permission’ in a lengthy post on GitHub",
+      "body": "Zer0Day justified his AI-slop rip-off of GoldHEN by stating that ‘creativity should never have to ask for permission’ in a lengthy post on GitHub\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Playstation. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Lewis Parker",
+      "date": "2026-10-07",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Playstation"
+      ],
+      "featured": false,
+      "xpReward": 30,
+      "url": "https://kotaku.com/ai-bro-defends-sloppily-reverse-engineering-playstation-homebrew-tool-without-permission-by-invoking-freedom-of-speech-2000741098",
+      "image": "/images/feed/feed-414ebac2e81a.jpg",
+      "source": "Kotaku",
+      "isLive": true
+    },
+    {
+      "id": "feed-18d8cb0c225a",
+      "title": "T-Mobile leak unveils T-Mix perk menu and ‘pick’ exchange rates",
+      "excerpt": "T-Mobile leak explains how T-Mix perks will work.",
+      "body": "Credit: Joe Maring / Android Authority TL;DR T-Mobile is preparing to launch T-Mix plans that would introduce a pick-your-perk system. A leak may have revealed every perk available for T-Mix. The leak may have also revealed how many “picks” each perk will cost. As if phone plans weren’t confusing enough, T-Mobile is getting ready to make everything just a little more complicated. It was recently reported that the carrier is preparing to launch a trio of plan tiers called T-Mix , which will include Standard, More, and Loaded. The “T-Mix” branding alludes to the introduction of a new pick-your-perk system, where you’ll spend “picks” to get the perks you want for your plan. While there is still plenty to learn about T-Mix, a leak may have filled in the gap on perk costs.",
+      "author": "Ryan McNeal",
+      "date": "2026-10-07",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 39,
+      "url": "https://www.androidauthority.com/t-mobile-t-mix-costs-3720219/",
+      "image": "/images/feed/feed-18d8cb0c225a.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-e9ba35d3d990",
+      "title": "Prime Day deal cuts the Tapo MagCam 2K+ outdoor camera kit to just $65",
+      "excerpt": "Catch a record low price on the TP-Link Tapo MagCam 2K+ security camera kit, with solar power and smart motion alerts.",
+      "body": "The TP-Link Tapo MagCam 2K+ Outdoor Wireless Security Camera kit is built for people who want a wire-free way to watch over their home’s exterior. This Tapo C425 kit pairs the camera with a separate solar panel, and there’s a strong Prime Day deal on it right now. See the deal at Amazon",
       "author": "Matt Horne",
       "date": "2026-10-07",
       "readTime": "2 min",
@@ -147,29 +471,86 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 34,
-      "url": "https://www.androidauthority.com/nothing-phone-3-deal-prime-day-3720243/",
-      "image": "/images/feed/feed-b4f88a9367a3.jpg",
+      "xpReward": 36,
+      "url": "https://www.androidauthority.com/tapo-magcam-2k-outdoor-camera-kit-deal-3720283/",
+      "image": "/images/feed/feed-e9ba35d3d990.jpg",
       "source": "Android Authority",
       "isLive": true
     },
     {
-      "id": "feed-ec306d89da39",
-      "title": "PlayStation Bringing Back Ape Escape With Ex-Sonic Devs, Report Says",
-      "excerpt": "Sources say the team behind Sonic Mania and Penny's Big Breakaway is working on a new Ape Escape game for PlayStation 5.",
-      "body": "After more than 15 years, it seems that more Ape Escape may finally be on the way. According to VGC and former Giant Bomb journalist Jeff Gerstmann, developer Evening Star is working on a revival of Ape Escape for Sony Interactive Entertainment. Sonic Mania 's lead designer , Christian Whitehead, founded Evening Star in 2018. The studio later launched its 3D platformer Penny’s Big Breakaway in 2024.",
-      "author": "Elijah Gonzalez",
+      "id": "feed-76c6c56185f9",
+      "title": "The Lord of the Rings D&D Books Smash Crowdfunding Record",
+      "excerpt": "The designers discuss rethinking their work and staying as close to Tolkien as possible",
+      "body": "Free League Publishing raised $1.7 million on Kickstarter in 2021 to fund the second edition of The One Ring , a tabletop role-playing game based on J.R.R. Tolkien’s The Lord of the Rings . Free League publishes the tabletop adaptations of Alien, Blade Runner, and Invincible , but its latest The One Ring crowdfunding project has surpassed all their records , raising $2.6 million to fund revised rules, a new bestiary, and a campaign book.",
+      "author": "Sam Nelson",
       "date": "2026-10-07",
       "readTime": "2 min",
       "section": "gaming",
       "tags": [
-        "Playstation"
+        "Gaming"
       ],
       "featured": false,
-      "xpReward": 39,
-      "url": "https://www.polygon.com/ape-escape-new-game-sonic-mania/",
-      "image": "/images/feed/feed-ec306d89da39.jpg",
+      "xpReward": 40,
+      "url": "https://www.polygon.com/one-ring-revised-rules-backerkit-interview/",
+      "image": "/images/feed/feed-76c6c56185f9.jpg",
       "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-3cadd0110a70",
+      "title": "OpenAI’s Alexander Embiricos is coming to TechCrunch Disrupt 2026 — days after the launch of Dots",
+      "excerpt": "OpenAI’s Alexander Embiricos is coming to the AI Stage at TechCrunch Disrupt 2026, just days after the launch of Dots. Join this conversation by registering for your pass. Get you pass now to save up…",
+      "body": "OpenAI’s Alexander Embiricos is coming to the AI Stage at TechCrunch Disrupt 2026, just days after the launch of Dots. Join this conversation by registering for your pass. Get you pass now to save up — a development drawing significant attention in the artificial intelligence and machine learning space.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Openai. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "TechCrunch Events",
+      "date": "2026-10-07",
+      "readTime": "2 min",
+      "section": "ai",
+      "tags": [
+        "Openai"
+      ],
+      "featured": false,
+      "xpReward": 35,
+      "url": "https://techcrunch.com/2026/10/07/openais-alexander-embiricos-is-coming-to-techcrunch-disrupt-2026-days-after-the-launch-of-dots/",
+      "image": "/images/feed/feed-3cadd0110a70.jpg",
+      "source": "TechCrunch",
+      "isLive": true
+    },
+    {
+      "id": "feed-b75bd62dbff2",
+      "title": "Announcing the finalists for the 2026 SpaceNews Icon Awards",
+      "excerpt": "Meet the 43 leaders and accomplishments that exemplified excellence across the industry over the last 12 months The post Announcing the finalists for the 2026 SpaceNews Icon Awards appeared first on S…",
+      "body": "Meet the 43 leaders and accomplishments that exemplified excellence across the industry over the last 12 months The post Announcing the finalists for the 2026 SpaceNews Icon Awards appeared first on S — a development drawing significant attention in the space exploration and astronomy space.\n\nThis report, published by SpaceNews, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Space. As the situation continues to evolve, professionals and enthusiasts in the space exploration and astronomy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to SpaceNews using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "SpaceNews Editor",
+      "date": "2026-10-07",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Space"
+      ],
+      "featured": false,
+      "xpReward": 32,
+      "url": "https://spacenews.com/announcing-the-finalists-for-the-2026-spacenews-icon-awards/",
+      "image": "/images/feed/feed-b75bd62dbff2.jpg",
+      "source": "SpaceNews",
+      "isLive": true
+    },
+    {
+      "id": "feed-504b159a6162",
+      "title": "Get hands-on: The full lineup of interactive roundtables at TechCrunch Disrupt 2026",
+      "excerpt": "From Nvidia and Chime to Obvious Ventures and Anthropic, explore the entire roundtable agenda at TechCrunch Disrupt 2026. Register now to save up to $100 on your pass and get a second pass at 50% off.",
+      "body": "From Nvidia and Chime to Obvious Ventures and Anthropic, explore the entire roundtable agenda at TechCrunch Disrupt 2026. Register now to save up to $100 on your pass and get a second pass at 50% off.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Ai. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "TechCrunch Events",
+      "date": "2026-10-07",
+      "readTime": "2 min",
+      "section": "ai",
+      "tags": [
+        "Ai"
+      ],
+      "featured": false,
+      "xpReward": 44,
+      "url": "https://techcrunch.com/2026/10/07/get-hands-on-the-full-lineup-of-interactive-roundtables-at-techcrunch-disrupt-2026/",
+      "image": "/images/feed/feed-504b159a6162.jpg",
+      "source": "TechCrunch",
       "isLive": true
     },
     {
@@ -185,162 +566,10 @@
         "Ransomware"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 40,
       "url": "https://www.bleepingcomputer.com/news/security/ransomware-has-a-new-target-is-your-backup-ready/",
       "image": "/images/feed/feed-08c85093b013.jpg",
       "source": "BleepingComputer",
-      "isLive": true
-    },
-    {
-      "id": "feed-49e25fee781a",
-      "title": "Wallpaper Wednesday: More great phone wallpapers for all to share (October 7)",
-      "excerpt": "Here is a weekly selection of Android wallpapers created by our readers and members of the Android Authority team!",
-      "body": "Credit: Edgar Cervantes / Android Authority Welcome to Wallpaper Wednesday! In this weekly roundup, we’ll give you a handful of Android wallpapers you can download and use on your phone, tablet, or even your laptop/PC. The images will come from folks here at Android Authority as well as our readers. All are free to use and come without watermarks. File formats are JPG and PNG, and we’ll provide images in both landscape and portrait modes, so they’ll be optimized for various screens. For the newest walls, as well as all those from previous weeks, check out this Drive link . Want to submit your own? Head to the bottom of this article.",
-      "author": "Edgar Cervantes",
-      "date": "2026-10-07",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 36,
-      "url": "https://www.androidauthority.com/wallpaper-wednesday-october-07-2026-3719229/",
-      "image": "/images/feed/feed-49e25fee781a.jpg",
-      "source": "Android Authority",
-      "isLive": true
-    },
-    {
-      "id": "feed-a8d50b051fbc",
-      "title": "Ring’s upcoming smart lock addresses battery worries with a hand crank",
-      "excerpt": "You won’t be able to get it until Q1 2027, though.",
-      "body": "TL;DR Ring has announced its first-ever smart lock, which can be recharged with a built-in energy crank in the thumbturn. This smart lock includes a fingerprint scanner and a touchscreen keypad, and users can control it through the Ring app or Alexa commands. Ring has also launched four new indoor and outdoor 4K cameras, along with an entry-level 2K indoor pan-and-tilt camera. Amazon-owned Ring sells a wide range of smart home products , including doorbells, cameras, security systems, and several other accessories. One product that’s missing from its portfolio is a smart door lock. The company is now filling that gap with its first-ever smart lock. Known simply as the Ring Smart Lock , it practically eliminates battery-related anxiety, thanks to an “energy crank” built into the thumbturn.",
-      "author": "Chethan Rao",
-      "date": "2026-10-07",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 40,
-      "url": "https://www.androidauthority.com/ring-smart-door-lock-outdoor-indoor-cameras-3720025/",
-      "image": "/images/feed/feed-a8d50b051fbc.jpg",
-      "source": "Android Authority",
-      "isLive": true
-    },
-    {
-      "id": "feed-cf183291c117",
-      "title": "He’s Back",
-      "excerpt": "Bobby Kotick has been named to the board of the post-mega-merger Skydance Corp.",
-      "body": "Bobby Kotick has been named to the board of the post-mega-merger Skydance Corp.\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Ethan Gach",
-      "date": "2026-10-07",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 54,
-      "url": "https://kotaku.com/hes-back-2000741866",
-      "image": "/images/feed/feed-cf183291c117.jpg",
-      "source": "Kotaku",
-      "isLive": true
-    },
-    {
-      "id": "feed-5108cd8f065e",
-      "title": "Google’s cross-model AI detection tool is finally available for all",
-      "excerpt": "Synthid.com can detect AI watermarks from Google, OpenAI, Kakao, and more, and it's finally available for all to use.",
-      "body": "Credit: Hadlee Simons / Android Authority TL;DR Google has announced that the SynthID Detector portal is now available to all users globally, following a limited release. The portal, accessible at synthid.com, lets you check if a photo, video, or audio track was generated by AI. The SynthID Detector portal can detect watermarks made by Google, OpenAI, NVIDIA, and Kakao services, with Apple support coming soon. Google and OpenAI have long allowed users to check media for SynthID watermarks. The presence of these watermarks almost guarantees that a media file was generated by AI. However, one major downside is that you need to use Gemini or OpenAI’s website to verify content. Google also has a dedicated SynthID Detector tool, but this has been limited to select testers for over a year now.",
-      "author": "Hadlee Simons",
-      "date": "2026-10-07",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 36,
-      "url": "https://www.androidauthority.com/google-synthid-detector-general-availability-3720172/",
-      "image": "/images/feed/feed-5108cd8f065e.jpg",
-      "source": "Android Authority",
-      "isLive": true
-    },
-    {
-      "id": "feed-5b06bafe3280",
-      "title": "Annapurna’s New Game Is the Most Annapurna Game of All Time",
-      "excerpt": "Forever Ago, the latest game from publisher Annapurna Interactive, is a sentimental adventure that doesn't always earn its tears.",
-      "body": "No one knows that better than Alfred, the star of Forever Ago , a new narrative adventure game published by Annapurna Interactive. The aging grouch at the center of developer Third Shift’s long-delayed debut has already lived a long life full of foiled plans by the time we join him on a grief-stricken road trip. Flashbacks between pit stops paint a picture of a man who has experienced both extremes of the fate spectrum, in a long life rerouted by unexpected rainstorms and engine failures alike.",
-      "author": "Giovanni Colantonio",
-      "date": "2026-10-07",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Game"
-      ],
-      "featured": false,
-      "xpReward": 54,
-      "url": "https://www.polygon.com/forever-ago-review/",
-      "image": "/images/feed/feed-5b06bafe3280.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-e78ed23eb674",
-      "title": "Cisco is bringing a new agentic framework to its Webex enterprise platform",
-      "excerpt": "Cisco's Dialog feature promises to turn \"fragmented interactions into continuous customer relationships.\"",
-      "body": "Cisco's Dialog feature promises to turn \"fragmented interactions into continuous customer relationships.\"\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Lawrence Bonk)",
-      "date": "2026-10-07",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 38,
-      "url": "https://www.engadget.com/2278872/cisco-is-bringing-a-new-agentic-framework-to-its-webex-enterprise-platform/",
-      "image": "/images/feed/feed-e78ed23eb674.jpg",
-      "source": "Engadget",
-      "isLive": true
-    },
-    {
-      "id": "feed-35e49940a5ed",
-      "title": "Ring's smart lock has a hand crank so it works even if the power's out",
-      "excerpt": "Ring's smart lock has a built-in hand crank to generate power when the batteries are dead.",
-      "body": "Ring's smart lock has a built-in hand crank to generate power when the batteries are dead.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Daniel Cooper)",
-      "date": "2026-10-07",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 41,
-      "url": "https://www.engadget.com/2279739/rings-smart-lock-has-a-hand-crank-so-it-works-even-if-the-powers-out/",
-      "image": "/images/feed/feed-35e49940a5ed.jpg",
-      "source": "Engadget",
-      "isLive": true
-    },
-    {
-      "id": "feed-20cb6700213a",
-      "title": "Google's AI detection website is now available",
-      "excerpt": "SynthID Detector will flag content created with AI tools from OpenAI, Google, Apple and other companies.",
-      "body": "SynthID Detector will flag content created with AI tools from OpenAI, Google, Apple and other companies.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Karissa Bell)",
-      "date": "2026-10-07",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 53,
-      "url": "https://www.engadget.com/2279565/google-synth-id-detector-ai-detection-website-is-now-available/",
-      "image": "/images/feed/feed-20cb6700213a.jpg",
-      "source": "Engadget",
       "isLive": true
     },
     {
@@ -356,7 +585,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 51,
       "url": "https://electrek.co/2026/10/07/hyundai-cancels-ioniq-3-australia-over-cheap-chinese-evs/",
       "image": "/images/feed/feed-30f8f1b61b58.jpg",
       "source": "Electrek",
@@ -375,86 +604,10 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 37,
       "url": "https://krebsonsecurity.com/2026/10/shinyhunters-extorted-boeing-spin-off-prior-to-arrests/",
       "image": "/images/topics/topic-cybersecurity.png",
       "source": "Krebs on Security",
-      "isLive": true
-    },
-    {
-      "id": "feed-9a17e365a245",
-      "title": "The Best Amazon Prime Day Gaming Deals Right Now",
-      "excerpt": "Whether it's headsets, memory cards, controllers, or hit games, Amazon's fall sale has plenty of fun splurges and sensible investments for gamers",
-      "body": "Amazon Prime Day used to be a summer-only thing, but the internet's biggest retailer returns this fall with a new batch of deals on everything from toilet paper to television sets. The sale runs for just two days, Oct. 6 and Oct. 7, and features some solid discounts on gaming accessories and multiplatform games. If you're looking to pick up a new gaming headset, controller, or keyboard, Prime Day is a great time to save a little cash while you do it. Here are some of our favorite picks.",
-      "author": "Jen Glennon",
-      "date": "2026-10-07",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 32,
-      "url": "https://www.polygon.com/best-amazon-prime-day-gaming-deals-october-2026/",
-      "image": "/images/feed/feed-9a17e365a245.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-45b99d50d941",
-      "title": "Pokémon Fans Are Trading Cards For Jonas Brothers Concert Memorabilia",
-      "excerpt": "Better a cute concert memory than helping a scalper, I suppose",
-      "body": "Better a cute concert memory than helping a scalper, I suppose\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Kenneth Shepard",
-      "date": "2026-10-07",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 49,
-      "url": "https://kotaku.com/pokemon-cards-tcg-scalpers-jonas-brothers-tambourine-trade-concert-2000741879",
-      "image": "/images/feed/feed-45b99d50d941.jpg",
-      "source": "Kotaku",
-      "isLive": true
-    },
-    {
-      "id": "feed-16f33299d339",
-      "title": "When Is Forza Horizon 6 Coming To PS5? A Reliable Leaker Claims To Finally Know The Answer",
-      "excerpt": "billbil-kun confirms earlier claims by The Verge's Tom Warren that the PlayStation port has slipped into 2027",
-      "body": "billbil-kun confirms earlier claims by The Verge's Tom Warren that the PlayStation port has slipped into 2027\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "John Walker",
-      "date": "2026-10-07",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 53,
-      "url": "https://kotaku.com/forza-horizon-6-playstation-port-delay-microsoft-sony-ps5-2000741869",
-      "image": "/images/feed/feed-16f33299d339.jpg",
-      "source": "Kotaku",
-      "isLive": true
-    },
-    {
-      "id": "feed-d2a8dd78df5e",
-      "title": "10 Hours With Jonathan Blow’s New Puzzle Game Order Of The Sinking Star",
-      "excerpt": "Order of the Sinking Star is game of twists and turns",
-      "body": "Order of the Sinking Star is game of twists and turns\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Game. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Rebekah Valentine",
-      "date": "2026-10-07",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Game"
-      ],
-      "featured": false,
-      "xpReward": 30,
-      "url": "https://kotaku.com/i-love-intricate-puzzles-but-jonathan-blows-latest-block-pusher-is-complicated-2000741133",
-      "image": "/images/feed/feed-d2a8dd78df5e.jpg",
-      "source": "Kotaku",
       "isLive": true
     },
     {
@@ -471,7 +624,7 @@
         "Hacker"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 44,
       "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-critical-atlassian-flaw-after-public-poc-release/",
       "image": "/images/feed/feed-05644b967a52.jpg",
       "source": "BleepingComputer",
@@ -490,7 +643,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 50,
       "url": "https://electrek.co/2026/10/07/e-quipment-highlight-amts-hot-swapping-battery-electric-rail-excavator/",
       "image": "/images/feed/feed-a8ea838c5f30.png",
       "source": "Electrek",
@@ -509,7 +662,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 40,
       "url": "https://blog.google/innovation-and-ai/technology/ai/playground-experimental-gaming-platform/",
       "image": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/THUMBNAIL_BLOG.max-600x600.format-webp.webp",
       "source": "Google AI Blog",
@@ -528,7 +681,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 37,
       "url": "https://thehackernews.com/2026/10/the-sixth-voice-of-ciso-data-shows.html",
       "image": "/images/feed/feed-b8477ac395d7.png",
       "source": "The Hacker News",
@@ -547,7 +700,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 45,
       "url": "https://thehackernews.com/2026/10/fbi-warns-fortibleed-remains-active.html",
       "image": "/images/feed/feed-1c8e775c40f9.jpg",
       "source": "The Hacker News",
@@ -566,28 +719,9 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 34,
       "url": "https://thehackernews.com/2026/10/atlassian-data-center-flaw-draws.html",
       "image": "/images/feed/feed-bb0e666a1e58.jpg",
-      "source": "The Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-90ed6d400821",
-      "title": "What Is Agentic Pentesting? What It Proves, and Where It Stops.",
-      "excerpt": "If you’re evaluating an agentic pentesting solution right now, you’ve probably heard the same pitch more than once: point it at a target, and it discovers, validates, and exploits attack paths autonom…",
-      "body": "If you’re evaluating an agentic pentesting solution right now, you’ve probably heard the same pitch more than once: point it at a target, and it discovers, validates, and exploits attack paths autonomously, the way a real attacker would. That promise is worth taking seriously. It’s also worth pressure testing, and three questions do the heavy lifting.&nbsp; What can the assessment actually",
-      "author": "info@thehackernews.com (The Hacker News)",
-      "date": "2026-10-07",
-      "readTime": "2 min",
-      "section": "cybersecurity",
-      "tags": [
-        "Cybersecurity"
-      ],
-      "featured": false,
-      "xpReward": 50,
-      "url": "https://thehackernews.com/2026/10/what-is-agentic-pentesting-what-it.html",
-      "image": "/images/feed/feed-90ed6d400821.jpg",
       "source": "The Hacker News",
       "isLive": true
     },
@@ -604,7 +738,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 40,
       "url": "https://www.wired.com/story/openai-wants-its-new-agent-to-run-your-life-mine-said-it-loved-me/",
       "image": "/images/feed/feed-9d98c2e7a69a.jpg",
       "source": "Wired",
@@ -623,7 +757,7 @@
         "Spacex"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 39,
       "url": "https://www.wired.com/story/mysterious-nonprofit-spacexai-national-design-studio-elon-musk-doge/",
       "image": "/images/feed/feed-21d95474f6ae.jpg",
       "source": "Wired",
@@ -642,7 +776,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 37,
       "url": "https://insideevs.com/news/811029/dodge-charger-daytona-ev-sales-q3-2026-us-crater/",
       "image": "/images/feed/feed-2e2bd377a0ff.jpg",
       "source": "InsideEVs",
@@ -662,7 +796,7 @@
         "Claude"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 42,
       "url": "https://thehackernews.com/2026/10/anthropic-expands-claude-access-for.html",
       "image": "/images/feed/feed-d22159d4e53d.jpg",
       "source": "The Hacker News",
@@ -681,10 +815,48 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 54,
       "url": "https://insideevs.com/news/811014/porsche-718-ev-only-official-2027/",
       "image": "/images/feed/feed-282210e79e28.jpg",
       "source": "InsideEVs",
+      "isLive": true
+    },
+    {
+      "id": "feed-77a9852a2238",
+      "title": "APOD: 2026 October 7 – Supernova Remnant Pa 30",
+      "excerpt": "APOD Science APOD APOD: 2026 October 7 –… Today’s APOD Archive Submissions Index Search Calendar RSS Education About Discuss APOD Astronomy Picture of the Day Discover the cosmos! Each day a different…",
+      "body": "APOD Science APOD APOD: 2026 October 7 –… Today’s APOD Archive Submissions Index Search Calendar RSS Education About Discuss APOD Astronomy Picture of the Day Discover the cosmos! Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer. Supernova Remnant Pa 30 Explanation: “Happy New Year!” No, wait, this is not a fireworks display . This image shows Nebula Pa 30 , observed with the Gemini North Telescope in Hawai’i . It is likely the remnant of an old supernova explosion : separate historical records by Chinese, Japanese and Arabic astronomers tell of a “ guest star ” that appeared in the sky for 185 days in the year 1181 .",
+      "author": "NASA Breaking News",
+      "date": "2026-10-07",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Space"
+      ],
+      "featured": false,
+      "xpReward": 31,
+      "url": "https://science.nasa.gov/image-article/apod-2026-october-7-supernova-remnant-pa-30/",
+      "image": "/images/feed/feed-77a9852a2238.jpg",
+      "source": "NASA Breaking News",
+      "isLive": true
+    },
+    {
+      "id": "feed-a9437e9bb2a2",
+      "title": "Arctic Sea Ice Shrinks to Its 2026 Minimum",
+      "excerpt": "Satellite records show Arctic sea ice covering less of the ocean in both winter and summer.",
+      "body": "Earth Observatory Science Earth Observatory Arctic Sea Ice Shrinks to Its… Earth Earth Observatory Image of the Day EO Explorer Topics All Topics Atmosphere Land Heat &#038; Radiation Life on Earth Human Dimensions Natural Events Oceans Remote Sensing Technology Snow &#038; Ice Water More Content Collections Global Maps World of Change Articles Earth Matters Blog Blue Marble: Next Generation EO Kids Mission: Biomes About About Us Subscribe 🛜 RSS Contact Us Search Arctic sea ice reaches its annual minimum extent on September 12, 2026, tying several past years for the 10th-lowest minimum in the satellite record.",
+      "author": "NASA Breaking News",
+      "date": "2026-10-07",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Space"
+      ],
+      "featured": false,
+      "xpReward": 37,
+      "url": "https://science.nasa.gov/earth/earth-observatory/arctic-sea-ice-shrinks-to-its-2026-minimum/",
+      "image": "/images/feed/feed-a9437e9bb2a2.jpg",
+      "source": "NASA Breaking News",
       "isLive": true
     },
     {
@@ -707,44 +879,6 @@
       "isLive": true
     },
     {
-      "id": "feed-d9fb3479eeb7",
-      "title": "Jaguar Heard The Rebrand Haters. It Doesn't Think They're Its Customers",
-      "excerpt": "Jaguar doesn't need everyone to like it's new direction, top boss Rawdon Glover told us.",
-      "body": "Jaguar doesn't need everyone to like it's new direction, top boss Rawdon Glover told us.\n\nThis report, published by InsideEVs, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cars. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to InsideEVs using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "InsideEVs",
-      "date": "2026-10-07",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Cars"
-      ],
-      "featured": false,
-      "xpReward": 52,
-      "url": "https://insideevs.com/news/810986/jaguar-culture-war-result-ad/",
-      "image": "/images/feed/feed-d9fb3479eeb7.jpg",
-      "source": "InsideEVs",
-      "isLive": true
-    },
-    {
-      "id": "feed-eb4e1e01e43b",
-      "title": "Jaguar Says America Is The Most Important Market For Its New Electric Sedan",
-      "excerpt": "Despite the $130,000 price tag, Jaguar says that the U.S. and Canada are its most important markets for the Type 01 sedan.",
-      "body": "Despite the $130,000 price tag, Jaguar says that the U.S. and Canada are its most important markets for the Type 01 sedan.\n\nThis report, published by InsideEVs, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cars. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to InsideEVs using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "InsideEVs",
-      "date": "2026-10-07",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Cars"
-      ],
-      "featured": false,
-      "xpReward": 49,
-      "url": "https://insideevs.com/news/810951/type-01-sedan-jaguar-important/",
-      "image": "/images/feed/feed-eb4e1e01e43b.jpg",
-      "source": "InsideEVs",
-      "isLive": true
-    },
-    {
       "id": "feed-3546dd4b4714",
       "title": "Deposition Sciences, Inc. Expands Sunshade® Tape Offering with New 12″ × 30″ Format",
       "excerpt": "Santa Rosa, CA — October 2026 — Deposition Sciences, Inc. (DSI), a leader in advanced thin film coatings, proudly announces the introduction of a new 12″ × 30″ format for […] The post Deposition Scien…",
@@ -757,7 +891,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 54,
       "url": "https://spacenews.com/deposition-sciences-inc-expands-sunshade-tape-offering-with-new-12-x-30-format/",
       "image": "/images/feed/feed-3546dd4b4714.png",
       "source": "SpaceNews",
@@ -776,178 +910,44 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 48,
       "url": "https://www.wired.com/story/artificial-roasts-ais-creators-and-sends-a-dark-warning-about-its-dangers/",
       "image": "/images/feed/feed-59f3487ec217.jpg",
       "source": "Wired",
       "isLive": true
     },
     {
-      "id": "feed-b5c111ad53dd",
-      "title": "Fake ChatGPT, Gemini, and Claude Ad Portals Capture Credentials and MFA Codes",
-      "excerpt": "Cybersecurity researchers have disclosed details of a \"human-operated phishing platform\" that impersonates advertising products for artificial intelligence (AI) chatbots like Google Gemini, Anthropic…",
-      "body": "Cybersecurity researchers have disclosed details of a \"human-operated phishing platform\" that impersonates advertising products for artificial intelligence (AI) chatbots like Google Gemini, Anthropic Claude, OpenAI ChatGPT, Perplexity, Meta Muse, and Manus. The products, which claim to offer campaign optimization, spend audits, and business-account connections, are designed with one goal in",
-      "author": "info@thehackernews.com (The Hacker News)",
+      "id": "feed-8a998ac864de",
+      "title": "NASA to Cover Northrop Grumman CRS-24 Spacecraft Departure",
+      "excerpt": "After delivering more than 11,000 pounds of supplies, science experiments, and other cargo to the International Space Station for NASA, Northrop Grumman’s Cygnus XL spacecraft is scheduled to depart F…",
+      "body": "Northrop Grumman&#8217;s Cygnus XL cargo spacecraft rests at its capture point on April 13, 2026, 12 meters from the International Space Station, as the Canadarm2 robotic arm prepares to grapple the resupply ship. Credit: NASA/Jessica Meir After delivering more than 11,000 pounds of supplies, science experiments, and other cargo to the International Space Station for NASA, Northrop Grumman’s Cygnus XL spacecraft is scheduled to depart Friday, Oct. 9, as part of the company’s Commercial Resupply Services-24 mission, or Northrop Grumman CRS-24. Watch NASA’s live coverage of undocking and departure beginning at 12:30 p.m. EDT through a variety of platforms.",
+      "author": "Jessica Taveau",
       "date": "2026-10-06",
       "readTime": "2 min",
-      "section": "ai",
-      "tags": [
-        "Chatgpt",
-        "Gemini",
-        "Claude"
-      ],
-      "featured": false,
-      "xpReward": 41,
-      "url": "https://thehackernews.com/2026/10/fake-chatgpt-gemini-and-claude-ad.html",
-      "image": "/images/feed/feed-b5c111ad53dd.jpg",
-      "source": "The Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-3beb00bd8352",
-      "title": "Use Gemini for free? You’ll soon be limited to its weakest AI model",
-      "excerpt": "Google is cutting off free users from the Flash and Pro models. AI Plus subscribers are losing out too",
-      "body": "Google is cutting off free users from the Flash and Pro models. AI Plus subscribers are losing out too\n\nThis report, published by ZDNet, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gemini. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to ZDNet using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Lance Whitney",
-      "date": "2026-10-06",
-      "readTime": "2 min",
-      "section": "ai",
-      "tags": [
-        "Gemini"
-      ],
-      "featured": false,
-      "xpReward": 47,
-      "url": "https://www.zdnet.com/innovation/google-ai-free-model-access-limited/",
-      "image": "/images/feed/feed-3beb00bd8352.jpg",
-      "source": "ZDNet",
-      "isLive": true
-    },
-    {
-      "id": "feed-a46520c0821d",
-      "title": "Claude Code’s suggested message feature: I think the real customer is the model",
-      "excerpt": "",
-      "body": "This report, published by Hacker News, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Claude. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Hacker News using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "zed_labs_dev",
-      "date": "2026-10-06",
-      "readTime": "2 min",
-      "section": "ai",
-      "tags": [
-        "Claude"
-      ],
-      "featured": false,
-      "xpReward": 45,
-      "url": "https://www.zohaib.cc/blog/smartest-claude-code-feature",
-      "image": "/images/topics/topic-ai-ml.png",
-      "source": "Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-910ffc866e9d",
-      "title": "Trump’s ‘Super Intelligence’ AI Rebrand Has Everyone Shopping for Slovenia’s .SI Domain",
-      "excerpt": "Elon Musk says he will rename the just renamed SpaceXAI to SpaceXSI to align with the White House directive.",
-      "body": "Elon Musk says he will rename the just renamed SpaceXAI to SpaceXSI to align with the White House directive.\n\nThis report, published by CNET, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Space. As the situation continues to evolve, professionals and enthusiasts in the space exploration and astronomy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to CNET using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Alex Valdes",
-      "date": "2026-10-05",
-      "readTime": "2 min",
       "section": "space",
       "tags": [
-        "Space"
-      ],
-      "featured": false,
-      "xpReward": 39,
-      "url": "https://www.cnet.com/tech/services-and-software/trump-super-intelligence-ai-rebrand-musk-spacexsi-slovenia-domain/",
-      "image": "https://www.cnet.com/wp-content/uploads/sites/2/GettyImages-2297619001.jpg",
-      "source": "CNET",
-      "isLive": true
-    },
-    {
-      "id": "feed-aa9be7bf92d5",
-      "title": "Resource competition intensifies with surge in megaconstellations",
-      "excerpt": "Amazon wants more than 5,000 satellites in orbit. Blue Origin has proposed another 5,400. Chinese companies have filed plans encompassing vastly more. Elon Musk has talked about a constellation number…",
-      "body": "Amazon wants more than 5,000 satellites in orbit. Blue Origin has proposed another 5,400. Chinese companies have filed plans encompassing vastly more. Elon Musk has talked about a constellation numbering [&#8230;] The post Resource competition intensifies with surge in megaconstellations appeared first on SpaceNews .",
-      "author": "Hope Hodge Seck",
-      "date": "2026-10-05",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Space"
-      ],
-      "featured": false,
-      "xpReward": 52,
-      "url": "https://spacenews.com/resource-competition-intensifies-with-surge-in-megaconstellations/",
-      "image": "/images/feed/feed-aa9be7bf92d5.jpg",
-      "source": "SpaceNews",
-      "isLive": true
-    },
-    {
-      "id": "feed-a01eb254c832",
-      "title": "Agile Space Industries Strengthens Board and Corporate Development to Support Continued Growth",
-      "excerpt": "DURANGO, Colo., Oct. 5, 2026 — Agile Space Industries today announced that Jonathan Baliff has joined its Board of Directors, bringing extensive experience in aerospace, finance, and corporate leaders…",
-      "body": "DURANGO, Colo., Oct. 5, 2026 — Agile Space Industries today announced that Jonathan Baliff has joined its Board of Directors, bringing extensive experience in aerospace, finance, and corporate leadership. His [&#8230;] The post Agile Space Industries Strengthens Board and Corporate Development to Support Continued Growth appeared first on SpaceNews .",
-      "author": "Agile Space Industries",
-      "date": "2026-10-05",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Space"
-      ],
-      "featured": false,
-      "xpReward": 39,
-      "url": "https://spacenews.com/agile-space-industries-strengthens-board-and-corporate-development-to-support-continued-growth/",
-      "image": "/images/feed/feed-a01eb254c832.png",
-      "source": "SpaceNews",
-      "isLive": true
-    },
-    {
-      "id": "feed-928bebe85e83",
-      "title": "World Space Week 2026 Celebrates the “Rocket Revolution”",
-      "excerpt": "HOUSTON, Texas (September 30, 2026)— World Space Week events, beginning October 4 in 100 nations, will celebrate how launch innovation has stimulated the rapidly-growing space economy and enabled new…",
-      "body": "HOUSTON, Texas (September 30, 2026)— World Space Week events, beginning October 4 in 100 nations, will celebrate how launch innovation has stimulated the rapidly-growing space economy and enabled new uses [&#8230;] The post World Space Week 2026 Celebrates the &#8220;Rocket Revolution&#8221; appeared first on SpaceNews .",
-      "author": "World Space Week Association",
-      "date": "2026-10-01",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Space"
-      ],
-      "featured": false,
-      "xpReward": 53,
-      "url": "https://spacenews.com/world-space-week-2026-celebrates-the-rocket-revolution/",
-      "image": "/images/feed/feed-928bebe85e83.png",
-      "source": "SpaceNews",
-      "isLive": true
-    },
-    {
-      "id": "feed-322201065aa0",
-      "title": "Rethinking risk with electronics for space",
-      "excerpt": "In this episode, SpaceNews’ Mike Gruss speaks with Ken Stoler, the space business development lead for Arrow. They discuss how spacecraft designers and operators have changed their attitudes toward ri…",
-      "body": "In this episode, SpaceNews’ Mike Gruss speaks with Ken Stoler, the space business development lead for Arrow. They discuss how spacecraft designers and operators have changed their attitudes toward risk, [&#8230;] The post Rethinking risk with electronics for space appeared first on SpaceNews .",
-      "author": "SpaceNews Editor",
-      "date": "2026-10-01",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Space"
+        "Nasa",
+        "Spacecraft"
       ],
       "featured": false,
       "xpReward": 31,
-      "url": "https://spacenews.com/rethinking-risk-with-electronics-for-space/",
-      "image": "/images/feed/feed-322201065aa0.jpg",
-      "source": "SpaceNews",
+      "url": "https://www.nasa.gov/news-release/nasa-to-cover-northrop-grumman-crs-24-spacecraft-departure/",
+      "image": "/images/feed/feed-8a998ac864de.jpg",
+      "source": "NASA Breaking News",
       "isLive": true
     }
   ],
   "breakingNews": [
-    "DEV.TO: Mass Assignment: The One-Line API Bug Hiding in Your Update Endpoint",
-    "DEV.TO: How Do You Load-Test an Application That Depends on AI APIs?",
-    "DEV.TO: Circuit-Breaking NHTSA Calls So One Slow Upstream Does Not Stall Every VIN Form",
-    "DEV.TO: Pagination Done Right: Cursor vs. Offset in Practice",
-    "DEV.TO: Sobuj Ghonta (সবুজ ঘণ্টা) — The Green Hour: Screen-Minimizing Urban Nature Companion",
-    "DEV.TO: The System Design Interview Roadmap",
-    "DEV.TO: I Found an Interview of Myself From 3 Years Ago. I Had No Idea What Was Coming.",
-    "ANDROID AUTHORITY: Nothing Phone 3 Amazon deal cuts the flagship phone to just $549",
-    "POLYGON: PlayStation Bringing Back Ape Escape With Ex-Sonic Devs, Report Says",
-    "BLEEPINGCOMPUTER: Ransomware has a new target. Is your backup ready?"
+    "9TO5MAC: Redesigned MacBook Pro will reportedly include these three changes",
+    "DEV.TO: Two Denial-of-Service Vectors in One Apache Round: NiFi and MyFaces Compared",
+    "POLYGON: The Best PS5 Amazon Prime Day Gaming Deals",
+    "DEV.TO: 2,300 runs in four weeks: Organ's own agents, by the numbers",
+    "DEV.TO: The model's explanation had the right answer. Its verdict didn't.",
+    "DEV.TO: AIエージェント、米教育省とカナダ政府のサイトにSQLインジェクションを試行。いずれも失敗",
+    "ANDROID AUTHORITY: Google Photos could let you retouch your 2026 Recap",
+    "DEV.TO: OpenAI Just Turned Agent Infrastructure Into an API — The Next AI Skill Is Orchestration",
+    "DEV.TO: 디파이 프로토콜, 왜 계속해서 해킹의 표적이 되는가? 끊이지 않는 취약점의 심층 분석",
+    "WIRED: Save Up to 50% on the Best Amazon Prime Day Espresso and Coffee Machine Deals (2026)"
   ],
   "sectionVideos": {}
 }
