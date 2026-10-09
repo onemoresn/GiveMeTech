@@ -1,6 +1,405 @@
 {
-  "fetchedAt": "2026-10-09T19:12:43.128Z",
+  "fetchedAt": "2026-10-09T20:15:15.660Z",
   "articles": [
+    {
+      "id": "feed-9f709f0e1ce7",
+      "title": "Carry the scheduler's memory between CI runners",
+      "excerpt": "@vzn/vx-schedule-history starts the longest chain first, using task // vx.workspace.ts import { scheduleHistoryPlugin } from '@vzn/vx-schedule-history' export default { plugins: [scheduleHistoryPlugin…",
+      "body": "@vzn/vx-schedule-history starts the longest chain first, using task times from past runs. A fresh CI runner has no past runs, so the first run on every runner fell back to a guess. One file // vx.workspace.ts import { scheduleHistoryPlugin } from ' @vzn/vx-schedule-history ' export default { plugins : [ scheduleHistoryPlugin ({ file : ' .vx-timings.json ' })], } vx reads the file before it orders the run and rewrites it after, with each task's median time: { \"version\" : 1 , \"tasks\" : { \"app#build\" : 41200 , \"app#test\" : 18350 , \"docs#build\" : 29010 } } Cache that one file in CI and the next runner starts with the times the last one learned: - uses : actions/cache@v4 with : path : .vx-timings.json key : vx-timings-${{ github.run_id }} restore-keys : vx-timings- Source of a task's time Wins…",
+      "author": "VX",
+      "date": "2026-10-09",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 49,
+      "url": "https://dev.to/vzn-vx/carry-the-schedulers-memory-between-ci-runners-474o",
+      "image": "/images/feed/feed-9f709f0e1ce7.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-5ee01751fa96",
+      "title": "My short link hit 40 'clicks' before any human saw it — preview crawlers fetch the instant you post",
+      "excerpt": "I hand out short links all the time — status pages, benchmark reports, results of long agent jobs. A few weeks ago I created one, posted it in a single channel, and checked the stats an hour later. Th…",
+      "body": "I hand out short links all the time — status pages, benchmark reports, results of long agent jobs. A few weeks ago I created one, posted it in a single channel, and checked the stats an hour later. The counter said 41 clicks. 41 was impossible. The link had been shared exactly once, in a mostly-lurking channel, at an hour when nobody was awake. So I started logging user agents on every redirect, and the picture changed completely. The first fetches arrived within seconds of the post: a chat-platform preview bot, two social-card crawlers, and something identifying itself as a generic headless fetcher. Then a burst of security scanners probing odd paths off the short domain.",
+      "author": "InApp",
+      "date": "2026-10-09",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 47,
+      "url": "https://dev.to/imapphelp/my-short-link-hit-40-clicks-before-any-human-saw-it-preview-crawlers-fetch-the-instant-you-post-1opi",
+      "image": "/images/feed/feed-5ee01751fa96.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-bf6b7c915be9",
+      "title": "From Attention to a Working Language Model",
+      "excerpt": "Parallelizing the Transformer, Masking the Future, and the Language Modeling Head Last post built self-attention and the transformer block, but left two promises unkept: I showed the computation one t…",
+      "body": "Parallelizing the Transformer, Masking the Future, and the Language Modeling Head Last post built self-attention and the transformer block, but left two promises unkept: I showed the computation one token at a time (so where's the famous parallelism?), and I never showed how any of it actually predicts a word. This post closes both gaps. By the end, you'll know how the whole attention computation collapses into a few big matrix multiplies that run in parallel, why a causal language model has to mask out the future and how a triangle of negative infinity does it, where the input vectors actually come from (token embeddings plus a second thing we've been ignoring: position), and how the language modeling head turns the top-of-stack vector into a probability distribution over the next word.",
+      "author": "Akash",
+      "date": "2026-10-09",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 48,
+      "url": "https://dev.to/kambleakash0/parallelizing-the-transformer-p9b",
+      "image": "/images/feed/feed-bf6b7c915be9.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-ecfd472ca622",
+      "title": "Part 4 — Practical Guide: Adding Features & Architectural Rules",
+      "excerpt": "Across Parts 1, 2, and 3, we laid down the foundational theory, modular directory layouts, and advanced engineering patterns—such as Dependency Injection with InversifyJS, Composition Roots, and tag-b…",
+      "body": "Across Parts 1, 2, and 3 , we laid down the foundational theory, modular directory layouts, and advanced engineering patterns—such as Dependency Injection with InversifyJS, Composition Roots, and tag-based cache invalidation—that power a scalable frontend application. Now, we bring everything together into an actionable, real-world development workflow. How does an engineer build a new business feature from scratch without violating architectural boundaries? How do we integrate validation, handle async side effects, and connect UI components? And crucial for scaling teams, how do we automatically enforce these architectural boundaries in CI/CD pipelines so technical debt never creeps back in?",
+      "author": "Jorge Castillo",
+      "date": "2026-10-09",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 44,
+      "url": "https://dev.to/schorts99/part-4-practical-guide-adding-features-architectural-rules-2db9",
+      "image": "/images/feed/feed-ecfd472ca622.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-b3f282a79f8f",
+      "title": "Trail Quest AI – Explore, Learn & Earn",
+      "excerpt": "TrailQuest AI 🌿 — Less scrolling. More exploring. I’m working on TrailQuest AI, an outdoor quest companion for the Touch Grass open-source AI challenge. Choose a Nature Walk, Birdwatching session, Ph…",
+      "body": "TrailQuest AI 🌿 — Less scrolling. More exploring. I’m working on TrailQuest AI , an outdoor quest companion for the Touch Grass open-source AI challenge. Choose a Nature Walk, Birdwatching session, Photography Hunt, or Gardening activity. Set your available time and energy level, add an optional interest, and get a short mission with practical tasks and safety reminders. Complete the tasks to earn Trail Points, then put your phone away and enjoy the outdoors. Why this idea? Technology can help us start an activity without becoming the activity itself. TrailQuest is designed to make the phone a starting point for curiosity—not something to keep staring at.",
+      "author": "TGHZ",
+      "date": "2026-10-09",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 52,
+      "url": "https://dev.to/tghz_bfa52e2616df5fd71c83/trail-quest-ai-explore-learn-earn-gc4",
+      "image": "/images/feed/feed-b3f282a79f8f.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-c67941bfdf68",
+      "title": "Apple acqui-hires AI startup founded by former NotebookLM developers",
+      "excerpt": "The European Union’s Digital Markets Act transparency website lists Huxe as Apple’s newest acqui-hire, and at least the fourth AI-related deal disclosed this year. Here are the details. more…",
+      "body": "The European Union’s Digital Markets Act transparency website lists Huxe as Apple’s newest acqui-hire, and at least the fourth AI-related deal disclosed this year. Here are the details. more — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Marcus Mendes",
+      "date": "2026-10-09",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": true,
+      "xpReward": 50,
+      "url": "https://9to5mac.com/2026/10/09/apple-acqui-hires-ai-startup-founded-by-former-notebooklm-developers/",
+      "image": "/images/feed/feed-c67941bfdf68.jpg",
+      "source": "9to5Mac",
+      "isLive": true
+    },
+    {
+      "id": "feed-91b4a2f9aae9",
+      "title": "Best gifts for each character in Fire Emblem: Fortune's Weave",
+      "excerpt": "Our Fire Emblem Fortune's Weave gift guide lists the best gifts for every character",
+      "body": "Giving gifts in Fire Emblem: Fortune's Weave is a fast, if not always easy, way to increase support levels with potential recruitable allies . Giving the right gift that aligns with the recipient's taste results in a hefty support boost roughly equivalent to inviting that character to a meal they love. However, figuring out what everyone likes isn't always easy, not when some list their likes as \"looks of fear\" or other such things you normally can't buy in stores.",
+      "author": "Josh Broadwell",
+      "date": "2026-10-09",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 51,
+      "url": "https://www.polygon.com/fire-emblem-fortunes-weave-best-gifts-each-character/",
+      "image": "/images/feed/feed-91b4a2f9aae9.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-3cbae28dce11",
+      "title": "Chasing a number to its source, and finding where the precision stops",
+      "excerpt": "You see a number somewhere. \"This model is 94.3% accurate.\" \"Pi is 3.14159265358979323846264338327950288.\" \"The atmosphere is predictable out to two weeks.\" We tend to treat digits as one thing: more…",
+      "body": "You see a number somewhere. \"This model is 94.3% accurate.\" \"Pi is 3.14159265358979323846264338327950288.\" \"The atmosphere is predictable out to two weeks.\" We tend to treat digits as one thing: more is better. It isn't. Past some point, the extra digits stop describing anything real and start describing the machine that printed them. I've spent the last few weeks chasing numbers back to where they were first computed, and the interesting part is never the number. It's the last digit that still means something. Three cases, briefly. Pi runs out at 37 digits, not 39 The popular claim is that NASA needs 39 digits of pi. It's folk knowledge that gets copied forward.",
+      "author": "Nuncius",
+      "date": "2026-10-09",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 36,
+      "url": "https://dev.to/nuncius-ghost/chasing-a-number-to-its-source-and-finding-where-the-precision-stops-2bpb",
+      "image": "/images/feed/feed-3cbae28dce11.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-bc55c4c93466",
+      "title": "Production Feature Flags: Safe Pricing Rollouts with Defaults, Caching, and Polling",
+      "excerpt": "A pricing flag has a nastier failure mode than a cosmetic flag: a stale or missing value can put the wrong rule on an invoice. TL;DR: keep a conservative default in code, cache the last valid remote v…",
+      "body": "A pricing flag has a nastier failure mode than a cosmetic flag: a stale or missing value can put the wrong rule on an invoice. TL;DR: keep a conservative default in code, cache the last valid remote value briefly, and refresh it on a fixed polling schedule. For a small SaaS, that is enough to make feature flags practical in production without turning every request into a configuration lookup. The key constraint is cost attribution. The flag should select a pricing policy; it should not erase the policy version from the usage record. Persist the evaluated variant beside each billable event so an invoice can be reconstructed later, even after the flag changes. My first implementation would be the tempting one: fetch new_pricing_rule in the request path and fall back to false on any error.",
+      "author": "KiernanBerg3867",
+      "date": "2026-10-09",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 41,
+      "url": "https://dev.to/kiernanberg3867/production-feature-flags-safe-pricing-rollouts-with-defaults-caching-and-polling-j07",
+      "image": "/images/feed/feed-bc55c4c93466.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-365ce5f3f725",
+      "title": "9to5Mac Overtime 085: Here comes the HomePad",
+      "excerpt": "Join Jeff and Fernando as they dive into Apple’s upcoming ‘Welcome Home’ event and the highly anticipated launch of the HomePad, Apple’s new smart hub featuring a built-in speaker and display. They al…",
+      "body": "Join Jeff and Fernando as they dive into Apple’s upcoming ‘Welcome Home’ event and the highly anticipated launch of the HomePad, Apple’s new smart hub featuring a built-in speaker and display. They also discuss the latest iOS 27.2 code leaks, revealing fresh details about upcoming second-party smart home products from LG and more. 9to5Mac Overtime is a weekly video-first podcast exploring fun and interesting observations in the Apple ecosystem, featuring 9to5Mac’s Fernando Silva &amp; Jeff Benjamin. Subscribe to Overtime via Apple Podcasts and our YouTube channel for more. more…",
+      "author": "Jeff Benjamin",
+      "date": "2026-10-09",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 49,
+      "url": "https://9to5mac.com/2026/10/09/9to5mac-overtime-085-here-comes-the-homepad/",
+      "image": "/images/feed/feed-365ce5f3f725.jpg",
+      "source": "9to5Mac",
+      "isLive": true
+    },
+    {
+      "id": "feed-3e6a93ba084c",
+      "title": "An Anthropic model submitted a false homicide tip to Philadelphia police",
+      "excerpt": "Thankfully, it does not seem to have diverted police resources.",
+      "body": "Thankfully, it does not seem to have diverted police resources.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "staff@engadget.com (Igor Bonifacic)",
+      "date": "2026-10-09",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 53,
+      "url": "https://www.engadget.com/2282713/an-anthropic-model-submitted-a-false-homicide-tip-to-philadelphia-police/",
+      "image": "/images/feed/feed-3e6a93ba084c.jpg",
+      "source": "Engadget",
+      "isLive": true
+    },
+    {
+      "id": "feed-6df2ee6a20ae",
+      "title": "8 new TV Shows to Watch This Weekend on Netflix, Prime Video, and HBO (October 9-11)",
+      "excerpt": "In this weekend's TV streaming column, there's plenty to choose from, including Stephen King's latest TV adaptation and the new entry Avatar series.",
+      "body": "Happy weekend! October is ramping up, and we have plenty of recommendations if you’re a fan of the genre. On TV, Carrie is on Prime Video, with Mike Flanagan taking the beloved Stephen King adaptation and introducing the worst prom ever to a new generation. There’s also Below , a Canadian thriller starring Josh Hartnett as a fisherman who must protect his community and family from a mysterious sea creature.",
+      "author": "Maria Loreto",
+      "date": "2026-10-09",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 43,
+      "url": "https://www.polygon.com/new-tv-shows-streaming-this-weekend-netflix-october-9-11/",
+      "image": "/images/feed/feed-6df2ee6a20ae.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-0a24a5c9fc64",
+      "title": "Blogger Found Guilty Of Taunting State Senator With Shrek Dick Picks",
+      "excerpt": "Who's excited for Shrek 5?",
+      "body": "Who's excited for Shrek 5?\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Ethan Gach",
+      "date": "2026-10-09",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 42,
+      "url": "https://kotaku.com/blogger-found-guilty-of-taunting-state-senator-with-shrek-dick-picks-2000743289",
+      "image": "/images/feed/feed-0a24a5c9fc64.jpg",
+      "source": "Kotaku",
+      "isLive": true
+    },
+    {
+      "id": "feed-d1a031906944",
+      "title": "9to5Mac Daily: October 9, 2026 – Apple’s ‘Welcome home’ launch announced, more",
+      "excerpt": "Listen to a recap of the top stories of the day from 9to5Mac. 9to5Mac Daily is available on iTunes and Apple’s Podcasts app, Stitcher, TuneIn, Google Play, or through our dedicated RSS feed for Overca…",
+      "body": "Listen to a recap of the top stories of the day from 9to5Mac . 9to5Mac Daily is available on iTunes and Apple’s Podcasts app , Stitcher , TuneIn , Google Play , or through our dedicated RSS feed for Overcast and other podcast players. Sponsored by Stuff :Stuff helps you get everything out of your head and into a simple, elegant system—closing open loops and reducing mental stress. A simple to-do list for iPhone, iPad, and Mac, with powerful tools that make organizing, tracking, and checking off your tasks a whole lot more satisfying. Get Stuff done. Sponsored by Roborock: Fall Prime Day is here—with up to $1,600 off Roborock’s smartest cleaning lineup, plus exclusive limited-time deals and gifts. Find the right cleaner for your home and save starting now. more…",
+      "author": "Seth Kurkowski",
+      "date": "2026-10-09",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 44,
+      "url": "https://9to5mac.com/2026/10/09/daily-october-9-2026/",
+      "image": "/images/feed/feed-d1a031906944.jpg",
+      "source": "9to5Mac",
+      "isLive": true
+    },
+    {
+      "id": "feed-d0aa8f96cc02",
+      "title": "Podcast: Tesla goes V2H, Kia EV3 first drive, Jaguar Type 01, and more",
+      "excerpt": "In the Electrek Podcast, we discuss the most popular news in the world of sustainable transport and energy. In this week’s episode, we discuss Tesla finally launching V2H, our Kia EV3 first drive, Jag…",
+      "body": "In the Electrek Podcast, we discuss the most popular news in the world of sustainable transport and energy. In this week’s episode, we discuss Tesla finally launching V2H, our Kia EV3 first drive, Jag — a development drawing significant attention in the electric vehicles, hybrids, and automotive technology space.\n\nThis report, published by Electrek, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Tesla. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Electrek using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Fred Lambert",
+      "date": "2026-10-09",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Tesla"
+      ],
+      "featured": false,
+      "xpReward": 43,
+      "url": "https://electrek.co/2026/10/09/podcast-tesla-goes-v2h-kia-ev3-first-drive-jaguar-type-01-and-more/",
+      "image": "/images/feed/feed-d0aa8f96cc02.jpg",
+      "source": "Electrek",
+      "isLive": true
+    },
+    {
+      "id": "feed-e09bca746ce3",
+      "title": "An Anthropic AI model sent a false homicide tip to Philadelphia police",
+      "excerpt": "Anthropic did not discover this behavior until over two months after its AI submitted the false tip.",
+      "body": "Anthropic did not discover this behavior until over two months after its AI submitted the false tip.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Anthropic. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Amanda Silberling",
+      "date": "2026-10-09",
+      "readTime": "2 min",
+      "section": "ai",
+      "tags": [
+        "Anthropic"
+      ],
+      "featured": false,
+      "xpReward": 39,
+      "url": "https://techcrunch.com/2026/10/09/an-anthropic-ai-model-sent-a-false-homicide-tip-to-philadelphia-police/",
+      "image": "/images/feed/feed-e09bca746ce3.jpg",
+      "source": "TechCrunch",
+      "isLive": true
+    },
+    {
+      "id": "feed-29ce80a5495b",
+      "title": "Dungeons & Dragons Officially Reveals First Details on Star Wars Collaboration",
+      "excerpt": "Wizards of the Coast revealed the first details on the upcoming Star Wars expansion for Dungeons and Dragons.",
+      "body": "Wizards of the Coast revealed the first details on the upcoming Star Wars expansion for Dungeons and Dragons.\n\nThis report, published by Polygon, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Polygon using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Elijah Gonzalez",
+      "date": "2026-10-09",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 53,
+      "url": "https://www.polygon.com/dungeons-and-dragons-star-wars-collaboration/",
+      "image": "/images/feed/feed-29ce80a5495b.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-05c7db11d4d7",
+      "title": "'Home to Roost' quest walkthrough in Arc Raiders",
+      "excerpt": "A guide explaining how to complete the \"Home to Roost\" quest in Arc Raiders, including where to find the Mantikor locker room.",
+      "body": "The \"Home to Roost\" quest in Arc Raiders is one of the lengthier, more difficult ones you'll tackle following the 'Frozen Trails' update, but this one doesn't involve the new map, Pendola Pass, whatsoever. The action for \"Home to Roost\" takes place entirely on Blue Gate, where you must head to the back of the tunnels and dodge the pops, fireballs, shredders, and any other Arc enemies you may find down there.",
+      "author": "Ford James",
+      "date": "2026-10-09",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 51,
+      "url": "https://www.polygon.com/arc-raiders-home-to-roost-quest-walkthrough-mantikor-locker-room-vehicle-weighing-logs-transmit-security-recordings/",
+      "image": "/images/feed/feed-05c7db11d4d7.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-51c992c089b2",
+      "title": "Want an iPhone Duo? These AT&T deals will knock the price down",
+      "excerpt": "With pre-orders starting in the coming days, AT&T has revealed its iPhone Duo deals.",
+      "body": "Credit: Aamir Siddiqui / Android Authority TL;DR AT&amp;T is rolling out its deals for the iPhone Duo. New and existing customers can both get up to $1,200 off with an eligible trade-in. Customers can save $200 per line when ordering online. September was a big month for Apple, and not just because of the launch of the iPhone 18 series . It also marked Apple’s debut in the foldable market, as the Cupertino-based firm announced the iPhone Duo . Although the announcement was made on the same day as the iPhone 18 series, availability is starting a month later. With pre-orders opening up in the coming days, AT&amp;T has now shared its deals for the Galaxy Z Fold 8 competitor. If you’ve been holding out for the iPhone Duo, AT&amp;T has a few deals for you to take advantage of.",
+      "author": "Ryan McNeal",
+      "date": "2026-10-09",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Iphone"
+      ],
+      "featured": false,
+      "xpReward": 42,
+      "url": "https://www.androidauthority.com/apple-iphone-duo-att-deals-3721516/",
+      "image": "/images/feed/feed-51c992c089b2.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-4108ab3e65df",
+      "title": "BMW iX5 spotted ahead of US launch, sporting its new Double-X headlights",
+      "excerpt": "You can’t miss BMW’s new “Double-X” lights, which debut on the all-electric iX5 and X5. The new iX5 was spotted testing ahead of its upcoming US launch, giving us a look at the new lighting signature…",
+      "body": "You can’t miss BMW’s new “Double-X” lights, which debut on the all-electric iX5 and X5. The new iX5 was spotted testing ahead of its upcoming US launch, giving us a look at the new lighting signature — a development drawing significant attention in the electric vehicles, hybrids, and automotive technology space.\n\nThis report, published by Electrek, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cars. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Electrek using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Peter Johnson",
+      "date": "2026-10-09",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Cars"
+      ],
+      "featured": false,
+      "xpReward": 38,
+      "url": "https://electrek.co/2026/10/09/bmw-ix5-spotted-ahead-of-us-launch-new-double-x-lights/",
+      "image": "/images/feed/feed-4108ab3e65df.jpg",
+      "source": "Electrek",
+      "isLive": true
+    },
+    {
+      "id": "feed-55f49a4dbe34",
+      "title": "4 ways Amazon’s new Alexa tablets eclipse the Fire line – starting with Google Play",
+      "excerpt": "Amazon just upped its game with new Android tablets for entertainment and work.",
+      "body": "Amazon just upped its game with new Android tablets for entertainment and work.\n\nThis report, published by ZDNet, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Tablet. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to ZDNet using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Maria Diaz",
+      "date": "2026-10-09",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Tablet"
+      ],
+      "featured": false,
+      "xpReward": 47,
+      "url": "https://www.zdnet.com/tech/amazon-new-alexa-tablets-google-play-store/",
+      "image": "/images/feed/feed-55f49a4dbe34.jpg",
+      "source": "ZDNet",
+      "isLive": true
+    },
     {
       "id": "feed-7c70d0939ae2",
       "title": "Will GTA 6 Ever Come To Switch 2? Nintendo Of America President Says Go Ask Rockstar",
@@ -13,8 +412,8 @@
       "tags": [
         "Nintendo"
       ],
-      "featured": true,
-      "xpReward": 46,
+      "featured": false,
+      "xpReward": 50,
       "url": "https://kotaku.com/will-gta-6-ever-come-to-switch-2-nintendo-of-america-president-says-go-ask-rockstar-2000743283",
       "image": "/images/feed/feed-7c70d0939ae2.jpg",
       "source": "Kotaku",
@@ -32,144 +431,11 @@
       "tags": [
         "Openai"
       ],
-      "featured": true,
-      "xpReward": 31,
+      "featured": false,
+      "xpReward": 35,
       "url": "https://www.theverge.com/ai-artificial-intelligence/1008726/openai-mathematics-solutions-chaos",
       "image": "/images/feed/feed-f09af30fbfd3.jpg",
       "source": "The Verge",
-      "isLive": true
-    },
-    {
-      "id": "feed-f8d5f77c5e6c",
-      "title": "Repository Pattern στο .NET: Είναι πραγματικά ξεπερασμένο επειδή το Entity Framework Core το υλοποιεί ήδη;",
-      "excerpt": "Υπότιτλος: Clean Architecture, Dependency Inversion, αρχιτεκτονικά όρια και οι πραγματικοί συμβιβασμοί πίσω από τα custom repositories. Κάθε τόσο επανέρχεται στις κοινότητες των .NET developers η ίδια…",
-      "body": "Υπότιτλος: Clean Architecture, Dependency Inversion, αρχιτεκτονικά όρια και οι πραγματικοί συμβιβασμοί πίσω από τα custom repositories. Εισαγωγή Κάθε τόσο επανέρχεται στις κοινότητες των .NET developers η ίδια συζήτηση: «Γιατί χρησιμοποιείς Repository Pattern; Το Entity Framework Core υλοποιεί ήδη Repository και Unit of Work. Η επιπλέον αφαίρεση είναι περιττή και ξεπερασμένη». Με την πρώτη ματιά, το επιχείρημα ακούγεται λογικό. Το Entity Framework Core παρέχει το DbSet&lt;T&gt; για την εργασία με οντότητες και το DbContext για την παρακολούθηση αλλαγών και την αποθήκευσή τους.",
-      "author": "nikosst",
-      "date": "2026-10-09",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Framework"
-      ],
-      "featured": true,
-      "xpReward": 35,
-      "url": "https://dev.to/__b63657/repository-pattern-sto-net-einai-pragmatika-xeperasmeno-epeide-to-entity-framework-core-to-406l",
-      "image": "/images/feed/feed-f8d5f77c5e6c.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-ee9ace7448e4",
-      "title": "In 43 markets, four hours of battery power costs less than that of simple gas turbines",
-      "excerpt": "Wood Mackenzie’s report compares four-hour battery systems with open-cycle gas turbines across 43 markets, finding lower costs for batteries in every market studied. It expects battery power costs to…",
-      "body": "Wood Mackenzie’s report compares four-hour battery systems with open-cycle gas turbines across 43 markets, finding lower costs for batteries in every market studied. It expects battery power costs to keep falling while gas-turbine costs rise over the coming decades. The finding sits alongside growing electricity demand from data centers and longer waits for new turbines. Power companies often use the simplest gas turbines to meet peak demand. They are easier to find than more complex models, but they are less efficient and more expensive to operate. However, they now take two to four years to get them. For the most complex models, waiting lists stretch into the early 2030s. AI data center builders are buying up as many gas turbine models as they can find, pushing down their prices.",
-      "author": "Hacks.gr",
-      "date": "2026-10-09",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 41,
-      "url": "https://dev.to/hacksgr/in-43-markets-four-hours-of-battery-power-costs-less-than-that-of-simple-gas-turbines-eg2",
-      "image": "/images/feed/feed-ee9ace7448e4.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-8c367351ea4e",
-      "title": "DuckDB analytics on your PostgreSQL tables in Azure PostgreSQL",
-      "excerpt": "In the previous post, we discussed how pg_duckdb on Azure offers more than just reading Parquet files. It integrates DuckDB's columnar, vectorized engine directly into PostgreSQL. A practical first st…",
-      "body": "In the previous post , we discussed how pg_duckdb on Azure offers more than just reading Parquet files. It integrates DuckDB's columnar, vectorized engine directly into PostgreSQL. A practical first step requires no data lake: simply point DuckDB at your existing tables and run analytical queries more quickly — at times. This post guides you through enabling this on Azure Database for PostgreSQL (Flexible Server), highlights its advantages, and notes when it might not be as effective. It's a choice driven by your knowledge of the types of analytics you run, not a query planner decision. Enable pg_duckdb on Azure Database for PostgreSQL pg_duckdb loads through shared_preload_libraries , so it needs two server parameters: Add pg_duckdb to azure.extensions (the allow-list).",
-      "author": "Franck Pachot",
-      "date": "2026-10-09",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 45,
-      "url": "https://dev.to/franckpachot/duckdb-analytics-on-your-postgresql-tables-in-azure-postgresql-9m8",
-      "image": "/images/feed/feed-8c367351ea4e.jpg",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-472b7f5c497e",
-      "title": "I Built an AI That Wants You to Stop Using It — Meet SIDEQUEST 🌿",
-      "excerpt": "An offline-first AI quest machine designed to become a physical device that prints real-world adventures. This is a submission for the Hacktoberfest Open-Source AI Challenge Week 1: Touch Grass I'm a…",
-      "body": "An offline-first AI quest machine designed to become a physical device that prints real-world adventures . This is a submission for the Hacktoberfest Open-Source AI Challenge Week 1: Touch Grass What I Built I'm a software developer, so most of my day happens in front of a screen. And after work? More screens — learning new technologies, building side projects, or scrolling through social media. Here's the funny part: throughout the summer, I was hiking in the Tatras almost every weekend, climbing mountains over 2,000 meters high. But as autumn arrived, I got so caught up in work and tech projects that some days I struggled to convince myself to even go for a short walk. And most solutions to excessive screen time involve... another app.",
-      "author": "Aleksandra Fedak",
-      "date": "2026-10-09",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 49,
-      "url": "https://dev.to/fedachkaa/i-built-an-ai-that-wants-you-to-stop-using-it-meet-sidequest-641",
-      "image": "https://assets.dev.to/assets/github-logo-5a155e1f9a670af7944dd5e12375bc76ed542ea80224905ecaf878b9157cdefc.svg",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-b96f31967add",
-      "title": "A pipeline with seams",
-      "excerpt": "The word \"plugin\" usually means one of two things. Either a plugin is a config → discover → project → graph → key → fingerprint → schedule → admit → executor / cache → telemetry setup and teardown wra…",
-      "body": "The word \"plugin\" usually means one of two things. Either a plugin is a whole subsystem with its own configuration language (Nx executors), or it is a callback bolted to one event the tool happened to expose. vx uses the word the way Vite does: the core is a pipeline, every stage has a named hook, and a plugin is an object that implements the hooks it needs. The stages config → discover → project → graph → key → fingerprint → schedule → admit → executor / cache → telemetry setup and teardown wrap the run; commands adds a verb Stage What a plugin can do there config See and adjust the workspace config before anything uses it. discover Name directories to make projects beyond the package manager's members. project Add, remove or edit one loaded project's tasks.",
-      "author": "VX",
-      "date": "2026-10-09",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 54,
-      "url": "https://dev.to/vzn-vx/a-pipeline-with-seams-31cc",
-      "image": "/images/feed/feed-b96f31967add.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-2d3ac6d99c7c",
-      "title": "When AI Writes Faster Than You Can Understand",
-      "excerpt": "AI coding agents have changed the speed of software development dramatically. A task that once took a team weeks can sometimes be implemented in hours. An AI agent can explore a repository, understand…",
-      "body": "AI coding agents have changed the speed of software development dramatically. A task that once took a team weeks can sometimes be implemented in hours. An AI agent can explore a repository, understand existing patterns, write code, run tests, and open a pull request—all while a human is still trying to understand the first few files. This creates a new engineering problem: The bottleneck is no longer writing code. It is understanding what is being built. The AI Speed Gap Many engineering teams are adopting AI coding tools with an obvious goal: move faster. But there is an uncomfortable side effect. The amount of code an engineer is expected to review can grow much faster than their ability to understand it.",
-      "author": "Prakhar Yadav",
-      "date": "2026-10-09",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 48,
-      "url": "https://dev.to/prakh_r/when-ai-writes-faster-than-you-can-understand-5b1a",
-      "image": "/images/feed/feed-2d3ac6d99c7c.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-fb76c3fd4d04",
-      "title": "🌿 GardenBuddy AI: Less Scrolling, More Growing",
-      "excerpt": "This is a submission for the Hacktoberfest Open-Source AI Challenge Week 1: Touch Grass 🌿 GardenBuddy AI — Less Scrolling, More Growing GardenBuddy AI is an AI-powered gardening companion designed to…",
-      "body": "This is a submission for the Hacktoberfest Open-Source AI Challenge Week 1: Touch Grass What I Built 🌿 GardenBuddy AI — Less Scrolling, More Growing GardenBuddy AI is an AI-powered gardening companion designed to help people make better gardening decisions and spend more time outdoors. Gardening beginners often struggle to choose suitable plants, understand plant care, and organize everyday activities. GardenBuddy AI brings these workflows together in one application. Key Features 🌱 Plant Finder: Explore plant recommendations based on sunlight and available space. 🤖 AI Gardening Advisor: Ask gardening questions and receive contextual advice powered by a locally running Gemma 2B model. 🪴 Gardening Task Management: Organize watering, pruning, harvesting, and other gardening activities.",
-      "author": "Arya Joshi",
-      "date": "2026-10-09",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 30,
-      "url": "https://dev.to/arya10/gardenbuddy-ai-less-scrolling-more-growing-4imh",
-      "image": "/images/feed/feed-fb76c3fd4d04.webp",
-      "source": "Dev.to",
       "isLive": true
     },
     {
@@ -185,7 +451,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 32,
       "url": "https://9to5mac.com/2026/10/09/homepad-is-coming-next-week-with-three-features-ive-long-wanted/",
       "image": "/images/feed/feed-2140442ff16a.jpg",
       "source": "9to5Mac",
@@ -204,67 +470,10 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 53,
       "url": "https://www.polygon.com/gears-war-e-day-why-marcus-dom-jacked/",
       "image": "https://static0.polygonimages.com/wordpress/wp-content/uploads/2026/10/assets_2026_09_1790327787_gow_eday_dom_final.png",
       "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-d9d02d474c8b",
-      "title": "ANBERNIC’s new Nintendo 3DS lookalike brings modern flourishes to a classic form factor",
-      "excerpt": "The flagship ANBERNIC RG DDS looks like a dream for nostalgic dual-screen handheld fans, but we're missing two key details.",
-      "body": "TL;DR ANBERNIC has unveiled the RG DDS, a new dual-screen handheld designed in the style of the Nintendo 3DS. It pairs the nostalgic design with powerful modern hardware, a built-in stylus, and a dedicated AI button. The RG DDS comes in three colors, but pricing and availability haven’t been announced yet. Nintendo may have moved on from the 3DS, but many of us still find something appealing about flipping open a handheld with two screens. ANBERNIC certainly seems to agree. The company has just unveiled the RG DDS, a flagship clamshell gaming console that looks remarkably like Nintendo’s old portable, right down to the stylus. It’s also got some thoroughly modern touches, including a dedicated AI button.",
-      "author": "Matt Horne",
-      "date": "2026-10-09",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 30,
-      "url": "https://www.androidauthority.com/anbernic-rg-dds-launched-3721485/",
-      "image": "/images/feed/feed-d9d02d474c8b.jpg",
-      "source": "Android Authority",
-      "isLive": true
-    },
-    {
-      "id": "feed-c0fef17e6e09",
-      "title": "Gears of War: E-Day's Strong Reviews Haven't Translated to Big Sales, Analyst Says",
-      "excerpt": "Gears of War: E-Day's strong reviews haven't stopped questions about sales, as estimates point to heavy Game Pass use and fewer purchases.",
-      "body": "Gears of War: E-Day's strong reviews haven't stopped questions about sales, as estimates point to heavy Game Pass use and fewer purchases.\n\nThis report, published by Polygon, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Polygon using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Sam Hill",
-      "date": "2026-10-09",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 36,
-      "url": "https://www.polygon.com/gears-of-war-e-day-sales-game-pass-problem/",
-      "image": "/images/feed/feed-c0fef17e6e09.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-63198ea50a29",
-      "title": "Android 17 QPR2 Beta 7 arrives to save testers from dead batteries",
-      "excerpt": "Complete with full support for the Pixel 11 series.",
-      "body": "TL;DR Android 17 QPR2 Beta 7 is out now for Pixel 6a through Pixel 11 devices. Fixes target a battery drain problem with Flip to Shh and issues with HTTPS downloads. The Face Unlock re-enrollment problem for the Pixel 11 Pro Fold continues. Pixel 11 owners may still be waiting for their Android 17 QPR1 updates , but Google’s development efforts keeping pushing forward, churning out new builds of both the QPR2 and QPR3 Betas. Tersters first got their hands on Android 17 QPR2 Beta 6 two weeks ago, followed shortly thereafter by the special Beta 6.1 release for Pixel 11 models . Now that train is pulling into the next station, with the release of Android 17 QPR2 Beta 7.",
-      "author": "Stephen Schenck",
-      "date": "2026-10-09",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 51,
-      "url": "https://www.androidauthority.com/android-17-qpr2-beta-7-3721513/",
-      "image": "/images/feed/feed-63198ea50a29.jpg",
-      "source": "Android Authority",
       "isLive": true
     },
     {
@@ -281,67 +490,10 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 34,
       "url": "https://www.wired.com/story/nasa-just-made-nearly-1-tb-of-artemis-ii-data-available-to-the-public/",
       "image": "/images/feed/feed-fcfddd0cc76e.jpg",
       "source": "Wired",
-      "isLive": true
-    },
-    {
-      "id": "feed-722941a20fc3",
-      "title": "HomeKit Weekly: Onvis releases a Matter over Thread outdoor smart plug with energy monitoring",
-      "excerpt": "Onvis has released a new outdoor smart plug that checks all the boxes you’d want in an outdoor smart plug: Matter over Thread, real-time energy monitoring, and IP65 weather resistance. If you’ve been…",
-      "body": "Onvis has released a new outdoor smart plug that checks all the boxes you’d want in an outdoor smart plug: Matter over Thread, real-time energy monitoring, and IP65 weather resistance. If you’ve been looking for an outdoor plug that works natively with Apple Home without a hub of its own, this is a great option as you think outdoor lighting for Christmas, etc. more…",
-      "author": "Bradley C",
-      "date": "2026-10-09",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 39,
-      "url": "https://9to5mac.com/2026/10/09/homekit-weekly-onvis-releases-a-matter-over-thread-outdoor-smart-plug-with-energy-monitoring/",
-      "image": "/images/feed/feed-722941a20fc3.jpg",
-      "source": "9to5Mac",
-      "isLive": true
-    },
-    {
-      "id": "feed-e3dec23b150a",
-      "title": "Vikings Creator’s New Series Bloodaxe Sets 2027 Premiere Date",
-      "excerpt": "Bloodaxe, a new Norse saga from Vikings creator Michael Hirst, gets a January premiere date and a second-season renewal.",
-      "body": "Bloodaxe, a new Norse saga from Vikings creator Michael Hirst, gets a January premiere date and a second-season renewal.\n\nThis report, published by Polygon, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Polygon using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Sam Hill",
-      "date": "2026-10-09",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 30,
-      "url": "https://www.polygon.com/bloodaxe-release-date-prime-video-january-2027/",
-      "image": "/images/feed/feed-e3dec23b150a.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-2a94e94b31a0",
-      "title": "Apple marks first Apple TV 4K ‘vintage’ with new model imminent",
-      "excerpt": "The original Apple TV 4K from 2017 has just been added to Apple’s “vintage” products list. Here’s what that means. more…",
-      "body": "The original Apple TV 4K from 2017 has just been added to Apple’s “vintage” products list. Here’s what that means. more — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Ryan Christoffel",
-      "date": "2026-10-09",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 44,
-      "url": "https://9to5mac.com/2026/10/09/apple-marks-first-apple-tv-4k-vintage-with-new-model-imminent/",
-      "image": "/images/feed/feed-2a94e94b31a0.jpg",
-      "source": "9to5Mac",
       "isLive": true
     },
     {
@@ -359,29 +511,10 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 52,
       "url": "https://www.nasa.gov/news-release/nasa-seeks-us-industry-plans-for-commercial-space-stations/",
-      "image": "/images/feed/feed-a6c173fad7b8.jpg",
+      "image": "https://www.nasa.gov/wp-content/uploads/2022/02/nasa_meatball_large.jpg",
       "source": "NASA Breaking News",
-      "isLive": true
-    },
-    {
-      "id": "feed-1744a74dbf74",
-      "title": "Apple may have an iPhone 18 Pro demand problem",
-      "excerpt": "The new phone apparently isn't selling as well as Apple hoped.",
-      "body": "TL;DR Apple has reportedly told its suppliers to cut production of components for the iPhone 18 Pro series. New orders have been decreased by at least 15% compared to previous levels, according to reports. This is apparently due to initial iPhone 18 Pro sales failing to meet Apple’s expectations, partly because of its new higher price tag. Apple launched its latest iPhone 18 Pro last month. It’s the most expensive Pro iPhone to date, starting at $1,199 for the smaller model. Maybe not so coincidentally, it’s also reportedly not selling as well as Apple would’ve hoped. As reported by Nikkei Asia (via Reuters ), Apple has been telling suppliers to pull back on production of components used to assemble the iPhone 18 Pro and iPhone 18 Pro Max.",
-      "author": "Taylor Kerns",
-      "date": "2026-10-09",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Iphone"
-      ],
-      "featured": false,
-      "xpReward": 33,
-      "url": "https://www.androidauthority.com/iphone-18-pro-sales-3721452/",
-      "image": "/images/feed/feed-1744a74dbf74.jpg",
-      "source": "Android Authority",
       "isLive": true
     },
     {
@@ -397,48 +530,10 @@
         "Generative Ai"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 34,
       "url": "https://www.theverge.com/ai-artificial-intelligence/1008930/nikon-small-world-in-motion-winner-ai",
       "image": "/images/feed/feed-b54eaa9c1d3d.png",
       "source": "The Verge",
-      "isLive": true
-    },
-    {
-      "id": "feed-ad8416ae344d",
-      "title": "Rockstar HR Questioned Over Discord ‘Mole’ And Sudden Timing Of GTA 6 Dev Firings In Latest Labor Tribunal Hearing",
-      "excerpt": "A junior Rockstar employee was leaking trade union activity to management",
-      "body": "A junior Rockstar employee was leaking trade union activity to management\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Ethan Gach",
-      "date": "2026-10-09",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 32,
-      "url": "https://kotaku.com/rockstar-hr-questioned-over-discord-mole-and-sudden-timing-of-gta-6-dev-firings-in-latest-labor-tribunal-hearing-2000743272",
-      "image": "/images/feed/feed-ad8416ae344d.jpg",
-      "source": "Kotaku",
-      "isLive": true
-    },
-    {
-      "id": "feed-6083f1c61e09",
-      "title": "Garmin’s Fenix 9 Pro has GPS problems and app devs are frustrated",
-      "excerpt": "Are your Fenix 9 Pro apps dropping GPS? Devs are pointing a finger at Garmin.",
-      "body": "Credit: Ryan Haines / Android Authority TL;DR The Fenix 9 Pro is causing headaches for third-party apps that use the GPS module. Developers are accusing Garmin of only giving priority to issues that affect first-party software. One developer blames Garmin’s sluggish response time to reported issues for why their app has far more negative reviews on the Connect IQ store than on other platforms. When it comes to squashing bugs, some companies are quicker than others. While Garmin is not exactly the fastest to roll out resolutions, it’s not the slowest either . At least, that’s the case when it comes to its own software. When it comes to third-party apps, it may be another case entirely. Now, some developers are calling the company out for its sluggish response times.",
-      "author": "Ryan McNeal",
-      "date": "2026-10-09",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 37,
-      "url": "https://www.androidauthority.com/garmin-fenix-9-pro-gps-issue-3721441/",
-      "image": "/images/feed/feed-6083f1c61e09.jpg",
-      "source": "Android Authority",
       "isLive": true
     },
     {
@@ -454,48 +549,10 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 38,
       "url": "https://electrek.co/2026/10/09/bluetti-nasodium-900wh-power-station-anker-solar-multi-cam-kits-navee-evs-more/",
       "image": "/images/feed/feed-e56101fa27f1.jpg",
       "source": "Electrek",
-      "isLive": true
-    },
-    {
-      "id": "feed-304150b521d9",
-      "title": "'GTA 6' Fandom Is Officially Shook After The Nude Jason Leak",
-      "excerpt": "A massive GTA 6 leak highlighting nudity sparks conspiracy theories about nude gameplay, cheats, and first-person mode",
-      "body": "Grand Theft Auto 6 fans just learned that what is seen cannot always be unseen — but it sure may raise questions. Such is the case after GTA 6 leaker, Cyberleek, unleashed a raunchy 24-minute video on Thursday where over half the runtime was dedicated to co-protagonist Jason Duvall exploring Leonida in the nude. Fans are still debating what, exactly, they saw in the unexpected new GTA leak and how much of it can be trusted.",
-      "author": "Patricia Hernandez",
-      "date": "2026-10-09",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 37,
-      "url": "https://www.polygon.com/gta-6-cyberleek-nude-jason-duvall-internet-archive-video-tank-cheat/",
-      "image": "/images/feed/feed-304150b521d9.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-fadfde8f7d6e",
-      "title": "DC Officially Unveils a New Justice League",
-      "excerpt": "At NYCC, DC Comics announced Absolute Justice, a miniseries uniting Absolute Batman, Superman, Wonder Woman, and more Absolute heroes.",
-      "body": "DC Comics announced a new Justice League series at New York Comic-Con on Friday, and it's one fans have been eagerly awaiting. Absolute Justice starts in April, and it'll unite Absolute Universe heroes Batman , Superman, Wonder Woman , Martian Manhunter, Green Lantern (Jo Mullein), and Flash (Wally West) for a five-issue miniseries.",
-      "author": "Austin Manchester",
-      "date": "2026-10-09",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 47,
-      "url": "https://www.polygon.com/dc-comics-absolute-justice-league-batman-superman-wonder-woman/",
-      "image": "/images/feed/feed-fadfde8f7d6e.jpg",
-      "source": "Polygon",
       "isLive": true
     },
     {
@@ -511,9 +568,9 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 40,
       "url": "https://thehackernews.com/2026/10/fbi-arrests-another-shinyhunters.html",
-      "image": "/images/feed/feed-d3a688aa8260.jpg",
+      "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhTRCTw1H9kT8UEVJYmaRrhHvMQEYFuE2TZqB62Wnxz8y4RIYOMald4OYO45ujfgSp0ixhgWVKb3_nJzoKV6gNuu_cKaN2Evnr9u7FlnwsPTPm9TPpikkUR-83UL3VrknNBzITPeFC8f1PKpYMwvH_AbBAFWcbPl61vUXJK1m0xJ_C5QYDIAGi_Ya-A5Tc/s1600/kash.jpg",
       "source": "The Hacker News",
       "isLive": true
     },
@@ -549,7 +606,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 38,
       "url": "https://electrek.co/2026/10/09/kias-7-seat-electric-people-mover-cheaper/",
       "image": "/images/feed/feed-6f41121bcf23.jpg",
       "source": "Electrek",
@@ -568,7 +625,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 52,
       "url": "https://insideevs.com/news/811388/voltpost-air-lamppost-ev-charger-review-insideevs/",
       "image": "/images/feed/feed-6c01fa702d60.jpg",
       "source": "InsideEVs",
@@ -588,7 +645,7 @@
         "Breach"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 46,
       "url": "https://www.bleepingcomputer.com/news/security/fbi-arrests-another-suspected-shinyhunters-hacker-after-agency-breach/",
       "image": "/images/feed/feed-22bc20427a4c.jpg",
       "source": "BleepingComputer",
@@ -607,7 +664,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 45,
       "url": "https://www.nasa.gov/centers-and-facilities/ames/nasa-demonstrates-next-generation-heat-shield-technologies/",
       "image": "https://www.nasa.gov/wp-content/uploads/2026/10/iss075e0185943.jpg",
       "source": "NASA Breaking News",
@@ -626,7 +683,7 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 51,
       "url": "https://thehackernews.com/2026/10/p7-darksword-ios-exploit-kit-adds.html",
       "image": "/images/feed/feed-482b120b3cdd.jpg",
       "source": "The Hacker News",
@@ -645,7 +702,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 50,
       "url": "https://insideevs.com/features/811385/the-jaguar-type-01-proves-that-designs-matter/",
       "image": "/images/feed/feed-8f6ca2a49b7b.jpg",
       "source": "InsideEVs",
@@ -664,29 +721,10 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 50,
       "url": "https://insideevs.com/news/811382/geely-canada-launch-2027-plans/",
       "image": "/images/feed/feed-0ba7d82ff2c3.jpg",
       "source": "InsideEVs",
-      "isLive": true
-    },
-    {
-      "id": "feed-44b11dcdcd88",
-      "title": "BYD launches pre-orders for the new Seagull, a larger version of its popular $10K EV",
-      "excerpt": "The Seagull is BYD’s most affordable electric vehicle, starting at about $10,000 in China and sold overseas as the Dolphin Surf. BYD is preparing to introduce a new version that will likely be an even…",
-      "body": "The Seagull is BYD’s most affordable electric vehicle, starting at about $10,000 in China and sold overseas as the Dolphin Surf. BYD is preparing to introduce a new version that will likely be an even — a development drawing significant attention in the electric vehicles, hybrids, and automotive technology space.\n\nThis report, published by Electrek, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Ev. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Electrek using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Peter Johnson",
-      "date": "2026-10-09",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Ev"
-      ],
-      "featured": false,
-      "xpReward": 53,
-      "url": "https://electrek.co/2026/10/09/byd-launches-pre-orders-for-new-seagull-10k-ev-gets-bigger/",
-      "image": "/images/feed/feed-44b11dcdcd88.jpg",
-      "source": "Electrek",
       "isLive": true
     },
     {
@@ -702,30 +740,10 @@
         "Ransomware"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 48,
       "url": "https://www.bleepingcomputer.com/news/security/germany-arrests-alleged-core-qilin-ransomware-member-after-extradition/",
       "image": "/images/feed/feed-e6d9942a9ee6.jpg",
       "source": "BleepingComputer",
-      "isLive": true
-    },
-    {
-      "id": "feed-b61dcd7fd89d",
-      "title": "Tesla drops ‘Full Self-Driving’ name in Europe after Germany pushback",
-      "excerpt": "Tesla’s driver-assistance package is now called “Tesla Assisted Driving” in Europe. The company’s German website no longer mentions “Full Self-Driving,” and the old address now redirects to a new “Tes…",
-      "body": "Tesla’s driver-assistance package is now called “Tesla Assisted Driving” in Europe. The company’s German website no longer mentions “Full Self-Driving,” and the old address now redirects to a new “Tesla Assisted Driving” page. The rename follows Germany’s Transport Ministry calling the FSD name misleading, and it’s part of a deal that has Berlin backing Tesla’s push for EU-wide approval. more…",
-      "author": "Fred Lambert",
-      "date": "2026-10-09",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Self-driving",
-        "Tesla"
-      ],
-      "featured": false,
-      "xpReward": 51,
-      "url": "https://electrek.co/2026/10/09/tesla-fsd-renamed-tesla-assisted-driving-europe/",
-      "image": "/images/feed/feed-b61dcd7fd89d.png",
-      "source": "Electrek",
       "isLive": true
     },
     {
@@ -741,7 +759,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 46,
       "url": "https://www.bleepingcomputer.com/news/security/how-to-keep-ai-agents-within-their-permissions/",
       "image": "/images/feed/feed-575db4874cf1.jpg",
       "source": "BleepingComputer",
@@ -779,7 +797,7 @@
         "Security"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 30,
       "url": "https://thehackernews.com/2026/10/tp-link-sued-by-four-more-us-states.html",
       "image": "/images/feed/feed-ce13d3afe21b.jpg",
       "source": "The Hacker News",
@@ -798,7 +816,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 43,
       "url": "https://techcrunch.com/2026/10/09/xonas-commercial-gps-alternative-is-about-to-go-live/",
       "image": "/images/feed/feed-b774507972a6.webp",
       "source": "TechCrunch",
@@ -807,8 +825,8 @@
     {
       "id": "feed-a682e0b0de91",
       "title": "OpenAI fires three safety researchers for \"mishandling research information\"",
-      "excerpt": "",
-      "body": "This report, published by Hacker News, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Openai. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Hacker News using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "excerpt": "Later: https://www.cnbc.com/2026/10/09/openai-fired-researchers-ai-...",
+      "body": "Later: https://www.cnbc.com/2026/10/09/openai-fired-researchers-ai- — a development drawing significant attention in the artificial intelligence and machine learning space.\n\nThis report, published by Hacker News, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Openai. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Hacker News using the link below. GiveMeTech will continue tracking this story as more details emerge.",
       "author": "trakkstar",
       "date": "2026-10-09",
       "readTime": "2 min",
@@ -836,7 +854,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 37,
       "url": "https://openai.com/index/sophos",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "OpenAI Blog",
@@ -855,7 +873,7 @@
         "Gpt"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 44,
       "url": "https://openai.com/index/asana-browser-agent",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "OpenAI Blog",
@@ -874,7 +892,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 54,
       "url": "https://science.nasa.gov/image-article/apod-2026-october-9-stickney-crater/",
       "image": "/images/feed/feed-b8bb0688a40e.jpg",
       "source": "NASA Breaking News",
@@ -893,7 +911,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 39,
       "url": "https://science.nasa.gov/earth/earth-observatory/floodwaters-overwhelm-thailand/",
       "image": "/images/feed/feed-809441527f4d.jpg",
       "source": "NASA Breaking News",
@@ -912,43 +930,24 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 47,
       "url": "https://www.technologyreview.com/2026/10/08/1146224/roundtables-a-conversation-with-the-creator-of-ai-designed-viruses/",
       "image": "/images/feed/feed-080bc68c6b73.png",
       "source": "MIT Tech Review",
       "isLive": true
-    },
-    {
-      "id": "feed-582a569f45da",
-      "title": "Anthropic, Google and Mistral Unveil Their Latest AI Models: What’s New and Why It Matters",
-      "excerpt": "Check out the latest on Anthropic’s Claude Haiku 5.5 and Sonnet 5.5, along with Gemini 4 Argon and Mistral Large 4.",
-      "body": "Check out the latest on Anthropic’s Claude Haiku 5.5 and Sonnet 5.5, along with Gemini 4 Argon and Mistral Large 4.\n\nThis report, published by CNET, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Anthropic. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to CNET using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Blake Stimac",
-      "date": "2026-10-08",
-      "readTime": "2 min",
-      "section": "ai",
-      "tags": [
-        "Anthropic"
-      ],
-      "featured": false,
-      "xpReward": 50,
-      "url": "https://www.cnet.com/tech/services-and-software/anthropic-google-and-mistral-unveil-their-latest-ai-models-for-claude-sonnet-haiku-and-gemini/",
-      "image": "/images/feed/feed-582a569f45da.jpg",
-      "source": "CNET",
-      "isLive": true
     }
   ],
   "breakingNews": [
-    "KOTAKU: Will GTA 6 Ever Come To Switch 2? Nintendo Of America President Says Go Ask Rockstar",
-    "THE VERGE: &#8216;Pure insanity&#8217;: Mathematicians will need years to make sense of OpenAI&#8217;s latest drop",
-    "DEV.TO: Repository Pattern στο .NET: Είναι πραγματικά ξεπερασμένο επειδή το Entity Framework Core το υλοποιεί ήδη;",
-    "DEV.TO: In 43 markets, four hours of battery power costs less than that of simple gas turbines",
-    "DEV.TO: DuckDB analytics on your PostgreSQL tables in Azure PostgreSQL",
-    "DEV.TO: I Built an AI That Wants You to Stop Using It — Meet SIDEQUEST 🌿",
-    "DEV.TO: A pipeline with seams",
-    "DEV.TO: When AI Writes Faster Than You Can Understand",
-    "DEV.TO: 🌿 GardenBuddy AI: Less Scrolling, More Growing",
-    "9TO5MAC: ‘HomePad’ is coming next week, with three features I’ve long wanted"
+    "DEV.TO: Carry the scheduler's memory between CI runners",
+    "DEV.TO: My short link hit 40 'clicks' before any human saw it — preview crawlers fetch the instant you post",
+    "DEV.TO: From Attention to a Working Language Model",
+    "DEV.TO: Part 4 — Practical Guide: Adding Features & Architectural Rules",
+    "DEV.TO: Trail Quest AI – Explore, Learn & Earn",
+    "9TO5MAC: Apple acqui-hires AI startup founded by former NotebookLM developers",
+    "POLYGON: Best gifts for each character in Fire Emblem: Fortune's Weave",
+    "DEV.TO: Chasing a number to its source, and finding where the precision stops",
+    "DEV.TO: Production Feature Flags: Safe Pricing Rollouts with Defaults, Caching, and Polling",
+    "9TO5MAC: 9to5Mac Overtime 085: Here comes the HomePad"
   ],
   "sectionVideos": {}
 }
