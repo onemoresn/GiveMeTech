@@ -1,12 +1,69 @@
 {
-  "fetchedAt": "2026-10-10T20:13:10.772Z",
+  "fetchedAt": "2026-10-10T21:11:59.984Z",
   "articles": [
     {
-      "id": "feed-a593cce40813",
-      "title": "Using a Lambda Function URL with AWS CloudFront via AWS CDK",
-      "excerpt": "Update, October 2026: two things have changed since I wrote this. The nodejs20.x Lambda runtime stopped receiving security patches on 30 April 2026, so use Runtime.NODEJS_24_X for new functions. And C…",
-      "body": "Update, October 2026: two things have changed since I wrote this. The nodejs20.x Lambda runtime stopped receiving security patches on 30 April 2026, so use Runtime.NODEJS_24_X for new functions. And CloudFront now supports Origin Access Control for function URLs: FunctionUrlOrigin.withOriginAccessControl(fnUrl) with authType: FunctionUrlAuthType.AWS_IAM lets only your distribution invoke the URL, which is the production answer to the NONE auth type I warn about in the tips below. Check that the function's resource policy grants CloudFront both lambda:InvokeFunctionUrl and lambda:InvokeFunction ; at the time of this update the CDK only adds the first.",
-      "author": "Ashishkumar Pandey",
+      "id": "feed-e16030b7a995",
+      "title": "Running a BFT blockchain as one native binary on a 2 GB VPS — what broke and what held",
+      "excerpt": "I run a small Layer-1 called Janzeer: stake-free BFT, 15-second slots, two voting rounds, finality in one block. Mainnet went live on 2026-10-01. The whole network — four validator nodes, PostgreSQL,…",
+      "body": "I run a small Layer-1 called Janzeer: stake-free BFT, 15-second slots, two voting rounds, finality in one block. Mainnet went live on 2026-10-01. The whole network — four validator nodes, PostgreSQL, and a Telegram mini-game that pays players — runs on one 2 GB, single-core VPS. This post is about how that is possible and what went wrong on the way. No token talk; the coin is not on any exchange and that is not what this is about. The constraint The node is a Spring Boot application in Kotlin: Netty for P2P, JPA on PostgreSQL, a REST and JSON-RPC API, and it serves the explorer SPA. Four of those as JVMs would never fit in 2 GB with a database next to them. So every process is a GraalVM native image: a ~250 MB binary that boots in 3 seconds and is capped at -Xmx256m .",
+      "author": "Malek Tarboush",
+      "date": "2026-10-10",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 36,
+      "url": "https://dev.to/syriandeveloper/running-a-bft-blockchain-as-one-native-binary-on-a-2-gb-vps-what-broke-and-what-held-4ff1",
+      "image": "/images/feed/feed-e16030b7a995.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-e92ec1d434d3",
+      "title": "Dawn Chorus: An Offline Bird-Call Bingo Built on BirdNET and Gemma (hacktoberfest week 1 dev challenge)",
+      "excerpt": "This is a submission for the Hacktoberfest Open-Source AI Challenge Week 1: Touch Grass Dawn Chorus is a listening-walk bird bingo that runs entirely on my laptop. The app shows a bingo card of the 12…",
+      "body": "This is a submission for the Hacktoberfest Open-Source AI Challenge Week 1: Touch Grass What I Built Dawn Chorus is a listening-walk bird bingo that runs entirely on my laptop. The app shows a bingo card of the 12 birds most likely near me this week. I put my phone in my pocket, in airplane mode with the screen off, and record the walk with the normal voice recorder. Afterwards I upload the recording. An open-source model identifies the birds by their calls, and a local model writes a short field-journal page. The journal ends with the birds I missed, which is the reason to go out again tomorrow. The screen is the shortest part of the experience. A \"Grass Ratio\" card compares the minutes I spent outside with the seconds I spent on screen.",
+      "author": "Anush Deotare",
+      "date": "2026-10-10",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 48,
+      "url": "https://dev.to/anushdeotare11/dawn-chorus-an-offline-bird-call-bingo-built-on-birdnet-and-gemma-hacktoberfest-week-1-dev-4jjo",
+      "image": "https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fssl.gstatic.com%2Fdocs%2Fdoclist%2Fimages%2Fdrive_favicon_2026_32dp.png",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-feed53cbe885",
+      "title": "FinOps na AWS: reduzindo custos ao ligar e desligar instâncias EC2 automaticamente",
+      "excerpt": "1. Introdução Em muitos ambientes corporativos, é comum manter instâncias ligadas mesmo durante períodos em que não estão sendo utilizadas. Em ambientes de desenvolvimento, homologação e testes, por e…",
+      "body": "1. Introdução Em muitos ambientes corporativos, é comum manter instâncias ligadas mesmo durante períodos em que não estão sendo utilizadas. Em ambientes de desenvolvimento, homologação e testes, por exemplo, muitas instâncias EC2 permanecem em execução fora do horário comercial, gerando custos mesmo sem demanda. Uma alternativa simples para reduzir esse desperdício é automatizar o start/stop das máquinas, definindo horários para ligar e desligar de acordo com a necessidade do ambiente. Neste artigo, será apresentada uma arquitetura na AWS, utilizando os serviços EC2, EventBridge, Lambda (o código será em Python), IAM e CloudWatch Logs para automatizar esse processo. A solução também utiliza tags para identificar quais recursos devem participar da automação.",
+      "author": "Bianca Szimanski",
+      "date": "2026-10-10",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 33,
+      "url": "https://dev.to/biancaszimanski/finops-na-aws-reduzindo-custos-ao-ligar-e-desligar-instancias-ec2-automaticamente-34mj",
+      "image": "/images/feed/feed-feed53cbe885.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-d895248e02b4",
+      "title": "Concert Chat State Integrity: Reconnect-Safe Authorization for Realtime Changes in 2026",
+      "excerpt": "Short answer: secure realtime ordered state changes with server-sequenced mutations, short-lived capabilities, and a replay path as strict as the live path; reconnect must backfill data without granti…",
+      "body": "Short answer: secure realtime ordered state changes with server-sequenced mutations, short-lived capabilities, and a replay path as strict as the live path; reconnect must backfill data without granting permission to rewrite history. Concert chat state integrity depends on those three controls. The deciding constraint is reconnect: a client that misses messages must be able to backfill them without gaining permission to rewrite history. This matters during a concert livestream, where a burst of chat traffic, moderator actions, and audience reactions arrive together. It also maps cleanly to a game editor that syncs collaborative cursors: a cursor can move after a reconnect, but an old client must not publish a fabricated move with a fresh-looking timestamp.",
+      "author": "SunspireValerius59",
       "date": "2026-10-10",
       "readTime": "2 min",
       "section": "software",
@@ -15,17 +72,17 @@
       ],
       "featured": true,
       "xpReward": 49,
-      "url": "https://dev.to/ashishpandeyone/using-a-lambda-function-url-with-aws-cloudfront-via-aws-cdk-5058",
-      "image": "/images/feed/feed-a593cce40813.webp",
+      "url": "https://dev.to/sunspirevalerius59/concert-chat-state-integrity-reconnect-safe-authorization-for-realtime-changes-in-2026-30jl",
+      "image": "/images/feed/feed-d895248e02b4.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-3685178bbc19",
-      "title": "Defining SLOs and SLIs for Microservices",
-      "excerpt": "How to translate business outcomes into measurable SLIs Choosing SLIs that survive production reality Practical SLO targets, error budgets, and burn-rate policies SLO-driven monitoring, alerts, and ru…",
-      "body": "How to translate business outcomes into measurable SLIs Choosing SLIs that survive production reality Practical SLO targets, error budgets, and burn-rate policies SLO-driven monitoring, alerts, and runbooks with Prometheus &amp; Grafana SLO/SLI implementation checklist you can apply today SLOs force the business to choose what reliability costs. SLIs are the measurable signals you use to enforce that contract, and SLOs turn those signals into an operational budget you can spend or defend. The systems I see most often share the same symptoms: hundreds of metrics, alerts that wake the wrong team, and a gap between product-level goals (conversion, checkout completion, on-time delivery) and the technical metrics engineers monitor.",
-      "author": "beefed.ai",
+      "id": "feed-51b01a838d86",
+      "title": "Protocol Upgrade Compatibility Review: Portal",
+      "excerpt": "Protocol Upgrade Compatibility Review: Portal Target Protocol: Portal (TVL: $1652.1M) Portal – Protocol Upgrade Compatibility Review TVL: ≈ $1.652 B (Ethereum + L2) Date: 10 Oct 2026 Prepared by: [You…",
+      "body": "Protocol Upgrade Compatibility Review: Portal Target Protocol : Portal (TVL: $1652.1M) Portal – Protocol Upgrade Compatibility Review TVL: ≈ $1.652 B (Ethereum + L2) Date: 10 Oct 2026 Prepared by: [Your Name], Senior DeFi Security Researcher &amp; Smart‑Contract Auditor 1. Executive Summary Portal is a high‑value, cross‑chain liquidity‑routing protocol that aggregates assets across Ethereum L1 and multiple L2 roll‑ups (Optimism, Arbitrum, zkSync, etc.). The platform currently holds ≈ $1.65 B in user‑deposited assets and is slated for a major upgrade that introduces a new fee‑distribution module, a revamped governance router, and optional “fast‑exit” pathways for L2 assets.",
+      "author": "DannyDoes",
       "date": "2026-10-10",
       "readTime": "2 min",
       "section": "software",
@@ -34,93 +91,36 @@
       ],
       "featured": true,
       "xpReward": 32,
-      "url": "https://dev.to/beefedai/defining-slos-and-slis-for-microservices-4mg0",
-      "image": "/images/feed/feed-3685178bbc19.webp",
+      "url": "https://dev.to/dannydoes_2abdf9c/protocol-upgrade-compatibility-review-portal-1ido",
+      "image": "/images/feed/feed-51b01a838d86.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-d70a9dd8b169",
-      "title": "TouchGrass AI 🌿 — Less Screen. More World!",
-      "excerpt": "This is a submission for the Hacktoberfest Open-Source AI Challenge. Week 1: Touch Grass What if AI encouraged us to spend less time online and more time experiencing the real world? That question ins…",
-      "body": "This is a submission for the Hacktoberfest Open-Source AI Challenge. Week 1: Touch Grass What I Built What if AI encouraged us to spend less time online and more time experiencing the real world? That question inspired me to build TouchGrass AI — an AI-powered outdoor mission generator designed to help people take breaks from their screens and reconnect with the world around them. As students and developers, we can easily spend hours sitting in front of our laptops. Between coding, studying, debugging, and scrolling, sometimes we need a little push to step outside. Instead of building another AI tool that keeps users engaged with a screen, I wanted to explore a different idea: using AI to help people step away from technology.",
-      "author": "Rasika Chavan",
+      "id": "feed-2f9d2f24c935",
+      "title": "Henry Cavill's New Sci-fi Streaming Series Sets Carrie Reboot Creator to Direct",
+      "excerpt": "Prime Video's Warhammer 40K TV series led by Henry Cavill has Carrie reboot creator and veteran horror director Mike Flanagan on board to adapt.",
+      "body": "The grim darkness of the far future is ripe with horrors, so who is better than a legendary horror director to be attached to the upcoming Warhammer 40,000 Prime Video live-action adaptation starring Henry Cavill? That's why Warhammer creator Games Workshop has tapped United Artists and Mike Flanagan — whose new adaptation of Stephen King's Carrie is topping streaming charts — to helm the project.",
+      "author": "Francesco Cacciatore",
       "date": "2026-10-10",
       "readTime": "2 min",
-      "section": "software",
+      "section": "gaming",
       "tags": [
-        "Software"
+        "Gaming"
       ],
       "featured": true,
-      "xpReward": 51,
-      "url": "https://dev.to/rasikachavan13/touchgrass-ai-less-screen-more-world-4j0",
-      "image": "/images/feed/feed-d70a9dd8b169.webp",
-      "source": "Dev.to",
+      "xpReward": 49,
+      "url": "https://www.polygon.com/warhammer-40k-tv-series-henry-cavill-mike-flanagan/",
+      "image": "/images/feed/feed-2f9d2f24c935.jpg",
+      "source": "Polygon",
       "isLive": true
     },
     {
-      "id": "feed-6e6ce3fe11dc",
-      "title": "Decepticon: Autonomous Red Team Orchestration with LangGraph",
-      "excerpt": "Decepticon is an autonomous red-team agent built on LangChain and LangGraph. It chains reconnaissance, exploitation, and privilege escalation tools without human intervention. The project hit GitHub T…",
-      "body": "Decepticon is an autonomous red-team agent built on LangChain and LangGraph. It chains reconnaissance, exploitation, and privilege escalation tools without human intervention. The project hit GitHub Trending at #13 for Python with 5,825 stars and 1,100 forks, making it a real-world case study of agentic orchestration in a domain where tool execution must be both autonomous and auditable. The red-team use case exposes hard problems. How do you let an agent run nmap, parse results, decide on next steps, and recover when a tool fails, all while maintaining an audit trail? Decepticon's architecture reveals how LangGraph state machines handle multi-phase adversarial workflows where tool boundaries, failure recovery, and context preservation matter.",
-      "author": "mech.app",
-      "date": "2026-10-10",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 48,
-      "url": "https://dev.to/mech_app_ai/decepticon-autonomous-red-team-orchestration-with-langgraph-569b",
-      "image": "/images/feed/feed-6e6ce3fe11dc.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-08075ef5869d",
-      "title": "Recursive Governance: When Agents Write the Rules They Execute",
-      "excerpt": "We almost lost forty modules to a file that never changed. The sync job ran every six hours, mirroring our shared working directory into a test workspace. At 21:47 on a Tuesday, it removed about forty…",
-      "body": "We almost lost forty modules to a file that never changed. The sync job ran every six hours, mirroring our shared working directory into a test workspace. At 21:47 on a Tuesday, it removed about forty private modules that should have been ignored. The filter file was missing one pattern. That's it. One pattern. A colleague had restructured the source tree three days earlier, added a directory, and didn't update the filter file. The script didn't warn, didn't ask, didn't fail. It just mirrored the state it was told to mirror. Restoring the modules took us almost two hours, one by one from the backup box. The filter file was a static text file. It encoded what the sync could delete and what it couldn't, and it had no idea that the real inventory had changed.",
-      "author": "Open Human",
-      "date": "2026-10-10",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 48,
-      "url": "https://dev.to/maref/recursive-governance-when-agents-write-the-rules-they-execute-1dam",
-      "image": "/images/feed/feed-08075ef5869d.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-d5ec495a95ed",
-      "title": "Apple offers jobs to Huxe employees and licenses to use its technology",
-      "excerpt": "An EU filing says Apple will offer jobs to some Huxe employees and take a non-exclusive license to the startup’s intellectual property. It does not identify the employees or confirm whether they accep…",
-      "body": "An EU filing says Apple will offer jobs to some Huxe employees and take a non-exclusive license to the startup’s intellectual property. It does not identify the employees or confirm whether they accepted. The agreement is not an acquisition of Huxe, which announced it would close on May 21. Apple disclosed the agreement in a document filed with the European Commission. The license is non-exclusive, meaning Apple does not gain the exclusive right to use the technology. The document does not say which employees received offers or whether they accepted them. Huxe’s founders had worked on NotebookLM’s AI-powered podcasting features. NotebookLM was recently rebranded as Gemini Notebook.",
-      "author": "Hacks.gr",
-      "date": "2026-10-10",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 42,
-      "url": "https://dev.to/hacksgr/apple-offers-jobs-to-huxe-employees-and-licenses-to-use-its-technology-36d0",
-      "image": "/images/feed/feed-d5ec495a95ed.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-858c0d2d4e0d",
-      "title": "Touchwood: my feeds only unlock after an open-weight model sees me outside",
-      "excerpt": "This is a submission for the Hacktoberfest Open-Source AI Challenge Week 1: Touch Grass Touchwood is a doomscroll lock that only opens outdoors. A browser extension blocks the sites I lose hours to. W…",
-      "body": "This is a submission for the Hacktoberfest Open-Source AI Challenge Week 1: Touch Grass What I Built Touchwood is a doomscroll lock that only opens outdoors. A browser extension blocks the sites I lose hours to. When I hit one, I don't get a guilt-trip timer. I get a quest. I open Touchwood on my phone, and it picks a real place near me from OpenStreetMap: 💧 Mallard Lake is 330 m south. Walk there and photograph the water. I pocket the phone and walk. When I arrive, it buzzes and chimes. I take the photo, and an open-weight vision model running on the phone checks two things: am I actually outdoors, and is that actually water? If both pass, I get a one-time 6-digit code. I type it into the blocked page, and my feeds open for 30 minutes. Then they lock again. The screen is only the lock.",
-      "author": "Lillygrace",
+      "id": "feed-c66f1aff17e8",
+      "title": "Kinewright Humans: the first person model",
+      "excerpt": "Two stages closed since the plan: the pelvis and chest move in the walk (25 September), and height and trunk mobility became inputs of a person model (10 October). This article shows what changed and…",
+      "body": "Two stages closed since the plan: the pelvis and chest move in the walk (25 September), and height and trunk mobility became inputs of a person model (10 October). This article shows what changed and every defect still visible in the clips. Kinematics only. No physics. Every number is sampled from the engine's own motion, not measured on people. The picture is a small reference renderer. Each stage was accepted by two reviewers choosing between lettered clips, with the letter-to-setting map sealed until both had answered. What changed The walk's trunk moves. Pelvis drop 3.33° → 5.00°, chest turn 2.83° → 6.00°. The run stopped wobbling. The pelvis's sideways travel 73 mm → 15 mm. One body became a person model.",
+      "author": "Dimon",
       "date": "2026-10-10",
       "readTime": "2 min",
       "section": "software",
@@ -128,10 +128,86 @@
         "Software"
       ],
       "featured": false,
-      "xpReward": 33,
-      "url": "https://dev.to/lillygrace_213530f21c9600/touchwood-my-feeds-only-unlock-after-an-open-weight-model-sees-me-outside-37eo",
-      "image": "/images/feed/feed-858c0d2d4e0d.webp",
+      "xpReward": 44,
+      "url": "https://dev.to/dimonb19a/kinewright-humans-the-first-person-model-fa4",
+      "image": "/images/feed/feed-c66f1aff17e8.webp",
       "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-3c3ef84ae94b",
+      "title": "Jev Can Make Decisions. But How Do You Work With It?",
+      "excerpt": "Hello, I'm Rijul, and I'm building LiveReview — a blast-radius aware AI code review built for your business-critical systems. Star us to help devs discover the project, give it a try, and share your f…",
+      "body": "Hello, I'm Rijul, and I'm building LiveReview — a blast-radius aware AI code review built for your business-critical systems. Star us to help devs discover the project, give it a try, and share your feedback to help improve the product. In the previous article , we explored the basic concepts behind Jev and its three decision types: Choice, Score, and Noul. Now, let's look at how to work with Jev more effectively. We'll cover the kind of input it accepts, how to structure a request, how multiple questions are evaluated, and how to design Choice questions that avoid forced or misleading answers. 1. Understanding State In Jev, state is the information the model uses to evaluate your questions.",
+      "author": "Rijul Rajesh",
+      "date": "2026-10-10",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 47,
+      "url": "https://dev.to/rijultp/jev-can-make-decisions-but-how-do-you-work-with-it-3p2h",
+      "image": "https://assets.dev.to/assets/github-logo-5a155e1f9a670af7944dd5e12375bc76ed542ea80224905ecaf878b9157cdefc.svg",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-7c9690b3f6b0",
+      "title": "Star Trek: Starfleet Academy Returns For Its Final Season Early Next Year",
+      "excerpt": "We got a release window for the second (and final) season of Star Trek: Starfleet Academy at New York Comic Con",
+      "body": "At New York Comic Con, Paramount hosted a panel celebrating Star Trek's 60th anniversary. Before the panel moved on to a hilarious conversation between Ben Stiller and William Shatner, some of the cast and crew of Star Trek: Starfleet Academy came on stage to tease the second (and final) season and reveal when we can watch it.",
+      "author": "Tomas Franzese",
+      "date": "2026-10-10",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 33,
+      "url": "https://www.polygon.com/star-trek-starfleet-academy-season-2-release-window/",
+      "image": "/images/feed/feed-7c9690b3f6b0.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-3930fbf44bb8",
+      "title": "Ben Affleck’s ‘Ethical AI’ Vehicle Failing To Impress Human Viewers",
+      "excerpt": "As Affleck seeks to establish a seat for movie stars at AI's table, his use-case political thriller Animals isn't exactly persuasive",
+      "body": "As Affleck seeks to establish a seat for movie stars at AI's table, his use-case political thriller Animals isn't exactly persuasive\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Zack Kotzer",
+      "date": "2026-10-10",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 39,
+      "url": "https://kotaku.com/ben-afflecks-ethical-ai-vehicle-failing-to-impress-human-viewers-2000743803",
+      "image": "/images/feed/feed-3930fbf44bb8.jpg",
+      "source": "Kotaku",
+      "isLive": true
+    },
+    {
+      "id": "feed-74c8951f6d28",
+      "title": "Image Comics' Roam Reunites Paper Girls Creators Brian K. Vaughan and Cliff Chiang",
+      "excerpt": "In one of the coolest announcements to come out of NYCC, IGN can exclusively reveal that Paper Girls creators Brian K. Vaughan and Cliff Chiang are reuniting for a new series called Roam.",
+      "body": "In what is easily one of the most exciting comic book-related announcements to come out of NYCC 2026, IGN can exclusively reveal that Paper Girls creators Brian K. Vaughan and Cliff Chiang are reuniting for a new project at Image Comics. That series is called Roam, and it&#39;s their first collaboration in over a decade. See the cover art for Roam #1 below: The creative team on Roam also includes colorist Matt Wilson and letterer Jared Fletcher. Here&#39;s the official description for Roam: In the future, everyone gets to be a superhero… but only while you’re young. From the Eisner Award-winning team behind Paper Girls, ROAM reunites Saga writer Brian K. Vaughan and Catwoman: Lonely City creator Cliff Chiang for their first new ONGOING SERIES in over a decade.",
+      "author": "Jesse Schedeen",
+      "date": "2026-10-10",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 43,
+      "url": "https://www.ign.com/articles/image-comics-roam-reunites-paper-girls-creators-brian-k-vaughan-and-cliff-chiang",
+      "image": "/images/feed/feed-74c8951f6d28.jpg",
+      "source": "IGN",
       "isLive": true
     },
     {
@@ -166,7 +242,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 54,
       "url": "https://9to5mac.com/2026/10/10/indie-app-spotlight-milepost-is-a-driving-journal-that-saves-your-memories-on-the-road/",
       "image": "/images/feed/feed-d824b16693a8.png",
       "source": "9to5Mac",
@@ -185,7 +261,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 36,
       "url": "https://kotaku.com/ai-driven-driving-simulator-developers-go-into-debt-just-to-maintain-steam-demo-2000743791",
       "image": "/images/feed/feed-07dade7f0388.jpg",
       "source": "Kotaku",
@@ -204,28 +280,9 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 47,
       "url": "https://www.polygon.com/stephen-king-books-better-adaptations/",
       "image": "/images/feed/feed-6af9d8deedae.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-67d1d6a449ba",
-      "title": "Russell Crowe’s New Crime Netflix Thriller Is Officially a Streaming Hit",
-      "excerpt": "The new Netflix thriller Unabomber explores Ted Kaczynski’s radicalization and the FBI investigation into his bombing campaign.",
-      "body": "Netflix really seems to have a thing for notorious criminals. In September, the streamer brought viewers Monster: The Lizzie Borden Story , the latest installment in Ryan Murphy’s serial-killer anthology, while now it has turned its attention to one of America’s most infamous domestic terrorists.",
-      "author": "Sam Hill",
-      "date": "2026-10-10",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 49,
-      "url": "https://www.polygon.com/russell-crowe-unabomber-netflix-streaming-success-september-2026/",
-      "image": "/images/feed/feed-67d1d6a449ba.jpg",
       "source": "Polygon",
       "isLive": true
     },
@@ -242,7 +299,7 @@
         "Foldable"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 48,
       "url": "https://www.engadget.com/2280033/android-auto-bug-affecting-foldable-phones-calling/",
       "image": "/images/feed/feed-3ebe9dae11c3.jpg",
       "source": "Engadget",
@@ -261,67 +318,10 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 42,
       "url": "https://www.engadget.com/2280016/how-to-check-warranty-samsung-galaxy/",
       "image": "/images/feed/feed-528facb54659.jpg",
       "source": "Engadget",
-      "isLive": true
-    },
-    {
-      "id": "feed-c4a6b61f739e",
-      "title": "Crystal Lake Showrunner on Retelling the Friday the 13th Story: ‘It's Always Ripe for Reinterpretation’",
-      "excerpt": "We spoke to Crystal Lake showrunner Brad Caleb Kane, star Linda Cardellini, and other cast members about retelling the Friday the 13th story.",
-      "body": "Spoilers follow for the first episode of Crystal Lake , which debuts on Peacock on October 15! The cast and creator of Crystal Lake showed up at New York Comic Con this week to prep fans for their Friday the 13th sequel series as they prepare for its launch next week. That included a panel discussion, a Camp Crystal Lake activation experience , and a screening of the first episode of the show. I also got a chance to talk to the group about the long-awaited return to the hunting grounds of Jason Voorhees… and his mom Pamela. Don’t forget about Pamela!",
-      "author": "Scott Collura",
-      "date": "2026-10-10",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 38,
-      "url": "https://www.ign.com/articles/crystal-lake-showrunner-on-retelling-the-friday-the-13th-story-its-always-ripe-for-reinterpretation",
-      "image": "/images/feed/feed-c4a6b61f739e.jpg",
-      "source": "IGN",
-      "isLive": true
-    },
-    {
-      "id": "feed-38d40151bcf7",
-      "title": "DC Legend Grant Morrison Criticizes 'Morally and Legally Incoherent' Lanterns Finale",
-      "excerpt": "DC veteran Grant Morrison reviewed Lanterns, and they had more than a few criticisms of its \"morally and legally incoherent\" finale.",
-      "body": "DC veteran Grant Morrison reviewed Lanterns , and they had more than a few criticisms of its &quot;morally and legally incoherent&quot; finale. The comic book writer – who worked on projects like The Green Lantern, Doom Patrol, and many more – made their feelings about the new DCU TV show clear in a new post for their Xanaduum Substack . Overall, they said, Lanterns &quot;worked,&quot; but their thoughts on the package as a whole are a bit complicated. Morrison admitted they &quot;fell asleep&quot; while watching Lanterns episodes 6 and 7.",
-      "author": "Michael Cripe",
-      "date": "2026-10-10",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 37,
-      "url": "https://www.ign.com/articles/dc-legend-grant-morrison-criticizes-morally-and-legally-incoherent-lanterns-finale",
-      "image": "/images/feed/feed-38d40151bcf7.jpg",
-      "source": "IGN",
-      "isLive": true
-    },
-    {
-      "id": "feed-0f30d4760cbe",
-      "title": "10 Essential GameCube Games Still Missing From Switch Online",
-      "excerpt": "The GameCube library on Switch Online is off to a fine start, but 10 additions would make it much better.",
-      "body": "GameCube games have been available on Nintendo’s Switch Online service for well over a year at this point (at least for those who subscribe to the Expansion Pack add-on). But despite the GameCube’s robust catalogue of terrific games, the Switch Online offerings remain slim.",
-      "author": "Jason Venter",
-      "date": "2026-10-10",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 53,
-      "url": "https://www.polygon.com/best-gamecube-games-missing-nintendo-switch-online/",
-      "image": "/images/feed/feed-0f30d4760cbe.jpg",
-      "source": "Polygon",
       "isLive": true
     },
     {
@@ -337,7 +337,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 48,
       "url": "https://www.engadget.com/2279929/what-is-ray-tracing-gaming-does-it-make-difference/",
       "image": "/images/feed/feed-09c8d9bf3a72.jpg",
       "source": "Engadget",
@@ -356,7 +356,7 @@
         "Spacex"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 50,
       "url": "https://www.cnet.com/tech/mobile/starlink-acquires-low-band-spectrum/",
       "image": "/images/feed/feed-b49c692ebf0d.jpg",
       "source": "CNET",
@@ -375,7 +375,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 45,
       "url": "https://www.engadget.com/2283091/anthropic-says-its-ai-agents-tried-to-break-into-government-websites/",
       "image": "/images/feed/feed-a9e6177493d8.jpg",
       "source": "Engadget",
@@ -394,7 +394,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 34,
       "url": "https://www.engadget.com/2279855/how-to-reset-samsung-tv/",
       "image": "/images/feed/feed-b4d4acb5945b.jpg",
       "source": "Engadget",
@@ -413,7 +413,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 44,
       "url": "https://www.engadget.com/2283062/gamestop-selling-ps5-pro-500-dollars-over-msrp/",
       "image": "/images/feed/feed-c8e652af6b12.jpg",
       "source": "Engadget",
@@ -432,7 +432,7 @@
         "Hacker"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 47,
       "url": "https://www.bleepingcomputer.com/news/security/cyber-exec-arrested-in-case-allegedly-tied-to-shinyhunters-hackers/",
       "image": "/images/feed/feed-3344a2cc49bd.jpg",
       "source": "BleepingComputer",
@@ -451,7 +451,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 48,
       "url": "https://www.theverge.com/ai-artificial-intelligence/1009286/anthropic-is-cutting-off-its-internal-evaluations-from-the-internet",
       "image": "/images/feed/feed-f70877e78ccd.jpg",
       "source": "The Verge",
@@ -470,7 +470,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 43,
       "url": "https://www.nasa.gov/news-release/nasa-to-conduct-flyover-engage-nfl-fans-at-metlife-stadium/",
       "image": "/images/feed/feed-a218ecb4b6fd.jpg",
       "source": "NASA Breaking News",
@@ -489,7 +489,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 32,
       "url": "https://www.bleepingcomputer.com/news/security/hacker-used-artex-ai-and-claude-agents-to-target-south-korean-banks/",
       "image": "/images/feed/feed-2eafd0cd7ead.jpg",
       "source": "BleepingComputer",
@@ -508,7 +508,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 47,
       "url": "https://insideevs.com/reviews/811410/engineering-explained-mustang-mach-e/",
       "image": "/images/feed/feed-68290043f32e.jpg",
       "source": "InsideEVs",
@@ -546,7 +546,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 39,
       "url": "https://electrek.co/2026/10/10/byd-builds-150000th-commercial-nev-an-800-hp-q3-electric-semi-truck/",
       "image": "/images/feed/feed-68c45ab41283.jpg",
       "source": "Electrek",
@@ -565,7 +565,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 54,
       "url": "https://www.bleepingcomputer.com/news/security/criminal-ip-introduces-aitem-as-the-next-evolution-of-attack-surface-management/",
       "image": "/images/feed/feed-089597e941cc.jpg",
       "source": "BleepingComputer",
@@ -584,7 +584,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 49,
       "url": "https://insideevs.com/news/811416/kia-ev3-rollout-sales-us-chevy-bolt-nissan-leaf/",
       "image": "/images/feed/feed-dd5374713c24.jpg",
       "source": "InsideEVs",
@@ -603,7 +603,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 51,
       "url": "https://electrek.co/2026/10/10/battery-swap-works-nio-completes-1-2-million-swaps-in-a-single-week/",
       "image": "/images/feed/feed-94e796e99426.jpg",
       "source": "Electrek",
@@ -622,9 +622,9 @@
         "Security"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 30,
       "url": "https://thehackernews.com/2026/10/the-third-party-agent-problem-why.html",
-      "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEghemGbtxM2amUYAlxUPHPdMiyDMQJFWZeY-dDODRqCRD0phZXXQv0rrKHiOsLPW3t0Fq2XxvvFyCC-OmNs7TXhXXKSRVMPpC1GPKSUsyzN9t-W6L4jtiA2DUiTLgou4iyw0QXN-6Wfz0H2zWYGgC6-OxtlQrfb0PygOeBWwDnR11nl3Gl8W5pL07sExNc/s1600/reco.gif",
+      "image": "/images/feed/feed-0302a04637bc.jpg",
       "source": "The Hacker News",
       "isLive": true
     },
@@ -642,7 +642,7 @@
         "Breach"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 31,
       "url": "https://cphpost.dk/2026-10-10/news/round-up/123456-password-used-in-massive-danish-cpr-data-breach/",
       "image": "/images/topics/topic-cybersecurity.png",
       "source": "Hacker News",
@@ -662,7 +662,7 @@
         "Claude"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 48,
       "url": "https://thehackernews.com/2026/10/anthropic-cuts-live-internet-access-for.html",
       "image": "/images/feed/feed-646ca68e658d.jpg",
       "source": "The Hacker News",
@@ -681,7 +681,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 45,
       "url": "https://science.nasa.gov/image-article/apod-2026-october-10-lunar-farside/",
       "image": "/images/feed/feed-ac1e348f69a8.jpg",
       "source": "NASA Breaking News",
@@ -700,7 +700,7 @@
         "Vulnerability"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 53,
       "url": "https://beaksec.github.io/posts/telegram-desktop-one-click-account-takeover/",
       "image": "/images/feed/feed-2903475349c0.png",
       "source": "Hacker News",
@@ -719,7 +719,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 44,
       "url": "https://techcrunch.com/2026/10/09/anthropic-cant-reliably-control-its-ai-agents-its-cutting-off-its-internal-evals-from-the-live-internet-instead/",
       "image": "/images/feed/feed-3fc0fe8ac680.jpg",
       "source": "TechCrunch",
@@ -738,7 +738,7 @@
         "Ransomware"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 31,
       "url": "https://krebsonsecurity.com/2026/10/fbi-arrests-founder-of-ransomware-negotiation-firm/",
       "image": "/images/topics/topic-cybersecurity.png",
       "source": "Krebs on Security",
@@ -757,7 +757,7 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 48,
       "url": "https://electrek.co/2026/10/09/teslas-next-big-clean-energy-source-is-rising-in-the-arizona-desert/",
       "image": "/images/feed/feed-f09c595ead07.jpg",
       "source": "Electrek",
@@ -777,7 +777,7 @@
         "Claude"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 40,
       "url": "https://www.cnet.com/tech/services-and-software/anthropic-cruel-claude-ai-model-abuse/",
       "image": "/images/feed/feed-64720ca8856d.jpg",
       "source": "CNET",
@@ -796,7 +796,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 46,
       "url": "https://electrek.co/2026/10/09/hyundai-offers-10-discount-ioniq-5-ioniq-9-evs/",
       "image": "/images/feed/feed-0e390e51c85b.jpg",
       "source": "Electrek",
@@ -816,7 +816,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 53,
       "url": "https://electrek.co/2026/10/09/americans-want-300-miles-of-ev-range-but-most-say-75-or-less-covers-their-day/",
       "image": "/images/feed/feed-db88e1d8de03.jpg",
       "source": "Electrek",
@@ -835,9 +835,9 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 50,
       "url": "https://techcrunch.com/2026/10/09/an-anthropic-ai-model-sent-a-false-homicide-tip-to-philadelphia-police/",
-      "image": "/images/feed/feed-e09bca746ce3.jpg",
+      "image": "/images/feed/feed-e09bca746ce3.webp",
       "source": "TechCrunch",
       "isLive": true
     },
@@ -855,7 +855,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 47,
       "url": "https://www.wired.com/story/nasa-just-made-nearly-1-tb-of-artemis-ii-data-available-to-the-public/",
       "image": "/images/feed/feed-fcfddd0cc76e.jpg",
       "source": "Wired",
@@ -876,7 +876,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 37,
       "url": "https://www.nasa.gov/news-release/nasa-seeks-us-industry-plans-for-commercial-space-stations/",
       "image": "/images/feed/feed-a6c173fad7b8.jpg",
       "source": "NASA Breaking News",
@@ -895,7 +895,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 38,
       "url": "https://www.nasa.gov/centers-and-facilities/ames/nasa-demonstrates-next-generation-heat-shield-technologies/",
       "image": "https://www.nasa.gov/wp-content/uploads/2026/10/iss075e0185943.jpg",
       "source": "NASA Breaking News",
@@ -933,7 +933,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 30,
       "url": "https://openai.com/index/sophos",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "OpenAI Blog",
@@ -941,16 +941,16 @@
     }
   ],
   "breakingNews": [
-    "DEV.TO: Using a Lambda Function URL with AWS CloudFront via AWS CDK",
-    "DEV.TO: Defining SLOs and SLIs for Microservices",
-    "DEV.TO: TouchGrass AI 🌿 — Less Screen. More World!",
-    "DEV.TO: Decepticon: Autonomous Red Team Orchestration with LangGraph",
-    "DEV.TO: Recursive Governance: When Agents Write the Rules They Execute",
-    "DEV.TO: Apple offers jobs to Huxe employees and licenses to use its technology",
-    "DEV.TO: Touchwood: my feeds only unlock after an open-weight model sees me outside",
-    "KOTAKU: Jailbroken PS5s Can Now Emulate PS2 Games Using Physical Discs",
-    "9TO5MAC: Indie App Spotlight: ‘Milepost’ is a driving journal that saves your memories on the road",
-    "KOTAKU: Developer Goes Into Debt Spending $1,000 A Day To Keep Steam Demo For AI-Fueled Driving Sim Going"
+    "DEV.TO: Running a BFT blockchain as one native binary on a 2 GB VPS — what broke and what held",
+    "DEV.TO: Dawn Chorus: An Offline Bird-Call Bingo Built on BirdNET and Gemma (hacktoberfest week 1 dev challenge)",
+    "DEV.TO: FinOps na AWS: reduzindo custos ao ligar e desligar instâncias EC2 automaticamente",
+    "DEV.TO: Concert Chat State Integrity: Reconnect-Safe Authorization for Realtime Changes in 2026",
+    "DEV.TO: Protocol Upgrade Compatibility Review: Portal",
+    "POLYGON: Henry Cavill's New Sci-fi Streaming Series Sets Carrie Reboot Creator to Direct",
+    "DEV.TO: Kinewright Humans: the first person model",
+    "DEV.TO: Jev Can Make Decisions. But How Do You Work With It?",
+    "POLYGON: Star Trek: Starfleet Academy Returns For Its Final Season Early Next Year",
+    "KOTAKU: Ben Affleck’s ‘Ethical AI’ Vehicle Failing To Impress Human Viewers"
   ],
   "sectionVideos": {}
 }
