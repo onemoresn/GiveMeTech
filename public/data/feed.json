@@ -1,6 +1,196 @@
 {
-  "fetchedAt": "2026-10-12T06:30:19.525Z",
+  "fetchedAt": "2026-10-12T07:46:57.672Z",
   "articles": [
+    {
+      "id": "feed-90a38d6adf5a",
+      "title": "My Claude Code workflows ran for days. Headless workers finished in minutes.",
+      "excerpt": "I run four projects with Claude Code. For a while, my long multi-agent jobs went through Claude Code's Workflow tool, and they kept running for days. Some never finished. Part of it was effort. Every…",
+      "body": "I run four projects with Claude Code. For a while, my long multi-agent jobs went through Claude Code's Workflow tool, and they kept running for days. Some never finished. Part of it was effort. Every agent in a workflow runs at the effort level of the session that started it, and a workflow script has no documented per-agent effort setting. So I kept switching model and effort by hand, trying to make the big jobs move. That became a job of its own. The setup that worked I split the roles. One interactive Claude Code session is the orchestrator. It plans the work, writes a narrow brief for each part, launches it, reads the report and decides what happens next. Each part runs as a headless claude -p worker in its own git worktree, with its own tool list, model, effort and budget.",
+      "author": "Ozgur Sagiroglu",
+      "date": "2026-10-12",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 45,
+      "url": "https://dev.to/ozgursagiroglu/my-claude-code-workflows-ran-for-days-headless-workers-finished-in-minutes-50a9",
+      "image": "/images/feed/feed-90a38d6adf5a.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-a7db7b34e0a4",
+      "title": "你在错误的进行字符遍历",
+      "excerpt": "有问题相关代码 function pickUnicodeFor(value) { let unicodeSet = new Set(); let strLen = value.length; for (let i = 0; i < strLen; i++) { let word = value.charCodeAt(i); if (word && !unicodeSet.has(word)) {…",
+      "body": "有问题相关代码 function pickUnicodeFor ( value ) { let unicodeSet = new Set (); let strLen = value . length ; for ( let i = 0 ; i &lt; strLen ; i ++ ) { let word = value . charCodeAt ( i ); if ( word &amp;&amp; ! unicodeSet . has ( word )) { word = ` \\\\ u ${ word . toString ( 16 ). toUpperCase ()} ` ; unicodeSet . add ( word ); } } return Array . from ( unicodeSet ); } const unicodeList = pickUnicodeFor ( \" 𤋮 \" ); console .",
+      "author": "FreeCoderX",
+      "date": "2026-10-12",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 42,
+      "url": "https://dev.to/freecoderx/ni-zai-cuo-wu-de-jin-xing-zi-fu-bian-li-2m0f",
+      "image": "/images/feed/feed-a7db7b34e0a4.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-0db9a4465f09",
+      "title": "Debounce vs Throttle: I Counted Every Call",
+      "excerpt": "Debounce waits for a pause; 25 fast keystrokes collapsed into exactly 1 call at 300 ms Throttle keeps a steady beat; 60 scroll events at 60 Hz became 11 calls at 100 ms Debounce alone let a slow, stal…",
+      "body": "Debounce waits for a pause; 25 fast keystrokes collapsed into exactly 1 call at 300 ms Throttle keeps a steady beat; 60 scroll events at 60 Hz became 11 calls at 100 ms Debounce alone let a slow, stale search response overwrite the newer one in my test Pick by the question the UI asks: \"when they stop\" means debounce, \"while it happens\" means throttle Debounce and throttle both cut the number of times a handler runs, and that's where most explanations stop. I wanted numbers, so I wrote both functions, fired fake keystrokes and scroll events at them in Node, and counted every call that came out the other side. The counts are below. So is the bug that neither of them fixes. What Each One Actually Does to Your Events Debounce waits.",
+      "author": "RAXXO Studios",
+      "date": "2026-10-12",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 46,
+      "url": "https://dev.to/raxxostudios/debounce-vs-throttle-i-counted-every-call-f16",
+      "image": "/images/feed/feed-0db9a4465f09.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-0399a6511332",
+      "title": "Designing Resilient Payment Microservices: Idempotency, Webhooks & Double-Entry Ledgers",
+      "excerpt": "A practical deep dive into handling mobile money STK pushes, preventing double-credits with distributed locks, and building robust ledger pipelines. Handling real-money transactions in backend microse…",
+      "body": "A practical deep dive into handling mobile money STK pushes, preventing double-credits with distributed locks, and building robust ledger pipelines. Handling real-money transactions in backend microservices comes with a harsh reality: networks fail, webhooks retry unpredictably, and duplicate requests will happen. Whether you are integrating mobile money APIs (like M-Pesa Daraja or IntaSend) or card processors, standard CRUD patterns fall short. If an STK Push takes 12 seconds to resolve on a customer's handset and the webhook delivers three identical callbacks within 500ms, your system must guarantee that customer balances, creator payouts, and platform accounts remain mathematically consistent.",
+      "author": "Paul Owuor",
+      "date": "2026-10-12",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 40,
+      "url": "https://dev.to/paowuor/designing-resilient-payment-microservices-idempotency-webhooks-double-entry-ledgers-nc8",
+      "image": "/images/feed/feed-0399a6511332.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-b2ebc56f5c48",
+      "title": "PostgreSQL Constraint Triggers for AI Feature Usage Quotas: Enforcing Hard Limits at the Database Layer",
+      "excerpt": "PostgreSQL Constraint Triggers for AI Feature Usage Quotas: Enforcing Hard Limits at the Database Layer I've watched quota systems fail at scale more times than I'd like to admit. You implement soft c…",
+      "body": "PostgreSQL Constraint Triggers for AI Feature Usage Quotas: Enforcing Hard Limits at the Database Layer I've watched quota systems fail at scale more times than I'd like to admit. You implement soft checks in FastAPI—verify the tenant hasn't exceeded their monthly Claude API calls, then call the API. Works fine locally. Ships to production. Then during a traffic spike, three concurrent requests all see the same usage_count = 45 from the database, all think they're under the 50-call limit, and suddenly you're processing 153 calls instead of 50. Application-layer quota enforcement is fundamentally racy. Every soft check you write is a time-of-check to time-of-use (TOCTOU) window waiting to bite you.",
+      "author": "Ugur Aslim",
+      "date": "2026-10-12",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Database"
+      ],
+      "featured": true,
+      "xpReward": 49,
+      "url": "https://dev.to/uaslimcreate/postgresql-constraint-triggers-for-ai-feature-usage-quotas-enforcing-hard-limits-at-the-database-26lm",
+      "image": "/images/feed/feed-b2ebc56f5c48.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-040d847fbac4",
+      "title": "The Weekly Operating Rhythm That Keeps a Solo Studio Shipping",
+      "excerpt": "Monday is planning only, no building, protects the week's focus Tuesday through Thursday ship one thing each, nothing parallel Friday handles publishing, scheduling, and the 30-minute metrics review I…",
+      "body": "Monday is planning only, no building, protects the week's focus Tuesday through Thursday ship one thing each, nothing parallel Friday handles publishing, scheduling, and the 30-minute metrics review I refuse to schedule meetings, standups, and anything open-ended Running a studio alone means nobody tells you what to do on Tuesday. That sounds like freedom until you realize the absence of a manager is also the absence of structure. The thing that keeps me shipping isn't motivation. It's a small set of rituals I run on the same days every week. Here's what I actually do, day by day, and the stuff I deliberately keep off the calendar. Monday Is for Deciding, Not Doing Monday is planning only. I don't write code, I don't touch a prompt, I don't open the image generator.",
+      "author": "RAXXO Studios",
+      "date": "2026-10-12",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 38,
+      "url": "https://dev.to/raxxostudios/the-weekly-operating-rhythm-that-keeps-a-solo-studio-shipping-5g2m",
+      "image": "/images/feed/feed-040d847fbac4.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-df42e87da44d",
+      "title": "A New Model Drops Every Week. Here's How to Stop Rewiring Your Code Each Time",
+      "excerpt": "title: \"A New Model Drops Every Week. Here's How to Stop Rewiring Your Code Each Time\" https://easy88ai.com/og/model-routing-one-key.png Last week felt like a compressed AI roadmap. Between September…",
+      "body": "title: \"A New Model Drops Every Week. Here's How to Stop Rewiring Your Code Each Time\" description: \"Claude Sonnet 5.5, GPT-6.1 Sol, and Gemini 4 Argon arrived within days. The real engineering challenge isn't picking a winner—it's building an integration layer that survives the next announcement.\" tags: ai, machinelearning, api, developer, programming cover_image: https://easy88ai.com/og/model-routing-one-key.png published: false Last week felt like a compressed AI roadmap.",
+      "author": "easy88ai",
+      "date": "2026-10-12",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 50,
+      "url": "https://dev.to/easy88ai/a-new-model-drops-every-week-heres-how-to-stop-rewiring-your-code-each-time-9cb",
+      "image": "/images/feed/feed-df42e87da44d.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-ee3084e2a08b",
+      "title": "Beyond Text Generation: The Rise of System One Models (Jev, OpenAI Decisions, and the 2026 Agent Control Plane)",
+      "excerpt": "Beyond Text Generation: The Rise of System One Models (Jev, OpenAI Decisions, and the 2026 Agent Control Plane) The artificial intelligence industry has arrived at a structural turning point in 2026:…",
+      "body": "Beyond Text Generation: The Rise of System One Models (Jev, OpenAI Decisions, and the 2026 Agent Control Plane) The artificial intelligence industry has arrived at a structural turning point in 2026: text generation is becoming the greatest bottleneck in software automation and autonomous agent execution . For the past three years, software engineering teams built AI agents by forcing Large Language Models (LLMs) to perform every cognitive operation through the narrow straw of autoregressive token streaming. Whether determining if a bash command is dangerous, selecting which database tool to invoke, rating customer sentiment, or checking if a pull request test failed, developers asked giant frontier models like GPT-4 or Claude to output sentences or stream JSON characters token-by-token.",
+      "author": "Agdex AI",
+      "date": "2026-10-12",
+      "readTime": "2 min",
+      "section": "ai",
+      "tags": [
+        "Openai"
+      ],
+      "featured": false,
+      "xpReward": 32,
+      "url": "https://dev.to/agdex_ai/beyond-text-generation-the-rise-of-system-one-models-jev-openai-decisions-and-the-2026-agent-12b1",
+      "image": "/images/feed/feed-ee3084e2a08b.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-a695f925b641",
+      "title": "The Fiat Multipla Is Back—And It’s A Pickup, A Minivan, And An SUV",
+      "excerpt": "The Multiplay concept has a sliding rear section that transforms the body from SUV to truck in no time.",
+      "body": "The Multiplay concept has a sliding rear section that transforms the body from SUV to truck in no time.\n\nThis report, published by InsideEVs, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cars. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to InsideEVs using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "InsideEVs",
+      "date": "2026-10-12",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Cars"
+      ],
+      "featured": false,
+      "xpReward": 43,
+      "url": "https://insideevs.com/news/811536/fiat-multiplay-concept-modular-suv-minivan/",
+      "image": "/images/feed/feed-a695f925b641.jpg",
+      "source": "InsideEVs",
+      "isLive": true
+    },
+    {
+      "id": "feed-49805c52a6ee",
+      "title": "No Pixel 11, no problem: This app brings Gboard’s Rambler mode to any Android phone without root",
+      "excerpt": "It also enables Gboard's Writing Tools on any Android phone.",
+      "body": "TL;DR PixelBoard is a modded Gboard app that unlocks Rambler voice typing and writing tools on any Android phone. It doesn’t require root access and can be easily installed from GitHub. The developer has also stated that the app will be updated regularly as new Gboard versions are released. Among Gboard’s many useful features, a few aren’t available to non-Pixel users. One of these exclusive features is the impressive Rambler voice typing mode that recently debuted on the Pixel 11 series . However, if you’ve been itching to try it out on your Android phone and SwiftKey’s AI voice mode isn’t scratching that itch, there’s some good news for you. Developer Akshay Kadam has managed to unlock Gboard’s Rambler mode and AI Writing Tools, bringing them to any Android device without root access.",
+      "author": "Akshay Gangwar",
+      "date": "2026-10-12",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Android Phone"
+      ],
+      "featured": false,
+      "xpReward": 32,
+      "url": "https://www.androidauthority.com/pixelboard-gboard-rambler-mode-any-android-phone-3721726/",
+      "image": "/images/feed/feed-49805c52a6ee.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
     {
       "id": "feed-b696bce379e3",
       "title": "This phone runs Android, Linux, and Windows, but it’s just been delayed",
@@ -13,8 +203,8 @@
       "tags": [
         "Gadgets"
       ],
-      "featured": true,
-      "xpReward": 35,
+      "featured": false,
+      "xpReward": 32,
       "url": "https://www.androidauthority.com/nexphone-runs-android-linux-windows-delay-3721704/",
       "image": "/images/feed/feed-b696bce379e3.jpg",
       "source": "Android Authority",
@@ -32,8 +222,8 @@
       "tags": [
         "Gadgets"
       ],
-      "featured": true,
-      "xpReward": 44,
+      "featured": false,
+      "xpReward": 38,
       "url": "https://www.androidauthority.com/apple-nest-hub-rival-smart-home-launch-3721705/",
       "image": "/images/feed/feed-bd41408bb53c.jpg",
       "source": "Android Authority",
@@ -51,8 +241,8 @@
       "tags": [
         "Cars"
       ],
-      "featured": true,
-      "xpReward": 41,
+      "featured": false,
+      "xpReward": 46,
       "url": "https://cleantechnica.com/2026/10/12/zero-emission-bus-procurement-battery-electric/",
       "image": "/images/feed/feed-0203745eb577.webp",
       "source": "CleanTechnica",
@@ -70,8 +260,8 @@
       "tags": [
         "Gadgets"
       ],
-      "featured": true,
-      "xpReward": 45,
+      "featured": false,
+      "xpReward": 43,
       "url": "https://www.androidauthority.com/new-google-tv-streamer-leaks-rumors-3721695/",
       "image": "/images/feed/feed-607c5281f501.jpg",
       "source": "Android Authority",
@@ -89,8 +279,8 @@
       "tags": [
         "Space"
       ],
-      "featured": true,
-      "xpReward": 32,
+      "featured": false,
+      "xpReward": 33,
       "url": "https://science.nasa.gov/image-article/apod-2026-october-12-jupiter-and-the-moons/",
       "image": "/images/feed/feed-947dd455c502.jpg",
       "source": "NASA Breaking News",
@@ -108,7 +298,7 @@
       "tags": [
         "Space"
       ],
-      "featured": true,
+      "featured": false,
       "xpReward": 37,
       "url": "https://science.nasa.gov/earth/earth-observatory/antarctic-sea-ice-grows-to-its-2026-maximum/",
       "image": "/images/feed/feed-1b1b36c0febc.jpg",
@@ -128,7 +318,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 32,
       "url": "https://www.androidauthority.com/googlebook-samsung-phone-support-updates-3721690/",
       "image": "/images/feed/feed-871d906ef11d.jpg",
       "source": "Android Authority",
@@ -147,7 +337,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 51,
       "url": "https://www.androidauthority.com/lineageos-24-android-17-3721683/",
       "image": "/images/feed/feed-9c16819c325f.jpg",
       "source": "Android Authority",
@@ -166,7 +356,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 32,
       "url": "https://www.polygon.com/alfred-hitchcock-psycho-on-netflix/",
       "image": "/images/feed/feed-6cf13e50de00.jpg",
       "source": "Polygon",
@@ -185,7 +375,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 36,
       "url": "https://www.ign.com/articles/doom-2016-composer-mick-gordon-says-fk-ai",
       "image": "/images/feed/feed-96f8adfa21bb.jpg",
       "source": "IGN",
@@ -204,7 +394,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 41,
       "url": "https://www.polygon.com/games-development-hell-2026/",
       "image": "/images/feed/feed-89cac320a539.jpg",
       "source": "Polygon",
@@ -223,7 +413,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 35,
       "url": "https://www.polygon.com/steven-spielberg-hook-4k-anniversary-rerelease/",
       "image": "/images/feed/feed-fa879ddc46bb.jpg",
       "source": "Polygon",
@@ -242,7 +432,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 47,
       "url": "https://www.polygon.com/best-games-like-cyberpunk-2077/",
       "image": "/images/feed/feed-4b5475786e73.png",
       "source": "Polygon",
@@ -261,29 +451,10 @@
         "Nintendo"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 43,
       "url": "https://www.polygon.com/nintendo-switch-online-missing-wii-games/",
       "image": "/images/feed/feed-b1ff556b7293.jpg",
       "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-d22291b6c950",
-      "title": "The founder’s guide to TechCrunch Disrupt 2026: Everything you need to know",
-      "excerpt": "TechCrunch Disrupt 2026 is built around one question: How do you build an enduring company in the AI era? Our programming and speaker lineup reflect that.",
-      "body": "TechCrunch Disrupt 2026 is built around one question: How do you build an enduring company in the AI era? Our programming and speaker lineup reflect that.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Software. As the situation continues to evolve, professionals and enthusiasts in the software development and engineering field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "TechCrunch Events",
-      "date": "2026-10-12",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 38,
-      "url": "https://techcrunch.com/2026/10/11/the-founders-guide-to-techcrunch-disrupt-2026-everything-you-need-to-know/",
-      "image": "/images/feed/feed-d22291b6c950.jpg",
-      "source": "TechCrunch",
       "isLive": true
     },
     {
@@ -299,7 +470,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 45,
       "url": "https://www.polygon.com/stardew-valley-challenge-runs-replay-ideas/",
       "image": "/images/feed/feed-bf33f687783b.jpg",
       "source": "Polygon",
@@ -318,28 +489,9 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 34,
       "url": "https://www.engadget.com/2281332/pros-cons-import-foreign-phone-us/",
       "image": "/images/feed/feed-11d04c31bc0e.jpg",
-      "source": "Engadget",
-      "isLive": true
-    },
-    {
-      "id": "feed-44db390f89e6",
-      "title": "OpenAI Dot vs. Meta Muse: How do these AI agents compare?",
-      "excerpt": "Meta and OpenAI's new AI agents are in direct competition. Here's what each can do, what they cost and who has access.",
-      "body": "Meta and OpenAI's new AI agents are in direct competition. Here's what each can do, what they cost and who has access.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Husain Parvez)",
-      "date": "2026-10-12",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 53,
-      "url": "https://www.engadget.com/2281289/openai-dot-vs-meta-muse-ai-agents-comparison/",
-      "image": "/images/feed/feed-44db390f89e6.jpg",
       "source": "Engadget",
       "isLive": true
     },
@@ -356,7 +508,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 43,
       "url": "https://cleantechnica.com/2026/10/11/mammoth-solar-panels-agrivoltaic-us-energy-policy-farmers-diesel/",
       "image": "/images/feed/feed-93a107f3f6af.jpg",
       "source": "CleanTechnica",
@@ -375,29 +527,10 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 44,
       "url": "https://cleantechnica.com/2026/10/11/tesla-enables-v2h-bidirectional-charging-europe-completes-ev4eu-trial/",
       "image": "/images/feed/feed-94c866e05a0c.png",
       "source": "CleanTechnica",
-      "isLive": true
-    },
-    {
-      "id": "feed-268296192501",
-      "title": "Will the HomeView be Apple’s first smart home success?",
-      "excerpt": "Over the past couple of years, we’ve seen multiple reports that Apple was working on a new smart home product, but now it seems the product has a name and a launch date.",
-      "body": "Over the past couple of years, we’ve seen multiple reports that Apple was working on a new smart home product, but now it seems the product has a name and a launch date.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Software. As the situation continues to evolve, professionals and enthusiasts in the software development and engineering field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Anthony Ha",
-      "date": "2026-10-11",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 50,
-      "url": "https://techcrunch.com/2026/10/11/will-the-homeview-be-apples-first-smart-home-success/",
-      "image": "/images/feed/feed-268296192501.jpg",
-      "source": "TechCrunch",
       "isLive": true
     },
     {
@@ -413,48 +546,29 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 39,
       "url": "https://electrek.co/2026/10/11/the-legendary-citroen-2cv-is-back-as-a-e15k-electric-concept-for-2028/",
       "image": "/images/feed/feed-55260575c58f.jpg",
       "source": "Electrek",
       "isLive": true
     },
     {
-      "id": "feed-c97aae4c0db1",
-      "title": "Aaron Sorkin’s ‘Social Reckoning’ is off to a weak start",
-      "excerpt": "What does this mean for a fall full of movies starring villainous tech CEOs?",
-      "body": "What does this mean for a fall full of movies starring villainous tech CEOs?\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Software. As the situation continues to evolve, professionals and enthusiasts in the software development and engineering field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Anthony Ha",
+      "id": "feed-555a2b729c07",
+      "title": "The gap in shared understanding of LLM capability is widening",
+      "excerpt": "",
+      "body": "This report, published by Hacker News, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Llm. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Hacker News using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "albertzeyer",
       "date": "2026-10-11",
       "readTime": "2 min",
-      "section": "software",
+      "section": "ai",
       "tags": [
-        "Software"
+        "Llm"
       ],
       "featured": false,
-      "xpReward": 49,
-      "url": "https://techcrunch.com/2026/10/11/aaron-sorkins-social-reckoning-is-off-to-a-weak-start/",
-      "image": "/images/feed/feed-c97aae4c0db1.jpg",
-      "source": "TechCrunch",
-      "isLive": true
-    },
-    {
-      "id": "feed-430c908a60da",
-      "title": "A college in Illinois tried to cancel its Flock contact and it refused",
-      "excerpt": "BOULDER, CO - MARCH 5:A Flock Safety license plate recognition camera is seen near the intersection of Marine Street and Arapahoe Avenue in Boulder on Thursday, March 5, 2026. (Photo by Matthew Jonas/…",
-      "body": "BOULDER, CO - MARCH 5:A Flock Safety license plate recognition camera is seen near the intersection of Marine Street and Arapahoe Avenue in Boulder on Thursday, March 5, 2026. (Photo by Matthew Jonas/MediaNews Group/Boulder Daily Camera via Getty Images) | MediaNews Group via Getty Images In April of 2025, Elgin Community College had six Flock safety cameras installed to \"enhance the safety and security of students.\" But by September of that year, the school's administration grew concerned that Flock was sharing data with Customs and Border Patrol, that camera feeds were not properly secured, and that both law enforcement and the company's employees were abusing access to the data. So in October of 2025, Elgin Community College requested Flock to remove its cameras .",
-      "author": "Terrence O’Brien",
-      "date": "2026-10-11",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 48,
-      "url": "https://www.theverge.com/tech/1009411/elgin-community-college-flock-safety-cameras",
-      "image": "/images/feed/feed-430c908a60da.jpg",
-      "source": "The Verge",
+      "xpReward": 33,
+      "url": "https://twitter.com/karpathy/status/2109361546505966046",
+      "image": "/images/feed/feed-555a2b729c07.jpg",
+      "source": "Hacker News",
       "isLive": true
     },
     {
@@ -470,29 +584,10 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 40,
       "url": "https://electrek.co/2026/10/11/survey-sunday-electrek-readers-find-the-silver-lining-in-high-fuel-prices/",
       "image": "/images/feed/feed-44fe482b36d0.png",
       "source": "Electrek",
-      "isLive": true
-    },
-    {
-      "id": "feed-c99af546fb45",
-      "title": "48 hours to TechCrunch Disrupt 2026 — hear directly from the people building what’s next",
-      "excerpt": "Less than 48 hours, TechCrunch Disrupt 2026 starts in San Francisco’s Moscone West. Save up to $100 on your pass before prices increase at the door, plus get 50% on a second pass. Or score other deals…",
-      "body": "Less than 48 hours, TechCrunch Disrupt 2026 starts in San Francisco’s Moscone West. Save up to $100 on your pass before prices increase at the door, plus get 50% on a second pass. Or score other deals — a development drawing significant attention in the software development and engineering space.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Software. As the situation continues to evolve, professionals and enthusiasts in the software development and engineering field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "TechCrunch Events",
-      "date": "2026-10-11",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 45,
-      "url": "https://techcrunch.com/2026/10/11/48-hours-to-techcrunch-disrupt-2026-hear-directly-from-the-people-building-whats-next/",
-      "image": "/images/feed/feed-c99af546fb45.webp",
-      "source": "TechCrunch",
       "isLive": true
     },
     {
@@ -508,48 +603,10 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 41,
       "url": "https://www.theverge.com/ai-artificial-intelligence/1009406/silicon-valley-is-falling-in-line-with-trumps-attempt-to-rename-ai",
       "image": "/images/feed/feed-5e9f78f70319.jpg",
       "source": "The Verge",
-      "isLive": true
-    },
-    {
-      "id": "feed-f1f724a53c6d",
-      "title": "The investor’s guide to TechCrunch Disrupt 2026: Everything you need to know",
-      "excerpt": "Year after year, investors who've explored the Expo Halls, met founders, and learned from peers have proven why you need to be on the ground at Disrupt Oct. 13.",
-      "body": "Year after year, investors who've explored the Expo Halls, met founders, and learned from peers have proven why you need to be on the ground at Disrupt Oct. 13.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Software. As the situation continues to evolve, professionals and enthusiasts in the software development and engineering field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "TechCrunch Events",
-      "date": "2026-10-11",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 39,
-      "url": "https://techcrunch.com/2026/10/11/the-investors-guide-to-techcrunch-disrupt-2026-everything-you-need-to-know/",
-      "image": "/images/feed/feed-f1f724a53c6d.jpg",
-      "source": "TechCrunch",
-      "isLive": true
-    },
-    {
-      "id": "feed-ce593f7c5e44",
-      "title": "Apple’s New Smart Home Hub Is Reportedly Called HomeView and Will Ship in November",
-      "excerpt": "Apple is also expected to unveil a new Apple TV set-top box and HomePod Mini on Tuesday.",
-      "body": "Apple is also expected to unveil a new Apple TV set-top box and HomePod Mini on Tuesday.\n\nThis report, published by CNET, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Software. As the situation continues to evolve, professionals and enthusiasts in the software development and engineering field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to CNET using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Steven Musil",
-      "date": "2026-10-11",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 52,
-      "url": "https://www.cnet.com/home/new-apple-homeview-smart-home-hub/",
-      "image": "/images/feed/feed-ce593f7c5e44.jpg",
-      "source": "CNET",
       "isLive": true
     },
     {
@@ -565,29 +622,10 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 42,
       "url": "https://insideevs.com/news/811436/citroen-2cv-electric-reborn-concept/",
       "image": "/images/feed/feed-8093b45f1f16.jpg",
       "source": "InsideEVs",
-      "isLive": true
-    },
-    {
-      "id": "feed-1de758740f56",
-      "title": "Back in the real world: electric equipment is saving job sites BIG MONEY",
-      "excerpt": "For a lot of fleet managers, whether or not electrified equipment assets will lead to real world savings that are worth the higher up-front costs might feel theoretical, but early adopters Groupe Bell…",
-      "body": "For a lot of fleet managers, whether or not electrified equipment assets will lead to real world savings that are worth the higher up-front costs might feel theoretical, but early adopters Groupe Bellemare have been operating battery-powered heavy equipment for years – and their real-world results are real impressive. more…",
-      "author": "Jo Borrás",
-      "date": "2026-10-11",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Cars"
-      ],
-      "featured": false,
-      "xpReward": 49,
-      "url": "https://electrek.co/2026/10/11/back-in-the-real-world-electric-equipment-is-saving-job-sites-big-money/",
-      "image": "/images/feed/feed-1de758740f56.jpg",
-      "source": "Electrek",
       "isLive": true
     },
     {
@@ -604,7 +642,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 49,
       "url": "https://www.theverge.com/science/1009379/nasa-800gb-artemis-ii-data",
       "image": "/images/feed/feed-a6d439f53d50.jpg",
       "source": "The Verge",
@@ -623,7 +661,7 @@
         "Malware"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 48,
       "url": "https://www.bleepingcomputer.com/news/security/nippon-columbia-malware-incident-exposes-86-million-karaoke-fan-records/",
       "image": "/images/feed/feed-9855780aaf69.jpg",
       "source": "BleepingComputer",
@@ -642,7 +680,7 @@
         "Chatgpt"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 34,
       "url": "https://techcrunch.com/2026/10/11/these-execs-think-voice-ai-hasnt-reached-its-chatgpt-moment-yet/",
       "image": "/images/feed/feed-1b97ced39af6.jpg",
       "source": "TechCrunch",
@@ -661,7 +699,7 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 41,
       "url": "https://thehackernews.com/2026/10/p7-darksword-ios-exploit-kit-adds.html",
       "image": "/images/feed/feed-482b120b3cdd.jpg",
       "source": "The Hacker News",
@@ -680,7 +718,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 47,
       "url": "https://science.nasa.gov/image-article/apod-2026-october-11-ice-fishing-for-cosmic-neutrinos/",
       "image": "/images/feed/feed-a7395685e272.jpg",
       "source": "NASA Breaking News",
@@ -699,7 +737,7 @@
         "Spacex"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 38,
       "url": "https://www.cnet.com/tech/mobile/starlink-acquires-low-band-spectrum/",
       "image": "/images/feed/feed-b49c692ebf0d.jpg",
       "source": "CNET",
@@ -718,7 +756,7 @@
         "Hacker"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 44,
       "url": "https://www.bleepingcomputer.com/news/security/cyber-exec-arrested-in-case-allegedly-tied-to-shinyhunters-hackers/",
       "image": "/images/feed/feed-3344a2cc49bd.jpg",
       "source": "BleepingComputer",
@@ -737,9 +775,9 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 49,
       "url": "https://www.nasa.gov/news-release/nasa-to-conduct-flyover-engage-nfl-fans-at-metlife-stadium/",
-      "image": "https://www.nasa.gov/wp-content/uploads/2026/10/grc-2026-c-06389large.jpg",
+      "image": "/images/feed/feed-a218ecb4b6fd.jpg",
       "source": "NASA Breaking News",
       "isLive": true
     },
@@ -756,7 +794,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 44,
       "url": "https://www.bleepingcomputer.com/news/security/hacker-used-artex-ai-and-claude-agents-to-target-south-korean-banks/",
       "image": "/images/feed/feed-2eafd0cd7ead.jpg",
       "source": "BleepingComputer",
@@ -775,7 +813,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 46,
       "url": "https://www.bleepingcomputer.com/news/security/criminal-ip-introduces-aitem-as-the-next-evolution-of-attack-surface-management/",
       "image": "/images/feed/feed-089597e941cc.jpg",
       "source": "BleepingComputer",
@@ -794,7 +832,7 @@
         "Security"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 33,
       "url": "https://thehackernews.com/2026/10/the-third-party-agent-problem-why.html",
       "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEghemGbtxM2amUYAlxUPHPdMiyDMQJFWZeY-dDODRqCRD0phZXXQv0rrKHiOsLPW3t0Fq2XxvvFyCC-OmNs7TXhXXKSRVMPpC1GPKSUsyzN9t-W6L4jtiA2DUiTLgou4iyw0QXN-6Wfz0H2zWYGgC6-OxtlQrfb0PygOeBWwDnR11nl3Gl8W5pL07sExNc/s1600/reco.gif",
       "source": "The Hacker News",
@@ -814,7 +852,7 @@
         "Claude"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 30,
       "url": "https://thehackernews.com/2026/10/anthropic-cuts-live-internet-access-for.html",
       "image": "/images/feed/feed-646ca68e658d.jpg",
       "source": "The Hacker News",
@@ -852,7 +890,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 43,
       "url": "https://techcrunch.com/2026/10/09/anthropic-cant-reliably-control-its-ai-agents-its-cutting-off-its-internal-evals-from-the-live-internet-instead/",
       "image": "/images/feed/feed-3fc0fe8ac680.jpg",
       "source": "TechCrunch",
@@ -871,7 +909,7 @@
         "Ransomware"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 30,
       "url": "https://krebsonsecurity.com/2026/10/fbi-arrests-founder-of-ransomware-negotiation-firm/",
       "image": "/images/topics/topic-cybersecurity.png",
       "source": "Krebs on Security",
@@ -891,62 +929,24 @@
         "Claude"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 32,
       "url": "https://www.cnet.com/tech/services-and-software/anthropic-cruel-claude-ai-model-abuse/",
       "image": "/images/feed/feed-64720ca8856d.jpg",
       "source": "CNET",
       "isLive": true
-    },
-    {
-      "id": "feed-38f5a2b46e3b",
-      "title": "Sophos cuts threat investigation time by 96% with OpenAI Daybreak",
-      "excerpt": "Discover how Sophos uses OpenAI’s Daybreak to cut cyber-threat investigation time by 96% and automate 52% of MDR cases while preserving human oversight.",
-      "body": "Discover how Sophos uses OpenAI’s Daybreak to cut cyber-threat investigation time by 96% and automate 52% of MDR cases while preserving human oversight.\n\nThis report, published by OpenAI Blog, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Openai. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to OpenAI Blog using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "OpenAI Blog",
-      "date": "2026-10-09",
-      "readTime": "2 min",
-      "section": "ai",
-      "tags": [
-        "Openai"
-      ],
-      "featured": false,
-      "xpReward": 37,
-      "url": "https://openai.com/index/sophos",
-      "image": "/images/topics/topic-ai-ml.png",
-      "source": "OpenAI Blog",
-      "isLive": true
-    },
-    {
-      "id": "feed-dc4e32e77a50",
-      "title": "Asana cuts model costs 76x in browser tests with GPT-6.1 Sol",
-      "excerpt": "Using GPT-6 Astra in Codex, Asana made its browser agent 76x cheaper and 5x faster in tests to offer customers more capable models.",
-      "body": "Using GPT-6 Astra in Codex, Asana made its browser agent 76x cheaper and 5x faster in tests to offer customers more capable models.\n\nThis report, published by OpenAI Blog, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gpt. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to OpenAI Blog using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "OpenAI Blog",
-      "date": "2026-10-09",
-      "readTime": "2 min",
-      "section": "ai",
-      "tags": [
-        "Gpt"
-      ],
-      "featured": false,
-      "xpReward": 47,
-      "url": "https://openai.com/index/asana-browser-agent",
-      "image": "/images/topics/topic-ai-ml.png",
-      "source": "OpenAI Blog",
-      "isLive": true
     }
   ],
   "breakingNews": [
-    "ANDROID AUTHORITY: This phone runs Android, Linux, and Windows, but it’s just been delayed",
-    "ANDROID AUTHORITY: Apple could launch its Nest Hub rival tomorrow, alongside two more smart home products",
-    "CLEANTECHNICA: Bus Buyers Have Overwhelmingly Chosen Battery-Electric",
-    "ANDROID AUTHORITY: A new Google TV Streamer is reportedly coming, and it could be worth the wait",
-    "NASA BREAKING NEWS: APOD: 2026 October 12 – Jupiter and the Moons",
-    "NASA BREAKING NEWS: Antarctic Sea Ice Grows to Its 2026 Maximum",
-    "ANDROID AUTHORITY: Googlebooks finally work with Samsung phones thanks to fresh updates",
-    "ANDROID AUTHORITY: LineageOS is getting an early Android 17 upgrade, and there’s plenty more to like",
-    "POLYGON: 66 Years Later, Alfred Hitchcock’s Most Perfect Thriller is Officially Streaming on Netflix",
-    "IGN: Doom 2016 Composer Mick Gordon Says \"F##k AI\""
+    "DEV.TO: My Claude Code workflows ran for days. Headless workers finished in minutes.",
+    "DEV.TO: 你在错误的进行字符遍历",
+    "DEV.TO: Debounce vs Throttle: I Counted Every Call",
+    "DEV.TO: Designing Resilient Payment Microservices: Idempotency, Webhooks & Double-Entry Ledgers",
+    "DEV.TO: PostgreSQL Constraint Triggers for AI Feature Usage Quotas: Enforcing Hard Limits at the Database Layer",
+    "DEV.TO: The Weekly Operating Rhythm That Keeps a Solo Studio Shipping",
+    "DEV.TO: A New Model Drops Every Week. Here's How to Stop Rewiring Your Code Each Time",
+    "DEV.TO: Beyond Text Generation: The Rise of System One Models (Jev, OpenAI Decisions, and the 2026 Agent Control Plane)",
+    "INSIDEEVS: The Fiat Multipla Is Back—And It’s A Pickup, A Minivan, And An SUV",
+    "ANDROID AUTHORITY: No Pixel 11, no problem: This app brings Gboard’s Rambler mode to any Android phone without root"
   ],
   "sectionVideos": {}
 }
