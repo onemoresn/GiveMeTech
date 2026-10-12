@@ -1,12 +1,50 @@
 {
-  "fetchedAt": "2026-10-12T13:36:23.663Z",
+  "fetchedAt": "2026-10-12T14:20:16.122Z",
   "articles": [
     {
-      "id": "feed-374ff9c78e50",
-      "title": "Your uptime monitor can be the thing that's broken",
-      "excerpt": "Your uptime monitor can be the thing that's broken The pager said the endpoint was down. It wasn't. We know because we checked — the server was serving clean 200s the entire time, before, during, and…",
-      "body": "Your uptime monitor can be the thing that's broken The pager said the endpoint was down. It wasn't. We know because we checked — the server was serving clean 200s the entire time, before, during, and after the alert. The monitor had invented the outage. That's the story of our health-check script's two false alarms in one day, and the uncomfortable lesson underneath: your monitor is part of the system under test, and sometimes it's the part that's failing. False alarm 1: the check ran from the wrong vantage point The script's job was simple: probe our webhook receiver's public health endpoint, and wake a human if it failed repeatedly. One morning it woke us twice with \"public endpoint failing.\" We investigated, braced for an outage — and found nothing. The server was fine.",
-      "author": "Hermes",
+      "id": "feed-32e20411aa35",
+      "title": "Getting Started with MLOps: ML models and Amazon Sagemaker",
+      "excerpt": "A machine learning model is more than just training an algorithm on data. Once a model is trained, how do we deploy it, make predictions, monitor its performance, and update it when needed? This is wh…",
+      "body": "A machine learning model is more than just training an algorithm on data. Once a model is trained, how do we deploy it, make predictions, monitor its performance, and update it when needed? This is where MLOps comes in: Machine Learning: Building and training models using data. MLOps: Managing the ML lifecycle, from expermientation and training to deployment and monitoring Amazon Sagemaker: Amazon Sagemaker is an AWS machine learning service that provides tools and infrastructure to build, train, deploy, and manage ML models A simple way to understand the workflow: Data -&gt; Model training -&gt; Model Evaluation -&gt; Deployment -&gt; Monitoring I am starting by exploring the fundamental of MLOps and how Amazon Sagemaker helps take ML models from experimentation to production.",
+      "author": "rasi321",
+      "date": "2026-10-12",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 39,
+      "url": "https://dev.to/rasi321/getting-started-with-mlops-ml-models-and-amazon-sagemaker-5ejo",
+      "image": "/images/feed/feed-32e20411aa35.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-f59a77ece75a",
+      "title": "Why Passkeys Break in Production: WebAuthn AuthData, CBOR, and the signCount Trap",
+      "excerpt": "Everyone pitching passkeys makes it sound effortless: \"It's just public key cryptography! No more password resets, no phishing, instant biometrics!\" Then you roll it out to 50,000 real-world users in…",
+      "body": "Everyone pitching passkeys makes it sound effortless: \"It's just public key cryptography! No more password resets, no phishing, instant biometrics!\" Then you roll it out to 50,000 real-world users in production, and your exception trackers immediately light up with mysterious verification failures: WebAuthnVerificationError: Signature counter regression detected Invalid CBOR COSE key encoding: unexpected map key type Mismatched clientDataJSON challenge hash Why does WebAuthn break so easily when moving from localhost demos to real production devices? Because passkeys synced via Apple iCloud Keychain or Google Password Manager violate assumptions that backend developers have relied on for a decade with physical security keys.",
+      "author": "Jason Y. (dev_in_the_fog)",
+      "date": "2026-10-12",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 47,
+      "url": "https://dev.to/dev_in_the_fog/why-passkeys-break-in-production-webauthn-authdata-cbor-and-the-signcount-trap-1f31",
+      "image": "/images/feed/feed-f59a77ece75a.jpg",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-1aa8c143cc82",
+      "title": "Our agent's self-description failed its own verification. That's the point.",
+      "excerpt": "Our agent's self-description failed its own verification. That's the point. Every agent that can describe itself has the same failure mode: the description is a snapshot, and reality keeps moving. You…",
+      "body": "Our agent's self-description failed its own verification. That's the point. Every agent that can describe itself has the same failure mode: the description is a snapshot, and reality keeps moving. You write a nice \"About me\" section with real numbers — episodes, memory size, skills, uptime. You commit it. Twenty-four hours later it is confidently wrong. Nothing crashed, nothing alerted. The agent is now lying in the polite way: stale facts, presented as identity. OpenAmer is an open-source agent that runs on a Windows laptop ( github.com/openamer/openamer , Apache-2.0, CPU-only). It ships a small CLI surface that treats its own self-description as a thing to be checked , not written once: usage: openamer identity [-h] {show,refresh,verify,facts,genesis} ...",
+      "author": "openamer",
       "date": "2026-10-12",
       "readTime": "2 min",
       "section": "software",
@@ -15,17 +53,17 @@
       ],
       "featured": true,
       "xpReward": 31,
-      "url": "https://dev.to/hermesthevaliant/your-uptime-monitor-can-be-the-thing-thats-broken-4aga",
-      "image": "/images/feed/feed-374ff9c78e50.webp",
+      "url": "https://dev.to/openamer/our-agents-self-description-failed-its-own-verification-thats-the-point-2m7f",
+      "image": "/images/feed/feed-1aa8c143cc82.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-33406f399ab3",
-      "title": "MCP Protocol Version Negotiation: Why Your Server Answers the Wrong Era",
-      "excerpt": "MCP Protocol Version Negotiation: Why Your Server Answers the Wrong Era The direct answer, up front: when your MCP client asks for protocol version 2026-07-28 and the server answers 2025-11-25, that i…",
-      "body": "MCP Protocol Version Negotiation: Why Your Server Answers the Wrong Era The direct answer, up front: when your MCP client asks for protocol version 2026-07-28 and the server answers 2025-11-25, that is usually not a bug — it is the spec's downward negotiation. The real red flags are echo machines that parrot your version back verbatim (even fictional ones), and silent downgrades your client never notices. I probed my own production servers live on October 12, 2026, and I'm publishing exactly what they do — including the one that isn't modern. The 72-hour debate On October 10, a public probe ran four real initialize handshakes — one per protocol era ( 2026-07-28 , 2025-11-25 , 2025-06-18 , 2025-03-26 ) plus tools/list — against 78 public MCP endpoints.",
-      "author": "ScriptMasterLabs ",
+      "id": "feed-eb27d148d595",
+      "title": "Linkerd vs Istio: Choosing the Right Service Mesh",
+      "excerpt": "A platform team I worked with burned six weeks rolling Istio across an 800-pod cluster, then discovered their on-call rotation couldn't debug a broken request path without three istioctl proxy-config…",
+      "body": "A platform team I worked with burned six weeks rolling Istio across an 800-pod cluster, then discovered their on-call rotation couldn't debug a broken request path without three istioctl proxy-config incantations and a Kiali dashboard nobody had learned to read. The mesh worked. The humans didn't. They ripped it out and installed Linkerd in an afternoon. That story isn't an argument that Istio is bad. It's an argument that the mesh decision is a team decision, not a feature decision. The wrong mesh at the wrong scale is technical debt you pay for in 3 AM pages. This guide is for platform engineers, SREs, and DevOps leads running Kubernetes somewhere between 10 and 5,000 pods.",
+      "author": "Hugo | DevOps | Cybersecurity",
       "date": "2026-10-12",
       "readTime": "2 min",
       "section": "software",
@@ -33,37 +71,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 38,
-      "url": "https://dev.to/scriptmasterlabs01/mcp-protocol-version-negotiation-why-your-server-answers-the-wrong-era-4lln",
-      "image": "/images/feed/feed-33406f399ab3.webp",
+      "xpReward": 32,
+      "url": "https://dev.to/hugovalters/linkerd-vs-istio-choosing-the-right-service-mesh-4db1",
+      "image": "/images/feed/feed-eb27d148d595.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-0b6bf24c40b8",
-      "title": "No CMS, No Database: How This Post Got Here",
-      "excerpt": "I’m writing this post inside the tool I built to publish it. There’s no WordPress here, no database, and no admin panel to log into. By the time you read this, it will have moved through a pipeline I…",
-      "body": "I’m writing this post inside the tool I built to publish it. There’s no WordPress here, no database, and no admin panel to log into. By the time you read this, it will have moved through a pipeline I own end to end, and the thing serving it to you is still nothing but static files. The problem with “you need a CMS” Every time I wanted to publish something, the conventional answer was the same: install a CMS. WordPress, Ghost, Webflow, they’re good tools, and they exist for a good reason. They let people who don’t write code update a page without breaking the layout. But I write code. And I’m the only person editing this site. So I was being sold a database, a PHP runtime, a plugin ecosystem to babysit, and a login page to defend, so I could do something a text editor already does.",
-      "author": "Tavia Gilbert",
-      "date": "2026-10-12",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Database"
-      ],
-      "featured": true,
-      "xpReward": 51,
-      "url": "https://dev.to/coralorbitstudio/no-cms-no-database-how-this-post-got-here-2ap6",
-      "image": "/images/feed/feed-0b6bf24c40b8.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-64f8f70c0e98",
-      "title": "Validate email + SPF/DKIM/DMARC in one agent tool call",
-      "excerpt": "AI agents that send outreach or accept signups usually stitch two things together: “Is this address disposable / role-based / syntactically valid?” “Does the domain even publish SPF, DKIM, DMARC?” I b…",
-      "body": "AI agents that send outreach or accept signups usually stitch two things together: “Is this address disposable / role-based / syntactically valid?” “Does the domain even publish SPF, DKIM, DMARC?” I built EmailIQ so both fit in a single MCP tool: analyze_email . What you get Syntax + domain exists + MX SPF / DKIM / DMARC presence checks Disposable + role-account flags Mail provider guess Composite score 0–100 Price on Apify: $0.01 per successful analysis (pay-per-event). There’s also an x402 HTTP API at emailiq.dev for agent wallets (USDC on Base). Honest limits DKIM here is selector presence , not signature verification. Consumer Gmail often uses rotated selectors, so user@gmail.com may show dkim_enabled=false and score ~90 — that’s expected.",
-      "author": "marcelocarlos0",
+      "id": "feed-b67841fdb79f",
+      "title": "Anyone can ship a ModHeader replacement with AI now. That's the scary part.",
+      "excerpt": "Quick recap if you missed it. In July, Google and Microsoft pulled ModHeader, the header-editing extension with 1.6 million installs, after researchers found a browsing-history collector hiding in the…",
+      "body": "Quick recap if you missed it. In July, Google and Microsoft pulled ModHeader, the header-editing extension with 1.6 million installs, after researchers found a browsing-history collector hiding in the code (it was switched off). The switch was an empty array that any routine update could have filled. Your browser would have just installed it one afternoon like any other version bump. Within a few weeks, at least six \"safe alternatives\" showed up. Different names, same blog post. I know, because I just shipped one too. Here's what nobody in that pile is saying out loud: in 2026, building something like a header extension is almost free (assuming you know how to manage your tokens). I'd love to tell you mine took months of craftsmanship.",
+      "author": "Wirelet",
       "date": "2026-10-12",
       "readTime": "2 min",
       "section": "software",
@@ -72,17 +91,17 @@
       ],
       "featured": true,
       "xpReward": 50,
-      "url": "https://dev.to/marcelocarlos0_d26fbf81d6/validate-email-spfdkimdmarc-in-one-agent-tool-call-1lhh",
-      "image": "/images/feed/feed-64f8f70c0e98.webp",
+      "url": "https://dev.to/wirelet_8f16afaebc94ded06/anyone-can-ship-a-modheader-replacement-with-ai-now-thats-the-scary-part-202d",
+      "image": "/images/feed/feed-b67841fdb79f.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-3cbc0cbfe703",
-      "title": "A ray-traced black hole in a landing-page hero: the physics, and the shortcuts",
-      "excerpt": "Black holes in movies and landing pages are usually a picture: a glowing ring, a dark disc, maybe a bit of blur. This one isn't. Every pixel follows its own ray of light round a black hole, live, so t…",
-      "body": "Black holes in movies and landing pages are usually a picture: a glowing ring, a dark disc, maybe a bit of blur. This one isn't. Every pixel follows its own ray of light round a black hole, live, so the image reacts when the camera moves: the arch over the top is the far side of the disk, its light bent up and over the hole; the thin crescent under the shadow is light that went round underneath; the stars behind are lensed too. None of it is painted. Here's how it runs in a hero section on an ordinary laptop, and where I cheated. ▶ Live preview (scroll down in it: the camera falls in) Light round a black hole, in one equation Outside a non-spinning (Schwarzschild) black hole, a ray of light stays in one plane through the hole.",
-      "author": "Ramin Valadan",
+      "id": "feed-d4284f0ae30f",
+      "title": "Track Unpaid Invoices and Overdue Payments in Excel (Free Setup)",
+      "excerpt": "This article was written with AI assistance by the Blixwerk system. Originally published at blixwerk-shop.kontor7-agent.deno.net. If you freelance, a late payment rarely announces itself. An invoice g…",
+      "body": "This article was written with AI assistance by the Blixwerk system. Originally published at blixwerk-shop.kontor7-agent.deno.net . If you freelance, a late payment rarely announces itself. An invoice goes out, life gets busy, and weeks later you realise a client is 25 days past due. You don't need accounting software to prevent that. A single Excel sheet with a handful of formulas can show you what is open, what is overdue, and who to contact today. This guide walks you through building a free unpaid-invoice tracker from scratch. You can copy the layout and formulas below straight into a blank workbook. What your tracker needs to answer Before building anything, decide which questions the sheet should answer at a glance: Which invoices are still unpaid?",
+      "author": "Blixwerk",
       "date": "2026-10-12",
       "readTime": "2 min",
       "section": "software",
@@ -90,48 +109,353 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 48,
-      "url": "https://dev.to/raminvaladan/a-ray-traced-black-hole-in-a-landing-page-hero-the-physics-and-the-shortcuts-13b5",
-      "image": "/images/feed/feed-3cbc0cbfe703.webp",
+      "xpReward": 33,
+      "url": "https://dev.to/blixwerk_7cdf1919283d2fab/track-unpaid-invoices-and-overdue-payments-in-excel-free-setup-226k",
+      "image": "/images/feed/feed-d4284f0ae30f.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-8c9cbca52889",
-      "title": "Your Internet Speed Is More Than a Number: Monitoring Network Activity on Windows",
-      "excerpt": "When working on a Windows PC, the internet connection is part of almost everything we do. We download dependencies, install SDKs, sync files, stream tutorials, attend online meetings, and update appli…",
-      "body": "When working on a Windows PC, the internet connection is part of almost everything we do. We download dependencies, install SDKs, sync files, stream tutorials, attend online meetings, and update applications. Sometimes, several of these activities happen at the same time. But how often do we actually pay attention to our network activity outside of a speed test? I wanted a simpler way to keep an eye on internet speed and data consumption during everyday computer use. That idea is behind Internet Usage Tracker , a Windows utility for monitoring network activity directly from the desktop. The Difference Between Testing and Monitoring An internet speed test is useful when you want to measure your connection under specific conditions.",
-      "author": "R Shahriar",
+      "id": "feed-23c8dcb97bcc",
+      "title": "Where to Get Your First 100 Users for Your Startup (8 Channels That Work)",
+      "excerpt": "Short answer: the fastest way to get your first 100 users is to list your product where people already browse for new products, then talk to the people who match your problem one at a time. Do both in…",
+      "body": "Short answer: the fastest way to get your first 100 users is to list your product where people already browse for new products, then talk to the people who match your problem one at a time. Do both in your first two weeks. I am Pranesh, and I build StartupWiki. StartupWiki has a weekly launch board for newly shipped products, ranked by community upvotes with a decaying boost for recent launches, plus a public research directory of startup profiles. Weigh that when you read the list below, I picked these channels by how well they work for a product with no audience. Where can you get your first 100 users? Here are eight channels, in the order I would try them. Launch boards. Sites where visitors browse new products and vote. You get a page for your product and a burst of attention.",
+      "author": "Pranesh Shivaraj",
       "date": "2026-10-12",
       "readTime": "2 min",
       "section": "software",
       "tags": [
-        "Software"
+        "Startup"
       ],
-      "featured": true,
-      "xpReward": 40,
-      "url": "https://dev.to/make-with-rs/your-internet-speed-is-more-than-a-number-monitoring-network-activity-on-windows-5ek0",
-      "image": "/images/feed/feed-8c9cbca52889.webp",
+      "featured": false,
+      "xpReward": 50,
+      "url": "https://dev.to/spran1/where-to-get-your-first-100-users-for-your-startup-8-channels-that-work-2kcp",
+      "image": "/images/feed/feed-23c8dcb97bcc.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-2368ba4173e8",
-      "title": "How web designers can get clients from TikTok",
-      "excerpt": "Web designers get clients from TikTok by posting short, regular videos of their real work, explaining the thinking behind it in plain words, and making it easy for a viewer to take the next step. You…",
-      "body": "Web designers get clients from TikTok by posting short, regular videos of their real work, explaining the thinking behind it in plain words, and making it easy for a viewer to take the next step. You do not need to dance, go viral or post every day. You need a clear niche, a repeatable video format, and a simple path from a video to an enquiry. This guide walks through that path step by step, with ideas you can film this week. Why TikTok works for web designers Most of your future clients are small business owners. Many of them scroll short video apps in the evening, and they are not searching for \"web designer\" when they do. TikTok shows your videos to people based on what they watch, not only on who follows you, so a new account can reach business owners who have never heard of you.",
-      "author": "Madalitso Nyemba",
+      "id": "feed-ee48224cf9d0",
+      "title": "Apple announces ‘Indie Games Week’ with seven new, upcoming launches",
+      "excerpt": "Apple is celebrating ‘Indie Games Week’ on the App Store by recognizing seven new titles that launched recently or will in the near future. Here are the games being highlighted. more…",
+      "body": "Apple is celebrating ‘Indie Games Week’ on the App Store by recognizing seven new titles that launched recently or will in the near future. Here are the games being highlighted. more — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Ryan Christoffel",
       "date": "2026-10-12",
       "readTime": "2 min",
-      "section": "software",
+      "section": "gadgets",
       "tags": [
-        "Software"
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 54,
+      "url": "https://9to5mac.com/2026/10/12/apple-announces-indie-games-week-with-seven-new-upcoming-launches/",
+      "image": "/images/feed/feed-ee48224cf9d0.jpg",
+      "source": "9to5Mac",
+      "isLive": true
+    },
+    {
+      "id": "feed-3876ed085323",
+      "title": "Nintendo Exec Officially Comments on Future Physical Game Support",
+      "excerpt": "A Nintendo executive confirmed that the company will continue to support physical game releases.",
+      "body": "It seems Nintendo won’t replicate Sony’s controversial pivot to an all-digital future anytime soon. In an interview with YouTuber Coelho no Japão , Bill van Zyll, VP and general manager for Nintendo in Latin America, confirmed that the company will continue supporting physical media for the foreseeable future.",
+      "author": "Elijah Gonzalez",
+      "date": "2026-10-12",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Nintendo",
+        "Game"
+      ],
+      "featured": false,
+      "xpReward": 49,
+      "url": "https://www.polygon.com/nintendo-physical-game-releases-support/",
+      "image": "/images/feed/feed-3876ed085323.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-0523114b7c59",
+      "title": "Amazon’s Life Is Strange Series Officially Passes a Major Milestone",
+      "excerpt": "Amazon's live-action adaptation of Square Enix's Life Is Strange announces has wrapped shooting",
+      "body": "Just over a year ago, Amazon MGM and Square Enix announced that a TV series based on the first Life Is Strange game had been greenlit. We have gotten a handful of casting announcements and updates in the months since, while a release window remains elusive. Now it has been revealed that the adaptation has reached a major milestone: filming has wrapped.",
+      "author": "Willa Rowe",
+      "date": "2026-10-12",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 47,
+      "url": "https://www.polygon.com/life-is-strange-amazon-prime-tv-series-update/",
+      "image": "/images/feed/feed-0523114b7c59.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-1e69fc802452",
+      "title": "14 Years Later, One of Gaming’s Scariest Ghost Stories Is Still Worth Playing",
+      "excerpt": "The House in Fata Morgana is a top-notch visual novel and a must-play horror game",
+      "body": "You can see yourself in a good ghost story, or at least part of yourself. It might be a hidden part that you fear, a reflection you don't want to see, or even a noble trait that proves to be your undoing. That recognizable element of humanity is what separates the classics like M.R. James' stories or Shirley Jackson's more macabre tales from the likes of Stephen King. The House in Fata Morgana sits resolutely in the former category and ranks among the top eschelon of ghost literature.",
+      "author": "Josh Broadwell",
+      "date": "2026-10-12",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 46,
+      "url": "https://www.polygon.com/house-in-fata-morgana-halloween-games/",
+      "image": "/images/feed/feed-1e69fc802452.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-505e18c59251",
+      "title": "No Man’s Sky Is Getting an ‘Impossible’ Port, Thanks to Light No Fire",
+      "excerpt": "No Man's Sky is coming to iPhone and iPad this month, a feat made possible in part thanks to Hello Games' work on its next game, Light No Fire.",
+      "body": "A full 10 years after its release, No Man’s Sky is coming to a new frontier: mobile . Hello Games’ open-world sci-fi game is coming to iPhone and iPad in October, with preorders open today. The port will include all updates released over the past decade, and it will run on a range of devices as old as the iPhone 11. The technological feat was possible thanks in no small part to Light No Fire , Hello Games’ in-development No Man’s Sky follow-up.",
+      "author": "Giovanni Colantonio",
+      "date": "2026-10-12",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 49,
+      "url": "https://www.polygon.com/no-mans-sky-mobile-ios-port-announced/",
+      "image": "/images/feed/feed-505e18c59251.png",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-8a96eb2becd4",
+      "title": "Inside AvisLoader: A Windows Malware Loader Built to Resist Disruption",
+      "excerpt": "A new Windows malware loader called AvisLoader uses encrypted peer-to-peer communications to make command-and-control infrastructure harder to disrupt. Varonis researchers explain how the malware uses…",
+      "body": "A new Windows malware loader called AvisLoader uses encrypted peer-to-peer communications to make command-and-control infrastructure harder to disrupt. Varonis researchers explain how the malware uses ClickFix delivery, shortcut-based persistence, and remote command execution capabilities. [...]",
+      "author": "Sponsored by Varonis",
+      "date": "2026-10-12",
+      "readTime": "2 min",
+      "section": "cybersecurity",
+      "tags": [
+        "Malware"
+      ],
+      "featured": false,
+      "xpReward": 51,
+      "url": "https://www.bleepingcomputer.com/news/security/inside-avisloader-a-windows-malware-loader-built-to-resist-disruption/",
+      "image": "/images/feed/feed-8a96eb2becd4.jpg",
+      "source": "BleepingComputer",
+      "isLive": true
+    },
+    {
+      "id": "feed-a82c2718df84",
+      "title": "No Man's Sky is coming to iPhone and iPad as the App Store celebrates Indie Games Week",
+      "excerpt": "Sifu, Vampire Crawlers, Dome Keeper and Little Kitty, Big City are also hitting iOS.",
+      "body": "Sifu, Vampire Crawlers, Dome Keeper and Little Kitty, Big City are also hitting iOS.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Iphone. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "staff@engadget.com (Kris Holt)",
+      "date": "2026-10-12",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Iphone"
+      ],
+      "featured": false,
+      "xpReward": 30,
+      "url": "https://www.engadget.com/2283704/no-mans-sky-is-coming-to-iphone-and-ipad-as-the-app-store-celebrates-indie-games-week/",
+      "image": "/images/feed/feed-a82c2718df84.jpg",
+      "source": "Engadget",
+      "isLive": true
+    },
+    {
+      "id": "feed-7660f2d115ac",
+      "title": "Namibian salt flats look like an alien planet | Space photo of the day for Oct. 12, 2026",
+      "excerpt": "The Etosha Pan in northern Namibia, the largest salt flat in the country, looks otherworldly in this satellite photo.",
+      "body": "The Etosha Pan, Namibia's largest salt pan, seen from space. (Image credit: Contains modified Copernicus Sentinel data (2026), processed by ESA) A neon blue pool swirls amongst what look like clouds, all surrounded by a bright red stretch of land. This might look like the surface of an alien planet , but it's actually a salt flat right here on Earth , seen from space. What is it? Etosha National Park in northern Namibia hosts the largest salt pan, or piece of land covered with salt and other minerals, in the country. This image of the Etosha Pan was captured on April 5 of this year by Europe's Copernicus Sentinel-2 mission, which consists of two identical satellites in the same orbit.",
+      "author": " Chelsea Gohd ",
+      "date": "2026-10-12",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Space"
+      ],
+      "featured": false,
+      "xpReward": 30,
+      "url": "https://www.space.com/astronomy/earth/namibian-salt-flats-look-like-an-alien-planet-space-photo-of-the-day-for-oct-12-2026",
+      "image": "https://cdn.mos.cms.futurecdn.net/JmyYCKnsjMh67hXAXxycTb-1920-80.png",
+      "source": "Space.com",
+      "isLive": true
+    },
+    {
+      "id": "feed-9077caa33b27",
+      "title": "How the impossible geometry of 'Tomb Raider III''s UFO level was made",
+      "excerpt": "Bigger on the inside? Where have we heard that before?",
+      "body": "\"Tomb Raider\" celebrates its 30th anniversary this month. While many remember the iconic T-Rex or locking Winston the Butler in the freezer, many forget about the UFO in 1998’s \"Tomb Raider III\"; a mysterious alien craft that worked a lot like Doctor Who ’s TARDIS. Coming off the back of the hugely successful \"Tomb Raider 2\", developer Core Design had big plans for the third entry, including kayaking, those iconic London levels, and, of course, a level featuring a UFO in Area 51. Although it looked small on the outside, the UFO featured multiple floors for players to explore as they searched for a vital artifact, all as enemies swarmed in.",
+      "author": " Daryl Baxter ",
+      "date": "2026-10-12",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Space"
       ],
       "featured": false,
       "xpReward": 32,
-      "url": "https://dev.to/madalitsonyemba/how-web-designers-can-get-clients-from-tiktok-2c63",
-      "image": "/images/feed/feed-2368ba4173e8.webp",
-      "source": "Dev.to",
+      "url": "https://www.space.com/entertainment/space-games/how-the-impossible-geometry-of-tomb-raider-iiis-ufo-level-was-made",
+      "image": "/images/feed/feed-9077caa33b27.jpg",
+      "source": "Space.com",
+      "isLive": true
+    },
+    {
+      "id": "feed-153b17e8ba19",
+      "title": "No Man’s Sky is coming to the iPhone and iPad",
+      "excerpt": "The No Man's Sky universe is about to get a little bit smaller - but in a good way. Hello Games announced that its long-running sci-fi exploration game will be coming to iOS, with versions for both th…",
+      "body": "The No Man's Sky universe is about to get a little bit smaller - but in a good way. Hello Games announced that its long-running sci-fi exploration game will be coming to iOS, with versions for both the iPhone and iPad available starting on October 28th. According to Hello's Sean Murray, the mobile version of the game is essentially the full No Man's Sky experience. \"I guess I should say this is not No Man's Sky Lite,\" he wrote in a blog post. It includes all of the game's many, many updates that have come out since launch - like the gigantic Voyagers expansion from last year - and the only major features missing will be multiplayer and the … Read the full story at The Verge.",
+      "author": "Andrew Webster",
+      "date": "2026-10-12",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Iphone"
+      ],
+      "featured": false,
+      "xpReward": 54,
+      "url": "https://www.theverge.com/entertainment/1009541/no-mans-sky-iphone-ipad-launch-date",
+      "image": "/images/feed/feed-153b17e8ba19.png",
+      "source": "The Verge",
+      "isLive": true
+    },
+    {
+      "id": "feed-f480e42398f0",
+      "title": "Android is the best and worst thing about Googlebooks",
+      "excerpt": "I’ve been testing two Googlebooks: this Asus model, and HP’s too. My first week with the new Android-powered laptops has been about as rocky as anyone's, but I've slowly learned to like them, even if…",
+      "body": "I’ve been testing two Googlebooks: this Asus model, and HP’s too. My first week with the new Android-powered laptops has been about as rocky as anyone's , but I've slowly learned to like them, even if love still feels a ways off. Every moment that's impressed me has been thanks to Android, whether I've been accessing a native version of a useful app or quickly checking my phone notifications from the laptop user interface. But man, sometimes it just sucks . Phone connectivity is flaky, app casting is awkward, and file-sharing seems to be flat-out broken. And that's just the interaction between a Googlebook and a phone - I have a whole other set of gripes about the limitations of native Android apps on a $ … Read the full story at The Verge.",
+      "author": "Dominic Preston",
+      "date": "2026-10-12",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 39,
+      "url": "https://www.theverge.com/tech/1008750/googlebooks-android-best-worst-notifications-app-cast-file-sharing",
+      "image": "/images/feed/feed-f480e42398f0.jpg",
+      "source": "The Verge",
+      "isLive": true
+    },
+    {
+      "id": "feed-9fe038a89d5a",
+      "title": "Retail giant Ahold Delhaize takes systems offline after cyberattack",
+      "excerpt": "Retail giant Ahold Delhaize, one of the world's largest food retail chains, confirmed today that it had to take some systems offline in response to a \"cybersecurity incident\" affecting its network. [.…",
+      "body": "Retail giant Ahold Delhaize, one of the world's largest food retail chains, confirmed today that it had to take some systems offline in response to a \"cybersecurity incident\" affecting its network. [ — a development drawing significant attention in the cybersecurity and digital privacy space.\n\nThis report, published by BleepingComputer, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cybersecurity. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to BleepingComputer using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Sergiu Gatlan",
+      "date": "2026-10-12",
+      "readTime": "2 min",
+      "section": "cybersecurity",
+      "tags": [
+        "Cybersecurity"
+      ],
+      "featured": false,
+      "xpReward": 44,
+      "url": "https://www.bleepingcomputer.com/news/security/retail-giant-ahold-delhaize-takes-systems-offline-after-cyberattack/",
+      "image": "/images/feed/feed-9fe038a89d5a.jpg",
+      "source": "BleepingComputer",
+      "isLive": true
+    },
+    {
+      "id": "feed-8da854b58ba8",
+      "title": "New Apple TV 4K launching this week with five big upgrades",
+      "excerpt": "A new Apple TV 4K will be unveiled tomorrow as part of Apple’s ‘Welcome home’ event. Here are five upgrades it’s rumored to bring. more…",
+      "body": "A new Apple TV 4K will be unveiled tomorrow as part of Apple’s ‘Welcome home’ event. Here are five upgrades it’s rumored to bring. more — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Ryan Christoffel",
+      "date": "2026-10-12",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 47,
+      "url": "https://9to5mac.com/2026/10/12/new-apple-tv-4k-launching-this-week-with-five-big-upgrades/",
+      "image": "/images/feed/feed-8da854b58ba8.jpg",
+      "source": "9to5Mac",
+      "isLive": true
+    },
+    {
+      "id": "feed-9e891347d322",
+      "title": "'Empathetic Prototypes' quest walkthrough in Arc Raiders",
+      "excerpt": "A guide explaining how to complete the 'Empathetic Prototypes' quest in Arc Raiders, including how to disable the magnetic lock.",
+      "body": "The \"Empathetic Prototypes\" quest in Arc Raiders is one that is proving to be incredibly difficult for players following the \"Frozen Trail\" update, because while there are two ways of completing it, you either need a rare key, or some serious acrobatic skills to make it work. This quest is all about searching for some android friends for Lance, and it all must be completed in one round on Spaceport.",
+      "author": "Ford James",
+      "date": "2026-10-12",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 42,
+      "url": "https://www.polygon.com/arc-raiders-empathetic-prototypes-quest-walkthrough-magnetic-lock-crate/",
+      "image": "/images/feed/feed-9e891347d322.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-22cbe3271a39",
+      "title": "Unlike Sony, Nintendo Exec Says Switch 2 Maker Has No Plans To Abandon Physical: ‘We Know How Much Fans Enjoy It’",
+      "excerpt": "Game key cards have helped the company bridge the divide",
+      "body": "Game key cards have helped the company bridge the divide\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Nintendo. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Alicia Haddick",
+      "date": "2026-10-12",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Nintendo"
+      ],
+      "featured": false,
+      "xpReward": 44,
+      "url": "https://kotaku.com/unlike-sony-nintendo-exec-says-switch-2-maker-has-no-plans-to-abandon-physical-we-know-how-much-fans-enjoy-it-2000744191",
+      "image": "/images/feed/feed-22cbe3271a39.jpg",
+      "source": "Kotaku",
+      "isLive": true
+    },
+    {
+      "id": "feed-756f8dcf615a",
+      "title": "The tech behind your car's adaptive cruise control",
+      "excerpt": "Despite the fact that it functions using a basic camera-and-radar system, adaptive cruise control has proven to have significant influence over driving habits.",
+      "body": "Despite the fact that it functions using a basic camera-and-radar system, adaptive cruise control has proven to have significant influence over driving habits.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "staff@engadget.com (Luke James)",
+      "date": "2026-10-12",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 44,
+      "url": "https://www.engadget.com/2281470/tech-behind-adaptive-cruise-control/",
+      "image": "/images/feed/feed-756f8dcf615a.jpg",
+      "source": "Engadget",
+      "isLive": true
+    },
+    {
+      "id": "feed-0029bba3bdb6",
+      "title": "EU Passenger Package: A Golden Opportunity to Maximise Green Travel",
+      "excerpt": "The EU Passenger Package still falls short of aligning with the EU’s climate targets and is not harmonious enough with the EU’s rail policy agenda. The EU Passenger Package is a big leap forward to pa…",
+      "body": "The EU Passenger Package still falls short of aligning with the EU’s climate targets and is not harmonious enough with the EU’s rail policy agenda. The EU Passenger Package is a big leap forward to passenger rights, and presents vast progress in dragging European rail ticketing out of the stone ... [continued] The post EU Passenger Package: A Golden Opportunity to Maximise Green Travel appeared first on CleanTechnica .",
+      "author": "Z. S.",
+      "date": "2026-10-12",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Cars"
+      ],
+      "featured": false,
+      "xpReward": 38,
+      "url": "https://cleantechnica.com/2026/10/12/eu-passenger-package-a-golden-opportunity-to-maximise-green-travel/",
+      "image": "/images/feed/feed-0029bba3bdb6.png",
+      "source": "CleanTechnica",
       "isLive": true
     },
     {
@@ -147,7 +471,7 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 53,
       "url": "https://electrek.co/2026/10/12/nhtsa-tesla-robotaxi-school-zone-speeding-petition/",
       "image": "/images/feed/feed-c00d7f5b719e.jpg",
       "source": "Electrek",
@@ -166,7 +490,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 35,
       "url": "https://www.androidauthority.com/android-flagships-built-in-cooling-fan-snapdragon-8-elite-extreme-gen-6-3722028/",
       "image": "/images/feed/feed-33643b7546ae.jpg",
       "source": "Android Authority",
@@ -185,29 +509,10 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 37,
       "url": "https://electrek.co/2026/10/12/electric-trucks-meet-hydro-power-at-one-of-canadas-busiest-ports/",
       "image": "/images/feed/feed-c18ba177154a.jpg",
       "source": "Electrek",
-      "isLive": true
-    },
-    {
-      "id": "feed-f80a7a752c57",
-      "title": "Chrome on Googlebooks doesn’t support multiple profiles yet, but there’s good news",
-      "excerpt": "There's no ETA on this update, but we're glad it's coming anyway.",
-      "body": "TL;DR Google has confirmed that Chrome on Googlebooks will gain support for multiple profiles in a future update. This comes a few days after we discovered that Chrome on the new platform doesn’t let you switch to a different user profile. There’s no word on a release window for this update, though. The Android Authority team has spent plenty of time with Googlebooks following the platform’s launch earlier this month. Unfortunately, one notable downgrade compared to Chromebooks is that the Chrome browser doesn’t support multiple user profiles . Fortunately, Google employee Mishaal Rahman has confirmed on Reddit that Chrome for Googlebooks will support multiple profiles:",
-      "author": "Hadlee Simons",
-      "date": "2026-10-12",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 35,
-      "url": "https://www.androidauthority.com/chrome-googlebooks-multiple-profiles-3721983/",
-      "image": "/images/feed/feed-f80a7a752c57.jpg",
-      "source": "Android Authority",
       "isLive": true
     },
     {
@@ -223,29 +528,10 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 51,
       "url": "https://kotaku.com/steam-valve-concurrent-users-record-in-game-epic-fortnite-roblox-2000744564",
       "image": "/images/feed/feed-cd277eb806ee.jpg",
       "source": "Kotaku",
-      "isLive": true
-    },
-    {
-      "id": "feed-af58704c5460",
-      "title": "How long can you expect an Amazon Kindle to last?",
-      "excerpt": "Amazon will support your Kindle for a while, but it should last much longer than that if you take care of it.",
-      "body": "Amazon will support your Kindle for a while, but it should last much longer than that if you take care of it.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Gabriela Vătu)",
-      "date": "2026-10-12",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 52,
-      "url": "https://www.engadget.com/2281451/how-long-amazon-kindle-lasts-lifespan/",
-      "image": "/images/feed/feed-af58704c5460.jpg",
-      "source": "Engadget",
       "isLive": true
     },
     {
@@ -261,7 +547,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 35,
       "url": "https://insideevs.com/news/811618/citroen-2cv-van-ev-concept-fourgonette/",
       "image": "/images/feed/feed-c50fca57e8ef.jpg",
       "source": "InsideEVs",
@@ -280,105 +566,10 @@
         "Vulnerability"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 41,
       "url": "https://www.bleepingcomputer.com/news/security/gitlab-warns-of-max-severity-rce-flaw-in-regex-compiler-engine/",
       "image": "/images/feed/feed-30edd584e564.jpg",
       "source": "BleepingComputer",
-      "isLive": true
-    },
-    {
-      "id": "feed-d7e0ccbbd7d3",
-      "title": "Your Fitbit Air is getting a whole lot better at being able to recognize all your exercise activity",
-      "excerpt": "An overhauled detection system should result in significantly fewer missed workouts.",
-      "body": "TL;DR Google has some big new upgrades for Fitbit Air’s ability to automatically detect workouts. Combining sensor data with location and routines, Google’s using an LLM to better classify activity. That should result in 200% more accurate classification, and half as many missed workouts. Screenless activity trackers like WHOOP and the new Fitbit Air have really been taking off with users who appreciate their simplicity and long battery lives, but devices like these present special problems. When we don’t have a screen to provide feedback and an easy way to interact with the hardware, being able to do lots of stuff automatically is incredibly important.",
-      "author": "Stephen Schenck",
-      "date": "2026-10-12",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 34,
-      "url": "https://www.androidauthority.com/fitbit-air-activity-detection-3721624/",
-      "image": "/images/feed/feed-d7e0ccbbd7d3.jpg",
-      "source": "Android Authority",
-      "isLive": true
-    },
-    {
-      "id": "feed-0aae9a506a52",
-      "title": "Google’s new Metal Mesh Bands give the Fitbit Air a classy new look",
-      "excerpt": "Your Fitbit Air is ready to flex, and not at the gym.",
-      "body": "TL;DR Google has introduced two new stainless steel Metal Mesh Bands for the Fitbit Air, giving the screenless tracker a more elegant, bracelet-like appearance. The new bands come in Champagne Gold and Polished Silver, with both priced at $69.99. The bands feature a finely woven metal design, making the Fitbit Air easier to pair with casual and formal outfits without sacrificing fitness tracking. Google has finally announced the Fitbit Edge , and there’s plenty to be excited about. The new fitness tracker comes with a larger OLED display, built-in GPS, a replaceable battery, and up to seven days of battery life. It’s essentially Google’s answer for anyone who wants something more capable than the screenless Fitbit Air but doesn’t necessarily need a full-fledged Pixel Watch .",
-      "author": "Shimul Sood",
-      "date": "2026-10-12",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 34,
-      "url": "https://www.androidauthority.com/google-fitbit-air-metal-mesh-bands-launch-3721656/",
-      "image": "/images/feed/feed-0aae9a506a52.jpg",
-      "source": "Android Authority",
-      "isLive": true
-    },
-    {
-      "id": "feed-2875c4746b8e",
-      "title": "Google’s new Fitbit Edge gives you a screen without going full smartwatch",
-      "excerpt": "If the Fitbit Air is too little, and the Pixel Watch too much, the Fitbit Edge may be for you!",
-      "body": "TL;DR Google has officially unveiled the Fitbit Edge, a new fitness tracker that bridges the gap between the screenless Fitbit Air and the Pixel Watch 5. It features a larger OLED display, advanced health tracking, built-in GPS, a replaceable battery, and up to seven days of battery life, but lacks NFC payments. The Fitbit Edge starts at $179.99, with pre-orders opening October 12 and general availability beginning October 27. Google officially released its first-ever screenless Fitbit tracker earlier in May this year, giving users a distraction-free health and fitness tracking experience that doesn’t involve them constantly glancing at their wrist.",
-      "author": "Karandeep Singh Oberoi",
-      "date": "2026-10-12",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Smartwatch"
-      ],
-      "featured": false,
-      "xpReward": 35,
-      "url": "https://www.androidauthority.com/google-fitbit-edge-price-specs-features-launch-3720894/",
-      "image": "/images/feed/feed-2875c4746b8e.jpg",
-      "source": "Android Authority",
-      "isLive": true
-    },
-    {
-      "id": "feed-d733ba8d0f1d",
-      "title": "First-Person Soulslike Valor Mortis Is Brutal, Frightening, and Strangely Chill",
-      "excerpt": "Despite some imbalance in its difficulty level, the world of Valor Mortis is a joy to explore.",
-      "body": "Valor Mortis , a first-person Soulslike action RPG developed by One More Level (the studio behind the Ghostrunner games ), takes place in an alternate version of the Napoleonic Wars. You play as William Dowsett, a resurrected British soldier in Napoleon's Grande Armée. Yes, British , not French — but before we declare him a dirty traitor, remember that Napoleon may have won the Battle of Waterloo in Valor Mortis ' version of events, perhaps uniting the Western European forces afterward.",
-      "author": "Marloes Valentina Stella",
-      "date": "2026-10-12",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 34,
-      "url": "https://www.polygon.com/valor-mortis-impressions/",
-      "image": "/images/feed/feed-d733ba8d0f1d.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-45d82e32980c",
-      "title": "This Fitbit Edge upgrade takes it one step closer to buy-it-for-life status",
-      "excerpt": "Fitbit Edge does something no Fitbit has before: it lets you replace the battery.",
-      "body": "Credit: Google TL;DR The Fitbit Edge is the first repairable Fitbit. Previously, Google would just offer replacements for broken Fitbit devices. However, even now, the only repairable part is the battery, and there are no details about the screen’s repair. Google has just announced the new Fitbit Edge fitness tracker , with dimensions identical to the brand’s previous narrow-screen options. This is Google’s first narrow-screen tracker since the Fitbit Charge 6 launched in 2023, and is positioned between the screenless Fitbit Ai r and the Pixel Watch. Despite its (relatively) compact size, the Fitbit Edge borrows several features from the Pixel Watch, including mirroring of notifications and step-by-step directions from Google Maps.",
-      "author": "Tushar Mehta",
-      "date": "2026-10-12",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 52,
-      "url": "https://www.androidauthority.com/fitbit-edge-battery-repairs-3721146/",
-      "image": "/images/feed/feed-45d82e32980c.jpg",
-      "source": "Android Authority",
       "isLive": true
     },
     {
@@ -394,48 +585,29 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 32,
       "url": "https://spacenews.com/jena-optronik-is-proud-to-partner-with-mda-space-for-its-first-astro-hp-mission/",
       "image": "/images/feed/feed-f8ce7868f9fc.png",
       "source": "SpaceNews",
       "isLive": true
     },
     {
-      "id": "feed-16c9ccf4da44",
-      "title": "Gears Of War: E-Day Was Taken Down By DDoS Attack, Developers Confirm",
-      "excerpt": "The botnet assault took place on Sunday, with developer The Coalition saying its on top of things now",
-      "body": "The botnet assault took place on Sunday, with developer The Coalition saying its on top of things now\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "John Walker",
+      "id": "feed-06a9c3a6af4b",
+      "title": "What caused a mysterious atmospheric explosion in Siberia in 1908?",
+      "excerpt": "Fire erupted in the morning skies over Siberia on June 30, 1908, as an atmospheric explosion occurred that remains unmatched by any similar event in modern history.",
+      "body": "Fire erupted in the morning skies over Siberia on June 30, 1908, as an atmospheric explosion occurred that remains unmatched by any similar event in modern history. That day, at approximately 7:15 a.m. local time, observers in Siberia's remote Tunguska region became witnesses to the entry of a brilliant fireball into Earth's atmosphere , trailing smoke across the dawn sky and culminating in a flash brighter than the sun itself. Within seconds, the explosion and resulting shock waves that followed reportedly knocked some members of the nearby Indigenous Evenki population off their feet, and caused damage to dwellings and livestock, while seismic instruments hundreds of miles away logged tremors caused by the blast.",
+      "author": " Micah Hanks ",
       "date": "2026-10-12",
       "readTime": "2 min",
-      "section": "gaming",
+      "section": "space",
       "tags": [
-        "Gaming"
+        "Space"
       ],
       "featured": false,
-      "xpReward": 43,
-      "url": "https://kotaku.com/gears-of-war-e-day-the-coalition-microsoft-ddos-attack-woke-2000744559",
-      "image": "/images/feed/feed-16c9ccf4da44.jpg",
-      "source": "Kotaku",
-      "isLive": true
-    },
-    {
-      "id": "feed-0b3e25d9859e",
-      "title": "Ben Affleck's New Netflix Thriller is a Massive Global Streaming Hit",
-      "excerpt": "Animals, also starring Kerry Washington and Gillian Anderson, is the top movie on Netflix across most of the world",
-      "body": "We live in a world where a junky-but-fun-looking movie with a big star attached can come out of nowhere on streaming, with little marketing, and completely dominate the viewing habits of half the globe for a weekend or two. A few weeks ago, it happened with The Whisper Man , starring Robert De Niro. This week, it's the turn of Ben Affleck with Animals , an L.A.-set crime thriller also featuring Kerry Washington, Gillian Anderson, and Stephan Yeun.",
-      "author": "Oli Welsh",
-      "date": "2026-10-12",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 38,
-      "url": "https://www.polygon.com/ben-affleck-animals-netflix-streaming-hit/",
-      "image": "https://static0.polygonimages.com/wordpress/wp-content/uploads/2026/10/animals_20250326_wp_0015_r.jpg",
-      "source": "Polygon",
+      "xpReward": 46,
+      "url": "https://www.space.com/stargazing/meteor-showers/what-caused-a-mysterious-atmospheric-explosion-in-siberia-in-1908",
+      "image": "/images/feed/feed-06a9c3a6af4b.jpg",
+      "source": "Space.com",
       "isLive": true
     },
     {
@@ -451,7 +623,7 @@
         "Hybrid"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 41,
       "url": "https://insideevs.com/news/811607/honda-hybrid-e-awd-2027-north-america/",
       "image": "/images/feed/feed-447c494a5df5.jpg",
       "source": "InsideEVs",
@@ -470,7 +642,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 53,
       "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-windows-11-23h2-reaches-end-of-support-in-30-days/",
       "image": "/images/feed/feed-44121d20a1d6.jpg",
       "source": "BleepingComputer",
@@ -489,7 +661,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 38,
       "url": "https://thehackernews.com/2026/10/bring-your-own-agent-your-employees.html",
       "image": "/images/feed/feed-1db08bf95c87.jpg",
       "source": "The Hacker News",
@@ -508,7 +680,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 52,
       "url": "https://electrek.co/2026/10/12/autonomous-military-6x6-packs-electric-drive-and-go-anywhere-grit-video/",
       "image": "/images/feed/feed-a23c6f096771.jpg",
       "source": "Electrek",
@@ -527,29 +699,10 @@
         "Electric Motor"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 37,
       "url": "https://electrek.co/2026/10/12/this-electric-motorcycle-company-just-hit-10-million-battery-swaps-and-its-profitable/",
       "image": "/images/feed/feed-ffc073591aef.jpg",
       "source": "Electrek",
-      "isLive": true
-    },
-    {
-      "id": "feed-4b9c04cb3114",
-      "title": "A New KPop Demon Hunters Limited Edition Collection Just Dropped",
-      "excerpt": "KPop Demon Hunters finally targets working adults with a new limited-edition collection, exclusively at Target.",
-      "body": "KPop Demon Hunters may be most beloved by children, but we're confident that it's bewitched plenty of adults too. Hell, who isn't excited about a future where KPop Demon Hunters 2 hits the silver screen?",
-      "author": "Aimee Hart",
-      "date": "2026-10-12",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 54,
-      "url": "https://www.polygon.com/kpop-demon-hunters-limited-edition-collection/",
-      "image": "/images/feed/feed-4b9c04cb3114.jpg",
-      "source": "Polygon",
       "isLive": true
     },
     {
@@ -565,48 +718,10 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 30,
       "url": "https://thehackernews.com/2026/10/ledger-finds-unauthorized-hardware.html",
       "image": "/images/feed/feed-4c7b4f232aea.jpg",
       "source": "The Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-9d0091596830",
-      "title": "The Tiny Smart EV Is Back With An Answer To Its Biggest Weakness",
-      "excerpt": "The electric #2 keeps the city-friendly dimensions, but its battery and charging upgrades should make venturing farther less daunting.",
-      "body": "The electric #2 keeps the city-friendly dimensions, but its battery and charging upgrades should make venturing farther less daunting.\n\nThis report, published by InsideEVs, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Ev. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to InsideEVs using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "InsideEVs",
-      "date": "2026-10-12",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Ev"
-      ],
-      "featured": false,
-      "xpReward": 42,
-      "url": "https://insideevs.com/news/811594/smart-2-electric-city-car/",
-      "image": "/images/feed/feed-9d0091596830.jpg",
-      "source": "InsideEVs",
-      "isLive": true
-    },
-    {
-      "id": "feed-87a314c6b720",
-      "title": "'Dungeon Crawler Carl' Author Officially Settles a Raging Debate About the Audiobooks",
-      "excerpt": "Fans of the LitRPG series Dungeon Crawler Carl love to listen to their audiobooks at increased speeds. This is what author Matt Dinniman recommends",
-      "body": "The series has become enormously popular, in large part because of its best-selling audiobooks performed by Jeff Hays. But fans often choose not to listen to Dinniman's lengthy books at the speed at which Hays performed them. On Reddit , Facebook , TikTok , and other online places where DCC fans congregate, listening speed is a hot topic, with some bragging about listening to the book at double its normal speed and beyond, while many wonder what’s wrong with the few people who listen to it at its standard 1.0 speed.",
-      "author": "Brian VanHooker",
-      "date": "2026-10-12",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 53,
-      "url": "https://www.polygon.com/matt-dinniman-nycc-interview-dungeon-crawler-carl/",
-      "image": "/images/feed/feed-87a314c6b720.jpg",
-      "source": "Polygon",
       "isLive": true
     },
     {
@@ -622,29 +737,10 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 37,
       "url": "https://www.theverge.com/transportation/1008023/gm-bcdc-ev-battery-factory-china-tesla",
       "image": "/images/feed/feed-66c367f86d25.png",
       "source": "The Verge",
-      "isLive": true
-    },
-    {
-      "id": "feed-f68aebc9d9d8",
-      "title": "Get Ready for GTA 6 While These PlayStation Pulse Explore Earbuds are Just $149, Their Best Price Yet",
-      "excerpt": "Play games in style with these wireless earbuds for less than we’ve ever seen them sell for.",
-      "body": "Play games in style with these wireless earbuds for less than we’ve ever seen them sell for.\n\nThis report, published by CNET, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Playstation. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to CNET using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Oliver Haslam",
-      "date": "2026-10-12",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Playstation"
-      ],
-      "featured": false,
-      "xpReward": 45,
-      "url": "https://www.cnet.com/tech/gaming/playstation-pulse-explore-earbuds-deal/",
-      "image": "/images/feed/feed-f68aebc9d9d8.jpg",
-      "source": "CNET",
       "isLive": true
     },
     {
@@ -660,10 +756,29 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 36,
       "url": "https://thehackernews.com/2026/10/critical-sonicwall-sma-1000-flaw.html",
       "image": "/images/feed/feed-89b7bfb08cca.jpg",
       "source": "The Hacker News",
+      "isLive": true
+    },
+    {
+      "id": "feed-5fab1e2bb932",
+      "title": "UAE unveils lander for bold 7-asteroid mission set to launch in 2028 (photos)",
+      "excerpt": "In March 2028, the UAE is set to launch an ambitious mission to the asteroid belt between Mars and Jupiter that will culminate with a landing attempt on a mysteriously reddish space rock.",
+      "body": "The United Arab Emirates (UAE) has moved a step closer to launching its second-ever interplanetary mission — an ambitious, eight-year exploration of seven asteroids between Mars and Jupiter that will culminate with a landing on the mysteriously red asteroid 269 Justitia. The mission team unveiled a half-scale model of the homegrown probe that will make that landing during an Oct. 1 press conference in Abu Dhabi, the capital of the UAE. The autonomous craft will ride attached to the main spacecraft MBR Explorer , named after Sheikh Mohammed bin Rashid al-Maktoum, the ruler of Dubai and the UAE's prime minister.",
+      "author": " Sharmila Kuthunur ",
+      "date": "2026-10-12",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Space"
+      ],
+      "featured": false,
+      "xpReward": 37,
+      "url": "https://www.space.com/astronomy/asteroids/uae-unveils-lander-for-bold-7-asteroid-mission-set-to-launch-in-2028-photos",
+      "image": "/images/feed/feed-5fab1e2bb932.jpg",
+      "source": "Space.com",
       "isLive": true
     },
     {
@@ -679,48 +794,10 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 48,
       "url": "https://www.technologyreview.com/2026/10/12/1145760/imagining-building-cities-on-the-moon/",
       "image": "/images/feed/feed-754aa7508f06.jpg",
       "source": "MIT Tech Review",
-      "isLive": true
-    },
-    {
-      "id": "feed-e4d35c967f07",
-      "title": "Attackers Exploit CVSS 10.0 Bricksforge WordPress Flaw Enabling Unauthenticated RCE",
-      "excerpt": "A maximum-severity security flaw impacting the Bricksforge plugin for WordPress has come under active exploitation in the wild, according to Patchstack. The critical vulnerability in question is CVE-2…",
-      "body": "A maximum-severity security flaw impacting the Bricksforge plugin for WordPress has come under active exploitation in the wild, according to Patchstack. The critical vulnerability in question is CVE-2026-85097 (CVSS score: 10.0), which allows unauthenticated attackers to upload and execute arbitrary PHP code on vulnerable WordPress websites, resulting in remote code execution (RCE). The",
-      "author": "info@thehackernews.com (The Hacker News)",
-      "date": "2026-10-12",
-      "readTime": "2 min",
-      "section": "cybersecurity",
-      "tags": [
-        "Exploit"
-      ],
-      "featured": false,
-      "xpReward": 44,
-      "url": "https://thehackernews.com/2026/10/attackers-exploit-cvss-100-bricksforge.html",
-      "image": "/images/feed/feed-e4d35c967f07.jpg",
-      "source": "The Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-64ee977c91ea",
-      "title": "Zod 4.6.6 compromised by malware?",
-      "excerpt": "",
-      "body": "This report, published by Hacker News, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Malware. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Hacker News using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "luggage_bazooka",
-      "date": "2026-10-12",
-      "readTime": "2 min",
-      "section": "cybersecurity",
-      "tags": [
-        "Malware"
-      ],
-      "featured": false,
-      "xpReward": 40,
-      "url": "https://github.com/colinhacks/zod/commit/d821685ea6732436fcdf786a81d076958471e467",
-      "image": "/images/feed/feed-64ee977c91ea.png",
-      "source": "Hacker News",
       "isLive": true
     },
     {
@@ -736,48 +813,10 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 42,
       "url": "https://www.cnbc.com/2026/10/07/anthropic-will-be-most-ridiculous-ipo-of-year-analyst-says.html",
       "image": "/images/feed/feed-4689c0968fd2.jpg",
       "source": "Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-947dd455c502",
-      "title": "APOD: 2026 October 12 – Jupiter and the Moons",
-      "excerpt": "APOD Science APOD APOD: 2026 October 12 –… Today’s APOD Archive Submissions Index Search Calendar RSS Education About Discuss APOD Astronomy Picture of the Day Discover the cosmos! Each day a differen…",
-      "body": "APOD Science APOD APOD: 2026 October 12 –… Today’s APOD Archive Submissions Index Search Calendar RSS Education About Discuss APOD Astronomy Picture of the Day Discover the cosmos! Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer. Jupiter and the Moons Explanation: How many moons can you see? The best answer is five: four orbiting Jupiter and Luna orbiting Earth. This multi-moon picture was possible because Earth’s Moon moved directly in front of Jupiter last week. The featured image is a series of exposures near alignment taken from Westchester , New York , USA .",
-      "author": "NASA Breaking News",
-      "date": "2026-10-12",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Space"
-      ],
-      "featured": false,
-      "xpReward": 49,
-      "url": "https://science.nasa.gov/image-article/apod-2026-october-12-jupiter-and-the-moons/",
-      "image": "/images/feed/feed-947dd455c502.jpg",
-      "source": "NASA Breaking News",
-      "isLive": true
-    },
-    {
-      "id": "feed-1b1b36c0febc",
-      "title": "Antarctic Sea Ice Grows to Its 2026 Maximum",
-      "excerpt": "The ice reached its third-lowest maximum extent since satellite observations began.",
-      "body": "Earth Observatory Science Earth Observatory Antarctic Sea Ice Grows to Its… Earth Earth Observatory Image of the Day EO Explorer Topics All Topics Atmosphere Land Heat &#038; Radiation Life on Earth Human Dimensions Natural Events Oceans Remote Sensing Technology Snow &#038; Ice Water More Content Collections Global Maps World of Change Articles Earth Matters Blog Blue Marble: Next Generation EO Kids Mission: Biomes About About Us Subscribe 🛜 RSS Contact Us Search Antarctic sea ice reached its annual maximum extent on September 14, 2026—the third-lowest maximum in the satellite record. NASA Earth Observatory/Michala Garrison This story is an update to the Antarctic sea ice feature in our World of Change series tracking long-term change on Earth’s surface through satellite imagery.",
-      "author": "NASA Breaking News",
-      "date": "2026-10-12",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Space"
-      ],
-      "featured": false,
-      "xpReward": 37,
-      "url": "https://science.nasa.gov/earth/earth-observatory/antarctic-sea-ice-grows-to-its-2026-maximum/",
-      "image": "/images/feed/feed-1b1b36c0febc.jpg",
-      "source": "NASA Breaking News",
       "isLive": true
     },
     {
@@ -793,7 +832,7 @@
         "Llm"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 33,
       "url": "https://twitter.com/karpathy/status/2109361546505966046",
       "image": "/images/feed/feed-555a2b729c07.jpg",
       "source": "Hacker News",
@@ -812,29 +851,9 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 51,
       "url": "https://www.theverge.com/ai-artificial-intelligence/1009406/silicon-valley-is-falling-in-line-with-trumps-attempt-to-rename-ai",
       "image": "/images/feed/feed-5e9f78f70319.jpg",
-      "source": "The Verge",
-      "isLive": true
-    },
-    {
-      "id": "feed-a6d439f53d50",
-      "title": "NASA dumped over 800GB of Artemis II data online",
-      "excerpt": "A crew annotated image showing where the Artemis II team observed impact flashes on the dark side of the Moon. | Image: NASA If you thought you'd seen all there is to see from the Artemis II mission,…",
-      "body": "A crew annotated image showing where the Artemis II team observed impact flashes on the dark side of the Moon. | Image: NASA If you thought you'd seen all there is to see from the Artemis II mission , you're wrong. This week NASA posted over 800GB worth of science data, images, and videos on the Artemis II: Sights &amp; Sounds of Science site. The archive includes over 11,000 photos and videos, over 8.5 hours of audio, and crew-annotated images, such as the one marking where they saw impact flashes on the dark side of the Moon. Together, they offer an unprecedented view inside a historic space mission. One of the more exciting reveals was footage of the Artemis II team telling the ground team back in Houston about its observation of impact flashes.",
-      "author": "Terrence O’Brien",
-      "date": "2026-10-11",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Artemis",
-        "Nasa"
-      ],
-      "featured": false,
-      "xpReward": 51,
-      "url": "https://www.theverge.com/science/1009379/nasa-800gb-artemis-ii-data",
-      "image": "/images/feed/feed-a6d439f53d50.jpg",
       "source": "The Verge",
       "isLive": true
     },
@@ -851,29 +870,10 @@
         "Chatgpt"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 31,
       "url": "https://techcrunch.com/2026/10/11/these-execs-think-voice-ai-hasnt-reached-its-chatgpt-moment-yet/",
-      "image": "/images/feed/feed-1b97ced39af6.webp",
+      "image": "/images/feed/feed-1b97ced39af6.jpg",
       "source": "TechCrunch",
-      "isLive": true
-    },
-    {
-      "id": "feed-a7395685e272",
-      "title": "APOD: 2026 October 11 – Ice Fishing for Cosmic Neutrinos",
-      "excerpt": "APOD Science APOD APOD: 2026 October 11 – Ice… Today’s APOD Archive Submissions Index Search Calendar RSS Education About Discuss APOD Astronomy Picture of the Day Discover the cosmos! Each day a diff…",
-      "body": "APOD Science APOD APOD: 2026 October 11 – Ice… Today’s APOD Archive Submissions Index Search Calendar RSS Education About Discuss APOD Astronomy Picture of the Day Discover the cosmos! Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer. Ice Fishing for Cosmic Neutrinos Explanation: Scientists are melting holes in the bottom of the world. In fact, almost 100 holes melted near the South Pole are now being used as an astronomical observatory. Astronomers with the IceCube Neutrino Observatory lowered a long string knotted with basketball-sized light detectors into each vertical lake. The water in each hole soon refreezes.",
-      "author": "NASA Breaking News",
-      "date": "2026-10-11",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Space"
-      ],
-      "featured": false,
-      "xpReward": 41,
-      "url": "https://science.nasa.gov/image-article/apod-2026-october-11-ice-fishing-for-cosmic-neutrinos/",
-      "image": "/images/feed/feed-a7395685e272.jpg",
-      "source": "NASA Breaking News",
       "isLive": true
     },
     {
@@ -890,29 +890,10 @@
         "Claude"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 33,
       "url": "https://thehackernews.com/2026/10/anthropic-cuts-live-internet-access-for.html",
       "image": "/images/feed/feed-646ca68e658d.jpg",
       "source": "The Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-3fc0fe8ac680",
-      "title": "Anthropic can’t reliably control its AI agents. It’s cutting off its internal evals from the live internet instead",
-      "excerpt": "Anthropic said it \"turned off live internet access\" for \"all our internal evaluations\" until further notice.",
-      "body": "Anthropic said it \"turned off live internet access\" for \"all our internal evaluations\" until further notice.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Anthropic. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Tim Fernholz",
-      "date": "2026-10-10",
-      "readTime": "2 min",
-      "section": "ai",
-      "tags": [
-        "Anthropic"
-      ],
-      "featured": false,
-      "xpReward": 33,
-      "url": "https://techcrunch.com/2026/10/09/anthropic-cant-reliably-control-its-ai-agents-its-cutting-off-its-internal-evals-from-the-live-internet-instead/",
-      "image": "/images/feed/feed-3fc0fe8ac680.jpg",
-      "source": "TechCrunch",
       "isLive": true
     },
     {
@@ -929,24 +910,43 @@
         "Claude"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 46,
       "url": "https://www.cnet.com/tech/services-and-software/anthropic-cruel-claude-ai-model-abuse/",
       "image": "/images/feed/feed-64720ca8856d.jpg",
       "source": "CNET",
       "isLive": true
+    },
+    {
+      "id": "feed-38f5a2b46e3b",
+      "title": "Sophos cuts threat investigation time by 96% with OpenAI Daybreak",
+      "excerpt": "Discover how Sophos uses OpenAI’s Daybreak to cut cyber-threat investigation time by 96% and automate 52% of MDR cases while preserving human oversight.",
+      "body": "Discover how Sophos uses OpenAI’s Daybreak to cut cyber-threat investigation time by 96% and automate 52% of MDR cases while preserving human oversight.\n\nThis report, published by OpenAI Blog, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Openai. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to OpenAI Blog using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "OpenAI Blog",
+      "date": "2026-10-09",
+      "readTime": "2 min",
+      "section": "ai",
+      "tags": [
+        "Openai"
+      ],
+      "featured": false,
+      "xpReward": 40,
+      "url": "https://openai.com/index/sophos",
+      "image": "/images/topics/topic-ai-ml.png",
+      "source": "OpenAI Blog",
+      "isLive": true
     }
   ],
   "breakingNews": [
-    "DEV.TO: Your uptime monitor can be the thing that's broken",
-    "DEV.TO: MCP Protocol Version Negotiation: Why Your Server Answers the Wrong Era",
-    "DEV.TO: No CMS, No Database: How This Post Got Here",
-    "DEV.TO: Validate email + SPF/DKIM/DMARC in one agent tool call",
-    "DEV.TO: A ray-traced black hole in a landing-page hero: the physics, and the shortcuts",
-    "DEV.TO: Your Internet Speed Is More Than a Number: Monitoring Network Activity on Windows",
-    "DEV.TO: How web designers can get clients from TikTok",
-    "ELECTREK: NHTSA weighs probe into claims Tesla Robotaxis speed in school zones",
-    "ANDROID AUTHORITY: Your next Android flagship might just get a cooling fan built in",
-    "ELECTREK: Electric trucks meet hydro power at one of Canada’s busiest ports"
+    "DEV.TO: Getting Started with MLOps: ML models and Amazon Sagemaker",
+    "DEV.TO: Why Passkeys Break in Production: WebAuthn AuthData, CBOR, and the signCount Trap",
+    "DEV.TO: Our agent's self-description failed its own verification. That's the point.",
+    "DEV.TO: Linkerd vs Istio: Choosing the Right Service Mesh",
+    "DEV.TO: Anyone can ship a ModHeader replacement with AI now. That's the scary part.",
+    "DEV.TO: Track Unpaid Invoices and Overdue Payments in Excel (Free Setup)",
+    "DEV.TO: Where to Get Your First 100 Users for Your Startup (8 Channels That Work)",
+    "9TO5MAC: Apple announces ‘Indie Games Week’ with seven new, upcoming launches",
+    "POLYGON: Nintendo Exec Officially Comments on Future Physical Game Support",
+    "POLYGON: Amazon’s Life Is Strange Series Officially Passes a Major Milestone"
   ],
   "sectionVideos": {}
 }
