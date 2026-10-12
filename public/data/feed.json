@@ -1,6 +1,388 @@
 {
-  "fetchedAt": "2026-10-12T20:14:05.971Z",
+  "fetchedAt": "2026-10-12T21:11:42.342Z",
   "articles": [
+    {
+      "id": "feed-566e21121df0",
+      "title": "Enabling FIPS on UAT Postgres servers meant moving off MD5 passwords",
+      "excerpt": "The problem We needed FIPS mode enabled on our UAT database servers, running RHEL 9.5. The reason was an RBI audit point, so it was not optional. The first attempt to enable FIPS did not stick, and th…",
+      "body": "The problem We needed FIPS mode enabled on our UAT database servers, running RHEL 9.5. The reason was an RBI audit point, so it was not optional. The first attempt to enable FIPS did not stick, and the reason was on the database side: our Postgres databases were still using the older MD5 password hashing method, which is not compatible with FIPS mode. Why this mattered more than a usual config change These are not isolated databases. Our UAT Keycloak identity provider runs on them, and the dependency chain goes like this: If Postgres is down, Keycloak does not run. If Keycloak is down, Superset does not run. If Vault is down, all the application pods end up stuck in CrashLoopBackOff.",
+      "author": "Afzal Hassan",
+      "date": "2026-10-12",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 43,
+      "url": "https://dev.to/iemafzalhassan/enabling-fips-on-uat-postgres-servers-meant-moving-off-md5-passwords-3620",
+      "image": "/images/feed/feed-566e21121df0.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-8dfb8a5ad881",
+      "title": "Logrotate for Application Logs: Configure Rotation Without Losing Data",
+      "excerpt": "Application logs can grow until they fill a VPS disk, but deleting a large log file by hand is not always a fix. A running process may keep writing to the file it already has open—even after you remov…",
+      "body": "Application logs can grow until they fill a VPS disk, but deleting a large log file by hand is not always a fix. A running process may keep writing to the file it already has open—even after you remove its directory entry. The safer approach is to configure log rotation and tell the application how to reopen its logs. This guide sets up logrotate for a custom application that writes to /var/log/myapp/app.log . The example assumes the application runs as the myapp user and can reopen its log when it receives SIGUSR1 . Check your application’s documentation before choosing a signal; not every program handles it the same way.",
+      "author": "dpm_bush",
+      "date": "2026-10-12",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 40,
+      "url": "https://dev.to/__3381495fd2b/logrotate-for-application-logs-configure-rotation-without-losing-data-3l5j",
+      "image": "/images/feed/feed-8dfb8a5ad881.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-fb3ba73d6683",
+      "title": "Kepler's Vinoo Ganesh on Building AI You Can Trust",
+      "excerpt": "Vinoo Ganesh is the CEO of Kepler, which builds AI for industries where accuracy matters, starting with finance. Before Kepler, he spent seven years at Palantir, built and sold an alt data company, an…",
+      "body": "Vinoo Ganesh is the CEO of Kepler, which builds AI for industries where accuracy matters, starting with finance. Before Kepler, he spent seven years at Palantir, built and sold an alt data company, and led business engineering at Citadel. Ahead of his AIE New York sessions, including a fireside chat with Jack Woodroffe on Tuesday at 2:55 PM, he sat down with The Daily Context to talk about building AI people can trust, why Kepler's model never writes a number, and why he doesn't believe a bigger model is the answer. This interview has been edited for length and clarity. The team, the talk, and New York The Daily Context: Tell us a little about your background and about Kepler. Vinoo Ganesh: I'm Vinoo, Kepler's CEO. I spent seven years at Palantir leading Spark and the compute side there.",
+      "author": "Kara Silverman",
+      "date": "2026-10-12",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 40,
+      "url": "https://dev.to/dailycontext/keplers-vinoo-ganesh-on-building-ai-you-can-trust-3p0f",
+      "image": "/images/feed/feed-fb3ba73d6683.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-72c6d6b4b183",
+      "title": "AI Needs a Test That Fights Back",
+      "excerpt": "One right answer is not the same as a good sequence of decisions. eSlams is building a public stadium to explore the difference. Have you ever replayed a game in your head and traced the loss back to…",
+      "body": "One right answer is not the same as a good sequence of decisions. eSlams is building a public stadium to explore the difference. Have you ever replayed a game in your head and traced the loss back to a single move? Sometimes, one overlooked threat is enough to undo a game’s worth of good decisions. That is what makes an opponent different from an answer key. On a fixed question-and-answer test, the response is the end of the task. In a game, it is the beginning of the next problem. Your opponent responds. New information changes what makes sense. A promising plan becomes a liability. You have to adjust, carrying the consequences of your last decision into the next one. So what happens when an AI model has to do more than produce a convincing answer?",
+      "author": "Ramakrishnan Lokanathan",
+      "date": "2026-10-12",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 44,
+      "url": "https://dev.to/dailycontext/ai-needs-a-test-that-fights-back-4f17",
+      "image": "/images/feed/feed-72c6d6b4b183.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-bf3c5a5380f8",
+      "title": "What 9,050 AI-Written Scripts Taught Me About Slop",
+      "excerpt": "You’ve read way too many versions of this paragraph already. Probably even this week: “In today’s fast-paced world, AI isn’t just a tool, it’s a paradigm-shifting tapestry. Let’s delve into this trans…",
+      "body": "You’ve read way too many versions of this paragraph already. Probably even this week: “In today’s fast-paced world, AI isn’t just a tool, it’s a paradigm-shifting tapestry. Let’s delve into this transformative realm, where the real magic happens.” My team at Towards AI drafts a lot with AI now: videos, courses, books, articles… thousands of them. My team and I use Claude for almost everything, and too often what I have to review sounds exactly like that. So since June, I’ve been measuring which models can actually write like me. After 9,050 scripts, the surprise is that these “slop words” are quite easy to fix. The setup In June this year, I took ten of my own video scripts, some published and some held back to catch contamination.",
+      "author": "Louis-Francois Bouchard",
+      "date": "2026-10-12",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 51,
+      "url": "https://dev.to/dailycontext/what-9050-ai-written-scripts-taught-me-about-slop-1g5n",
+      "image": "/images/feed/feed-bf3c5a5380f8.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-3a3c670a4788",
+      "title": "Pebble Round 2 makes rival smartwatches look chunky in new hands-on video",
+      "excerpt": "One early tester is smitten, despite one frustration in particular.",
+      "body": "Credit: Joe Maring / Android Authority TL;DR In a new YouTube video, an early Pebble Round 2 tester has shared largely positive impressions after several months of everyday use. The watch’s slim design and comfort impressed him, but the buttons were occasionally unresponsive on two units. Battery life has varied during his testing, with the latest figure coming in at around 10 days. The Pebble Round 2 certainly impressed us when we got our hands on it at CES earlier this year , but a brief hands-on can only tell you so much about a device. With the long-awaited wearable still yet to reach buyers, one beta tester has now shared his experiences after several months of use. The verdict is overwhelmingly positive, although he’s encountered one frustrating issue.",
+      "author": "Matt Horne",
+      "date": "2026-10-12",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Smartwatch",
+        "Hands-on"
+      ],
+      "featured": true,
+      "xpReward": 30,
+      "url": "https://www.androidauthority.com/pebble-round-2-beta-tester-youtube-video-3722340/",
+      "image": "/images/feed/feed-3a3c670a4788.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-022490dd6fe8",
+      "title": "Brakes Let You Go Fast: Balancing Acceleration and Safety for AI Agents",
+      "excerpt": "Written by John Feminella We now inhabit a world where agents can execute operations in production environments and at the speed of light. The question many are now grappling with: How can we ensure s…",
+      "body": "Written by John Feminella We now inhabit a world where agents can execute operations in production environments and at the speed of light. The question many are now grappling with: How can we ensure safety for agentic systems with access to powerful operations, without handcuffing what they can accomplish? The problem I think about this a lot in the context of the controls we’ve introduced at Two Sigma to limit risks from agents. At a regulated firm, too little safety is an existential risk, and too little innovation is a slow death. If we want to reap the benefits of agents, we must do so in a way that gives us both safety and freedom to innovate. As John Shedd wrote, “A ship in harbor is safe — but that is not what ships are for.” For us, we started with five essential ingredients.",
+      "author": "dev.to staff",
+      "date": "2026-10-12",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 39,
+      "url": "https://dev.to/dailycontext/brakes-let-you-go-fast-balancing-acceleration-and-safety-for-ai-agents-49p9",
+      "image": "/images/feed/feed-022490dd6fe8.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-ca3ee7aae0e7",
+      "title": "What 1,368 Real-World AI Incidents Teach Us About Evaluation",
+      "excerpt": "AI evaluation has become increasingly sophisticated at testing individual models. We measure accuracy, test hallucinations, run fairness checks, evaluate robustness, and compare systems against increa…",
+      "body": "AI evaluation has become increasingly sophisticated at testing individual models. We measure accuracy, test hallucinations, run fairness checks, evaluate robustness, and compare systems against increasingly demanding benchmarks. Yet when we studied real-world AI failures, one pattern kept appearing: many of the failures that mattered most were not really model failures alone. They emerged after the model entered a real operational environment. A model can perform well during testing and still create problems because the data is incomplete, the workflow is poorly designed, monitoring is weak, or nobody can realistically intervene once something goes wrong.",
+      "author": "Vishal Srivastava",
+      "date": "2026-10-12",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 40,
+      "url": "https://dev.to/dailycontext/what-1368-real-world-ai-incidents-teach-us-about-evaluation-71p",
+      "image": "/images/feed/feed-ca3ee7aae0e7.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-cbdacafebc3e",
+      "title": "GTA 6 Leaker Promises Escalating Mayhem As Meme Coin Crashes",
+      "excerpt": "Cyberleek is promoting escalating chaos in the month before launch",
+      "body": "Cyberleek is promoting escalating chaos in the month before launch\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Ethan Gach",
+      "date": "2026-10-12",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 31,
+      "url": "https://kotaku.com/gta-6-leaker-promises-escalating-mayhem-as-meme-coin-crashes-2000744617",
+      "image": "/images/feed/feed-cbdacafebc3e.jpg",
+      "source": "Kotaku",
+      "isLive": true
+    },
+    {
+      "id": "feed-032f852c5ea1",
+      "title": "New 90% Positive Steam Roguelike Is a Faithful PSP-Era Comeback",
+      "excerpt": "Ratatan, a spiritual successor to PSP cult hit Patapon, is an endearing throwback stuffed into an underdeveloped roguelike.",
+      "body": "Once upon a time, Sony was one of gaming’s most eclectic publishers . That might be hard to imagine considering that it is hyper-focused on a specific brand of cinematic storytelling these days, but platforms like the PlayStation Portable were once home to a bevy of inventive first-party games that were hard to replicate. There’s no better example of that than Patapon , a unique rhythm action series about marching eyeball critters. It was a one-of-a-kind idea, the type of special game you’d be hard-pressed to find from a major publisher in 2026.",
+      "author": "Giovanni Colantonio",
+      "date": "2026-10-12",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 54,
+      "url": "https://www.polygon.com/ratatan-switch-2-impressions/",
+      "image": "/images/feed/feed-032f852c5ea1.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-2215f983700d",
+      "title": "SpaceX launching 6,300 pounds of cargo to the ISS on Oct. 13: Watch it live",
+      "excerpt": "SpaceX will launch more than 3 tons of cargo toward the International Space Station on Tuesday morning (Oct. 13), and you can watch the action live.",
+      "body": "SpaceX will launch its latest cargo mission to the International Space Station on Tuesday morning (Oct. 13), and you can watch the action live. A Falcon 9 rocket is scheduled to launch a robotic Dragon capsule to the orbiting lab from Florida's Cape Canaveral Space Force Station on Tuesday at 6:33 a.m. EDT (1033 GMT). You can watch the action live here at Space.com, courtesy of NASA, starting at 6:15 a.m. EDT (1015 GMT). A SpaceX Falcon 9 rocket launches the company's Dragon spacecraft on the CRS-34 cargo mission to the ISS from Cape Canaveral Space Force Station on May 15, 2026. (Image credit: SpaceX) The launch will kick off the CRS-35 mission, so named because it will be the 35th that SpaceX flies under a Commercial Resupply Services contract with NASA.",
+      "author": " Mike Wall ",
+      "date": "2026-10-12",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Spacex"
+      ],
+      "featured": false,
+      "xpReward": 48,
+      "url": "https://www.space.com/space-exploration/international-space-station/spacex-crs-35-cargo-launch-international-space-station",
+      "image": "/images/feed/feed-2215f983700d.jpg",
+      "source": "Space.com",
+      "isLive": true
+    },
+    {
+      "id": "feed-cd3c9e3639a4",
+      "title": "Epic Games Delays Marvel and Star Wars Crossover Game Amid Generative AI Push",
+      "excerpt": "Epic Games has reportedly delayed an unannounced Marvel and Star Wars crossover game while it pivots toward AI-first game production.",
+      "body": "Epic Games has delayed an unannounced game that would cross over Marvel and Star Wars characters in a shooter, according to Bloomberg . The Fortnite and Unreal Engine maker is now reportedly pushing the game's developers to use generative AI tools, like Anthropic's Claude, to complete development. The crossover shooter game was previously slated for March 2027, but is now without a new release date.",
+      "author": "Austin Manchester",
+      "date": "2026-10-12",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Game"
+      ],
+      "featured": false,
+      "xpReward": 37,
+      "url": "https://www.polygon.com/epic-games-marvel-star-wars-game-delay-generative-ai-development/",
+      "image": "/images/feed/feed-cd3c9e3639a4.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-3b529bad7374",
+      "title": "Epic reportedly delays its Disney video game so it can be made using more AI",
+      "excerpt": "Developers were apparently ordered to use AI for both code and asset creation.",
+      "body": "Developers were apparently ordered to use AI for both code and asset creation.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "staff@engadget.com (Anna Washenko)",
+      "date": "2026-10-12",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 41,
+      "url": "https://www.engadget.com/2284680/epic-reportedly-delays-its-disney-video-game-so-it-can-be-made-using-more-ai/",
+      "image": "/images/feed/feed-3b529bad7374.jpg",
+      "source": "Engadget",
+      "isLive": true
+    },
+    {
+      "id": "feed-8a591fdfce07",
+      "title": "Classic YA Survival Novel Officially Getting a Netflix Film Adaptation",
+      "excerpt": "The YA survival novel 'Hatchet' by Gary Paulsen is getting a movie adaptation from Netflix.",
+      "body": "If you’re of a certain age, there’s a good chance you were traumatized by the young adult survival novel Hatchet after being forced to read it in elementary school. You were probably particularly disturbed by the part when the main character, Brian, found a dead body partially consumed by fish. Then you spent the rest of your childhood thinking about what you’d do if you were trapped in the wilderness.",
+      "author": "Elijah Gonzalez",
+      "date": "2026-10-12",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 35,
+      "url": "https://www.polygon.com/hatchet-movie-adaptation-announced-netflix/",
+      "image": "/images/feed/feed-8a591fdfce07.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-5f3be57306c4",
+      "title": "YouTube preps some new app icons, but what are they meant for?",
+      "excerpt": "Let's hear your best theories for these new YouTube icons.",
+      "body": "TL;DR Three new YouTube icons have mysteriously popped up in the app’s latest update. Code references allude to icon preferences, suggesting users may get a choice in which they see. It’s unclear if this might ultimately emerge as a Premium-only feature. It may not happen every day, but every so often our favorite apps find themselves trying out a new icon. Sometimes that’s a company like Google overhauling its design language , or one like Spotify that’s just trying to ride a recent trend . We’re starting off this week with a look at some icons we just spotted in one very popular app, and your guess may be as good as ours for why they’re here. You’re reading an Authority Insights story.",
+      "author": "Stephen Schenck",
+      "date": "2026-10-12",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 33,
+      "url": "https://www.androidauthority.com/new-youtube-icons-3722271/",
+      "image": "/images/feed/feed-5f3be57306c4.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-b154c99d18ac",
+      "title": "iPhone hits record Q3 shipment share as global smartphone market plunges 20%, per report",
+      "excerpt": "According to Counterpoint Research, Apple saw its share of global smartphone shipments cross 20% for the first time in a third quarter, despite an industry-wide decline. Here are the details. more…",
+      "body": "According to Counterpoint Research, Apple saw its share of global smartphone shipments cross 20% for the first time in a third quarter, despite an industry-wide decline. Here are the details. more — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Smartphone, Iphone. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Marcus Mendes",
+      "date": "2026-10-12",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Smartphone",
+        "Iphone"
+      ],
+      "featured": false,
+      "xpReward": 52,
+      "url": "https://9to5mac.com/2026/10/12/iphone-hits-record-q3-shipment-share-as-global-smartphone-market-plunges-20-per-report/",
+      "image": "/images/feed/feed-b154c99d18ac.jpg",
+      "source": "9to5Mac",
+      "isLive": true
+    },
+    {
+      "id": "feed-a57a4e6bd9dd",
+      "title": "M6 MacBook Pro: Three new upgrades launching later this month",
+      "excerpt": "Apple has a new M6 MacBook Pro launching later this month with a 14-inch screen and the current industrial design. And with its M6 chip, there are three upgrades we can expect from the new MacBook Pro…",
+      "body": "Apple has a new M6 MacBook Pro launching later this month with a 14-inch screen and the current industrial design. And with its M6 chip, there are three upgrades we can expect from the new MacBook Pro — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Macbook. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Ryan Christoffel",
+      "date": "2026-10-12",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Macbook"
+      ],
+      "featured": false,
+      "xpReward": 36,
+      "url": "https://9to5mac.com/2026/10/12/m6-macbook-pro-three-new-upgrades-launching-this-fall/",
+      "image": "/images/feed/feed-a57a4e6bd9dd.jpg",
+      "source": "9to5Mac",
+      "isLive": true
+    },
+    {
+      "id": "feed-1d3b5f101483",
+      "title": "Cyberattack Targets French Supermarket Refrigerators, Forcing Mass Food Disposal",
+      "excerpt": "Hackers took advantage of a software vulnerability, proving again that any connected appliance on the internet can be a target.",
+      "body": "Hackers took advantage of a software vulnerability, proving again that any connected appliance on the internet can be a target.\n\nThis report, published by CNET, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cybersecurity. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to CNET using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Omar Gallaga",
+      "date": "2026-10-12",
+      "readTime": "2 min",
+      "section": "cybersecurity",
+      "tags": [
+        "Cybersecurity"
+      ],
+      "featured": false,
+      "xpReward": 52,
+      "url": "https://www.cnet.com/tech/services-and-software/cyberattack-hackers-target-french-supermarket-refrigerators/",
+      "image": "https://www.cnet.com/wp-content/uploads/sites/2/GettyImages-2299339600.jpg",
+      "source": "CNET",
+      "isLive": true
+    },
+    {
+      "id": "feed-1fd19f90011f",
+      "title": "Meta wants Muse to keep up with ChatGPT and Gemini, and Wonder is how",
+      "excerpt": "Meta's latest AI models are built to make Muse far more capable.",
+      "body": "TL;DR Meta has launched Muse Wonder and Wonder Full, its new frontier AI models built for personal and professional agentic tasks. The models add features like Active Memory and Active Focus to help agents retain context, work through problems, recover from mistakes, and handle longer-running tasks. Muse Wonder is available through Meta’s Model API and Muse Code, while Wonder Full is limited to Muse Code subscribers. Meta’s Muse arrived last month with an unusually ambitious idea of what an AI assistant should be. Instead of simply answering questions, it can work across apps, draw on personal information, and keep pursuing tasks in the background.",
+      "author": "Hillary Keverenge",
+      "date": "2026-10-12",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 45,
+      "url": "https://www.androidauthority.com/meta-muse-wonder-ai-models-3722247/",
+      "image": "/images/feed/feed-1fd19f90011f.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-2f594415b48c",
+      "title": "Netflix Reveals New Look at Greta Gerwig's 2027 Fantasy Film",
+      "excerpt": "Narnia: The Magician's Nephew gets its first poster and debut trailer this week, Netflix has revealed.",
+      "body": "Barbie and Little Women director Greta Gerwig is tackling C.S. Lewis' Chronicles of Narnia saga for Netflix, with a 2027 release on streaming and in IMAX theaters. On Monday, Netflix released a new look at Gerwig's Narnia: The Magician's Nephew in the form of a striking poster. The better news is that fantasy fans will get an honest-to-goodness sneak peek at the movie on Tuesday, when the first trailer for Narnia: The Magician's Nephew is slated to drop.",
+      "author": "Michael McWhertor",
+      "date": "2026-10-12",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 37,
+      "url": "https://www.polygon.com/greta-gerwig-narnia-movie-magicians-nephw-netflix-poster-trailer/",
+      "image": "/images/feed/feed-2f594415b48c.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
     {
       "id": "feed-0bdb166bfc87",
       "title": "Norway fines Microsoft ad firm $9.6 million over Grindr data sharing",
@@ -13,144 +395,49 @@
       "tags": [
         "Cybersecurity"
       ],
-      "featured": true,
-      "xpReward": 40,
+      "featured": false,
+      "xpReward": 31,
       "url": "https://www.bleepingcomputer.com/news/security/norway-fines-microsoft-ad-firm-96-million-over-grindr-data-sharing/",
       "image": "/images/feed/feed-0bdb166bfc87.jpg",
       "source": "BleepingComputer",
       "isLive": true
     },
     {
-      "id": "feed-b3113ca592c3",
-      "title": "AutoShip: Simplifying Cross-Platform E-commerce Listing",
-      "excerpt": "What I Built During our hackathon journey at InnoHacks, my team and I worked on AutoShip, a solution designed to simplify one of the biggest challenges faced by small and medium-sized e-commerce selle…",
-      "body": "What I Built During our hackathon journey at InnoHacks, my team and I worked on AutoShip, a solution designed to simplify one of the biggest challenges faced by small and medium-sized e-commerce sellers: listing the same product across multiple online marketplaces. Manually creating product listings on different platforms is repetitive, time-consuming, and prone to errors. Sellers often need to rewrite product titles and descriptions, upload images again, and manage product information separately for every marketplace. That’s where AutoShip comes in! Our goal is to build a bridge between marketplaces like Amazon and eBay, helping sellers simplify their workflow, reduce repetitive tasks, and expand their reach to international customers.",
-      "author": "Neelakshi",
+      "id": "feed-0ac1b1f76238",
+      "title": "Planning to buy Apple’s iPhone Duo? Here are Xfinity Mobile’s deals",
+      "excerpt": "Here's what Xfinity Mobile is offering for Apple's Galaxy Z Fold 8 rival.",
+      "body": "Credit: Aamir Siddiqui / Android Authority TL;DR Xfinity Mobile has revealed its deals for the iPhone Duo. The carrier is offering new Mobile Plus customers and existing Diamond Members up to $1,000 off the foldable when trading in an eligible device. Mobile Plus customers without a trade-in can still get $400 off the latest iPhone lineup. Apple finally caught up to Android this year and launched a foldable phone. While it’s not available quite yet, pre-orders for the iPhone Duo will start in the coming days. In preparation, Xfinity Mobile has now revealed how it will save its customers some money. On the heels of AT&amp;T announcing its iPhone Duo deals , Xfinity Mobile is following suit.",
+      "author": "Ryan McNeal",
       "date": "2026-10-12",
       "readTime": "2 min",
-      "section": "software",
+      "section": "gadgets",
       "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 49,
-      "url": "https://dev.to/neelakshi_nikky/autoship-simplifying-cross-platform-e-commerce-listing-3ib7",
-      "image": "/images/feed/feed-b3113ca592c3.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-a84434307d51",
-      "title": "How Multica Agents and Claude Code Built a Godot Game",
-      "excerpt": "Spring Rider is a Powder-style top-down downhill mountain-bike game in Godot 4.5. You ride an endless spring forest, or race 15 rivals down a glacier-to-valley course traced from the real Mégavalanche…",
-      "body": "Spring Rider is a Powder-style top-down downhill mountain-bike game in Godot 4.5. You ride an endless spring forest, or race 15 rivals down a glacier-to-valley course traced from the real Mégavalanche. I wrote almost none of its code. A team of Multica agents and a Claude Code session in my terminal built it in 13 days, and my job was research, direction, and saying yes or no. This post covers how we worked: the research we did before the code, the free assets and sounds the game runs on, how I put the agent team together, and how the agents kept out of each other's way. ## Research came before the first line of code The game started with a look, not a mechanic. I wanted the top-down view of the skiing game Powder, moved onto a mountain bike in a spring forest.",
-      "author": "Bojan Tomic",
-      "date": "2026-10-12",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 53,
-      "url": "https://dev.to/bojantomic/how-multica-agents-and-claude-code-built-a-godot-game-1ekk",
-      "image": "/images/feed/feed-a84434307d51.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-31379961a798",
-      "title": "The Verify Loop: Every AI Detector Should Ship With a One-Click Fix",
-      "excerpt": "Most AI detectors are anxiety as a service. They scan your text, flash a scary \"98% AI-generated\" score, and leave you staring at the screen wondering what to do next. I just shipped an AI detector on…",
-      "body": "Most AI detectors are anxiety as a service. They scan your text, flash a scary \"98% AI-generated\" score, and leave you staring at the screen wondering what to do next. I just shipped an AI detector on my free tools site, and I refused to build it that way. Instead I built what I call the verify loop : Detect → Humanize → Verify. Here's why it matters and how it works. The problem with flag-only detectors A detection score without a fix creates exactly one emotion: panic. Students rewrite randomly, professionals paraphrase blindly, and nobody learns what \"sounding human\" actually means. The tool did its job (detection) and abandoned the user at the worst moment.",
-      "author": "Shahzaib",
-      "date": "2026-10-12",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 50,
-      "url": "https://dev.to/shahzaib11/the-verify-loop-every-ai-detector-should-ship-with-a-one-click-fix-42jg",
-      "image": "/images/feed/feed-31379961a798.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-fbc2ad0040e2",
-      "title": "The Cost Guardrails I Set Up Before GCP Could Surprise Me",
-      "excerpt": "Solo builders do not have a finance department. I am the finance department. So before I let any real workload touch my GCP project, I spent one evening building billing guardrails. Not because I am f…",
-      "body": "Solo builders do not have a finance department. I am the finance department. So before I let any real workload touch my GCP project, I spent one evening building billing guardrails. Not because I am frugal for its own sake — because a surprise bill is the fastest way to kill momentum on a side project. Here is what I set up, in the order I did it, and what each layer actually caught. Layer 1: budgets with teeth The first thing I did was create a billing budget in the Cloud Billing console. Not the vague kind — a budget with notification thresholds at 50%, 90%, and 100% of the monthly amount I am willing to spend on the personal project. The part people skip: the 100% alert alone is useless. By the time you hit 100% of a monthly budget, the month is over.",
-      "author": "Purvansh Bhatt",
-      "date": "2026-10-12",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 32,
-      "url": "https://dev.to/purvanshbhatt/the-cost-guardrails-i-set-up-before-gcp-could-surprise-me-2nng",
-      "image": "/images/feed/feed-fbc2ad0040e2.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-6ad209aefabd",
-      "title": "Cloud Run Jobs vs. Cloud Functions for Batch Security Scans: What I Actually Run in Production",
-      "excerpt": "I run periodic security scans as part of my incident-readiness platform: dependency checks, config drift detection, TLS posture checks against customer-facing assets. All of it is batch work on a sche…",
-      "body": "I run periodic security scans as part of my incident-readiness platform: dependency checks, config drift detection, TLS posture checks against customer-facing assets. All of it is batch work on a schedule, not request-driven. When I first designed the pipeline, the obvious GCP answer was Cloud Functions — trigger on a Pub/Sub message from Cloud Scheduler, do the scan, write results to a database, done. It worked. It was also the wrong choice, and it took me a month of fighting timeouts and half-finished scans to figure out why. This post is the decision framework I wish I had: when to use Cloud Functions and when to use Cloud Run Jobs for security batch work, with the actual code and configs that run in production today.",
-      "author": "Purvansh Bhatt",
-      "date": "2026-10-12",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 47,
-      "url": "https://dev.to/purvanshbhatt/cloud-run-jobs-vs-cloud-functions-for-batch-security-scans-what-i-actually-run-in-production-kai",
-      "image": "/images/feed/feed-6ad209aefabd.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-9604915d2853",
-      "title": "X-AgentRed: How Red-Teaming Multi-Service Agent Ecosystems Exposes Compositional Security Failures",
-      "excerpt": "Personal agents that chain tool calls across Gmail, Slack, Jira, and payment APIs create a new attack surface. A benign user request can produce harmful outcomes when actions accumulate and interact a…",
-      "body": "Personal agents that chain tool calls across Gmail, Slack, Jira, and payment APIs create a new attack surface. A benign user request can produce harmful outcomes when actions accumulate and interact across service boundaries. X-AgentRed is a red-teaming framework that discovers these compositional failures by building a directed graph of tool dependencies, sampling attack paths, and using execution feedback to refine them. The paper (arXiv 2610.13886v1) addresses the gap between single-tool security testing and the reality of multi-service orchestration. Existing red-teaming methods prompt LLMs to generate harmful scenarios or decompose known attack objectives into benign-looking steps.",
-      "author": "mech.app",
-      "date": "2026-10-12",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 43,
-      "url": "https://dev.to/mech_app_ai/x-agentred-how-red-teaming-multi-service-agent-ecosystems-exposes-compositional-security-failures-4jhk",
-      "image": "/images/feed/feed-9604915d2853.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-ac5219365656",
-      "title": "Agent37's $0.37/Month Sandbox: What Low-Cost Agent Isolation Reveals About Deployment Economics",
-      "excerpt": "Agent37 runs AI agent sandboxes for an average of $0.37 per month per customer. That is roughly 10% of what most sandbox providers charge. The YC F26 company launched on Hacker News with a claim that…",
-      "body": "Agent37 runs AI agent sandboxes for an average of $0.37 per month per customer. That is roughly 10% of what most sandbox providers charge. The YC F26 company launched on Hacker News with a claim that their infrastructure cost for free-tier users averages $0.05 to $0.10 per month. The pricing is not a loss leader. It reflects architectural choices that expose the true cost structure of agent execution environments. The plumbing matters because agent workloads have predictable resource patterns. They spike CPU during initialization and tool calls, then idle. They need RAM for browser automation and computer-use tasks, then release it. Most sandbox providers provision for peak load and bill accordingly. Agent37 provisions for average load and shares resources across tenants.",
-      "author": "mech.app",
-      "date": "2026-10-12",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
+        "Iphone"
       ],
       "featured": false,
       "xpReward": 54,
-      "url": "https://dev.to/mech_app_ai/agent37s-037month-sandbox-what-low-cost-agent-isolation-reveals-about-deployment-economics-2o7m",
-      "image": "/images/feed/feed-ac5219365656.webp",
-      "source": "Dev.to",
+      "url": "https://www.androidauthority.com/iphone-duo-xfinity-mobile-deals-3722304/",
+      "image": "/images/feed/feed-0ac1b1f76238.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-047533d5aa29",
+      "title": "Indigenous Peoples’ Day 2026: Celebrations Of Respect",
+      "excerpt": "Indigenous Peoples’ Day was first officially proclaimed by US President Joe Biden in 2021. Acknowledging that it is imperative to uphold the rights and dignity of the indigenous people who were here l…",
+      "body": "Indigenous Peoples’ Day was first officially proclaimed by US President Joe Biden in 2021. Acknowledging that it is imperative to uphold the rights and dignity of the indigenous people who were here long before colonization of the Americas began, Biden also admitted that US federal policies systematically sought to assimilate ... [continued] The post Indigenous Peoples&#8217; Day 2026: Celebrations Of Respect appeared first on CleanTechnica .",
+      "author": "Carolyn Fortuna",
+      "date": "2026-10-12",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Cars"
+      ],
+      "featured": false,
+      "xpReward": 37,
+      "url": "https://cleantechnica.com/2026/10/12/indigenous-peoples-day-2026-celebrations-and-calls-for-climate-sovereignty/",
+      "image": "/images/feed/feed-047533d5aa29.jpg",
+      "source": "CleanTechnica",
       "isLive": true
     },
     {
@@ -166,7 +453,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 45,
       "url": "https://kotaku.com/fans-accuse-sonic-racing-crossworlds-of-breaking-deluxe-edition-promise-after-revealing-ff7-dlc-paid-100-for-this-sht-guess-i-learned-my-lesson-2000744567",
       "image": "/images/feed/feed-a83e396d4755.jpg",
       "source": "Kotaku",
@@ -185,7 +472,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 44,
       "url": "https://www.polygon.com/avatar-seven-havens-creators-interview-map-theory/",
       "image": "/images/feed/feed-438d9e19fb26.png",
       "source": "Polygon",
@@ -204,48 +491,10 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 43,
       "url": "https://www.space.com/astronomy/black-holes/nasa-spacecraft-sees-supermassive-black-hole-gorge-on-a-cosmic-meal-before-burping-radio-jets-300-days-later",
       "image": "/images/feed/feed-351f92515828.png",
       "source": "Space.com",
-      "isLive": true
-    },
-    {
-      "id": "feed-2683baa373a3",
-      "title": "Apple TV’s new podcast explores haunting true story involving a heart transplant",
-      "excerpt": "Apple TV today announced “Heart,” an original eight-episode true-crime podcast involving two men linked by a donated heart and the same terrible demise. Here are the details. more…",
-      "body": "Apple TV today announced “Heart,” an original eight-episode true-crime podcast involving two men linked by a donated heart and the same terrible demise. Here are the details. more — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Marcus Mendes",
-      "date": "2026-10-12",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 50,
-      "url": "https://9to5mac.com/2026/10/12/apple-tvs-new-podcast-explores-haunting-true-story-involving-a-heart-transplant/",
-      "image": "/images/feed/feed-2683baa373a3.jpg",
-      "source": "9to5Mac",
-      "isLive": true
-    },
-    {
-      "id": "feed-2521b134ffd0",
-      "title": "More Indigenous Languages Come to iPhone and iPad Keyboards in New Apple Update",
-      "excerpt": "Some schools are using these keyboards to help students learn these endangered languages.",
-      "body": "Some schools are using these keyboards to help students learn these endangered languages.\n\nThis report, published by CNET, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Iphone. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to CNET using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Zachary McAuliffe",
-      "date": "2026-10-12",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Iphone"
-      ],
-      "featured": false,
-      "xpReward": 43,
-      "url": "https://www.cnet.com/tech/services-and-software/indigenous-languages-iphone-ipad-keyboards-apple-update/",
-      "image": "https://www.cnet.com/wp-content/uploads/sites/2/Apple-Cherokee-Nation-education-partnership-Cherokee-keyboard-on-iPad.jpg",
-      "source": "CNET",
       "isLive": true
     },
     {
@@ -261,7 +510,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 39,
       "url": "https://electrek.co/2026/10/12/top-10-best-selling-evs-us-through-q3/",
       "image": "/images/feed/feed-b3a67e8a54d1.jpg",
       "source": "Electrek",
@@ -280,29 +529,10 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 30,
       "url": "https://cleantechnica.com/2026/10/12/pebble-upgrades-the-2027-flow-turning-it-into-a-microgrid-to-power-your-adventures-your-home/",
       "image": "/images/feed/feed-e5f1bb864e20.jpg",
       "source": "CleanTechnica",
-      "isLive": true
-    },
-    {
-      "id": "feed-6a34753268f0",
-      "title": "GTA 6 Blamed for PlayStation Pro 5 Shortages",
-      "excerpt": "The game’s exclusivity is leading to greater demand for the high-end console.",
-      "body": "The game’s exclusivity is leading to greater demand for the high-end console.\n\nThis report, published by CNET, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Playstation. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to CNET using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Ty Pendlebury",
-      "date": "2026-10-12",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Playstation"
-      ],
-      "featured": false,
-      "xpReward": 35,
-      "url": "https://www.cnet.com/tech/gaming/gta-6-blamed-playstation-pro-5-shortages/",
-      "image": "/images/feed/feed-6a34753268f0.jpg",
-      "source": "CNET",
       "isLive": true
     },
     {
@@ -318,105 +548,10 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 36,
       "url": "https://www.bleepingcomputer.com/news/security/yandex-confirms-service-outage-as-users-lose-access-to-cloud-files/",
       "image": "/images/feed/feed-024584cea1b4.jpg",
       "source": "BleepingComputer",
-      "isLive": true
-    },
-    {
-      "id": "feed-b9f62c0777e6",
-      "title": "Ben Affleck Names Justice League His Career ‘Low Point’",
-      "excerpt": "Batman actor Ben Affleck talks candidly about his horrible experiencing with making Justice League under Joss Whedon and Warner Bros.",
-      "body": "Before Robert Pattinson adorned the bat ears and cape in Matt Reeves ' The Batman , Ben Affleck was the caped crusader. He was supposed to direct, produce, co-write, and star in his own solo Batman movie before he ultimately stepped away, leading to Pattinson and Reeves starting the \"Epic Crime Saga.\" As such, Affleck only starred in the role in 2016's Batman v Superman: Dawn of Justice and 2017's Justice League . (He also had a bit part in 2023's The Flash ).",
-      "author": "Austin Manchester",
-      "date": "2026-10-12",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 41,
-      "url": "https://www.polygon.com/ben-affleck-justice-league-negative-experience-batman-zack-snyder/",
-      "image": "/images/feed/feed-b9f62c0777e6.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-b3737df9df44",
-      "title": "Epic Games Forces Shocked Developers Into ‘AI-First’ Mode For Delayed Shooter Featuring Marvel And Star Wars Characters",
-      "excerpt": "Even artwork will be generated with AI",
-      "body": "Even artwork will be generated with AI\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Ethan Gach",
-      "date": "2026-10-12",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 42,
-      "url": "https://kotaku.com/epic-games-forces-shocked-developers-into-ai-first-mode-for-delayed-shooter-featuring-marvel-and-star-wars-characters-2000744620",
-      "image": "/images/feed/feed-b3737df9df44.jpg",
-      "source": "Kotaku",
-      "isLive": true
-    },
-    {
-      "id": "feed-643933082726",
-      "title": "Stardew Valley's Monster-Mash Cousin Sets New Release Date",
-      "excerpt": "Grave Seasons' new 2027 release date is cropping up again, as Perfect Garbage plans to launch its farm-sim horror game in spring.",
-      "body": "Indie studio Perfect Garbage delayed its upcoming horror-themed farm-sim Grave Seasons from its original August release date to an indefinite one, but things are back on track now. During the Cozy After Dark showcase on Monday, Perfect Garbage announced Grave Seasons ' new release date and gave a little look at what autumn looks like and how progression works.",
-      "author": "Josh Broadwell",
-      "date": "2026-10-12",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 50,
-      "url": "https://www.polygon.com/grave-seasons-release-date-trailer/",
-      "image": "/images/feed/feed-643933082726.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-7a8967d4e223",
-      "title": "Final Fantasy Meets Dragon Quest in Square Enix’s Latest ’90s Remake",
-      "excerpt": "Romancing SaGa 3 combines the best parts of Square Enix's biggest RPG franchises, according to our recent preview.",
-      "body": "Square Enix has found a lot of success in recent years revisiting the 1990s in a variety of ways, whether it’s the HD-2D remake 1994’s Live A Live back in 2022 or this year’s diorama-inspired 3D remake, Dragon Quest 7 Reimagined . The company’s first offering in this vein for 2027 is a remake of a SNES game known for its non-linear storytelling, multiple protagonists, and unusual minigames — Romancing SaGa 3: Destinies United . During a 30-minute preview event at New York Comic Con, I was instantly pulled in by the game’s charming visuals and its unique riff on turn-based combat.",
-      "author": "Jen Glennon",
-      "date": "2026-10-12",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 52,
-      "url": "https://www.polygon.com/romancing-saga-3-preview-nycc/",
-      "image": "/images/feed/feed-7a8967d4e223.png",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-1b2917adc17f",
-      "title": "YouTube’s chat-style search lands on mobile",
-      "excerpt": "However, it won't be available on the YouTube Kids app.",
-      "body": "Credit: Joe Maring / Android Authority TL;DR YouTube is expanding its conversational AI-powered search tool to a new platform. You’ll now be able to use “Ask YouTube” on the mobile app. Viewers will soon be able to use Ask YouTube directly from the watch page while watching Shorts and live streams. Back in April, YouTube began testing a new conversational search tool called “Ask YouTube.” The company later made it official, announcing the AI-powered feature during Google I/O. Ask YouTube has been available on the web and on TV, but now it’s expanding to a new platform. In a blog post , YouTube announced that you’ll now be able to use its conversational search tool on mobile. Similar to the web and TV apps, this rollout is for users based in the US.",
-      "author": "Ryan McNeal",
-      "date": "2026-10-12",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 37,
-      "url": "https://www.androidauthority.com/ask-youtube-rolls-out-to-mobile-3722238/",
-      "image": "/images/feed/feed-1b2917adc17f.jpg",
-      "source": "Android Authority",
       "isLive": true
     },
     {
@@ -432,29 +567,10 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 48,
       "url": "https://electrek.co/2026/10/12/tesla-model-x-fire-montreal-court-vandalism-defense/",
       "image": "/images/feed/feed-1fe1cd720775.jpg",
       "source": "Electrek",
-      "isLive": true
-    },
-    {
-      "id": "feed-75e9c96d37e3",
-      "title": "iCloud+ keeps getting better, here’s what’s new for subscribers",
-      "excerpt": "iCloud+ is best known for adding iCloud storage, but Apple keeps improving and expanding its suite of benefits for subscribers. Here’s everything new for iCloud+ added in the last few weeks. more…",
-      "body": "iCloud+ is best known for adding iCloud storage, but Apple keeps improving and expanding its suite of benefits for subscribers. Here’s everything new for iCloud+ added in the last few weeks. more — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Ryan Christoffel",
-      "date": "2026-10-12",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 38,
-      "url": "https://9to5mac.com/2026/10/12/icloud-keeps-getting-better-heres-whats-new-for-subscribers/",
-      "image": "/images/feed/feed-75e9c96d37e3.jpg",
-      "source": "9to5Mac",
       "isLive": true
     },
     {
@@ -470,29 +586,10 @@
         "Breach"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 47,
       "url": "https://www.bleepingcomputer.com/news/security/anthropic-takes-risky-ai-tests-offline-after-models-breach-govt-sites/",
       "image": "/images/feed/feed-7fb49fa3e487.jpg",
       "source": "BleepingComputer",
-      "isLive": true
-    },
-    {
-      "id": "feed-043592ee1eaf",
-      "title": "Meta says it's caught up to the frontier with its latest Wonder AI models",
-      "excerpt": "The models add \"active memory\" and \"active focus\" abilities.",
-      "body": "The models add \"active memory\" and \"active focus\" abilities.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Karissa Bell)",
-      "date": "2026-10-12",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 51,
-      "url": "https://www.engadget.com/2284478/meta-says-its-caught-up-to-the-frontier-with-its-latest-wonder-ai-models/",
-      "image": "/images/feed/feed-043592ee1eaf.jpg",
-      "source": "Engadget",
       "isLive": true
     },
     {
@@ -508,48 +605,10 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 45,
       "url": "https://insideevs.com/news/811664/byd-flash-charging-five-minutes/",
       "image": "/images/feed/feed-45aaefaa24dc.jpg",
       "source": "InsideEVs",
-      "isLive": true
-    },
-    {
-      "id": "feed-069b7be74663",
-      "title": "Gemini’s floating overlay may soon help you ‘Shop this’ right from your screen",
-      "excerpt": "Gemini's working on another handy way to quickly learn about products.",
-      "body": "TL;DR Google is working on a new “Shop this” suggestion for Gemini’s pop-up overlay. The tool would recognize products, summarizing selling points, and even offer comparisons. Compared to existing Gemini retail tools, this one would let users easily look up products across the apps they use. Trying to get info about products you stumble across online used to involve a little bit of legwork. If you weren’t lucky enough to find a good link, or even a mention of the product name, you still might be able to turn to Google Lens for help. Gemini has only made that even easier, with automatic screen context letting us quickly dig into all manner of content. Today we’re checking out early evidence of work towards enhancing that experience with some new shopping tools.",
-      "author": "Stephen Schenck",
-      "date": "2026-10-12",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 45,
-      "url": "https://www.androidauthority.com/gemini-shop-this-3722162/",
-      "image": "/images/feed/feed-069b7be74663.jpg",
-      "source": "Android Authority",
-      "isLive": true
-    },
-    {
-      "id": "feed-c3616ffd2d1b",
-      "title": "Norway fined a Microsoft subsidiary $9.6 million for allegedly misusing Grindr user data",
-      "excerpt": "Xandr has three weeks to appeal the record penalty.",
-      "body": "Xandr has three weeks to appeal the record penalty.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Jackson Chen)",
-      "date": "2026-10-12",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 45,
-      "url": "https://www.engadget.com/2284434/norway-fined-a-microsoft-subsidiary-96-million-for-allegedly-misusing-grindr-user-data/",
-      "image": "/images/feed/feed-c3616ffd2d1b.jpg",
-      "source": "Engadget",
       "isLive": true
     },
     {
@@ -565,7 +624,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 38,
       "url": "https://insideevs.com/news/811675/alpine-a310-concept-unveiled-paris/",
       "image": "/images/feed/feed-502ca0e04f7b.jpg",
       "source": "InsideEVs",
@@ -584,7 +643,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 45,
       "url": "https://electrek.co/2026/10/12/segway-gt3-superscooter-anker-6144wh-expanded-f3000-power-station-autel-greenworks-more/",
       "image": "/images/feed/feed-22f7ca6f95c5.jpg",
       "source": "Electrek",
@@ -604,7 +663,7 @@
         "Spacecraft"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 42,
       "url": "https://www.space.com/astronomy/moon/the-moon-could-turn-astronauts-into-walking-high-voltage-capacitors-that-accidentally-zap-spacecraft",
       "image": "/images/feed/feed-7e81d60fdd9a.jpg",
       "source": "Space.com",
@@ -623,29 +682,10 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 30,
       "url": "https://www.wired.com/story/elon-musk-bragged-about-his-grok-lego-star-wars-haul-then-x-users-punked-him/",
       "image": "/images/feed/feed-ee84f6e9e028.jpg",
       "source": "Wired",
-      "isLive": true
-    },
-    {
-      "id": "feed-3f8350391de6",
-      "title": "VW’s new low-cost EVs have already secured nearly 150,000 orders, but is that enough?",
-      "excerpt": "Shortly after launching, Volkswagen said its new Electric Urban Car Family is proving “highly popular,” with nearly 150,000 orders to date. more…",
-      "body": "Shortly after launching, Volkswagen said its new Electric Urban Car Family is proving “highly popular,” with nearly 150,000 orders to date. more — a development drawing significant attention in the electric vehicles, hybrids, and automotive technology space.\n\nThis report, published by Electrek, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cars. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Electrek using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Peter Johnson",
-      "date": "2026-10-12",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Cars"
-      ],
-      "featured": false,
-      "xpReward": 45,
-      "url": "https://electrek.co/2026/10/12/volkswagens-new-low-cost-evs-secure-nearly-150000-orders/",
-      "image": "/images/feed/feed-3f8350391de6.jpg",
-      "source": "Electrek",
       "isLive": true
     },
     {
@@ -661,7 +701,7 @@
         "Claude"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 45,
       "url": "https://www.zdnet.com/innovation/claude-false-homicide-tip/",
       "image": "/images/feed/feed-45cb73b556ad.jpg",
       "source": "ZDNet",
@@ -681,7 +721,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 39,
       "url": "https://science.nasa.gov/missions/station/nasas-spacex-crs-35-mission-to-launch-health-research/",
       "image": "/images/feed/feed-cc4f4a701d29.jpg",
       "source": "NASA Breaking News",
@@ -719,7 +759,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 36,
       "url": "https://www.space.com/stargazing/meteor-showers/the-halloween-fireballs-are-coming-heres-what-to-expect-from-the-taurids-this-year",
       "image": "/images/feed/feed-0835ec98c710.jpg",
       "source": "Space.com",
@@ -738,29 +778,10 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 42,
       "url": "https://www.bleepingcomputer.com/news/security/cyberattack-shuts-down-refrigerators-at-french-supermarkets/",
       "image": "/images/feed/feed-cff9285fdcbf.jpg",
       "source": "BleepingComputer",
-      "isLive": true
-    },
-    {
-      "id": "feed-e46897258ee4",
-      "title": "⚡ Weekly Recap: Helpdesk 0-Days, Rogue Certs, ShinyHunters Arrest, AI-Fooling Malware and More",
-      "excerpt": "Some meetings last longer than it took attackers to jump on a newly disclosed security flaw this week. Within hours, they were already testing it. That's not much time to read the warning, let alone d…",
-      "body": "Some meetings last longer than it took attackers to jump on a newly disclosed security flaw this week. Within hours, they were already testing it. That's not much time to read the warning, let alone do something about it. But speed is only part of the problem. A secure connection didn't always mean a safe destination. People offering to fix a ransomware mess had questions to answer themselves.",
-      "author": "info@thehackernews.com (The Hacker News)",
-      "date": "2026-10-12",
-      "readTime": "2 min",
-      "section": "cybersecurity",
-      "tags": [
-        "Malware"
-      ],
-      "featured": false,
-      "xpReward": 39,
-      "url": "https://thehackernews.com/2026/10/weekly-recap-helpdesk-0-days-rogue.html",
-      "image": "/images/feed/feed-e46897258ee4.jpg",
-      "source": "The Hacker News",
       "isLive": true
     },
     {
@@ -776,7 +797,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 50,
       "url": "https://www.space.com/space-exploration/on-this-day-in-space-october-12-2026",
       "image": "/images/feed/feed-0334f8658bb0.jpg",
       "source": "Space.com",
@@ -795,28 +816,9 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 47,
       "url": "https://www.space.com/astronomy/earth/namibian-salt-flats-look-like-an-alien-planet-space-photo-of-the-day-for-oct-12-2026",
       "image": "https://cdn.mos.cms.futurecdn.net/JmyYCKnsjMh67hXAXxycTb-1920-80.png",
-      "source": "Space.com",
-      "isLive": true
-    },
-    {
-      "id": "feed-9077caa33b27",
-      "title": "How the impossible geometry of 'Tomb Raider III''s UFO level was made",
-      "excerpt": "Bigger on the inside? Where have we heard that before?",
-      "body": "\"Tomb Raider\" celebrates its 30th anniversary this month. While many remember the iconic T-Rex or locking Winston the Butler in the freezer, many forget about the UFO in 1998’s \"Tomb Raider III\"; a mysterious alien craft that worked a lot like Doctor Who ’s TARDIS. Coming off the back of the hugely successful \"Tomb Raider 2\", developer Core Design had big plans for the third entry, including kayaking, those iconic London levels, and, of course, a level featuring a UFO in Area 51. Although it looked small on the outside, the UFO featured multiple floors for players to explore as they searched for a vital artifact, all as enemies swarmed in.",
-      "author": " Daryl Baxter ",
-      "date": "2026-10-12",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Space"
-      ],
-      "featured": false,
-      "xpReward": 44,
-      "url": "https://www.space.com/entertainment/space-games/how-the-impossible-geometry-of-tomb-raider-iiis-ufo-level-was-made",
-      "image": "/images/feed/feed-9077caa33b27.jpg",
       "source": "Space.com",
       "isLive": true
     },
@@ -833,7 +835,7 @@
         "Chatgpt"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 49,
       "url": "https://techcrunch.com/2026/10/11/these-execs-think-voice-ai-hasnt-reached-its-chatgpt-moment-yet/",
       "image": "/images/feed/feed-1b97ced39af6.jpg",
       "source": "TechCrunch",
@@ -853,7 +855,7 @@
         "Claude"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 50,
       "url": "https://thehackernews.com/2026/10/anthropic-cuts-live-internet-access-for.html",
       "image": "/images/feed/feed-646ca68e658d.jpg",
       "source": "The Hacker News",
@@ -873,7 +875,7 @@
         "Claude"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 33,
       "url": "https://www.cnet.com/tech/services-and-software/anthropic-cruel-claude-ai-model-abuse/",
       "image": "/images/feed/feed-64720ca8856d.jpg",
       "source": "CNET",
@@ -892,7 +894,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 49,
       "url": "https://openai.com/index/sophos",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "OpenAI Blog",
@@ -911,7 +913,7 @@
         "Gpt"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 30,
       "url": "https://openai.com/index/asana-browser-agent",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "OpenAI Blog",
@@ -930,7 +932,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 40,
       "url": "https://www.technologyreview.com/2026/10/08/1146224/roundtables-a-conversation-with-the-creator-of-ai-designed-viruses/",
       "image": "/images/feed/feed-080bc68c6b73.png",
       "source": "MIT Tech Review",
@@ -938,16 +940,16 @@
     }
   ],
   "breakingNews": [
-    "BLEEPINGCOMPUTER: Norway fines Microsoft ad firm $9.6 million over Grindr data sharing",
-    "DEV.TO: AutoShip: Simplifying Cross-Platform E-commerce Listing",
-    "DEV.TO: How Multica Agents and Claude Code Built a Godot Game",
-    "DEV.TO: The Verify Loop: Every AI Detector Should Ship With a One-Click Fix",
-    "DEV.TO: The Cost Guardrails I Set Up Before GCP Could Surprise Me",
-    "DEV.TO: Cloud Run Jobs vs. Cloud Functions for Batch Security Scans: What I Actually Run in Production",
-    "DEV.TO: X-AgentRed: How Red-Teaming Multi-Service Agent Ecosystems Exposes Compositional Security Failures",
-    "DEV.TO: Agent37's $0.37/Month Sandbox: What Low-Cost Agent Isolation Reveals About Deployment Economics",
-    "KOTAKU: Fans Accuse Sonic Racing: CrossWorlds Of Breaking Deluxe Edition Promise After Revealing FF7 DLC: ‘Paid $100 For This Sh*t, Guess I Learned My Lesson’",
-    "POLYGON: 'Avater: Seven Haven' Showrunners Officially Reinforce a Major Fan Theory"
+    "DEV.TO: Enabling FIPS on UAT Postgres servers meant moving off MD5 passwords",
+    "DEV.TO: Logrotate for Application Logs: Configure Rotation Without Losing Data",
+    "DEV.TO: Kepler's Vinoo Ganesh on Building AI You Can Trust",
+    "DEV.TO: AI Needs a Test That Fights Back",
+    "DEV.TO: What 9,050 AI-Written Scripts Taught Me About Slop",
+    "ANDROID AUTHORITY: Pebble Round 2 makes rival smartwatches look chunky in new hands-on video",
+    "DEV.TO: Brakes Let You Go Fast: Balancing Acceleration and Safety for AI Agents",
+    "DEV.TO: What 1,368 Real-World AI Incidents Teach Us About Evaluation",
+    "KOTAKU: GTA 6 Leaker Promises Escalating Mayhem As Meme Coin Crashes",
+    "POLYGON: New 90% Positive Steam Roguelike Is a Faithful PSP-Era Comeback"
   ],
   "sectionVideos": {}
 }
