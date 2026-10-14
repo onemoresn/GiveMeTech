@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-10-14T00:28:39.733Z",
+  "fetchedAt": "2026-10-14T01:24:06.757Z",
   "articles": [
     {
-      "id": "feed-5dc941702a50",
-      "title": "Postgres Retrieval Architecture: Multi-Tenant SaaS Help Center Schema Design",
-      "excerpt": "Short answer: use a staged retrieval design with explicit collections, bounded queries, and traceable source context, then make index cost a schema input rather than a vendor-selection afterthought. F…",
-      "body": "Short answer: use a staged retrieval design with explicit collections, bounded queries, and traceable source context, then make index cost a schema input rather than a vendor-selection afterthought. For a gaming help center, the expensive unit is not “an article.” It is every indexed representation of an article section, multiplied by tenant boundaries, locales, active embedding versions, environments, and whatever replication policy the chosen backend requires. A season launch can change hundreds of support sections at once; an item rebalance might change one paragraph for one game and leave every other tenant untouched. Schema design determines whether that edit replaces one retrieval unit or forces a much wider rebuild.",
-      "author": "zanesterling7589",
+      "id": "feed-93fd5d0db737",
+      "title": "Building a Distributed GPU Cluster for LLM Inference on Idle Apple Silicon Macs",
+      "excerpt": "A single M2 Max Mac Studio can serve 8‑token‑per‑second Llama‑2‑7B inference, yet most developers leave that compute idle overnight. ## Inventory and Network Topology arp-scan --localnet | grep -i app…",
+      "body": "A single M2 Max Mac Studio can serve 8‑token‑per‑second Llama‑2‑7B inference, yet most developers leave that compute idle overnight. ## Inventory and Network Topology Start by enumerating every Apple Silicon machine on the LAN. arp-scan --localnet | grep -i apple returns MAC addresses and hostnames. In a typical lab you might see two M2 Max units (38‑core GPU, 400 GB/s bandwidth), one M3 Ultra (80‑core GPU, 800 GB/s), and one M1 Pro (16‑core GPU). Record each host, its GPU core count, and unified memory size in a YAML inventory. Then run exo cluster init --config inventory.yaml on every node so Exo can build a peer‑to‑peer mesh over mDNS. Action: Create an inventory YAML and run exo cluster init --config inventory.yaml on each Mac to join the cluster.",
+      "author": "lucanu",
       "date": "2026-10-14",
       "readTime": "2 min",
       "section": "software",
@@ -14,56 +14,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 52,
-      "url": "https://dev.to/zanesterling7589/postgres-retrieval-architecture-multi-tenant-saas-help-center-schema-design-5144",
-      "image": "/images/feed/feed-5dc941702a50.webp",
+      "xpReward": 38,
+      "url": "https://dev.to/nughes/building-a-distributed-gpu-cluster-for-llm-inference-on-idle-apple-silicon-macs-45o0",
+      "image": "/images/feed/feed-93fd5d0db737.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-7391b70929a8",
-      "title": "Lovable Cloud: What You Actually Get",
-      "excerpt": "Lovable Cloud is the backend Lovable switches on for you the first time your app needs to save something. Ask for a login page or a table of orders and it appears: a database, auth, file storage, edge…",
-      "body": "Lovable Cloud is the backend Lovable switches on for you the first time your app needs to save something. Ask for a login page or a table of orders and it appears: a database, auth, file storage, edge functions, a place for API keys. Lovable's docs say it plainly, it runs on Supabase's open-source foundation. So when people ask us \"what database does Lovable use\", the answer is Postgres, inside a Supabase project that Lovable owns and you rent. That one sentence explains most of what follows, good and bad. What's in the Cloud tab Open your project, go to Cloud, and you get a cut-down Supabase dashboard with Lovable's names on it: Database : your tables, row editing, the RLS policies, and backup restores. Users : who has signed up, and which sign-in methods are on.",
-      "author": "Aakash Verma",
-      "date": "2026-10-14",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 35,
-      "url": "https://dev.to/batmanofweb/lovable-cloud-what-you-actually-get-17cm",
-      "image": "/images/feed/feed-7391b70929a8.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-e1fdc73573a7",
-      "title": "How to Build a Trade-Rejection Layer for a Polymarket Bot in Python",
-      "excerpt": "A Polymarket trading bot needs more than a strategy that identifies potential opportunities. It needs a reliable way to reject trades that fail its execution or risk requirements. Without this layer,…",
-      "body": "A Polymarket trading bot needs more than a strategy that identifies potential opportunities. It needs a reliable way to reject trades that fail its execution or risk requirements. Without this layer, a bot may submit orders using stale market data, accept an unattractive price, exceed its exposure limits, or act on a signal that no longer makes sense. In this tutorial, we'll build a small Python trade-validation layer that evaluates a proposed trade before it reaches the execution component. The implementation is deliberately independent of any specific Polymarket SDK. That makes it easier to test the decision logic without connecting a wallet, signing orders, or risking real funds.",
-      "author": "Dexoryn",
-      "date": "2026-10-14",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Python"
-      ],
-      "featured": true,
-      "xpReward": 42,
-      "url": "https://dev.to/dexoryn/how-to-build-a-trade-rejection-layer-for-a-polymarket-bot-in-python-216b",
-      "image": "/images/feed/feed-e1fdc73573a7.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-10d7f9f86c8c",
-      "title": "Build an invoice-extraction pilot that cannot write to the accounting ledger",
-      "excerpt": "A small-business team wants less manual entry. Connecting an extractor directly to the ledger turns an extraction experiment into an operational decision. Start with a separate review table instead. S…",
-      "body": "A small-business team wants less manual entry. Connecting an extractor directly to the ledger turns an extraction experiment into an operational decision. Start with a separate review table instead. Supply text before extraction. A text PDF and a scan require different upstream steps; a scan needs OCR. n8n’s Information Extractor accepts text and a schema. Define explicit fields: vendor, invoice reference, subtotal, tax and total. Retain the source document reference so a reviewer can compare the values. Route extracted values to a draft table. In this pilot, do not connect a ledger-write node or payment trigger. Mark every record PENDING_REVIEW. Record checks separately: vendor match, amount review, and comparison with purchase orders, receipts and prior invoice records.",
-      "author": "LOOMENSIA",
+      "id": "feed-80b870b49c7e",
+      "title": "Nobody told the person who needed to know",
+      "excerpt": "A delivery moves from Tuesday to Thursday. The person who moved it knows. The customer who planned their week around Tuesday does not. Neither does the colleague who promised to be there to receive it…",
+      "body": "A delivery moves from Tuesday to Thursday. The person who moved it knows. The customer who planned their week around Tuesday does not. Neither does the colleague who promised to be there to receive it. Nothing went wrong in the work itself. The failure was a message that did not get sent. Small changes cause big annoyance Most of the complaints a business gets are not about the change. A delay is usually forgivable. What people remember is finding out late, or finding out from someone else. Inside the team it works the same way. A price changes, a person goes on leave, a supplier switches. Each of those means someone else has to adjust, and each depends on someone remembering who that someone is.",
+      "author": "OCTYN",
       "date": "2026-10-14",
       "readTime": "2 min",
       "section": "software",
@@ -72,17 +34,17 @@
       ],
       "featured": true,
       "xpReward": 51,
-      "url": "https://dev.to/loomensia-hq/build-an-invoice-extraction-pilot-that-cannot-write-to-the-accounting-ledger-4812",
-      "image": "/images/feed/feed-10d7f9f86c8c.webp",
+      "url": "https://dev.to/octyn/nobody-told-the-person-who-needed-to-know-k2e",
+      "image": "/images/feed/feed-80b870b49c7e.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-81049cfd37b8",
-      "title": "The artifact worth reviewing when agents write the code",
-      "excerpt": "GitHub's Security Lab reported 24 Android vulnerabilities found by an AI security agent, and the part worth copying is what ended up version-controlled. Not the exploit code. The set of YAML taskflows…",
-      "body": "GitHub's Security Lab reported 24 Android vulnerabilities found by an AI security agent, and the part worth copying is what ended up version-controlled. Not the exploit code. The set of YAML taskflows that guided the model through the audit, checked into a public repository, runnable by anyone with a Copilot license. The agent did the finding. The taskflows are the thing a team can read, diff, and argue about. That is a small shift with a large consequence for review. When a person writes a patch, the diff is a decent summary of the judgment that went into it, because the person held the reasoning and the code is the residue. When an agent writes the patch, the reasoning lives somewhere else entirely: a prompt, a rule file, a model version, a sequence of tool calls.",
-      "author": "Tess Ainsley",
+      "id": "feed-7f2e043b65d1",
+      "title": "Multi-tenant SaaS with branch-level RBAC in Next.js + Node: a practical architecture",
+      "excerpt": "Tenant scoping that fails closed, permissions that know about branches, and the tests that keep both honest. Key takeaways Resolve the tenant from the session, never from the request. A URL slug or he…",
+      "body": "Tenant scoping that fails closed, permissions that know about branches, and the tests that keep both honest. Key takeaways Resolve the tenant from the session, never from the request. A URL slug or header can select which of your memberships to use, but the server must verify that membership. Next.js middleware is a gate, not a guard. Use it for redirects and cheap checks; do real authorization next to the data, in your Node API or server code. Every Server Action and Route Handler is a public endpoint. Authorize inside each one, every time. Make the database refuse cross-tenant reads. PostgreSQL row-level security with a transaction-local setting means a forgotten filter returns nothing instead of someone else's data. Permissions are (action, scope) , not role names.",
+      "author": "Mohammadreza Alamnejad",
       "date": "2026-10-14",
       "readTime": "2 min",
       "section": "software",
@@ -90,48 +52,124 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 46,
-      "url": "https://dev.to/tessainsley/the-artifact-worth-reviewing-when-agents-write-the-code-2bbn",
-      "image": "/images/feed/feed-81049cfd37b8.webp",
+      "xpReward": 44,
+      "url": "https://dev.to/mamareza/multi-tenant-saas-with-branch-level-rbac-in-nextjs-node-a-practical-architecture-56e0",
+      "image": "/images/feed/feed-7f2e043b65d1.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-dd215ffa5f16",
-      "title": "Workday Is Buying Identity for AI Agents. Let's Build a Tiny Access Grant in TypeScript.",
-      "excerpt": "Most companies already know how to onboard a person. There's a start date. A manager. A laptop. A list of apps. There's also a last day. Access is supposed to end there. Agents are joining the same co…",
-      "body": "Most companies already know how to onboard a person. There's a start date. A manager. A laptop. A list of apps. There's also a last day. Access is supposed to end there. Agents are joining the same companies now. They need email, the CRM, a repo, sometimes finance. Here's the part I keep thinking about. Nobody files a ticket for a bot's last day. On October 13, 2026 , Workday announced it has \"signed a definitive agreement to acquire C1.ai, a leading agentic identity platform for people and agents.\" Workday says C1.ai connects to the systems a business runs on, \"from email and CRM to code repositories, finance systems, and cloud infrastructure.\" The release puts the agent part plainly: Once registered, an agent can receive the access it needs, when it needs it, and lose that access immedia…",
-      "author": "Bobby Hall Jr ",
-      "date": "2026-10-14",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Typescript"
-      ],
-      "featured": true,
-      "xpReward": 38,
-      "url": "https://dev.to/bobbyhalljr/workday-is-buying-identity-for-ai-agents-lets-build-a-tiny-access-grant-in-typescript-25m4",
-      "image": "/images/feed/feed-dd215ffa5f16.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-ed1a201a50e9",
-      "title": "Breakdown de Cálculos: A Fórmula que Conta a Própria História",
-      "excerpt": "Algumas regras de negócio não são só código. São fórmulas. Na maioria dos casos, a regra pode estar certa. Está no papel e está na classe de negócio. Mas onde estão os passos? A prática comum é guarda…",
-      "body": "Algumas regras de negócio não são só código. São fórmulas. Fórmulas complexas, agregações pesadas, fórmulas que contam a história de um processo inteiro. Na maioria dos casos, a regra pode estar certa. Está no papel e está na classe de negócio. Mas onde estão os passos? A prática comum é guardar apenas o resultado final. O certo é guardar os passos até ao resultado: a fórmula com cada parte, os operadores, os valores intermediários e descrições relevantes. Qual é a solução? Breakdown de Fórmulas. Conceito Em vez de o sistema guardar somente total = 5000, ele guarda o processo completo. Essa técnica torna-se a única fonte da verdade. Cada parte do sistema pega no que precisa desse breakdown: uma parte vai para a BD, outra é libertada no front, outra alimenta o fluxo de negócio.",
-      "author": "Ortiz de Arcanjo António David",
+      "id": "feed-cdfa78dc5d70",
+      "title": "Selling downloads across borders: a field guide for buyers who are never in your time zone",
+      "excerpt": "A domestic sale is forgiving. If delivery hiccups, you are probably awake, probably online, and able to fix it before the buyer loses patience. An overseas sale removes every one of those safety nets.…",
+      "body": "A domestic sale is forgiving. If delivery hiccups, you are probably awake, probably online, and able to fix it before the buyer loses patience. An overseas sale removes every one of those safety nets. The buyer checks out while you sleep, pays in a currency you have never held, downloads over a connection you would complain about, and sends their one support message eight hours before you wake up. Nothing about the product changes — everything about the delivery has to work unattended. This is a field guide organised by the moments where international sales actually break, not by platform features. Most of it costs nothing but decisions made in advance. Moment one: the purchase happens while you sleep The defining fact of global buyers is that your shop's busiest moment may be your 3 a.m.",
+      "author": "FileFreight",
       "date": "2026-10-14",
       "readTime": "2 min",
       "section": "software",
       "tags": [
         "Software"
+      ],
+      "featured": true,
+      "xpReward": 54,
+      "url": "https://dev.to/filefreight/selling-downloads-across-borders-a-field-guide-for-buyers-who-are-never-in-your-time-zone-3nga",
+      "image": "/images/feed/feed-cdfa78dc5d70.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-a4293697090e",
+      "title": "How to Discover New Websites That Are Quietly Exploding",
+      "excerpt": "How to Discover New Websites That Are Quietly Exploding Every \"best new websites of 2026\" listicle has the same problem: by the time a site makes the list, it's already mainstream. The interesting mom…",
+      "body": "How to Discover New Websites That Are Quietly Exploding Every \"best new websites of 2026\" listicle has the same problem: by the time a site makes the list, it's already mainstream. The interesting moment — when a weird little tool suddenly starts doubling its traffic week over week — happens months earlier, and almost nobody is watching. I got obsessed with catching that moment. Here's the actual toolkit I use, from manual methods to the automated board I ended up building. 1. Certificate Transparency logs (crt.sh) Every time someone registers a domain and gets a TLS certificate, it's logged publicly at crt.sh. You can query recently issued certificates and get a raw feed of brand-new domains, sometimes only hours old.",
+      "author": "RainbowSea",
+      "date": "2026-10-14",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 44,
+      "url": "https://dev.to/rainbowsea/how-to-discover-new-websites-that-are-quietly-exploding-470f",
+      "image": "/images/feed/feed-a4293697090e.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-86e3bf932c1d",
+      "title": "Express.js Transactional Email Service Wrapper: 5 Retry and Logging Layers",
+      "excerpt": "A welcome email should leave the request path quickly, but accepting a job is not the same as delivering a message. The reliable design is a small Node.js service wrapper around a direct email API, ba…",
+      "body": "A welcome email should leave the request path quickly, but accepting a job is not the same as delivering a message. The reliable design is a small Node.js service wrapper around a direct email API, backed by a durable queue, a suppression check, stored provider message IDs, and polling for delivery events. Do not build this around SMTP when the chosen capability is API-only. The API boundary gives the application enough structure to decide what may be retried and what must be suppressed. TL;DR: enqueue one idempotent welcome-email job, check suppression immediately before each send, persist the returned message ID, and poll message events into a local delivery record. A bounce should update suppression before another queued job can target that address.",
+      "author": "ThatcherCole8235",
+      "date": "2026-10-14",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 32,
+      "url": "https://dev.to/thatchercole8235/expressjs-transactional-email-service-wrapper-5-retry-and-logging-layers-3djh",
+      "image": "/images/feed/feed-86e3bf932c1d.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-00202bc7740b",
+      "title": "Free Privacy-First Web Utilities Every Developer Needs (100% Client-Side)",
+      "excerpt": "As web creators and developers, we frequently need quick micro-tools: formatting JSON data, compressing images, or generating QR codes. Most free web tools are packed with intrusive ads, heavy trackin…",
+      "body": "As web creators and developers, we frequently need quick micro-tools: formatting JSON data, compressing images, or generating QR codes. Most free web tools are packed with intrusive ads, heavy tracking scripts, or require backend file processing. To solve this, I put together TaskKit Tools — a lightweight suite of fast, privacy-focused utilities designed to run 100% client-side in your browser. 🛡️ Why Client-Side First? Complete Data Privacy: Your uploaded images, JSON files, or text never hit an external server. Instant Performance: No waiting for server responses or loading ad networks. No Registration: Open and use immediately without friction. 🛠️ What's Included: JSON Formatter &amp; Validator: Instantly format and inspect JSON payloads.",
+      "author": "Moha Bazgra",
+      "date": "2026-10-14",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Developer"
       ],
       "featured": false,
-      "xpReward": 35,
-      "url": "https://dev.to/ortizdavid/breakdown-de-calculos-a-formula-que-conta-a-propria-historia-432i",
-      "image": "/images/feed/feed-ed1a201a50e9.webp",
+      "xpReward": 53,
+      "url": "https://dev.to/moha_bazgra_20b8da15ac933/free-privacy-first-web-utilities-every-developer-needs-100-client-side-1abm",
+      "image": "/images/feed/feed-00202bc7740b.webp",
       "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-85dac155f730",
+      "title": "Apple challenges Taction’s $5.7B patent verdict, says damages were based on ‘guesswork’",
+      "excerpt": "Apple is asking a federal judge to overturn a $5.7 billion verdict in a patent infringement lawsuit brought by Taction Technology over the Taptic Engine used in iPhones and Apple Watches. Here are the…",
+      "body": "Apple is asking a federal judge to overturn a $5.7 billion verdict in a patent infringement lawsuit brought by Taction Technology over the Taptic Engine used in iPhones and Apple Watches. Here are the — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Marcus Mendes",
+      "date": "2026-10-14",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 51,
+      "url": "https://9to5mac.com/2026/10/13/apple-challenges-tactions-5-7b-patent-verdict-says-damages-were-based-on-guesswork/",
+      "image": "/images/feed/feed-85dac155f730.jpg",
+      "source": "9to5Mac",
+      "isLive": true
+    },
+    {
+      "id": "feed-c1014907eec6",
+      "title": "Volt Solar Tile Update",
+      "excerpt": "Volt CEO Peter Leeson and I caught up on Teams this afternoon to discuss the progress of the Volt solar tile. You will have read about his revolutionary product on CleanTechnica here and here. When we…",
+      "body": "Volt CEO Peter Leeson and I caught up on Teams this afternoon to discuss the progress of the Volt solar tile. You will have read about his revolutionary product on CleanTechnica here and here. When we last spoke, two years ago, Peter was all set to launch his product on ... [continued] The post Volt Solar Tile Update appeared first on CleanTechnica .",
+      "author": "David Waterworth",
+      "date": "2026-10-14",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Cars"
+      ],
+      "featured": false,
+      "xpReward": 43,
+      "url": "https://cleantechnica.com/2026/10/13/volt-solar-tile-update/",
+      "image": "/images/feed/feed-c1014907eec6.png",
+      "source": "CleanTechnica",
       "isLive": true
     },
     {
@@ -147,7 +185,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 35,
       "url": "https://9to5mac.com/2026/10/13/heres-how-much-it-costs-to-repair-the-new-apple-homeview/",
       "image": "/images/feed/feed-baf2160c748a.jpg",
       "source": "9to5Mac",
@@ -155,9 +193,9 @@
     },
     {
       "id": "feed-11085cac3828",
-      "title": "What Happens to the Fossil Fuel Ecosystem as EVs Take Over the Road Fleet? Case Study: Denmark",
+      "title": "What Happens To The Fossil Fuel Ecosystem As EVs Take Over The Road Fleet? Case Study: Denmark",
       "excerpt": "There is more to the electric vehicle resolution than endless stats. What about the rest of the ecosystem? This article was inspired by a chat with a correspondent in Denmark. Once a month, Majella an…",
-      "body": "There is more to the electric vehicle resolution than endless stats. What about the rest of the ecosystem? This article was inspired by a chat with a correspondent in Denmark. Once a month, Majella and I host a coffee morning for EV drivers, and those who are interested in the ... [continued] The post What Happens to the Fossil Fuel Ecosystem as EVs Take Over the Road Fleet? Case Study: Denmark appeared first on CleanTechnica .",
+      "body": "There is more to the electric vehicle resolution than endless stats. What about the rest of the ecosystem? This article was inspired by a chat with a correspondent in Denmark. Once a month, Majella and I host a coffee morning for EV drivers, and those who are interested in the ... [continued] The post What Happens To The Fossil Fuel Ecosystem As EVs Take Over The Road Fleet? Case Study: Denmark appeared first on CleanTechnica .",
       "author": "David Waterworth",
       "date": "2026-10-14",
       "readTime": "2 min",
@@ -166,7 +204,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 48,
       "url": "https://cleantechnica.com/2026/10/13/what-happens-to-the-fossil-fuel-ecosystem-as-evs-take-over-the-road-fleet-case-study-denmark/",
       "image": "/images/feed/feed-11085cac3828.jpg",
       "source": "CleanTechnica",
@@ -185,7 +223,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 38,
       "url": "https://www.polygon.com/forgotten-square-enix-rpgs/",
       "image": "/images/feed/feed-393addd32d85.jpg",
       "source": "Polygon",
@@ -204,7 +242,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 44,
       "url": "https://www.engadget.com/2282502/smart-tv-brands-offer-longest-software-support/",
       "image": "/images/feed/feed-dda8c9955511.jpg",
       "source": "Engadget",
@@ -223,7 +261,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 39,
       "url": "https://www.androidauthority.com/wide-screen-phone-dual-200mp-cameras-mid-range-3722883/",
       "image": "/images/feed/feed-8658b5fdc9d2.jpg",
       "source": "Android Authority",
@@ -242,7 +280,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 38,
       "url": "https://www.engadget.com/2282398/mini-displayport-becoming-obsolete/",
       "image": "/images/feed/feed-951909c4a8bb.jpg",
       "source": "Engadget",
@@ -261,7 +299,7 @@
         "Security"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 34,
       "url": "https://krebsonsecurity.com/2026/10/microsoft-patches-more-than-1400-security-flaws/",
       "image": "/images/topics/topic-cybersecurity.png",
       "source": "Krebs on Security",
@@ -280,7 +318,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 45,
       "url": "https://www.wired.com/story/an-openai-employee-allegedly-used-a-chatbot-to-help-plant-a-recording-device-at-the-office/",
       "image": "/images/feed/feed-2fdbd66b823f.jpg",
       "source": "Wired",
@@ -299,9 +337,9 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 47,
       "url": "https://techcrunch.com/2026/10/13/science-corporation-implants-its-vision-restoring-chip-in-its-first-stargardt-disease-patient/",
-      "image": "/images/feed/feed-f698b7de989c.jpg",
+      "image": "/images/feed/feed-f698b7de989c.webp",
       "source": "TechCrunch",
       "isLive": true
     },
@@ -318,7 +356,7 @@
         "Smartphone"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 35,
       "url": "https://9to5mac.com/2026/10/13/idc-apple-gains-ground-as-chinas-smartphone-shipments-plunge-15-4-in-q3-2026/",
       "image": "/images/feed/feed-a6d980852cb8.jpg",
       "source": "9to5Mac",
@@ -337,7 +375,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 39,
       "url": "https://www.ign.com/articles/visionquest-recap-what-you-need-to-remember-before-the-new-mcu-show",
       "image": "/images/feed/feed-2b7034e29a9e.jpg",
       "source": "IGN",
@@ -356,7 +394,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 51,
       "url": "https://www.ign.com/articles/peak-has-been-leaked-for-ps5-by-the-esrb",
       "image": "/images/feed/feed-8c6af074eefe.png",
       "source": "IGN",
@@ -375,7 +413,7 @@
         "Electric Car"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 41,
       "url": "https://electrek.co/2026/10/13/electric-cars-saved-20b-in-oil-and-the-us-is-falling-behind/",
       "image": "/images/feed/feed-58da06b9ad3d.jpg",
       "source": "Electrek",
@@ -394,7 +432,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 30,
       "url": "https://www.polygon.com/mtg-best-marvel-card-designs-magic-the-gathering-super-heroes/",
       "image": "/images/feed/feed-63f2c0225189.jpg",
       "source": "Polygon",
@@ -413,28 +451,9 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 53,
       "url": "https://www.engadget.com/2282288/how-to-improve-online-privacy-security-google-chrome/",
       "image": "/images/feed/feed-9ff30feef238.jpg",
-      "source": "Engadget",
-      "isLive": true
-    },
-    {
-      "id": "feed-25fae9e92347",
-      "title": "Apple TV 4K 2022 vs. 2026: What's new and is it worth the $100 jump?",
-      "excerpt": "The 2026 model is faster and can hear you from afar, but the 2022 box gets Siri AI as well.",
-      "body": "The 2026 model is faster and can hear you from afar, but the 2022 box gets Siri AI as well.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Luke James)",
-      "date": "2026-10-13",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 43,
-      "url": "https://www.engadget.com/2286141/apple-tv-4k-2022-vs-2026-whats-new-worth-100-price-increase/",
-      "image": "/images/feed/feed-25fae9e92347.jpg",
       "source": "Engadget",
       "isLive": true
     },
@@ -451,7 +470,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 50,
       "url": "https://www.ign.com/articles/steelseries-aeon-pro-wireless-gaming-controller-deal-october-2026",
       "image": "/images/feed/feed-9036bbf3a5ff.jpg",
       "source": "IGN",
@@ -470,7 +489,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 49,
       "url": "https://www.ign.com/articles/bose-quietcomfort-noise-canceling-headphone-deal-october-2026",
       "image": "/images/feed/feed-1e9a7dd20ed1.jpg",
       "source": "IGN",
@@ -489,7 +508,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 38,
       "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/openai-engineer-arrested-for-allegedly-planting-spy-device-in-office/",
       "image": "/images/feed/feed-c534e0b48f65.jpg",
       "source": "BleepingComputer",
@@ -508,7 +527,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 33,
       "url": "https://www.ign.com/articles/razer-reveals-3-new-pokemon-gaming-headsets-based-on-sylveon-charizard-lucario",
       "image": "/images/feed/feed-6f9266dda112.jpg",
       "source": "IGN",
@@ -527,7 +546,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 54,
       "url": "https://cleantechnica.com/2026/10/13/the-citroen-2-cv-is-back-and-ready-for-the-21st-century/",
       "image": "/images/feed/feed-3dcc3d0f0dec.jpg",
       "source": "CleanTechnica",
@@ -546,7 +565,7 @@
         "Hacker"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 46,
       "url": "https://www.bleepingcomputer.com/news/security/ghostscript-flaw-lets-hackers-hijack-servers-via-pdf-uploads/",
       "image": "/images/feed/feed-084b4c36c8a7.jpg",
       "source": "BleepingComputer",
@@ -565,7 +584,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 48,
       "url": "https://www.bleepingcomputer.com/news/security/anthropic-warns-self-replicating-ai-could-spread-to-your-smart-devices/",
       "image": "/images/feed/feed-50b4652e1a45.jpg",
       "source": "BleepingComputer",
@@ -584,7 +603,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 30,
       "url": "https://electrek.co/2026/10/13/bmw-i3-nearly-80-less-a-month-to-lease-than-new-ix3/",
       "image": "/images/feed/feed-08204e7e16f1.jpg",
       "source": "Electrek",
@@ -603,7 +622,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 30,
       "url": "https://www.space.com/space-exploration/on-this-day-in-space-october-13-2026",
       "image": "/images/feed/feed-4f92b0195235.jpg",
       "source": "Space.com",
@@ -622,9 +641,9 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 48,
       "url": "https://techcrunch.com/2026/10/13/fbi-arrests-openai-employee-accused-of-planting-hidden-recording-device-in-conference-room/",
-      "image": "/images/feed/feed-790b86b76701.jpg",
+      "image": "/images/feed/feed-790b86b76701.webp",
       "source": "TechCrunch",
       "isLive": true
     },
@@ -641,30 +660,10 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 47,
       "url": "https://www.theverge.com/ai-artificial-intelligence/1010642/openai-employee-arrested-recording-device",
       "image": "/images/feed/feed-40b44721e47f.jpg",
       "source": "The Verge",
-      "isLive": true
-    },
-    {
-      "id": "feed-c5299f778fcc",
-      "title": "NASA Names Astronaut Christina Koch Acting Deputy Chief Engineer",
-      "excerpt": "NASA engineer and astronaut Christina Koch will serve as the agency’s acting deputy chief engineer beginning on Sunday, Nov. 1, following the retirement of Katherine Van Hooser, who will conclude more…",
-      "body": "NASA astronaut Christina Koch stands inside Kennedy Space Center’s Vehicle Assembly Building on July 14, 2021, in front of the agency’s Space Launch System (SLS) rocket that ultimately powered the Orion spacecraft on the Artemis I mission. Koch later served as a crew member on the Artemis II mission in 2026, and on Oct. 13, 2026, NASA announced she will serve next as the agency’s acting deputy chief engineer. NASA/Glenn Benson NASA engineer and astronaut Christina Koch will serve as the agency’s acting deputy chief engineer beginning on Sunday, Nov. 1, following the retirement of Katherine Van Hooser, who will conclude more than 35 years of distinguished service to the agency on Wednesday, Oct. 21.",
-      "author": "Gerelle Q. Dodson",
-      "date": "2026-10-13",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Nasa",
-        "Astronaut"
-      ],
-      "featured": false,
-      "xpReward": 54,
-      "url": "https://www.nasa.gov/news-release/nasa-names-astronaut-christina-koch-acting-deputy-chief-engineer/",
-      "image": "/images/feed/feed-c5299f778fcc.jpg",
-      "source": "NASA Breaking News",
       "isLive": true
     },
     {
@@ -699,7 +698,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 41,
       "url": "https://sfstandard.com/2026/10/13/openai-engineer-arrested-alleged-bugging-executive-conference-room/",
       "image": "/images/feed/feed-ca574f14ed06.png",
       "source": "Hacker News",
@@ -718,7 +717,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 49,
       "url": "https://www.space.com/entertainment/space-movies-shows/we-basically-did-top-gun-in-space-star-trek-starfleet-academy-warps-back-into-action-in-march-2027-for-sophomore-year-in-the-final-frontier",
       "image": "/images/feed/feed-e184e289ab4e.jpg",
       "source": "Space.com",
@@ -757,7 +756,7 @@
         "Patch Tuesday"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 38,
       "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-october-2026-patch-tuesday-fixes-1-411-flaws-3-zero-days/",
       "image": "/images/feed/feed-f0f2ab1be0f9.jpg",
       "source": "BleepingComputer",
@@ -795,7 +794,7 @@
         "Security"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 38,
       "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-releases-windows-10-kb5126657-extended-security-update/",
       "image": "/images/feed/feed-34f7ce1ae7b6.jpg",
       "source": "BleepingComputer",
@@ -816,7 +815,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 36,
       "url": "https://electrek.co/2026/10/13/rivian-mind-robotics-doug-field-president-tesla-ford/",
       "image": "/images/feed/feed-51b4c169e78b.jpg",
       "source": "Electrek",
@@ -836,29 +835,10 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 47,
       "url": "https://www.wired.com/story/openai-and-anthropic-tell-british-lawmakers-regulate-us/",
       "image": "/images/feed/feed-b54ca03dadd8.jpg",
       "source": "Wired",
-      "isLive": true
-    },
-    {
-      "id": "feed-fc5df718ba58",
-      "title": "EV Sales Rebound To Their Highest Level In A Year",
-      "excerpt": "EVs seem to be bouncing back after a tough year.",
-      "body": "EVs seem to be bouncing back after a tough year.\n\nThis report, published by InsideEVs, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Ev. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to InsideEVs using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "InsideEVs",
-      "date": "2026-10-13",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Ev"
-      ],
-      "featured": false,
-      "xpReward": 50,
-      "url": "https://insideevs.com/news/811825/ev-sales-q3-2026/",
-      "image": "/images/feed/feed-fc5df718ba58.jpg",
-      "source": "InsideEVs",
       "isLive": true
     },
     {
@@ -874,7 +854,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 30,
       "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-windows-11-24h2-home-and-pro-reached-end-of-support/",
       "image": "/images/feed/feed-5acd99687720.jpg",
       "source": "BleepingComputer",
@@ -893,9 +873,9 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 39,
       "url": "https://techcrunch.com/2026/10/13/forget-rockets-longshot-wants-to-fire-cargo-into-space-from-a-gun-see-it-at-techcrunch-disrupt-2026/",
-      "image": "/images/feed/feed-035e4b97e676.jpg",
+      "image": "/images/feed/feed-035e4b97e676.webp",
       "source": "TechCrunch",
       "isLive": true
     },
@@ -919,11 +899,11 @@
       "isLive": true
     },
     {
-      "id": "feed-5064b489b4f5",
-      "title": "Comparing Off-World Rover Driving Distances",
-      "excerpt": "Description This infographic illustrates the distances driven by various rovers on the surface of Earth’s Moon and Mars. Of the vehicles shown, the NASA Mars rovers Perseverance and Curiosity are stil…",
-      "body": "1 Min Read Comparing Off-World Rover Driving Distances PIA26814 Credits: NASA/JPL-Caltech Photojournal Navigation Science Photojournal Comparing Off-World Rover… Photojournal Home Photojournal Search Latest Content Galleries Feedback RSS About Downloads Comparing Off-World Rover Driving Distances PNG (568.05 KB) Description This infographic illustrates the distances driven by various rovers on the surface of Earth’s Moon and Mars. Of the vehicles shown, the NASA Mars rovers Perseverance and Curiosity are still operational and moving across the surface; the figures shown for those two are distances driven as of Oct. 11, 2026.",
-      "author": "NASA Breaking News",
+      "id": "feed-3f3c06262639",
+      "title": "How to watch 'VisionQuest' online — stream the MCU's 'WandaVision' spinoff series from anywhere",
+      "excerpt": "How to watch \"VisionQuest\", the MCU spinoff starring Paul Bettany, James Spader and Todd Stashwick. Cheapest options, where to watch in US, UK, Canada, Australia and beyond.",
+      "body": "Vision (Paul Bettany) is laying low, working the pumps at an Edinburgh pub at the outset of new eight-part Marvel Television entry \"VisionQuest\", and understandably so given how much the synthezoid has been through. Resurrected and restored after being sacrificed for the greater good in \"Avengers: Infinity War\", albeit as an ever-more-disconnected version of what came before, he now spends every other waking hour retreating into a big white house deep within his mindspace, to chew the fat with AI agents J.A.R.V.I.S. (Brian D’Arcy), F.R.I.D.A.Y. (Orla Brady), D.U.M-E (Henry Lewis), U (Jonathan Sayer) and E.D.I.T.H. (Emily Hampshire), and a wisecracking Ultron (James Spader).",
+      "author": " Tom Bailey ",
       "date": "2026-10-13",
       "readTime": "2 min",
       "section": "space",
@@ -931,24 +911,45 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 39,
-      "url": "https://science.nasa.gov/photojournal/comparing-off-world-rover-driving-distances/",
-      "image": "/images/feed/feed-5064b489b4f5.png",
-      "source": "NASA Breaking News",
+      "xpReward": 38,
+      "url": "https://www.space.com/entertainment/space-movies-shows/how-to-watch-visionquest",
+      "image": "/images/feed/feed-3f3c06262639.jpg",
+      "source": "Space.com",
+      "isLive": true
+    },
+    {
+      "id": "feed-d0c56909fb73",
+      "title": "SpaceX rocket launch creates incredible 'space jellyfish' visible throughout US East Coast (photos)",
+      "excerpt": "The SpaceX cargo launch to the International Space Station on Tuesday morning (Oct. 13) created a dazzling display seen up and down the US East Coast.",
+      "body": "Rockets are launching to space on a near-daily basis these days, but short of livestreaming a liftoff from the comfort of your Wi-Fi router, relatively few spectators are in the right place and time to see one with their own eyes. That wasn't the case Tuesday morning (Oct. 13), when SpaceX launched the CRS-35 mission for NASA . A Falcon 9 rocket lifted off from Pad 40 at Cape Canaveral Space Force Station in Florida at 6:35 a.m. EDT (1035 GMT), carrying a cargo variant of SpaceX's Dragon spacecraft on the company's 35th commercial resupply mission to the International Space Station (ISS). Following the northward path of the space station's orbit at the time, the rocket flew a trajectory along the United States' East Coast.",
+      "author": " Josh Dinner ",
+      "date": "2026-10-13",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Spacex",
+        "Rocket Launch",
+        "Space"
+      ],
+      "featured": false,
+      "xpReward": 42,
+      "url": "https://www.space.com/space-exploration/launches-spacecraft/spacex-rocket-launch-creates-incredible-space-jellyfish-visible-throughout-us-east-coast-photos",
+      "image": "/images/feed/feed-d0c56909fb73.jpg",
+      "source": "Space.com",
       "isLive": true
     }
   ],
   "breakingNews": [
-    "DEV.TO: Postgres Retrieval Architecture: Multi-Tenant SaaS Help Center Schema Design",
-    "DEV.TO: Lovable Cloud: What You Actually Get",
-    "DEV.TO: How to Build a Trade-Rejection Layer for a Polymarket Bot in Python",
-    "DEV.TO: Build an invoice-extraction pilot that cannot write to the accounting ledger",
-    "DEV.TO: The artifact worth reviewing when agents write the code",
-    "DEV.TO: Workday Is Buying Identity for AI Agents. Let's Build a Tiny Access Grant in TypeScript.",
-    "DEV.TO: Breakdown de Cálculos: A Fórmula que Conta a Própria História",
-    "9TO5MAC: Here’s how much it costs to repair the new Apple HomeView",
-    "CLEANTECHNICA: What Happens to the Fossil Fuel Ecosystem as EVs Take Over the Road Fleet? Case Study: Denmark",
-    "POLYGON: 5 Forgotten Square Enix RPGs That Deserve a Comeback"
+    "DEV.TO: Building a Distributed GPU Cluster for LLM Inference on Idle Apple Silicon Macs",
+    "DEV.TO: Nobody told the person who needed to know",
+    "DEV.TO: Multi-tenant SaaS with branch-level RBAC in Next.js + Node: a practical architecture",
+    "DEV.TO: Selling downloads across borders: a field guide for buyers who are never in your time zone",
+    "DEV.TO: How to Discover New Websites That Are Quietly Exploding",
+    "DEV.TO: Express.js Transactional Email Service Wrapper: 5 Retry and Logging Layers",
+    "DEV.TO: Free Privacy-First Web Utilities Every Developer Needs (100% Client-Side)",
+    "9TO5MAC: Apple challenges Taction’s $5.7B patent verdict, says damages were based on ‘guesswork’",
+    "CLEANTECHNICA: Volt Solar Tile Update",
+    "9TO5MAC: Here’s how much it costs to repair the new Apple HomeView"
   ],
   "sectionVideos": {}
 }
