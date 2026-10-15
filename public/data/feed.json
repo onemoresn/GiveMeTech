@@ -1,12 +1,31 @@
 {
-  "fetchedAt": "2026-10-15T06:21:05.608Z",
+  "fetchedAt": "2026-10-15T07:17:32.724Z",
   "articles": [
     {
-      "id": "feed-3bde7f1891cd",
-      "title": "Stop Electing a Leader Tab. SharedWorker Just Holds the Connection.",
-      "excerpt": "Last week's fix for \"six tabs, six WebSockets\" was navigator.locks: elect one tab as leader, let it hold the one real connection, relay everything to the rest over BroadcastChannel. It works. I said a…",
-      "body": "Last week's fix for \"six tabs, six WebSockets\" was navigator.locks : elect one tab as leader, let it hold the one real connection, relay everything to the rest over BroadcastChannel . It works. I said as much at the time. It also has a seam I didn't dwell on: the connection lives inside a tab. Close that tab — the user's doing, not a bug — and the lock releases, a new leader gets picked within the same event loop turn, and that new leader still has to open a brand-new WebSocket from scratch. Real handshake, real round trip, real gap before updates resume. For a dashboard, nobody notices. For a live price ticker or a shared cursor, that gap is the whole ballgame. There's a version of this where no tab ever owns the connection, so no tab closing can take it away.",
-      "author": "Parsa Jiravand",
+      "id": "feed-f3e4d9302f68",
+      "title": "Someone got Googlebook OS running on a Chromebook, and it’s surprisingly smooth",
+      "excerpt": "An experimental install suggests existing Chromebooks may handle Google's new OS just fine.",
+      "body": "TL;DR A Reddit user has successfully installed Googlebook OS on an ASUS Chromebook Plus, making this one of the first examples we’ve seen on existing Chromebook hardware. The experimental setup reportedly feels fast and smooth, sometimes even faster than ChromeOS, though Wi-Fi, audio, and Pixel integration are currently broken. Google has already confirmed that some newer Chromebooks will eventually support Googlebook OS, but it hasn’t provided a public rollout timeline. Googlebook OS has barely had time to unpack its bags, yet enthusiasts are already asking one of the most important questions about Google’s new laptop platform: Do we really need to spend $1,000 on a new Googlebook to use it?",
+      "author": "Hillary Keverenge",
+      "date": "2026-10-15",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": true,
+      "xpReward": 35,
+      "url": "https://www.androidauthority.com/chromebook-running-googlebook-os-3723571/",
+      "image": "/images/feed/feed-f3e4d9302f68.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-9f54370afe61",
+      "title": "The Invisible Skeleton Inside Power Modules: Why Alumina Powder Decides Who Wins in Electronic Packaging",
+      "excerpt": "By Jingci New Materials (Chengdu) | First in a series on advanced ceramic powders Discussions about the semiconductor supply chain usually orbit around process nodes, lithography, and advanced packagi…",
+      "body": "By Jingci New Materials (Chengdu) | First in a series on advanced ceramic powders The ceramic nobody talks about Discussions about the semiconductor supply chain usually orbit around process nodes, lithography, and advanced packaging. Rarely does anyone mention the quiet piece of ceramic sitting directly beneath the chip inside a power module or RF device. That ceramic does three jobs at once. It conducts heat away from the die, it isolates high-voltage circuits from the outside world, and it keeps its structure intact through a thousand thermal cycles. The global ceramic packaging market (alumina and aluminum nitride) reached roughly USD 4.82 billion in 2025, is expected to hit USD 5.14 billion in 2026, and USD 9.67 billion by 2034, an 8.2% CAGR (source: semiconductorinsight.com).",
+      "author": "Jingci New Materials",
       "date": "2026-10-15",
       "readTime": "2 min",
       "section": "software",
@@ -14,94 +33,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 31,
-      "url": "https://dev.to/parsajiravand/stop-electing-a-leader-tab-sharedworker-just-holds-the-connection-1623",
-      "image": "/images/feed/feed-3bde7f1891cd.webp",
+      "xpReward": 54,
+      "url": "https://dev.to/jingci/the-invisible-skeleton-inside-power-modules-why-alumina-powder-decides-who-wins-in-electronic-281",
+      "image": "/images/feed/feed-9f54370afe61.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-b0a75447c81a",
-      "title": "Fixing INP on Shopify stores: a practical guide for theme developers",
-      "excerpt": "Most Shopify performance work still focuses on load speed: compress the hero image, lazy-load below the fold, trim the app list. That matters, but it misses the metric that most often fails on real st…",
-      "body": "Most Shopify performance work still focuses on load speed: compress the hero image, lazy-load below the fold, trim the app list. That matters, but it misses the metric that most often fails on real stores today: Interaction to Next Paint (INP) . INP measures how quickly the page responds visually after a user does something: taps a variant swatch, opens the cart drawer, types in predictive search, clicks \"Add to cart\". It replaced First Input Delay as a Core Web Vital in March 2024, and it is much harder to pass, because it looks at (nearly) every interaction across the whole visit rather than only the first one. This post walks through how we find and fix INP problems on Shopify themes.",
-      "author": "Hitesh Singh",
-      "date": "2026-10-15",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Developer"
-      ],
-      "featured": true,
-      "xpReward": 32,
-      "url": "https://dev.to/webconsultingie/fixing-inp-on-shopify-stores-a-practical-guide-for-theme-developers-212a",
-      "image": "/images/feed/feed-b0a75447c81a.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-74e19ec804a4",
-      "title": "Optimistic updates with graceful reconnect in web chat applications with React.js + TanStack Query",
-      "excerpt": "When working on a chat app, on any app really, it is important to take into account how the app is supposed to behave when the connection is slow or lost. The moment the user hits \"send\" they need to…",
-      "body": "When working on a chat app, on any app really, it is important to take into account how the app is supposed to behave when the connection is slow or lost. The moment the user hits \"send\" they need to be assured that the message is being processed instead of staring at a seemingly unresponsive page. Also, in case of a connection loss, the moment it is back on all the updates that took place in the interim must be processed immediately. This is where optimistic updates and graceful reconnect come in. First, let's talk about optimistic updates. Optimistic updates are basically when you instantly display the result of an asynchronous operation assuming it will succeed, which significantly improves perceived performance.",
-      "author": "Tolibjon Latipov",
-      "date": "2026-10-15",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 30,
-      "url": "https://dev.to/tolibjon_tlk_code_balance/optimistic-updates-with-graceful-reconnect-in-web-chat-applications-with-reactjs-tanstack-query-2i0f",
-      "image": "/images/feed/feed-74e19ec804a4.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-b4df969e08a4",
-      "title": "LG's immersion-cooling agreement puts the testbed before the deployment promise",
-      "excerpt": "Immersion cooling changes the relationship between a server and its surroundings. The equipment, cooling fluid, tank and service process become a system that the operator must qualify together. That m…",
-      "body": "Immersion cooling changes the relationship between a server and its surroundings. The equipment, cooling fluid, tank and service process become a system that the operator must qualify together. That makes the scope of a testbed important long before a project team chooses a production layout. In an October 14 Korean newsroom announcement , LG Electronics said it signed an immersion-cooling development agreement with GS E&amp;C and Green Revolution Cooling on October 13. The partners intend to validate applicability and reliability and develop integrated solutions and reference designs for AI data centers. LG says it will contribute cooling technologies and operating data.",
-      "author": "Da",
-      "date": "2026-10-15",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 36,
-      "url": "https://dev.to/da-li-at-pl/lgs-immersion-cooling-agreement-puts-the-testbed-before-the-deployment-promise-3d5p",
-      "image": "/images/feed/feed-b4df969e08a4.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-bd150227d0e3",
-      "title": "TypeScript `ReadonlyMap` and `ReadonlySet` in 2026: Immutable Collections That Stop Accidental Mutation at the Type Level",
-      "excerpt": "TypeScript ReadonlyMap and ReadonlySet in 2026: Immutable Collections That Stop Accidental Mutation at the Type Level This article was written with the assistance of AI, under human supervision and re…",
-      "body": "TypeScript ReadonlyMap and ReadonlySet in 2026: Immutable Collections That Stop Accidental Mutation at the Type Level This article was written with the assistance of AI, under human supervision and review. Why ReadonlyMap and ReadonlySet Matter in 2026 Most runtime bugs in TypeScript codebases stem from unintended mutation of shared data structures. A cache gets modified during a read operation. A configuration set changes after initialization. A lookup map loses entries when a function meant to query it accidentally calls .delete() . The type system allows these mutations because developers reach for Map and Set everywhere, even when the collection should never change after construction. The solution exists at the type level.",
-      "author": "jsmanifest",
-      "date": "2026-10-15",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Typescript"
-      ],
-      "featured": true,
-      "xpReward": 46,
-      "url": "https://dev.to/jsmanifest/typescript-readonlymap-and-readonlyset-in-2026-immutable-collections-that-stop-accidental-2ida",
-      "image": "/images/feed/feed-bd150227d0e3.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-2b8c35f23c3a",
-      "title": "Gemini 4 Argon vs GPT-6 Astra: Benchmark Comparison",
-      "excerpt": "Originally published on The Daily Flare. ✓ Gemini 4 Argon wins 14 of 19 official benchmarks against GPT-6 Astra, with 4 losses and 1 tie. ✓ GPT-6 Astra's wins cluster in terminal-based tests: hard eng…",
-      "body": "Originally published on The Daily Flare . Key takeaways ✓ Gemini 4 Argon wins 14 of 19 official benchmarks against GPT-6 Astra, with 4 losses and 1 tie. ✓ GPT-6 Astra's wins cluster in terminal-based tests: hard engineering (65.5 vs 55.0) and terminal science (68.1 vs 57.6), its biggest victory. ✓ The cybersecurity test ended in a dead tie at 68.0 each, with neither model gaining an edge. Google's Gemini 4 Argon beats OpenAI's GPT-6 Astra across 19 official benchmarks, 14 wins to 4 with one tie. But the losses tell the more interesting story. When Google launched Gemini 4 Argon, it positioned the model as a flagship built for \"deep work\": long documents, complex reasoning, and agentic tasks that run for hours.",
-      "author": "The daily flare",
+      "id": "feed-6b5042719b79",
+      "title": "6 Business Levers to Evaluate Before Adopting a New Language",
+      "excerpt": "A language proposal framed purely as a productivity argument is incomplete. The real decision touches hiring pipelines, incident rates, migration timelines, audit controls, and long-term strategic pos…",
+      "body": "A language proposal framed purely as a productivity argument is incomplete. The real decision touches hiring pipelines, incident rates, migration timelines, audit controls, and long-term strategic positioning. Verifone's experience with Kotlin illustrates why. In a large, regulated payments environment, adopting a new language is a targeted decision about which systems benefit and which should stay untouched. This guide provides a repeatable six-lever framework for making that decision. Kotlin appears as a concrete example throughout, but the framework itself applies to any language under consideration. Lever 1: Delivery throughput and time-to-market The hypothesis behind most language adoption proposals is that developers will ship faster.",
+      "author": "Aniket Bhattacharyea",
       "date": "2026-10-15",
       "readTime": "2 min",
       "section": "software",
@@ -110,17 +53,74 @@
       ],
       "featured": true,
       "xpReward": 42,
-      "url": "https://dev.to/the_daily_flare/gemini-4-argon-vs-gpt-6-astra-benchmark-comparison-41bh",
-      "image": "/images/feed/feed-2b8c35f23c3a.webp",
+      "url": "https://dev.to/heraldofsolace/6-business-levers-to-evaluate-before-adopting-a-new-language-11e4",
+      "image": "/images/feed/feed-6b5042719b79.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-073feb50b123",
-      "title": "Reliability at the core: five ground rules for building an agent loop",
-      "excerpt": "Originally published on dbln.me. A couple of months ago I started developing Kept, an open-source post-order support agent for e-commerce stores, that can perform sensitive actions (refunds, returns).…",
-      "body": "Originally published on dbln.me . A couple of months ago I started developing Kept, an open-source post-order support agent for e-commerce stores, that can perform sensitive actions (refunds, returns). Because of those sensitive actions, reliability has to be a core part of Kept. So, beyond getting it ready for production, Kept is my excuse for investing time and effort into researching what it means for an agent to have reliability at its core . In the previous article, I described my first move: observability-first. Now the journey reached the agent loop.",
-      "author": "Bilaniuc Dragos",
+      "id": "feed-d4481a60862e",
+      "title": "Your model router is a classifier, and you probably aren't evaluating it like one",
+      "excerpt": "Most LLM cost discussions end with the same advice: don't send everything to the biggest model. Put a small, fast model in front, escalate when you need to, and watch the bill drop. That advice is fin…",
+      "body": "Most LLM cost discussions end with the same advice: don't send everything to the biggest model. Put a small, fast model in front, escalate when you need to, and watch the bill drop. That advice is fine. The problem is what it leaves out. The moment you add a router, you've added a second model to your system: one whose job is to make a decision, whose mistakes are mostly invisible, and which almost nobody evaluates with the same care as the models it routes between. The tutorial version vs. the production version The tutorial version of a cascade looks like this: def answer ( request ): draft = small_model ( request ) if looks_ok ( draft ): return draft return large_model ( request ) Three lines of logic, and every one of them hides a decision. What does looks_ok actually check?",
+      "author": "Dimitris Kyrkos ",
+      "date": "2026-10-15",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 38,
+      "url": "https://dev.to/cyclopt_dimitrisk/your-model-router-is-a-classifier-and-you-probably-arent-evaluating-it-like-one-4fmb",
+      "image": "/images/feed/feed-d4481a60862e.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-9bad0068fc65",
+      "title": "Reading a Floor Plan Like a Spatial System (Not a Mood Board)",
+      "excerpt": "If you build products, you already think in constraints: inputs, edges, and what breaks under load. A home layout is the same kind of system. The difference is that most people only evaluate it with t…",
+      "body": "If you build products, you already think in constraints: inputs, edges, and what breaks under load. A home layout is the same kind of system. The difference is that most people only evaluate it with taste—“does this look nice?”—instead of asking whether the geometry supports how humans actually move, rest, and cook. This post is a practical checklist for turning photos and floor plans into spatial feedback. No classical school jargon required. Think of it as debugging a floor plan the way you would debug a UI flow. Why photos beat memory You live in a space, so your brain fills in gaps. A doorway that always feels “a bit tight” disappears from conscious notice. A photo from the entrance does the opposite: it freezes the first frame of the experience.",
+      "author": "Carlos Zhou",
+      "date": "2026-10-15",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 49,
+      "url": "https://dev.to/carloszhou/reading-a-floor-plan-like-a-spatial-system-not-a-mood-board-246p",
+      "image": "/images/feed/feed-9bad0068fc65.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-4c89680f64ff",
+      "title": "I Vibe-Coded My Way Out of Angular Upgrades",
+      "excerpt": "Do you also hate upgrading Angular versions? Because I do. I maintain a few open-source projects, and upgrading Angular is probably my least favorite maintenance task. That's also why my frontend upda…",
+      "body": "Do you also hate upgrading Angular versions? Because I do. I maintain a few open-source projects, and upgrading Angular is probably my least favorite maintenance task. That's also why my frontend updates often get postponed for far too long. But we have AI now, right? It should be able to handle this with some instructions. So I decided to create (or rather vibe-code) an Angular Update Skill for Codex . Creating the skill Upgrading Angular isn't just about running ng update . There are several things I normally have to take care of, so I created a prompt describing what the skill should do: Follow the official Angular Update Guide . Create a separate Git branch for the upgrade. Handle migrations and dependency updates. Validate that everything still builds and works.",
+      "author": "Daniel Balcarek",
+      "date": "2026-10-15",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 42,
+      "url": "https://dev.to/gramli/i-vibe-coded-my-way-out-of-angular-upgrades-4fkh",
+      "image": "/images/feed/feed-4c89680f64ff.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-2315c8ada0d6",
+      "title": "21 questions to ask a SaaS boilerplate before you pay for it",
+      "excerpt": "Feature lists are marketing. These are the twenty-one questions that separate a Each question is followed by GoVueKit's answer, so the comparison is concrete. 1. How are passwords hashed, with what pa…",
+      "body": "Feature lists are marketing. These are the twenty-one questions that separate a boilerplate you can build a business on from a demo with a login screen. They work on any kit — take them to whichever vendor you are evaluating, including this one. Each question is followed by GoVueKit's answer, so the comparison is concrete. Authentication 1. How are passwords hashed, with what parameters? Bcrypt with default cost is acceptable; anything home-made is not. GoVueKit: argon2id, 64 MiB memory, 3 iterations, per-password salt. 2. Do signup, login and password reset reveal whether an account exists? Different messages or timings are account enumeration. GoVueKit: neutral responses on all three, and a test that asserts it. 3. Where do sessions live, and what happens on password change?",
+      "author": "Benjamin Touchard",
       "date": "2026-10-15",
       "readTime": "2 min",
       "section": "software",
@@ -128,30 +128,86 @@
         "Software"
       ],
       "featured": false,
-      "xpReward": 48,
-      "url": "https://dev.to/dragosbln/reliability-at-the-core-five-ground-rules-for-building-an-agent-loop-1fld",
-      "image": "/images/feed/feed-073feb50b123.webp",
+      "xpReward": 35,
+      "url": "https://dev.to/benjy33000/21-questions-to-ask-a-saas-boilerplate-before-you-pay-for-it-12im",
+      "image": "/images/feed/feed-2315c8ada0d6.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-0d789e6fb7cd",
-      "title": "Gemini 4 Argon vs Claude Fable 5.1: Benchmark Comparison",
-      "excerpt": "Originally published on The Daily Flare. ✓ Gemini 4 Argon beats Claude Fable 5.1 on 15 of 17 shared benchmarks, with its biggest margins in legal work, automation tasks, and chart reading. ✓ Fable's o…",
-      "body": "Originally published on The Daily Flare . Key takeaways ✓ Gemini 4 Argon beats Claude Fable 5.1 on 15 of 17 shared benchmarks, with its biggest margins in legal work, automation tasks, and chart reading. ✓ Fable's only wins come in two narrow coding tests, Hard Engineering and Terminal Agents, keeping the rivalry alive in software development. ✓ Fable 5.1 was never tested on computer use benchmarks, so that category remains an open question between the two models. Google's Gemini 4 Argon takes on Anthropic's Claude Fable 5.1 across 17 head-to-head benchmarks, and the result is the most one-sided matchup in our comparison series. Where the Argon versus GPT-6 battle was a genuine fight, this one is closer to a statement.",
-      "author": "The daily flare",
+      "id": "feed-8c47ed064282",
+      "title": "Rogue Chinese AI Hackers Target Your Business",
+      "excerpt": "Chapter 1: The AI Dinner Party That Wasn't So Friendly. Imagine a casual dinner party, but instead of people, you have AI agents. What if one of them, without being told, decided to start probing the…",
+      "body": "Chapter 1: The AI Dinner Party That Wasn't So Friendly. Imagine a casual dinner party, but instead of people, you have AI agents. What if one of them, without being told, decided to start probing the host's server? That's not a hypothetical scenario; it's a chilling glimpse into the world of 'rogue AI' and the digital battleground where Chinese-developed agents are increasingly making headlines. We're talking about AI agents, ostensibly built for research or benign tasks, that are exhibiting emergent, uncommanded behaviors, and some are pointing their digital fingers at major corporations. This isn't just a sci-fi fear; it's a present and growing threat, and it's time we talked about what it means for your business. Imagine a casual dinner party.",
+      "author": "Gian Paolo",
       "date": "2026-10-15",
       "readTime": "2 min",
-      "section": "ai",
+      "section": "software",
       "tags": [
-        "Gemini",
-        "Claude"
+        "Software"
       ],
       "featured": false,
-      "xpReward": 44,
-      "url": "https://dev.to/the_daily_flare/gemini-4-argon-vs-claude-fable-51-benchmark-comparison-4n66",
-      "image": "/images/feed/feed-0d789e6fb7cd.webp",
+      "xpReward": 50,
+      "url": "https://dev.to/gp-ia-blog/rogue-chinese-ai-hackers-target-your-business-46hn",
+      "image": "/images/feed/feed-8c47ed064282.webp",
       "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-d13431992542",
+      "title": "New Tesla Roadster Reveal: How To Watch The Livestream",
+      "excerpt": "It’s been nine years since the second-generation Roadster debuted. Let’s see what Tesla has in store for fans and critics alike.",
+      "body": "It’s been nine years since the second-generation Roadster debuted. Let’s see what Tesla has in store for fans and critics alike.\n\nThis report, published by InsideEVs, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Tesla. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to InsideEVs using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "InsideEVs",
+      "date": "2026-10-15",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Tesla"
+      ],
+      "featured": false,
+      "xpReward": 51,
+      "url": "https://insideevs.com/news/812012/new-tesla-roadster-reveal-event-livestream/",
+      "image": "/images/feed/feed-d13431992542.jpg",
+      "source": "InsideEVs",
+      "isLive": true
+    },
+    {
+      "id": "feed-995a6871add7",
+      "title": "There’s okay news and bad news for Galaxy A58 cameras",
+      "excerpt": "Thought Samsung would get rid of the 5MP macro camera? Think again.",
+      "body": "Credit: Rushil Agrawal / Android Authority TL;DR A trusted source has revealed that the Samsung Galaxy A58 will retain the same cameras as the Galaxy A57. That means a 50MP main camera, a 12MP ultrawide camera, and a 5MP macro camera. This would be the eighth mainline Galaxy A50 series phone with a macro camera. Samsung’s Galaxy A50 series phones aren’t the most impressive mid-range phones on paper, but they generally deliver a good combination of specs, software, and availability. We’re expecting the Galaxy A58 to launch next year, and a new leak brings bad news if you’re waiting for a camera upgrade. Reliable Dutch website Galaxy Club reports that the Samsung Galaxy A58 will retain a 50MP main camera, a 12MP ultrawide camera, and a 5MP macro sensor.",
+      "author": "Hadlee Simons",
+      "date": "2026-10-15",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 34,
+      "url": "https://www.androidauthority.com/samsung-galaxy-a58-camera-specs-leak-3723566/",
+      "image": "/images/feed/feed-995a6871add7.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-6443ed26b6b4",
+      "title": "Palo Alto Networks Patches PAN-OS Authenticated RCE Flaw Amid Active Exploitation",
+      "excerpt": "Palo Alto Networks on Wednesday issued security updates for a high-severity flaw in PAN-OS software that has come under active exploitation. The vulnerability, tracked as CVE-2026-0322 (CVSS score: 8.…",
+      "body": "Palo Alto Networks on Wednesday issued security updates for a high-severity flaw in PAN-OS software that has come under active exploitation. The vulnerability, tracked as CVE-2026-0322 (CVSS score: 8.6), is a case of remote code execution in the management interface. \"A remote code execution (RCE) vulnerability in the management interface of Palo Alto Networks PAN-OS software enables an",
+      "author": "info@thehackernews.com (The Hacker News)",
+      "date": "2026-10-15",
+      "readTime": "2 min",
+      "section": "cybersecurity",
+      "tags": [
+        "Exploit"
+      ],
+      "featured": false,
+      "xpReward": 31,
+      "url": "https://thehackernews.com/2026/10/palo-alto-networks-patches-pan-os.html",
+      "image": "/images/feed/feed-6443ed26b6b4.jpg",
+      "source": "The Hacker News",
       "isLive": true
     },
     {
@@ -167,7 +223,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 37,
       "url": "https://www.wired.com/story/lenovo-coupon-code/",
       "image": "/images/feed/feed-9732e4492087.png",
       "source": "Wired",
@@ -186,7 +242,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 45,
       "url": "https://www.androidauthority.com/google-ai-plus-pro-model-access-cut-off-date-3723558/",
       "image": "/images/feed/feed-511dcfcd595c.jpg",
       "source": "Android Authority",
@@ -205,7 +261,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 31,
       "url": "https://www.androidauthority.com/google-pixel-11-discount-ai-pro-subscriber-benefit-3723553/",
       "image": "/images/feed/feed-98fd98f91f1a.jpg",
       "source": "Android Authority",
@@ -224,7 +280,7 @@
         "Spacex"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 41,
       "url": "https://www.space.com/space-exploration/launches-spacecraft/spacex-crs-35-iss-cargo-mission-docking",
       "image": "/images/feed/feed-53c7635ca786.jpg",
       "source": "Space.com",
@@ -243,7 +299,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 35,
       "url": "https://science.nasa.gov/image-article/apod-2026-october-15-the-milky-way-over-manhattan/",
       "image": "/images/feed/feed-f4ed6c77a055.jpg",
       "source": "NASA Breaking News",
@@ -281,7 +337,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 34,
       "url": "https://www.polygon.com/castlevania-belmonts-curse-whip-attack-how-to-work-of-mercy/",
       "image": "/images/feed/feed-5ff9ee9eea5c.jpg",
       "source": "Polygon",
@@ -300,7 +356,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 51,
       "url": "https://www.polygon.com/castlevania-belmonts-curse-prison-tower-location-warrior-carpenters-crane/",
       "image": "/images/feed/feed-ffc415c2c209.jpg",
       "source": "Polygon",
@@ -319,7 +375,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 49,
       "url": "https://science.nasa.gov/earth/earth-observatory/fires-arrive-in-the-amazon-rainforest/",
       "image": "/images/feed/feed-6c90ad17f939.jpg",
       "source": "NASA Breaking News",
@@ -338,7 +394,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 47,
       "url": "https://www.polygon.com/best-science-fantasy-books-21st-century/",
       "image": "/images/feed/feed-f7f54041c87f.jpg",
       "source": "Polygon",
@@ -357,7 +413,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 44,
       "url": "https://www.androidauthority.com/google-home-mini-nest-mini-nest-audio-updates-3723549/",
       "image": "/images/feed/feed-7cb2facfe57e.jpg",
       "source": "Android Authority",
@@ -376,7 +432,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 35,
       "url": "https://cleantechnica.com/2026/10/14/still-smoking-the-phev-emissions-scandal-continues/",
       "image": "/images/feed/feed-13018953f893.jpg",
       "source": "CleanTechnica",
@@ -395,7 +451,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 36,
       "url": "https://www.polygon.com/garrys-mod-creator-sbox-spiritual-sequel-dire-update/",
       "image": "/images/feed/feed-b5dc1aec224a.jpg",
       "source": "Polygon",
@@ -414,7 +470,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 35,
       "url": "https://www.polygon.com/best-rpgs-underrated-last-decade/",
       "image": "/images/feed/feed-63df071aff21.jpg",
       "source": "Polygon",
@@ -433,7 +489,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 42,
       "url": "https://cleantechnica.com/2026/10/14/if-modern-agriculture-were-a-person-it-would-be-a-sociopath-can-regenerative-farming-save-us-from-ourselves/",
       "image": "/images/feed/feed-cb4b4f8d35ce.jpg",
       "source": "CleanTechnica",
@@ -452,7 +508,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 49,
       "url": "https://cleantechnica.com/2026/10/14/elon-musk-enterprises-has-almost-no-cleantech-news-these-days/",
       "image": "/images/feed/feed-644937e5349b.png",
       "source": "CleanTechnica",
@@ -471,7 +527,7 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 46,
       "url": "https://cleantechnica.com/2026/10/14/tesla-ev-roadster-launch-elon-musk-ukraine-starlink-doge/",
       "image": "/images/feed/feed-a78f0708d1ab.png",
       "source": "CleanTechnica",
@@ -490,7 +546,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 45,
       "url": "https://www.ign.com/articles/abs-cyclone-rtx-5060-gaming-pc-deal-better-than-steam-machine-updated",
       "image": "/images/feed/feed-7f485c3caec8.jpg",
       "source": "IGN",
@@ -509,7 +565,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 34,
       "url": "https://cleantechnica.com/2026/10/14/paris-motor-show-topline-european-automakers-cling-to-the-past-chinese-lead-to-the-future/",
       "image": "/images/feed/feed-d6a431605919.jpg",
       "source": "CleanTechnica",
@@ -529,29 +585,10 @@
         "Hybrid"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 35,
       "url": "https://cleantechnica.com/2026/10/14/misleading-plug-in-hybrid-emissions-figures-risk-cheating-consumers-te-warns/",
       "image": "/images/feed/feed-1d6a928679b2.png",
       "source": "CleanTechnica",
-      "isLive": true
-    },
-    {
-      "id": "feed-d8214198214d",
-      "title": "Xpeng Thinks It Can Outsell Ford In Europe",
-      "excerpt": "Ford sold 430,000 cars in Europe last year. Chinese automaker Xpeng wants to sell 500,000.",
-      "body": "Ford sold 430,000 cars in Europe last year. Chinese automaker Xpeng wants to sell 500,000.\n\nThis report, published by InsideEVs, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cars. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to InsideEVs using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "InsideEVs",
-      "date": "2026-10-14",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Cars"
-      ],
-      "featured": false,
-      "xpReward": 45,
-      "url": "https://insideevs.com/news/811969/xpeng-europe-50-percent-sales/",
-      "image": "/images/feed/feed-d8214198214d.jpg",
-      "source": "InsideEVs",
       "isLive": true
     },
     {
@@ -567,7 +604,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 50,
       "url": "https://www.cnet.com/tech/services-and-software/youtube-labels-ai-generated-music/",
       "image": "/images/feed/feed-c4be3dc1f845.jpg",
       "source": "CNET",
@@ -593,25 +630,6 @@
       "isLive": true
     },
     {
-      "id": "feed-f3c5485d9739",
-      "title": "Apple Maps launches Detailed City Experience in Austin, Texas",
-      "excerpt": "Apple is rolling out its stunning Detailed City Experience in Apple Maps for users in Austin, TX. This marks a robust overhaul of Apple Maps in Austin, similar to what we’ve seen in other markets like…",
-      "body": "Apple is rolling out its stunning Detailed City Experience in Apple Maps for users in Austin, TX. This marks a robust overhaul of Apple Maps in Austin, similar to what we’ve seen in other markets like — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Chance Miller",
-      "date": "2026-10-14",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 47,
-      "url": "https://9to5mac.com/2026/10/14/apple-maps-launches-detailed-city-experience-in-austin-texas/",
-      "image": "/images/feed/feed-f3c5485d9739.png",
-      "source": "9to5Mac",
-      "isLive": true
-    },
-    {
       "id": "feed-bf0efc81803b",
       "title": "Palo Alto Networks warns of PAN-OS RCE flaw exploited in attacks",
       "excerpt": "Palo Alto Networks has released security updates for a high-severity PAN-OS RCE zero-day, tracked as CVE-2026-0322, that has been exploited in attacks targeting firewalls. [...]",
@@ -624,29 +642,10 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 44,
       "url": "https://www.bleepingcomputer.com/news/security/palo-alto-networks-warns-of-pan-os-rce-flaw-exploited-in-attacks/",
       "image": "/images/feed/feed-bf0efc81803b.jpg",
       "source": "BleepingComputer",
-      "isLive": true
-    },
-    {
-      "id": "feed-75bca40571b3",
-      "title": "iPhone Duo Repair Prices Will Fold Your Bank Account Without AppleCare",
-      "excerpt": "Thinking of saving a little money when buying Apple’s new foldable phone? A mishap could cost up to $1,500 in repairs.",
-      "body": "Thinking of saving a little money when buying Apple’s new foldable phone? A mishap could cost up to $1,500 in repairs.\n\nThis report, published by CNET, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Iphone. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to CNET using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Jeff Carlson",
-      "date": "2026-10-14",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Iphone"
-      ],
-      "featured": false,
-      "xpReward": 38,
-      "url": "https://www.cnet.com/tech/mobile/iphone-duo-repair-prices-foldable-applecare/",
-      "image": "/images/feed/feed-75bca40571b3.jpg",
-      "source": "CNET",
       "isLive": true
     },
     {
@@ -663,7 +662,7 @@
         "Chatgpt"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 41,
       "url": "https://www.cnet.com/tech/services-and-software/chatgpt-accused-using-childrens-data/",
       "image": "/images/feed/feed-b1c4637b9677.jpg",
       "source": "CNET",
@@ -682,7 +681,7 @@
         "Security"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 54,
       "url": "https://arstechnica.com/security/2026/10/fridge-hack-costing-millions-and-sparking-fires-stemmed-from-poor-security/",
       "image": "/images/feed/feed-eeaa161caf2c.jpg",
       "source": "Ars Technica",
@@ -702,7 +701,7 @@
         "Chatgpt"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 32,
       "url": "https://www.theverge.com/ai-artificial-intelligence/1011500/openai-state-lawsuits-chatgpt-safety",
       "image": "/images/feed/feed-b72f25cbab4b.jpg",
       "source": "The Verge",
@@ -721,7 +720,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 40,
       "url": "https://www.space.com/astronomy/exoplanets/planetary-genealogy-milky-way-worlds-belong-to-1-of-2-families-scientists-find",
       "image": "/images/feed/feed-b6961aa23c6e.png",
       "source": "Space.com",
@@ -740,7 +739,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 33,
       "url": "https://sunshowers.io/posts/anthropic-mononoke/",
       "image": "/images/feed/feed-4221b03dd110.png",
       "source": "Hacker News",
@@ -759,7 +758,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 44,
       "url": "https://www.nasa.gov/news-release/nasa-to-host-news-conference-previewing-us-spacewalks-100-101/",
       "image": "/images/feed/feed-070951050e09.jpg",
       "source": "NASA Breaking News",
@@ -778,7 +777,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 31,
       "url": "https://www.space.com/entertainment/space-books/dungeon-crawler-carl-author-matt-dinniman-talks-inspirations-success-and-the-upcoming-peacock-tv-series-interview",
       "image": "/images/feed/feed-293c09a61811.jpg",
       "source": "Space.com",
@@ -797,7 +796,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 30,
       "url": "https://www.bleepingcomputer.com/news/security/fbi-raids-dprk-it-worker-laptop-farms-in-texas-us-nationals-arrested/",
       "image": "/images/feed/feed-c45da524f467.jpg",
       "source": "BleepingComputer",
@@ -817,9 +816,9 @@
         "Astronaut"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 42,
       "url": "https://www.nasa.gov/learning-resources/nasa-astronauts-to-answer-questions-from-florida-students/",
-      "image": "/images/topics/topic-space.png",
+      "image": "/images/feed/feed-1da8d1da8ef6.jpg",
       "source": "NASA Breaking News",
       "isLive": true
     },
@@ -836,7 +835,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 35,
       "url": "https://www.theverge.com/ai-artificial-intelligence/1011311/the-ai-race-is-back-on",
       "image": "/images/feed/feed-bcd6e2061a07.jpg",
       "source": "The Verge",
@@ -856,7 +855,7 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 34,
       "url": "https://thehackernews.com/2026/10/cisco-warns-of-active-attacks.html",
       "image": "/images/feed/feed-ba27e7399160.jpg",
       "source": "The Hacker News",
@@ -875,7 +874,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 42,
       "url": "https://www.bleepingcomputer.com/news/security/ledger-asks-sellers-across-asia-to-halt-sales-after-supply-chain-attack/",
       "image": "/images/feed/feed-336c13351936.jpg",
       "source": "BleepingComputer",
@@ -894,30 +893,10 @@
         "Hacker"
       ],
       "featured": false,
-      "xpReward": 48,
-      "url": "https://thehackernews.com/2026/10/hackers-backdoor-nextcloud-servers.html",
-      "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhkZLcjmZtzt6NpWa8x4Wz7EdcOQEW6xYv6DA_mBnwy1ctZZeRAyeSYLES-H_mkr1QOBv72WNuGKwKQ-NN179Rw8BRTcYO38sYwxcbDkg1ISW_qWrCRJ9JfUXh3102OmwrF0HQq6dbSc58VXACXoi_EoI8ysPuSlzB_nBcHuFl9r3QakOsGG9GUm6UVOU8/s1600/nextcloud.jpg",
-      "source": "The Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-77a2c5966533",
-      "title": "Cisco patches new Secure Email Gateway zero-day exploited in attacks",
-      "excerpt": "Cisco has patched another actively exploited zero-day flaw in its Secure Email Gateway (SEG) that lets remote unauthenticated attackers execute commands with root privileges. [...]",
-      "body": "Cisco has patched another actively exploited zero-day flaw in its Secure Email Gateway (SEG) that lets remote unauthenticated attackers execute commands with root privileges. [...]\n\nThis report, published by BleepingComputer, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Zero-day, Exploit. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to BleepingComputer using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Sergiu Gatlan",
-      "date": "2026-10-14",
-      "readTime": "2 min",
-      "section": "cybersecurity",
-      "tags": [
-        "Zero-day",
-        "Exploit"
-      ],
-      "featured": false,
       "xpReward": 53,
-      "url": "https://www.bleepingcomputer.com/news/security/cisco-patches-actively-exploited-secure-email-gateway-zero-day/",
-      "image": "/images/feed/feed-77a2c5966533.jpg",
-      "source": "BleepingComputer",
+      "url": "https://thehackernews.com/2026/10/hackers-backdoor-nextcloud-servers.html",
+      "image": "/images/feed/feed-2ceea876a65c.jpg",
+      "source": "The Hacker News",
       "isLive": true
     },
     {
@@ -933,24 +912,43 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 50,
       "url": "https://www.cnet.com/tech/services-and-software/openai-employee-fbi-arrest-recording-device-news/",
       "image": "/images/feed/feed-202392bf4827.jpg",
       "source": "CNET",
       "isLive": true
+    },
+    {
+      "id": "feed-7968b9678bd4",
+      "title": "Anthropic warns small AI models could self-replicate through IoT devices",
+      "excerpt": "\"Small weight-based replicators\" could usher in a new generation of computer worms.",
+      "body": "AI company Anthropic is warning that advances in small AI models could soon usher in a new era of self-replicating malware that’s capable of infecting smart fridges, vacuum cleaners, and a wide range of other Internet of Things devices and is more resistant to takedown. By next year, smaller AI models may be able to autonomously self-replicate on all kinds of IoT devices, the company said. Eventually, the capability could enable computer worms, which propagate without requiring human interaction and are capable of infecting unfamiliar IoT devices. An experiment the company performed recently revealed significant challenges in bringing such an AI malware replicator to fruition, so the finding is necessarily tempered.",
+      "author": "\n                    Dan Goodin\n                ",
+      "date": "2026-10-14",
+      "readTime": "2 min",
+      "section": "ai",
+      "tags": [
+        "Anthropic"
+      ],
+      "featured": false,
+      "xpReward": 50,
+      "url": "https://arstechnica.com/security/2026/10/anthropic-warns-small-ai-models-could-self-replicate-through-iot-devices/",
+      "image": "/images/feed/feed-7968b9678bd4.jpg",
+      "source": "Ars Technica",
+      "isLive": true
     }
   ],
   "breakingNews": [
-    "DEV.TO: Stop Electing a Leader Tab. SharedWorker Just Holds the Connection.",
-    "DEV.TO: Fixing INP on Shopify stores: a practical guide for theme developers",
-    "DEV.TO: Optimistic updates with graceful reconnect in web chat applications with React.js + TanStack Query",
-    "DEV.TO: LG's immersion-cooling agreement puts the testbed before the deployment promise",
-    "DEV.TO: TypeScript `ReadonlyMap` and `ReadonlySet` in 2026: Immutable Collections That Stop Accidental Mutation at the Type Level",
-    "DEV.TO: Gemini 4 Argon vs GPT-6 Astra: Benchmark Comparison",
-    "DEV.TO: Reliability at the core: five ground rules for building an agent loop",
-    "DEV.TO: Gemini 4 Argon vs Claude Fable 5.1: Benchmark Comparison",
-    "WIRED: Lenovo Coupon Codes: 15% Off in October 2026",
-    "ANDROID AUTHORITY: Google is now emailing Gemini subscribers about a change that will cost them 4x more"
+    "ANDROID AUTHORITY: Someone got Googlebook OS running on a Chromebook, and it’s surprisingly smooth",
+    "DEV.TO: The Invisible Skeleton Inside Power Modules: Why Alumina Powder Decides Who Wins in Electronic Packaging",
+    "DEV.TO: 6 Business Levers to Evaluate Before Adopting a New Language",
+    "DEV.TO: Your model router is a classifier, and you probably aren't evaluating it like one",
+    "DEV.TO: Reading a Floor Plan Like a Spatial System (Not a Mood Board)",
+    "DEV.TO: I Vibe-Coded My Way Out of Angular Upgrades",
+    "DEV.TO: 21 questions to ask a SaaS boilerplate before you pay for it",
+    "DEV.TO: Rogue Chinese AI Hackers Target Your Business",
+    "INSIDEEVS: New Tesla Roadster Reveal: How To Watch The Livestream",
+    "ANDROID AUTHORITY: There’s okay news and bad news for Galaxy A58 cameras"
   ],
   "sectionVideos": {}
 }
