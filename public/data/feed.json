@@ -1,12 +1,69 @@
 {
-  "fetchedAt": "2026-10-15T05:13:22.570Z",
+  "fetchedAt": "2026-10-15T06:21:05.608Z",
   "articles": [
     {
-      "id": "feed-6d73546be1d4",
-      "title": "Same config.json, different serve command: what to check before serving AREX-2",
-      "excerpt": "When a fine-tune declares the same architecture class as a model you already serve (run behind an API on your own GPU), the tempting move is to swap --model-path and restart. BAAI's AREX-2 is a good t…",
-      "body": "When a fine-tune declares the same architecture class as a model you already serve (run behind an API on your own GPU), the tempting move is to swap --model-path and restart. BAAI's AREX-2 is a good test of that habit. It is a 27B model trained to work on a problem in rounds (propose, measure, reflect, revise), released on 29 September under Apache 2.0, not gated, and its config.json opens with Qwen3_5ForConditionalGeneration , the same class as Qwen3.8-27B from the Qwen team. We had been serving base Qwen3.8-27B with sglang, an open-source inference server, so we diffed the two configs. One caveat first: we have not run AREX-2. Every speed below is from the base model. Tables, command and sources are in the full AREX-2 serving analysis on inferencekey.com .",
-      "author": "InferenceKey",
+      "id": "feed-3bde7f1891cd",
+      "title": "Stop Electing a Leader Tab. SharedWorker Just Holds the Connection.",
+      "excerpt": "Last week's fix for \"six tabs, six WebSockets\" was navigator.locks: elect one tab as leader, let it hold the one real connection, relay everything to the rest over BroadcastChannel. It works. I said a…",
+      "body": "Last week's fix for \"six tabs, six WebSockets\" was navigator.locks : elect one tab as leader, let it hold the one real connection, relay everything to the rest over BroadcastChannel . It works. I said as much at the time. It also has a seam I didn't dwell on: the connection lives inside a tab. Close that tab — the user's doing, not a bug — and the lock releases, a new leader gets picked within the same event loop turn, and that new leader still has to open a brand-new WebSocket from scratch. Real handshake, real round trip, real gap before updates resume. For a dashboard, nobody notices. For a live price ticker or a shared cursor, that gap is the whole ballgame. There's a version of this where no tab ever owns the connection, so no tab closing can take it away.",
+      "author": "Parsa Jiravand",
+      "date": "2026-10-15",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 31,
+      "url": "https://dev.to/parsajiravand/stop-electing-a-leader-tab-sharedworker-just-holds-the-connection-1623",
+      "image": "/images/feed/feed-3bde7f1891cd.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-b0a75447c81a",
+      "title": "Fixing INP on Shopify stores: a practical guide for theme developers",
+      "excerpt": "Most Shopify performance work still focuses on load speed: compress the hero image, lazy-load below the fold, trim the app list. That matters, but it misses the metric that most often fails on real st…",
+      "body": "Most Shopify performance work still focuses on load speed: compress the hero image, lazy-load below the fold, trim the app list. That matters, but it misses the metric that most often fails on real stores today: Interaction to Next Paint (INP) . INP measures how quickly the page responds visually after a user does something: taps a variant swatch, opens the cart drawer, types in predictive search, clicks \"Add to cart\". It replaced First Input Delay as a Core Web Vital in March 2024, and it is much harder to pass, because it looks at (nearly) every interaction across the whole visit rather than only the first one. This post walks through how we find and fix INP problems on Shopify themes.",
+      "author": "Hitesh Singh",
+      "date": "2026-10-15",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Developer"
+      ],
+      "featured": true,
+      "xpReward": 32,
+      "url": "https://dev.to/webconsultingie/fixing-inp-on-shopify-stores-a-practical-guide-for-theme-developers-212a",
+      "image": "/images/feed/feed-b0a75447c81a.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-74e19ec804a4",
+      "title": "Optimistic updates with graceful reconnect in web chat applications with React.js + TanStack Query",
+      "excerpt": "When working on a chat app, on any app really, it is important to take into account how the app is supposed to behave when the connection is slow or lost. The moment the user hits \"send\" they need to…",
+      "body": "When working on a chat app, on any app really, it is important to take into account how the app is supposed to behave when the connection is slow or lost. The moment the user hits \"send\" they need to be assured that the message is being processed instead of staring at a seemingly unresponsive page. Also, in case of a connection loss, the moment it is back on all the updates that took place in the interim must be processed immediately. This is where optimistic updates and graceful reconnect come in. First, let's talk about optimistic updates. Optimistic updates are basically when you instantly display the result of an asynchronous operation assuming it will succeed, which significantly improves perceived performance.",
+      "author": "Tolibjon Latipov",
+      "date": "2026-10-15",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 30,
+      "url": "https://dev.to/tolibjon_tlk_code_balance/optimistic-updates-with-graceful-reconnect-in-web-chat-applications-with-reactjs-tanstack-query-2i0f",
+      "image": "/images/feed/feed-74e19ec804a4.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-b4df969e08a4",
+      "title": "LG's immersion-cooling agreement puts the testbed before the deployment promise",
+      "excerpt": "Immersion cooling changes the relationship between a server and its surroundings. The equipment, cooling fluid, tank and service process become a system that the operator must qualify together. That m…",
+      "body": "Immersion cooling changes the relationship between a server and its surroundings. The equipment, cooling fluid, tank and service process become a system that the operator must qualify together. That makes the scope of a testbed important long before a project team chooses a production layout. In an October 14 Korean newsroom announcement , LG Electronics said it signed an immersion-cooling development agreement with GS E&amp;C and Green Revolution Cooling on October 13. The partners intend to validate applicability and reliability and develop integrated solutions and reference designs for AI data centers. LG says it will contribute cooling technologies and operating data.",
+      "author": "Da",
       "date": "2026-10-15",
       "readTime": "2 min",
       "section": "software",
@@ -15,17 +72,36 @@
       ],
       "featured": true,
       "xpReward": 36,
-      "url": "https://dev.to/inferencekey/same-configjson-different-serve-command-what-to-check-before-serving-arex-2-3c37",
-      "image": "/images/feed/feed-6d73546be1d4.webp",
+      "url": "https://dev.to/da-li-at-pl/lgs-immersion-cooling-agreement-puts-the-testbed-before-the-deployment-promise-3d5p",
+      "image": "/images/feed/feed-b4df969e08a4.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-95cbc031d5ae",
-      "title": "1Z0-078 Lists RAC First, but Your Cluster Is Built from the Bottom Up",
-      "excerpt": "If you run Oracle databases on more than one server, you already know the order things happen in on a real cluster. Someone prepares the operating system, the shared disks and the networks. Then Grid…",
-      "body": "If you run Oracle databases on more than one server, you already know the order things happen in on a real cluster. Someone prepares the operating system, the shared disks and the networks. Then Grid Infrastructure goes on, which brings Oracle Clusterware and Oracle Automatic Storage Management with it. Only after that does anyone install the database software, and only after that does a RAC database exist to tune, patch and connect to. Oracle's exam page for 1Z0-078 lists the same material in the opposite order. It starts with RAC databases and architecture, moves on to Grid Infrastructure in the middle, and ends with ASM disk groups, files and the ASM Cluster File System. That is a fine way to describe a job.",
-      "author": "sofiapwhite@gmail.com",
+      "id": "feed-bd150227d0e3",
+      "title": "TypeScript `ReadonlyMap` and `ReadonlySet` in 2026: Immutable Collections That Stop Accidental Mutation at the Type Level",
+      "excerpt": "TypeScript ReadonlyMap and ReadonlySet in 2026: Immutable Collections That Stop Accidental Mutation at the Type Level This article was written with the assistance of AI, under human supervision and re…",
+      "body": "TypeScript ReadonlyMap and ReadonlySet in 2026: Immutable Collections That Stop Accidental Mutation at the Type Level This article was written with the assistance of AI, under human supervision and review. Why ReadonlyMap and ReadonlySet Matter in 2026 Most runtime bugs in TypeScript codebases stem from unintended mutation of shared data structures. A cache gets modified during a read operation. A configuration set changes after initialization. A lookup map loses entries when a function meant to query it accidentally calls .delete() . The type system allows these mutations because developers reach for Map and Set everywhere, even when the collection should never change after construction. The solution exists at the type level.",
+      "author": "jsmanifest",
+      "date": "2026-10-15",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Typescript"
+      ],
+      "featured": true,
+      "xpReward": 46,
+      "url": "https://dev.to/jsmanifest/typescript-readonlymap-and-readonlyset-in-2026-immutable-collections-that-stop-accidental-2ida",
+      "image": "/images/feed/feed-bd150227d0e3.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-2b8c35f23c3a",
+      "title": "Gemini 4 Argon vs GPT-6 Astra: Benchmark Comparison",
+      "excerpt": "Originally published on The Daily Flare. ✓ Gemini 4 Argon wins 14 of 19 official benchmarks against GPT-6 Astra, with 4 losses and 1 tie. ✓ GPT-6 Astra's wins cluster in terminal-based tests: hard eng…",
+      "body": "Originally published on The Daily Flare . Key takeaways ✓ Gemini 4 Argon wins 14 of 19 official benchmarks against GPT-6 Astra, with 4 losses and 1 tie. ✓ GPT-6 Astra's wins cluster in terminal-based tests: hard engineering (65.5 vs 55.0) and terminal science (68.1 vs 57.6), its biggest victory. ✓ The cybersecurity test ended in a dead tie at 68.0 each, with neither model gaining an edge. Google's Gemini 4 Argon beats OpenAI's GPT-6 Astra across 19 official benchmarks, 14 wins to 4 with one tie. But the losses tell the more interesting story. When Google launched Gemini 4 Argon, it positioned the model as a flagship built for \"deep work\": long documents, complex reasoning, and agentic tasks that run for hours.",
+      "author": "The daily flare",
       "date": "2026-10-15",
       "readTime": "2 min",
       "section": "software",
@@ -33,94 +109,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 40,
-      "url": "https://dev.to/dbexamcert/1z0-078-lists-rac-first-but-your-cluster-is-built-from-the-bottom-up-3ido",
-      "image": "/images/feed/feed-95cbc031d5ae.webp",
+      "xpReward": 42,
+      "url": "https://dev.to/the_daily_flare/gemini-4-argon-vs-gpt-6-astra-benchmark-comparison-41bh",
+      "image": "/images/feed/feed-2b8c35f23c3a.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-89fea64ba7dd",
-      "title": "Qlik QSSA Exam: Why Installation and Configuration Add Up to the 62% Pass Mark",
-      "excerpt": "The Qlik Sense System Administrator (QSSA) exam has 50 questions, a 90-minute limit and a 62% passing score. Its two biggest domains, Installation at 30% and Configuration at 32%, add up to exactly 62…",
-      "body": "The Qlik Sense System Administrator (QSSA) exam has 50 questions, a 90-minute limit and a 62% passing score. Its two biggest domains, Installation at 30% and Configuration at 32%, add up to exactly 62%, so the pass line sits right where those two domains end. That one fact shapes how you should study. This post works through what it means in questions, minutes and attempts, using the figures on Qlik's QSSA exam details page , checked on 15 October 2026. What does the Qlik QSSA exam cover? The exam tests whether you can plan, install, run and fix a client-managed Qlik Sense Enterprise on Windows site.",
-      "author": "Palak Mazumdar",
-      "date": "2026-10-15",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 41,
-      "url": "https://dev.to/palak_mazumdar_f5431445f6/qlik-qssa-exam-why-installation-and-configuration-add-up-to-the-62-pass-mark-57dk",
-      "image": "/images/feed/feed-89fea64ba7dd.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-313ccecb2d46",
-      "title": "React History in Plain Words: What Each Era Took Off Your Plate, and What It Billed You",
-      "excerpt": "Here is a component every app has. A user profile: load the user by userId, show their name, and show a green dot while they're online. I'm going to write it again for most eras of React, from 2013 to…",
-      "body": "Here is a component every app has. A user profile: load the user by userId , show their name, and show a green dot while they're online. I'm going to write it again for most eras of React, from 2013 to today. Most histories of React go version by version: 0.13, 16.8, 18, 19. You finish reading and you know the dates, but not why any of it happened. I wanted to try a different angle. Every era of React made a deal with you. It took something off your plate, and it sent you a new bill. I'll keep score as I go: what you stopped doing, and what you started paying. One warning about order. This article follows problems, not dates. Next.js (2016) shows up after hooks (2019), because that's where its problem hurts most. 1. Before React: you are the sync engine The jQuery version: $ .",
-      "author": "Olexandr Uvarov",
-      "date": "2026-10-15",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 40,
-      "url": "https://dev.to/ouvarov/react-history-in-plain-words-what-each-era-took-off-your-plate-and-what-it-billed-you-4cj",
-      "image": "/images/feed/feed-313ccecb2d46.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-65269545bb30",
-      "title": "Local Invoice & Receipt Sorter for Freelancers — Open-Source AI Side Hustle",
-      "excerpt": "What I Built Handling client receipts and expense invoices is tedious, manual, and privacy-sensitive. Freelancers often hesitate to upload sensitive financial documents containing client names, tax ID…",
-      "body": "What I Built I built LocalFolio, an offline-first invoice and receipt organizer specifically designed for freelancers, independent contractors, and sole proprietors. Handling client receipts and expense invoices is tedious, manual, and privacy-sensitive. Freelancers often hesitate to upload sensitive financial documents containing client names, tax IDs, and bank details to cloud-based proprietary APIs. LocalFolio solves this by running entirely on the user's local machine. It ingests messy folders of PDFs, screenshots, and scans, uses a local vision-language model to extract structured metadata (vendor, date, total amount, category, and tax status), and automatically sorts them into clean, structured folder hierarchies with a fully searchable SQLite ledger.",
-      "author": "Viraj Radadiya",
-      "date": "2026-10-15",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 48,
-      "url": "https://dev.to/viraj_radadiya_/local-invoice-receipt-sorter-for-freelancers-open-source-ai-side-hustle-3d01",
-      "image": "/images/feed/feed-65269545bb30.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-10e2939c553c",
-      "title": "software guard extensions (sgx)",
-      "excerpt": "Hardware-Enforced Trust Traditional system security assumes the OS kernel (Ring 0) is fully trusted. However, in modern cloud deployments or compromised endpoints, a malicious kernel, rogue administra…",
-      "body": "Hardware-Enforced Trust What is sgx? Traditional system security assumes the OS kernel (Ring 0) is fully trusted. However, in modern cloud deployments or compromised endpoints, a malicious kernel, rogue administrator, or hypervisor exploit can easily inspect application memory. To eliminate this dependency, security architecture must drop below software abstractions and anchor trust directly in silicon. Intel Software Guard Extensions (SGX) achieves this by carving out isolated execution units called enclaves , ensuring that even an attacker with root or kernel privileges cannot read application memory. Why sgx? Architectural Trade-offs: Why Enclaves Over Full VMs?",
-      "author": "conjurer",
-      "date": "2026-10-15",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 53,
-      "url": "https://dev.to/leg_end/software-guard-extensions-sgx-37c1",
-      "image": "/images/feed/feed-10e2939c553c.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-fe3cf27b3133",
-      "title": "I Built a Faceless Video Factory That Remembers Which Content Actually Pays",
-      "excerpt": "This is a submission for the Hacktoberfest Open-Source AI Challenge Week 2: Side Hustle My side hustle is faceless short-form video. The problem with every tool I tried: they're script runners. Same t…",
-      "body": "This is a submission for the Hacktoberfest Open-Source AI Challenge Week 2: Side Hustle My side hustle is faceless short-form video. The problem with every tool I tried: they're script runners. Same topic list, same output, run after run. Nothing learns. So I built one that does — a factory that remembers what earned money and steers the next video toward it. The loop nobody closes Here's the insight that made this worth building. A faceless-content pipeline has two halves, and everyone only builds the first: Produce a video from a topic (script → render → post) Learn which topics paid, so the next one is better Half 2 is where the money compounds, and it's the half everyone skips.",
-      "author": "Redman WorkflowAlpha",
+      "id": "feed-073feb50b123",
+      "title": "Reliability at the core: five ground rules for building an agent loop",
+      "excerpt": "Originally published on dbln.me. A couple of months ago I started developing Kept, an open-source post-order support agent for e-commerce stores, that can perform sensitive actions (refunds, returns).…",
+      "body": "Originally published on dbln.me . A couple of months ago I started developing Kept, an open-source post-order support agent for e-commerce stores, that can perform sensitive actions (refunds, returns). Because of those sensitive actions, reliability has to be a core part of Kept. So, beyond getting it ready for production, Kept is my excuse for investing time and effort into researching what it means for an agent to have reliability at its core . In the previous article, I described my first move: observability-first. Now the journey reached the agent loop.",
+      "author": "Bilaniuc Dragos",
       "date": "2026-10-15",
       "readTime": "2 min",
       "section": "software",
@@ -128,9 +128,29 @@
         "Software"
       ],
       "featured": false,
-      "xpReward": 45,
-      "url": "https://dev.to/reggiebro/i-built-a-faceless-video-factory-that-remembers-which-content-actually-pays-4c9j",
-      "image": "/images/feed/feed-fe3cf27b3133.webp",
+      "xpReward": 48,
+      "url": "https://dev.to/dragosbln/reliability-at-the-core-five-ground-rules-for-building-an-agent-loop-1fld",
+      "image": "/images/feed/feed-073feb50b123.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-0d789e6fb7cd",
+      "title": "Gemini 4 Argon vs Claude Fable 5.1: Benchmark Comparison",
+      "excerpt": "Originally published on The Daily Flare. ✓ Gemini 4 Argon beats Claude Fable 5.1 on 15 of 17 shared benchmarks, with its biggest margins in legal work, automation tasks, and chart reading. ✓ Fable's o…",
+      "body": "Originally published on The Daily Flare . Key takeaways ✓ Gemini 4 Argon beats Claude Fable 5.1 on 15 of 17 shared benchmarks, with its biggest margins in legal work, automation tasks, and chart reading. ✓ Fable's only wins come in two narrow coding tests, Hard Engineering and Terminal Agents, keeping the rivalry alive in software development. ✓ Fable 5.1 was never tested on computer use benchmarks, so that category remains an open question between the two models. Google's Gemini 4 Argon takes on Anthropic's Claude Fable 5.1 across 17 head-to-head benchmarks, and the result is the most one-sided matchup in our comparison series. Where the Argon versus GPT-6 battle was a genuine fight, this one is closer to a statement.",
+      "author": "The daily flare",
+      "date": "2026-10-15",
+      "readTime": "2 min",
+      "section": "ai",
+      "tags": [
+        "Gemini",
+        "Claude"
+      ],
+      "featured": false,
+      "xpReward": 44,
+      "url": "https://dev.to/the_daily_flare/gemini-4-argon-vs-claude-fable-51-benchmark-comparison-4n66",
+      "image": "/images/feed/feed-0d789e6fb7cd.webp",
       "source": "Dev.to",
       "isLive": true
     },
@@ -147,7 +167,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 46,
       "url": "https://www.wired.com/story/lenovo-coupon-code/",
       "image": "/images/feed/feed-9732e4492087.png",
       "source": "Wired",
@@ -166,7 +186,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 43,
       "url": "https://www.androidauthority.com/google-ai-plus-pro-model-access-cut-off-date-3723558/",
       "image": "/images/feed/feed-511dcfcd595c.jpg",
       "source": "Android Authority",
@@ -185,7 +205,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 39,
       "url": "https://www.androidauthority.com/google-pixel-11-discount-ai-pro-subscriber-benefit-3723553/",
       "image": "/images/feed/feed-98fd98f91f1a.jpg",
       "source": "Android Authority",
@@ -204,7 +224,7 @@
         "Spacex"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 45,
       "url": "https://www.space.com/space-exploration/launches-spacecraft/spacex-crs-35-iss-cargo-mission-docking",
       "image": "/images/feed/feed-53c7635ca786.jpg",
       "source": "Space.com",
@@ -223,7 +243,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 44,
       "url": "https://science.nasa.gov/image-article/apod-2026-october-15-the-milky-way-over-manhattan/",
       "image": "/images/feed/feed-f4ed6c77a055.jpg",
       "source": "NASA Breaking News",
@@ -242,7 +262,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 40,
       "url": "https://www.polygon.com/castlevania-belmonts-curse-medusa-how-to-defeat-prophetess-location/",
       "image": "/images/feed/feed-2d266dd00b4b.jpg",
       "source": "Polygon",
@@ -261,7 +281,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 42,
       "url": "https://www.polygon.com/castlevania-belmonts-curse-whip-attack-how-to-work-of-mercy/",
       "image": "/images/feed/feed-5ff9ee9eea5c.jpg",
       "source": "Polygon",
@@ -280,7 +300,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 36,
       "url": "https://www.polygon.com/castlevania-belmonts-curse-prison-tower-location-warrior-carpenters-crane/",
       "image": "/images/feed/feed-ffc415c2c209.jpg",
       "source": "Polygon",
@@ -299,7 +319,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 37,
       "url": "https://science.nasa.gov/earth/earth-observatory/fires-arrive-in-the-amazon-rainforest/",
       "image": "/images/feed/feed-6c90ad17f939.jpg",
       "source": "NASA Breaking News",
@@ -318,7 +338,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 48,
       "url": "https://www.polygon.com/best-science-fantasy-books-21st-century/",
       "image": "/images/feed/feed-f7f54041c87f.jpg",
       "source": "Polygon",
@@ -337,7 +357,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 33,
       "url": "https://www.androidauthority.com/google-home-mini-nest-mini-nest-audio-updates-3723549/",
       "image": "/images/feed/feed-7cb2facfe57e.jpg",
       "source": "Android Authority",
@@ -356,7 +376,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 49,
       "url": "https://cleantechnica.com/2026/10/14/still-smoking-the-phev-emissions-scandal-continues/",
       "image": "/images/feed/feed-13018953f893.jpg",
       "source": "CleanTechnica",
@@ -375,7 +395,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 37,
       "url": "https://www.polygon.com/garrys-mod-creator-sbox-spiritual-sequel-dire-update/",
       "image": "/images/feed/feed-b5dc1aec224a.jpg",
       "source": "Polygon",
@@ -394,7 +414,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 40,
       "url": "https://www.polygon.com/best-rpgs-underrated-last-decade/",
       "image": "/images/feed/feed-63df071aff21.jpg",
       "source": "Polygon",
@@ -413,7 +433,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 47,
       "url": "https://cleantechnica.com/2026/10/14/if-modern-agriculture-were-a-person-it-would-be-a-sociopath-can-regenerative-farming-save-us-from-ourselves/",
       "image": "/images/feed/feed-cb4b4f8d35ce.jpg",
       "source": "CleanTechnica",
@@ -432,7 +452,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 33,
       "url": "https://cleantechnica.com/2026/10/14/elon-musk-enterprises-has-almost-no-cleantech-news-these-days/",
       "image": "/images/feed/feed-644937e5349b.png",
       "source": "CleanTechnica",
@@ -451,7 +471,7 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 53,
       "url": "https://cleantechnica.com/2026/10/14/tesla-ev-roadster-launch-elon-musk-ukraine-starlink-doge/",
       "image": "/images/feed/feed-a78f0708d1ab.png",
       "source": "CleanTechnica",
@@ -470,7 +490,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 39,
       "url": "https://www.ign.com/articles/abs-cyclone-rtx-5060-gaming-pc-deal-better-than-steam-machine-updated",
       "image": "/images/feed/feed-7f485c3caec8.jpg",
       "source": "IGN",
@@ -489,7 +509,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 33,
       "url": "https://cleantechnica.com/2026/10/14/paris-motor-show-topline-european-automakers-cling-to-the-past-chinese-lead-to-the-future/",
       "image": "/images/feed/feed-d6a431605919.jpg",
       "source": "CleanTechnica",
@@ -509,7 +529,7 @@
         "Hybrid"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 31,
       "url": "https://cleantechnica.com/2026/10/14/misleading-plug-in-hybrid-emissions-figures-risk-cheating-consumers-te-warns/",
       "image": "/images/feed/feed-1d6a928679b2.png",
       "source": "CleanTechnica",
@@ -528,7 +548,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 45,
       "url": "https://insideevs.com/news/811969/xpeng-europe-50-percent-sales/",
       "image": "/images/feed/feed-d8214198214d.jpg",
       "source": "InsideEVs",
@@ -547,7 +567,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 44,
       "url": "https://www.cnet.com/tech/services-and-software/youtube-labels-ai-generated-music/",
       "image": "/images/feed/feed-c4be3dc1f845.jpg",
       "source": "CNET",
@@ -566,7 +586,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 33,
       "url": "https://9to5mac.com/2026/10/14/openai-agrees-not-to-use-alleged-apple-trade-secrets-amid-ongoing-lawsuit/",
       "image": "/images/feed/feed-9d3c81ffd0bb.jpg",
       "source": "9to5Mac",
@@ -585,7 +605,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 47,
       "url": "https://9to5mac.com/2026/10/14/apple-maps-launches-detailed-city-experience-in-austin-texas/",
       "image": "/images/feed/feed-f3c5485d9739.png",
       "source": "9to5Mac",
@@ -604,7 +624,7 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 37,
       "url": "https://www.bleepingcomputer.com/news/security/palo-alto-networks-warns-of-pan-os-rce-flaw-exploited-in-attacks/",
       "image": "/images/feed/feed-bf0efc81803b.jpg",
       "source": "BleepingComputer",
@@ -623,7 +643,7 @@
         "Iphone"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 38,
       "url": "https://www.cnet.com/tech/mobile/iphone-duo-repair-prices-foldable-applecare/",
       "image": "/images/feed/feed-75bca40571b3.jpg",
       "source": "CNET",
@@ -643,7 +663,7 @@
         "Chatgpt"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 40,
       "url": "https://www.cnet.com/tech/services-and-software/chatgpt-accused-using-childrens-data/",
       "image": "/images/feed/feed-b1c4637b9677.jpg",
       "source": "CNET",
@@ -662,7 +682,7 @@
         "Security"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 36,
       "url": "https://arstechnica.com/security/2026/10/fridge-hack-costing-millions-and-sparking-fires-stemmed-from-poor-security/",
       "image": "/images/feed/feed-eeaa161caf2c.jpg",
       "source": "Ars Technica",
@@ -682,7 +702,7 @@
         "Chatgpt"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 33,
       "url": "https://www.theverge.com/ai-artificial-intelligence/1011500/openai-state-lawsuits-chatgpt-safety",
       "image": "/images/feed/feed-b72f25cbab4b.jpg",
       "source": "The Verge",
@@ -720,7 +740,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 44,
       "url": "https://sunshowers.io/posts/anthropic-mononoke/",
       "image": "/images/feed/feed-4221b03dd110.png",
       "source": "Hacker News",
@@ -739,7 +759,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 50,
       "url": "https://www.nasa.gov/news-release/nasa-to-host-news-conference-previewing-us-spacewalks-100-101/",
       "image": "/images/feed/feed-070951050e09.jpg",
       "source": "NASA Breaking News",
@@ -758,7 +778,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 34,
       "url": "https://www.space.com/entertainment/space-books/dungeon-crawler-carl-author-matt-dinniman-talks-inspirations-success-and-the-upcoming-peacock-tv-series-interview",
       "image": "/images/feed/feed-293c09a61811.jpg",
       "source": "Space.com",
@@ -777,7 +797,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 40,
       "url": "https://www.bleepingcomputer.com/news/security/fbi-raids-dprk-it-worker-laptop-farms-in-texas-us-nationals-arrested/",
       "image": "/images/feed/feed-c45da524f467.jpg",
       "source": "BleepingComputer",
@@ -797,9 +817,9 @@
         "Astronaut"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 44,
       "url": "https://www.nasa.gov/learning-resources/nasa-astronauts-to-answer-questions-from-florida-students/",
-      "image": "/images/feed/feed-1da8d1da8ef6.jpg",
+      "image": "/images/topics/topic-space.png",
       "source": "NASA Breaking News",
       "isLive": true
     },
@@ -816,7 +836,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 53,
       "url": "https://www.theverge.com/ai-artificial-intelligence/1011311/the-ai-race-is-back-on",
       "image": "/images/feed/feed-bcd6e2061a07.jpg",
       "source": "The Verge",
@@ -836,7 +856,7 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 41,
       "url": "https://thehackernews.com/2026/10/cisco-warns-of-active-attacks.html",
       "image": "/images/feed/feed-ba27e7399160.jpg",
       "source": "The Hacker News",
@@ -855,7 +875,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 35,
       "url": "https://www.bleepingcomputer.com/news/security/ledger-asks-sellers-across-asia-to-halt-sales-after-supply-chain-attack/",
       "image": "/images/feed/feed-336c13351936.jpg",
       "source": "BleepingComputer",
@@ -874,9 +894,9 @@
         "Hacker"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 48,
       "url": "https://thehackernews.com/2026/10/hackers-backdoor-nextcloud-servers.html",
-      "image": "/images/feed/feed-2ceea876a65c.jpg",
+      "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhkZLcjmZtzt6NpWa8x4Wz7EdcOQEW6xYv6DA_mBnwy1ctZZeRAyeSYLES-H_mkr1QOBv72WNuGKwKQ-NN179Rw8BRTcYO38sYwxcbDkg1ISW_qWrCRJ9JfUXh3102OmwrF0HQq6dbSc58VXACXoi_EoI8ysPuSlzB_nBcHuFl9r3QakOsGG9GUm6UVOU8/s1600/nextcloud.jpg",
       "source": "The Hacker News",
       "isLive": true
     },
@@ -894,7 +914,7 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 53,
       "url": "https://www.bleepingcomputer.com/news/security/cisco-patches-actively-exploited-secure-email-gateway-zero-day/",
       "image": "/images/feed/feed-77a2c5966533.jpg",
       "source": "BleepingComputer",
@@ -913,43 +933,24 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 43,
       "url": "https://www.cnet.com/tech/services-and-software/openai-employee-fbi-arrest-recording-device-news/",
       "image": "/images/feed/feed-202392bf4827.jpg",
       "source": "CNET",
       "isLive": true
-    },
-    {
-      "id": "feed-7968b9678bd4",
-      "title": "Anthropic warns small AI models could self-replicate through IoT devices",
-      "excerpt": "\"Small weight-based replicators\" could usher in a new generation of computer worms.",
-      "body": "AI company Anthropic is warning that advances in small AI models could soon usher in a new era of self-replicating malware that’s capable of infecting smart fridges, vacuum cleaners, and a wide range of other Internet of Things devices and is more resistant to takedown. By next year, smaller AI models may be able to autonomously self-replicate on all kinds of IoT devices, the company said. Eventually, the capability could enable computer worms, which propagate without requiring human interaction and are capable of infecting unfamiliar IoT devices. An experiment the company performed recently revealed significant challenges in bringing such an AI malware replicator to fruition, so the finding is necessarily tempered.",
-      "author": "\n                    Dan Goodin\n                ",
-      "date": "2026-10-14",
-      "readTime": "2 min",
-      "section": "ai",
-      "tags": [
-        "Anthropic"
-      ],
-      "featured": false,
-      "xpReward": 49,
-      "url": "https://arstechnica.com/security/2026/10/anthropic-warns-small-ai-models-could-self-replicate-through-iot-devices/",
-      "image": "/images/feed/feed-7968b9678bd4.jpg",
-      "source": "Ars Technica",
-      "isLive": true
     }
   ],
   "breakingNews": [
-    "DEV.TO: Same config.json, different serve command: what to check before serving AREX-2",
-    "DEV.TO: 1Z0-078 Lists RAC First, but Your Cluster Is Built from the Bottom Up",
-    "DEV.TO: Qlik QSSA Exam: Why Installation and Configuration Add Up to the 62% Pass Mark",
-    "DEV.TO: React History in Plain Words: What Each Era Took Off Your Plate, and What It Billed You",
-    "DEV.TO: Local Invoice & Receipt Sorter for Freelancers — Open-Source AI Side Hustle",
-    "DEV.TO: software guard extensions (sgx)",
-    "DEV.TO: I Built a Faceless Video Factory That Remembers Which Content Actually Pays",
+    "DEV.TO: Stop Electing a Leader Tab. SharedWorker Just Holds the Connection.",
+    "DEV.TO: Fixing INP on Shopify stores: a practical guide for theme developers",
+    "DEV.TO: Optimistic updates with graceful reconnect in web chat applications with React.js + TanStack Query",
+    "DEV.TO: LG's immersion-cooling agreement puts the testbed before the deployment promise",
+    "DEV.TO: TypeScript `ReadonlyMap` and `ReadonlySet` in 2026: Immutable Collections That Stop Accidental Mutation at the Type Level",
+    "DEV.TO: Gemini 4 Argon vs GPT-6 Astra: Benchmark Comparison",
+    "DEV.TO: Reliability at the core: five ground rules for building an agent loop",
+    "DEV.TO: Gemini 4 Argon vs Claude Fable 5.1: Benchmark Comparison",
     "WIRED: Lenovo Coupon Codes: 15% Off in October 2026",
-    "ANDROID AUTHORITY: Google is now emailing Gemini subscribers about a change that will cost them 4x more",
-    "ANDROID AUTHORITY: Check your inbox: Google is quietly handing out Pixel 11 discount codes"
+    "ANDROID AUTHORITY: Google is now emailing Gemini subscribers about a change that will cost them 4x more"
   ],
   "sectionVideos": {}
 }
