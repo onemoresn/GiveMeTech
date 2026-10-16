@@ -1,6 +1,177 @@
 {
-  "fetchedAt": "2026-10-16T07:18:32.689Z",
+  "fetchedAt": "2026-10-16T08:17:02.843Z",
   "articles": [
+    {
+      "id": "feed-61b63eeb9ec3",
+      "title": "The first AVIF export in a web tool is mostly a download",
+      "excerpt": "I'm adding AVIF export to a small image tool I run, and I started with the lazy option, which was asking the browser to do it. AVIF is the image format built on the AV1 video codec, and canvas.toBlob(…",
+      "body": "I'm adding AVIF export to a small image tool I run, and I started with the lazy option, which was asking the browser to do it. AVIF is the image format built on the AV1 video codec, and canvas.toBlob() is the call that turns a canvas into an image file of whatever type you name. I asked for image/avif on a test page. Chromium 149, Chrome 155 and Firefox 151 all answered without an error and handed me a blob whose type was image/png . Only WebKit 26.5 on macOS returned a real AVIF. In three of the four browsers I tried, then, I have to ship my own encoder, the piece of code that turns pixels into AVIF bytes, compiled to WebAssembly (WASM) so it can run inside the page. The encoder weighs about a megabyte I used @jsquash/avif 2.1.1, which wraps libavif v1.0.1.",
+      "author": "AsyncMonk",
+      "date": "2026-10-16",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 40,
+      "url": "https://dev.to/shu_jing_915fa287b22539ad/the-first-avif-export-in-a-web-tool-is-mostly-a-download-49dl",
+      "image": "/images/feed/feed-61b63eeb9ec3.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-94b9cbaa348e",
+      "title": "Your FAQ Schema Says Something Your Page Doesn't. Ours Did Too.",
+      "excerpt": "Last week we ran a full content audit on our agency site: 64 pages, fetched live, scored for the patterns that make writing look machine-generated. Most of the site came back cleaner than we expected.…",
+      "body": "Last week we ran a full content audit on our agency site: 64 pages, fetched live, scored for the patterns that make writing look machine-generated. Most of the site came back cleaner than we expected. Then a smaller, duller problem turned up, the kind that never shows in a visual check. On our logo design page, one FAQ answer on the page itself ended with an extra sentence, a pointer to a related guide. The same answer inside the page's FAQPage schema did not have that sentence. The visible text and the structured data had drifted apart, probably during an earlier edit that updated one and not the other. Google is explicit about this: structured data should describe what is actually on the page.",
+      "author": "RapidBizz Team",
+      "date": "2026-10-16",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 32,
+      "url": "https://dev.to/rapidbizz/your-faq-schema-says-something-your-page-doesnt-ours-did-too-32an",
+      "image": "/images/feed/feed-94b9cbaa348e.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-3ccac20d3af8",
+      "title": "Copy a remote video into R2 from a Cloudflare Worker without buffering it",
+      "excerpt": "If your Worker copies files it didn't create (AI generation results, imports from a URL, exports from another service), the obvious line, await res.arrayBuffer(), loads the whole file into an isolate…",
+      "body": "If your Worker copies files it didn't create (AI generation results, imports from a URL, exports from another service), the obvious line, await res.arrayBuffer() , loads the whole file into an isolate whose 128 MB is shared by every request it is serving. For video that's the wrong default. You can stream the file straight from the source into R2 instead, and it takes three pieces: FixedLengthStream , pipeTo , and an S3 PUT signed as UNSIGNED-PAYLOAD . The code below is trimmed from the copy step at Movoa , which moves each finished video from a provider's temporary URL into our own bucket. TL;DR Workers memory is 128 MB per isolate, not per request , so buffered copies add up across concurrent requests.",
+      "author": "Movoa",
+      "date": "2026-10-16",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 45,
+      "url": "https://dev.to/movoa/copy-a-remote-video-into-r2-from-a-cloudflare-worker-without-buffering-it-1fg",
+      "image": "/images/feed/feed-3ccac20d3af8.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-c06520e132c5",
+      "title": "AVIF took 3 to 17 times longer to encode than WebP, and what I got back depended on the image",
+      "excerpt": "Say your export menu has WebP and you add AVIF under it. Click WebP and the file is saved before you have moved the mouse. Click AVIF and there is a pause you can feel. The AVIF is supposed to be smal…",
+      "body": "Say your export menu has WebP and you add AVIF under it. Click WebP and the file is saved before you have moved the mouse. Click AVIF and there is a pause you can feel. The AVIF is supposed to be smaller, but by how much, and is that the same for every image? I build small internal tools for a content team and wanted numbers for that trade, so I put together a test page. Some plain words first. AVIF and WebP are both image formats built to come out smaller than JPEG, AVIF being the newer one. An encoder is the code that turns raw pixels into one of those files. I ran both encoders as WASM, which means a C library compiled so it can run inside a web page: @jsquash/avif 2.1.1 (libavif v1.0.1 underneath) and @jsquash/webp 1.5.0.",
+      "author": "NullPointerZen",
+      "date": "2026-10-16",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 40,
+      "url": "https://dev.to/yue_shu_c621a4a637f22396f/avif-took-3-to-17-times-longer-to-encode-than-webp-and-what-i-got-back-depended-on-the-image-jne",
+      "image": "/images/feed/feed-c06520e132c5.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-a1f77da1b21c",
+      "title": "The AI Velocity Paradox: How Fast Code Generation Causes Silent Spec Drift",
+      "excerpt": "TL;DR: AI coding agents write code 10x faster than humans can verify it. Passing tests and green PRs often hide silent specification drift. Here is how to build a deterministic, Git-native Software In…",
+      "body": "TL;DR: AI coding agents write code 10x faster than humans can verify it. Passing tests and green PRs often hide silent specification drift. Here is how to build a deterministic, Git-native Software Intent Graph using StrictDoc and Tracey to mechanically govern coding agents. Software engineering has always been a discipline defined by an ongoing tension between two competing forces: the desire to produce functionality quickly, and the need to ensure that the functionality produced actually matches what was originally intended. For most of the history of the field, these two forces existed in a manageable equilibrium.",
+      "author": "Programming Central",
+      "date": "2026-10-16",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 51,
+      "url": "https://dev.to/programmingcentral/the-ai-velocity-paradox-how-fast-code-generation-causes-silent-spec-drift-29nm",
+      "image": "/images/feed/feed-a1f77da1b21c.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-d3cfdd9902d0",
+      "title": "FetchUpdate – AI Pet Sitter Assistant",
+      "excerpt": "FetchUpdate – The AI Assistant for Local Pet Sitters 🐾 This is a submission for the Hacktoberfest Open-Source AI Challenge Week 2: Side Hustle FetchUpdate is an AI tool designed for independent dog w…",
+      "body": "FetchUpdate – The AI Assistant for Local Pet Sitters 🐾 This is a submission for the Hacktoberfest Open-Source AI Challenge Week 2: Side Hustle What I Built FetchUpdate is an AI tool designed for independent dog walkers and local pet sitters. Pet sitters often spend 1–2 hours every evening manually texting individual updates to anxious owners. FetchUpdate automates this chore: the sitter takes a daily photo of the pet, selects their profile, and the tool uses a vision model paired with stored pet care details to instantly draft a warm, highly personalized SMS update ready to copy and send.",
+      "author": "Athul Jenson",
+      "date": "2026-10-16",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 53,
+      "url": "https://dev.to/2aj0/fetchupdate-ai-pet-sitter-assistant-7l0",
+      "image": "/images/feed/feed-d3cfdd9902d0.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-9cbd5ed0861e",
+      "title": "A CRM where the AI never leaves your laptop",
+      "excerpt": "This is a submission for the Hacktoberfest Open-Source AI Challenge Week 2: Side Hustle Private AI Lead Assistant — a small CRM where you paste a client conversation and a local model turns it into a…",
+      "body": "This is a submission for the Hacktoberfest Open-Source AI Challenge Week 2: Side Hustle What I Built Private AI Lead Assistant — a small CRM where you paste a client conversation and a local model turns it into a structured lead. A freelancer's WhatsApp or email thread with a prospect is already a CRM record in prose: who they are, what they want built, the budget, the deadline. Extracting it is tedious, and every cloud \"AI CRM\" solves it by uploading the transcript.",
+      "author": "Pratik",
+      "date": "2026-10-16",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 39,
+      "url": "https://dev.to/prdxdotexe/a-crm-where-the-ai-never-leaves-your-laptop-nl",
+      "image": "/images/feed/feed-9cbd5ed0861e.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-4ad091229ca5",
+      "title": "The 10 Best Low Fantasy Books",
+      "excerpt": "From Neil Gaiman to Haruki Murakami, these are the most fascinating low fantasy books that treat the ordinary as something extarordinary.",
+      "body": "Fantasy is a broad genre of fiction, and low fantasy might be one of its most slippery corners. The term can describe anything from stories where magic barely exists — like Game of Thrones — to tales in which the supernatural quietly intrudes on an otherwise recognizable world, akin to Pan’s Labyrinth . Unlike high fantasy, which often transports readers to entirely invented worlds with their own mythologies, low fantasy finds the extraordinary lurking just beneath the surface of the familiar.",
+      "author": "Ryan Epps",
+      "date": "2026-10-16",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 31,
+      "url": "https://www.polygon.com/best-low-fantasy-books/",
+      "image": "/images/feed/feed-4ad091229ca5.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-ec1aed32d673",
+      "title": "BAE Systems cyberattack disrupts US federal court operations",
+      "excerpt": "The Administrative Office of the US Courts says a cyberattack on government contractor BAE Systems has taken down the notice system used by federal bankruptcy courts. [...]",
+      "body": "The Administrative Office of the US Courts says a cyberattack on government contractor BAE Systems has taken down the notice system used by federal bankruptcy courts. [...]\n\nThis report, published by BleepingComputer, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cybersecurity. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to BleepingComputer using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Sergiu Gatlan",
+      "date": "2026-10-16",
+      "readTime": "2 min",
+      "section": "cybersecurity",
+      "tags": [
+        "Cybersecurity"
+      ],
+      "featured": false,
+      "xpReward": 33,
+      "url": "https://www.bleepingcomputer.com/news/security/bae-systems-cyberattack-disrupts-us-federal-court-operations/",
+      "image": "/images/feed/feed-ec1aed32d673.jpg",
+      "source": "BleepingComputer",
+      "isLive": true
+    },
     {
       "id": "feed-dc1d67e5e9f9",
       "title": "Is The New Tesla Roadster Actually A Roadster? The Jury Is Still Out",
@@ -13,106 +184,11 @@
       "tags": [
         "Tesla"
       ],
-      "featured": true,
-      "xpReward": 30,
+      "featured": false,
+      "xpReward": 44,
       "url": "https://insideevs.com/news/812185/is-tesla-roadster-convertible/",
       "image": "/images/feed/feed-dc1d67e5e9f9.jpg",
       "source": "InsideEVs",
-      "isLive": true
-    },
-    {
-      "id": "feed-1ecb80b2e36c",
-      "title": "Gemini 4 Argon: My Google AI Plus Dilemma",
-      "excerpt": "The Email That Started It All: A personal anecdote about receiving the notification from Google regarding Gemini Pro's deprecation, and the immediate, slightly unsettling feeling it triggered. Why do…",
-      "body": "The Email That Started It All: A personal anecdote about receiving the notification from Google regarding Gemini Pro's deprecation, and the immediate, slightly unsettling feeling it triggered. Why do these changes always feel like a curveball? Setting the stage for the 'informed but slightly inconvenienced user' perspective. (Reference: TuttoAndroid article on Gemini Pro deprecation) It arrived, as these things often do, without fanfare. A bland subject line from Google nestled between a shipping notification and a newsletter I’d forgotten to unsubscribe from. “Important updates to your Google AI Plus subscription.” My brain, conditioned by years of corporate-speak, immediately translated it to: Something you like is changing, and you probably won't like it. I wasn’t wrong.",
-      "author": "Gian Paolo",
-      "date": "2026-10-16",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 36,
-      "url": "https://dev.to/gp-ia-blog/gemini-4-argon-my-google-ai-plus-dilemma-4jho",
-      "image": "/images/feed/feed-1ecb80b2e36c.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-cd1a6f826e46",
-      "title": "Should AI crawlers access your site?",
-      "excerpt": "Many sites added Disallow: / for GPTBot in 2023 and never looked at it again. Some went further and blocked every AI user agent they could find. That is a legitimate choice. But it is often made witho…",
-      "body": "Many sites added Disallow: / for GPTBot in 2023 and never looked at it again. Some went further and blocked every AI user agent they could find. That is a legitimate choice. But it is often made without knowing that the crawlers do different jobs. Block the training bot and you keep your content out of training. Block the search bot and you may vanish from AI answers. This guide separates the two so you can decide on purpose. The core idea: one company, several bots OpenAI, Anthropic and Perplexity each run more than one user agent. Their own documentation splits them by purpose, and each is controlled separately in robots.txt. OpenAI Per OpenAI's crawler documentation, there are these robots: GPTBot crawls content that may be used to train OpenAI's generative AI foundation models.",
-      "author": "Pineprompt",
-      "date": "2026-10-16",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 47,
-      "url": "https://dev.to/pineprompt/should-ai-crawlers-access-your-site-4m67",
-      "image": "/images/feed/feed-cd1a6f826e46.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-277e1582f397",
-      "title": "I built a site chatbot that isn't allowed to make things up",
-      "excerpt": "In 2024 a tribunal in Canada made Air Canada honor what its website chatbot had told a customer about refunds. The airline argued the bot was responsible for its own words. The tribunal said the compa…",
-      "body": "In 2024 a tribunal in Canada made Air Canada honor what its website chatbot had told a customer about refunds. The airline argued the bot was responsible for its own words. The tribunal said the company is responsible for everything on its site, chatbot included. For a small business that is the real problem with site chatbots. A wrong opening time or an invented price costs more than the bot saves. So I built a demo where the model is only allowed to draft, and plain code decides what the customer sees: Front Desk . The setup The demo runs on Juniper Street Bakery, a bakery I made up. Its whole \"site\" is 13 short entries: hours, prices, cakes, allergens, delivery, payment. The assistant knows nothing else. The model is Gemma 4 E2B, running in the browser through WebLLM at temperature 0.",
-      "author": "Ilia Ivanov",
-      "date": "2026-10-16",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 31,
-      "url": "https://dev.to/phaz/i-built-a-site-chatbot-that-isnt-allowed-to-make-things-up-1fk4",
-      "image": "/images/feed/feed-277e1582f397.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-b46b45186015",
-      "title": "When the Jiusion head will not settle",
-      "excerpt": "What this head will not do I keep a Jiusion 1600X USB microscope for marks my eyes miss. It is a close viewer, and I have stopped asking it to behave like a bench instrument. The sensor is a VGA chip,…",
-      "body": "What this head will not do I keep a Jiusion 1600X USB microscope for marks my eyes miss. It is a close viewer, and I have stopped asking it to behave like a bench instrument. The sensor is a VGA chip, 640 by 480, and the moving picture stays around thirty frames in a second. A saved frame leaves as a BMP file or a JPEG file. That is the whole of what I expect from it. The ruler packed with it helps me line a subject up. I do not treat a reading off that ruler as something I would put my name under. When the lamps flood the metal There are eight lamps in a ring at the lens. A coin rewards that light: an edge, a date, a mint mark. A solder pad and a charging socket do the opposite. The metal flares white.",
-      "author": "jiusionec",
-      "date": "2026-10-16",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 50,
-      "url": "https://dev.to/jiusionec/when-the-jiusion-head-will-not-settle-345b",
-      "image": "/images/feed/feed-b46b45186015.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-2514c8139dc1",
-      "title": "How to Back Up Your Firefox Data (Bookmarks, Passwords, Sessions)",
-      "excerpt": "Firefox stores a surprising amount of data locally. Here's what it is, where it lives, and how to back it up or migrate it to a new machine. Profile folder — the main container for all your Firefox da…",
-      "body": "Firefox stores a surprising amount of data locally. Here's what it is, where it lives, and how to back it up or migrate it to a new machine. What Firefox Stores Locally Profile folder — the main container for all your Firefox data Bookmarks — in a SQLite database ( places.sqlite ) History — also in places.sqlite Passwords — in logins.json + key4.db (encrypted) Cookies — in cookies.sqlite Extensions — in the extensions folder Sessions — in sessionstore.jsonlz4 (current) and sessionstore-backups/ Preferences — in user.js and prefs.js Finding Your Profile Folder Go to about:support → \"Profile Folder\" → click \"Open Folder.\" Or navigate directly: Linux: ~/.mozilla/firefox/PROFILE_ID.default-release/ macOS: ~/Library/Application Support/Firefox/Profiles/PROFILE_ID.default-release/ Windows: %APPD…",
-      "author": "Weather Clock Dash",
-      "date": "2026-10-16",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 30,
-      "url": "https://dev.to/weatherclockdash/how-to-back-up-your-firefox-data-bookmarks-passwords-sessions-1jd5",
-      "image": "/images/feed/feed-2514c8139dc1.webp",
-      "source": "Dev.to",
       "isLive": true
     },
     {
@@ -128,48 +204,10 @@
         "Android Phone"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 40,
       "url": "https://www.androidauthority.com/windows-11-phone-integration-messaging-controls-3724205/",
       "image": "/images/feed/feed-1bc671dc3b0d.jpg",
       "source": "Android Authority",
-      "isLive": true
-    },
-    {
-      "id": "feed-e26e4082579c",
-      "title": "Firefox Privacy Settings: A Practical Guide (Not Paranoia-Level)",
-      "excerpt": "Most Firefox privacy guides go one of two ways: \"just enable Strict Mode\" (too shallow) or \"change 50 about:config settings\" (too much). Here's a practical middle ground — what actually matters, what…",
-      "body": "Most Firefox privacy guides go one of two ways: \"just enable Strict Mode\" (too shallow) or \"change 50 about:config settings\" (too much). Here's a practical middle ground — what actually matters, what the tradeoffs are. Start: Enhanced Tracking Protection Go to about:preferences#privacy and look at \"Enhanced Tracking Protection.\" Three settings: Standard — blocks social media trackers, cross-site tracking cookies, fingerprinters in private windows Strict — adds tracking content blockers, more fingerprint resistance, blocks more trackers. Some sites may break. Custom — fine-tune what's blocked Recommendation: Start with Strict. If a site breaks, you can click the shield icon in the address bar and disable ETP for just that site. The number of sites that break is lower than people expect.",
-      "author": "Weather Clock Dash",
-      "date": "2026-10-16",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 35,
-      "url": "https://dev.to/weatherclockdash/firefox-privacy-settings-a-practical-guide-not-paranoia-level-228p",
-      "image": "/images/feed/feed-e26e4082579c.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-b0d900c72e2f",
-      "title": "China's AI Wins: DeepSeek, Robotics and the Race for AI Dominance",
-      "excerpt": "China is no longer just the world’s manufacturing powerhouse. It is becoming one of the biggest forces in artificial intelligence. From low-cost AI models to humanoid robots and autonomous driving, Ch…",
-      "body": "China is no longer just the world’s manufacturing powerhouse. It is becoming one of the biggest forces in artificial intelligence. From low-cost AI models to humanoid robots and autonomous driving, Chinese companies are challenging the idea that cutting-edge AI requires unlimited computing power and enormous budgets. The question is no longer whether China can compete in AI. It is how far it can go. 1. DeepSeek: Doing More With Less One of China’s most talked-about AI breakthroughs came from DeepSeek, an AI company that gained global attention in early 2025 with its reasoning model, DeepSeek-R1. What made DeepSeek stand out was its focus on efficient AI development.",
-      "author": "Sumit Mishra",
-      "date": "2026-10-16",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 38,
-      "url": "https://dev.to/sumit0rn/chinas-ai-wins-deepseek-robotics-and-the-race-for-ai-dominance-3hpm",
-      "image": "/images/feed/feed-b0d900c72e2f.webp",
-      "source": "Dev.to",
       "isLive": true
     },
     {
@@ -185,7 +223,7 @@
         "Iphone"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 48,
       "url": "https://9to5mac.com/2026/10/16/apple-store-is-down-ahead-of-iphone-duo-preorder-rush/",
       "image": "/images/feed/feed-462e8b53011a.jpg",
       "source": "9to5Mac",
@@ -204,10 +242,31 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 31,
       "url": "https://www.androidauthority.com/google-wallet-agents-auto-add-passes-from-partners-3724191/",
       "image": "/images/feed/feed-f44137faa06b.jpg",
       "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-ba17ea9097f4",
+      "title": "China-Linked Hackers Exploited BeyondTrust Zero-Day to Take Over Remote Support Servers",
+      "excerpt": "The China-nexus cyber espionage group tracked as Armory Castle (previously UNC5221 or Warp Panda) exploited a newly disclosed security flaw in BeyondTrust Remote Support (formerly Bomgar) as a zero-da…",
+      "body": "The China-nexus cyber espionage group tracked as Armory Castle (previously UNC5221 or Warp Panda) exploited a newly disclosed security flaw in BeyondTrust Remote Support (formerly Bomgar) as a zero-day in late August 2026. The vulnerability, tracked as CVE-2026-102764 (CVSS score: 9.3), is a case of improper origin validation in an internal messaging component that could be exploited by a",
+      "author": "info@thehackernews.com (The Hacker News)",
+      "date": "2026-10-16",
+      "readTime": "2 min",
+      "section": "cybersecurity",
+      "tags": [
+        "Zero-day",
+        "Exploit",
+        "Hacker"
+      ],
+      "featured": false,
+      "xpReward": 35,
+      "url": "https://thehackernews.com/2026/10/china-linked-hackers-exploited.html",
+      "image": "/images/feed/feed-ba17ea9097f4.jpg",
+      "source": "The Hacker News",
       "isLive": true
     },
     {
@@ -223,10 +282,29 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 53,
       "url": "https://www.androidauthority.com/hey-gemini-camera-activation-android-xr-3724200/",
       "image": "/images/feed/feed-8a725a8f881f.jpg",
       "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-7edc1b12796d",
+      "title": "CERT-In Warns AI Agents Accessed Sensitive Data at Indian Organizations During Testing",
+      "excerpt": "AI agents being tested online reached the live systems of Indian organizations and read business records, including personal data and confidential material, CERT-In said in an advisory on October 15.…",
+      "body": "AI agents being tested online reached the live systems of Indian organizations and read business records, including personal data and confidential material, CERT-In&nbsp;said in an advisory&nbsp;on October 15. The agents went beyond their assigned tasks, and none of the organizations detected the unauthorized access. After internal reviews, the AI companies whose models were being tested",
+      "author": "info@thehackernews.com (The Hacker News)",
+      "date": "2026-10-16",
+      "readTime": "2 min",
+      "section": "cybersecurity",
+      "tags": [
+        "Cybersecurity"
+      ],
+      "featured": false,
+      "xpReward": 37,
+      "url": "https://thehackernews.com/2026/10/cert-in-warns-ai-agents-accessed.html",
+      "image": "/images/feed/feed-7edc1b12796d.jpg",
+      "source": "The Hacker News",
       "isLive": true
     },
     {
@@ -243,7 +321,7 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 49,
       "url": "https://www.bleepingcomputer.com/news/security/beyondtrust-patches-zero-day-exploited-in-attacks-since-august/",
       "image": "/images/feed/feed-3711cd5eae7a.jpg",
       "source": "BleepingComputer",
@@ -262,7 +340,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 45,
       "url": "https://www.androidauthority.com/sony-cancels-android-17-xperia-10-vi-3724103/",
       "image": "/images/feed/feed-da1be54ea4c2.jpg",
       "source": "Android Authority",
@@ -300,7 +378,7 @@
         "Malware"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 52,
       "url": "https://thehackernews.com/2026/10/attackers-exploit-fortios-flaw-to.html",
       "image": "/images/feed/feed-6d627888e0c0.jpg",
       "source": "The Hacker News",
@@ -320,7 +398,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 39,
       "url": "https://science.nasa.gov/image-article/apod-2026-october-16-chasing-the-international-space-station/",
       "image": "/images/feed/feed-5461374bc729.png",
       "source": "NASA Breaking News",
@@ -339,7 +417,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 30,
       "url": "https://www.polygon.com/best-far-side-quote-ever/",
       "image": "/images/feed/feed-b1d6b1247b14.jpg",
       "source": "Polygon",
@@ -358,7 +436,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 30,
       "url": "https://science.nasa.gov/earth/earth-observatory/isaias-dims-the-gulf-coast/",
       "image": "/images/feed/feed-ae5bc16e29dc.jpg",
       "source": "NASA Breaking News",
@@ -377,7 +455,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 30,
       "url": "https://cleantechnica.com/2026/10/15/monthly-wind-generation-in-iso-ne-is-about-68-higher-than-last-year/",
       "image": "/images/feed/feed-42e5b2e05369.png",
       "source": "CleanTechnica",
@@ -396,7 +474,7 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 50,
       "url": "https://electrek.co/2026/10/15/an-updated-technical-look-at-teslas-kick-flipping-0-60-in-1s-next-gen-roadster/",
       "image": "/images/feed/feed-e67c6aacb00b.jpg",
       "source": "Electrek",
@@ -415,7 +493,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 33,
       "url": "https://cleantechnica.com/2026/10/15/pjm-ercot-and-swpp-all-set-peak-load-records-this-summer/",
       "image": "/images/feed/feed-2f74553cab01.png",
       "source": "CleanTechnica",
@@ -434,7 +512,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 50,
       "url": "https://cleantechnica.com/2026/10/15/waymo-opens-to-everyone-in-san-antonio-san-diego-tampa/",
       "image": "/images/feed/feed-b31e791c7f2d.png",
       "source": "CleanTechnica",
@@ -453,7 +531,7 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 53,
       "url": "https://insideevs.com/news/812156/tesla-roadster-thrusters/",
       "image": "/images/feed/feed-dc9aeb15fee0.jpg",
       "source": "InsideEVs",
@@ -472,7 +550,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 50,
       "url": "https://www.engadget.com/2288448/relive-tesla-ridiculously-fun-roadster-stunt-show/",
       "image": "/images/feed/feed-eedc04083d7c.jpg",
       "source": "Engadget",
@@ -491,7 +569,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 34,
       "url": "https://www.polygon.com/best-scifi-book-closing-line/",
       "image": "/images/feed/feed-22d9425e1225.jpg",
       "source": "Polygon",
@@ -510,7 +588,7 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 37,
       "url": "https://insideevs.com/news/812154/tesla-roadster-street-legal-elon-musk/",
       "image": "/images/feed/feed-13e98da8a2d9.jpg",
       "source": "InsideEVs",
@@ -529,7 +607,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 47,
       "url": "https://www.polygon.com/the-batman-part-2-steven-soderbergh-production-update/",
       "image": "/images/feed/feed-67f97badd78c.jpg",
       "source": "Polygon",
@@ -548,7 +626,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 38,
       "url": "https://www.ign.com/articles/preorder-the-steelseries-new-sensei-pro-and-rival-pro-gaming-mice",
       "image": "/images/feed/feed-cf22ad4c34bf.jpg",
       "source": "IGN",
@@ -567,7 +645,7 @@
         "Spacex"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 50,
       "url": "https://techcrunch.com/2026/10/15/tesla-reveals-spacex-powered-roadster-that-flies-and-falls-with-style/",
       "image": "/images/feed/feed-01d23e03c985.jpg",
       "source": "TechCrunch",
@@ -586,7 +664,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 44,
       "url": "https://www.ign.com/articles/klipsch-promedia-21-lumina-computer-speaker-deal-october-2026",
       "image": "/images/feed/feed-305e4e49a7b8.jpg",
       "source": "IGN",
@@ -612,25 +690,6 @@
       "isLive": true
     },
     {
-      "id": "feed-337dc0be558c",
-      "title": "Save $900 Off the New 2026 65\" Hisense UR8 RGB Mini-LED TV, One of the Best TVs You Can Get for Gaming",
-      "excerpt": "The new 2026 RGB Mini-LED tech boasts richer colors, a brighter picture, and wider viewing angles than ever before.",
-      "body": "Last year, Hisense pioneered the first RGB Mini-LED TV with its 116UX model. Granted it was only available as a massive 116&quot; screen that retailed for $20,000. In 2026, Hisense released its second generation RGB Mini-LED tech at a much more affordable price point with its UR-series lineup. Ahead of Black Friday, you can get it for even less. Best Buy has just discounted the 65&quot; Hisense UR8 RGB Mini-LED TV from $2,000 all the way down to $1,099.99 with free shipping. The Hisense UR8 RGB Mini-LED TV Gives OLED a Run for Its Money RGB Mini-LED is essentially the next generation evolution of Mini-LED technology. Traditional mini-LED TVs consist of an array of blue LED that are passed through RGB filters to produced the desired color.",
-      "author": "Eric Song",
-      "date": "2026-10-15",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 47,
-      "url": "https://www.ign.com/articles/hisense-ur8-rgb-mini-led-tv-deal-october-2026",
-      "image": "/images/feed/feed-337dc0be558c.jpg",
-      "source": "IGN",
-      "isLive": true
-    },
-    {
       "id": "feed-953a262ff105",
       "title": "ChatGPT can peek at your Chrome tabs now",
       "excerpt": "OpenAI's ChatGPT Atlas browser is gone, but now ChatGPT's Google Chrome extension is getting some upgrades that allow it to use the browser tabs you already have open. With the extension installed, Op…",
@@ -643,7 +702,7 @@
         "Chatgpt"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 48,
       "url": "https://www.theverge.com/ai-artificial-intelligence/1012510/openai-chatgpt-google-chrome-tabs",
       "image": "/images/feed/feed-953a262ff105.png",
       "source": "The Verge",
@@ -662,7 +721,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 36,
       "url": "https://www.cnet.com/tech/mobile/amazon-bee-personal-ai-device-always-listening-and-recording-2/",
       "image": "/images/feed/feed-1893c663b3d9.jpg",
       "source": "CNET",
@@ -681,7 +740,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 46,
       "url": "https://spacenews.com/applying-ai-to-the-geoint-mission-event/",
       "image": "/images/feed/feed-e56427ef26f9.jpg",
       "source": "SpaceNews",
@@ -701,7 +760,7 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 32,
       "url": "https://arstechnica.com/security/2026/10/targeted-ads-delivered-0-click-exploits-to-install-mercenary-malware/",
       "image": "/images/feed/feed-c75fa512dfb3.jpg",
       "source": "Ars Technica",
@@ -721,29 +780,10 @@
         "Hacker"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 36,
       "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-collabora-rce-flaw-to-backdoor-nextcloud-servers/",
       "image": "/images/feed/feed-0ff562aba66c.jpg",
       "source": "BleepingComputer",
-      "isLive": true
-    },
-    {
-      "id": "feed-518562e4a673",
-      "title": "Critical PwnEscape Linux Kernel Vulnerability Lets Guest VMs Read Host Memory",
-      "excerpt": "A newly disclosed critical flaw in the Linux kernel allows code inside a virtual machine to read memory on the host computer it runs on. A researcher demonstrated the leak against Vercel's live cloud…",
-      "body": "A newly disclosed critical flaw in the Linux kernel allows code inside a virtual machine to read memory on the host computer it runs on. A researcher demonstrated the leak against Vercel's live cloud sandboxes, and Vercel confirmed it. The flaw, now tracked as CVE-2026-99999 and nicknamed PwnEscape, is in the Linux kernel's networking code, not in any one cloud's setup, so it reaches the shared",
-      "author": "info@thehackernews.com (The Hacker News)",
-      "date": "2026-10-15",
-      "readTime": "2 min",
-      "section": "cybersecurity",
-      "tags": [
-        "Vulnerability"
-      ],
-      "featured": false,
-      "xpReward": 47,
-      "url": "https://thehackernews.com/2026/10/critical-pwnescape-linux-kernel.html",
-      "image": "/images/feed/feed-518562e4a673.jpg",
-      "source": "The Hacker News",
       "isLive": true
     },
     {
@@ -759,7 +799,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 46,
       "url": "https://www.space.com/astronomy/stars/astronomers-discover-the-1st-ever-green-star-a-cosmic-zombie-just-in-time-for-halloween",
       "image": "/images/feed/feed-499b63a9b6de.png",
       "source": "Space.com",
@@ -778,29 +818,10 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 46,
       "url": "https://science.nasa.gov/directorates/smd/planetary-science-division/nasa-to-help-unlock-mysteries-of-mars-moons-in-upcoming-mission/",
       "image": "/images/feed/feed-bc3152da709c.png",
       "source": "NASA Breaking News",
-      "isLive": true
-    },
-    {
-      "id": "feed-3c93046ebafe",
-      "title": "Android gets AI defenses against messaging scams, fake calls",
-      "excerpt": "Google announced new AI-powered defenses against scam messages and call-forwarding abuse on Android, currently rolling out to eligible devices. [...]",
-      "body": "Google announced new AI-powered defenses against scam messages and call-forwarding abuse on Android, currently rolling out to eligible devices. [...]\n\nThis report, published by BleepingComputer, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cybersecurity. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to BleepingComputer using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Bill Toulas",
-      "date": "2026-10-15",
-      "readTime": "2 min",
-      "section": "cybersecurity",
-      "tags": [
-        "Cybersecurity"
-      ],
-      "featured": false,
-      "xpReward": 53,
-      "url": "https://www.bleepingcomputer.com/news/security/android-gets-ai-defenses-against-messaging-scams-fake-calls/",
-      "image": "/images/feed/feed-3c93046ebafe.jpg",
-      "source": "BleepingComputer",
       "isLive": true
     },
     {
@@ -816,7 +837,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 36,
       "url": "https://techcrunch.com/2026/10/15/anthropic-is-letting-metr-researchers-look-under-the-hood-with-employee-level-access/",
       "image": "/images/feed/feed-6b32532a1652.jpg",
       "source": "TechCrunch",
@@ -836,7 +857,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 37,
       "url": "https://www.space.com/space-exploration/on-this-day-in-space-october-15-2026",
       "image": "/images/feed/feed-c57a001a347c.jpg",
       "source": "Space.com",
@@ -855,29 +876,10 @@
         "Gpt"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 49,
       "url": "https://openai.com/index/introducing-the-rosalind-academic-plan",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "OpenAI Blog",
-      "isLive": true
-    },
-    {
-      "id": "feed-338a2e731f5e",
-      "title": "ThreatsDay: Adobe RCE, DNS Wallet Theft, NVIDIA Container Escape, Self-Healing Backdoor + 23 More",
-      "excerpt": "Someone built a tool to steal data, then decided it should scare the victim for fun. Yes, that’s an actual feature. And somehow, it fits right in with this week's security stories. The rest gets inter…",
-      "body": "Someone built a tool to steal data, then decided it should scare the victim for fun. Yes, that’s an actual feature. And somehow, it fits right in with this week's security stories. The rest gets interesting in different ways. A small permission can lead to a big theft. A trusted login can hide the wrong person. Old bugs are finding new victims, familiar tools are being put to strange uses, and",
-      "author": "info@thehackernews.com (The Hacker News)",
-      "date": "2026-10-15",
-      "readTime": "2 min",
-      "section": "cybersecurity",
-      "tags": [
-        "Cybersecurity"
-      ],
-      "featured": false,
-      "xpReward": 39,
-      "url": "https://thehackernews.com/2026/10/threatsday-adobe-rce-dns-wallet-theft.html",
-      "image": "/images/feed/feed-338a2e731f5e.jpg",
-      "source": "The Hacker News",
       "isLive": true
     },
     {
@@ -893,7 +895,7 @@
         "Neural"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 31,
       "url": "https://already-clean.goodfire.com/",
       "image": "/images/feed/feed-e26a2cb703ec.png",
       "source": "Hacker News",
@@ -912,7 +914,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 35,
       "url": "https://techcrunch.com/2026/10/15/googles-universal-cart-shopping-tool-launches-in-the-us/",
       "image": "/images/feed/feed-07840b4d49b7.png",
       "source": "TechCrunch",
@@ -931,7 +933,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 43,
       "url": "https://openai.com/index/teaching-students-to-think-and-learn-through-questions",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "OpenAI Blog",
@@ -939,16 +941,16 @@
     }
   ],
   "breakingNews": [
-    "INSIDEEVS: Is The New Tesla Roadster Actually A Roadster? The Jury Is Still Out",
-    "DEV.TO: Gemini 4 Argon: My Google AI Plus Dilemma",
-    "DEV.TO: Should AI crawlers access your site?",
-    "DEV.TO: I built a site chatbot that isn't allowed to make things up",
-    "DEV.TO: When the Jiusion head will not settle",
-    "DEV.TO: How to Back Up Your Firefox Data (Bookmarks, Passwords, Sessions)",
-    "ANDROID AUTHORITY: Your Android phone is moving deeper into Windows 11",
-    "DEV.TO: Firefox Privacy Settings: A Practical Guide (Not Paranoia-Level)",
-    "DEV.TO: China's AI Wins: DeepSeek, Robotics and the Race for AI Dominance",
-    "9TO5MAC: Apple Store is down ahead of iPhone Duo preorder rush"
+    "DEV.TO: The first AVIF export in a web tool is mostly a download",
+    "DEV.TO: Your FAQ Schema Says Something Your Page Doesn't. Ours Did Too.",
+    "DEV.TO: Copy a remote video into R2 from a Cloudflare Worker without buffering it",
+    "DEV.TO: AVIF took 3 to 17 times longer to encode than WebP, and what I got back depended on the image",
+    "DEV.TO: The AI Velocity Paradox: How Fast Code Generation Causes Silent Spec Drift",
+    "DEV.TO: FetchUpdate – AI Pet Sitter Assistant",
+    "DEV.TO: A CRM where the AI never leaves your laptop",
+    "POLYGON: The 10 Best Low Fantasy Books",
+    "BLEEPINGCOMPUTER: BAE Systems cyberattack disrupts US federal court operations",
+    "INSIDEEVS: Is The New Tesla Roadster Actually A Roadster? The Jury Is Still Out"
   ],
   "sectionVideos": {}
 }
