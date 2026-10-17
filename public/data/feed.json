@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-10-17T10:12:56.939Z",
+  "fetchedAt": "2026-10-17T11:12:09.467Z",
   "articles": [
     {
-      "id": "feed-66e625cfee84",
-      "title": "Anthropic's 100 Overcharge Bug: What Internationalization Failures Reveal About Agent Payment Pipelines",
-      "excerpt": "A Costa Rican developer tried to load $100 in API credits on Anthropic's console. The platform charged $10,000 instead. The root cause was a missing decimal separator validation layer that silently in…",
-      "body": "A Costa Rican developer tried to load $100 in API credits on Anthropic's console. The platform charged $10,000 instead. The root cause was a missing decimal separator validation layer that silently interpreted \"100,00\" (Spanish locale format) as 10000. No confirmation modal. No server-side normalization. Just an instant charge 100 times larger than intended. This is not a UX annoyance. It is a structural failure in the payment authorization boundary that sits between agent consumption metering and financial settlement. Every agent platform that bills for API calls faces this exact problem: how do you validate currency input across locales without trusting client-side formatting?",
-      "author": "mech.app",
+      "id": "feed-9b24b57408e7",
+      "title": "DeepSeek V4.1 Flash Just Made Frontier Models Obsolete for Agents",
+      "excerpt": "DeepSeek just dropped V4.1 Flash 1017 — a minor version bump with major implications. This is their fast/cheap model, and it's beating models that cost 10x more on the benchmarks that matter most for…",
+      "body": "DeepSeek just dropped V4.1 Flash 1017 — a minor version bump with major implications. This is their fast/cheap model, and it's beating models that cost 10x more on the benchmarks that matter most for production AI. The Numbers That Matter Terminal-Bench 4.0 (Claude Code harness): DeepSeek V4.1 Flash 1017: 42.3 GPT-5.6 Sol: 39.9 GLM-5.3: 37.9 K3: 12.6 A Flash model. Beating flagship models. At terminal tasks. DeepSWE v1.1 (software engineering): DeepSeek V4.1 Flash 1017: 77.0 Opus 5: 74.0 GPT-5.6 Sol: 73.0 It beats Opus 5 at coding. Let that sink in.",
+      "author": "Gabby Six",
       "date": "2026-10-17",
       "readTime": "2 min",
       "section": "software",
@@ -14,18 +14,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 46,
-      "url": "https://dev.to/mech_app_ai/anthropics-100x-overcharge-bug-what-internationalization-failures-reveal-about-agent-payment-3e58",
-      "image": "/images/feed/feed-66e625cfee84.webp",
+      "xpReward": 33,
+      "url": "https://dev.to/gabby_six/deepseek-v41-flash-just-made-frontier-models-obsolete-for-agents-12d6",
+      "image": "/images/feed/feed-9b24b57408e7.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-7bd1ac4ea2a8",
-      "title": "Frontend Memory Leaks — Detection, Diagnosis and Prevention",
-      "excerpt": "Frontend Memory Leaks — Detection, Diagnosis and Prevention A practical system-design guide to understanding browser memory, finding retained objects, preventing lifecycle leaks, and keeping long-runn…",
-      "body": "Frontend Memory Leaks — Detection, Diagnosis and Prevention A practical system-design guide to understanding browser memory, finding retained objects, preventing lifecycle leaks, and keeping long-running web applications stable. Table of Contents What a Memory Leak Is How Browser Memory Works Memory Leak vs High Memory Usage Common Frontend Leak Sources Framework Lifecycle Patterns A Repeatable Detection Workflow Chrome DevTools Deep Dive Automated Memory Regression Testing Production Monitoring Prevention by Design System Design for Long-Running Apps End-to-End Incident Case Study Debugging Checklist Interview Questions and Answers 1.",
-      "author": "ZeeshanAli-0704",
+      "id": "feed-b89c291b620a",
+      "title": "SiteReady: Building an AI Search Readiness Scanner with Open-Source AI (Side Hustle)",
+      "excerpt": "This is a submission for the Hacktoberfest Open-Source AI Challenge Week 2: Side Hustle SiteReadyFor.si is an automated AI and search readiness diagnostic platform designed for the Generative Engine O…",
+      "body": "This is a submission for the Hacktoberfest Open-Source AI Challenge Week 2: Side Hustle What I Built SiteReadyFor.si is an automated AI and search readiness diagnostic platform designed for the Generative Engine Optimization (GEO) era. As AI search engines like Perplexity, SearchGPT, Claude, and Gemini transform how users discover information, traditional SEO is no longer enough. Many modern websites built on Client-Side Rendered (CSR) Single-Page Applications serve an almost empty HTML shell ( &lt;div id=\"root\"&gt;&lt;/div&gt; ) that AI crawlers fail to parse within their strict rendering budgets. SiteReadyFor.si audits websites to ensure they are machine-retrievable and technically ready for autonomous AI scrapers.",
+      "author": "The Saqib Tahir",
       "date": "2026-10-17",
       "readTime": "2 min",
       "section": "software",
@@ -34,36 +34,55 @@
       ],
       "featured": true,
       "xpReward": 52,
-      "url": "https://dev.to/zeeshanali0704/frontend-memory-leaks-detection-diagnosis-and-prevention-2j8m",
-      "image": "/images/feed/feed-7bd1ac4ea2a8.webp",
+      "url": "https://dev.to/thesqb/siteready-building-an-ai-search-readiness-scanner-with-open-source-ai-side-hustle-fol",
+      "image": "/images/feed/feed-b89c291b620a.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-16cb84dc3327",
-      "title": "OpenAI Agents SDK on a Custom OpenAI-Compatible API: Chat Completions, Responses and the Tracing Trap",
-      "excerpt": "I'm Aman Kumar. The OpenAI Agents SDK (openai-agents on PyPI) is a clean way to run tool-calling agents in Python. Out of the box it talks to api.openai.com over the Responses API and ships traces bac…",
-      "body": "I'm Aman Kumar. The OpenAI Agents SDK ( openai-agents on PyPI) is a clean way to run tool-calling agents in Python. Out of the box it talks to api.openai.com over the Responses API and ships traces back to OpenAI. Point it at another OpenAI-compatible server without changing those defaults and you get 404s that look like \"the model is wrong\" or mysterious network errors from the tracer. I wrote this against openai-agents 0.23.1 and verified the three working setups below on a local mock that only implements /v1/chat/completions . The examples use APIClaw , a gateway I build, so weigh that accordingly. Base URL is https://apiclaw.biz/v1 . Copy the model ID from /v1/models or the model hub; I use YOUR_MODEL_ID below.",
-      "author": "Aman Kumar",
+      "id": "feed-33154e81b321",
+      "title": "How Linux Handles a `fork()` When the Parent Has Gigabytes of Memory",
+      "excerpt": "A process with 8 GB of resident memory calls fork(). On a modern Linux system, the call returns in a few milliseconds. No 8 GB copy was made. The child is running. But something happened. The kernel d…",
+      "body": "A process with 8 GB of resident memory calls fork() . On a modern Linux system, the call returns in a few milliseconds. No 8 GB copy was made. The child is running. But something happened. The kernel did real work, and more real work is coming. Where did the cost go? What fork() Actually Creates fork() creates a new process with its own process ID, its own file descriptor table, its own signal state, and critically its own virtual address space. The child's address space is initially identical to the parent's: same virtual address ranges, same mappings, same content. What it does not have is its own copy of every physical memory page the parent mapped. The two processes share the underlying physical pages.",
+      "author": "Aditya Sharma",
       "date": "2026-10-17",
       "readTime": "2 min",
       "section": "software",
       "tags": [
-        "Api"
+        "Software"
       ],
       "featured": true,
-      "xpReward": 47,
-      "url": "https://dev.to/amankumar_apiclaw/openai-agents-sdk-on-a-custom-openai-compatible-api-chat-completions-responses-and-the-tracing-184d",
-      "image": "/images/feed/feed-16cb84dc3327.webp",
+      "xpReward": 38,
+      "url": "https://dev.to/aditya_d_sharma/how-linux-handles-a-fork-when-the-parent-has-gigabytes-of-memory-5ebf",
+      "image": "/images/feed/feed-33154e81b321.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-5ba8d1cd5840",
-      "title": "I installed a bunch of agent skills. Then I wrote a tool to audit them.",
-      "excerpt": "Every week a new agent skills pack shows up on GitHub Trending. I installed a few. Then a few more. Then I copied skills from three different packs into one folder. That is when things got weird. Two…",
-      "body": "Every week a new agent skills pack shows up on GitHub Trending. I installed a few. Then a few more. Then I copied skills from three different packs into one folder. That is when things got weird. Two skills had the same name. The agent picked one at random. Two more had almost identical descriptions, so both triggered on the same prompt. One skill had no description at all, so the agent never picked it. I had no idea until I started reading every SKILL.md by hand. So I built a tiny tool to do that reading for me: skill-audit .",
-      "author": "TECHDEV",
+      "id": "feed-c6d3eb2e890f",
+      "title": "Fix curl (35) ssl3_get_record:wrong version number on Nginx",
+      "excerpt": "curl: (35) error:1408F10B:SSL routines:ssl3_get_record:wrong version number You run curl https://example.com against your Nginx server and get the error above instead of a page. If you searched for \"n…",
+      "body": "curl: (35) error:1408F10B:SSL routines:ssl3_get_record:wrong version number You run curl https://example.com against your Nginx server and get the error above instead of a page. If you searched for \"nginx error https . curl: (35) error:1408f10b:ssl routines:ssl3_get_record:wrong version number\", the cause is almost always one of these three: Nginx listens on 443 without ssl . The port is open, but it serves plain HTTP. You're calling https:// on a plain HTTP port. Examples are :80 , :8080 or php artisan serve on :8000 . A proxy setting is wrong. https_proxy points at https://... while the proxy itself only speaks plain HTTP. Short answer: curl sent a TLS handshake, and the server answered with plain HTTP. OpenSSL read the first bytes of that reply ( HTTP/1.1 ...",
+      "author": "Faizan",
+      "date": "2026-10-17",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 50,
+      "url": "https://dev.to/faizan050/fix-curl-35-ssl3getrecordwrong-version-number-on-nginx-3hpn",
+      "image": "/images/feed/feed-c6d3eb2e890f.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-e2fff7fafa30",
+      "title": "A 24-second template beats infinite control (for a first version)",
+      "excerpt": "Every AI video tool starts with a control panel. Mine started with a fixed template, and that was the only reason it shipped. When the first version exposes duration, motion, style, aspect ratio and s…",
+      "body": "Every AI video tool starts with a control panel. Mine started with a fixed template, and that was the only reason it shipped. Infinite control is a trap for a first release When the first version exposes duration, motion, style, aspect ratio and seed, you are not giving the user power — you are giving them decisions they cannot evaluate. Users cannot tell a good seed from a bad one. They can tell whether the result looks right. A fixed template makes the first release testable: one input, one output shape, one thing to judge. 24 seconds is a constraint that clarifies A short fixed length forces three decisions: What has to happen in the first two seconds. Without a hook, nothing after it matters. What the loop point is.",
+      "author": "Andy Stanly",
       "date": "2026-10-17",
       "readTime": "2 min",
       "section": "software",
@@ -72,17 +91,17 @@
       ],
       "featured": true,
       "xpReward": 41,
-      "url": "https://dev.to/techdevfun/i-installed-a-bunch-of-agent-skills-then-i-wrote-a-tool-to-audit-them-4e2h",
-      "image": "/images/feed/feed-5ba8d1cd5840.webp",
+      "url": "https://dev.to/andystanly/a-24-second-template-beats-infinite-control-for-a-first-version-5fpa",
+      "image": "/images/feed/feed-e2fff7fafa30.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-cbdb08201c23",
-      "title": "Go Profiling in Production: pprof, Flamegraphs and Memory Leaks",
-      "excerpt": "Your Go service handles thousands of requests per minute — until it doesn't. Memory climbs steadily, p99 latency spikes, and the first instinct is to add more instances. Before doing that, you need to…",
-      "body": "Your Go service handles thousands of requests per minute — until it doesn't. Memory climbs steadily, p99 latency spikes, and the first instinct is to add more instances. Before doing that, you need to understand what the code is actually doing. Go's built-in profiling tooling makes this tractable without third-party frameworks or expensive APM subscriptions. Setting Up pprof in a Running Service pprof is part of the standard library. Adding it to an existing HTTP service takes four lines: import ( \"net/http\" _ \"net/http/pprof\" ) func main () { // Expose pprof on a separate internal port — never public go func () { http . ListenAndServe ( \"localhost:6060\" , nil ) }() // ... rest of your server setup } The blank import registers the pprof HTTP handlers automatically.",
-      "author": "Ayi NEDJIMI",
+      "id": "feed-f8bfcb3896a0",
+      "title": "MarginMitra: An Open-Source AI Profit Copilot for Small Online Sellers",
+      "excerpt": "This is a submission for the Hacktoberfest Open-Source AI Challenge Week 2: Side Hustle I built MarginMitra, an AI-powered profit copilot designed to help small online sellers understand their profita…",
+      "body": "This is a submission for the Hacktoberfest Open-Source AI Challenge Week 2: Side Hustle What I Built I built MarginMitra , an AI-powered profit copilot designed to help small online sellers understand their profitability and make better business decisions. Many sellers focus on revenue but overlook product costs and profit margins. MarginMitra helps them analyze product performance, identify low-margin products, and prioritize actions to improve profitability. Key features include: Profit Analytics: Track revenue, estimated costs, profit, and product margins. Smart Recommendations: Prioritize products that need pricing or cost reviews. AI Business Chat: Ask business questions and get insights based on available business data. CSV Import: Analyze sales data using uploaded CSV files.",
+      "author": "chirag kumar chouhan ",
       "date": "2026-10-17",
       "readTime": "2 min",
       "section": "software",
@@ -90,37 +109,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 45,
-      "url": "https://dev.to/ayinedjimi-consultants/go-profiling-in-production-pprof-flamegraphs-and-memory-leaks-45a0",
-      "image": "/images/feed/feed-cbdb08201c23.webp",
+      "xpReward": 51,
+      "url": "https://dev.to/chiragkumarchouhan/marginmitra-an-open-source-ai-profit-copilot-for-small-online-sellers-56k",
+      "image": "/images/feed/feed-f8bfcb3896a0.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-c03fe17695e3",
-      "title": "I built a handheld mmWave presence radar, and the first bug was a board that never ran my code",
-      "excerpt": "One small device noticing one thing. That's the demo genre I keep falling for, and this time it's an M5Stack Cardputer-Adv with an LD2410 mmWave sensor hanging off its EXT header. The firmware turns t…",
-      "body": "One small device noticing one thing. That's the demo genre I keep falling for, and this time it's an M5Stack Cardputer-Adv with an LD2410 mmWave sensor hanging off its EXT header. The firmware turns the sensor's UART stream into a radar scope on the handheld's 240 by 135 screen: a sweep line rotating through the cone the sensor watches, roughly 60 degrees, a contact sitting at a radius equal to the measured distance, a trail fading behind it as the target moves, and a NO PRESENCE state when the room is empty. No app, no phone in between. The device itself knows someone is approaching. Writing the firmware was the easy part. The hard part was getting a single byte back out of the board.",
-      "author": "prodbymarcu",
-      "date": "2026-10-17",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 52,
-      "url": "https://dev.to/prodbymarcu/i-built-a-handheld-mmwave-presence-radar-and-the-first-bug-was-a-board-that-never-ran-my-code-1f5a",
-      "image": "/images/feed/feed-c03fe17695e3.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-32b281120678",
-      "title": "Codex 0.162 Lets the Model Create Git Worktrees. Its Own Working Directory Doesn't Move",
-      "excerpt": "Book: Event-Driven Architecture Pocket Guide Also by me: Thinking in Go (2-book series) — Complete Guide to Go Programming + Hexagonal Architecture in Go My project: Hermes IDE | GitHub — an IDE for d…",
-      "body": "Book: Event-Driven Architecture Pocket Guide Also by me: Thinking in Go (2-book series) — Complete Guide to Go Programming + Hexagonal Architecture in Go My project: Hermes IDE | GitHub — an IDE for developers who ship with Claude Code and other AI coding tools Me: xgabriel.com | GitHub Codex CLI 0.162.0 can create a git worktree in the middle of a task, on the model's own initiative. Then the tool's description, the text the model reads, says: \"The task stays in its existing checkout\" ( source ). The new tree exists on disk. The agent's shell is still in the folder you started it in. That is by design: the pull request says to keep the task's working directory unchanged. I haven't run 0.162 myself.",
-      "author": "Gabriel Anhaia",
+      "id": "feed-3ab964e4dcd6",
+      "title": "AWS IAM mistakes teams keep making",
+      "excerpt": "Most AWS security incidents do not start with an exotic exploit. They start with an over-broad policy, a key that was never rotated or a role that trusts more than it should, each created because it w…",
+      "body": "Most AWS security incidents do not start with an exotic exploit. They start with an over-broad policy, a key that was never rotated or a role that trusts more than it should, each created because it was the fastest way to make something work. Here are the IAM mistakes that recur most often, what to do instead, and how to check that the fix held. 1. Wildcards in actions and resources { \"Effect\" : \"Allow\" , \"Action\" : \"*\" , \"Resource\" : \"*\" } That is administrator access. Less obvious variants are s3:* on every bucket, or ec2:* for a pipeline that only starts and stops instances.",
+      "author": "BrainTally",
       "date": "2026-10-17",
       "readTime": "2 min",
       "section": "software",
@@ -128,10 +128,48 @@
         "Software"
       ],
       "featured": false,
-      "xpReward": 45,
-      "url": "https://dev.to/gabrielanhaia/codex-0162-lets-the-model-create-git-worktrees-its-own-working-directory-doesnt-move-4fkk",
-      "image": "/images/feed/feed-32b281120678.webp",
+      "xpReward": 48,
+      "url": "https://dev.to/cloudlative/aws-iam-mistakes-teams-keep-making-2nap",
+      "image": "/images/feed/feed-3ab964e4dcd6.webp",
       "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-4d2978622fc4",
+      "title": "The one missing feature that stopped me from buying a Fitbit Edge",
+      "excerpt": "The Fitbit Edge is a tough sell without NFC.",
+      "body": "As a reluctant smartwatch user that only puts a screen on my wrist for fitness and health tracking, minimalist trackers like the Google Fitbit Air and the new Fitbit Edge always grab my attention. Often, basic trackers skip the advanced sensors I value on premium smartwatches. In this regard, the Fitbit Edge is a breath of fresh air — it’s loaded with features, including ECG readings, skin temperature measurements, and blood-oxygen sensing. There’s only one smartwatch feature I care about that has nothing to do with fitness or health. Unfortunately, it’s the one the Fitbit Edge lacks.",
+      "author": "Brady Snyder",
+      "date": "2026-10-17",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 35,
+      "url": "https://www.androidauthority.com/fitbit-edge-missing-feature-3722753/",
+      "image": "/images/feed/feed-4d2978622fc4.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-52ddc92c4194",
+      "title": "Don’t buy a budget Android phone in 2026 — 4 reasons to get an old flagship instead",
+      "excerpt": "Old flagships are the way to go right now.",
+      "body": "Credit: C. Scott Brown / Android Authority As a result of what is now known as RAMageddon and the resulting chip shortage caused by chip makers and RAM manufacturers selling all their processing power to AI companies, we’re seeing significant price increases in the smartphone world. New flagship models launch at higher prices and with less RAM than the previous generation, while current smartphones are seeing their prices rise. The Galaxy A-Series and the Pixel 10a price hikes are just a few examples, as phones have seen their prices go up or their specs slashed (effectively the same thing) in recent weeks in response to market demand.",
+      "author": "Michael Allison",
+      "date": "2026-10-17",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Android Phone"
+      ],
+      "featured": false,
+      "xpReward": 33,
+      "url": "https://www.androidauthority.com/dont-buy-budget-android-phone-2026-old-flagship-better-why-3718130/",
+      "image": "/images/feed/feed-52ddc92c4194.jpg",
+      "source": "Android Authority",
       "isLive": true
     },
     {
@@ -147,7 +185,7 @@
         "Pixel Phone"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 37,
       "url": "https://www.androidauthority.com/google-pixel-vs-samsung-galaxy-comparison-3721606/",
       "image": "/images/feed/feed-de422a5c24e5.jpg",
       "source": "Android Authority",
@@ -166,7 +204,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 52,
       "url": "https://www.polygon.com/horror-anthology-creepypasta-halloween-countdown/",
       "image": "/images/feed/feed-1147664d3b79.jpg",
       "source": "Polygon",
@@ -185,10 +223,29 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 33,
       "url": "https://www.space.com/stargazing/meteor-showers/the-orionid-meteor-shower-peaks-oct-21-22-2026-heres-what-to-expect",
       "image": "/images/feed/feed-3f53a38fee75.jpg",
       "source": "Space.com",
+      "isLive": true
+    },
+    {
+      "id": "feed-1a5a5c81df3b",
+      "title": "I Test Home Security Tech. Here Are 4 Devices I Rely on to Guard My Porch",
+      "excerpt": "Porch security is the best, easiest safety project for anyone new to smart homes.",
+      "body": "Porch security is the best, easiest safety project for anyone new to smart homes.\n\nThis report, published by CNET, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Security. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to CNET using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Tyler Lacoma",
+      "date": "2026-10-17",
+      "readTime": "2 min",
+      "section": "cybersecurity",
+      "tags": [
+        "Security"
+      ],
+      "featured": false,
+      "xpReward": 41,
+      "url": "https://www.cnet.com/home/security/devices-i-rely-on-for-porch-security/",
+      "image": "/images/feed/feed-1a5a5c81df3b.jpg",
+      "source": "CNET",
       "isLive": true
     },
     {
@@ -204,7 +261,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 54,
       "url": "https://www.androidauthority.com/google-keep-gemini-how-to-use-3720665/",
       "image": "/images/feed/feed-bb83b33f71c5.jpg",
       "source": "Android Authority",
@@ -223,7 +280,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 44,
       "url": "https://www.androidauthority.com/using-ai-agent-instinct-one-month-later-impressions-3720825/",
       "image": "/images/feed/feed-30c84372f443.jpg",
       "source": "Android Authority",
@@ -242,7 +299,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 41,
       "url": "https://www.polygon.com/garfield-alone/",
       "image": "/images/feed/feed-846d8191d3b2.jpg",
       "source": "Polygon",
@@ -261,7 +318,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 39,
       "url": "https://www.polygon.com/buffy-the-vampire-slayer-season-5-episode-4-retrospective/",
       "image": "/images/feed/feed-cf324add597b.jpg",
       "source": "Polygon",
@@ -280,29 +337,10 @@
         "Hacker"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 38,
       "url": "https://thehackernews.com/2026/10/hackers-use-compromised-connectwise.html",
       "image": "/images/feed/feed-9a0cd5bfb89f.jpg",
       "source": "The Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-a89168c1985a",
-      "title": "APOD: 2026 October 17 – 3D 67P",
-      "excerpt": "APOD Science APOD APOD: 2026 October 17… Today’s APOD Archive Submissions Index Search Calendar RSS Education About Discuss APOD Astronomy Picture of the Day Discover the cosmos! Each day a different…",
-      "body": "APOD Science APOD APOD: 2026 October 17… Today’s APOD Archive Submissions Index Search Calendar RSS Education About Discuss APOD Astronomy Picture of the Day Discover the cosmos! Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer. 3D 67P Explanation: Put on your red/blue glasses and float next to the jagged and double-lobed nucleus of Churyumov-Gerasimenko, also known as Comet 67P . The stereo anaglyph was created by combining two images from the Rosetta spacecraft’s narrow angle OSIRIS camera taken on July 25, 2015 from a distance of 184 kilometers. Numerous jets are emanating from the small solar system world’s active surface near its closest approach to the Sun.",
-      "author": "NASA Breaking News",
-      "date": "2026-10-17",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Space"
-      ],
-      "featured": false,
-      "xpReward": 40,
-      "url": "https://science.nasa.gov/image-article/apod-2026-october-17-3d-67p/",
-      "image": "/images/feed/feed-a89168c1985a.jpg",
-      "source": "NASA Breaking News",
       "isLive": true
     },
     {
@@ -318,7 +356,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 52,
       "url": "https://www.polygon.com/pokemon-pokopia-event-habitat-dex-pokedex-list-requirements-unlock/",
       "image": "/images/feed/feed-b062dff01e4a.jpg",
       "source": "Polygon",
@@ -337,7 +375,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 31,
       "url": "https://www.polygon.com/pokemon-pokopia-event-schedule-holiday-dates/",
       "image": "/images/feed/feed-7022a0fa04a5.jpg",
       "source": "Polygon",
@@ -356,7 +394,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 47,
       "url": "https://www.polygon.com/pokemon-pokopia-pumpkaboos-sweet-surprises-gourgeist-habitats-items/",
       "image": "/images/feed/feed-93923617556e.jpg",
       "source": "Polygon",
@@ -375,7 +413,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 51,
       "url": "https://www.polygon.com/best-mystery-tv-shows-worth-solving/",
       "image": "/images/feed/feed-f046887b804d.jpg",
       "source": "Polygon",
@@ -394,7 +432,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 32,
       "url": "https://www.engadget.com/2289475/tesla-roadster-2028-production-dont-get-hopes-up/",
       "image": "/images/feed/feed-9b6854d030d3.jpg",
       "source": "Engadget",
@@ -413,7 +451,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 31,
       "url": "https://cleantechnica.com/2026/10/16/hello-toronto-waymo-is-en-route/",
       "image": "/images/feed/feed-6aa59f762222.jpg",
       "source": "CleanTechnica",
@@ -432,7 +470,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 52,
       "url": "https://cleantechnica.com/2026/10/16/u-s-small-scale-solar-generation-has-quadrupled-in-the-last-decade/",
       "image": "/images/feed/feed-4260fcc3c257.png",
       "source": "CleanTechnica",
@@ -451,7 +489,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 52,
       "url": "https://cleantechnica.com/2026/10/16/franco-german-car-deal-a-historic-mistake-that-weakens-climate-ambition-and-europes-car-industry/",
       "image": "/images/feed/feed-e7ec214b649a.png",
       "source": "CleanTechnica",
@@ -470,7 +508,7 @@
         "Iphone"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 52,
       "url": "https://9to5mac.com/2026/10/16/verizon-confirms-10-monthly-fee-for-new-iphone-handoff-feature/",
       "image": "/images/feed/feed-43003a80959b.jpg",
       "source": "9to5Mac",
@@ -489,7 +527,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 48,
       "url": "https://cleantechnica.com/2026/10/16/delaying-ets2-will-not-protect-households-from-the-next-energy-crisis/",
       "image": "/images/feed/feed-c75039a09a9b.jpg",
       "source": "CleanTechnica",
@@ -508,29 +546,10 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 35,
       "url": "https://cleantechnica.com/2026/10/16/publishing-your-book-through-cleantechnica-press/",
       "image": "/images/feed/feed-9b193e08ce94.png",
       "source": "CleanTechnica",
-      "isLive": true
-    },
-    {
-      "id": "feed-e8f6ba7bfa2b",
-      "title": "All the news about the iPhone Duo",
-      "excerpt": "Apple has finally announced its long-rumored foldable: the iPhone Duo. The new phone has a 5.4-inch outer display and a 7.6-inch inner display, a “nano‑texture” finish on the inner screen, and barely…",
-      "body": "Apple has finally announced its long-rumored foldable: the iPhone Duo . The new phone has a 5.4-inch outer display and a 7.6-inch inner display, a “nano‑texture” finish on the inner screen, and barely any visible crease. Instead of Face ID, it uses Touch ID on the power button. It has two cameras, a main lens and a wide-angle lens. Apple completely revamped iOS 27’s controls and apps for the foldable, including putting the dock on the side of the phone. And it has a flashy opening animation when you unfold the phone. The iPhone Duo a big new bet from Apple, though one that’s a little late to the game compared to competitors like Samsung and Google. The phone isn’t cheap: it starts at $1,999 for the base 256GB model, and the prices only go up from there.",
-      "author": "Verge Staff",
-      "date": "2026-10-16",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Iphone"
-      ],
-      "featured": false,
-      "xpReward": 50,
-      "url": "https://www.theverge.com/tech/1010131/apple-iphone-duo-news-announcements",
-      "image": "/images/feed/feed-e8f6ba7bfa2b.jpg",
-      "source": "The Verge",
       "isLive": true
     },
     {
@@ -546,29 +565,10 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 53,
       "url": "https://cleantechnica.com/2026/10/16/delorean-flying-car-tesla-roadster-evtol-evs-race/",
       "image": "/images/feed/feed-bac9d071a779.png",
       "source": "CleanTechnica",
-      "isLive": true
-    },
-    {
-      "id": "feed-210a8ba382fd",
-      "title": "Apple poaches longtime Meta executive to lead global litigation",
-      "excerpt": "Bloomberg reports that Apple has hired Scott Tucker, who spent nearly six years as Meta’s vice president and deputy general counsel for global litigation. Here are the details. more…",
-      "body": "Bloomberg reports that Apple has hired Scott Tucker, who spent nearly six years as Meta’s vice president and deputy general counsel for global litigation. Here are the details. more — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Marcus Mendes",
-      "date": "2026-10-16",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 36,
-      "url": "https://9to5mac.com/2026/10/16/apple-poaches-longtime-meta-executive-to-lead-global-litigation/",
-      "image": "/images/feed/feed-210a8ba382fd.jpg",
-      "source": "9to5Mac",
       "isLive": true
     },
     {
@@ -585,7 +585,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 51,
       "url": "https://www.space.com/space-exploration/international-space-station/it-really-does-change-you-spacex-crew-12-commander-wishes-we-could-all-see-our-fragile-earth-from-space",
       "image": "/images/feed/feed-5c69c8261033.jpg",
       "source": "Space.com",
@@ -604,9 +604,9 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 45,
       "url": "https://techcrunch.com/2026/10/16/replit-is-no-longer-working-with-anthropic-ceo-says/",
-      "image": "/images/feed/feed-13131774e811.webp",
+      "image": "/images/feed/feed-13131774e811.jpg",
       "source": "TechCrunch",
       "isLive": true
     },
@@ -642,30 +642,10 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 52,
       "url": "https://electrek.co/2026/10/16/montreal-airport-120-ev-chargers-with-48-more-coming/",
       "image": "/images/feed/feed-41103028b437.jpg",
       "source": "Electrek",
-      "isLive": true
-    },
-    {
-      "id": "feed-5f818ef0e046",
-      "title": "NASA Names Stephen Cash Marshall Space Flight Center Director",
-      "excerpt": "NASA Administrator Jared Isaacman has named Stephen Cash director of the agency’s Marshall Space Flight Center in Huntsville, Alabama, effective Monday, Oct. 19. Cash, a veteran NASA engineer and aero…",
-      "body": "Photo of Stephen Cash NASA Administrator Jared Isaacman has named Stephen Cash director of the agency’s Marshall Space Flight Center in Huntsville, Alabama, effective Monday, Oct. 19. Cash, a veteran NASA engineer and aerospace executive, returns to lead the center where he began his career more than four decades ago. “Marshall contributions to NASA&#8217;s missions are historic and it&#8217;s no question why it&#8217;s the Center of Excellence for propulsion,” said Isaacman. “Steve Cash is a Marshall legend, has spent his career around the hardware, the people and has been in the seat before making the decisions when human spaceflight is on the line.",
-      "author": "Gerelle Q. Dodson",
-      "date": "2026-10-16",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Nasa",
-        "Space"
-      ],
-      "featured": false,
-      "xpReward": 42,
-      "url": "https://www.nasa.gov/news-release/nasa-names-stephen-cash-marshall-space-flight-center-director/",
-      "image": "/images/feed/feed-5f818ef0e046.jpg",
-      "source": "NASA Breaking News",
       "isLive": true
     },
     {
@@ -681,7 +661,7 @@
         "Hacker"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 30,
       "url": "https://www.bleepingcomputer.com/news/security/critical-blockstrap-flaw-lets-hackers-run-code-on-magento-servers/",
       "image": "/images/feed/feed-32b7a245aa33.jpg",
       "source": "BleepingComputer",
@@ -700,7 +680,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 39,
       "url": "https://www.space.com/stargazing/when-not-to-watch-a-meteor-shower-why-im-not-staying-up-for-the-orionids",
       "image": "/images/feed/feed-cbbdc65e24b2.jpg",
       "source": "Space.com",
@@ -719,7 +699,7 @@
         "Claude"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 41,
       "url": "https://claude.dev/blog/solving-code-review-at-anthropic/",
       "image": "/images/feed/feed-23bf1b38da89.png",
       "source": "Hacker News",
@@ -738,7 +718,7 @@
         "Transformer"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 34,
       "url": "https://alexwang.ai/posts/associative-memory/",
       "image": "/images/feed/feed-535f3eb25ab6.jpg",
       "source": "Hacker News",
@@ -757,7 +737,7 @@
         "Generative Ai"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 39,
       "url": "https://openai.com/index/itau-generative-ai",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "OpenAI Blog",
@@ -776,7 +756,7 @@
         "Claude"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 39,
       "url": "https://www.anthropic.com/research/ecdsa-curve-origins",
       "image": "/images/feed/feed-9b62eabe5d6e.jpg",
       "source": "Hacker News",
@@ -795,7 +775,7 @@
         "Claude"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 33,
       "url": "https://www.anthropic.com/research/designing-efficient-quantum-circuits",
       "image": "/images/feed/feed-f3b806371614.jpg",
       "source": "Hacker News",
@@ -814,7 +794,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 37,
       "url": "https://www.space.com/astronomy/exoplanets/scientists-find-gemstones-in-atmosphere-of-bizarre-scorching-hot-marshmallow-exoplanet",
       "image": "/images/feed/feed-ee718a04f87d.png",
       "source": "Space.com",
@@ -833,7 +813,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 54,
       "url": "https://www.space.com/stargazing/meteor-showers/how-to-see-the-orionid-meteor-shower-2026-peak-this-week-and-when-to-look",
       "image": "/images/feed/feed-f946e1b35459.jpg",
       "source": "Space.com",
@@ -852,10 +832,30 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 46,
       "url": "https://thehackernews.com/2026/10/researchers-demonstrate-openbsd-root.html",
       "image": "/images/feed/feed-11f986cc77fa.jpg",
       "source": "The Hacker News",
+      "isLive": true
+    },
+    {
+      "id": "feed-eb657180d7e4",
+      "title": "SpaceX thrusters just made a Tesla Roadster 'fly' (and Elon Musk's car is still out there in space)",
+      "excerpt": "Tesla just unveiled its new Roadster with a spectacular stunt, using SpaceX thrusters to make the sleek vehicle \"fly.\"",
+      "body": "Well, that was a memorable debut. Tesla unveiled its highly anticipated new Roadster last night (Oct. 16) with a spectacular stunt, using SpaceX thrusters to make the vehicle \"fly.\" \"This is not necessarily a safety-optimized car, OK?\" Elon Musk , who runs both companies, said during the livestreamed reveal, which was held at SpaceX's rocket-testing facility in McGregor, Texas. \"But it takes the the fun meter to 11 out of 10.\" Tesla's next-gen, thruster-equipped Roadster launches itself over other vehicles during an unveiling event on Oct. 15, 2026. (Image credit: Tesla) Tesla first announced the next-gen Roadster in 2017, saying at the time that it would be released in 2020 . In 2018, Musk announced that the new car would incorporate some SpaceX tech.",
+      "author": " Mike Wall ",
+      "date": "2026-10-16",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Spacex",
+        "Space"
+      ],
+      "featured": false,
+      "xpReward": 51,
+      "url": "https://www.space.com/technology/spacex-thrusters-just-made-a-tesla-roadster-fly-and-elon-musks-car-is-still-out-there-in-space",
+      "image": "/images/feed/feed-eb657180d7e4.jpg",
+      "source": "Space.com",
       "isLive": true
     },
     {
@@ -871,10 +871,31 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 48,
       "url": "https://www.bleepingcomputer.com/news/security/zero-click-attacks-used-targeted-ads-to-deliver-candiru-spyware/",
       "image": "/images/feed/feed-a7cd17142097.jpg",
       "source": "BleepingComputer",
+      "isLive": true
+    },
+    {
+      "id": "feed-2b064b193674",
+      "title": "On this day in space! Oct. 16, 1975: NASA launches the 1st-ever GOES weather satellite to watch Earth from space",
+      "excerpt": "On Oct. 16, 1975, NASA launched the first operational GOES weather satellite. Here's why it mattered.",
+      "body": "On Oct. 16, 1975, NASA launched the first operational GOES satellite! GOES-A was the first in a series of weather satellites that NASA jointly operated with the National Oceanic and Atmospheric Administration (NOAA). The name is short for Geostationary Operational Environmental Satellite . GOES-A launched on a Delta rocket from Cape Canaveral, Florida. GOES satellites all have a geostationary orbit, which means they always face the same part of Earth — in this case, the Indian Ocean. Once GOES-A became operational, it was renamed GOES-1. The GOES satellite fleet has grown over the years, and is a critical link in the chain of satellites tracking Earth's weather from space.",
+      "author": " Hanneke Weitering ",
+      "date": "2026-10-16",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Nasa",
+        "Satellite",
+        "Space"
+      ],
+      "featured": false,
+      "xpReward": 41,
+      "url": "https://www.space.com/space-exploration/on-this-day-in-space-october-16-2026",
+      "image": "/images/feed/feed-2b064b193674.jpg",
+      "source": "Space.com",
       "isLive": true
     },
     {
@@ -890,7 +911,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 30,
       "url": "https://thehackernews.com/2026/10/attackers-tampered-with-aomei.html",
       "image": "/images/feed/feed-d6e1ba04aac2.jpg",
       "source": "The Hacker News",
@@ -909,43 +930,24 @@
         "Phishing"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 33,
       "url": "https://thehackernews.com/2026/10/uat-11985-uses-fake-event-invites-to.html",
       "image": "/images/feed/feed-e7302d916453.jpg",
       "source": "The Hacker News",
       "isLive": true
-    },
-    {
-      "id": "feed-d7e4fe5180d6",
-      "title": "Employees using personal ChatGPT at work? Here's what IT admins need to do",
-      "excerpt": "Employees using personal ChatGPT accounts at work can expose sensitive company data, even when their organization provides an approved Enterprise workspace. NordLayer explains how IT teams can investi…",
-      "body": "Employees using personal ChatGPT accounts at work can expose sensitive company data, even when their organization provides an approved Enterprise workspace. NordLayer explains how IT teams can investigate unauthorized AI use and block sensitive information before it reaches personal accounts. [...]",
-      "author": "Sponsored by NordLayer AI Scout",
-      "date": "2026-10-16",
-      "readTime": "2 min",
-      "section": "cybersecurity",
-      "tags": [
-        "Cybersecurity"
-      ],
-      "featured": false,
-      "xpReward": 30,
-      "url": "https://www.bleepingcomputer.com/news/security/employees-using-personal-chatgpt-at-work-heres-what-it-admins-need-to-do/",
-      "image": "/images/feed/feed-d7e4fe5180d6.jpg",
-      "source": "BleepingComputer",
-      "isLive": true
     }
   ],
   "breakingNews": [
-    "DEV.TO: Anthropic's 100 Overcharge Bug: What Internationalization Failures Reveal About Agent Payment Pipelines",
-    "DEV.TO: Frontend Memory Leaks — Detection, Diagnosis and Prevention",
-    "DEV.TO: OpenAI Agents SDK on a Custom OpenAI-Compatible API: Chat Completions, Responses and the Tracing Trap",
-    "DEV.TO: I installed a bunch of agent skills. Then I wrote a tool to audit them.",
-    "DEV.TO: Go Profiling in Production: pprof, Flamegraphs and Memory Leaks",
-    "DEV.TO: I built a handheld mmWave presence radar, and the first bug was a board that never ran my code",
-    "DEV.TO: Codex 0.162 Lets the Model Create Git Worktrees. Its Own Working Directory Doesn't Move",
-    "ANDROID AUTHORITY: 5 reasons why I’ll always buy Google Pixel phones instead of Samsung Galaxy",
-    "POLYGON: Stephen King Meets 'The Backrooms' in Syfy's Underrated 6-Part Anthology Series",
-    "SPACE.COM: The Orionid meteor shower peaks next week! Here's what to expect"
+    "DEV.TO: DeepSeek V4.1 Flash Just Made Frontier Models Obsolete for Agents",
+    "DEV.TO: SiteReady: Building an AI Search Readiness Scanner with Open-Source AI (Side Hustle)",
+    "DEV.TO: How Linux Handles a `fork()` When the Parent Has Gigabytes of Memory",
+    "DEV.TO: Fix curl (35) ssl3_get_record:wrong version number on Nginx",
+    "DEV.TO: A 24-second template beats infinite control (for a first version)",
+    "DEV.TO: MarginMitra: An Open-Source AI Profit Copilot for Small Online Sellers",
+    "DEV.TO: AWS IAM mistakes teams keep making",
+    "ANDROID AUTHORITY: The one missing feature that stopped me from buying a Fitbit Edge",
+    "ANDROID AUTHORITY: Don’t buy a budget Android phone in 2026 — 4 reasons to get an old flagship instead",
+    "ANDROID AUTHORITY: 5 reasons why I’ll always buy Google Pixel phones instead of Samsung Galaxy"
   ],
   "sectionVideos": {}
 }
