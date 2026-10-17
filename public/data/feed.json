@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-10-17T04:14:20.201Z",
+  "fetchedAt": "2026-10-17T05:12:58.352Z",
   "articles": [
     {
-      "id": "feed-a764b31a26e1",
-      "title": "One env var between localhost and production: how VITE_API_URL keeps my axios client deploy-proof",
-      "excerpt": "I once shipped a frontend with http://localhost:8000/api hardcoded in the axios client. It worked perfectly — on my machine. The production build called localhost on every user's browser, failed silen…",
-      "body": "I once shipped a frontend with http://localhost:8000/api hardcoded in the axios client. It worked perfectly — on my machine. The production build called localhost on every user's browser, failed silently, and I spent an evening learning about CORS before realizing the actual bug was a string literal. The rule now: the API base URL comes from exactly one env var, with a sane fallback. Nothing else in the frontend knows the backend's address. // .env.example VITE_API_URL = http : //localhost:8000 const client = isDemoMode () ? createDemoClient () : axios . create ({ baseURL : ` ${ import . meta . env .",
-      "author": "Kamran Khan",
+      "id": "feed-c3c080234363",
+      "title": "How much tax should a sole trader set aside in Australia (2026-27)? A worked example",
+      "excerpt": "As a sole trader, nobody withholds tax from your business income. Your profit is added to any other income, such as wages, and taxed at your personal rates when you lodge your return. If you haven't p…",
+      "body": "As a sole trader, nobody withholds tax from your business income. Your profit is added to any other income, such as wages, and taxed at your personal rates when you lodge your return. If you haven't put money aside during the year, the whole bill arrives at once. This article shows how to estimate that bill for 2026-27 and turn it into a simple percentage to set aside each time you're paid. The examples use the same tested logic as Quillroo's free sole trader tax calculator , so you can check them and then run your own figures. What makes up a sole trader's tax bill For an Australian resident for the full year who is entitled to the full tax-free threshold, four things make up most of the bill. 1. Income tax at resident rates.",
+      "author": "Quillroo",
       "date": "2026-10-17",
       "readTime": "2 min",
       "section": "software",
@@ -14,18 +14,37 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 34,
-      "url": "https://dev.to/kamrankhandev/one-env-var-between-localhost-and-production-how-viteapiurl-keeps-my-axios-client-deploy-proof-cia",
-      "image": "/images/feed/feed-a764b31a26e1.webp",
+      "xpReward": 44,
+      "url": "https://dev.to/quillroo/how-much-tax-should-a-sole-trader-set-aside-in-australia-2026-27-a-worked-example-ln0",
+      "image": "/images/feed/feed-c3c080234363.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-12247ffc686a",
-      "title": "An admin can't delete their own account: two lines of defense in my users destroy endpoint",
-      "excerpt": "I nearly locked myself out of my own admin panel once. Testing the user-delete button, clicked my own row out of habit, confirmed the modal without thinking. The account was gone. So were all its sess…",
-      "body": "I nearly locked myself out of my own admin panel once. Testing the user-delete button, clicked my own row out of habit, confirmed the modal without thinking. The account was gone. So were all its sessions — obviously — and I had to re-seed the database to get back in. The fix is two lines, and both belong on the backend, not in a confirm dialog. Frontend confirm dialogs are a suggestion. The API is the law.",
-      "author": "Kamran Khan",
+      "id": "feed-ff3cdc2471b5",
+      "title": "The Python Copy Bug That Looks Fine in Code Review",
+      "excerpt": "Here is a bug that is easy to ship. A function takes a dict of default settings and hands each new user a copy. Someone adds a tag to one user. Every future user now has that tag too. The code looks h…",
+      "body": "Here is a bug that is easy to ship. A function takes a dict of default settings and hands each new user a copy. Someone adds a tag to one user. Every future user now has that tag too. The code looks harmless. Each block below runs on its own, and the output under it is what Python 3.13 printed. defaults = { \" theme \" : \" dark \" , \" tags \" : [ \" new \" ]} user_a = defaults . copy () user_a [ \" tags \" ]. append ( \" beta \" ) print ( \" 1. shallow copy, then append \" ) print ( \" defaults: \" , defaults ) print ( \" user_a : \" , user_a ) print ( \" same inner list? \" , user_a [ \" tags \" ] is defaults [ \" tags \" ]) 1. shallow copy, then append defaults: {'theme': 'dark', 'tags': ['new', 'beta']} user_a : {'theme': 'dark', 'tags': ['new', 'beta']} same inner list?",
+      "author": "Real Dev",
+      "date": "2026-10-17",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Python"
+      ],
+      "featured": true,
+      "xpReward": 39,
+      "url": "https://dev.to/realdev9868/the-python-copy-bug-that-looks-fine-in-code-review-9k",
+      "image": "/images/feed/feed-ff3cdc2471b5.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-b4003570d9e3",
+      "title": "Type a pipe() That Checks Every Step: Variadic Tuples, infer and One Recursive Type",
+      "excerpt": "Book: The TypeScript Type System Also by me: The TypeScript Library — the 5-book collection My project: Hermes IDE | GitHub — an IDE for developers who ship with Claude Code and other AI coding tools…",
+      "body": "Book: The TypeScript Type System Also by me: The TypeScript Library — the 5-book collection My project: Hermes IDE | GitHub — an IDE for developers who ship with Claude Code and other AI coding tools Me: xgabriel.com | GitHub Open Effect 's Function.ts and count the signatures of pipe . There are 20: one for a bare value, then one more for every extra function, up to 19. RxJS 7's standalone pipe types nine functions and then falls back to a catch-all signature that returns UnaryFunction&lt;T, unknown&gt; . Hand it a tenth function and the output type is gone. Those libraries know exactly what they are doing. When TypeScript 4.0 shipped variadic tuple types, the release notes called this pattern \"death by a thousand overloads\" , and overloads are still how the big libraries type pipe .",
+      "author": "Gabriel Anhaia",
       "date": "2026-10-17",
       "readTime": "2 min",
       "section": "software",
@@ -33,18 +52,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 30,
-      "url": "https://dev.to/kamrankhandev/an-admin-cant-delete-their-own-account-two-lines-of-defense-in-my-users-destroy-endpoint-17kn",
-      "image": "/images/feed/feed-12247ffc686a.webp",
+      "xpReward": 38,
+      "url": "https://dev.to/gabrielanhaia/type-a-pipe-that-checks-every-step-variadic-tuples-infer-and-one-recursive-type-2pah",
+      "image": "/images/feed/feed-b4003570d9e3.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-68040f71786c",
-      "title": "PostgreSQL 19 Slips to November as AI Code Review Finds Bugs Faster Than Humans Can Fix Them",
-      "excerpt": "PostgreSQL 19 Slips to November as AI Code Review Finds Bugs Faster Than Humans Can Fix Them The PostgreSQL Global Development Group has delayed PostgreSQL 19, pushing general availability from the or…",
-      "body": "PostgreSQL 19 Slips to November as AI Code Review Finds Bugs Faster Than Humans Can Fix Them The PostgreSQL Global Development Group has delayed PostgreSQL 19, pushing general availability from the original late-September/early-October target to around November 19, 2026 — and the culprit, remarkably, is not sloppy engineering. It is the opposite: AI-assisted code review has become so effective that it is finding problems faster than the volunteer-driven project can fix them. According to a detailed account from leading PostgreSQL committer Peter Eisentraut, VP at support and consultancy firm EDB, the release team has reverted somewhere between eight and ten significant features from PostgreSQL 19, deferring them to PostgreSQL 20.",
-      "author": "TechPulse ",
+      "id": "feed-58038c8df4d1",
+      "title": "Agent Skills Go to the Lab",
+      "excerpt": "Agent Skills Go to the Lab Three signals landed in the same 24-hour window on October 16, 2026. On GitHub Trending, K-Dense-AI/scientific-agent-skills was pulling 1,158 stars per day, sitting at 51,28…",
+      "body": "Agent Skills Go to the Lab Three signals landed in the same 24-hour window on October 16, 2026. On GitHub Trending, K-Dense-AI/scientific-agent-skills was pulling 1,158 stars per day, sitting at 51,288 total — making it the third-fastest mover on the board. On X, Sakana AI's David Ha ( @hardmaru ) shipped AI Scientist v3, branded \"The Agentic Scientist,\" alongside the MASS paper on recursive self-improvement via multi-agent self-supervision. And in Karlsruhe, the Energy Materials Acceleration Platform (E-MAP) at KIT continued demonstrating that autonomous robotic labs are no longer a grant proposal — they are running experiments in glovebox-sealed environments, mixing semiconductor inks, depositing thin films, and measuring the results without a human touching a pipette.",
+      "author": "Max Quimby",
       "date": "2026-10-17",
       "readTime": "2 min",
       "section": "software",
@@ -53,17 +72,17 @@
       ],
       "featured": true,
       "xpReward": 33,
-      "url": "https://dev.to/techpulse01239/postgresql-19-slips-to-november-as-ai-code-review-finds-bugs-faster-than-humans-can-fix-them-191l",
-      "image": "/images/feed/feed-68040f71786c.webp",
+      "url": "https://dev.to/max_quimby/agent-skills-go-to-the-lab-10cj",
+      "image": "/images/feed/feed-58038c8df4d1.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-029919dfe625",
-      "title": "My users table reads one pagination contract: paginate(15), withQueryString, and a React pager that trusts meta",
-      "excerpt": "The first admin panel I built fetched all users, dumped them into state, and sliced pages client-side. It worked until a client hit 2,000 users and the list page took eleven seconds to load. Server-si…",
-      "body": "The first admin panel I built fetched all users, dumped them into state, and sliced pages client-side. It worked until a client hit 2,000 users and the list page took eleven seconds to load. Server-side pagination isn't hard. The hard part is agreeing on the contract between Laravel and React so neither side improvises. On the backend, the users index is four lines of intent: $users = User :: query () -&gt; latest () -&gt; paginate ( 15 ) -&gt; withQueryString (); return UserResource :: collection ( $users ); paginate(15) does the heavy lifting — limit, offset, total count. withQueryString() appends the current query string to the links Laravel generates, so any future filters I add (search, role) survive a page change.",
-      "author": "Kamran Khan",
+      "id": "feed-c71a9af249e4",
+      "title": "Turn a Job Role Into an Agent Task Spec: Scope, Limits and Escalation in Code",
+      "excerpt": "When a team says \"we want an AI employee\", the first job is not picking a model. It is cutting a role into tasks you can specify, limit and check. Here is one way to write that down as code. This is a…",
+      "body": "When a team says \"we want an AI employee\", the first job is not picking a model. It is cutting a role into tasks you can specify, limit and check. Here is one way to write that down as code. This is an illustrative role (sales operations analyst), not a customer story. I have no performance numbers to share. Step 1: List tasks, not the role from dataclasses import dataclass , field from typing import Literal @dataclass class TaskSpec : name : str inputs : list [ str ] allowed_tools : list [ str ] output : str owner : str # a named human escalate_when : list [ str ] = field ( default_factory = list ) mode : Literal [ \" workflow \" , \" agent \" ] = \" workflow \" TASKS = [ TaskSpec ( \" clean_lead_list \" , [ \" crm.leads \" ], [ \" crm.read \" , \" crm.update_field \" ], \" list of fixes with reasons \"…",
+      "author": "Tej Pandya",
       "date": "2026-10-17",
       "readTime": "2 min",
       "section": "software",
@@ -71,56 +90,37 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 35,
-      "url": "https://dev.to/kamrankhandev/my-users-table-reads-one-pagination-contract-paginate15-withquerystring-and-a-react-pager-that-4c40",
-      "image": "/images/feed/feed-029919dfe625.webp",
+      "xpReward": 52,
+      "url": "https://dev.to/tej_pandya_a973bc2256ba93/turn-a-job-role-into-an-agent-task-spec-scope-limits-and-escalation-in-code-1ca7",
+      "image": "/images/feed/feed-c71a9af249e4.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-fcc70e32bf63",
-      "title": "How I built a live halftone portrait in React with just Canvas 2D",
-      "excerpt": "My portfolio is set like a newspaper, so my photo couldn't just be a photo. I wanted it to look like a printed halftone: a grid of dots, bigger where the picture is dark and smaller where it's light.…",
-      "body": "My portfolio is set like a newspaper, so my photo couldn't just be a photo. I wanted it to look like a printed halftone: a grid of dots, bigger where the picture is dark and smaller where it's light. And I wanted it to be alive, so the dots swell and get pushed away when you move the cursor over them. It turned out to be about 150 lines of React and plain Canvas 2D, with no dependencies. Here's how it works. Step 1: turn the image into a grid of samples A halftone is just a low-resolution version of the picture drawn with dots. So the first job is to shrink the image to roughly one pixel per dot and read the pixels back.",
-      "author": "SURAJ NANDAN",
+      "id": "feed-136008401984",
+      "title": "How to Build Ultra-Fast WordPress Sites in 2026: The Essential Developer Stack",
+      "excerpt": "Every web developer knows the struggle: a client wants a visually stunning website with sliders, custom forms, and dynamic animations, but they also demand a 95+ score on Google PageSpeed Insights. Wo…",
+      "body": "Every web developer knows the struggle: a client wants a visually stunning website with sliders, custom forms, and dynamic animations, but they also demand a 95+ score on Google PageSpeed Insights. WordPress can easily get bloated if you stack plugins blindly. However, with the right modern developer stack, you can achieve lightning-fast loading speeds, clean database queries, and modular designs. Here is the 5-tool developer stack we use to build high-performance client sites in 2026: 1. The Lightweight Foundation: Astra Pro A fast website starts with clean theme architecture. Unlike heavy legacy themes packed with thousands of unused stylesheets, a lightweight theme like Astra Pro loads in less than 0.5 seconds with vanilla JavaScript.",
+      "author": "GeniusWP",
       "date": "2026-10-17",
       "readTime": "2 min",
       "section": "software",
       "tags": [
-        "Software"
+        "Developer"
       ],
       "featured": true,
-      "xpReward": 40,
-      "url": "https://dev.to/suraj_nandan_dcd78e7ec898/how-i-built-a-live-halftone-portrait-in-react-with-just-canvas-2d-5ejg",
-      "image": "/images/feed/feed-fcc70e32bf63.webp",
+      "xpReward": 33,
+      "url": "https://dev.to/geniuswp/how-to-build-ultra-fast-wordpress-sites-in-2026-the-essential-developer-stack-3mgn",
+      "image": "/images/feed/feed-136008401984.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-19bf8f8c1350",
-      "title": "Pushing Beats Polling Explained: Live Poll Trust Above a Handful of Viewers",
-      "excerpt": "Short answer: pushing beats polling above a handful of viewers because one state change should not trigger repeated reads for every screen, but treat delivery as an optimization, not as authorization.…",
-      "body": "Short answer: pushing beats polling above a handful of viewers because one state change should not trigger repeated reads for every screen, but treat delivery as an optimization, not as authorization. Scope every subscription token to one session, keep vote acceptance on a trusted server path, and retain a slow refresh route for recovery. Polling is operationally attractive at first because its failure mode is obvious; its repeated reads, synchronized timers, and stale windows become the wrong load shape as viewership grows. This is a capacity decision before it is a pricing decision. The cost mechanism is explained by duplicated work, not by a vendor's changing unit price.",
-      "author": "LiamFoster1844",
-      "date": "2026-10-17",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 35,
-      "url": "https://dev.to/liamfoster1844/pushing-beats-polling-explained-live-poll-trust-above-a-handful-of-viewers-3ma3",
-      "image": "/images/feed/feed-19bf8f8c1350.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-90813e1724f6",
-      "title": "Why we stopped retrying on timeout and built reconciliation instead",
-      "excerpt": "Early in StareBrain’s action dispatch layer, we had a simple rule: if an action times out, retry it. It felt safe. It felt standard. It was wrong. The problem isn’t the retry. The problem is what a ti…",
-      "body": "Early in StareBrain’s action dispatch layer, we had a simple rule: if an action times out, retry it. It felt safe. It felt standard. It was wrong. The problem isn’t the retry. The problem is what a timeout actually tells you — which is almost nothing. What a timeout means (and doesn’t mean) When a dispatch call times out, you know one thing: you didn’t get a response in time. That’s it. You don’t know whether the action reached the provider. You don’t know whether it executed. You don’t know whether it’s sitting in a queue about to execute in the next 200ms. Retrying in that state doesn’t solve the ambiguity. It doubles it. Now you have two dispatches in flight and still no confirmed outcome for either. For a calendar booking, that means two bookings. For a payment, two charges.",
-      "author": "StareBrain",
+      "id": "feed-bab247179d16",
+      "title": "“This app might stop working soon”: Atlassian Connect apps",
+      "excerpt": "On 9 October an admin wrote on Figma's forum that they had \"received a notification indicating that your app may stop working after January 2027\", and asked what it meant for their site. Connect end o…",
+      "body": "On 9 October an admin wrote on Figma's forum that they had \"received a notification indicating that your app may stop working after January 2027\", and asked what it meant for their site. Connect end of support begins on 31 January 2027, 106 days from the day I'm writing this. On our own test site the admin screen gave two different dates for it. Figma answered the next day. They assumed the admin meant Figma for Jira and said they plan to move it to Forge \"by the end of the year\". I liked that answer, because for most apps only the vendor can give it. If you've seen \"This app might stop working soon\", or one of its cousins, on a Jira or Confluence app, Atlassian is telling you the app still has Connect parts. On our test site the Connected apps page tagged 4 of its 57 entries Legacy.",
+      "author": "Mihai Perdum",
       "date": "2026-10-17",
       "readTime": "2 min",
       "section": "software",
@@ -128,10 +128,29 @@
         "Software"
       ],
       "featured": false,
-      "xpReward": 38,
-      "url": "https://dev.to/starebrain/why-we-stopped-retrying-on-timeout-and-built-reconciliation-instead-48l6",
-      "image": "/images/feed/feed-90813e1724f6.webp",
+      "xpReward": 47,
+      "url": "https://dev.to/mihai_leanzero/this-app-might-stop-working-soon-atlassian-connect-apps-6fm",
+      "image": "/images/feed/feed-bab247179d16.webp",
       "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-a89168c1985a",
+      "title": "APOD: 2026 October 17 – 3D 67P",
+      "excerpt": "APOD Science APOD APOD: 2026 October 17… Today’s APOD Archive Submissions Index Search Calendar RSS Education About Discuss APOD Astronomy Picture of the Day Discover the cosmos! Each day a different…",
+      "body": "APOD Science APOD APOD: 2026 October 17… Today’s APOD Archive Submissions Index Search Calendar RSS Education About Discuss APOD Astronomy Picture of the Day Discover the cosmos! Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer. 3D 67P Explanation: Put on your red/blue glasses and float next to the jagged and double-lobed nucleus of Churyumov-Gerasimenko, also known as Comet 67P . The stereo anaglyph was created by combining two images from the Rosetta spacecraft’s narrow angle OSIRIS camera taken on July 25, 2015 from a distance of 184 kilometers. Numerous jets are emanating from the small solar system world’s active surface near its closest approach to the Sun.",
+      "author": "NASA Breaking News",
+      "date": "2026-10-17",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Space"
+      ],
+      "featured": false,
+      "xpReward": 52,
+      "url": "https://science.nasa.gov/image-article/apod-2026-october-17-3d-67p/",
+      "image": "/images/feed/feed-a89168c1985a.jpg",
+      "source": "NASA Breaking News",
       "isLive": true
     },
     {
@@ -147,7 +166,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 49,
       "url": "https://www.polygon.com/pokemon-pokopia-event-habitat-dex-pokedex-list-requirements-unlock/",
       "image": "/images/feed/feed-b062dff01e4a.jpg",
       "source": "Polygon",
@@ -166,7 +185,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 46,
       "url": "https://www.polygon.com/pokemon-pokopia-event-schedule-holiday-dates/",
       "image": "/images/feed/feed-7022a0fa04a5.jpg",
       "source": "Polygon",
@@ -185,7 +204,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 48,
       "url": "https://www.polygon.com/pokemon-pokopia-pumpkaboos-sweet-surprises-gourgeist-habitats-items/",
       "image": "/images/feed/feed-93923617556e.jpg",
       "source": "Polygon",
@@ -204,7 +223,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 44,
       "url": "https://www.polygon.com/best-mystery-tv-shows-worth-solving/",
       "image": "/images/feed/feed-f046887b804d.jpg",
       "source": "Polygon",
@@ -223,7 +242,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 54,
       "url": "https://www.polygon.com/redwall-fantasy-book-series-2027-release-orphans-of-mossflower/",
       "image": "/images/feed/feed-ee0cd4f33aa3.jpg",
       "source": "Polygon",
@@ -242,7 +261,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 32,
       "url": "https://www.engadget.com/2289475/tesla-roadster-2028-production-dont-get-hopes-up/",
       "image": "/images/feed/feed-9b6854d030d3.jpg",
       "source": "Engadget",
@@ -261,7 +280,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 53,
       "url": "https://cleantechnica.com/2026/10/16/hello-toronto-waymo-is-en-route/",
       "image": "/images/feed/feed-6aa59f762222.jpg",
       "source": "CleanTechnica",
@@ -299,7 +318,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 52,
       "url": "https://www.polygon.com/gta-6-trump-rockstar-games/",
       "image": "/images/feed/feed-ab20739df951.jpg",
       "source": "Polygon",
@@ -318,7 +337,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 38,
       "url": "https://cleantechnica.com/2026/10/16/franco-german-car-deal-a-historic-mistake-that-weakens-climate-ambition-and-europes-car-industry/",
       "image": "/images/feed/feed-e7ec214b649a.png",
       "source": "CleanTechnica",
@@ -337,7 +356,7 @@
         "Iphone"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 33,
       "url": "https://9to5mac.com/2026/10/16/verizon-confirms-10-monthly-fee-for-new-iphone-handoff-feature/",
       "image": "/images/feed/feed-43003a80959b.jpg",
       "source": "9to5Mac",
@@ -356,7 +375,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 51,
       "url": "https://cleantechnica.com/2026/10/16/delaying-ets2-will-not-protect-households-from-the-next-energy-crisis/",
       "image": "/images/feed/feed-c75039a09a9b.jpg",
       "source": "CleanTechnica",
@@ -375,7 +394,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 39,
       "url": "https://cleantechnica.com/2026/10/16/publishing-your-book-through-cleantechnica-press/",
       "image": "/images/feed/feed-9b193e08ce94.png",
       "source": "CleanTechnica",
@@ -394,7 +413,7 @@
         "Iphone"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 53,
       "url": "https://www.theverge.com/tech/1010131/apple-iphone-duo-news-announcements",
       "image": "/images/feed/feed-e8f6ba7bfa2b.jpg",
       "source": "The Verge",
@@ -413,7 +432,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 41,
       "url": "https://www.ign.com/articles/red-rising-greenlit-for-movie-adaptation-with-author-pierce-brown-to-produce",
       "image": "/images/feed/feed-87dca4c4d1f8.jpg",
       "source": "IGN",
@@ -432,7 +451,7 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 45,
       "url": "https://cleantechnica.com/2026/10/16/delorean-flying-car-tesla-roadster-evtol-evs-race/",
       "image": "/images/feed/feed-bac9d071a779.png",
       "source": "CleanTechnica",
@@ -451,7 +470,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 39,
       "url": "https://9to5mac.com/2026/10/16/apple-poaches-longtime-meta-executive-to-lead-global-litigation/",
       "image": "/images/feed/feed-210a8ba382fd.jpg",
       "source": "9to5Mac",
@@ -470,7 +489,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 45,
       "url": "https://9to5mac.com/2026/10/16/apples-new-app-store-rules-crack-down-on-ai-nudification-and-bait-and-switch-apps/",
       "image": "/images/feed/feed-db296dd95ac8.jpg",
       "source": "9to5Mac",
@@ -490,7 +509,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 30,
       "url": "https://www.space.com/space-exploration/international-space-station/it-really-does-change-you-spacex-crew-12-commander-wishes-we-could-all-see-our-fragile-earth-from-space",
       "image": "/images/feed/feed-5c69c8261033.jpg",
       "source": "Space.com",
@@ -509,7 +528,7 @@
         "Iphone"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 32,
       "url": "https://9to5mac.com/2026/10/16/daily-october-16-2026/",
       "image": "/images/feed/feed-211ca4a9fa13.jpg",
       "source": "9to5Mac",
@@ -528,7 +547,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 32,
       "url": "https://www.androidauthority.com/razer-kraken-v4-x-deal-3724679/",
       "image": "/images/feed/feed-6439bc6b56ba.jpg",
       "source": "Android Authority",
@@ -547,9 +566,9 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 39,
       "url": "https://techcrunch.com/2026/10/16/replit-is-no-longer-working-with-anthropic-ceo-says/",
-      "image": "/images/feed/feed-13131774e811.webp",
+      "image": "/images/feed/feed-13131774e811.jpg",
       "source": "TechCrunch",
       "isLive": true
     },
@@ -566,7 +585,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 34,
       "url": "https://arstechnica.com/security/2026/10/openai-models-hacked-a-crypto-wallet-and-breached-more-websites/",
       "image": "/images/feed/feed-3813289f4d22.jpg",
       "source": "Ars Technica",
@@ -585,7 +604,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 40,
       "url": "https://electrek.co/2026/10/16/montreal-airport-120-ev-chargers-with-48-more-coming/",
       "image": "/images/feed/feed-41103028b437.jpg",
       "source": "Electrek",
@@ -605,9 +624,9 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 48,
       "url": "https://www.nasa.gov/news-release/nasa-names-stephen-cash-marshall-space-flight-center-director/",
-      "image": "https://www.nasa.gov/wp-content/uploads/2026/10/steve-cash-photo.jpg",
+      "image": "/images/feed/feed-5f818ef0e046.jpg",
       "source": "NASA Breaking News",
       "isLive": true
     },
@@ -624,7 +643,7 @@
         "Hacker"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 34,
       "url": "https://www.bleepingcomputer.com/news/security/critical-blockstrap-flaw-lets-hackers-run-code-on-magento-servers/",
       "image": "/images/feed/feed-32b7a245aa33.jpg",
       "source": "BleepingComputer",
@@ -643,7 +662,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 41,
       "url": "https://www.space.com/stargazing/when-not-to-watch-a-meteor-shower-why-im-not-staying-up-for-the-orionids",
       "image": "/images/feed/feed-cbbdc65e24b2.jpg",
       "source": "Space.com",
@@ -662,7 +681,7 @@
         "Claude"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 31,
       "url": "https://claude.dev/blog/solving-code-review-at-anthropic/",
       "image": "/images/feed/feed-23bf1b38da89.png",
       "source": "Hacker News",
@@ -700,7 +719,7 @@
         "Generative Ai"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 42,
       "url": "https://openai.com/index/itau-generative-ai",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "OpenAI Blog",
@@ -719,7 +738,7 @@
         "Claude"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 32,
       "url": "https://www.anthropic.com/research/ecdsa-curve-origins",
       "image": "/images/feed/feed-9b62eabe5d6e.jpg",
       "source": "Hacker News",
@@ -738,7 +757,7 @@
         "Claude"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 43,
       "url": "https://www.anthropic.com/research/designing-efficient-quantum-circuits",
       "image": "/images/feed/feed-f3b806371614.jpg",
       "source": "Hacker News",
@@ -757,7 +776,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 46,
       "url": "https://www.space.com/astronomy/exoplanets/scientists-find-gemstones-in-atmosphere-of-bizarre-scorching-hot-marshmallow-exoplanet",
       "image": "/images/feed/feed-ee718a04f87d.png",
       "source": "Space.com",
@@ -776,7 +795,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 53,
       "url": "https://www.space.com/stargazing/meteor-showers/how-to-see-the-orionid-meteor-shower-2026-peak-this-week-and-when-to-look",
       "image": "/images/feed/feed-f946e1b35459.jpg",
       "source": "Space.com",
@@ -795,7 +814,7 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 49,
       "url": "https://thehackernews.com/2026/10/researchers-demonstrate-openbsd-root.html",
       "image": "/images/feed/feed-11f986cc77fa.jpg",
       "source": "The Hacker News",
@@ -815,7 +834,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 41,
       "url": "https://www.space.com/technology/spacex-thrusters-just-made-a-tesla-roadster-fly-and-elon-musks-car-is-still-out-there-in-space",
       "image": "/images/feed/feed-eb657180d7e4.jpg",
       "source": "Space.com",
@@ -834,31 +853,10 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 43,
       "url": "https://www.bleepingcomputer.com/news/security/zero-click-attacks-used-targeted-ads-to-deliver-candiru-spyware/",
       "image": "/images/feed/feed-a7cd17142097.jpg",
       "source": "BleepingComputer",
-      "isLive": true
-    },
-    {
-      "id": "feed-2b064b193674",
-      "title": "On this day in space! Oct. 16, 1975: NASA launches the 1st-ever GOES weather satellite to watch Earth from space",
-      "excerpt": "On Oct. 16, 1975, NASA launched the first operational GOES weather satellite. Here's why it mattered.",
-      "body": "On Oct. 16, 1975, NASA launched the first operational GOES satellite! GOES-A was the first in a series of weather satellites that NASA jointly operated with the National Oceanic and Atmospheric Administration (NOAA). The name is short for Geostationary Operational Environmental Satellite . GOES-A launched on a Delta rocket from Cape Canaveral, Florida. GOES satellites all have a geostationary orbit, which means they always face the same part of Earth — in this case, the Indian Ocean. Once GOES-A became operational, it was renamed GOES-1. The GOES satellite fleet has grown over the years, and is a critical link in the chain of satellites tracking Earth's weather from space.",
-      "author": " Hanneke Weitering ",
-      "date": "2026-10-16",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Nasa",
-        "Satellite",
-        "Space"
-      ],
-      "featured": false,
-      "xpReward": 31,
-      "url": "https://www.space.com/space-exploration/on-this-day-in-space-october-16-2026",
-      "image": "/images/feed/feed-2b064b193674.jpg",
-      "source": "Space.com",
       "isLive": true
     },
     {
@@ -874,7 +872,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 38,
       "url": "https://thehackernews.com/2026/10/attackers-tampered-with-aomei.html",
       "image": "/images/feed/feed-d6e1ba04aac2.jpg",
       "source": "The Hacker News",
@@ -893,7 +891,7 @@
         "Phishing"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 49,
       "url": "https://thehackernews.com/2026/10/uat-11985-uses-fake-event-invites-to.html",
       "image": "/images/feed/feed-e7302d916453.jpg",
       "source": "The Hacker News",
@@ -912,7 +910,7 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 35,
       "url": "https://calif.io/research/big-fish",
       "image": "/images/topics/topic-cybersecurity.png",
       "source": "Hacker News",
@@ -931,7 +929,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 36,
       "url": "https://www.bleepingcomputer.com/news/security/employees-using-personal-chatgpt-at-work-heres-what-it-admins-need-to-do/",
       "image": "/images/feed/feed-d7e4fe5180d6.jpg",
       "source": "BleepingComputer",
@@ -939,16 +937,16 @@
     }
   ],
   "breakingNews": [
-    "DEV.TO: One env var between localhost and production: how VITE_API_URL keeps my axios client deploy-proof",
-    "DEV.TO: An admin can't delete their own account: two lines of defense in my users destroy endpoint",
-    "DEV.TO: PostgreSQL 19 Slips to November as AI Code Review Finds Bugs Faster Than Humans Can Fix Them",
-    "DEV.TO: My users table reads one pagination contract: paginate(15), withQueryString, and a React pager that trusts meta",
-    "DEV.TO: How I built a live halftone portrait in React with just Canvas 2D",
-    "DEV.TO: Pushing Beats Polling Explained: Live Poll Trust Above a Handful of Viewers",
-    "DEV.TO: Why we stopped retrying on timeout and built reconciliation instead",
+    "DEV.TO: How much tax should a sole trader set aside in Australia (2026-27)? A worked example",
+    "DEV.TO: The Python Copy Bug That Looks Fine in Code Review",
+    "DEV.TO: Type a pipe() That Checks Every Step: Variadic Tuples, infer and One Recursive Type",
+    "DEV.TO: Agent Skills Go to the Lab",
+    "DEV.TO: Turn a Job Role Into an Agent Task Spec: Scope, Limits and Escalation in Code",
+    "DEV.TO: How to Build Ultra-Fast WordPress Sites in 2026: The Essential Developer Stack",
+    "DEV.TO: “This app might stop working soon”: Atlassian Connect apps",
+    "NASA BREAKING NEWS: APOD: 2026 October 17 – 3D 67P",
     "POLYGON: Event Habitat Dex and Pokédex list in Pokémon Pokopia",
-    "POLYGON: Pokémon Pokopia event schedule",
-    "POLYGON: Pokémon Pokopia 'Pumpkaboo's Sweet Surprises' event guide"
+    "POLYGON: Pokémon Pokopia event schedule"
   ],
   "sectionVideos": {}
 }
