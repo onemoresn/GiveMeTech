@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-10-18T01:26:05.578Z",
+  "fetchedAt": "2026-10-18T02:17:41.771Z",
   "articles": [
     {
-      "id": "feed-b1ff605a91c2",
-      "title": "A Drift Detector That Cries Wolf Is Worse Than No Detector",
-      "excerpt": "My drift detector quarantined a healthy agent. The agent hadn't gotten worse — the benchmark had gotten bigger. The detector compared failure counts across corpus versions, so growing the benchmark fr…",
-      "body": "My drift detector quarantined a healthy agent. The agent hadn't gotten worse — the benchmark had gotten bigger. The detector compared failure counts across corpus versions, so growing the benchmark from 10 tasks to 20 made a 10/10 agent look like it \"failed\" half the suite. Corpus growth looked like decay. I built the drift detector for HivePlane v0.2.0 to catch the failure mode I'd written about in v0.1.0 — \"the dangerous agent usually drifted, not got edited.\" The harder problem turned out not to be detecting drift. It was not detecting drift that wasn't there. A detector that cries wolf trains operators to ignore the signal, and an ignored gate is no gate.",
-      "author": "Debashish Ghosal",
+      "id": "feed-552d2c8608a6",
+      "title": "One Claude Code session ran 15 subagents under our 10-subagent rule. After a PreToolUse hook, 676 launches peaked at 10",
+      "excerpt": "For eight weeks our limit of 10 concurrent Claude Code subagents was a sentence in CLAUDE.md, and one session reached 15. A PreToolUse hook on the Agent tool now refuses the 11th by counting the subag…",
+      "body": "For eight weeks our limit of 10 concurrent Claude Code subagents was a sentence in CLAUDE.md, and one session reached 15. A PreToolUse hook on the Agent tool now refuses the 11th by counting the subagents still running in the session plus the launches already placed in the same response. Across 676 launches since, the peak has been exactly 10. Its first four refusals were wrong, and Claude Code's own subagent limit would not have caught our 15. A cap that was only a sentence On 2026-08-03 our agent started 56 subagents at once for a weekly review, and the Mac it runs on ran short of memory. The owner capped parallel subagents at 30 that day and lowered the cap to 10 the next day.",
+      "author": "Rulestack",
       "date": "2026-10-18",
       "readTime": "2 min",
       "section": "software",
@@ -14,75 +14,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 32,
-      "url": "https://dev.to/debashish_ghosal/a-drift-detector-that-cries-wolf-is-worse-than-no-detector-2gc2",
-      "image": "/images/feed/feed-b1ff605a91c2.webp",
+      "xpReward": 50,
+      "url": "https://dev.to/rulestack/one-claude-code-session-ran-15-subagents-under-our-10-subagent-rule-after-a-pretooluse-hook-676-566m",
+      "image": "/images/feed/feed-552d2c8608a6.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-47839a59118f",
-      "title": "taming cold‑start latency in supabase edge functions (typescript)",
-      "excerpt": "while building a low‑latency analytics dashboard on supabase edge functions, the first request after a few minutes of inactivity consistently hit ~800 ms latency. the spike broke the UI's 200 ms frame…",
-      "body": "while building a low‑latency analytics dashboard on supabase edge functions, the first request after a few minutes of inactivity consistently hit ~800 ms latency. the spike broke the UI's 200 ms frame budget and forced me to rethink the function deployment. why edge cold‑starts matter edge functions run in lightweight containers that spin down after a period of inactivity. when a new request arrives the platform pulls the latest bundle, resolves dependencies and starts the runtime. this process is fast compared to traditional VMs, but it’s still enough to cause noticeable jitter in real‑time UIs. three pragmatic knobs to pull bundle size – every kilobyte adds network and unzip time. using esbuild with --bundle --minify strips dead code and inlines small assets.",
-      "author": "alex",
-      "date": "2026-10-18",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Typescript"
-      ],
-      "featured": true,
-      "xpReward": 42,
-      "url": "https://dev.to/alewx/taming-cold-start-latency-in-supabase-edge-functions-typescript-2fn4",
-      "image": "/images/feed/feed-47839a59118f.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-33447495fe99",
-      "title": "Claude in Your Coding Agent: Anthropic's API, Amazon Bedrock, or Any Gateway",
-      "excerpt": "Claude is the model a lot of teams want for coding, but the way they pay for it differs. Some have an Anthropic API key. Some buy everything through AWS, so Claude reaches them through Amazon Bedrock.…",
-      "body": "Claude is the model a lot of teams want for coding, but the way they pay for it differs. Some have an Anthropic API key. Some buy everything through AWS, so Claude reaches them through Amazon Bedrock. Some run a company gateway that every request has to pass through. Since Atlarix 15.9, all three work the same way inside the agent, in the desktop app, the CLI, VS Code and the editors that speak the Agent Client Protocol. This is how to connect each one. Why one format covers all three Anthropic publishes its own API, the Messages API : POST /v1/messages , a key, and a version header. Amazon Bedrock offers Claude on an endpoint that speaks the same format, and so do many gateways and proxies. So the question Atlarix asks is not \"which company\" but \"which format\".",
-      "author": "Amariah Kamau",
-      "date": "2026-10-18",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Api"
-      ],
-      "featured": true,
-      "xpReward": 38,
-      "url": "https://dev.to/abishaiama/claude-in-your-coding-agent-anthropics-api-amazon-bedrock-or-any-gateway-4cnl",
-      "image": "/images/feed/feed-33447495fe99.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-35577be9a4e7",
-      "title": "Training a 97.5M Python coding model from scratch for $1.40 in GPU time",
-      "excerpt": "I wanted to really understand how language models are built, and the best way I know to understand something is to build it. So I built a small one myself, from nothing: my own tokenizer, my own model…",
-      "body": "I wanted to really understand how language models are built, and the best way I know to understand something is to build it. So I built a small one myself, from nothing: my own tokenizer, my own model, my own training loop, fine-tuning and benchmark. I kept it to Python code only, and kept it small enough that I could afford to train it. The main pre-training run used about $1.40 of rented GPU time. The result Keera solved 9 of 164 HumanEval problems (5.5%) using greedy decoding, after solving 3 (1.8%) before fine-tuning. Pre-training the 97.5M-parameter model took 2 h 23 min on a rented RTX 5090, costing approximately $1.40 in training-time rental charges. These are preliminary results: I haven't checked the training data for overlap with HumanEval.",
-      "author": "Bedram Tamang",
-      "date": "2026-10-18",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Python"
-      ],
-      "featured": true,
-      "xpReward": 39,
-      "url": "https://dev.to/tmgbedu/training-a-975m-python-coding-model-from-scratch-for-140-in-gpu-time-4lp4",
-      "image": "/images/feed/feed-35577be9a4e7.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-34cc0c156ea8",
-      "title": "Support Knowledge Freshness: What Scrape Plus Embed Operations Look Like",
-      "excerpt": "A scrape plus embed pipeline looks healthy only when changed product content becomes searchable on time and the right passage returns within the retrieval latency budget. The page, however, arrives as…",
-      "body": "A scrape plus embed pipeline looks healthy only when changed product content becomes searchable on time and the right passage returns within the retrieval latency budget. The page, however, arrives as a retrieval-latency SLO burn alert: the on-call sees support searches timing out, a queue of recently changed product pages, and an index that is serving yesterday's material, while restarting workers may shorten the queue without answering the important question of whether the system lost time while fetching, parsing, embedding, publishing, or querying. The page is late.",
-      "author": "NielsChristensen4981",
+      "id": "feed-26664b501c7c",
+      "title": "Agents draft fast. They still shouldn't grade their own homework.",
+      "excerpt": "I keep hitting the same pattern with coding agents: a green check from the same model that wrote the code is not a review. What helps me: Keep discussion, build, and verification as separate steps Exp…",
+      "body": "I keep hitting the same pattern with coding agents: a green check from the same model that wrote the code is not a review. What helps me: Keep discussion, build, and verification as separate steps Export the source so I can open the files myself Require an explicit yes before anything reaches main I'm building Brainstorm as a BYOK shell for that workflow — multi-AI discussion around one shared goal, then divide, verify, and human approval. We don't sell model credits; you bring your own eligible accounts. Linux-first. More here if useful: https://brainstorm.mungwaan.cn",
+      "author": "zifeng peng",
       "date": "2026-10-18",
       "readTime": "2 min",
       "section": "software",
@@ -90,47 +33,104 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 46,
-      "url": "https://dev.to/nielschristensen4981/support-knowledge-freshness-what-scrape-plus-embed-operations-look-like-58k6",
-      "image": "/images/feed/feed-34cc0c156ea8.webp",
+      "xpReward": 48,
+      "url": "https://dev.to/brainstormhq/agents-draft-fast-they-still-shouldnt-grade-their-own-homework-44hh",
+      "image": "/images/feed/feed-26664b501c7c.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-afec1c278f59",
-      "title": "Developer Changelog Retrieval: Tenant Boundaries, Freshness, and Citation Cost",
-      "excerpt": "Short answer: use a tenant-scoped vector index for durable changelog history, add web retrieval only for pages whose freshness contract demands it, and make the tenant boundary part of every retrieval…",
-      "body": "Short answer: use a tenant-scoped vector index for durable changelog history, add web retrieval only for pages whose freshness contract demands it, and make the tenant boundary part of every retrieval request and citation. This keeps a fintech changelog tracker from trading a lower index bill for a cross-tenant disclosure or a stale answer. The cost that matters is not the number of vectors by itself. It is the number of vectors you must search, refresh, and explain when a developer asks, “What changed?” A tracker that watches payment-provider release notes has two clocks: the clock of the indexed archive and the clock of the live page. Treating them as one source makes the system hard to reason about.",
-      "author": "MaximilianNilsson7568",
+      "id": "feed-96f5b61b069b",
+      "title": "I turned on Secure Boot and my Ubuntu laptop stopped booting",
+      "excerpt": "I have an old HP EliteBook Folio 9470m (2014, BIOS F.48) running Ubuntu. I had just upgraded to the latest version Ubuntu 26.04.1 LTS resolute, and I thought I would turn on Secure Boot while I was at…",
+      "body": "I have an old HP EliteBook Folio 9470m (2014, BIOS F.48) running Ubuntu. I had just upgraded to the latest version Ubuntu 26.04.1 LTS resolute , and I thought I would turn on Secure Boot while I was at it. I restarted and Ubuntu would not boot. I went back into the BIOS, switched Secure Boot off, and Ubuntu came up again. Then I checked the state from inside Ubuntu: mokutil --sb-state It said: Setup Mode means the firmware has no Platform Key enrolled. With no keys, Secure Boot has nothing to check anything against. i went Looking back at the BIOS, I had switched the key option from HP’s keys to “Customer Keys” and never enrolled any. My best guess is that this is what kept it in Setup Mode.",
+      "author": "Albert Mitini",
+      "date": "2026-10-18",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 49,
+      "url": "https://dev.to/albert_f6afcc1a2aeac1890d/i-turned-on-secure-boot-and-my-ubuntu-laptop-stopped-booting-5e4",
+      "image": "/images/feed/feed-96f5b61b069b.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-69fefddb68c0",
+      "title": "Pocket Ledger: Turn a Shoebox of Receipts into a Tax-Ready CSV, Offline with Ollama",
+      "excerpt": "What I Built Pocket Ledger is an offline-first receipt and invoice sorter built for freelancers, contractors, and small teams who want a faster way to organize financial paperwork without sacrificing…",
+      "body": "What I Built Pocket Ledger is an offline-first receipt and invoice sorter built for freelancers, contractors, and small teams who want a faster way to organize financial paperwork without sacrificing privacy. The app lets users upload PDFs or images of receipts, extracts key details like vendor, date, amount, currency, and category using an AI model, and then automatically copies the files into organized folders. It also generates an editable CSV for bookkeeping and tax prep. This solves a real pain point: manually sorting receipts is tedious, error-prone, and time-consuming. Pocket Ledger turns that workflow into a simple “upload → review → export” process while keeping the experience local-first and flexible.",
+      "author": "NIRAJ THAPA",
+      "date": "2026-10-18",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 50,
+      "url": "https://dev.to/nirajthapawork/pocket-ledger-turn-a-shoebox-of-receipts-into-a-tax-ready-csv-offline-with-ollama-46o0",
+      "image": "/images/feed/feed-69fefddb68c0.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-09c4ebf4c722",
+      "title": "I added Rasa Mantle to my VS Code extension: tool calling, memory and LLMs",
+      "excerpt": "I keep my project notes inside VS Code with an extension I built called NoteVs. For the Rasa Heroes program I gave it a conversational agent built on Rasa Mantle, Rasa's new agent engine. Now I can as…",
+      "body": "I keep my project notes inside VS Code with an extension I built called NoteVs . For the Rasa Heroes program I gave it a conversational agent built on Rasa Mantle , Rasa's new agent engine. Now I can ask \"what did I annotate in the auth module?\" or \"remind me about the refactor note tomorrow\" from a chat panel next to my code. This isn't really a post about notes, though. It covers the three parts of Mantle I spent the most time with: tool calling, memory, and the LLM layer . That includes running it on Groq, which Rasa doesn't list as a named provider. I'll cover what each part does, how I used it, and what broke. The setup in 30 seconds Everything runs locally. The VS Code extension owns the notes and exposes a tiny HTTP endpoint on localhost:37492 .",
+      "author": "Meshe Damilola Peter",
+      "date": "2026-10-18",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 49,
+      "url": "https://dev.to/meshemugles/i-added-rasa-mantle-to-my-vs-code-extension-tool-calling-memory-and-llms-3obd",
+      "image": "/images/feed/feed-09c4ebf4c722.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-d9dd70c0d1b1",
+      "title": "Mitigating Silent JSON Schema Drift in Microservices: Pre-Validation Engine Patterns and the Portability Pitfall",
+      "excerpt": "When microservices communicate asynchronously via message brokers or REST endpoints, schema evolution is inevitable. However, without strict automated governance, small, undocumented schema alteration…",
+      "body": "When microservices communicate asynchronously via message brokers or REST endpoints, schema evolution is inevitable. However, without strict automated governance, small, undocumented schema alterations—known as silent schema drift —frequently cascade into catastrophic deserialization and parsing failures downstream. This article dissects the design and engineering of an automated pre-validation CLI engine built with Python, Pydantic v2, and jsonschema (Draft 2020-12). It details the architectural decisions aimed at ultra-low-latency payload verification, uncovers how strict performance mandates introduced subtle portability traps during deployment, and outlines architectural remedies for resilient pipeline design. 1.",
+      "author": "PhenoX",
+      "date": "2026-10-18",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 36,
+      "url": "https://dev.to/toai/mitigating-silent-json-schema-drift-in-microservices-pre-validation-engine-patterns-and-the-1i4o",
+      "image": "/images/feed/feed-d9dd70c0d1b1.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-f6e5e8af4c1f",
+      "title": "Receiving USD payments in Pakistan as a developer: what actually works in 2026",
+      "excerpt": "Receiving USD payments in Pakistan as a developer: what actually works in 2026 If you're a developer in Pakistan trying to get paid by an international client or via a SaaS product, the first thing th…",
+      "body": "Receiving USD payments in Pakistan as a developer: what actually works in 2026 If you're a developer in Pakistan trying to get paid by an international client or via a SaaS product, the first thing that doesn't work is the thing everyone else assumes you'll use: Stripe. Stripe does not list Pakistan among its supported countries. You'll see tutorials telling you to \"just sign up for Stripe,\" and then you'll hit a wall at onboarding that the tutorial never mentions. So let's skip Stripe and talk about what actually moves money into your account. Two separate problems, not one The mistake is thinking \"I need a payment gateway.\" You actually need two things: A platform that will onboard you and pay you in USD. A way to bring that USD into a Pakistani bank account.",
+      "author": "chenningdev",
       "date": "2026-10-18",
       "readTime": "2 min",
       "section": "software",
       "tags": [
         "Developer"
       ],
-      "featured": true,
-      "xpReward": 39,
-      "url": "https://dev.to/maximiliannilsson7568/developer-changelog-retrieval-tenant-boundaries-freshness-and-citation-cost-58dd",
-      "image": "/images/feed/feed-afec1c278f59.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-3e086c36cf53",
-      "title": "One Misplaced Block Made Every Message Rewrite 19,000 Cached Tokens",
-      "excerpt": "Prompt caching is the cheapest win in an AI coding agent. The system prompt and tool definitions are the same on every request, so the provider can keep them and charge a fraction for reading them bac…",
-      "body": "Prompt caching is the cheapest win in an AI coding agent. The system prompt and tool definitions are the same on every request, so the provider can keep them and charge a fraction for reading them back. Atlarix has marked its prompt for caching for a long time, and the logs looked right. Then a QA pass compared two messages in the same chat, byte for byte, and found that in Build mode every message after the first rewrote the whole cache instead of reading it. How the cache works, briefly Claude's cache matches on an exact prefix : tools, then the system prompt, then the conversation, up to a marked breakpoint. If any byte before the breakpoint changes, everything from that byte on is a miss and is written to the cache again.",
-      "author": "Amariah Kamau",
-      "date": "2026-10-18",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
       "featured": false,
-      "xpReward": 42,
-      "url": "https://dev.to/abishaiama/one-misplaced-block-made-every-message-rewrite-19000-cached-tokens-1jjb",
-      "image": "/images/feed/feed-3e086c36cf53.webp",
+      "xpReward": 34,
+      "url": "https://dev.to/chenningdev/receiving-usd-payments-in-pakistan-as-a-developer-what-actually-works-in-2026-1enb",
+      "image": "/images/feed/feed-f6e5e8af4c1f.webp",
       "source": "Dev.to",
       "isLive": true
     },
@@ -166,7 +166,7 @@
         "Game"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 51,
       "url": "https://www.polygon.com/game-of-thrones-the-mad-king-prequel-2027-return/",
       "image": "/images/feed/feed-733cc5565fe1.jpg",
       "source": "Polygon",
@@ -185,7 +185,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 34,
       "url": "https://www.engadget.com/2285099/why-turn-off-phone-remove-sim-card-explained/",
       "image": "/images/feed/feed-96f56d6d5788.jpg",
       "source": "Engadget",
@@ -204,7 +204,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 48,
       "url": "https://www.polygon.com/poltergeist-tobe-hooper-steven-spielberg-on-hbo-max/",
       "image": "/images/feed/feed-6b5280ce42fd.jpg",
       "source": "Polygon",
@@ -223,7 +223,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 52,
       "url": "https://www.engadget.com/2285088/nintendo-switch-2-not-connecting-to-tv-what-check/",
       "image": "/images/feed/feed-263ea8e6a9cf.jpg",
       "source": "Engadget",
@@ -242,7 +242,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 47,
       "url": "https://www.engadget.com/2285040/openai-humanoid-robot-sam-altman-statement-real-challenge/",
       "image": "/images/feed/feed-b831812f2b9f.jpg",
       "source": "Engadget",
@@ -261,7 +261,7 @@
         "Tablet"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 38,
       "url": "https://www.engadget.com/2284679/samsung-galaxy-tablets-last-year-software-support/",
       "image": "/images/feed/feed-54b536b0dbd0.jpg",
       "source": "Engadget",
@@ -280,7 +280,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 35,
       "url": "https://www.polygon.com/most-disappointing-switch-games-ranked/",
       "image": "/images/feed/feed-8619e5864ba5.jpg",
       "source": "Polygon",
@@ -299,7 +299,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 54,
       "url": "https://www.engadget.com/2284612/wifi-speeds-drop-evening-reason-why/",
       "image": "/images/feed/feed-635aa553b135.jpg",
       "source": "Engadget",
@@ -318,7 +318,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 53,
       "url": "https://www.engadget.com/2284525/how-to-keep-smart-home-running-internet-goes-down/",
       "image": "/images/feed/feed-3a3e54de2909.jpg",
       "source": "Engadget",
@@ -337,7 +337,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 48,
       "url": "https://www.engadget.com/2284465/why-its-important-to-monitor-pc-background-processes/",
       "image": "/images/feed/feed-a510d6b1d56e.jpg",
       "source": "Engadget",
@@ -356,7 +356,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 34,
       "url": "https://www.ign.com/articles/battlefield-6-devs-respond-after-players-take-aim-at-secuty-typo-and-cosmetic-with-5-pistols",
       "image": "/images/feed/feed-3b5bd6ed2b02.png",
       "source": "IGN",
@@ -376,7 +376,7 @@
         "Vehicle"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 35,
       "url": "https://cleantechnica.com/2026/10/17/ice-vehicle-sales-crash-49-while-ev-share-jumps-to-67-china-ev-sales-report-for-september/",
       "image": "/images/feed/feed-bc196e8bd5c5.png",
       "source": "CleanTechnica",
@@ -395,7 +395,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 48,
       "url": "https://kotaku.com/the-mortuary-assistant-film-director-jeremiah-kipp-passes-away-2000747075",
       "image": "/images/feed/feed-6b7e26945917.jpg",
       "source": "Kotaku",
@@ -414,7 +414,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 42,
       "url": "https://www.polygon.com/pokemon-go-minior-shower-schedule-how-to-find-shiny/",
       "image": "/images/feed/feed-e13c911a780c.jpg",
       "source": "Polygon",
@@ -433,7 +433,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 52,
       "url": "https://electrek.co/2026/10/17/mercedes-amg-gt-suv-electric-1153-hp-710-kw-charging/",
       "image": "/images/feed/feed-78d70cb30617.jpg",
       "source": "Electrek",
@@ -471,7 +471,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 40,
       "url": "https://www.theverge.com/tech/1013453/tiktok-bans-alex-gibneys-musk-documentary",
       "image": "/images/feed/feed-74d0d83d3b7b.jpg",
       "source": "The Verge",
@@ -491,9 +491,9 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 50,
       "url": "https://techcrunch.com/2026/10/17/replit-is-no-longer-working-with-anthropic-ceo-says/",
-      "image": "/images/feed/feed-5329074f8958.jpg",
+      "image": "/images/feed/feed-5329074f8958.webp",
       "source": "TechCrunch",
       "isLive": true
     },
@@ -510,7 +510,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 53,
       "url": "https://insideevs.com/news/812320/amg-gt-suv-ev-reveal/",
       "image": "/images/feed/feed-1bfb2d665248.jpg",
       "source": "InsideEVs",
@@ -529,7 +529,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 31,
       "url": "https://cleantechnica.com/2026/10/17/china-ev-transition-use-cases/",
       "image": "/images/feed/feed-8016d715f09c.webp",
       "source": "CleanTechnica",
@@ -568,7 +568,7 @@
         "Breach"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 45,
       "url": "https://www.bleepingcomputer.com/news/security/hackers-breach-microsoft-365-tenants-via-connectwise-supply-chain-attack/",
       "image": "/images/feed/feed-c549025bcffd.jpg",
       "source": "BleepingComputer",
@@ -587,7 +587,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 40,
       "url": "https://insideevs.com/features/812308/chinese-paris-auto-show-recap/",
       "image": "/images/feed/feed-b41bd34cf2a4.jpg",
       "source": "InsideEVs",
@@ -606,7 +606,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 43,
       "url": "https://cleantechnica.com/2026/10/17/the-cybercab-has-landed-in-australia-transport-unions-gear-up-to-fight/",
       "image": "/images/feed/feed-af725c948a67.jpg",
       "source": "CleanTechnica",
@@ -625,7 +625,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 30,
       "url": "https://www.space.com/space-exploration/on-this-day-in-space-october-17-2026",
       "image": "/images/feed/feed-ab2864874ebb.jpg",
       "source": "Space.com",
@@ -644,7 +644,7 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 43,
       "url": "https://www.bleepingcomputer.com/news/security/drupal-patches-critical-rce-flaws-warns-exploits-may-emerge-soon/",
       "image": "/images/feed/feed-4864321055de.jpg",
       "source": "BleepingComputer",
@@ -663,7 +663,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 37,
       "url": "https://www.space.com/entertainment/space-movies-shows/this-week-in-space-podcast-episode-232-the-lunar-dump",
       "image": "/images/feed/feed-28be4da7a2f3.jpg",
       "source": "Space.com",
@@ -682,7 +682,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 53,
       "url": "https://www.space.com/stargazing/skywatching-kit/six-scientifically-accurate-star-projectors-to-turn-any-room-into-a-home-planetarium",
       "image": "/images/feed/feed-2851203f9fa8.jpg",
       "source": "Space.com",
@@ -701,7 +701,7 @@
         "Spacex"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 45,
       "url": "https://www.theverge.com/podcast/1012416/spacex-starlink-elon-musk-cell-carrier-wireless-mobile-att-verizon-t-mobile",
       "image": "/images/feed/feed-74515c478ee9.jpg",
       "source": "The Verge",
@@ -720,7 +720,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 42,
       "url": "https://www.theverge.com/ai-artificial-intelligence/1013195/ai-agents-blocked-web",
       "image": "/images/feed/feed-657279cf248c.jpg",
       "source": "The Verge",
@@ -739,7 +739,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 36,
       "url": "https://www.space.com/entertainment/space-movies-shows/lanterns-shocking-finale-left-us-with-a-lot-of-unanswered-questions-for-a-potential-season-2",
       "image": "/images/feed/feed-1555ef5adbe5.jpg",
       "source": "Space.com",
@@ -758,7 +758,7 @@
         "Encryption"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 47,
       "url": "https://www.wired.com/story/kernel-panic-encryption-is-getting-squeezed-from-all-sides/",
       "image": "/images/feed/feed-c790320c042c.jpg",
       "source": "Wired",
@@ -796,7 +796,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 32,
       "url": "https://www.space.com/stargazing/meteor-showers/the-orionid-meteor-shower-peaks-oct-21-22-2026-heres-what-to-expect",
       "image": "/images/feed/feed-3f53a38fee75.jpg",
       "source": "Space.com",
@@ -815,7 +815,7 @@
         "Security"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 46,
       "url": "https://www.cnet.com/home/security/devices-i-rely-on-for-porch-security/",
       "image": "/images/feed/feed-1a5a5c81df3b.jpg",
       "source": "CNET",
@@ -834,7 +834,7 @@
         "Hacker"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 53,
       "url": "https://thehackernews.com/2026/10/hackers-use-compromised-connectwise.html",
       "image": "/images/feed/feed-9a0cd5bfb89f.jpg",
       "source": "The Hacker News",
@@ -853,7 +853,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 34,
       "url": "https://arstechnica.com/security/2026/10/openai-models-hacked-a-crypto-wallet-and-breached-more-websites/",
       "image": "/images/feed/feed-3813289f4d22.jpg",
       "source": "Ars Technica",
@@ -872,7 +872,7 @@
         "Hacker"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 30,
       "url": "https://www.bleepingcomputer.com/news/security/critical-blockstrap-flaw-lets-hackers-run-code-on-magento-servers/",
       "image": "/images/feed/feed-32b7a245aa33.jpg",
       "source": "BleepingComputer",
@@ -891,7 +891,7 @@
         "Generative Ai"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 43,
       "url": "https://openai.com/index/itau-generative-ai",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "OpenAI Blog",
@@ -910,7 +910,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 33,
       "url": "https://www.technologyreview.com/2026/10/16/1146224/roundtables-a-conversation-with-the-creator-of-ai-designed-viruses/",
       "image": "/images/feed/feed-57c41972947e.png",
       "source": "MIT Tech Review",
@@ -929,7 +929,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 34,
       "url": "https://www.zdnet.com/uncategorized/anthropic-embed-third-party-ai-auditors-safety/",
       "image": "https://www.zdnet.com/wp-content/uploads/sites/3/auditblue-GettyImages-1269457842.jpg",
       "source": "ZDNet",
@@ -937,13 +937,13 @@
     }
   ],
   "breakingNews": [
-    "DEV.TO: A Drift Detector That Cries Wolf Is Worse Than No Detector",
-    "DEV.TO: taming cold‑start latency in supabase edge functions (typescript)",
-    "DEV.TO: Claude in Your Coding Agent: Anthropic's API, Amazon Bedrock, or Any Gateway",
-    "DEV.TO: Training a 97.5M Python coding model from scratch for $1.40 in GPU time",
-    "DEV.TO: Support Knowledge Freshness: What Scrape Plus Embed Operations Look Like",
-    "DEV.TO: Developer Changelog Retrieval: Tenant Boundaries, Freshness, and Citation Cost",
-    "DEV.TO: One Misplaced Block Made Every Message Rewrite 19,000 Cached Tokens",
+    "DEV.TO: One Claude Code session ran 15 subagents under our 10-subagent rule. After a PreToolUse hook, 676 launches peaked at 10",
+    "DEV.TO: Agents draft fast. They still shouldn't grade their own homework.",
+    "DEV.TO: I turned on Secure Boot and my Ubuntu laptop stopped booting",
+    "DEV.TO: Pocket Ledger: Turn a Shoebox of Receipts into a Tax-Ready CSV, Offline with Ollama",
+    "DEV.TO: I added Rasa Mantle to my VS Code extension: tool calling, memory and LLMs",
+    "DEV.TO: Mitigating Silent JSON Schema Drift in Microservices: Pre-Validation Engine Patterns and the Portability Pitfall",
+    "DEV.TO: Receiving USD payments in Pakistan as a developer: what actually works in 2026",
     "POLYGON: GTA: San Andreas’ Bigfoot myth is a classic urban legend",
     "POLYGON: Game of Thrones Prequel The Mad King Officially Returns in 2027",
     "ENGADGET: You don't have to turn off your phone to switch SIM cards (but you probably should)"
