@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-10-18T13:12:20.307Z",
+  "fetchedAt": "2026-10-18T14:13:11.020Z",
   "articles": [
     {
-      "id": "feed-c15ef6a52f45",
-      "title": "Rust vs Go vs Zig in 2026: Picking a Systems Language",
-      "excerpt": "Rust vs Go vs Zig 2026: Which Systems Programming Language Should You Learn? Three languages are competing to be the future of systems programming: Rust (memory safety without garbage collection), Go…",
-      "body": "Rust vs Go vs Zig 2026: Which Systems Programming Language Should You Learn? Three languages are competing to be the future of systems programming: Rust (memory safety without garbage collection), Go (simplicity and concurrency), and Zig (C replacement with comptime power). Each solves a different problem, and choosing the wrong one means months of learning curve for a language that doesn't fit your project. I've written production code in all three — here's the unfiltered comparison. Quick Verdict Choose Rust if you need zero-cost abstractions and memory safety for performance-critical systems. Choose Go if you want simple, fast-to-write backend services and CLI tools.",
-      "author": "guang diyuzhi",
+      "id": "feed-ba6398b3f5ec",
+      "title": "Frontend Testing: Confidence Without Brittleness",
+      "excerpt": "⚡ TL;DR: Test behavior, not implementation, and your suite stops breaking on every refactor. Follow the testing trophy to put effort where it pays, write component tests that survive change, and reser…",
+      "body": "⚡ TL;DR: Test behavior, not implementation, and your suite stops breaking on every refactor. Follow the testing trophy to put effort where it pays, write component tests that survive change, and reserve end-to-end for critical flows. Contents The suite that broke on every refactor The one principle that fixes most of it The testing trophy: where effort should go Choosing the right layer for each test A component test that survives refactors Behavior over implementation, in practice End-to-end: the critical-flow crown Common mistakes that cost hours Takeaways Where to go next The suite that broke on every refactor Here is a story you have probably lived. Your team has 600 frontend tests and a green checkmark on every pull request.",
+      "author": "Sri Balaji",
       "date": "2026-10-18",
       "readTime": "2 min",
       "section": "software",
@@ -14,56 +14,37 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 45,
-      "url": "https://dev.to/guang_diyuzhi_74b0fec2c09/rust-vs-go-vs-zig-in-2026-picking-a-systems-language-1egj",
-      "image": "/images/feed/feed-c15ef6a52f45.webp",
+      "xpReward": 34,
+      "url": "https://dev.to/sri2614/frontend-testing-confidence-without-brittleness-43cp",
+      "image": "/images/feed/feed-ba6398b3f5ec.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-0fec5b4cbe88",
-      "title": "Edit Distance or Levenshtein Distance in an Easy Recursion + Memoization Way",
-      "excerpt": "Edit Distance, also known as Levenshtein Distance, is a common problem where we need to find the minimum number of operations required to convert one string into another. The three allowed operations…",
-      "body": "Edit Distance, also known as Levenshtein Distance , is a common problem where we need to find the minimum number of operations required to convert one string into another. The three allowed operations are: Insert a character Delete a character Replace a character For example: word1 = \"horse\" word2 = \"ros\" Output: 3 We can convert \"horse\" into \"ros\" using three operations: Replace h with r : \"rorse\" Delete r : \"rose\" Delete e : \"ros\" Let's solve this problem using recursion + memoization in JavaScript. Step 1: Initialize the DP matrix First, initialize a two-dimensional array to store the results of our recursive calls. var t = []; for ( let i = 0 ; i &lt;= word1 . length ; i ++ ) { let temp = []; for ( let j = 0 ; j &lt;= word2 . length ; j ++ ) { temp . push ( - 1 ); } t .",
-      "author": "Tarang",
+      "id": "feed-63e566610eaa",
+      "title": "We built FalkorDB a company brain from its own GitHub. It knew things they may not.",
+      "excerpt": "Why was the SQL Server loader documentation reverted in QueryWeaver, and who decided? Commit 819b96a reverts 6cc5a67. Anchel135 reverted it, inside PR #719, which Gal Shubeli merged. The reason, pulle…",
+      "body": "Why was the SQL Server loader documentation reverted in QueryWeaver, and who decided? Commit 819b96a reverts 6cc5a67 . Anchel135 reverted it, inside PR #719 , which Gal Shubeli merged. The reason, pulled from the revert message: the file belonged on the SQL Server branch, and on this branch it broke spellcheck. That is a real answer about a real repository in FalkorDB's own GitHub organisation. The graph work took tens of milliseconds . You can open the links and check every word. Nobody wrote that down in a doc. The answer existed only as a path: a file, a commit that touched it, a commit that reverted that commit, the PR each commit belonged to, the people who authored and merged them, and a message two hops away from the file you asked about.",
+      "author": "Chethan Vasthaw Tippani",
       "date": "2026-10-18",
       "readTime": "2 min",
       "section": "software",
       "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 41,
-      "url": "https://dev.to/tarangnagda/edit-distance-or-levenshtein-distance-in-an-easy-recursion-memoization-way-34k7",
-      "image": "/images/feed/feed-0fec5b4cbe88.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-53fc1214c8f9",
-      "title": "Is NIST P-256 Backdoored? Its Seed Was a 1997 Unix Timestamp",
-      "excerpt": "The \"magic\" seed behind NIST P-256 is C49D3608 86E70493 6A6678E1 139D26B7 819F7E90. For more than 25 years nobody outside the NSA could say where it came from. This week Anthropic's Claude traced it t…",
-      "body": "The \"magic\" seed behind NIST P-256 is C49D3608 86E70493 6A6678E1 139D26B7 819F7E90 . For more than 25 years nobody outside the NSA could say where it came from. This week Anthropic's Claude traced it to a Unix timestamp from August 16, 1997, fed into the same rand48 generator you'd find in any 1990s libc. You can reproduce it with 11 lines of C (code below). Is P-256 backdoored? Not through its seed. That was the last real argument the \"NIST curves are compromised, use Curve25519\" crowd had, and this month it stopped working. The rest of this post covers how the seeds were generated, the parts nobody has explained yet, and whether your SSH, JWT or TLS setup needs to change.",
-      "author": "Alan West",
-      "date": "2026-10-18",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
+        "Github"
       ],
       "featured": true,
       "xpReward": 48,
-      "url": "https://dev.to/alanwest/is-nist-p-256-backdoored-its-seed-was-a-1997-unix-timestamp-1f94",
-      "image": "/images/feed/feed-53fc1214c8f9.webp",
+      "url": "https://dev.to/chethan_vasthaw/we-built-falkordb-a-company-brain-from-its-own-github-it-knew-things-they-may-not-47h8",
+      "image": "/images/feed/feed-63e566610eaa.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-c31aae4f1aad",
-      "title": "Trinary-19683 Cognitive System: From Static Hexagrams to a Falsifiable, Evolvable Deterministic Cognition Layer",
-      "excerpt": "I previously outlined the Trinary Nine-Dimensional 19683 Cognitive System on this platform (3^9 = 19,683 state space + five-domain semantic bridge). It now runs end-to-end and is open source. A recomp…",
-      "body": "I previously outlined the Trinary Nine-Dimensional 19683 Cognitive System on this platform (3^9 = 19,683 state space + five-domain semantic bridge). It now runs end-to-end and is open source . Trinary-19683 Cognitive System A recomputable, falsifiable, evolvable deterministic symbolic cognition layer — not a divination tool, but a deterministic cognitive anchor for LLMs / agents. Deterministic reasoning layer Full 19,683-gua state space (3^9, D/R/T trinary encoding), gua IDs &amp; lines aligned by a 3-generation correction engine — 0 missing Deterministic self-adaptive rank : 5-dimensional structural signatures (301 rules), 100% recomputable (leave-one-out validated at 100%) Dynamic potential-flow inference, three-state axiomatic semantics, temporal evolution paths ( suggest / trace ) Cogn…",
-      "author": "RUNZEAI",
+      "id": "feed-e6dc8060e6da",
+      "title": "How not to use AI. Student Version :)",
+      "excerpt": "Don't mind my grammar in some area cause I didn't used AI to write this. In this era of complete Artificial Intelligence (I don't know we can call LLM as intelligent man. Stop it! it is not sentient )…",
+      "body": "Don't mind my grammar in some area cause I didn't used AI to write this . In this era of complete Artificial Intelligence (I don't know we can call LLM as intelligent man. Stop it! it is not sentient ) everyone is using it. Starting from the school student to professionals from many fields everyone is using AI. But people are dumb (Including me) where the implication of using AI is not wide spread knowledge. Renting out thinking to machine During good old days of the proper software engineering people will do think where problems needed to be solved and code need to be written. If you ask a proper software engineer they will say in software development 5 to 10 percent is the actual coding part.",
+      "author": "Theerej C",
       "date": "2026-10-18",
       "readTime": "2 min",
       "section": "software",
@@ -71,18 +52,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 44,
-      "url": "https://dev.to/q1z2q3debug/trinary-19683-cognitive-system-from-static-hexagrams-to-a-falsifiable-evolvable-deterministic-2o74",
-      "image": "/images/feed/feed-c31aae4f1aad.webp",
+      "xpReward": 35,
+      "url": "https://dev.to/theerej_c/how-not-to-use-ai-student-version--20b2",
+      "image": "/images/feed/feed-e6dc8060e6da.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-34c01bf5fc65",
-      "title": "Core Web Vitals field data vs lab data: why a Lighthouse 100 can still fail",
-      "excerpt": "A page scores 100 in Lighthouse, and Search Console's Core Web Vitals report still flags it as failing. Both are right: they measure different things. Here is why they disagree, and a script that sort…",
-      "body": "A page scores 100 in Lighthouse, and Search Console's Core Web Vitals report still flags it as failing. Both are right: they measure different things. Here is why they disagree, and a script that sorts a URL list so you fix what Google measures first. Lab data and field data Lab data is one simulated load by Lighthouse on Google's test device. It is good for debugging, though scores vary a few points between runs. Field data comes from the Chrome UX Report (CrUX): real Chrome users, a trailing 28-day window, reported at the 75th percentile, so three in four visits were at least that good. Thresholds from web.dev's Web Vitals guidance, judged at the 75th percentile: LCP (loading): good at 2.5 seconds or less, poor above 4 seconds.",
-      "author": "Joshua Smith",
+      "id": "feed-1305c6ecc63f",
+      "title": "Can a QAT 12B Fit an 8 GB GPU? Gemma 4 12B on an RTX 3050",
+      "excerpt": "This article provides a step by step guide to serving Gemma 4 12B, Google's quantization-aware trained (QAT) build, on an 8 GB NVIDIA RTX 3050 with llama.cpp, with every layer on the GPU and Google's…",
+      "body": "This article provides a step by step guide to serving Gemma 4 12B, Google's quantization-aware trained (QAT) build, on an 8 GB NVIDIA RTX 3050 with llama.cpp, with every layer on the GPU and Google's multi-token prediction (MTP) drafter for speculative decoding. A suite of Python MCP tools is built to simplify management of the llama.cpp hosted deployment. This is the third part of a short series. Part 1, Gemma 4's MTP Drafter, Explained , covers how the drafter works and how the exact Q4_0 repack is built. Part 2, Do Drafters Work on Small Models? , measures E2B and E4B on this card and a GTX 1650 Ti. This part moves up to the 12B. https://github.com/xbill9/gemma4-dev Can a QAT 12B fit an 8 GB GPU?",
+      "author": "xbill",
       "date": "2026-10-18",
       "readTime": "2 min",
       "section": "software",
@@ -90,18 +71,37 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 46,
-      "url": "https://dev.to/josh99smith/core-web-vitals-field-data-vs-lab-data-why-a-lighthouse-100-can-still-fail-3o26",
-      "image": "/images/feed/feed-34c01bf5fc65.webp",
+      "xpReward": 42,
+      "url": "https://dev.to/gde/can-a-qat-12b-fit-an-8-gb-gpu-gemma-4-12b-on-an-rtx-3050-1267",
+      "image": "/images/feed/feed-1305c6ecc63f.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-89aa73796dbc",
-      "title": "Why I Built BakeCraft AI: 100% Local Cottage Bakery & Micro-Catering Profit Engine with Google Gemma 2",
-      "excerpt": "This is a submission for the Hacktoberfest Open-Source AI Challenge Week 2: Side Hustle There are over 1.2 million cottage food operators, sourdough micro-bakers, and custom cake artists in North Amer…",
-      "body": "This is a submission for the Hacktoberfest Open-Source AI Challenge Week 2: Side Hustle What I Built There are over 1.2 million cottage food operators, sourdough micro-bakers, and custom cake artists in North America and Europe alone. Behind every blistered loaf of sourdough or towering celebration cake is a creator working past midnight in their home kitchen after an 8-hour day job. Yet, despite passionate weekend lines at farmers' markets, over 65% of cottage bakeries shut down within 18 months .",
-      "author": "Atharv Soni",
+      "id": "feed-333a69d7d2ec",
+      "title": "RepoPilot: An Open-Source AI Assistant for GitHub Issues",
+      "excerpt": "This is a submission for the Hacktoberfest: Open-Source AI Challenge Week 2, hosted by DEV and its community partners. What I Built RepoPilot is an AI-powered assistant designed to help open-source ma…",
+      "body": "This is a submission for the Hacktoberfest: Open-Source AI Challenge Week 2, hosted by DEV and its community partners. What I Built RepoPilot is an AI-powered assistant designed to help open-source maintainers manage GitHub issues more efficiently. Open-source projects often receive bug reports, feature requests, and questions that take time to review and categorize. RepoPilot aims to simplify this workflow by analyzing issue descriptions, identifying the main problem, suggesting relevant labels, and generating helpful response drafts. The goal is to make open-source contributions easier for maintainers and newcomers alike. Demo The demo will showcase how a user submits an issue description and receives an AI-generated summary, suggested category, priority, and response draft.",
+      "author": "Mayank Kumar Gautam",
+      "date": "2026-10-18",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Github"
+      ],
+      "featured": true,
+      "xpReward": 52,
+      "url": "https://dev.to/mayankgautamdev/repopilot-an-open-source-ai-assistant-for-github-issues-35pg",
+      "image": "/images/feed/feed-333a69d7d2ec.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-5b7beb63b06a",
+      "title": "MES vs ERP vs SCADA: who does what in a factory",
+      "excerpt": "If you write software that touches a factory, you'll hear \"ERP\", \"MES\" and \"SCADA\" in the same sentence, often as if they were interchangeable. They aren't. The ISA-95 standard describes manufacturing…",
+      "body": "If you write software that touches a factory, you'll hear \"ERP\", \"MES\" and \"SCADA\" in the same sentence, often as if they were interchangeable. They aren't. The ISA-95 standard describes manufacturing systems in levels, and each of these three lives at a different one, working on a very different timescale. ERP: the business level (ISA-95 level 4) Orders, inventory, materials, finance and planning, measured in days and weeks. ERP decides what should be made and when. Examples: SAP S/4HANA (SAP) and Plex Smart Manufacturing Platform (Rockwell Automation), which spans ERP and MES. MES and frontline apps: manufacturing operations (level 3) Dispatching work orders, tracking production, genealogy, quality and OEE, measured in shifts and hours.",
+      "author": "PlantWired",
       "date": "2026-10-18",
       "readTime": "2 min",
       "section": "software",
@@ -109,18 +109,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 38,
-      "url": "https://dev.to/atharv_soni_8a5d9cd294432/why-i-built-bakecraft-ai-100-local-cottage-bakery-micro-catering-profit-engine-with-google-1ap5",
-      "image": "/images/feed/feed-89aa73796dbc.webp",
+      "xpReward": 36,
+      "url": "https://dev.to/plantwired_hq/mes-vs-erp-vs-scada-who-does-what-in-a-factory-47bm",
+      "image": "/images/feed/feed-5b7beb63b06a.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-3ae399631ed3",
-      "title": "Your Laptop Now Checks Itself: 5 Things TDK CLI Verifies Before `tdk up`",
-      "excerpt": "Before your local stack starts, TDK CLI checks the host, the generated files, the migration order, and the port choices. Here is what each check catches and why it matters. Most local stacks fail the…",
-      "body": "Before your local stack starts, TDK CLI checks the host, the generated files, the migration order, and the port choices. Here is what each check catches and why it matters. Most local stacks fail the same way. You run the start command, something breaks ten seconds in, and the error is three layers away from the cause. A port is taken. A file was hand-edited. A migration ran before the database was ready. You spend the next hour finding the one line that caused it. TDK CLI takes a different approach. It checks the common causes before anything starts. Here are five of those checks, what each one catches, and how to read the result. 1. Can this machine run the stack at all? tdk doctor --json reports the host type, whether a container runtime is reachable, and a flag called canUp .",
-      "author": "mynameis",
+      "id": "feed-4893e1bca616",
+      "title": "LedgerPrep Lite: Turn Receipt Chaos into Bookkeeping-Ready Records with Local AI",
+      "excerpt": "LedgerPrep Lite: Turning Receipt Chaos into Bookkeeping-Ready Records with Local AI devchallenge hf26challenge ai opensource This is a submission for the Hacktoberfest Open-Source AI Challenge Week 2:…",
+      "body": "LedgerPrep Lite: Turning Receipt Chaos into Bookkeeping-Ready Records with Local AI devchallenge hf26challenge ai opensource Hacktoberfest Open-Source AI Challenge Week 2: Side Hustle Submission 💸 This is a submission for the Hacktoberfest Open-Source AI Challenge Week 2: Side Hustle What I Built Imagine running a small business and keeping receipts in WhatsApp, invoices in email, and other bills in your phone gallery. At the end of the month, someone has to collect everything, enter the details, find missing information, and prepare the records for the accountant. That is the problem LedgerPrep Lite aims to solve. LedgerPrep Lite is a local AI-powered bookkeeping preparation tool designed for small business owners and independent bookkeepers.",
+      "author": "Sudarshan Bhadule",
       "date": "2026-10-18",
       "readTime": "2 min",
       "section": "software",
@@ -128,10 +128,144 @@
         "Software"
       ],
       "featured": false,
-      "xpReward": 30,
-      "url": "https://dev.to/mynameis0d3c53a3/your-laptop-now-checks-itself-5-things-tdk-cli-verifies-before-tdk-up-5aib",
-      "image": "/images/feed/feed-3ae399631ed3.webp",
+      "xpReward": 51,
+      "url": "https://dev.to/zenkaicode/ledgerprep-lite-turn-receipt-chaos-into-bookkeeping-ready-records-with-local-ai-57od",
+      "image": "/images/feed/feed-4893e1bca616.webp",
       "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-75efe6b6e6d7",
+      "title": "Tesla Implements New Accident-Avoidance Automation, But Millions of Tesla Customers Don’t Have Access To It",
+      "excerpt": "Disclaimer: Many of our readers have criticized me for supporting an Elon Musk company. It does present a conundrum for me. Musk has supported Donald Trump with millions of dollars of campaign contrib…",
+      "body": "Disclaimer: Many of our readers have criticized me for supporting an Elon Musk company. It does present a conundrum for me. Musk has supported Donald Trump with millions of dollars of campaign contributions and has served as a member of his administration. Trump has single-handedly set back green energy and ... [continued] The post Tesla Implements New Accident-Avoidance Automation, But Millions of Tesla Customers Don’t Have Access To It appeared first on CleanTechnica .",
+      "author": "Arthur Frederick (Fritz) Hasler",
+      "date": "2026-10-18",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Tesla"
+      ],
+      "featured": false,
+      "xpReward": 44,
+      "url": "https://cleantechnica.com/2026/10/18/tesla-implements-new-accident-avoidance-automation-but-millions-of-tesla-customers-dont-have-access-to-it/",
+      "image": "/images/feed/feed-75efe6b6e6d7.jpg",
+      "source": "CleanTechnica",
+      "isLive": true
+    },
+    {
+      "id": "feed-17bdc62a00eb",
+      "title": "11 Years Later, Dragon Ball Super: Beerus Finally Nails Akira Toriyama's Original Vision",
+      "excerpt": "I doubted the need for another Beerus arc, but Dragon Ball Super's new take is admittedly winning me over.",
+      "body": "I’ll be the first to admit I wasn’t particularly excited about Dragon Ball Super: Beerus . When the remake of Dragon Ball Super was first announced, I struggled to see the point of revisiting a story that had already been told once in Dragon Ball Z: Battle of Gods and then again in the original 2015 television run. Sure, the promise of refreshed animation was exciting, but it didn’t feel like that was enough to justify starting from scratch for a third time, especially when major manga milestones like the Galactic Patrol Prisoner arc and Moro have yet to receive their due on-screen.",
+      "author": "Ryan Epps",
+      "date": "2026-10-18",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 50,
+      "url": "https://www.polygon.com/dragon-ball-super-beerus-finally-respects-toriyamas-vision/",
+      "image": "/images/feed/feed-17bdc62a00eb.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-69618bd84d8f",
+      "title": "The Fix For Plug-In Hybrids That Don't Get Plugged In? Smaller Gas Tanks, New Report Argues",
+      "excerpt": "Less gas, more electric range and faster charging could help plug-in hybrids deliver on their fuel-saving promise.",
+      "body": "Less gas, more electric range and faster charging could help plug-in hybrids deliver on their fuel-saving promise.\n\nThis report, published by InsideEVs, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Plug-in Hybrid, Hybrid. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to InsideEVs using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "InsideEVs",
+      "date": "2026-10-18",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Plug-in Hybrid",
+        "Hybrid"
+      ],
+      "featured": false,
+      "xpReward": 54,
+      "url": "https://insideevs.com/news/812076/phevs-with-smaller-tanks-proposed/",
+      "image": "/images/feed/feed-69618bd84d8f.jpg",
+      "source": "InsideEVs",
+      "isLive": true
+    },
+    {
+      "id": "feed-2d610388f6a3",
+      "title": "On this day in space! Oct. 18, 1963: France's Félicette Becomes the 1st Cat in Space! >^..^<",
+      "excerpt": "On Oct. 18, 1963, a cat went to space! Félicette was a French \"catstronaut\" who became the first and only feline to fly to space. Here's why it mattered.",
+      "body": "On Oct. 18, 1963, a cat went to space! Félicette was a French \"catstronaut\" who became the first and only feline to fly to space. While the U.S. and Soviet Union were busy launching primates, dogs and humans, the French decided to join the space race by launching a cat. Félicette, a stray tuxedo cat from the streets of Paris, was a substitute for another cat named Felix, who somehow escaped on launch day. So Félicette went where no cat had ever gone before. She boarded a French Véronique AG1 rocket and soared 130 miles above the Earth before safely parachuting back down. Luckily Félicette made it home alive and well, unlike many of the other animal astronauts that flew during the space race. Félicette, the first cat to fly into space in October 1963, is seen her carrier pre-flight.",
+      "author": " Hanneke Weitering ",
+      "date": "2026-10-18",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Space"
+      ],
+      "featured": false,
+      "xpReward": 35,
+      "url": "https://www.space.com/space-exploration/on-this-day-in-space-october-18-2026",
+      "image": "/images/feed/feed-2d610388f6a3.jpg",
+      "source": "Space.com",
+      "isLive": true
+    },
+    {
+      "id": "feed-48c0edf57778",
+      "title": "E-quipment highlight: LEAPTING launches electric autonomous forklift",
+      "excerpt": "Chinese PV and solar equipment brand LEAPTING has taken the wraps off its new, battery-powered Auto-Navigation Forklift Robot (AFR) designed to speed up the installation of large, utility-scale solar…",
+      "body": "Chinese PV and solar equipment brand LEAPTING has taken the wraps off its new, battery-powered Auto-Navigation Forklift Robot (AFR) designed to speed up the installation of large, utility-scale solar — a development drawing significant attention in the electric vehicles, hybrids, and automotive technology space.\n\nThis report, published by Electrek, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cars. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Electrek using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Jo Borrás",
+      "date": "2026-10-18",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Cars"
+      ],
+      "featured": false,
+      "xpReward": 46,
+      "url": "https://electrek.co/2026/10/18/e-quipment-highlight-leapting-launches-electric-autonomous-forklift/",
+      "image": "/images/feed/feed-48c0edf57778.jpg",
+      "source": "Electrek",
+      "isLive": true
+    },
+    {
+      "id": "feed-3ac87ae6ab9d",
+      "title": "Your smart TV has one big problem: It's tracking what you watch",
+      "excerpt": "If you don't want your TV manufacturer to know everything you watch, here's what to do about it.",
+      "body": "If you don't want your TV manufacturer to know everything you watch, here's what to do about it.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "staff@engadget.com (Jonny Evans)",
+      "date": "2026-10-18",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 37,
+      "url": "https://www.engadget.com/2285490/one-problem-smart-tv-tracking-what-you-watch/",
+      "image": "/images/feed/feed-3ac87ae6ab9d.jpg",
+      "source": "Engadget",
+      "isLive": true
+    },
+    {
+      "id": "feed-ff89717efa28",
+      "title": "How to use your Windows PC to make and receive phone calls",
+      "excerpt": "Windows 11 can connect to your phone to make calls, letting you manage them in one place instead of picking up your phone.",
+      "body": "Windows 11 can connect to your phone to make calls, letting you manage them in one place instead of picking up your phone.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "staff@engadget.com (Roger Fingas)",
+      "date": "2026-10-18",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 44,
+      "url": "https://www.engadget.com/2285327/how-to-use-windows-pc-make-receive-phone-calls/",
+      "image": "/images/feed/feed-ff89717efa28.jpg",
+      "source": "Engadget",
       "isLive": true
     },
     {
@@ -147,7 +281,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 30,
       "url": "https://www.androidauthority.com/dont-buy-fitbit-edge-day-one-3723619/",
       "image": "/images/feed/feed-e972d4cae2ac.jpg",
       "source": "Android Authority",
@@ -166,10 +300,29 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 41,
       "url": "https://www.polygon.com/happy-death-day-3-jessica-rothe-scream-queen/",
       "image": "/images/feed/feed-eb7fe2f02fea.jpg",
       "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-6ff478e26165",
+      "title": "The best gadget I bought this year is a milk frother",
+      "excerpt": "Back in February, I went to Los Angeles to take in some art and stayed in Koreatown. Down the street from my hotel, there was this little coffee shop - Stagger - that is, I think, best known for its m…",
+      "body": "Back in February, I went to Los Angeles to take in some art and stayed in Koreatown. Down the street from my hotel, there was this little coffee shop - Stagger - that is, I think, best known for its matcha, which is good. But the drink I unexpectedly found myself obsessed with was their cream top, an iced Americano with, yep, vanilla cream on top. When I got back to Oakland, I kept thinking about how badly I wanted one. For more than 20 years, I've been drinking my coffee - iced or otherwise - black. Originally this was because I knew I could put black coffee that had cooled off in the microwave to reheat it without worrying that the milk i … Read the full story at The Verge.",
+      "author": "Elizabeth Lopatto",
+      "date": "2026-10-18",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadget"
+      ],
+      "featured": false,
+      "xpReward": 35,
+      "url": "https://www.theverge.com/gadgets/1013257/milk-frother-cold-foam-gadget",
+      "image": "/images/feed/feed-6ff478e26165.jpg",
+      "source": "The Verge",
       "isLive": true
     },
     {
@@ -185,7 +338,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 52,
       "url": "https://insideevs.com/news/812129/vw-id4-charge-limit-80/",
       "image": "/images/feed/feed-72db5f7f48e3.jpg",
       "source": "InsideEVs",
@@ -204,7 +357,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 49,
       "url": "https://www.engadget.com/2285211/why-its-important-to-avoid-plugging-in-damaged-hard-drive/",
       "image": "/images/feed/feed-d104924fce9b.jpg",
       "source": "Engadget",
@@ -223,7 +376,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 32,
       "url": "https://www.engadget.com/2285208/why-internet-upload-speeds-slower-download-comparison/",
       "image": "/images/feed/feed-4a2db6059172.jpg",
       "source": "Engadget",
@@ -242,7 +395,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 42,
       "url": "https://www.engadget.com/2285141/ethernet-cables-why-not-join-two-what-do-instead/",
       "image": "/images/feed/feed-99c6fa8707a0.jpg",
       "source": "Engadget",
@@ -261,29 +414,10 @@
         "Game"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 37,
       "url": "https://www.polygon.com/the-game-awards-goty-jury-usa/",
       "image": "/images/feed/feed-4e0cdaf0f00b.jpg",
       "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-63534a0ae135",
-      "title": "This Firefox feature made me ditch sticky notes for everyday research",
-      "excerpt": "I didn’t know I needed this feature, and now I can’t live without it!",
-      "body": "I end up opening dozens of Firefox tabs on my Mac every day, especially when I’m researching a topic that I’m writing about. A huge problem with having so many tabs open at once is that it’s hard to keep track of what useful information a tab contains. For a long time, I used Stickies — the built-in sticky notes app on Mac — to write down important notes from these open tabs for my initial research. However, I’ve completely ditched it for the Tab Notes feature that Mozilla introduced in Firefox a while ago.",
-      "author": "Yash Wate",
-      "date": "2026-10-18",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 51,
-      "url": "https://www.androidauthority.com/firefox-feature-ditch-sticky-notes-3720865/",
-      "image": "/images/feed/feed-63534a0ae135.jpg",
-      "source": "Android Authority",
       "isLive": true
     },
     {
@@ -299,7 +433,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 47,
       "url": "https://www.space.com/astronomy/black-holes/astronomers-want-your-help-finding-missing-black-holes-in-the-milky-way",
       "image": "/images/feed/feed-e08362454bd6.png",
       "source": "Space.com",
@@ -320,29 +454,10 @@
         "Vehicle"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 37,
       "url": "https://cleantechnica.com/2026/10/18/electric-vehicle-chargers-or-flying-cars-tesla-and-the-state-of-florida-cant-decide/",
       "image": "/images/feed/feed-4186373406fa.jpg",
       "source": "CleanTechnica",
-      "isLive": true
-    },
-    {
-      "id": "feed-c2000b7f6887",
-      "title": "The Pixel 11 Pro’s 120x zoom is ridiculous, but is it actually useful?",
-      "excerpt": "The Pixel 11 Pro's extreme zoom is surprisingly useful, but its AI-enhanced images come with some glaring caveats.",
-      "body": "Google has never been shy about pushing smartphone cameras to their limits. In fact, some might say, eking out the maximum using software instead of hardware is Google’s entire shtick with the Pixel lineup. With the Pixel 11 Pro , the company is taking things even further, quite literally, with 120x Pro Res zoom. That’s a step up from 100x on the Pixel 10 Pro and a ridiculous amount of magnification for a phone. Google claims its brighter telephoto camera can capture more detail from farther away – when combined with generative AI, of course. But just because a phone can zoom in that far doesn’t mean the results will be any good. My previous experience with such bold claims has often fallen flat. So, I was curious to see if Google could do any better.",
-      "author": "Dhruv Bhutani",
-      "date": "2026-10-18",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 42,
-      "url": "https://www.androidauthority.com/the-pixel-11-pros-120x-zoom-3721738/",
-      "image": "/images/feed/feed-c2000b7f6887.jpg",
-      "source": "Android Authority",
       "isLive": true
     },
     {
@@ -358,29 +473,10 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 42,
       "url": "https://www.polygon.com/gta-5-leak-gta-6-reddit-vine-reactions-ban-sony-rockstar-response/",
       "image": "/images/feed/feed-e009f70e3093.jpg",
       "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-7636088dcd86",
-      "title": "I’ve been a smart home user for 10 years, and the Apple HomeView looks like a game-changer",
-      "excerpt": "From intrusive ads to clunky software, the smart home landscape has a lot of room to improve. The HomeView could help.",
-      "body": "Smart displays are a category that, to me, have always felt like they’re on the cusp of being the next big thing for the smart home. I was excited when I first got my Nest Hub . The idea that I could control connected devices with a tap, without having to shout commands at a speaker or pull out my phone, was incredibly appealing. Want to turn off the lights? Just tap a button. Simple, practical. Fast forward to today, and it’s hard not to feel like the category has gone nowhere. Google’s Nest Hub displays are getting long in the tooth, while Amazon’s Echo Show lineup has become increasingly difficult to recommend when so much of the screen real estate is effectively used as a digital billboard.",
-      "author": "Dhruv Bhutani",
-      "date": "2026-10-18",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 48,
-      "url": "https://www.androidauthority.com/apple-homeview-smart-home-3723150/",
-      "image": "/images/feed/feed-7636088dcd86.jpg",
-      "source": "Android Authority",
       "isLive": true
     },
     {
@@ -396,7 +492,7 @@
         "Game"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 33,
       "url": "https://www.polygon.com/fromsoftware-echo-night-ps1/",
       "image": "/images/feed/feed-fc9a6112b631.jpg",
       "source": "Polygon",
@@ -415,7 +511,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 47,
       "url": "https://www.space.com/stargazing/solar-eclipses/10-best-places-to-see-the-2027-total-solar-eclipse-in-spain",
       "image": "/images/feed/feed-65bb6e44d37d.jpg",
       "source": "Space.com",
@@ -435,7 +531,7 @@
         "Astronaut"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 33,
       "url": "https://www.space.com/space-exploration/artemis/artemis-ii-astronauts-honored-with-stephen-hawking-medal-at-starmus",
       "image": "/images/feed/feed-21db4c6de9e2.jpg",
       "source": "Space.com",
@@ -454,7 +550,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 45,
       "url": "https://www.polygon.com/10-best-horror-books-ranked-goodreads/",
       "image": "/images/feed/feed-4a54a9ceeafc.jpg",
       "source": "Polygon",
@@ -473,7 +569,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 51,
       "url": "https://thehackernews.com/2026/10/connectwise-suspends-cloud-backup-after.html",
       "image": "/images/feed/feed-7c86a93f0005.jpg",
       "source": "The Hacker News",
@@ -492,28 +588,9 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 40,
       "url": "https://www.polygon.com/stephen-king-the-shining-on-hbo-max/",
       "image": "/images/feed/feed-fef0b6993973.png",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-52919b2dd9d0",
-      "title": "60 Years Ago, the Best Charlie Brown Quote Was So Perfect It Made It Into the Movie",
-      "excerpt": "Charlie Brown's bleak outlook on life was perfectly summed up in this 1966 Peanuts comic strip by Charles Schulz",
-      "body": "Lucy’s quote, “Happiness is a warm puppy,” is another great one that touches on life’s simple joys on a really deep level. But to determine the best quote ever uttered by Charlie Brown, I didn't want accidental brilliance, I wanted something that he understands as much as the audience does. Something where he’s telling you who he is with complete self awareness. I wanted the character's philosophy on life. To me, that’s the difference between a brilliant Charlie Brown quote and brilliant Charles Schulz quote, if that makes sense.",
-      "author": "Brian VanHooker",
-      "date": "2026-10-18",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 34,
-      "url": "https://www.polygon.com/peanuts-best-charlie-brown-quote-ever/",
-      "image": "/images/feed/feed-52919b2dd9d0.png",
       "source": "Polygon",
       "isLive": true
     },
@@ -530,7 +607,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 42,
       "url": "https://science.nasa.gov/image-article/apod-2026-october-18-sonified-eagle-nebula-pillars/",
       "image": "/images/feed/feed-9560b4b856ad.jpg",
       "source": "NASA Breaking News",
@@ -550,7 +627,7 @@
         "Vehicle"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 30,
       "url": "https://cleantechnica.com/2026/10/17/ice-vehicle-sales-crash-49-while-ev-share-jumps-to-67-china-ev-sales-report-for-september/",
       "image": "/images/feed/feed-bc196e8bd5c5.png",
       "source": "CleanTechnica",
@@ -569,7 +646,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 42,
       "url": "https://electrek.co/2026/10/17/mercedes-amg-gt-suv-electric-1153-hp-710-kw-charging/",
       "image": "/images/feed/feed-78d70cb30617.jpg",
       "source": "Electrek",
@@ -588,7 +665,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 45,
       "url": "https://techcrunch.com/2026/10/17/anthropic-says-its-workforce-has-become-less-junior-and-is-spending-more-time-in-meetings/",
       "image": "/images/feed/feed-c2a828c7429b.jpg",
       "source": "TechCrunch",
@@ -607,7 +684,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 54,
       "url": "https://www.theverge.com/tech/1013453/tiktok-bans-alex-gibneys-musk-documentary",
       "image": "/images/feed/feed-74d0d83d3b7b.jpg",
       "source": "The Verge",
@@ -627,67 +704,10 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 52,
       "url": "https://techcrunch.com/2026/10/17/replit-is-no-longer-working-with-anthropic-ceo-says/",
       "image": "/images/feed/feed-5329074f8958.webp",
       "source": "TechCrunch",
-      "isLive": true
-    },
-    {
-      "id": "feed-1bfb2d665248",
-      "title": "AMG’s New Electric SUV Has 1,153 HP. The Charging Specs Are Even Wilder",
-      "excerpt": "How does 10-80% in 12 minutes sound?",
-      "body": "How does 10-80% in 12 minutes sound?\n\nThis report, published by InsideEVs, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cars. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to InsideEVs using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "InsideEVs",
-      "date": "2026-10-17",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Cars"
-      ],
-      "featured": false,
-      "xpReward": 41,
-      "url": "https://insideevs.com/news/812320/amg-gt-suv-ev-reveal/",
-      "image": "/images/feed/feed-1bfb2d665248.jpg",
-      "source": "InsideEVs",
-      "isLive": true
-    },
-    {
-      "id": "feed-8016d715f09c",
-      "title": "China’s EV Transition Is Four Different Transitions",
-      "excerpt": "China has reached a stage of vehicle electrification that is easy to miss if the only number being watched is national EV market share. New urban buses are now essentially all electric, and in many ci…",
-      "body": "China has reached a stage of vehicle electrification that is easy to miss if the only number being watched is national EV market share. New urban buses are now essentially all electric, and in many cities the procurement question is no longer whether to replace a diesel bus with a ... [continued] The post China’s EV Transition Is Four Different Transitions appeared first on CleanTechnica .",
-      "author": "Michael Barnard",
-      "date": "2026-10-17",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Ev"
-      ],
-      "featured": false,
-      "xpReward": 48,
-      "url": "https://cleantechnica.com/2026/10/17/china-ev-transition-use-cases/",
-      "image": "/images/feed/feed-8016d715f09c.webp",
-      "source": "CleanTechnica",
-      "isLive": true
-    },
-    {
-      "id": "feed-2746a7e38677",
-      "title": "Shifting Conversations At The Africa E-Mobility Week & Forum Showcase Growth In The African E-Mobility Sector",
-      "excerpt": "The 5th edition of the Africa E-Mobility Week & Forum was held at the end of last month at Nooitgedacht Estate, Stellenbosch, Western Cape, South Africa. It was the first time the event had been held…",
-      "body": "The 5th edition of the Africa E-Mobility Week &#38; Forum was held at the end of last month at Nooitgedacht Estate, Stellenbosch, Western Cape, South Africa. It was the first time the event had been held in Southern Africa, with earlier editions having been held in East Africa (in Kenya ... [continued] The post Shifting Conversations At The Africa E-Mobility Week &#038; Forum Showcase Growth In The African E-Mobility Sector appeared first on CleanTechnica .",
-      "author": "Remeredzai Joseph Kuhudzai",
-      "date": "2026-10-17",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Cars"
-      ],
-      "featured": false,
-      "xpReward": 45,
-      "url": "https://cleantechnica.com/2026/10/17/shifting-conversations-at-the-africa-e-mobility-week-forum-showcase-growth-in-the-african-e-mobility-sector/",
-      "image": "/images/feed/feed-2746a7e38677.jpg",
-      "source": "CleanTechnica",
       "isLive": true
     },
     {
@@ -704,7 +724,7 @@
         "Breach"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 36,
       "url": "https://www.bleepingcomputer.com/news/security/hackers-breach-microsoft-365-tenants-via-connectwise-supply-chain-attack/",
       "image": "/images/feed/feed-c549025bcffd.jpg",
       "source": "BleepingComputer",
@@ -723,7 +743,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 53,
       "url": "https://www.space.com/space-exploration/on-this-day-in-space-october-17-2026",
       "image": "/images/feed/feed-ab2864874ebb.jpg",
       "source": "Space.com",
@@ -742,48 +762,10 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 53,
       "url": "https://www.bleepingcomputer.com/news/security/drupal-patches-critical-rce-flaws-warns-exploits-may-emerge-soon/",
       "image": "/images/feed/feed-4864321055de.jpg",
       "source": "BleepingComputer",
-      "isLive": true
-    },
-    {
-      "id": "feed-28be4da7a2f3",
-      "title": "This Week In Space podcast: Episode 232 — The Lunar Dump",
-      "excerpt": "On Episode 232 of This Week In Space, Rod Pyle and Tariq Malik are joined by Chelsea Gohd to talk about the recent large data dump from the Artemis II mission.",
-      "body": "On Episode 232 of This Week In Space , Rod Pyle and Tariq Malik are joined by Chelsea Gohd, former writer for NASA/JPL and now with Space.com, to talk about the recent large data dump from the Artemis II mission. What was included? Why is this new data important? What observations were made, and what discoveries might result from them? What kind of annotations and notes did the astronauts include that make these observations uniquely valuable? And finally, we talk about Artemis III - what is the mission profile and what are the stakes for SpaceX and Blue Origin? Download or subscribe to this show at: https://twit.tv/shows/this-week-in-space .",
-      "author": " Space.com Staff ",
-      "date": "2026-10-17",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Space"
-      ],
-      "featured": false,
-      "xpReward": 49,
-      "url": "https://www.space.com/entertainment/space-movies-shows/this-week-in-space-podcast-episode-232-the-lunar-dump",
-      "image": "/images/feed/feed-28be4da7a2f3.jpg",
-      "source": "Space.com",
-      "isLive": true
-    },
-    {
-      "id": "feed-657279cf248c",
-      "title": "Websites are closing their doors to AI agents",
-      "excerpt": "Autonomous agents are the hottest thing in AI. OpenAI, Meta, Google, Instinct, and others promise their agents can scour the internet on your behalf, doing anything from booking a dinner reservation a…",
-      "body": "Autonomous agents are the hottest thing in AI. OpenAI, Meta, Google, Instinct, and others promise their agents can scour the internet on your behalf, doing anything from booking a dinner reservation and cleaning out your inbox to buying new shoes. But what happens when the rest of the internet won't play nice? In recent weeks, users of services like Meta's Muse, xAI's Grok, OpenAI's Dots, and Instinct have reported blocks preventing their AI agents from performing tasks across top websites. Yelp told TechCrunch that it only allows AI agents that pay for its data licensing program, while Delta Air Lines is preventing them from booking ticket … Read the full story at The Verge.",
-      "author": "Emma Roth",
-      "date": "2026-10-17",
-      "readTime": "2 min",
-      "section": "ai",
-      "tags": [
-        "Ai"
-      ],
-      "featured": false,
-      "xpReward": 32,
-      "url": "https://www.theverge.com/ai-artificial-intelligence/1013195/ai-agents-blocked-web",
-      "image": "/images/feed/feed-657279cf248c.jpg",
-      "source": "The Verge",
       "isLive": true
     },
     {
@@ -799,7 +781,7 @@
         "Encryption"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 51,
       "url": "https://www.wired.com/story/kernel-panic-encryption-is-getting-squeezed-from-all-sides/",
       "image": "/images/feed/feed-c790320c042c.jpg",
       "source": "Wired",
@@ -818,7 +800,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 34,
       "url": "https://thehackernews.com/2026/10/malfex-npm-package-imgdecode-hides.html",
       "image": "/images/feed/feed-0ed9a47ea1d5.jpg",
       "source": "The Hacker News",
@@ -837,7 +819,7 @@
         "Security"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 33,
       "url": "https://www.cnet.com/home/security/devices-i-rely-on-for-porch-security/",
       "image": "/images/feed/feed-1a5a5c81df3b.jpg",
       "source": "CNET",
@@ -856,7 +838,7 @@
         "Hacker"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 40,
       "url": "https://thehackernews.com/2026/10/hackers-use-compromised-connectwise.html",
       "image": "/images/feed/feed-9a0cd5bfb89f.jpg",
       "source": "The Hacker News",
@@ -875,7 +857,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 45,
       "url": "https://arstechnica.com/security/2026/10/openai-models-hacked-a-crypto-wallet-and-breached-more-websites/",
       "image": "/images/feed/feed-3813289f4d22.jpg",
       "source": "Ars Technica",
@@ -894,7 +876,7 @@
         "Transformer"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 44,
       "url": "https://alexwang.ai/posts/associative-memory/",
       "image": "/images/feed/feed-535f3eb25ab6.jpg",
       "source": "Hacker News",
@@ -913,7 +895,7 @@
         "Generative Ai"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 52,
       "url": "https://openai.com/index/itau-generative-ai",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "OpenAI Blog",
@@ -932,24 +914,43 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 37,
       "url": "https://www.technologyreview.com/2026/10/16/1146224/roundtables-a-conversation-with-the-creator-of-ai-designed-viruses/",
       "image": "/images/feed/feed-57c41972947e.png",
       "source": "MIT Tech Review",
       "isLive": true
+    },
+    {
+      "id": "feed-2e1ca76a61a0",
+      "title": "Anthropic gives third-party auditors ’employee-like access’ in AI industry first",
+      "excerpt": "As AI labs continue to self-regulate, external evaluators play a crucial role in spotting risks.",
+      "body": "As AI labs continue to self-regulate, external evaluators play a crucial role in spotting risks.\n\nThis report, published by ZDNet, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Anthropic. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to ZDNet using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Radhika Rajkumar",
+      "date": "2026-10-16",
+      "readTime": "2 min",
+      "section": "ai",
+      "tags": [
+        "Anthropic"
+      ],
+      "featured": false,
+      "xpReward": 53,
+      "url": "https://www.zdnet.com/uncategorized/anthropic-embed-third-party-ai-auditors-safety/",
+      "image": "https://www.zdnet.com/wp-content/uploads/sites/3/auditblue-GettyImages-1269457842.jpg",
+      "source": "ZDNet",
+      "isLive": true
     }
   ],
   "breakingNews": [
-    "DEV.TO: Rust vs Go vs Zig in 2026: Picking a Systems Language",
-    "DEV.TO: Edit Distance or Levenshtein Distance in an Easy Recursion + Memoization Way",
-    "DEV.TO: Is NIST P-256 Backdoored? Its Seed Was a 1997 Unix Timestamp",
-    "DEV.TO: Trinary-19683 Cognitive System: From Static Hexagrams to a Falsifiable, Evolvable Deterministic Cognition Layer",
-    "DEV.TO: Core Web Vitals field data vs lab data: why a Lighthouse 100 can still fail",
-    "DEV.TO: Why I Built BakeCraft AI: 100% Local Cottage Bakery & Micro-Catering Profit Engine with Google Gemma 2",
-    "DEV.TO: Your Laptop Now Checks Itself: 5 Things TDK CLI Verifies Before `tdk up`",
-    "ANDROID AUTHORITY: Whatever you do, don’t buy a Fitbit Edge on day one",
-    "POLYGON: Jessica Rothe Officially Confirms Return Plans for Hit Time-Loop Thriller Trilogy",
-    "INSIDEEVS: VW Will Automatically Limit Some ID.4 Batteries To 80% Charge This Week Unless Owners Opt Out"
+    "DEV.TO: Frontend Testing: Confidence Without Brittleness",
+    "DEV.TO: We built FalkorDB a company brain from its own GitHub. It knew things they may not.",
+    "DEV.TO: How not to use AI. Student Version :)",
+    "DEV.TO: Can a QAT 12B Fit an 8 GB GPU? Gemma 4 12B on an RTX 3050",
+    "DEV.TO: RepoPilot: An Open-Source AI Assistant for GitHub Issues",
+    "DEV.TO: MES vs ERP vs SCADA: who does what in a factory",
+    "DEV.TO: LedgerPrep Lite: Turn Receipt Chaos into Bookkeeping-Ready Records with Local AI",
+    "CLEANTECHNICA: Tesla Implements New Accident-Avoidance Automation, But Millions of Tesla Customers Don’t Have Access To It",
+    "POLYGON: 11 Years Later, Dragon Ball Super: Beerus Finally Nails Akira Toriyama's Original Vision",
+    "INSIDEEVS: The Fix For Plug-In Hybrids That Don't Get Plugged In? Smaller Gas Tanks, New Report Argues"
   ],
   "sectionVideos": {}
 }
