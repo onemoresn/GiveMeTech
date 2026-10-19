@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-10-19T03:16:30.769Z",
+  "fetchedAt": "2026-10-19T04:16:07.218Z",
   "articles": [
     {
-      "id": "feed-7ed781f2ec94",
-      "title": "How to Test JWT Authentication and Silent Token Refresh in React Without a Backend",
-      "excerpt": "I once lost an entire Saturday afternoon trying to debug a silent JWT token refresh loop in a React app I was building. The login modal and user dashboard were completely done. But testing the actual…",
-      "body": "I once lost an entire Saturday afternoon trying to debug a silent JWT token refresh loop in a React app I was building. The login modal and user dashboard were completely done. But testing the actual security mechanics was driving me up the wall: How was I supposed to test what happens when an access token expires after 15 minutes? How could I verify that my Axios interceptor cleanly caught the 401 Unauthorized , paused queued requests, called /auth/refresh , and retried the original request without logging the user out? How could I test updating authenticated profile data via PATCH /auth/me ? The backend team wasn't ready yet, and none of the public mock APIs in the ecosystem offered realistic JWT authentication.",
-      "author": "Nilesh Kumar",
+      "id": "feed-f21d6fa52c48",
+      "title": "엑셀 청구·입금 대조표: 나눠 받은 입금 합산하고 확인할 차액 찾기",
+      "excerpt": "청구는 한 건인데 입금이 두 번에 나뉘어 들어오면, 청구 금액 옆에 마지막 입금액만 적어서는 맞는지 알기 어렵습니다. 청구 목록과 입금 기록을 나눠 두고 같은 청구ID의 입금을 합산하면, 금액이 맞는 건과 원자료를 다시 볼 건을 구분할 수 있습니다. 아래 두 시트를 만들면 청구 네 건과 입금 여섯 줄을 대조할 수 있습니다. 예제의 잘못 입력한 청구ID 한…",
+      "body": "청구는 한 건인데 입금이 두 번에 나뉘어 들어오면, 청구 금액 옆에 마지막 입금액만 적어서는 맞는지 알기 어렵습니다. 청구 목록과 입금 기록을 나눠 두고 같은 청구ID의 입금을 합산하면, 금액이 맞는 건과 원자료를 다시 볼 건을 구분할 수 있습니다. 아래 두 시트를 만들면 청구 네 건과 입금 여섯 줄을 대조할 수 있습니다. 예제의 잘못 입력한 청구ID 한 곳을 원자료와 대조해 고친 뒤에는 차액이 0원, 10,000원, 60,000원, −10,000원으로 나옵니다. 입력 표, 수식, 완성 결과와 재사용 순서를 본문에 모두 넣었습니다. 모든 업무명·ID·금액은 합성 자료입니다. AI의 도움을 받아 표와 설명을 작성했고, 수식의 참조 범위와 예제 계산은 Python으로 검산했습니다. 실제 Excel 앱에서 붙여 넣기나 실행을 시험한 것은 아닙니다. 아래 결과는 이 예제의 계산값이며 실제 거래에 대한 확인이나 처리 지시가 아닙니다. 1. 청구는 한 줄, 입금은 들어온 기록마다 한 줄 새 통합문서에 이름이 정확히 ‘청구’, ‘입금’인 두 시트를 만듭니다. ‘청구’에는 청구ID 하나를 한 줄만 적습니다. ‘입금’에는 입금ID를 줄마다 다르게 적고, 어느 청구에 해당하는지 청구ID로 연결합니다. 한 청구를 나눠 받은 경우에는 같은 청구ID가 입금 시트에 여러 번 나오는 것이 정상입니다. 반복되면 확인할 것은 입금ID입니다. 여기서 입금ID는 이 표에서 한 기록을 구별하기 위해 붙인 고유 ID이며, 은행 거래번호의 진위를 판정하는 기능은 없습니다.",
+      "author": "오늘의 작은 도구",
       "date": "2026-10-19",
       "readTime": "2 min",
       "section": "software",
@@ -14,124 +14,182 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 41,
-      "url": "https://dev.to/nileslabs/how-to-test-jwt-authentication-and-silent-token-refresh-in-react-without-a-backend-3ecp",
-      "image": "/images/feed/feed-7ed781f2ec94.webp",
+      "xpReward": 54,
+      "url": "https://dev.to/charos_j/egsel-ceongguibgeum-daejopyo-nanweo-badeun-ibgeum-habsanhago-hwaginhal-caaeg-cajgi-2cpf",
+      "image": "/images/feed/feed-f21d6fa52c48.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-7103dd6f507e",
-      "title": "I built a free QR code API + MCP server on Cloudflare Pages — here's the whole design",
-      "excerpt": "Most QR code generators are either ad-covered landing pages or SaaS products with a paywall behind \"dynamic codes\". I wanted the opposite: a generator that's free, private by default, and natively cal…",
-      "body": "Most QR code generators are either ad-covered landing pages or SaaS products with a paywall behind \"dynamic codes\". I wanted the opposite: a generator that's free, private by default, and natively callable by AI agents. So I built FreeQrly — open source ( BryceBin/freeqrly , MIT), running entirely on Cloudflare Pages + D1. Here's the architecture, including the part I think is most interesting: one shared auth/quota core serving three surfaces — web UI, REST API, and MCP. The three surfaces 1. Static QR API — no key, no signup, CORS wide open GET https://freeqrly.com/api/qr?data=https://example.com&amp;size=1024&amp;color=2F4A62&amp;bgcolor=ffffff&amp;margin=4&amp;ecc=M Returns an SVG.",
-      "author": "Zane Bin",
+      "id": "feed-6f1dbf575bc1",
+      "title": "Substack Scraper in Node.js: Post Archives, Likes, Comments, and the Walls You'll Hit (2026)",
+      "excerpt": "Substack has quietly become one of the more useful datasets on the web. If you do competitor research for a newsletter, track a niche, or want to know which topics actually get people to hit the heart…",
+      "body": "Substack has quietly become one of the more useful datasets on the web. If you do competitor research for a newsletter, track a niche, or want to know which topics actually get people to hit the heart button, the numbers are sitting right there on every publication. In this post I'll build a small Node.js script that: Pages through any publication's post archive Exports title, date, author, paywall status, word count, likes, comments, and restacks to CSV Prints a quick summary (paywalled share, top posts by likes) Pulls the comment thread for a single post No headless browser and no dependencies: Node 18+ has fetch built in. Everything below was tested against live publications in October 2026, and I'll point out the quirks I ran into along the way.",
+      "author": "Viktor",
       "date": "2026-10-19",
       "readTime": "2 min",
       "section": "software",
       "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 37,
+      "url": "https://dev.to/viktorhendelmann/substack-scraper-in-nodejs-post-archives-likes-comments-and-the-walls-youll-hit-2026-3ll6",
+      "image": "/images/feed/feed-6f1dbf575bc1.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-3f7bdefe85ce",
+      "title": "Next.js 16 + Tailwind v4: 5 traps AI coding assistants keep hitting (and the prompts that fix them)",
+      "excerpt": "A fresh create-next-app in late 2026 gives you Next.js 16 and Tailwind CSS v4. Most AI coding assistants learned on years of Next 13–15 and Tailwind v3 code. That gap produces the same handful of fail…",
+      "body": "A fresh create-next-app in late 2026 gives you Next.js 16 and Tailwind CSS v4. Most AI coding assistants learned on years of Next 13–15 and Tailwind v3 code. That gap produces the same handful of failures again and again, and they often show up only at npm run build , or only on a laptop set to dark mode. Below are five of them. For each one you get the symptom (with the exact error text where there is one), why the assistant gets it wrong, the fix, and a short prompt you can paste into Cursor, Claude Code, or ChatGPT. Versions used: create-next-app 16.4.2 (Next.js 16.4.2, React 19.3), Tailwind CSS 4.3, Node 20. Trap 1: npm run build fails on a brand-new app ( cacheComponents ) Symptom.",
+      "author": "ShipInAnHour",
+      "date": "2026-10-19",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 45,
+      "url": "https://dev.to/shipinanhour/nextjs-16-tailwind-v4-5-traps-ai-coding-assistants-keep-hitting-and-the-prompts-that-fix-them-3ioc",
+      "image": "/images/feed/feed-3f7bdefe85ce.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-e20a0e0dfed1",
+      "title": "Design Dropbox: the file storage and sync system design walkthrough",
+      "excerpt": "Design Dropbox: the file storage and sync system design walkthrough The request to design Dropbox sounds like one line — put my files in the cloud and keep them the same on every device — and that one…",
+      "body": "Design Dropbox: the file storage and sync system design walkthrough The request to design Dropbox sounds like one line — put my files in the cloud and keep them the same on every device — and that one line hides the whole interview. Picture it as upload and download and you reach for a form, a blob store and a save button; picture it as file storage and sync where a 1 GB video has one byte changed, a laptop and a phone must both end up identical, and two machines edited the same file while both were offline, and it becomes one of the more deceptively deep problems in distributed systems.",
+      "author": "Gowtham Potureddi",
+      "date": "2026-10-19",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 39,
+      "url": "https://dev.to/gowthampotureddi/design-dropbox-the-file-storage-and-sync-system-design-walkthrough-41o1",
+      "image": "/images/feed/feed-e20a0e0dfed1.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-3cad40ec8e67",
+      "title": "PlateProfit AI: Turning Food Waste Into Profit with Open-Source AI",
+      "excerpt": "This is a submission for the Hacktoberfest Open-Source AI Challenge Week 2: Side Hustle PlateProfit AI is an AI-powered restaurant management concept designed to help restaurants make smarter decision…",
+      "body": "This is a submission for the Hacktoberfest Open-Source AI Challenge Week 2: Side Hustle What I Built PlateProfit AI is an AI-powered restaurant management concept designed to help restaurants make smarter decisions, reduce food waste, and protect their profits. Restaurants often struggle with food waste, fluctuating ingredient costs, inventory management, and hidden profit leaks. Ingredients expire, purchasing decisions become difficult, and small inefficiencies can add up to significant financial losses. PlateProfit AI aims to bring these challenges into one place. The goal is to help restaurant owners understand their costs, identify potential waste, analyze profitability, and make more informed operational decisions. 🍽️ Who is it for?",
+      "author": "Azmol Wasim Hussain",
+      "date": "2026-10-19",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 38,
+      "url": "https://dev.to/azmolwasimhussain/plateprofit-ai-turning-food-waste-into-profit-with-open-source-ai-5c9k",
+      "image": "/images/feed/feed-3cad40ec8e67.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-730bffa4aa63",
+      "title": "Are Trading Bots Legit? How to Check One Honestly",
+      "excerpt": "If you are asking \"is trading bots legit?\", the short answer is that trading bots are real software, but many of the claims made about them are not. A bot is only as legitimate as its evidence: verifi…",
+      "body": "If you are asking \"is trading bots legit?\", the short answer is that trading bots are real software, but many of the claims made about them are not. A bot is only as legitimate as its evidence: verifiable trade history, honest costs, a large enough sample, and a setup that never gives anyone control of your funds. This guide shows you how to separate a real, testable bot from marketing, using checks you can run yourself before risking any money. Is trading bots legit? What the question really means When people search \"is trading bots legit\", they usually mean one of three things: Is the software real? Does it actually place trades, or is it a front for a deposit scheme? Are the results real? Are the screenshots and win rates from actual trades, a backtest, or nowhere at all? Is it safe?",
+      "author": "Bot LAB",
+      "date": "2026-10-19",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 45,
+      "url": "https://dev.to/botlab/are-trading-bots-legit-how-to-check-one-honestly-chf",
+      "image": "/images/feed/feed-730bffa4aa63.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-39c422cdf693",
+      "title": "JavaScript Temporal API Tutorial: Replace Date with Tested Examples (2026)",
+      "excerpt": "Temporal is JavaScript’s new built-in date and time API, designed to replace the old Date object. Instead of one confusing type, it gives you separate, immutable types for each job: Temporal.PlainDate…",
+      "body": "Temporal is JavaScript’s new built-in date and time API, designed to replace the old Date object. Instead of one confusing type, it gives you separate, immutable types for each job: Temporal.PlainDate for a calendar date such as a birthday, Temporal.ZonedDateTime for an exact moment in a named time zone, Temporal.Duration for lengths of time, and Temporal.Instant for a timestamp. Months are numbered 1 to 12, adding a month to 31 January gives 28 February instead of 2 March, and time zones are handled properly. Temporal is trending because it has finally shipped in mainstream runtimes. Node.js 26.0.0 , released on 5 May 2026, turned it on by default, and Node 26 is due to become the long-term support (LTS) release this October.",
+      "author": "Mahir Faysal",
+      "date": "2026-10-19",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Javascript",
         "Api"
       ],
-      "featured": true,
-      "xpReward": 47,
-      "url": "https://dev.to/zane_bin_e6f335ca1e4e3960/i-built-a-free-qr-code-api-mcp-server-on-cloudflare-pages-heres-the-whole-design-93g",
-      "image": "/images/feed/feed-7103dd6f507e.webp",
+      "featured": false,
+      "xpReward": 32,
+      "url": "https://dev.to/mfaysaldev/javascript-temporal-api-tutorial-replace-date-with-tested-examples-2026-ijf",
+      "image": "/images/feed/feed-39c422cdf693.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-3574665be8d8",
-      "title": "블록체인 트릴레마 해법 탐색: 확장성, 보안, 탈중앙화, 10년 혁신의 발자취",
-      "excerpt": "탈중앙화되고 안전하며 불변하는 원장이라는 블록체인 기술의 근본적인 약속은 지난 10년 넘게 기술자와 경제학자 모두를 사로잡았다. 하지만 이 산업이 단순한 개념을 넘어 실제 애플리케이션으로 성숙해지면서, \"블록체인 트릴레마\"라 불리는 근본적인 설계 제약이 핵심 과제로 떠올랐다. 이 트릴레마는 블록체인 시스템이 확장성, 보안, 탈중앙화라는 세 가지 바람직한 속…",
-      "body": "탈중앙화되고 안전하며 불변하는 원장이라는 블록체인 기술의 근본적인 약속은 지난 10년 넘게 기술자와 경제학자 모두를 사로잡았다. 하지만 이 산업이 단순한 개념을 넘어 실제 애플리케이션으로 성숙해지면서, \"블록체인 트릴레마\"라 불리는 근본적인 설계 제약이 핵심 과제로 떠올랐다. 이 트릴레마는 블록체인 시스템이 확장성, 보안, 탈중앙화라는 세 가지 바람직한 속성 중 어느 한 시점에 오직 두 가지만 최적으로 달성할 수 있다고 말한다. 이러한 본질적인 상충관계는 블록체인 공간의 거의 모든 아키텍처 결정과 지속적인 혁신의 기반을 이룬다. 수년간 비트코인이나 초기 이더리움 같은 블록체인 네트워크는 보안과 탈중앙화를 우선시하며 공격과 검열에 대한 강력한 저항력을 확보했다. 하지만 이는 제한된 트랜잭션 처리량이라는 대가를 치렀다. 네트워크 수요가 급증하는 시기에 이러한 한계는 더욱 명확해졌고, 엄청난 트랜잭션 수수료와 느린 확인 시간으로 이어져 높은 트랜잭션 볼륨을 요구하는 애플리케이션의 주류 채택을 가로막았다. 이 트릴레마를 해결하는 것은 단순히 학술적인 과제가 아니다. 이는 블록체인을 틈새 기술에서 벗어나 글로벌 금융 시스템, 공급망, 그리고 급성장하는 웹3(Web3) 애플리케이션을 지원할 수 있는 보편적인 인프라로 전환하기 위한 필수적인 단계다. 이 글은 블록체인 트릴레마의 복잡한 면모를 깊이 파고들어, 그 영향을 완화하기 위해 사용된 다양한 기술 전략들을 탐색하고, 실제 구현 사례들을 분석하며, 탈중앙화 네트워크의 미래를 계속 형성하고 있는 내재된 한계들을 논의할 것이다.",
-      "author": "Juno Kim",
+      "id": "feed-bbf1b233dfb6",
+      "title": "The Best 'Peanuts' Great Pumpkin Comic Strip Came Out 2 Years Before the Famous TV Special",
+      "excerpt": "Besides the famous Halloween special It's the Great Pumpkin, Charlie Brown, this is the best Great Pumpkin comic strip",
+      "body": "Besides the famous Halloween special It's the Great Pumpkin, Charlie Brown, this is the best Great Pumpkin comic strip\n\nThis report, published by Polygon, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Polygon using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Brian VanHooker",
       "date": "2026-10-19",
       "readTime": "2 min",
-      "section": "software",
+      "section": "gaming",
       "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 53,
-      "url": "https://dev.to/ice1121/beulrogcein-teurilrema-haebeob-tamsaeg-hwagjangseong-boan-taljunganghwa-10nyeon-hyeogsinyi-baljacwi-4c49",
-      "image": "/images/feed/feed-3574665be8d8.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-420fbc36ed47",
-      "title": "Browser-First Tools Are Quietly Replacing Bloated SaaS Apps",
-      "excerpt": "I have a small test I use before installing another productivity app: does this task actually need a server? A lot of everyday work fails that test. Renaming a batch of files, counting words, formatti…",
-      "body": "I have a small test I use before installing another productivity app: does this task actually need a server? A lot of everyday work fails that test. Renaming a batch of files, counting words, formatting JSON, removing blank lines from a draft, compressing one image, or merging two PDFs does not require an account, a sync engine, a monthly subscription, or a copy of the file sitting in someone else's storage. Yet those are exactly the tasks that often get wrapped in a full SaaS product. The result is familiar: a 2 MB task comes with a 40 MB interface. You sign up, verify an email, pick a plan, upload a file, wait for a spinner, download the result, and then wonder why the whole thing needed a cloud. Browser-first tools are not a universal replacement for SaaS.",
-      "author": "CarsonJ",
-      "date": "2026-10-19",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 50,
-      "url": "https://dev.to/korelyy/browser-first-tools-are-quietly-replacing-bloated-saas-apps-jci",
-      "image": "/images/feed/feed-420fbc36ed47.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-909346f4a32f",
-      "title": "I Built a Client-Side Favicon Generator (60-Second Tutorial)",
-      "excerpt": "Your logo looks great at 1200px. At 16x16, it's a smudge. That's the entire favicon problem in one sentence. Every site needs that tiny tab icon, and the standard workflow for making one is embarrassi…",
-      "body": "Your logo looks great at 1200px. At 16x16, it's a smudge. That's the entire favicon problem in one sentence. Every site needs that tiny tab icon, and the standard workflow for making one is embarrassingly bad: upload your logo to some generator, create an account, wait in a queue, download a watermarked PNG, realize it's a single 32px file with no ICO, no Apple touch icon, no manifest — and start over. I got tired of that loop, so I built a favicon generator that runs 100% in the browser: type 1–3 initials or pick an emoji, set colors, preview at real tab sizes, and download the full pack (ICO, PNGs, Apple touch icons, PWA manifest). No upload, no signup, no watermark. This post is the 60-second tutorial plus the one canvas technique that makes it all work. The 60-second workflow 1.",
-      "author": "bowen Tse",
-      "date": "2026-10-19",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 34,
-      "url": "https://dev.to/bowentse/i-built-a-client-side-favicon-generator-60-second-tutorial-2aho",
-      "image": "/images/feed/feed-909346f4a32f.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-df21e1965bff",
-      "title": "repo ดาว 1.4 แสนที่รวม AI agent ไว้ 175 ไฟล์ คุณควรเริ่มอ่านตรงไหน?",
-      "excerpt": "repo ดาว 1.4 แสนที่รวม AI agent ไว้ 175 ไฟล์ คุณควรเริ่มอ่านตรงไหน? โดย Nokka (นก-กา) | นักเขียนอิสระสายเทคโนโลยี บทความนี้เขียนโดย AI (deepseek-v4.1-flash · ผู้ให้บริการโมเดล: ollama-cloud) ผ่าน Herm…",
-      "body": "repo ดาว 1.4 แสนที่รวม AI agent ไว้ 175 ไฟล์ คุณควรเริ่มอ่านตรงไหน? โดย Nokka (นก-กา) | นักเขียนอิสระสายเทคโนโลยี บทความนี้เขียนโดย AI (deepseek-v4.1-flash · ผู้ให้บริการโมเดล: ollama-cloud) ผ่าน Hermes Agent ภายใต้การควบคุมและตรวจสอบคุณภาพโดยมนุษย์ - Nokka (นก-กา) คลิปสั้นความยาว 40 วินาทีที่มีคนส่งมาให้ผมดู [2] พูดด้วยน้ำเสียงตื่นเต้นว่า \"นี่อาจเป็น repo ที่บ้าที่สุดบน GitHub ตอนนี้\" แล้วไล่ชื่อสิ่งที่อยู่ในนั้นรัว ๆ ทั้งเอเจนต์ ระบบหลายเอเจนต์ เสียง การสร้างภาพ RAG การทำเวิร์กโฟลว์ ไปจนถึงการสร้างมีม ผมดูจบแล้วก็ปิดไปตามปกติ เพราะประโยคแบบนี้ผ่านตามาเยอะ แต่แล้วก็กลับไปเปิดซ้ำ เหตุผลไม่ใช่เพราะตัวเลข แต่มันคือคำว่า \"ready-to-use\" ต่างหาก เพราะสิ่งที่ผมเจอตอนสร้างเอเจนต์ครั้งแรกไม่ใช่การขาดเครื่องมือ แต่เป็นการมีเครื่องมือเยอะจนไม่รู้จะเริ่มจากตรงไหน เอกสารอ่านได้แต่พอลงมือจริงกลับพังตั้…",
-      "author": "Nokka",
-      "date": "2026-10-19",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 48,
-      "url": "https://dev.to/sarantoon/repo-daaw-14-aesnthiirwm-ai-agent-aiw-175-aifl-khunkhwrerimaantrngaihn-1alo",
-      "image": "/images/feed/feed-df21e1965bff.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-88219cc0bfa6",
-      "title": "SUMIF vs SUMIFS vs COUNTIFS: which Excel function to use when",
-      "excerpt": "Excel has a whole family of \"add this up, but only for some rows\" functions, and their names look almost identical. The rule that sorts them out is short: IF means one condition, IFS means several. Th…",
-      "body": "Excel has a whole family of \"add this up, but only for some rows\" functions, and their names look almost identical. The rule that sorts them out is short: IF means one condition, IFS means several. The rest is remembering which argument goes first. TL;DR: one condition → SUMIF / COUNTIF / AVERAGEIF ; more than one → SUMIFS / COUNTIFS ; just count non-empty cells → COUNTA . The examples below use a staff sheet with 25 people in rows 2 to 26: column A is the name, B the department, C the office, D the sales figure. We ran each formula on that sheet in Excel for the web. The functions, one by one SUMIF: add with one condition. =SUMIF(B2:B26,\"Sales\",D2:D26) adds column D only where the department is \"Sales\". Order: where to check, what to match, what to add.",
-      "author": "HODADAK",
-      "date": "2026-10-19",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
+        "Gaming"
       ],
       "featured": false,
-      "xpReward": 36,
-      "url": "https://dev.to/hodadak_official/sumif-vs-sumifs-vs-countifs-which-excel-function-to-use-when-4e96",
-      "image": "/images/feed/feed-88219cc0bfa6.webp",
-      "source": "Dev.to",
+      "xpReward": 34,
+      "url": "https://www.polygon.com/peanuts-best-great-pumpkin-comic-strip-linus/",
+      "image": "/images/feed/feed-bbf1b233dfb6.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-bd43e440940c",
+      "title": "A Data Center Deal Lurks Behind Trump’s Russian Diesel Debacle",
+      "excerpt": "Data centers have emerged as part of Trump's plan for a new era of collaboration between the US and Russia -- wait, what? The post A Data Center Deal Lurks Behind Trump’s Russian Diesel Debacle appear…",
+      "body": "Data centers have emerged as part of Trump's plan for a new era of collaboration between the US and Russia -- wait, what? The post A Data Center Deal Lurks Behind Trump’s Russian Diesel Debacle appear — a development drawing significant attention in the electric vehicles, hybrids, and automotive technology space.\n\nThis report, published by CleanTechnica, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cars. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to CleanTechnica using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Tina Casey",
+      "date": "2026-10-19",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Cars"
+      ],
+      "featured": false,
+      "xpReward": 33,
+      "url": "https://cleantechnica.com/2026/10/18/collaboration-russia-us-data-centers-elections-2026/",
+      "image": "/images/feed/feed-bd43e440940c.png",
+      "source": "CleanTechnica",
+      "isLive": true
+    },
+    {
+      "id": "feed-940fb6ca3afd",
+      "title": "XPENG G9L Sets Usable Premium SUV Benchmark In Europe",
+      "excerpt": "I recently attended the launch of the XPENG G9L at the Paris Motor Show. This represents XPENG bringing their latest tech in a flagship-level vehicle to Europe. This is a vehicle built in Europe and a…",
+      "body": "I recently attended the launch of the XPENG G9L at the Paris Motor Show. This represents XPENG bringing their latest tech in a flagship-level vehicle to Europe. This is a vehicle built in Europe and adapted to European buyers that raises the bar for what customers can expect in this ... [continued] The post XPENG G9L Sets Usable Premium SUV Benchmark In Europe appeared first on CleanTechnica .",
+      "author": "Larry Evans",
+      "date": "2026-10-19",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Cars"
+      ],
+      "featured": false,
+      "xpReward": 52,
+      "url": "https://cleantechnica.com/2026/10/18/xpeng-g9l-sets-usable-premium-suv-benchmark-in-europe/",
+      "image": "/images/feed/feed-940fb6ca3afd.jpg",
+      "source": "CleanTechnica",
       "isLive": true
     },
     {
@@ -147,7 +205,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 47,
       "url": "https://www.polygon.com/calvin-hobbes-halloween/",
       "image": "/images/feed/feed-4bff621a11c0.jpg",
       "source": "Polygon",
@@ -166,10 +224,29 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 54,
       "url": "https://www.polygon.com/pokemon-sirfetchd-pichu-animated-series-streaming-disney-plus-2027/",
       "image": "/images/feed/feed-625e5cce4764.jpg",
       "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-dc3338536b85",
+      "title": "The Simpsons’ Apu Has Finally Spoken on the Show for the First Time in Almost a Decade",
+      "excerpt": "The Simpsons’ Apu Has Finally Spoken on the Show for the First Time in Almost a Decade",
+      "body": "After some nine years of being seen but not heard on The Simpsons, the show&#39;s creators have finally given a voice back to beloved Kwik-E-Mart owner, Apu Nahasapeemapetilon. In episode three of the series&#39; 38th season dubbed &quot;The Revengening&quot;, which aired Sunday night on Fox in the US, a new voice for the loveable Squishee salesman was debuted courtesy of actor and voice-over veteran, Sunil Malhotra (Grey&#39;s Anatomy, The Legend of Korra).",
+      "author": "Tristan Ogilvie",
+      "date": "2026-10-19",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 39,
+      "url": "https://www.ign.com/articles/the-simpsons-apu-has-finally-spoken-on-the-show-for-the-first-time-in-almost-a-decade",
+      "image": "/images/feed/feed-dc3338536b85.jpg",
+      "source": "IGN",
       "isLive": true
     },
     {
@@ -185,7 +262,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 49,
       "url": "https://www.polygon.com/best-nes-games/",
       "image": "/images/feed/feed-384fc97ea875.jpg",
       "source": "Polygon",
@@ -204,7 +281,7 @@
         "Game"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 46,
       "url": "https://www.polygon.com/best-dlcs-video-games/",
       "image": "/images/feed/feed-0c00d3e23c13.jpg",
       "source": "Polygon",
@@ -223,7 +300,7 @@
         "Iphone"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 49,
       "url": "https://9to5mac.com/2026/10/18/new-revamped-iphone-lineup-coming-in-2027/",
       "image": "/images/feed/feed-136bf4b20dfe.jpg",
       "source": "9to5Mac",
@@ -242,28 +319,9 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 54,
       "url": "https://www.polygon.com/best-underrated-ps4-games/",
       "image": "/images/feed/feed-d0e1935c3480.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-aaf38a5980b5",
-      "title": "Resident Evil Director Is Already Thinking Sequels",
-      "excerpt": "Weapons and Resident Evil movie director Zach Cregger already has an idea for Resident Evil 2, despite the movie intending to be a one-off.",
-      "body": "Weapons director Zach Cregger took a very different approach with his new adaptation of Resident Evil . Rather than adapting the characters and narrative of Capcom's survival-horror game franchise, Cregger is instead translating what it feels like to exist in one of Resident Evil 's worst-case scenarios. Resident Evil follows a hapless medical courier, played by Austin Abrams, as he attempts to survive a journey to Raccoon City, which is now infested with zombies and other monstrosities.",
-      "author": "Michael McWhertor",
-      "date": "2026-10-19",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 42,
-      "url": "https://www.polygon.com/resident-evil-2026-sequel-zach-cregger/",
-      "image": "/images/feed/feed-aaf38a5980b5.jpg",
       "source": "Polygon",
       "isLive": true
     },
@@ -280,7 +338,7 @@
         "Iphone"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 49,
       "url": "https://9to5mac.com/2026/10/18/iphone-duo-battery-capacity-comparison/",
       "image": "/images/feed/feed-2561751af947.jpg",
       "source": "9to5Mac",
@@ -299,29 +357,10 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 40,
       "url": "https://www.engadget.com/2287059/netgear-router-lights-what-they-mean/",
       "image": "/images/feed/feed-f1bf2125e2c2.jpg",
       "source": "Engadget",
-      "isLive": true
-    },
-    {
-      "id": "feed-44c9bc91bd23",
-      "title": "Don Bradman Cricket Jr Announced for PC and Consoles",
-      "excerpt": "Don Bradman Cricket Jr Announced for PC and Consoles",
-      "body": "With Cricket 26 developer Big Ant Studios holding somewhat of a monopoly on the cricket videogame genre for more than a decade, fans of the world&#39;s second most popular sport have been crying out for some competition within the genre. The good news is that Don Bradman Cricket Jr has just been announced by Tru Blu Games. The bad news is that at first glance it seems less like a serious contender confidently striding to the crease, and more like a pitch-invader who&#39;s sprinting waywardly around the outfield for a brief bit of fun. With chunky, cartoon visuals that look like they were created inside Roblox, Don Bradman Cricket Jr appears to be positioning itself as a sort of NBA Jam-esque take on the most beer-friendly of summer sports.",
-      "author": "Tristan Ogilvie",
-      "date": "2026-10-19",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 35,
-      "url": "https://www.ign.com/articles/don-bradman-cricket-jr-announced-for-pc-and-consoles",
-      "image": "/images/feed/feed-44c9bc91bd23.jpg",
-      "source": "IGN",
       "isLive": true
     },
     {
@@ -337,7 +376,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 36,
       "url": "https://www.engadget.com/2287060/samsung-galaxy-watch-orange-dot-meaning/",
       "image": "/images/feed/feed-d2ae5ee1835e.jpg",
       "source": "Engadget",
@@ -356,7 +395,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 41,
       "url": "https://www.engadget.com/2286993/why-never-point-laser-pointer-at-security-camera/",
       "image": "/images/feed/feed-5596d8b6d2e6.jpg",
       "source": "Engadget",
@@ -375,7 +414,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 40,
       "url": "https://www.engadget.com/2286802/how-to-use-google-ai-detection-website-synthid/",
       "image": "/images/feed/feed-efb7e98a0932.jpg",
       "source": "Engadget",
@@ -394,7 +433,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 33,
       "url": "https://www.engadget.com/2286776/xbox-series-x-users-can-play-playstation-5-games-ps5x-emulator-issues/",
       "image": "/images/feed/feed-bce33bde6691.jpg",
       "source": "Engadget",
@@ -413,7 +452,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 54,
       "url": "https://electrek.co/2026/10/18/from-excavators-to-hypercars-these-lego-kits-were-made-for-ev-fans-2026/",
       "image": "/images/feed/feed-d9b34ddf915a.jpg",
       "source": "Electrek",
@@ -432,7 +471,7 @@
         "Llm"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 42,
       "url": "https://jrdsgl.com/if-you-dont-run-your-own-llm-proxy-how-the-fuck-do-you-even-know-whats-going-on/",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "Hacker News",
@@ -451,9 +490,9 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 45,
       "url": "https://techcrunch.com/2026/10/18/anthropic-says-its-committing-5-of-its-shares-to-a-public-benefit-fund/",
-      "image": "/images/feed/feed-8768eef8cad2.jpg",
+      "image": "/images/feed/feed-8768eef8cad2.webp",
       "source": "TechCrunch",
       "isLive": true
     },
@@ -470,7 +509,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 43,
       "url": "https://www.space.com/space-exploration/missions/returning-samples-from-a-mars-moon-inside-the-science-of-japans-bold-mmx-mission",
       "image": "/images/feed/feed-bca5710c2de1.png",
       "source": "Space.com",
@@ -489,7 +528,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 40,
       "url": "https://cleantechnica.com/2026/10/18/paris-auto-show-european-oems-strike-back/",
       "image": "/images/feed/feed-bf7bb76ccee6.jpg",
       "source": "CleanTechnica",
@@ -527,7 +566,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 36,
       "url": "https://cleantechnica.com/2026/10/18/globalization-electrification-energy-security/",
       "image": "/images/feed/feed-a913359211b8.webp",
       "source": "CleanTechnica",
@@ -546,7 +585,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 34,
       "url": "https://electrek.co/2026/10/18/pge-gets-it-electric-semi-trucks-provide-heavy-duty-backup-for-the-grid-video/",
       "image": "/images/feed/feed-d67a2e0d2825.jpg",
       "source": "Electrek",
@@ -565,7 +604,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 36,
       "url": "https://electrek.co/2026/10/18/tiny-titan-new-residential-battery-system-from-ecoflow-starts-small/",
       "image": "/images/feed/feed-139aa9a255e8.png",
       "source": "Electrek",
@@ -585,48 +624,10 @@
         "Hacker"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 37,
       "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-siteguard-waf-flaw-to-run-commands-as-system-root/",
       "image": "/images/feed/feed-e0ea47db9537.jpg",
       "source": "BleepingComputer",
-      "isLive": true
-    },
-    {
-      "id": "feed-6fe9e8f99082",
-      "title": "Volkswagen Thinks The US Could Be Its Economic Savior. Is It Chasing A Pipe Dream?",
-      "excerpt": "In January, 1949, two Volkswagen Type 1 Beetles arrived in New York City. Six years later, Volkswagen of America was founded. The original Beetle was cute in an ugly sort of way. It was under-powered…",
-      "body": "In January, 1949, two Volkswagen Type 1 Beetles arrived in New York City. Six years later, Volkswagen of America was founded. The original Beetle was cute in an ugly sort of way. It was under-powered and its heater was anemic, but it was cheap and that was enough for many ... [continued] The post Volkswagen Thinks The US Could Be Its Economic Savior. Is It Chasing A Pipe Dream? appeared first on CleanTechnica .",
-      "author": "Steve Hanley",
-      "date": "2026-10-18",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Cars"
-      ],
-      "featured": false,
-      "xpReward": 35,
-      "url": "https://cleantechnica.com/2026/10/18/volkswagen-thinks-the-us-could-be-its-economic-savior-is-it-chasing-a-pipe-dream/",
-      "image": "/images/feed/feed-6fe9e8f99082.jpg",
-      "source": "CleanTechnica",
-      "isLive": true
-    },
-    {
-      "id": "feed-75efe6b6e6d7",
-      "title": "Tesla Implements New Accident-Avoidance Automation, But Millions of Tesla Customers Don’t Have Access To It",
-      "excerpt": "Disclaimer: Many of our readers have criticized me for supporting an Elon Musk company. It does present a conundrum for me. Musk has supported Donald Trump with millions of dollars of campaign contrib…",
-      "body": "Disclaimer: Many of our readers have criticized me for supporting an Elon Musk company. It does present a conundrum for me. Musk has supported Donald Trump with millions of dollars of campaign contributions and has served as a member of his administration. Trump has single-handedly set back green energy and ... [continued] The post Tesla Implements New Accident-Avoidance Automation, But Millions of Tesla Customers Don’t Have Access To It appeared first on CleanTechnica .",
-      "author": "Arthur Frederick (Fritz) Hasler",
-      "date": "2026-10-18",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Tesla"
-      ],
-      "featured": false,
-      "xpReward": 38,
-      "url": "https://cleantechnica.com/2026/10/18/tesla-implements-new-accident-avoidance-automation-but-millions-of-tesla-customers-dont-have-access-to-it/",
-      "image": "/images/feed/feed-75efe6b6e6d7.jpg",
-      "source": "CleanTechnica",
       "isLive": true
     },
     {
@@ -642,7 +643,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 54,
       "url": "https://www.space.com/space-exploration/on-this-day-in-space-october-18-2026",
       "image": "/images/feed/feed-2d610388f6a3.jpg",
       "source": "Space.com",
@@ -661,7 +662,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 48,
       "url": "https://www.space.com/astronomy/black-holes/astronomers-want-your-help-finding-missing-black-holes-in-the-milky-way",
       "image": "/images/feed/feed-e08362454bd6.png",
       "source": "Space.com",
@@ -680,7 +681,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 42,
       "url": "https://www.space.com/stargazing/solar-eclipses/10-best-places-to-see-the-2027-total-solar-eclipse-in-spain",
       "image": "/images/feed/feed-65bb6e44d37d.jpg",
       "source": "Space.com",
@@ -700,7 +701,7 @@
         "Astronaut"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 35,
       "url": "https://www.space.com/space-exploration/artemis/artemis-ii-astronauts-honored-with-stephen-hawking-medal-at-starmus",
       "image": "/images/feed/feed-21db4c6de9e2.jpg",
       "source": "Space.com",
@@ -719,7 +720,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 34,
       "url": "https://thehackernews.com/2026/10/connectwise-suspends-cloud-backup-after.html",
       "image": "/images/feed/feed-7c86a93f0005.jpg",
       "source": "The Hacker News",
@@ -738,7 +739,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 49,
       "url": "https://science.nasa.gov/image-article/apod-2026-october-18-sonified-eagle-nebula-pillars/",
       "image": "/images/feed/feed-9560b4b856ad.jpg",
       "source": "NASA Breaking News",
@@ -757,9 +758,9 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 39,
       "url": "https://techcrunch.com/2026/10/17/anthropic-says-its-workforce-has-become-less-junior-and-is-spending-more-time-in-meetings/",
-      "image": "/images/feed/feed-c2a828c7429b.webp",
+      "image": "/images/feed/feed-c2a828c7429b.jpg",
       "source": "TechCrunch",
       "isLive": true
     },
@@ -777,9 +778,9 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 53,
       "url": "https://techcrunch.com/2026/10/17/replit-is-no-longer-working-with-anthropic-ceo-says/",
-      "image": "/images/feed/feed-5329074f8958.jpg",
+      "image": "/images/feed/feed-5329074f8958.webp",
       "source": "TechCrunch",
       "isLive": true
     },
@@ -797,7 +798,7 @@
         "Breach"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 47,
       "url": "https://www.bleepingcomputer.com/news/security/hackers-breach-microsoft-365-tenants-via-connectwise-supply-chain-attack/",
       "image": "/images/feed/feed-c549025bcffd.jpg",
       "source": "BleepingComputer",
@@ -816,7 +817,7 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 53,
       "url": "https://www.bleepingcomputer.com/news/security/drupal-patches-critical-rce-flaws-warns-exploits-may-emerge-soon/",
       "image": "/images/feed/feed-4864321055de.jpg",
       "source": "BleepingComputer",
@@ -835,7 +836,7 @@
         "Encryption"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 40,
       "url": "https://www.wired.com/story/kernel-panic-encryption-is-getting-squeezed-from-all-sides/",
       "image": "/images/feed/feed-c790320c042c.jpg",
       "source": "Wired",
@@ -854,7 +855,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 50,
       "url": "https://thehackernews.com/2026/10/malfex-npm-package-imgdecode-hides.html",
       "image": "/images/feed/feed-0ed9a47ea1d5.jpg",
       "source": "The Hacker News",
@@ -873,7 +874,7 @@
         "Security"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 43,
       "url": "https://www.cnet.com/home/security/devices-i-rely-on-for-porch-security/",
       "image": "/images/feed/feed-1a5a5c81df3b.jpg",
       "source": "CNET",
@@ -892,7 +893,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 31,
       "url": "https://arstechnica.com/security/2026/10/openai-models-hacked-a-crypto-wallet-and-breached-more-websites/",
       "image": "/images/feed/feed-3813289f4d22.jpg",
       "source": "Ars Technica",
@@ -911,7 +912,7 @@
         "Generative Ai"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 52,
       "url": "https://openai.com/index/itau-generative-ai",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "OpenAI Blog",
@@ -930,7 +931,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 30,
       "url": "https://www.technologyreview.com/2026/10/16/1146224/roundtables-a-conversation-with-the-creator-of-ai-designed-viruses/",
       "image": "/images/feed/feed-57c41972947e.png",
       "source": "MIT Tech Review",
@@ -938,16 +939,16 @@
     }
   ],
   "breakingNews": [
-    "DEV.TO: How to Test JWT Authentication and Silent Token Refresh in React Without a Backend",
-    "DEV.TO: I built a free QR code API + MCP server on Cloudflare Pages — here's the whole design",
-    "DEV.TO: 블록체인 트릴레마 해법 탐색: 확장성, 보안, 탈중앙화, 10년 혁신의 발자취",
-    "DEV.TO: Browser-First Tools Are Quietly Replacing Bloated SaaS Apps",
-    "DEV.TO: I Built a Client-Side Favicon Generator (60-Second Tutorial)",
-    "DEV.TO: repo ดาว 1.4 แสนที่รวม AI agent ไว้ 175 ไฟล์ คุณควรเริ่มอ่านตรงไหน?",
-    "DEV.TO: SUMIF vs SUMIFS vs COUNTIFS: which Excel function to use when",
-    "POLYGON: 31 Years Later, Calvin and Hobbes' Scariest Comic Is Still a Controversial Classic",
-    "POLYGON: Pokémon Officially Returns to Galar in 2027 for New Release",
-    "POLYGON: 10 NES Games That Are Still Worth Playing From Start to Finish"
+    "DEV.TO: 엑셀 청구·입금 대조표: 나눠 받은 입금 합산하고 확인할 차액 찾기",
+    "DEV.TO: Substack Scraper in Node.js: Post Archives, Likes, Comments, and the Walls You'll Hit (2026)",
+    "DEV.TO: Next.js 16 + Tailwind v4: 5 traps AI coding assistants keep hitting (and the prompts that fix them)",
+    "DEV.TO: Design Dropbox: the file storage and sync system design walkthrough",
+    "DEV.TO: PlateProfit AI: Turning Food Waste Into Profit with Open-Source AI",
+    "DEV.TO: Are Trading Bots Legit? How to Check One Honestly",
+    "DEV.TO: JavaScript Temporal API Tutorial: Replace Date with Tested Examples (2026)",
+    "POLYGON: The Best 'Peanuts' Great Pumpkin Comic Strip Came Out 2 Years Before the Famous TV Special",
+    "CLEANTECHNICA: A Data Center Deal Lurks Behind Trump’s Russian Diesel Debacle",
+    "CLEANTECHNICA: XPENG G9L Sets Usable Premium SUV Benchmark In Europe"
   ],
   "sectionVideos": {}
 }
