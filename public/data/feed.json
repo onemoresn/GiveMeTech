@@ -1,156 +1,501 @@
 {
-  "fetchedAt": "2026-10-23T14:13:28.169Z",
+  "fetchedAt": "2026-10-23T15:12:35.099Z",
   "articles": [
     {
-      "id": "feed-94ed4fe67f83",
-      "title": "Postman to Production: Repeatable API Regression Suites",
-      "excerpt": "[Why Postman Collections Deserve Formal Regression Status] [Designing Collections and Environments for Reliable Automation] [Running Newman in CI: Patterns That Scale] [Versioning, Reporting, and Main…",
-      "body": "[Why Postman Collections Deserve Formal Regression Status] [Designing Collections and Environments for Reliable Automation] [Running Newman in CI: Patterns That Scale] [Versioning, Reporting, and Maintenance Practices That Stick] [Practical Application: A reproducible pipeline blueprint and checklists] Postman collections are excellent executable artifacts — but left as informal workspace junk they generate noise, not confidence. Formalizing collections into a versioned, CI-driven API regression suite changes them from ad‑hoc checks into reliable quality gates you can measure and trust. The problem shows up as two recurring patterns: flaky manual runs and invisible drift.",
-      "author": "beefed.ai",
+      "id": "feed-703d70c05559",
+      "title": "One endpoint, many models: switching between GPT, Claude and DeepSeek and logging what every call costs",
+      "excerpt": "The OpenAI Chat Completions format has quietly become the common plug of the LLM world. DeepSeek documents an OpenAI-format base URL for its own API, most gateways speak it, and the official openai Py…",
+      "body": "The OpenAI Chat Completions format has quietly become the common plug of the LLM world. DeepSeek documents an OpenAI-format base URL for its own API, most gateways speak it, and the official openai Python SDK lets you point base_url anywhere. So switching from GPT to Claude to DeepSeek looks like changing one string. It mostly is. But \"mostly\" hides the part that shows up on your invoice: the same prompt is a different number of tokens on different models, and some models think before answering and bill you for it. Below is a small harness for comparing models on real prompts instead of on vibes. Step 1: one client, model as a parameter Keep the endpoint and key in environment variables and treat the model as a plain argument.",
+      "author": "x3-team",
       "date": "2026-10-23",
       "readTime": "2 min",
-      "section": "software",
+      "section": "ai",
       "tags": [
-        "Api"
+        "Claude",
+        "Gpt"
       ],
       "featured": true,
-      "xpReward": 38,
-      "url": "https://dev.to/beefedai/postman-to-production-repeatable-api-regression-suites-51e5",
-      "image": "/images/feed/feed-94ed4fe67f83.webp",
+      "xpReward": 51,
+      "url": "https://dev.to/x3team/one-endpoint-many-models-switching-between-gpt-claude-and-deepseek-and-logging-what-every-call-139",
+      "image": "/images/feed/feed-703d70c05559.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-3e11d65ba76c",
-      "title": "What breaks in MCP servers: results from launching 750 registry entries",
-      "excerpt": "Disclosure: I run MCP Verified, a weekly test of servers in the official Model Context Protocol registry. This post is the data. The newsletter link is at the end. Each week we take a sample of 750 en…",
-      "body": "Disclosure: I run MCP Verified, a weekly test of servers in the official Model Context Protocol registry. This post is the data. The newsletter link is at the end. What we test Each week we take a sample of 750 entries from the official MCP registry (300 npm, 150 PyPI, 200 remote streamable-HTTP, 100 remote SSE). We install or connect to each one in a clean sandbox, run the MCP initialize handshake, and call tools/list . Where possible we also make one harmless tool call. We supply no API keys.",
-      "author": "MCP Verified",
-      "date": "2026-10-23",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 50,
-      "url": "https://dev.to/mcpverified/what-breaks-in-mcp-servers-results-from-launching-750-registry-entries-h0p",
-      "image": "/images/feed/feed-3e11d65ba76c.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-160c5100c2f4",
-      "title": "Cloud Engineering in Practice: How Teams Make Cloud Platforms Reliable, Secure, and Affordable",
-      "excerpt": "Most teams do not struggle with the cloud because they chose the wrong provider. They struggle because the platform grew one manual decision at a time: an environment configured by hand here, a pipeli…",
-      "body": "Most teams do not struggle with the cloud because they chose the wrong provider. They struggle because the platform grew one manual decision at a time: an environment configured by hand here, a pipeline exception there, a security review after go-live, and a cost report nobody owns. Cloud engineering is the discipline that turns that accumulation into a system. This article breaks down what that system looks like in practice — the layers, the controls, and the warning signs that a platform needs engineering attention rather than another quick fix. The warning signs A cloud platform usually needs structured engineering work when several of these show up together: Environments behave differently.",
-      "author": "CodeCones",
-      "date": "2026-10-23",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 39,
-      "url": "https://dev.to/codecones/cloud-engineering-in-practice-how-teams-make-cloud-platforms-reliable-secure-and-affordable-hco",
-      "image": "/images/feed/feed-160c5100c2f4.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-677149f44ed7",
-      "title": "Docker Bypasses UFW: Your Firewalled Database Is Probably Public. Here's the Fix",
-      "excerpt": "If you run ufw default deny incoming on a VPS and then docker run -p 5432:5432 postgres, your Postgres is reachable from the whole internet. UFW will still tell you everything is denied. Docker has by…",
-      "body": "If you run ufw default deny incoming on a VPS and then docker run -p 5432:5432 postgres , your Postgres is reachable from the whole internet. UFW will still tell you everything is denied. Docker has bypassed UFW since at least 2014, and the fix is a one-line change most people never hear about. This week's Docker is weird essay made the rounds on Hacker News and Lobsters . It's a fun tour of internals: containers are just processes, images are just folders, runc re-execs /proc/self/exe because Go can't fork. All of it is true and weird, and none of it will get your database dumped by a bot at 3am. The weird default that will is buried in the comments.",
-      "author": "Alan West",
-      "date": "2026-10-23",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Database"
-      ],
-      "featured": true,
-      "xpReward": 36,
-      "url": "https://dev.to/alanwest/docker-bypasses-ufw-your-firewalled-database-is-probably-public-heres-the-fix-1ek3",
-      "image": "/images/feed/feed-677149f44ed7.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-cf47af7bfdf5",
-      "title": "Cross-Modal Knowledge Distillation for deep-sea exploration habitat design for low-power autonomous deployments",
-      "excerpt": "Cross-Modal Knowledge Distillation for deep-sea exploration habitat design for low-power autonomous deployments Introduction: A Lesson from a Drowning Sensor My learning journey into this topic began…",
-      "body": "Cross-Modal Knowledge Distillation for deep-sea exploration habitat design for low-power autonomous deployments Introduction: A Lesson from a Drowning Sensor My learning journey into this topic began with a failure. While experimenting with a small autonomous underwater vehicle (AUV) prototype in a shallow test tank, I watched a multi-modal perception stack — stereo cameras, a forward-scan sonar, and an acoustic Doppler current profiler — drain the battery in under four hours. The vehicle was supposed to map a simulated hydrothermal vent field autonomously. Instead, it went dark, and I spent the afternoon fishing it out of the water with a pool net, feeling equal parts embarrassed and curious.",
-      "author": "Rikin Patel",
-      "date": "2026-10-23",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 47,
-      "url": "https://dev.to/rikinptl/cross-modal-knowledge-distillation-for-deep-sea-exploration-habitat-design-for-low-power-autonomous-3p04",
-      "image": "/images/feed/feed-cf47af7bfdf5.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-edee0c261d42",
-      "title": "Solar, Roofing and HVAC Leads from Building Permits: A How-To with 30 Days of Real Data",
-      "excerpt": "If you sell solar, roofing or HVAC, or sell to the companies that do, building permits are the most honest public signal of where work is happening. I classified 77,044 permits issued from Sep 20 to O…",
-      "body": "If you sell solar, roofing or HVAC, or sell to the companies that do, building permits are the most honest public signal of where work is happening. I classified 77,044 permits issued from Sep 20 to Oct 19, 2026, across 47 US cities and counties. Here is what the three most-requested trades look like. How the work categories are assigned Cities don't share a permit taxonomy. Austin uses \"Electrical Permit - Residential\" and Columbus uses \"1,2,3 Family MEP\"; others only have free text. I map each permit to one category using keyword rules over the type, work class and description, in priority order: const RULES = [ [ ' Solar ' , /solar|photovoltaic| \\b pv \\b /i ], [ ' Roofing ' , /re- ?",
-      "author": "Loomwise",
-      "date": "2026-10-23",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 52,
-      "url": "https://dev.to/loomwise/solar-roofing-and-hvac-leads-from-building-permits-a-how-to-with-30-days-of-real-data-546e",
-      "image": "/images/feed/feed-edee0c261d42.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-259a4fc77d32",
-      "title": "Computer Simulations for Students: Why Testing a Virtual World Can Teach Us About the Real One",
-      "excerpt": "Imagine a student trying to understand why traffic builds up at a busy intersection. A textbook can explain traffic signals, vehicle movement and road capacity. A diagram can illustrate how cars trave…",
-      "body": "Imagine a student trying to understand why traffic builds up at a busy intersection. A textbook can explain traffic signals, vehicle movement and road capacity. A diagram can illustrate how cars travel through an intersection. But what happens if the traffic signal stays red for longer? What if twice as many cars arrive? What if another lane is introduced? These questions are difficult to explore through a static diagram. With a computer simulation, students can change the conditions, observe what happens and compare different outcomes. This is what makes computer simulations for students an interesting part of modern education. They allow learners to investigate situations that may be difficult, expensive, time-consuming or impractical to recreate physically.",
-      "author": "CodingZen",
-      "date": "2026-10-23",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 33,
-      "url": "https://dev.to/codingzen/computer-simulations-for-students-why-testing-a-virtual-world-can-teach-us-about-the-real-one-bl7",
-      "image": "/images/feed/feed-259a4fc77d32.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-957b3462b214",
-      "title": "Shadow AI coding tools: a CISO checklist",
-      "excerpt": "Shadow AI for coding is usually not a rogue SaaS buried in marketing. It is Cursor on a laptop, Claude Code in a terminal, Copilot in VS Code, and Gemini CLI on a build machine — often adopted before…",
-      "body": "Shadow AI for coding is usually not a rogue SaaS buried in marketing. It is Cursor on a laptop, Claude Code in a terminal, Copilot in VS Code, and Gemini CLI on a build machine — often adopted before security has an inventory. This checklist is for CISOs and security engineering leads who need visibility and controls without blocking developer velocity. 1. Inventory the tools that actually touch code List assistants and paths in use today: Tool Typical surface Capture / control notes Cursor IDE + agent tools File reads, terminal, Privacy Mode ≠ redaction Claude Code CLI agent loops Hooks can intercept tool I/O GitHub Copilot IDE + cloud Often gateway / OTEL for org logging Gemini CLI / other CLIs Terminal agents Hook or proxy coverage varies ChatGPT / Claude.ai Browser Different boundary t…",
-      "author": "Momin Aziz",
+      "id": "feed-e03670406a18",
+      "title": "Intelligenza artificiale gratis: cosa si fa senza pagare",
+      "excerpt": "Chi cerca «cosa si può fare con l'intelligenza artificiale gratis» trova un elenco di nomi: ChatGPT, Gemini, Claude, Perplexity, e poi altri dieci. Quello che non trova è la risposta alla domanda vera…",
+      "body": "Chi cerca «cosa si può fare con l'intelligenza artificiale gratis» trova un elenco di nomi: ChatGPT, Gemini, Claude, Perplexity, e poi altri dieci. Quello che non trova è la risposta alla domanda vera, che è un'altra: senza pagare, fino a dove arrivo? Dove finisce il piano gratuito, cosa si riesce a fare prima di sbattere contro il muro, e cosa invece resta fuori. Questo articolo risponde in ordine. Prima i compiti di tutti i giorni che i piani gratuiti coprono davvero. Poi i limiti numerici dei cinque strumenti più usati, presi dalla documentazione ufficiale dei fornitori e non da stime. Poi la prova fatta in un browser anonimo, per capire quali strumenti si aprono anche senza registrarsi. E infine le mosse per far durare più a lungo quello che si ha già. In breve.",
+      "author": "mazgalin",
       "date": "2026-10-23",
       "readTime": "2 min",
       "section": "ai",
       "tags": [
         "Ai"
       ],
+      "featured": true,
+      "xpReward": 46,
+      "url": "https://dev.to/madalinui/intelligenza-artificiale-gratis-cosa-si-fa-senza-pagare-4f31",
+      "image": "/images/feed/feed-e03670406a18.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-83d4c8a6c928",
+      "title": "Muse Spark Open: Meta's 816B Open-Weight Model, Explained",
+      "excerpt": "Meta just did something it hasn't done in over two years: it released the weights of a frontier-class model. Muse Spark Open, launched October 15, 2026 by Meta Superintelligence Labs, is an 816-billio…",
+      "body": "Meta just did something it hasn't done in over two years: it released the weights of a frontier-class model. Muse Spark Open , launched October 15, 2026 by Meta Superintelligence Labs, is an 816-billion-parameter mixture-of-experts model — but only about 42 billion parameters fire per token, which is what keeps it fast and affordable to serve. On the independent Artificial Analysis Intelligence Index it scores 39 — the highest of any US-built open-weight model, though still behind China's GLM-5.3 (45) and Kimi K3 (44). It is built for coding and agentic work: multi-step reasoning, tool use, and a 1M-token context window. Hosted APIs (Together AI, Fireworks AI, Groq, and four others) price it at a median of $1.25 per million input tokens and $4.25 per million output tokens .",
+      "author": "NeurAITool",
+      "date": "2026-10-23",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 40,
+      "url": "https://dev.to/neuraitool/muse-spark-open-metas-816b-open-weight-model-explained-12a7",
+      "image": "/images/feed/feed-83d4c8a6c928.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-f1220e814a92",
+      "title": "Print Christmas Ornaments in 20 Minutes: Settings and Six Flat Designs",
+      "excerpt": "Flat ornaments are the easiest holiday print: 3 mm thick, no supports, about 20 minutes each. Here is how to get clean results, plus the designs I made. PLA, 0.2 mm layers, 2 walls, 15% infill Print f…",
+      "body": "Flat ornaments are the easiest holiday print: 3 mm thick, no supports, about 20 minutes each. Here is how to get clean results, plus the designs I made. Settings PLA, 0.2 mm layers, 2 walls, 15% infill Print flat on the bed, no brim needed White, gold or silver filament looks best on a tree Use 0.28 mm layers if you need a dozen in one evening Designs 6-arm snowflake, 80 mm: the thin arms need a clean first layer, so level and clean the bed 5-point star, 76 mm, with a recessed face for contrast with a second colour 3-tier tree, 60 x 98 mm Heart, 70 mm, with a raised rim Round bauble, 72 mm, with a star cutout Gift tag, 78 mm, with a flat panel to write on Tips Put the hanging hole at 4 mm diameter minimum so twine and hooks fit after shrink Paint pens work on PLA after a quick wipe with is…",
+      "author": "Black",
+      "date": "2026-10-23",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 37,
+      "url": "https://dev.to/blackspectre512/print-christmas-ornaments-in-20-minutes-settings-and-six-flat-designs-3h69",
+      "image": "/images/feed/feed-f1220e814a92.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-4d68f0cd5a19",
+      "title": "Installation Headaches",
+      "excerpt": "So I've had a good bit of trouble learning build tools for programming lately. Like, a lot of trouble. Maven's been giving me a tough time with its strict directory structure and it took me quite a wh…",
+      "body": "So I've had a good bit of trouble learning build tools for programming lately. Like, a lot of trouble. Maven's been giving me a tough time with its strict directory structure and it took me quite a while to figure out why the nested folders went so deep. Seems a bit unnecessary to me compared to NPM's directory structure, which is far less redundant. In addition, just yesterday I had trouble understanding how to add JUnit as a dependency to an existing project (a calculator app I've been coding for the past few weeks). I opened quite a few tutorials trying to figure out why the class I created wasn't running with VSCode's Java testing extension, only to find out later many of them were outdated.",
+      "author": "ScholarAJ",
+      "date": "2026-10-23",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 42,
+      "url": "https://dev.to/scholaraj_efb24aac79/installation-headaches-2okl",
+      "image": "/images/feed/feed-4d68f0cd5a19.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-4ba980054260",
+      "title": "PHP2SHELL: STOP SPREADING MISINFORMATION ABOUT PHP!",
+      "excerpt": "🚨 PHP2SHELL: STOP SPREADING MISINFORMATION ABOUT PHP! Recently, there's been a lot of discussion about the critical PHP2Shell vulnerabilities, and unfortunately, some people are spreading fear and mi…",
+      "body": "🚨 PHP2SHELL: STOP SPREADING MISINFORMATION ABOUT PHP! Recently, there's been a lot of discussion about the critical PHP2Shell vulnerabilities, and unfortunately, some people are spreading fear and misinformation. I've seen statements suggesting that PHP is no longer secure, that developers should abandon it, or that 70% of websites have already been compromised. Let's get the facts straight. 👇 ✅ PHP2Shell is real. Two critical vulnerabilities (CVE-2026-109618 and CVE-2026-109619) were discovered in PHP's core runtime. ✅ The threat is serious. These vulnerabilities could allow attackers to execute malicious code on affected servers. ✅ PHP is not dead. Discovering vulnerabilities doesn't automatically make a programming language obsolete.",
+      "author": "Abdulsalam Abdulrahman (Amtech Digital)",
+      "date": "2026-10-23",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 48,
+      "url": "https://dev.to/abdulsalamamtech/php2shell-stop-spreading-misinformation-about-php-518n",
+      "image": "/images/feed/feed-4ba980054260.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-3a08e20ca3e5",
+      "title": "Launching an Online Store in Pakistan: A Practical Guide to Platforms, Payments, COD, and Hosting",
+      "excerpt": "Every month I talk to Pakistani business owners who want to sell online. A clothing brand in Karachi that's outgrown Instagram DMs. A wholesaler in Lahore tired of taking orders on WhatsApp. A home-ba…",
+      "body": "Every month I talk to Pakistani business owners who want to sell online. A clothing brand in Karachi that's outgrown Instagram DMs. A wholesaler in Lahore tired of taking orders on WhatsApp. A home-based bakery that wants a proper checkout. I'm Muhammad Ali Mughal, and I run Loop Origin , a Karachi-based team that builds e-commerce stores, custom web apps, and the servers they run on. The questions I hear are almost always the same: Which platform? Which payment gateway? What about cash on delivery? Where do I host it? This guide answers those questions plainly, including when you don't need a custom build.",
+      "author": "Muhammad Ali Mughal",
+      "date": "2026-10-23",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 42,
+      "url": "https://dev.to/muhammadalimughal/launching-an-online-store-in-pakistan-a-practical-guide-to-platforms-payments-cod-and-hosting-155e",
+      "image": "/images/feed/feed-3a08e20ca3e5.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-d8622151bc35",
+      "title": "PHP session upload progress vulnerability after the PHP2Shell patch",
+      "excerpt": "Originally published at hamzaahmadaslam.com. How this article was made: drafted with AI assistance from a researched brief, then checked against primary documentation before publishing. The PHP sessio…",
+      "body": "Originally published at hamzaahmadaslam.com . How this article was made: drafted with AI assistance from a researched brief, then checked against primary documentation before publishing. The PHP session upload progress vulnerability remains open after the PHP2Shell patch. On 23 October 2026, php.net warned about an unlikely remote code execution path tracked as CVE-2026-115560; the 21 October security releases still fix the two original PHP2Shell vulnerabilities. Set session.upload_progress.enabled=0 in server-level PHP configuration and restart your PHP workers until the next regular bugfix release. What changed after the PHP2Shell security releases? The PHP project published an informational advisory on 23 October , two days after releasing fixes for CVE-2026-109618 and CVE-2026-109619.",
+      "author": "Hamza Ahmad Aslam",
+      "date": "2026-10-23",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
       "featured": false,
       "xpReward": 30,
-      "url": "https://dev.to/momin_aziz_1/shadow-ai-coding-tools-a-ciso-checklist-3kkb",
-      "image": "/images/feed/feed-957b3462b214.webp",
+      "url": "https://dev.to/hamzaahmadaslam/php-session-upload-progress-vulnerability-after-the-php2shell-patch-2fgd",
+      "image": "/images/feed/feed-d8622151bc35.webp",
       "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-69b2eb27e6eb",
+      "title": "ThinkingBox’s 20/20 column is useful. It still isn’t a reliability guarantee.",
+      "excerpt": "Twenty green ticks are satisfying. They are also a surprisingly small sample to turn into the word “always.” 🙂 Microsoft and Hugging Face's October 22 ThinkingBox post reports a useful contrast. Afte…",
+      "body": "Twenty green ticks are satisfying. They are also a surprisingly small sample to turn into the word “always.” 🙂 Microsoft and Hugging Face's October 22 ThinkingBox post reports a useful contrast. After post-training, the number of benchmark tasks passing every recorded attempt rose from 38 to 107. Tasks solved at least once moved the other way, from 453 to 446. Each task was attempted 20 times. These are the authors' results, not a model run I reproduced. [1] The distinction is worth keeping: finding a working path occasionally and repeating a working path are different properties. Neither observation makes future failure impossible. Computed illustration, independently checked against SciPy's exact interval.",
+      "author": "Shivam Dwivedi",
+      "date": "2026-10-23",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 41,
+      "url": "https://dev.to/panditshivam/thinkingboxs-2020-column-is-useful-it-still-isnt-a-reliability-guarantee-53pg",
+      "image": "/images/feed/feed-69b2eb27e6eb.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-606406ca5ddb",
+      "title": "Amazon Prime’s Carrie Has Flaws, But Makes Wonderful Additions To Stephen King’s Original",
+      "excerpt": "Mike Flanagan's TV series seemed an odd choice, but shines in its portrayal of Carrie and her mother",
+      "body": "Mike Flanagan's TV series seemed an odd choice, but shines in its portrayal of Carrie and her mother\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "John Walker",
+      "date": "2026-10-23",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 37,
+      "url": "https://kotaku.com/carrie-amazon-prime-review-mike-flanagan-stephen-king-tv-series-2000749086",
+      "image": "/images/feed/feed-606406ca5ddb.jpg",
+      "source": "Kotaku",
+      "isLive": true
+    },
+    {
+      "id": "feed-cbb4dfdbd46c",
+      "title": "Every Sport in Nintendo Switch Sports Resort, Ranked From Worst to Best",
+      "excerpt": "Nintendo Switch Sports Resort contains 12 minigames that rank from meh to amazing. Here's how they stack up.",
+      "body": "Nintendo Switch Sports Resort is out now, and it features a wealth of content to dig into. It features 12 main sports, and many of them come with different modes. Combine that with a smart approach to a single-player “campaign” and some lovely open-island exploration, and you’ve got the series’ best collection of motion-controlled minigames yet.",
+      "author": "Giovanni Colantonio",
+      "date": "2026-10-23",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Nintendo Switch",
+        "Nintendo"
+      ],
+      "featured": false,
+      "xpReward": 52,
+      "url": "https://www.polygon.com/nintgendo-switch-sports-resort-minigames-ranked/",
+      "image": "https://static0.polygonimages.com/wordpress/wp-content/uploads/2026/10/nintendo-switch-sports-resort-power-cruising.png",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-56db7c1a43a5",
+      "title": "Lab testing giant Quest Diagnostics confirms patients’ personal and health data was compromised during breach",
+      "excerpt": "Quest is the latest in a series of healthcare technology companies that have been hacked in recent months.",
+      "body": "Quest is the latest in a series of healthcare technology companies that have been hacked in recent months.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Breach. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Zack Whittaker",
+      "date": "2026-10-23",
+      "readTime": "2 min",
+      "section": "cybersecurity",
+      "tags": [
+        "Breach"
+      ],
+      "featured": false,
+      "xpReward": 44,
+      "url": "https://techcrunch.com/2026/10/23/lab-testing-giant-quest-diagnostics-confirms-patients-personal-and-health-data-was-compromised-during-breach/",
+      "image": "/images/feed/feed-56db7c1a43a5.webp",
+      "source": "TechCrunch",
+      "isLive": true
+    },
+    {
+      "id": "feed-0cebd3679df9",
+      "title": "Volvo says the EX60 will be a best-seller with over 50,000 orders in Europe already",
+      "excerpt": "Volvo expects the EX60 to become one of its best-selling vehicles ever, with over 50,000 orders already in Europe. But as demand builds, Volvo is struggling to ramp up production. more…",
+      "body": "Volvo expects the EX60 to become one of its best-selling vehicles ever, with over 50,000 orders already in Europe. But as demand builds, Volvo is struggling to ramp up production. more — a development drawing significant attention in the electric vehicles, hybrids, and automotive technology space.\n\nThis report, published by Electrek, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cars. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Electrek using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Peter Johnson",
+      "date": "2026-10-23",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Cars"
+      ],
+      "featured": false,
+      "xpReward": 38,
+      "url": "https://electrek.co/2026/10/23/volvo-ex60-best-seller-over-50000-orders/",
+      "image": "/images/feed/feed-0cebd3679df9.jpg",
+      "source": "Electrek",
+      "isLive": true
+    },
+    {
+      "id": "feed-b64f276174a5",
+      "title": "Lord of the Rings Stars to Reunite for Netflix's The Gentlemen",
+      "excerpt": "Netflix and Guy Ritchie's The Gentlemen adds two members of The Lord of the Rings' Fellowship to season 3 cast",
+      "body": "Production is now underway for the third season of Netflix's The Gentlemen , and with it comes a host of new casting announcements. Guy Ritchie's action-comedy-crime drama starring Theo James is adding a host of famous faces, including not one but two members of The Fellowship of the Ring .",
+      "author": "Willa Rowe",
+      "date": "2026-10-23",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 45,
+      "url": "https://www.polygon.com/netflix-the-gentlemen-season-3-casting-lord-of-the-rings-orlando-bloom-elijah-wood/",
+      "image": "/images/feed/feed-b64f276174a5.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-4252804088d9",
+      "title": "Apple’s website has fun new easter egg: a fully interactive iPod",
+      "excerpt": "Today is the 25th anniversary of Apple unveiling the first iPod. And as discovered by Kian on X, the company’s website now has a fun new iPod easter egg. more…",
+      "body": "Today is the 25th anniversary of Apple unveiling the first iPod. And as discovered by Kian on X, the company’s website now has a fun new iPod easter egg. more — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Ryan Christoffel",
+      "date": "2026-10-23",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 31,
+      "url": "https://9to5mac.com/2026/10/23/apples-website-has-fun-new-easter-egg-a-fully-interactive-ipod/",
+      "image": "/images/feed/feed-4252804088d9.jpg",
+      "source": "9to5Mac",
+      "isLive": true
+    },
+    {
+      "id": "feed-e1a6daa53ed9",
+      "title": "2026 Lexus ES 350e Review: Why This Is Toyota’s Best EV Yet",
+      "excerpt": "The plug-in ES is refined, comfortable, and takes the stress out of long roadtrips.",
+      "body": "The plug-in ES is refined, comfortable, and takes the stress out of long roadtrips.\n\nThis report, published by InsideEVs, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Ev. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to InsideEVs using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "InsideEVs",
+      "date": "2026-10-23",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Ev"
+      ],
+      "featured": false,
+      "xpReward": 42,
+      "url": "https://insideevs.com/reviews/812812/2026-lexus-es-350e-electric-review/",
+      "image": "/images/feed/feed-e1a6daa53ed9.jpg",
+      "source": "InsideEVs",
+      "isLive": true
+    },
+    {
+      "id": "feed-fea3dda629a5",
+      "title": "Google Pixel Watch 5 deal saves you $100 on the LTE model",
+      "excerpt": "Google Pixel Watch 5 LTE drops to $399.99 on Amazon, with phone-free calls, texts, streaming, and up to 30 hours of battery.",
+      "body": "Leaving your phone behind is a lot easier when your watch can still handle calls, texts, music, and data on its own. That’s what makes this Google Pixel Watch 5 deal worth a look, especially now that the 41mm LTE model is down to $399.99 on Amazon. See the deal at Amazon",
+      "author": "Matt Horne",
+      "date": "2026-10-23",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 43,
+      "url": "https://www.androidauthority.com/pixel-watch-5-deal-3727341/",
+      "image": "/images/feed/feed-fea3dda629a5.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-f65b4b8b65c9",
+      "title": "Genshin Impact version 7.2 livestream codes",
+      "excerpt": "Here are the three Genshin Impact version 7.2 livestream codes, along with links to redeem them easily.",
+      "body": "Hoyoverse just wrapped up the Genshin Impact version 7.2 preview livestream, showing off all sorts of details about the upcoming patch. Most importantly, there were several codes that award Primogems and other rewards shown during the stream. Our Genshin Impact 7.2 livestream code list provides you with the three stream codes for rewards and explains how to redeem them.",
+      "author": "Julia Lee",
+      "date": "2026-10-23",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 46,
+      "url": "https://www.polygon.com/genshin-impact-version-7-2-livestream-codes-redeem/",
+      "image": "/images/feed/feed-f65b4b8b65c9.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-47a406c48534",
+      "title": "Tesla cancels Cybertruck in Australia and NZ after 7 years of deposits",
+      "excerpt": "Tesla has officially cancelled the Cybertruck for Australia and New Zealand. Reservation holders are getting emails today telling them their orders are void and their deposits will be refunded. Austra…",
+      "body": "Tesla has officially cancelled the Cybertruck for Australia and New Zealand. Reservation holders are getting emails today telling them their orders are void and their deposits will be refunded. Australians started putting down A$150 to reserve the electric pickup in November 2019. That’s almost seven years of waiting for a truck Tesla now says it won’t build for them. more…",
+      "author": "Fred Lambert",
+      "date": "2026-10-23",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Cybertruck",
+        "Tesla"
+      ],
+      "featured": false,
+      "xpReward": 45,
+      "url": "https://electrek.co/2026/10/23/tesla-cancels-cybertruck-australia-new-zealand/",
+      "image": "/images/feed/feed-47a406c48534.jpg",
+      "source": "Electrek",
+      "isLive": true
+    },
+    {
+      "id": "feed-65c470709026",
+      "title": "iOS 27.1 is exclusive to iPhone Duo, here’s why",
+      "excerpt": "iOS 27.1 has officially launched, but you wouldn’t know it by checking your iPhone’s Settings app. That’s because the latest iPhone update is exclusive to iPhone Duo. more…",
+      "body": "iOS 27.1 has officially launched, but you wouldn’t know it by checking your iPhone’s Settings app. That’s because the latest iPhone update is exclusive to iPhone Duo. more — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Iphone. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Ryan Christoffel",
+      "date": "2026-10-23",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Iphone"
+      ],
+      "featured": false,
+      "xpReward": 36,
+      "url": "https://9to5mac.com/2026/10/23/ios-27-1-is-exclusive-to-iphone-duo-heres-why/",
+      "image": "/images/feed/feed-65c470709026.jpg",
+      "source": "9to5Mac",
+      "isLive": true
+    },
+    {
+      "id": "feed-8e910c6fb995",
+      "title": "Shigeru Miyamoto Doesn’t Know If AI Can Take Over Creativity, But Says It Could Be An ‘Opportunity’ To Define What It Means To Create",
+      "excerpt": "The legendary Nintendo developer made his comments while receiving a national award for his contributions to culture",
+      "body": "The legendary Nintendo developer made his comments while receiving a national award for his contributions to culture\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Alicia Haddick",
+      "date": "2026-10-23",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 47,
+      "url": "https://kotaku.com/shigeru-miyamoto-doesnt-know-if-ai-can-take-over-creativity-but-it-could-become-an-opportunity-to-define-what-it-means-to-create-2000749074",
+      "image": "/images/feed/feed-8e910c6fb995.jpg",
+      "source": "Kotaku",
+      "isLive": true
+    },
+    {
+      "id": "feed-87a4350cebcc",
+      "title": "Tesla’s $10B solar factory could get 35 years of tax breaks in Texas",
+      "excerpt": "Tesla’s proposed $10 billion “Project Crystal Sun” solar factory in Texas could get up to 35 years of local tax breaks on its equipment, according to the four agreements Fort Bend County commissioners…",
+      "body": "Tesla’s proposed $10 billion “Project Crystal Sun” solar factory in Texas could get up to 35 years of local tax breaks on its equipment, according to the four agreements Fort Bend County commissioners approved on Thursday. The vote was 4-0. And Tesla still hasn’t committed to building the plant in Texas. more…",
+      "author": "Fred Lambert",
+      "date": "2026-10-23",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Tesla"
+      ],
+      "featured": false,
+      "xpReward": 37,
+      "url": "https://electrek.co/2026/10/23/tesla-solar-factory-texas-35-years-tax-breaks-fort-bend/",
+      "image": "/images/feed/feed-87a4350cebcc.jpg",
+      "source": "Electrek",
+      "isLive": true
+    },
+    {
+      "id": "feed-fd4617778b00",
+      "title": "Kia Plans To Take On Affordable Chinese EVs In Canada With Its Sub-$40K EV3",
+      "excerpt": "Will a sub $40,000 electric hatchback be able to compete with Chinese offerings?",
+      "body": "Will a sub $40,000 electric hatchback be able to compete with Chinese offerings?\n\nThis report, published by InsideEVs, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cars. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to InsideEVs using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "InsideEVs",
+      "date": "2026-10-23",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Cars"
+      ],
+      "featured": false,
+      "xpReward": 33,
+      "url": "https://insideevs.com/news/812978/kia-ev3-chinese-evs-canada/",
+      "image": "/images/feed/feed-fd4617778b00.jpg",
+      "source": "InsideEVs",
+      "isLive": true
+    },
+    {
+      "id": "feed-47cac2f2d41f",
+      "title": "Google just made your Gemini-built web apps a lot easier to share",
+      "excerpt": "No coding, no rebuilding. Just a few clicks to put your creations online.",
+      "body": "TL;DR Google now lets users export interactive apps built with Gemini directly to Google Sites. Apps remain fully interactive and can be customized, published, and shared without copying or rebuilding code. The feature is available on web, Android, and iOS for eligible Workspace and personal Google accounts. Building something cool with Gemini is one thing. Getting it out of the chatbot and into the hands of people who could actually use it? That’s where the fun can quickly turn into frustration. Fortunately, Google is knocking down that barrier with a new feature that lets your interactive Gemini creations find a home on the web, without touching a single line of code.",
+      "author": "Hillary Keverenge",
+      "date": "2026-10-23",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 41,
+      "url": "https://www.androidauthority.com/gemini-web-apps-google-sites-export-3727259/",
+      "image": "/images/feed/feed-47cac2f2d41f.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-cf28dbc737a8",
+      "title": "What time are the Fortnitemares power hours in Fortnite Chapter 7 Season 4?",
+      "excerpt": "This weekend's Fortnite power hours feature Trick or Treat sprites. Here's when they are in your time zone.",
+      "body": "Fortnitemares power hours are happening in Fortnite Chapter 7 Season 4 on Saturday, Oct. 24 . During this set of power hours, the drop rate for community-designed sprites will be increased, so if you still need those for your collection, you'll want to drop in during this event.",
+      "author": "Julia Lee",
+      "date": "2026-10-23",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Fortnite"
+      ],
+      "featured": false,
+      "xpReward": 44,
+      "url": "https://www.polygon.com/fortnite-chapter-7-season-4-power-hours-what-time/",
+      "image": "/images/feed/feed-cf28dbc737a8.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-65857a599834",
+      "title": "This vibecoded image editor cost $2,000 to build — was it worth it?",
+      "excerpt": "Photon Studio takes aim at Adobe Photoshop.",
+      "body": "Generative AI is everywhere, whether it’s used as a cornerstone of a service, used to build apps, or employed to boost functionality within them. But with so many new products appearing all the time, which ones are worth checking out? We’re here to help with a new regular series covering the best and freshest AI apps and services that you should know about.",
+      "author": "Andy Walker",
+      "date": "2026-10-23",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 51,
+      "url": "https://www.androidauthority.com/new-ai-apps-services-photon-studio-3727165/",
+      "image": "/images/feed/feed-65857a599834.jpg",
+      "source": "Android Authority",
       "isLive": true
     },
     {
@@ -166,7 +511,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 42,
       "url": "https://www.polygon.com/exodus-sci-fi-rpg-mass-effect-protagonist-redesign-revealed/",
       "image": "/images/feed/feed-040562456bfe.jpg",
       "source": "Polygon",
@@ -185,29 +530,10 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 45,
       "url": "https://www.androidauthority.com/morphe-community-projects-patched-apks-automation-3727286/",
       "image": "/images/feed/feed-f372271efe87.jpg",
       "source": "Android Authority",
-      "isLive": true
-    },
-    {
-      "id": "feed-a592a5f5b7ef",
-      "title": "5 Sci-Fi Books That Are A Masterclass In Prose Writing",
-      "excerpt": "Some of the most stunning prose to grace the science fiction genre.",
-      "body": "Although most good sci-fi books boast well-written prose, some stand out for several reasons. Take Time of Changes by Robert Silverberg, which is set in a world that forbids expressions of individuality, leading to a narrator who deliberately rebels by using terms like “I” or “me” repeatedly. Conversely, some books simply feature beautiful prose without any narrative gimmicks, elevating them to must-reads. Without further ado, here are five sci-fi books that are a masterclass in prose.",
-      "author": "Debopriyaa Dutta",
-      "date": "2026-10-23",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 52,
-      "url": "https://www.polygon.com/sci-fi-books-masterclass-prose/",
-      "image": "/images/feed/feed-a592a5f5b7ef.jpg",
-      "source": "Polygon",
       "isLive": true
     },
     {
@@ -223,18 +549,37 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 44,
       "url": "https://www.bleepingcomputer.com/news/security/you-gave-your-ai-agent-access-but-who-is-giving-it-orders/",
       "image": "/images/feed/feed-6e639bb845f7.jpg",
       "source": "BleepingComputer",
       "isLive": true
     },
     {
-      "id": "feed-dec636dfa5b6",
-      "title": "Here’s how to get fastest iPhone Duo charging",
-      "excerpt": "iPhone Duo supports fast charging in both wired and wireless setups, but only with the right accessories. Here’s what Apple says you’ll need. more…",
-      "body": "iPhone Duo supports fast charging in both wired and wireless setups, but only with the right accessories. Here’s what Apple says you’ll need. more — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Iphone. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Ryan Christoffel",
+      "id": "feed-9b3b8ca7381b",
+      "title": "Private Griffin moon lander gets put to the test | Space photo of the day for Oct. 23, 2026",
+      "excerpt": "The robotic Griffin lunar lander has passed a host of critical tests ahead of its first-ever moon mission, which is scheduled to launch later this year.",
+      "body": "The Griffin-1 lunar lander undergoes testing at NASA's Jet Propulsion Lab. (Image credit: NASA/JPL-Caltech) The robotic Griffin lunar lander has passed a host of critical tests ahead of its first-ever moon mission, which is scheduled to launch later this year. What is it? At NASA's Jet Propulsion Laboratory (JPL) in Southern California, Voyager Technologies' Griffin Mission One (or Griffin-1 ) lunar lander has gone through an absolute gauntlet of tests. The spacecraft was put through environmental testing that explored how the vehicle will fare in the extreme conditions it will experience on its ride to the surface of the moon . This testing simulated the extreme temperatures, shaking and even the sounds that the spacecraft will experience from launch to landing.",
+      "author": " Chelsea Gohd ",
+      "date": "2026-10-23",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Space"
+      ],
+      "featured": false,
+      "xpReward": 45,
+      "url": "https://www.space.com/space-exploration/private-griffin-moon-lander-gets-put-to-the-test-space-photo-of-the-day-for-oct-23-2026",
+      "image": "/images/feed/feed-9b3b8ca7381b.png",
+      "source": "Space.com",
+      "isLive": true
+    },
+    {
+      "id": "feed-4ed485759049",
+      "title": "Our best tips for using the iPhone Duo",
+      "excerpt": "It’s been a long time since we had to rethink how to use an iPhone. | Photo: Amelia Holowaty Krales / The Verge The Duo is an entirely new kind of iPhone, so it comes with a bit of a learning curve. T…",
+      "body": "It’s been a long time since we had to rethink how to use an iPhone. | Photo: Amelia Holowaty Krales / The Verge The Duo is an entirely new kind of iPhone, so it comes with a bit of a learning curve. That's a wild thing to imagine, since the iPhone has had very few fundamental changes since its inception. But the Duo is built different. If you won the preorder lottery and managed to get your hands on one today, you'll see what that means. You'll laugh, you'll cry, you'll lose track of the volume buttons as you turn the thing around. We've learned a few tricks over the past week of flipping and folding the Duo as much as we could. Here are our favorite tips and hacks for newly minted Duo owners. You can set orientation lock on each screen independent … Read the full story at The Verge.",
+      "author": "Allison Johnson",
       "date": "2026-10-23",
       "readTime": "2 min",
       "section": "gadgets",
@@ -242,200 +587,31 @@
         "Iphone"
       ],
       "featured": false,
-      "xpReward": 50,
-      "url": "https://9to5mac.com/2026/10/23/heres-how-to-get-fastest-iphone-duo-charging/",
-      "image": "/images/feed/feed-dec636dfa5b6.jpg",
-      "source": "9to5Mac",
+      "xpReward": 51,
+      "url": "https://www.theverge.com/tech/1017157/iphone-duo-tips-touch-id-magsafe",
+      "image": "/images/feed/feed-4ed485759049.jpg",
+      "source": "The Verge",
       "isLive": true
     },
     {
-      "id": "feed-e7ff0625d518",
-      "title": "Which chapter should you choose first in DMZ in Modern Warfare 4?",
-      "excerpt": "This guide explains the three chapters you're offered at the start of DMZ in Modern Warfare 4 and which one you should pick first.",
-      "body": "Once you've completed the tutorial and the first page of orders, you'll be asked to choose one of three DMZ chapters in Call of Duty: Modern Warfare 4 . The game tells you that the ones you don't choose will be available to you later on, so you're not locked out of them entirely, but it does mean you should prioritize the chapter that will offer you the best rewards.",
-      "author": "Ford James",
+      "id": "feed-bad04b31d597",
+      "title": "Hackers Breach Enterprise Firewalls and VPNs, Exposing Over 70,000 Credentials",
+      "excerpt": "Cybersecurity researchers have disclosed details of a large-scale campaign that has targeted exposed network edge devices such as Fortinet FortiGate and Palo Alto Networks GlobalProtect firewalls. \"Ar…",
+      "body": "Cybersecurity researchers have disclosed details of a large-scale campaign that has targeted exposed network edge devices such as Fortinet FortiGate and Palo Alto Networks GlobalProtect firewalls. \"Artifacts from this investigation also indicate that operators in this campaign have obtained access to numerous organizations worldwide, and have attempted to further compromise some victims,",
+      "author": "info@thehackernews.com (The Hacker News)",
       "date": "2026-10-23",
       "readTime": "2 min",
-      "section": "gaming",
+      "section": "cybersecurity",
       "tags": [
-        "Gaming"
+        "Firewall",
+        "Hacker",
+        "Breach"
       ],
       "featured": false,
-      "xpReward": 30,
-      "url": "https://www.polygon.com/mw4-modern-warfare-4-dmz-chapters-which-first/",
-      "image": "/images/feed/feed-e7ff0625d518.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-59f9fe2c88a3",
-      "title": "It’s not just you: Galaxy S24 and S25 owners report excess battery drain after One UI 9",
-      "excerpt": "One user witnessed a 95% dip in battery after only 3 hours and 15 minutes of screen time.",
-      "body": "TL;DR Some Galaxy S24 users are reportedly facing a significant dip in battery life after the recent One UI 9 update. Multiple Galaxy S25 owners are also reporting similar problems after Samsung’s Android 17-based update. Samsung recently started rolling out the One UI 9 update to the Galaxy S25 and Galaxy S24 series, introducing features like Call Brief and My FanCam. After a brief wait, Samsung began rolling out the One UI 9 update to the Galaxy S25 series , followed shortly by the Galaxy S24 lineup. While the update adds features like Call Brief and My FanCam, it may also be hurting battery life. A report from a Galaxy S24 Ultra owner on X shows battery life declining 95% with only 3 hours and 15 minutes of screen-on time (via SammyFans ).",
-      "author": "Chethan Rao",
-      "date": "2026-10-23",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Galaxy S"
-      ],
-      "featured": false,
-      "xpReward": 53,
-      "url": "https://www.androidauthority.com/samsung-galaxy-s24-s25-one-ui-9-battery-drain-3727166/",
-      "image": "/images/feed/feed-59f9fe2c88a3.jpg",
-      "source": "Android Authority",
-      "isLive": true
-    },
-    {
-      "id": "feed-d89bbf03127d",
-      "title": "Apple overtakes Nvidia as most valuable company in the world on iPhone Duo launch day",
-      "excerpt": "It’s iPhone Duo launch day around the world, and Wall Street is pleased. Apple reclaimed the title of most valuable company in the world on Friday as it reached new trading highs. more…",
-      "body": "It’s iPhone Duo launch day around the world, and Wall Street is pleased. Apple reclaimed the title of most valuable company in the world on Friday as it reached new trading highs. more — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Iphone. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Zac Hall",
-      "date": "2026-10-23",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Iphone"
-      ],
-      "featured": false,
-      "xpReward": 37,
-      "url": "https://9to5mac.com/2026/10/23/apple-overtakes-nvidia-as-most-valuable-company-in-the-world-on-iphone-duo-launch-day/",
-      "image": "/images/feed/feed-d89bbf03127d.jpg",
-      "source": "9to5Mac",
-      "isLive": true
-    },
-    {
-      "id": "feed-cd730da27def",
-      "title": "iPhone Duo launch day: Lines form at Apple Stores, walk-in availability limited",
-      "excerpt": "Today is iPhone Duo launch day, and it’s a worldwide party at Apple Stores. In a press release published this morning, Apple is sharing pictures from the iPhone Duo launch around the world. 9to5Mac re…",
-      "body": "Today is iPhone Duo launch day, and it’s a worldwide party at Apple Stores. In a press release published this morning, Apple is sharing pictures from the iPhone Duo launch around the world. 9to5Mac re — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Iphone. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Chance Miller",
-      "date": "2026-10-23",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Iphone"
-      ],
-      "featured": false,
-      "xpReward": 48,
-      "url": "https://9to5mac.com/2026/10/23/iphone-duo-launch-day-lines-form-at-apple-stores-walk-in-availability-limited/",
-      "image": "/images/feed/feed-cd730da27def.jpg",
-      "source": "9to5Mac",
-      "isLive": true
-    },
-    {
-      "id": "feed-e3d9694437fa",
-      "title": "Battlefield 6 Quietly Yanks Planned Mass Effect Collab From Its Store After BioWare Closure",
-      "excerpt": "The EA-owned military shooter has collaborated with the sci-fi RPG in bad taste before",
-      "body": "The EA-owned military shooter has collaborated with the sci-fi RPG in bad taste before\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Kenneth Shepard",
-      "date": "2026-10-23",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 50,
-      "url": "https://kotaku.com/battlefield-6-mass-effect-cosmetics-n7-day-store-2000749091",
-      "image": "/images/feed/feed-e3d9694437fa.jpg",
-      "source": "Kotaku",
-      "isLive": true
-    },
-    {
-      "id": "feed-1522fb412285",
-      "title": "How to get and use fulton drop markers in DMZ in Modern Warfare 4",
-      "excerpt": "A guide explaining how fulton drop markers work and how to get more of them in Modern Warfare 4's DMZ mode.",
-      "body": "Fulton drop markers in Call of Duty: Modern Warfare 4's DMZ mode are essentially portable exfil points. They're categorized as ultra loot though, which is the rarest tier in the game, making them extremely hard to get your hands on. Some players have them early, however, thanks to the deluxe edition of the game granting them via a survival starter kit.",
-      "author": "Ford James",
-      "date": "2026-10-23",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 32,
-      "url": "https://www.polygon.com/mw4-modern-warfare-4-dmz-fulton-drop-markers-how-to-use/",
-      "image": "/images/feed/feed-1522fb412285.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-6c0aed0c0098",
-      "title": "iOS 27.2: Three new features coming to your iPhone next week",
-      "excerpt": "iOS 27.2 is about to launch, arriving as the next big iPhone update—iOS 27.1 is iPhone Duo-only. Here are three new features coming next week with iOS 27.2. more…",
-      "body": "iOS 27.2 is about to launch, arriving as the next big iPhone update—iOS 27.1 is iPhone Duo-only. Here are three new features coming next week with iOS 27.2. more — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Iphone. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Ryan Christoffel",
-      "date": "2026-10-23",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Iphone"
-      ],
-      "featured": false,
-      "xpReward": 52,
-      "url": "https://9to5mac.com/2026/10/23/ios-27-2-three-new-features-coming-soon-to-your-iphone/",
-      "image": "/images/feed/feed-6c0aed0c0098.jpg",
-      "source": "9to5Mac",
-      "isLive": true
-    },
-    {
-      "id": "feed-b136d76686da",
-      "title": "Greece enacts social media ban for kids under 15",
-      "excerpt": "Greece has passed a social media ban for kids under 15 after after announcing the measure earlier this year.",
-      "body": "Greece has passed a social media ban for kids under 15 after after announcing the measure earlier this year.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Steve Dent)",
-      "date": "2026-10-23",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 32,
-      "url": "https://www.engadget.com/2295143/greece-enacts-social-media-ban-for-kids-under-15/",
-      "image": "/images/feed/feed-b136d76686da.jpg",
-      "source": "Engadget",
-      "isLive": true
-    },
-    {
-      "id": "feed-0ee09623dad0",
-      "title": "How to place a transmitter on top of two radio towers in DMZ in Modern Warfare 4",
-      "excerpt": "A guide explaining how to place a transmitter on top of two radio towers for the mission in DMZ in Modern Warfare 4.",
-      "body": "One early Call of Duty: Modern Warfare 4 DMZ mission asks you to place a transmitter on top of two radio towers , for the \"Triangulation\" order during the first part of the \"Underground\" chapter. This is as far from underground as you can get though, because you need to scale two radio towers to complete this objective.",
-      "author": "Ford James",
-      "date": "2026-10-23",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 48,
-      "url": "https://www.polygon.com/mw4-modern-warfare-4-dmz-transmitter-radio-towers/",
-      "image": "/images/feed/feed-0ee09623dad0.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-affc6a8b5298",
-      "title": "A Canadian Politician Says BioWare Devs Should Be Given Government Funding To Buy The Studio And Get Back To Making Mass Effect",
-      "excerpt": "‘We should be keeping private equity out, not welcoming it in’",
-      "body": "‘We should be keeping private equity out, not welcoming it in’\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Kenneth Shepard",
-      "date": "2026-10-23",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 43,
-      "url": "https://kotaku.com/a-canadian-politician-says-bioware-devs-should-be-given-government-funding-to-buy-the-studio-and-get-back-to-making-mass-effect-2000749088",
-      "image": "/images/feed/feed-affc6a8b5298.jpg",
-      "source": "Kotaku",
+      "xpReward": 34,
+      "url": "https://thehackernews.com/2026/10/hackers-breach-enterprise-firewalls-and.html",
+      "image": "/images/feed/feed-bad04b31d597.jpg",
+      "source": "The Hacker News",
       "isLive": true
     },
     {
@@ -451,7 +627,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 39,
       "url": "https://www.theverge.com/tech/1016116/vibe-coding-tv-os",
       "image": "/images/feed/feed-18359bc939f6.jpg",
       "source": "The Verge",
@@ -470,7 +646,7 @@
         "Hacker"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 43,
       "url": "https://www.bitdefender.com/en-us/blog/hotforsecurity/hacker-leaks-281-gb-data-germany-afd",
       "image": "/images/feed/feed-477396b64c04.jpg",
       "source": "Hacker News",
@@ -489,7 +665,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 30,
       "url": "https://www.bleepingcomputer.com/news/security/hpe-patches-eight-max-severity-rce-and-auth-bypass-aos-flaws/",
       "image": "/images/feed/feed-50843fd93cdf.jpg",
       "source": "BleepingComputer",
@@ -508,7 +684,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 32,
       "url": "https://electrek.co/2026/10/23/wheel-e-podcast-new-lectric-and-priority-e-bikes-friction-drive-kit-more/",
       "image": "/images/feed/feed-0309cc85eb32.jpg",
       "source": "Electrek",
@@ -527,7 +703,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 49,
       "url": "https://electrek.co/2026/10/23/yozma-in-11-review-the-og-mini-e-moto-gets-updates-galore/",
       "image": "/images/feed/feed-918b312f96ea.png",
       "source": "Electrek",
@@ -546,7 +722,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 30,
       "url": "https://www.space.com/astronomy/dark-universe/stupendously-large-black-holes-arent-a-major-component-of-dark-matter-study-finds",
       "image": "/images/feed/feed-1305eb25cbe7.jpg",
       "source": "Space.com",
@@ -566,7 +742,7 @@
         "Claude"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 50,
       "url": "https://www.sverigesradio.se/artikel/chat-gpt-och-claude-forbjuder-regeringskansliet",
       "image": "/images/feed/feed-f1f8f8c74942.jpg",
       "source": "Hacker News",
@@ -585,7 +761,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 46,
       "url": "https://thehackernews.com/2026/10/urgent-php-warns-of-another-unpatched.html",
       "image": "/images/feed/feed-a8f2ff613e28.jpg",
       "source": "The Hacker News",
@@ -604,29 +780,10 @@
         "Hacker"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 44,
       "url": "https://thehackernews.com/2026/10/russian-linked-hackers-used-new-mesh.html",
       "image": "/images/feed/feed-a6eed5393d92.jpg",
       "source": "The Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-d8661e8072f3",
-      "title": "Overhead wired charging comes to Austin electric bus fleet",
-      "excerpt": "CapMetro’s Austin transit fleets electrified two public bus lines and opened two new park-and-ride facilities featuring overhead pantograph-style wired charging equipment to help Austinites breathe a…",
-      "body": "CapMetro’s Austin transit fleets electrified two public bus lines and opened two new park-and-ride facilities featuring overhead pantograph-style wired charging equipment to help Austinites breathe a — a development drawing significant attention in the electric vehicles, hybrids, and automotive technology space.\n\nThis report, published by Electrek, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cars. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Electrek using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Jo Borrás",
-      "date": "2026-10-23",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Cars"
-      ],
-      "featured": false,
-      "xpReward": 33,
-      "url": "https://electrek.co/2026/10/23/overhead-wired-charging-comes-to-austin-electric-bus-fleet/",
-      "image": "/images/feed/feed-d8661e8072f3.png",
-      "source": "Electrek",
       "isLive": true
     },
     {
@@ -643,7 +800,7 @@
         "Orbit"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 42,
       "url": "https://www.space.com/space-exploration/launches-spacecraft/rocket-lab-launches-3-hawk-satellites-to-orbit-to-gather-signals-intelligence",
       "image": "/images/feed/feed-e43c206242de.jpg",
       "source": "Space.com",
@@ -662,48 +819,10 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 33,
       "url": "https://www.space.com/space-exploration/satellites/space-debris-are-we-on-track-for-true-sustainability-op-ed",
       "image": "/images/feed/feed-164726bc47b5.jpg",
       "source": "Space.com",
-      "isLive": true
-    },
-    {
-      "id": "feed-b5d49dae8427",
-      "title": "Critical Flaw in Python’s Popular Pillow Image Library Allows Code Execution via a Crafted Image",
-      "excerpt": "Pillow, the most widely used image library for Python, can be made to run operating system commands on a server by specifying the name of a file it is told to open. The flaw, CVE-2026-112900, is in th…",
-      "body": "Pillow, the most widely used image library for Python, can be made to run operating system commands on a server by specifying the name of a file it is told to open. The flaw,&nbsp;CVE-2026-112900, is in the way Pillow handles EPS images, which it opens by passing the file's name to Ghostscript, a separate program it runs to turn the image into pixels, without checking the name first.",
-      "author": "info@thehackernews.com (The Hacker News)",
-      "date": "2026-10-23",
-      "readTime": "2 min",
-      "section": "cybersecurity",
-      "tags": [
-        "Cybersecurity"
-      ],
-      "featured": false,
-      "xpReward": 52,
-      "url": "https://thehackernews.com/2026/10/critical-flaw-in-pythons-popular-pillow.html",
-      "image": "/images/feed/feed-b5d49dae8427.jpg",
-      "source": "The Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-ba1203a8b8e3",
-      "title": "Researchers Demonstrate Node2Shell RCE Exploit on Node.js Build Using Crafted Brotli Data",
-      "excerpt": "Malicious Brotli data can make an application on an official build of Node.js run attacker-supplied code, security researchers at Imperva have demonstrated. Their \"Node2Shell\" proof of concept ran cod…",
-      "body": "Malicious Brotli data can make an application on an official build of Node.js run attacker-supplied code, security researchers at Imperva have&nbsp;demonstrated. Their \"Node2Shell\" proof of concept ran code on the official Node.js 24.22.0 image for Linux arm64, with no debugger or custom build, by feeding crafted data to the bundled Brotli decoder (CVE-2026-111497). Node.js disclosed the flaw",
-      "author": "info@thehackernews.com (The Hacker News)",
-      "date": "2026-10-23",
-      "readTime": "2 min",
-      "section": "cybersecurity",
-      "tags": [
-        "Exploit"
-      ],
-      "featured": false,
-      "xpReward": 53,
-      "url": "https://thehackernews.com/2026/10/researchers-demonstrate-node2shell-rce.html",
-      "image": "/images/feed/feed-ba1203a8b8e3.jpg",
-      "source": "The Hacker News",
       "isLive": true
     },
     {
@@ -719,7 +838,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 31,
       "url": "https://science.nasa.gov/image-article/apod-2026-october-23-andromeda-in-southern-spring/",
       "image": "/images/feed/feed-da76684c21ea.jpg",
       "source": "NASA Breaking News",
@@ -738,86 +857,10 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 48,
       "url": "https://science.nasa.gov/earth/earth-observatory/el-nino-then-and-now/",
       "image": "/images/feed/feed-254af79f1d68.jpg",
       "source": "NASA Breaking News",
-      "isLive": true
-    },
-    {
-      "id": "feed-4babd1a3452e",
-      "title": "Optivolt Raises $32M to Build the Brain for Solar Panels of the Future",
-      "excerpt": "Series A led by VXI Capital, with backing from the people who built modern solar, including founding Enphase CEO Paul Nahi, former SunPower CEO Tom Werner and former New York energy czar Richard Kauff…",
-      "body": "Series A led by VXI Capital, with backing from the people who built modern solar, including founding Enphase CEO Paul Nahi, former SunPower CEO Tom Werner and former New York energy czar Richard Kauffman Nine years in the making, Optivolt&#8217;s energy intelligence turns passive solar hardware into adaptive power systems ... [continued] The post Optivolt Raises $32M to Build the Brain for Solar Panels of the Future appeared first on CleanTechnica .",
-      "author": "Press Release",
-      "date": "2026-10-23",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Cars"
-      ],
-      "featured": false,
-      "xpReward": 31,
-      "url": "https://cleantechnica.com/2026/10/22/optivolt-raises-32m-to-build-the-brain-for-solar-panels-of-the-future/",
-      "image": "/images/feed/feed-4babd1a3452e.jpg",
-      "source": "CleanTechnica",
-      "isLive": true
-    },
-    {
-      "id": "feed-bb993d6b6943",
-      "title": "What The Battery Show Told Us About the Next Chapter of Electrification",
-      "excerpt": "The Battery Show North America 2026 in Detroit, Michigan wasn’t about the next breakthrough. It was about who can deliver. Each fall you can learn a lot about the battery industry by walking through t…",
-      "body": "The Battery Show North America 2026 in Detroit, Michigan wasn&#8217;t about the next breakthrough. It was about who can deliver. Each fall you can learn a lot about the battery industry by walking through the halls of Huntington Place in Detroit. This year&#8217;s Battery Show North America, held October 12th ... [continued] The post What The Battery Show Told Us About the Next Chapter of Electrification appeared first on CleanTechnica .",
-      "author": "Guest Contributor",
-      "date": "2026-10-23",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Cars"
-      ],
-      "featured": false,
-      "xpReward": 40,
-      "url": "https://cleantechnica.com/2026/10/22/what-the-battery-show-told-us-about-the-next-chapter-of-electrification/",
-      "image": "/images/feed/feed-bb993d6b6943.jpg",
-      "source": "CleanTechnica",
-      "isLive": true
-    },
-    {
-      "id": "feed-70b931dce841",
-      "title": "Hyundai Motor Delivers Bali’s First Electric Buses for Public Transport",
-      "excerpt": "Hyundai Motor partners with Laksana to deliver 11 COUNTY EV buses to GGGI for the first electric bus public transportation pilot project in Bali, Indonesia Field quality assurance program to monitor v…",
-      "body": "Hyundai Motor partners with Laksana to deliver 11 COUNTY EV buses to GGGI for the first electric bus public transportation pilot project in Bali, Indonesia Field quality assurance program to monitor vehicle quality and driving performance for project success Hyundai Motor aims to expand electrified vehicle business across Indonesia and ... [continued] The post Hyundai Motor Delivers Bali’s First Electric Buses for Public Transport appeared first on CleanTechnica .",
-      "author": "Press Release",
-      "date": "2026-10-23",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Cars"
-      ],
-      "featured": false,
-      "xpReward": 52,
-      "url": "https://cleantechnica.com/2026/10/22/hyundai-motor-delivers-balis-first-electric-buses-for-public-transport/",
-      "image": "/images/feed/feed-70b931dce841.jpg",
-      "source": "CleanTechnica",
-      "isLive": true
-    },
-    {
-      "id": "feed-fa8ebb379877",
-      "title": "Hyundai Motor Group & Rhode Island School of Design Collaborate on Regenerative Biodesign Strategies and the Future of Mobility",
-      "excerpt": "In its seventh year, the annual research collaboration continues to examine the convergence of biodesign and biomimicry, advanced art and design practices, and the future of mobility across the globe…",
-      "body": "In its seventh year, the annual research collaboration continues to examine the convergence of biodesign and biomimicry, advanced art and design practices, and the future of mobility across the globe In the 2026–27 Regeneration Studio, faculty and students explore the theme of “Motion Rewild” via two courses and complementary programming ... [continued] The post Hyundai Motor Group &#038; Rhode Island School of Design Collaborate on Regenerative Biodesign Strategies and the Future of Mobility appeared first on CleanTechnica .",
-      "author": "Press Release",
-      "date": "2026-10-23",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Cars"
-      ],
-      "featured": false,
-      "xpReward": 49,
-      "url": "https://cleantechnica.com/2026/10/22/hyundai-motor-group-rhode-island-school-of-design-collaborate-on-regenerative-biodesign-strategies-and-the-future-of-mobility/",
-      "image": "/images/feed/feed-fa8ebb379877.jpg",
-      "source": "CleanTechnica",
       "isLive": true
     },
     {
@@ -833,7 +876,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 48,
       "url": "https://openai.com/index/openai-nask-ai-safety-security-partnership",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "OpenAI Blog",
@@ -852,9 +895,9 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 52,
       "url": "https://techcrunch.com/2026/10/22/openai-working-on-new-30b-raise-at-1-25t-valuation-ahead-of-ipo/",
-      "image": "/images/feed/feed-c4c762c6b747.webp",
+      "image": "/images/feed/feed-c4c762c6b747.jpg",
       "source": "TechCrunch",
       "isLive": true
     },
@@ -871,50 +914,10 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 41,
       "url": "https://www.space.com/space-exploration/launches-spacecraft/europes-space-rider-vehicle-comes-crashing-down-during-drop-test",
       "image": "/images/feed/feed-f496c3be2df4.jpg",
       "source": "Space.com",
-      "isLive": true
-    },
-    {
-      "id": "feed-73f803029b01",
-      "title": "Canva’s first AI image model plans designs before generating them",
-      "excerpt": "Canva is diving even deeper into AI with the launch of an image generation model that competes directly with those from OpenAI, Microsoft, and Google. The model, called Canva Craft, uses a two-stage a…",
-      "body": "Canva is diving even deeper into AI with the launch of an image generation model that competes directly with those from OpenAI, Microsoft, and Google. The model, called Canva Craft , uses a two-stage architecture that allows it to plan a design before generating an image, allowing for \"greater precision, consistency and control,\" according to an announcement on Thursday . Canva Craft can generate images at up to 2K resolution and in more than 30 aspect ratios. In addition to generating social media posts and marketing content, it's also supposed to create realistic scenes, digital art, environmental imagery, and more. The model's two-stage sy … Read the full story at The Verge.",
-      "author": "Emma Roth",
-      "date": "2026-10-22",
-      "readTime": "2 min",
-      "section": "ai",
-      "tags": [
-        "Ai"
-      ],
-      "featured": false,
-      "xpReward": 35,
-      "url": "https://www.theverge.com/ai-artificial-intelligence/1017151/canva-craft-in-house-ai-model",
-      "image": "/images/feed/feed-73f803029b01.png",
-      "source": "The Verge",
-      "isLive": true
-    },
-    {
-      "id": "feed-c09fc228e4d9",
-      "title": "NASA Invites Media to 2026 von Braun Space Exploration Symposium",
-      "excerpt": "Members of the media are invited to join NASA at the 2026 von Braun Space Exploration Symposium from Monday, Oct. 26, to Wednesday, Oct. 28, at the University of Alabama in Huntsville. This year’s sym…",
-      "body": "Members of the media are invited to join NASA at the 2026 von Braun Space Exploration Symposium from Monday, Oct. 26, to Wednesday, Oct. 28, at the University of Alabama in Huntsville. This year’s symposium is focused on humanity&#8217;s return to the Moon, sustainable lunar infrastructure, advanced space propulsion, and the evolving space workforce. Panels include discussions on Artemis II and III, space propulsion flash talks, building utilities and infrastructure for sustainable lunar operations, Moon base supply chain resilience, space nuclear technology, navigating the new NASA workforce, and engineering the future, featuring keynotes and awards presentations.",
-      "author": "Lee Mohon",
-      "date": "2026-10-22",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Space Exploration",
-        "Nasa",
-        "Space"
-      ],
-      "featured": false,
-      "xpReward": 31,
-      "url": "https://www.nasa.gov/news-release/nasa-invites-media-to-2026-von-braun-space-exploration-symposium/",
-      "image": "/images/feed/feed-c09fc228e4d9.jpg",
-      "source": "NASA Breaking News",
       "isLive": true
     },
     {
@@ -931,7 +934,7 @@
         "Claude"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 35,
       "url": "https://www.cnet.com/tech/services-and-software/anthropic-claude-duet-ai-agent-app-professional/",
       "image": "/images/feed/feed-fbefb69ef914.png",
       "source": "CNET",
@@ -939,16 +942,16 @@
     }
   ],
   "breakingNews": [
-    "DEV.TO: Postman to Production: Repeatable API Regression Suites",
-    "DEV.TO: What breaks in MCP servers: results from launching 750 registry entries",
-    "DEV.TO: Cloud Engineering in Practice: How Teams Make Cloud Platforms Reliable, Secure, and Affordable",
-    "DEV.TO: Docker Bypasses UFW: Your Firewalled Database Is Probably Public. Here's the Fix",
-    "DEV.TO: Cross-Modal Knowledge Distillation for deep-sea exploration habitat design for low-power autonomous deployments",
-    "DEV.TO: Solar, Roofing and HVAC Leads from Building Permits: A How-To with 30 Days of Real Data",
-    "DEV.TO: Computer Simulations for Students: Why Testing a Virtual World Can Teach Us About the Real One",
-    "DEV.TO: Shadow AI coding tools: a CISO checklist",
-    "POLYGON: Mass Effect Spiritual Successor Officially Reveals Redesigned Protagonist",
-    "ANDROID AUTHORITY: Tired of rebuilding patched APKs? These Morphe community projects handle them for you"
+    "DEV.TO: One endpoint, many models: switching between GPT, Claude and DeepSeek and logging what every call costs",
+    "DEV.TO: Intelligenza artificiale gratis: cosa si fa senza pagare",
+    "DEV.TO: Muse Spark Open: Meta's 816B Open-Weight Model, Explained",
+    "DEV.TO: Print Christmas Ornaments in 20 Minutes: Settings and Six Flat Designs",
+    "DEV.TO: Installation Headaches",
+    "DEV.TO: PHP2SHELL: STOP SPREADING MISINFORMATION ABOUT PHP!",
+    "DEV.TO: Launching an Online Store in Pakistan: A Practical Guide to Platforms, Payments, COD, and Hosting",
+    "DEV.TO: PHP session upload progress vulnerability after the PHP2Shell patch",
+    "DEV.TO: ThinkingBox’s 20/20 column is useful. It still isn’t a reliability guarantee.",
+    "KOTAKU: Amazon Prime’s Carrie Has Flaws, But Makes Wonderful Additions To Stephen King’s Original"
   ],
   "sectionVideos": {}
 }
