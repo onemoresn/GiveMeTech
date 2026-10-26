@@ -1,31 +1,12 @@
 {
-  "fetchedAt": "2026-10-26T00:29:34.205Z",
+  "fetchedAt": "2026-10-26T01:29:55.257Z",
   "articles": [
     {
-      "id": "feed-297149ac5337",
-      "title": "Node.js Chatbot API Endpoint Selection for Media Moderation (and Why Schemas Win)",
-      "excerpt": "Node.js Chatbot API Endpoint Selection for Media Moderation (and Why Schemas Win) Short answer: For a Node.js media-moderation chatbot, choose a synchronous API endpoint that returns schema-validated…",
-      "body": "Node.js Chatbot API Endpoint Selection for Media Moderation (and Why Schemas Win) Short answer: For a Node.js media-moderation chatbot, choose a synchronous API endpoint that returns schema-validated classifications, then put idempotency, retries, and human review in your own service boundary. A moderation chatbot is the wrong mental model for this job. The application receives a report about media, classifies it before a human review, and must preserve an auditable decision trail. That constraint makes the best endpoint the one that can return a validated, schema-shaped decision synchronously, with a retry strategy that cannot create a second review record. The endpoint name is secondary.",
-      "author": "sawyerflynn1578",
-      "date": "2026-10-26",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Api"
-      ],
-      "featured": true,
-      "xpReward": 39,
-      "url": "https://dev.to/sawyerflynn1578/nodejs-chatbot-api-endpoint-selection-for-media-moderation-and-why-schemas-win-3ea4",
-      "image": "/images/feed/feed-297149ac5337.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-8e90a6eb8bec",
-      "title": "The agent left the debug print in the shipped handler, and the green suite could not see it",
-      "excerpt": "The agent traced an auth mismatch by dropping a console.log(\"token=\", token) into the request handler. It found the real cause — the interceptor attached a stale credential after refresh — patched it,…",
-      "body": "The agent traced an auth mismatch by dropping a console.log(\"token=\", token) into the request handler. It found the real cause — the interceptor attached a stale credential after refresh — patched it, ran the suite, reported green, and we merged. The debug print stayed behind. Nobody flagged it because the tests had nothing to check. A logging call changes no return value, throws nothing, and asserts against nothing, so a green suite proves the control path ran; it says nothing about whether scratch diagnostics were removed along the way. A print has no assertion target Most unit tests pin behavior: the function returns X, the queue receives Y, the error path throws Z. A diagnostic line sits outside all of those.",
-      "author": "Jeff",
+      "id": "feed-decbb83047ab",
+      "title": "Stopping Rogue AI Agents in Real Time: Zero-Disk Ephemeral Sandboxing in 0.12ms",
+      "excerpt": "Stopping Rogue AI Agents in Real Time: Zero-Disk Ephemeral Sandboxing in 0.12ms Autonomous AI agents (CrewAI, AutoGen, Claude, Cursor) are getting massive privileges: executing terminal commands, quer…",
+      "body": "Stopping Rogue AI Agents in Real Time: Zero-Disk Ephemeral Sandboxing in 0.12ms Autonomous AI agents (CrewAI, AutoGen, Claude, Cursor) are getting massive privileges: executing terminal commands, querying databases, and making web calls. But with these capabilities comes a growing crisis: rogue agent execution . Whether triggered by indirect prompt injection, zero-width steganography, or context drift, an agent with bash tools can read ~/.ssh/id_rsa , install persistent malware, or exfiltrate environment variables. At Iris Computing (Campfire Creative LLC DBA Iris Computing), we built Iris Sentinel —a zero-disk cryptographic defense gateway and MCP supervisor.",
+      "author": "Drake Boley",
       "date": "2026-10-26",
       "readTime": "2 min",
       "section": "software",
@@ -33,18 +14,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 36,
-      "url": "https://dev.to/jeff_pdc/the-agent-left-the-debug-print-in-the-shipped-handler-and-the-green-suite-could-not-see-it-c52",
-      "image": "/images/feed/feed-8e90a6eb8bec.webp",
+      "xpReward": 33,
+      "url": "https://dev.to/drakeboley/stopping-rogue-ai-agents-in-real-time-zero-disk-ephemeral-sandboxing-in-012ms-4i8",
+      "image": "/images/feed/feed-decbb83047ab.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-90d29aaf74ef",
-      "title": "Dockerize a Go Microservice in Under an Hour",
-      "excerpt": "I compiled 20 Go microservices with their CI pipelines and found that 16 of them failed to start inside a container because they shipped the source tree instead of a compiled binary. The fix is the sa…",
-      "body": "I compiled 20 Go microservices with their CI pipelines and found that 16 of them failed to start inside a container because they shipped the source tree instead of a compiled binary. The fix is the same for every repo: build a static binary and copy it into a minimal image. ## 1. Build a Production‑Ready Binary The first mistake developers make is relying on go run or a non‑static build. Those binaries pull in glibc and assume the host’s filesystem layout, which breaks in Alpine or scratch images. # Turn off CGO and embed version information CGO_ENABLED = 0 GOOS = linux GOARCH = amd64 \\ go build -ldflags \"-s -w -X main.version= $( git rev-parse --short HEAD ) \" \\ -o ./bin/app ./cmd/server markdown CGO_ENABLED=0 forces a fully static binary.",
-      "author": "The Operator",
+      "id": "feed-cdf259ef84fd",
+      "title": "How many tokens is 1% of your Claude Code limit?",
+      "excerpt": "Originally published at limitcast.dev. Anthropic shows how much of your 5-hour and weekly limit you've used, as a percentage. It doesn't say how many tokens that percentage is, and it doesn't say how…",
+      "body": "Originally published at limitcast.dev . Anthropic shows how much of your 5-hour and weekly limit you've used, as a percentage. It doesn't say how many tokens that percentage is, and it doesn't say how different kinds of tokens count. So I measured it on my own account. 1% of the 5-hour limit was about 166,000 new tokens, or about 11 million cached tokens. A cached token counted roughly 1/67 as much as a new one. That ratio changes what's worth optimizing. Over the two days I measured, new tokens were 2.5% of everything Claude Code sent, and they used about 63% of my limit.",
+      "author": "Sam Stull",
       "date": "2026-10-26",
       "readTime": "2 min",
       "section": "software",
@@ -52,18 +33,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 45,
-      "url": "https://dev.to/operator92/dockerize-a-go-microservice-in-under-an-hour-aa9",
-      "image": "/images/feed/feed-90d29aaf74ef.webp",
+      "xpReward": 30,
+      "url": "https://dev.to/samstull9007/how-many-tokens-is-1-of-your-claude-code-limit-232n",
+      "image": "/images/feed/feed-cdf259ef84fd.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-505acac1b76b",
-      "title": "I banned arithmetic in my invoicing app and enforced it with an AST test",
-      "excerpt": "The quoting and invoicing app I built has a rule that looks odd at first: the app package is not allowed to do arithmetic. No +, no -, no *, no /, no float, and no Decimal(...) outside a short list of…",
-      "body": "The quoting and invoicing app I built has a rule that looks odd at first: the app package is not allowed to do arithmetic. No + , no - , no * , no / , no float , and no Decimal(...) outside a short list of named files. Every money figure comes from a separate engine, quote_to_cash : one function prices a set of lines ( compute_totals ), a few more work out what's paid and outstanding. The app above it, a Next.js front end over a thin FastAPI layer with a SQLite file per tenant, can store figures, show them and send them on. It can't make new ones. The reason is practical. A quote total that the API worked out one way and the PDF another is a bug a customer finds before I do. If only one module can produce a figure, the two can't disagree.",
-      "author": "Jonathan Bajrami",
+      "id": "feed-062e3051566e",
+      "title": "Opening a Word file got lsass read. Remember 0x1410.",
+      "excerpt": "The scenario is fictional (RFC 5737 IPs). Sysmon details come from the book, not a live test. Detection only. User jdoe opened a Word document at 09:12. Forty seconds later, lsass.exe memory was read.…",
+      "body": "The scenario is fictional (RFC 5737 IPs). Sysmon details come from the book, not a live test. Detection only. User jdoe opened a Word document at 09:12. Forty seconds later, lsass.exe memory was read. The number to remember is 0x1410 . What you'll learn Why lsass is targeted and what Sysmon EID 10 records Normal vs. attack GrantedAccess values Reading CallTrace Rule ideas for Wazuh and Elastic, and false positives The story at a glance (WS01) Time Sysmon Event 09:12:01 E1 WINWORD.EXE -&gt; powershell -enc 09:12:04 E3 connect to 198.51.100.5:443 09:12:20 E11 C:\\Users\\Public\\svc_update.exe created 09:12:40 E10 lsass access, GrantedAccess 0x1410 09:13:05 E13 Run key Updater 09:13:40 E3 10.0.0.31:445 09:14:02 E4 Sysmon stopped 0x1410 0x1000 = limited info (typical EDR, normal).",
+      "author": "tktkkame",
       "date": "2026-10-26",
       "readTime": "2 min",
       "section": "software",
@@ -71,18 +52,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 53,
-      "url": "https://dev.to/jonathan_bajrami_687037af/i-banned-arithmetic-in-my-invoicing-app-and-enforced-it-with-an-ast-test-5974",
-      "image": "/images/feed/feed-505acac1b76b.webp",
+      "xpReward": 40,
+      "url": "https://dev.to/tokotokokame/opening-a-word-file-got-lsass-read-remember-0x1410-38oa",
+      "image": "/images/feed/feed-062e3051566e.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-53ae32cf053f",
-      "title": "Pick which ResizeObserverEntry field your test should read",
-      "excerpt": "If a ResizeObserver-based test fails, the problem is often not the browser but the measurement you asked for. ResizeObserverEntry exposes different boxes and units: contentBoxSize (content area), bord…",
-      "body": "If a ResizeObserver-based test fails, the problem is often not the browser but the measurement you asked for. ResizeObserverEntry exposes different boxes and units: contentBoxSize (content area), borderBoxSize (outer element footprint), and devicePixelContentBoxSize (content in device pixels). Each field answers a different diagnostic question. Implementation decision Start your test by naming the edge you intend to verify. The decision helper in the article is a tiny deterministic policy: it picks contentBoxSize when the question is about the available content area, borderBoxSize when the outer layout footprint matters, and devicePixelContentBoxSize when physical pixels matter.",
-      "author": "Chris Rodriguez",
+      "id": "feed-c57ceeacd30b",
+      "title": "The attacker deleted everything. At 2 a.m., /proc still remembered.",
+      "excerpt": "The incident below is a fictional scenario (all IPs are from the RFC 5737 documentation ranges). The techniques are real. Only run them on systems you own or are authorized to examine. \"Delete the fil…",
+      "body": "The incident below is a fictional scenario (all IPs are from the RFC 5737 documentation ranges). The techniques are real. Only run them on systems you own or are authorized to examine. \"Delete the file and the evidence is gone.\" Attackers believe it. Plenty of investigators quietly do too. If you've ever closed a case because the logs were empty, the history was wiped and no suspicious file was left on disk, this one is for you. From exactly that state, you can sometimes get the deleted malware back, intact.",
+      "author": "tktkkame",
       "date": "2026-10-26",
       "readTime": "2 min",
       "section": "software",
@@ -90,18 +71,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 39,
-      "url": "https://dev.to/chriserodriguez/pick-which-resizeobserverentry-field-your-test-should-read-2a93",
-      "image": "/images/feed/feed-53ae32cf053f.webp",
+      "xpReward": 32,
+      "url": "https://dev.to/tokotokokame/the-attacker-deleted-everything-at-2-am-proc-still-remembered-4n2p",
+      "image": "/images/feed/feed-c57ceeacd30b.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-e52945149cd4",
-      "title": "Why your App Store Connect and Google Play Console numbers never match (and never match your analytics)",
-      "excerpt": "I build a few apps on the side, and every morning I opened App Store Connect, Play Console and my analytics, and no two of them agreed. The store counts a download when the app gets installed. Your an…",
-      "body": "I build a few apps on the side, and every morning I opened App Store Connect, Play Console and my analytics, and no two of them agreed. While building my own dashboard I had to find out why, one number at a time. These are the reasons I found. The store counts downloads, your analytics counts opens The store counts a download when the app gets installed. Your analytics only sees someone after they open the app with your SDK running. Everyone who downloads and never opens it is in the store number and nowhere else. So your analytics \"new users\" will be lower than store downloads, and that's normal. \"Downloads\" means different things on each store On the App Store, first-time downloads and redownloads are separate numbers.",
-      "author": "Ahmed Ashour",
+      "id": "feed-5110ae4dac92",
+      "title": "Hubble answers 1,103 times by title, five times as an application, and 37,258 times in page bodies",
+      "excerpt": "Hubble answers 1,103 times by title, five times as an application, and 37,258 times in page bodies A product name that also belongs to a telescope creates a measurement problem no query can fix. Hubbl…",
+      "body": "Hubble answers 1,103 times by title, five times as an application, and 37,258 times in page bodies A product name that also belongs to a telescope creates a measurement problem no query can fix. Hubble is the observability layer that ships with Cilium, and it is also the name of a space telescope, a film, and several unrelated services. A set of ZoomEye measurements taken on 26 October 2026 shows how far apart the three standard counts can land, and why the smallest number here is the one that describes the software. The three counts Each query ran against ZoomEye with sub_type=\"all\" and pagesize=1 , so every total describes matched assets rather than retrieved records.",
+      "author": "StarkMan",
       "date": "2026-10-26",
       "readTime": "2 min",
       "section": "software",
@@ -110,28 +91,66 @@
       ],
       "featured": true,
       "xpReward": 49,
-      "url": "https://dev.to/ahmedashourdev/why-your-app-store-connect-and-google-play-console-numbers-never-match-and-never-match-your-3895",
-      "image": "/images/feed/feed-e52945149cd4.webp",
+      "url": "https://dev.to/stark_zhuang_df5076f35c68/hubble-answers-1103-times-by-title-five-times-as-an-application-and-37258-times-in-page-bodies-d0i",
+      "image": "/images/feed/feed-5110ae4dac92.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-c1b6990940ad",
-      "title": "PDF/UA on 1,212 public-sector PDFs from 12 countries: what an automatic fix solves (15 %) and what it can't",
-      "excerpt": "Run a PDF through veraPDF with the PDF/UA-1 profile and you get a list of failed rules. Some of them are a two-line change in the document catalog. Others mean the file has no tags at all and has to b…",
-      "body": "Run a PDF through veraPDF with the PDF/UA-1 profile and you get a list of failed rules. Some of them are a two-line change in the document catalog. Others mean the file has no tags at all and has to be exported again from its source. The report does not tell you which is which. We measured it on real documents: 1,212 PDFs published by public bodies in 12 countries (Canada, the US, Finland, France, Spain, Norway, the UK, Australia, Ireland, Sweden, Belgium and Portugal) — councils, agencies, universities and ministries that are under some web accessibility obligation. This is not legal advice and says nothing about any organisation's compliance; it only shows which PDF/UA failures are cheap to fix and which are not.",
-      "author": "NYO agent (Niko yhtiöt Oy)",
+      "id": "feed-de4dc99e0a00",
+      "title": "How I Built a Privacy-First PDF Processor That Never Uploads Your Files",
+      "excerpt": "The Problem With \"Free\" Online PDF Converters Executed contracts and legal agreements We set out to build a different model: a document processing suite where files never leave the user device. Here i…",
+      "body": "The Problem With \"Free\" Online PDF Converters If you have ever used a standard online PDF compressor, converter, or merger, you have almost certainly uploaded your documents to a third-party server. In many cases, that is an unacceptable risk. Typical PDF payloads contain sensitive data: Executed contracts and legal agreements Patient medical records and diagnoses Banking, tax, and financial statements Proprietary internal company documentation When uploaded, that data travels across external networks, lands on third-party file systems (often indefinitely), and is processed by infrastructure you cannot audit. We set out to build a different model: a document processing suite where files never leave the user device.",
+      "author": "KAOpdf",
       "date": "2026-10-26",
       "readTime": "2 min",
       "section": "software",
       "tags": [
         "Software"
       ],
-      "featured": false,
-      "xpReward": 54,
-      "url": "https://dev.to/nyoagentti/pdfua-on-1212-public-sector-pdfs-from-12-countries-what-an-automatic-fix-solves-15-and-what-1f35",
-      "image": "/images/feed/feed-c1b6990940ad.webp",
+      "featured": true,
+      "xpReward": 41,
+      "url": "https://dev.to/kaopdf/how-i-built-a-privacy-first-pdf-processor-that-never-uploads-your-files-29c4",
+      "image": "/images/feed/feed-de4dc99e0a00.webp",
       "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-d749cb8adac6",
+      "title": "TrenTorch: learn ML by building your own framework in NumPy (and 350+ browser questions)",
+      "excerpt": "You can call loss.backward() a thousand times and still not know what it does. TrenTorch fixes that by making you build it. It is two things in one repo: a terminal course of 20 modules where you writ…",
+      "body": "You can call loss.backward() a thousand times and still not know what it does. TrenTorch fixes that by making you build it. It is two things in one repo: a terminal course of 20 modules where you write your own machine learning framework in raw NumPy, from tensors and autograd up to transformers, and a browser site with 350+ graded coding questions across 12 topic areas. There is no import torch anywhere in the curriculum. No GPU needed. Everything runs on the CPU with NumPy. The CLI needs Python 3.10+, and the web questions run Python 3.12 inside your browser through Pyodide. This guide covers both tracks, plus how to run the question checks if you want to contribute.",
+      "author": "Deduped",
+      "date": "2026-10-26",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Framework"
+      ],
+      "featured": false,
+      "xpReward": 47,
+      "url": "https://dev.to/dedupedai/trentorch-learn-ml-by-building-your-own-framework-in-numpy-and-350-browser-questions-1gc5",
+      "image": "/images/feed/feed-d749cb8adac6.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-0e1515989829",
+      "title": "Phantom Blade Zero Reviews Just Beat Every Soulslike In 2026",
+      "excerpt": "Phantom Blade Zero reviews put the Wuxia-inspired action game from S-Game in pole position as one of Metacritic's best-rated 2026 games.",
+      "body": "2026 officially has a new highest-rated game of the year. Reviews are in for Phantom Blade Zero , the Wuxia-inspired action game from S-Game, and they've solidified it as one of the best-reviewed games of 2026 — a feat that could help its chances at scoring a nomination for the 2026 Game Awards in December.",
+      "author": "Ari Notis",
+      "date": "2026-10-26",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 49,
+      "url": "https://www.polygon.com/phantom-blade-zero-review-roundup-score/",
+      "image": "/images/feed/feed-0e1515989829.jpg",
+      "source": "Polygon",
       "isLive": true
     },
     {
@@ -147,7 +166,7 @@
         "Game"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 54,
       "url": "https://www.polygon.com/phantom-blade-zero-review/",
       "image": "/images/feed/feed-256828c19b0e.jpg",
       "source": "Polygon",
@@ -166,10 +185,29 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 45,
       "url": "https://www.engadget.com/2294283/ethernet-cables-use-outside-explained/",
       "image": "/images/feed/feed-a1c13e27150b.jpg",
       "source": "Engadget",
+      "isLive": true
+    },
+    {
+      "id": "feed-6211519d5248",
+      "title": "Phantom Blade Zero Review",
+      "excerpt": "Memorable boss fights, compelling combat, and limitless swagger.",
+      "body": "Phantom Blade Zero has spent years looking almost too good to be true, especially coming from a studio that&#39;s best known for its mobile games. That’s why it&#39;s just about the biggest compliment I can pay it that after 50 hours performing picture-perfect kung fu, it&#39;s exactly as fun to play as it looks. This effortlessly smooth action game has some of the most satisfying and well-tuned combat I’ve played in a long time, a surprising number of secrets to discover and quests to complete in each of its beautiful levels, and a neverending supply of clever encounters full of unbelievably awesome moments.",
+      "author": "Tom Marks",
+      "date": "2026-10-26",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 53,
+      "url": "https://www.ign.com/articles/phantom-blade-zero-review",
+      "image": "/images/feed/feed-6211519d5248.jpg",
+      "source": "IGN",
       "isLive": true
     },
     {
@@ -186,7 +224,7 @@
         "Android Phone"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 41,
       "url": "https://www.engadget.com/2294282/android-phone-closest-equivalent-to-iphone-duo/",
       "image": "/images/feed/feed-79599e82ca88.jpg",
       "source": "Engadget",
@@ -205,7 +243,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 47,
       "url": "https://www.engadget.com/2294261/why-google-chrome-using-so-much-ram/",
       "image": "/images/feed/feed-b2960f04797d.jpg",
       "source": "Engadget",
@@ -224,7 +262,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 31,
       "url": "https://www.polygon.com/stephen-king-it-welcome-to-derry-season-2-renewal-hbo-max/",
       "image": "/images/feed/feed-6c22087f968e.jpg",
       "source": "Polygon",
@@ -243,7 +281,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 30,
       "url": "https://www.polygon.com/the-mummy-free-on-youtube/",
       "image": "/images/feed/feed-0b647e6a88ff.jpg",
       "source": "Polygon",
@@ -262,7 +300,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 46,
       "url": "https://www.engadget.com/2294241/why-should-use-multiple-desktop-windows/",
       "image": "/images/feed/feed-d62ae6560787.jpg",
       "source": "Engadget",
@@ -281,7 +319,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 44,
       "url": "https://kotaku.com/googles-finnish-data-centers-were-already-in-trouble-over-deforestation-then-the-wolves-came-2000749401",
       "image": "/images/feed/feed-8bb0914dada9.jpg",
       "source": "Kotaku",
@@ -300,7 +338,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 49,
       "url": "https://www.engadget.com/2294102/does-tsa-allow-airtags-in-luggage-what-rules-say/",
       "image": "/images/feed/feed-014eed5bcbbd.jpg",
       "source": "Engadget",
@@ -338,7 +376,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 51,
       "url": "https://cleantechnica.com/2026/10/25/volkswagen-negotiations-with-ig-metall-to-begin-november-24-audi-factory-in-us-rumored/",
       "image": "/images/feed/feed-81c4b908e287.jpg",
       "source": "CleanTechnica",
@@ -357,7 +395,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 35,
       "url": "https://www.engadget.com/2294022/devices-could-be-wrong-wifi-band-slowing-them-down/",
       "image": "/images/feed/feed-746c33dac4a6.jpg",
       "source": "Engadget",
@@ -376,48 +414,10 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 46,
       "url": "https://www.polygon.com/gundam-movie-sydney-sweeney-netflix-story-details/",
       "image": "/images/feed/feed-a6a39656b30b.jpg",
       "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-3fc46c39ae4a",
-      "title": "X-Men Actor Christopher Abbott Insists His Professor X Is Not in Doomsday or Secret Wars",
-      "excerpt": "Professor X actor Christopher Abbott said Marvel fans won't see him in Avengers: Doomsday or Secret Wars because he needs to wrap up his time with X-Men before doing any cameos.",
-      "body": "Professor X actor Christopher Abbott said Marvel fans won&#39;t see him in Avengers: Doomsday or Secret Wars because he needs to wrap up his time with X-Men before doing any cameos. The Marvel Cinematic Universe newcomer tried his best not to play coy during a conversation with Rolling Stone . When pressed on whether comic book fans will see his shaved head fighting against Robert Downey Jr.&#39;s Doctor Doom at any point in the next year or so, he insisted he doesn&#39;t have any additional team-up movies on his plate for now. &quot;I don&#39;t think so,&quot; when asked if he&#39;ll appear in any cameo roles before X-Men. &quot;I don&#39;t even know… See, what&#39;s happening?",
-      "author": "Michael Cripe",
-      "date": "2026-10-25",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 31,
-      "url": "https://www.ign.com/articles/x-men-actor-christopher-abbott-insists-his-professor-x-is-not-in-doomsday-or-secret-wars",
-      "image": "/images/feed/feed-3fc46c39ae4a.png",
-      "source": "IGN",
-      "isLive": true
-    },
-    {
-      "id": "feed-c23416d7cab3",
-      "title": "Following Cancelled Concert, Umamusume Fans Give Knott’s Berry Farm Blacksmith Busiest Day Of His Life",
-      "excerpt": "While stricter visa policies scrapped the American concert stop, Pretty Derby die-hards weren’t deterred, hitting the old west and getting horseshoes engraved with their favorite characters",
-      "body": "While stricter visa policies scrapped the American concert stop, Pretty Derby die-hards weren’t deterred, hitting the old west and getting horseshoes engraved with their favorite characters\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Zack Kotzer",
-      "date": "2026-10-25",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 50,
-      "url": "https://kotaku.com/following-cancelled-concert-umamusume-fans-give-knotts-berry-farm-blacksmith-busiest-day-of-his-life-2000749394",
-      "image": "/images/feed/feed-c23416d7cab3.jpg",
-      "source": "Kotaku",
       "isLive": true
     },
     {
@@ -435,7 +435,7 @@
         "Llm"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 52,
       "url": "https://minimaxir.com/2026/10/cheap-llms/",
       "image": "/images/feed/feed-c10a2b502fcc.png",
       "source": "Hacker News",
@@ -454,7 +454,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 43,
       "url": "https://electrek.co/2026/10/25/xcmg-debuts-new-fully-autonomous-electric-terminal-tractor-video/",
       "image": "/images/feed/feed-1361262a8eff.jpg",
       "source": "Electrek",
@@ -473,7 +473,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 52,
       "url": "https://cleantechnica.com/2026/10/25/new-li-auto-i6-goes-811-km-504-miles/",
       "image": "/images/feed/feed-020321ddfc52.jpg",
       "source": "CleanTechnica",
@@ -492,7 +492,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 39,
       "url": "https://thehackernews.com/2026/10/unpatched-tailscale-ssh-flaws-could-let.html",
       "image": "/images/feed/feed-a015bc5461ff.jpg",
       "source": "The Hacker News",
@@ -511,7 +511,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 41,
       "url": "https://electrek.co/2026/10/25/battery-electric-solar-powered-reefer-units-reach-their-first-customers/",
       "image": "/images/feed/feed-0e2853b30328.jpg",
       "source": "Electrek",
@@ -530,7 +530,7 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 40,
       "url": "https://thehackernews.com/2026/10/php2shell-exploitation-hits-government.html",
       "image": "/images/feed/feed-0f2325be7a10.jpg",
       "source": "The Hacker News",
@@ -568,7 +568,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 49,
       "url": "https://cleantechnica.com/2026/10/25/elon-musk-the-movie-blackout-billionaires/",
       "image": "/images/feed/feed-eff0342d26cb.png",
       "source": "CleanTechnica",
@@ -587,7 +587,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 32,
       "url": "https://techcrunch.com/2026/10/25/ai-delivers-zero-financial-payoff-to-most-companies-according-to-apollo-economist/",
       "image": "/images/feed/feed-71c43854f4ff.webp",
       "source": "TechCrunch",
@@ -606,7 +606,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 51,
       "url": "https://www.bleepingcomputer.com/news/security/ai-coding-agents-hijacked-using-agentsmd-file-in-downloads-folder/",
       "image": "/images/feed/feed-3a31401ab192.jpg",
       "source": "BleepingComputer",
@@ -625,7 +625,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 33,
       "url": "https://insideevs.com/news/813122/chery-us-try-soon-launch/",
       "image": "/images/feed/feed-e3f44149150b.jpg",
       "source": "InsideEVs",
@@ -644,7 +644,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 53,
       "url": "https://www.space.com/space-exploration/on-this-day-in-space-oct-25-1671-astronomer-giovanni-cassini-discovers-iapetus-saturns-yin-yang-moon",
       "image": "/images/feed/feed-7a65f0c37510.jpg",
       "source": "Space.com",
@@ -663,7 +663,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 40,
       "url": "https://www.space.com/stargazing/octobers-hunters-moon-stalks-into-the-autumn-sky-tonight-heres-what-you-need-to-know",
       "image": "/images/feed/feed-e9ae28634ee8.jpg",
       "source": "Space.com",
@@ -682,10 +682,29 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 51,
       "url": "https://cleantechnica.com/2026/10/25/invest-in-solar-and-earn-3000-a-day/",
       "image": "/images/feed/feed-a1af51ec2984.jpg",
       "source": "CleanTechnica",
+      "isLive": true
+    },
+    {
+      "id": "feed-2a5d77bec5cc",
+      "title": "APOD: 2026 October 25 – Dark Matter in a Simulated Universe",
+      "excerpt": "APOD Science APOD APOD: 2026 October 25 – Dark… Today’s APOD Archive Submissions Index Search Calendar RSS Education About Discuss APOD Astronomy Picture of the Day Discover the cosmos! Each day a dif…",
+      "body": "APOD Science APOD APOD: 2026 October 25 – Dark… Today’s APOD Archive Submissions Index Search Calendar RSS Education About Discuss APOD Astronomy Picture of the Day Discover the cosmos! Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer. Dark Matter in a Simulated Universe Explanation: Is our universe haunted? It might look that way on this dark matter map. The gravity of unseen dark matter is the leading explanation for why galaxies rotate so fast , why galaxies orbit clusters so fast , why gravitational lenses so strongly deflect light, and how visible matter is distributed.",
+      "author": "NASA Breaking News",
+      "date": "2026-10-25",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Space"
+      ],
+      "featured": false,
+      "xpReward": 36,
+      "url": "https://science.nasa.gov/image-article/apod-2026-october-25-dark-matter-in-a-simulated-universe/",
+      "image": "/images/feed/feed-2a5d77bec5cc.jpg",
+      "source": "NASA Breaking News",
       "isLive": true
     },
     {
@@ -701,7 +720,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 38,
       "url": "https://thehackernews.com/2026/10/openai-ai-agents-demonstrate-vm-escapes.html",
       "image": "/images/feed/feed-059df2aa94c4.jpg",
       "source": "The Hacker News",
@@ -720,7 +739,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 54,
       "url": "https://techcrunch.com/2026/10/24/starlink-seems-to-be-working-normally-again-in-ukraine/",
       "image": "/images/feed/feed-aae262bb6858.jpg",
       "source": "TechCrunch",
@@ -739,7 +758,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 33,
       "url": "https://techcrunch.com/2026/10/24/the-ai-graveyard-a-running-list-of-projects-and-startups-that-didnt-make-it/",
       "image": "/images/feed/feed-41208e707565.webp",
       "source": "TechCrunch",
@@ -758,7 +777,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 49,
       "url": "https://www.theverge.com/ai-artificial-intelligence/1018187/pennsylvania-ai-deceptive-advertising-act",
       "image": "/images/feed/feed-0c58159611d9.jpg",
       "source": "The Verge",
@@ -778,7 +797,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 37,
       "url": "https://www.space.com/entertainment/space-movies-shows/this-week-in-space-podcast-episode-233-the-artemis-generation",
       "image": "/images/feed/feed-585b1c3a2506.jpg",
       "source": "Space.com",
@@ -797,7 +816,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 37,
       "url": "https://www.space.com/space-exploration/on-this-day-in-space-october-24-2026",
       "image": "/images/feed/feed-2e388bb43937.jpg",
       "source": "Space.com",
@@ -816,7 +835,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 36,
       "url": "https://techcrunch.com/2026/10/24/forced-to-pick-groks-ai-model-chooses-republicans-openais-picks-democrats/",
       "image": "/images/feed/feed-b8554dad591a.webp",
       "source": "TechCrunch",
@@ -835,7 +854,7 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 42,
       "url": "https://www.bleepingcomputer.com/news/security/blackx-uefi-bootkit-exploits-baton-drop-flaw-to-bypass-secure-boot/",
       "image": "/images/feed/feed-e7f9610cf94e.jpg",
       "source": "BleepingComputer",
@@ -854,7 +873,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 45,
       "url": "https://www.space.com/entertainment/space-movies-shows/star-trek-strange-new-worlds-season-of-gimmicks-was-afraid-to-say-anything",
       "image": "/images/feed/feed-2abf36f217ca.jpg",
       "source": "Space.com",
@@ -873,7 +892,7 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 46,
       "url": "https://www.wired.com/story/kernel-panic-the-php-meltdown-shows-how-ai-makes-bugs-more-exploitable/",
       "image": "/images/feed/feed-156181babac7.jpg",
       "source": "Wired",
@@ -911,43 +930,24 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 31,
       "url": "https://thehackernews.com/2026/10/google-says-gmail-and-photos-data.html",
       "image": "/images/feed/feed-c874b23267c2.jpg",
       "source": "The Hacker News",
       "isLive": true
-    },
-    {
-      "id": "feed-6461cb2cb3c8",
-      "title": "Medusa's eye, Halloween fireballs and more: 5 skywatching targets to look out for this spooky season",
-      "excerpt": "Five spooky skywatching targets perfect for naked eye stargazing this Halloween!",
-      "body": "The spooky season is officially here! To celebrate, we've put together a list of five Halloween-themed skywatching targets that you can enjoy with nothing but the naked eye or binoculars and, of course, clear skies. Over millennia, the night sky has helped shape human beliefs. In return, we have imprinted our myths, stories and perceptions upon it, seeing monsters and mythology in the twinkling lights of the stars and assigning sinister aspects to innocent cosmic objects. Many of these ghostly impressions and meanings have survived to the present day. Here are a few of our favorites. The Pleiades open star cluster Don't be fooled by their beauty; the blue-white stars of the Pleiades are dripping in spooky lore.",
-      "author": " Anthony Wood ",
-      "date": "2026-10-24",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Space"
-      ],
-      "featured": false,
-      "xpReward": 49,
-      "url": "https://www.space.com/stargazing/medusas-eye-halloween-fireballs-and-more-5-skywatching-targets-to-look-out-for-this-spooky-season",
-      "image": "/images/feed/feed-6461cb2cb3c8.jpg",
-      "source": "Space.com",
-      "isLive": true
     }
   ],
   "breakingNews": [
-    "DEV.TO: Node.js Chatbot API Endpoint Selection for Media Moderation (and Why Schemas Win)",
-    "DEV.TO: The agent left the debug print in the shipped handler, and the green suite could not see it",
-    "DEV.TO: Dockerize a Go Microservice in Under an Hour",
-    "DEV.TO: I banned arithmetic in my invoicing app and enforced it with an AST test",
-    "DEV.TO: Pick which ResizeObserverEntry field your test should read",
-    "DEV.TO: Why your App Store Connect and Google Play Console numbers never match (and never match your analytics)",
-    "DEV.TO: PDF/UA on 1,212 public-sector PDFs from 12 countries: what an automatic fix solves (15 %) and what it can't",
+    "DEV.TO: Stopping Rogue AI Agents in Real Time: Zero-Disk Ephemeral Sandboxing in 0.12ms",
+    "DEV.TO: How many tokens is 1% of your Claude Code limit?",
+    "DEV.TO: Opening a Word file got lsass read. Remember 0x1410.",
+    "DEV.TO: The attacker deleted everything. At 2 a.m., /proc still remembered.",
+    "DEV.TO: Hubble answers 1,103 times by title, five times as an application, and 37,258 times in page bodies",
+    "DEV.TO: How I Built a Privacy-First PDF Processor That Never Uploads Your Files",
+    "DEV.TO: TrenTorch: learn ML by building your own framework in NumPy (and 350+ browser questions)",
+    "POLYGON: Phantom Blade Zero Reviews Just Beat Every Soulslike In 2026",
     "POLYGON: Phantom Blade Zero Is the Perfect Martial Arts Game, For Better or Worse",
-    "ENGADGET: Can you run regular Ethernet cables outside?",
-    "ENGADGET: Which Android phone is the closest equivalent to the iPhone Duo?"
+    "ENGADGET: Can you run regular Ethernet cables outside?"
   ],
   "sectionVideos": {}
 }
