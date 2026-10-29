@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-10-29T19:14:39.726Z",
+  "fetchedAt": "2026-10-29T20:15:11.332Z",
   "articles": [
     {
-      "id": "feed-dcaa6dba8201",
-      "title": "Skills over MCP: 21 checks, run on Hugging Face's 25 skills",
-      "excerpt": "Originally published on mcpscore.dev. Tools give an agent operations. A skill tells it how to combine them: a SKILL.md with instructions, plus the references and scripts it points to. Since the Skills…",
-      "body": "Originally published on mcpscore.dev . Tools give an agent operations. A skill tells it how to combine them: a SKILL.md with instructions, plus the references and scripts it points to. Since the Skills extension (SEP-2640) became final in September, an MCP server can serve skills next to its tools. mcpscore 1.27.0 checks them with 21 rules, and we ran them on the 25 skills Hugging Face serves. What a skill looks like on the wire A server that serves skills declares io.modelcontextprotocol/skills in its capabilities. Each file of a skill is an MCP resource, under a skill:// URI. skills/list returns one entry per skill: the URI of its SKILL.md , the frontmatter of that file as JSON, and the complete list of the skill’s files with a SHA-256 digest and a size for each.",
-      "author": "Alex Akimov",
+      "id": "feed-077aa0853b90",
+      "title": "Pre-emptive integration analysis: stop putting knowledge into your agents' context, watch their work instead",
+      "excerpt": "Part of the write-ups behind my Build Stuff 2026 talk, Control Your Fate at the Metal, Vilnius, 2 December. For a year, most of our effort went into getting knowledge into agents' context: summaries o…",
+      "body": "Part of the write-ups behind my Build Stuff 2026 talk, Control Your Fate at the Metal , Vilnius, 2 December. For a year, most of our effort went into getting knowledge into agents' context: summaries of every file, insights from earlier sessions, briefings on every prompt, notes on every command. The last parts of this series measured what came of it. Reach went up, and behaviour didn't change. Even my own corrections, captured as rules and fired at the moment they apply, didn't cut the repeats in the first days. They went up . One thing did work, and it isn't a context feature at all. What worked: watching the branches I run many agents at once, each on its own issue branch in its own worktree, across six repositories.",
+      "author": "Kent Alstad",
       "date": "2026-10-29",
       "readTime": "2 min",
       "section": "software",
@@ -14,18 +14,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 43,
-      "url": "https://dev.to/mcpscore/skills-over-mcp-21-checks-run-on-hugging-faces-25-skills-1fj7",
-      "image": "/images/feed/feed-dcaa6dba8201.webp",
+      "xpReward": 48,
+      "url": "https://dev.to/kentkandiforge/pre-emptive-integration-analysis-stop-putting-knowledge-into-your-agents-context-watch-their-22n9",
+      "image": "/images/feed/feed-077aa0853b90.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-c1342f00cf1c",
-      "title": "SARIF explained: why linters speak it, and how mcpscore 1.14.0 writes it",
-      "excerpt": "Originally published on mcpscore.dev. A finding that lives in a CI log gets read once, by whoever opened the log. A finding in your repository’s Security tab gets an owner, a history, and a close date…",
-      "body": "Originally published on mcpscore.dev . A finding that lives in a CI log gets read once, by whoever opened the log. A finding in your repository’s Security tab gets an owner, a history, and a close date. SARIF is the format that moves findings from the first place to the second, and mcpscore 1.14.0 writes it. This post explains what SARIF is, why a linter should speak it, and exactly what mcpscore puts in the file. What SARIF is SARIF, the Static Analysis Results Format, is an OASIS standard : a JSON document that describes what an analysis tool found. Version 2.1.0 is the one everything reads. The shape is small. A file holds one or more runs . A run names the tool that produced it and the rules it applied, then lists results .",
-      "author": "Alex Akimov",
+      "id": "feed-e98265ac7015",
+      "title": "Heads of Security: Defending Against Prompt Injection by Gating Attention",
+      "excerpt": "Heads of Security: Defending Against Prompt Injection by Gating Attention Indirect prompt injection is what happens when an LLM agent reads a web page, an email, or a tool result and mistakes attacker…",
+      "body": "Heads of Security: Defending Against Prompt Injection by Gating Attention Indirect prompt injection is what happens when an LLM agent reads a web page, an email, or a tool result and mistakes attacker-planted text for a command from its user. A new paper from researchers at Imperial College London, the Tübingen AI Center and others, Heads of Security: Learned Attention Gates Improve Prompt Injection Robustness (arXiv, 27 Oct 2026), attacks the problem at a surprisingly low level: it trains a small set of per-head attention gates rather than fine-tuning the model's weights. This post walks through how the mechanism works, what the numbers show, and where the authors say it stops helping.",
+      "author": "Prabhakar Chaudhary",
       "date": "2026-10-29",
       "readTime": "2 min",
       "section": "software",
@@ -33,10 +33,582 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 51,
-      "url": "https://dev.to/mcpscore/sarif-explained-why-linters-speak-it-and-how-mcpscore-1140-writes-it-3of",
-      "image": "/images/feed/feed-c1342f00cf1c.webp",
+      "xpReward": 49,
+      "url": "https://dev.to/prabhakar_chaudhary_7afe4/heads-of-security-defending-against-prompt-injection-by-gating-attention-359o",
+      "image": "/images/feed/feed-e98265ac7015.webp",
       "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-388edd3b8b73",
+      "title": "Which SSH clients support MCP in 2026",
+      "excerpt": "A handful of SSH clients and terminals support MCP now, but \"support MCP\" means three different things, and the difference is what you actually care about: Built-in MCP server — the client exposes you…",
+      "body": "A handful of SSH clients and terminals support MCP now, but \"support MCP\" means three different things, and the difference is what you actually care about: Built-in MCP server — the client exposes your hosts as MCP tools an external agent can call (Conduit, XPipe, VibeShell, Termalin). MCP client — the app's own in-terminal agent can use other MCP servers (Warp). Community bridge or plugin — a third-party add-on exposes the app's sessions (Tabby, MobaXterm, Termius). Disclosure: we build Termalin , one of the entries below. Facts checked October 14, 2026 — this moves monthly, so check each vendor's page before you commit.",
+      "author": "Svyatoslav Pavlov",
+      "date": "2026-10-29",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 33,
+      "url": "https://dev.to/wolfhound1995/which-ssh-clients-support-mcp-in-2026-47hd",
+      "image": "/images/feed/feed-388edd3b8b73.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-1853881fb988",
+      "title": "Patrick Stewart's Greatest Captain Picard Quote Is Still a Defining Star Trek Moment",
+      "excerpt": "\"The Inner Light\" contains Jean-Luc Picard's greatest quote, a quiet line that reveals the humanity behind Star Trek's most beloved captain.",
+      "body": "Every Star Trek fan has an opinion on the franchise's greatest captain. Some prefer the swagger of James T. Kirk (William Shatner). Others admire Benjamin Sisko (Avery Brooks) for his conviction, or Kathryn Janeway (Kate Mulgrew) for her resilience. But ultimately, Jean-Luc Picard (Patrick Stewart) usually wins those debates because he embodied the very best of Starfleet: intelligence, diplomacy, curiosity, and compassion.",
+      "author": "Terry Terrones",
+      "date": "2026-10-29",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": true,
+      "xpReward": 30,
+      "url": "https://www.polygon.com/patrick-stewart-best-star-trek-quote/",
+      "image": "/images/feed/feed-1853881fb988.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-f2b9fe2c00f4",
+      "title": "Best Shopify supplier inventory sync apps compared (2026)",
+      "excerpt": "Disclosure: I'm Arturas, the developer of Tikkivo Catalog Sync, one of the apps below. I've tried to keep this fair. Every price and feature comes from each app's public Shopify App Store listing, che…",
+      "body": "Disclosure: I'm Arturas, the developer of Tikkivo Catalog Sync, one of the apps below. I've tried to keep this fair. Every price and feature comes from each app's public Shopify App Store listing, checked 29 October 2026 . Plans change, so check the listing before you install anything. Supplier price lists rarely match your Shopify store. Columns have different names, stock arrives as a CSV one day and a Google Sheet the next, and one bad file can wipe your inventory to zero overnight. Plenty of apps solve this, but they're built for different jobs. This guide sorts them by the job they do. The short answer Many suppliers, hourly or faster updates, FTP or XML feeds: syncX: Stock Sync, Stockeo or Feedguard.",
+      "author": "Arturas Tikkivo",
+      "date": "2026-10-29",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 37,
+      "url": "https://dev.to/tikkivo/best-shopify-supplier-inventory-sync-apps-compared-2026-4ckg",
+      "image": "/images/feed/feed-f2b9fe2c00f4.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-dc977ed5f34a",
+      "title": "Как связать сайт, SEO-аналитику и Telegram-бота без потери атрибуции: гайд с кодом",
+      "excerpt": "Классические лид-формы на сайтах («Оставьте телефон, и мы перезвоним») стремительно теряют конверсию. Пользователи устали от спам-звонков и предпочитают асинхронное общение в мессенджерах. Перевод тра…",
+      "body": "Классические лид-формы на сайтах («Оставьте телефон, и мы перезвоним») стремительно теряют конверсию. Пользователи устали от спам-звонков и предпочитают асинхронное общение в мессенджерах. Перевод трафика с сайта напрямую в Telegram-бота (для квиза, расчета стоимости проекта или получения лид-магнита) решает проблему конверсии, но создает слепую зону на стыке разработки и маркетинга: в момент перехода по ссылке t.me/... обрывается веб-аналитика . Бизнес перестает видеть, какая именно SEO-страница или рекламная кампания привела платежеспособного клиента. В нашем digital-агентстве lightson.by мы проектируем сайты, чат-ботов и поисковый маркетинг как единую воронку.",
+      "author": "LightsOn Agency",
+      "date": "2026-10-29",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 32,
+      "url": "https://dev.to/lightson_agency/kak-sviazat-sait-seo-analitiku-i-telegram-bota-biez-potieri-atributsii-ghaid-s-kodom-e49",
+      "image": "/images/feed/feed-dc977ed5f34a.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-9bbb7ebbf521",
+      "title": "Yes, {} + [] = 0. No, JavaScript Isn’t Broken",
+      "excerpt": "JavaScript is a legendary programming language. Created in the mid-1990s in just 10 days, it was born during the browser wars, when Netscape was trying to deliver a fatal blow to Microsoft. As we all…",
+      "body": "JavaScript is a legendary programming language. Created in the mid-1990s in just 10 days, it was born during the browser wars, when Netscape was trying to deliver a fatal blow to Microsoft. As we all know, that didn't exactly work out as planned… Today, some people love JavaScript, others hate it, and some just make fun of it. But the truth is, the modern web simply wouldn't exist without it! Over the years, JavaScript has gone through countless revolutions. Its capabilities today are almost incomparable to what the language could do back in the 1990s. There's just one tiny problem… Every change to the language has to take into account the fact that millions of websites out there still rely on old JavaScript behavior.",
+      "author": "Sylwia Laskowska",
+      "date": "2026-10-29",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Javascript"
+      ],
+      "featured": false,
+      "xpReward": 36,
+      "url": "https://dev.to/sylwia-lask/yes-0-no-javascript-isnt-broken-14ob",
+      "image": "/images/feed/feed-9bbb7ebbf521.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-cb804f8f659a",
+      "title": "My Manager Doesn't Understand Me. Are You Sure?",
+      "excerpt": "\"My manager doesn't understand what I'm saying.\" I've heard this sentence many times. After meetings, in 1:1s, in channels the manager isn't in. I've said it myself, more than once. These days I hear…",
+      "body": "\"My manager doesn't understand what I'm saying.\" I've heard this sentence many times. After meetings, in 1:1s, in channels the manager isn't in. I've said it myself, more than once. These days I hear it from both sides. I'm a lead: I report to an engineering manager, and six engineers across three teams work with me. Some days I'm the one shouting that something ahead looks wrong. Other days I'm the one who hears the shout and keeps the course anyway. Sitting in both seats has made one thing clearer to me. This sentence is rarely a diagnosis. It's usually a conclusion we reach too early, and this post is about what to do before reaching it. One sentence, three different problems When we say \"my manager doesn't get it,\" one of three things has usually happened: The signal didn't land.",
+      "author": "Shayan Mirzaie",
+      "date": "2026-10-29",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 53,
+      "url": "https://dev.to/leopold2/my-manager-doesnt-understand-me-are-you-sure-5ggi",
+      "image": "/images/feed/feed-cb804f8f659a.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-c438bbc0fa74",
+      "title": "Google’s got some big updates landing for pretty much everything in your smart home",
+      "excerpt": "From Chromecast to Nest Cams, Google is updating smart home hardware left and right.",
+      "body": "TL;DR Google’s sharing its latest suite of smart home improvements, and they include a ton of updates for the company’s hardware. New software releases target everything from Nest Wifi routers to Chromecast streamers. The majority of the updates are looking to address specific bugs. Google Home can’t seem to go more than a couple weeks between reports of its latest smart-home-breaking bug — and if that’s all you see, it can be easy to get a little frustrated with it. But Google’s got a team of talented developers working tirelessly on dozens upon dozen of Home upgrades, and today the company’s sharing a massive list of everything it just pushed out to users and their devices.",
+      "author": "Stephen Schenck",
+      "date": "2026-10-29",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 32,
+      "url": "https://www.androidauthority.com/google-smart-home-hardware-updates-3729736/",
+      "image": "/images/feed/feed-c438bbc0fa74.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-744c2f9b5229",
+      "title": "Rivian’s electric van gets 30% more range and AWD, now delivering",
+      "excerpt": "Rivian has started delivering the first major hardware upgrade to its electric van since production began in 2021: a bigger LFP battery pack good for 30% more range, and a new dual-motor AWD version.…",
+      "body": "Rivian has started delivering the first major hardware upgrade to its electric van since production began in 2021: a bigger LFP battery pack good for 30% more range, and a new dual-motor AWD version. The company confirmed in its Q3 2026 shareholder presentation that deliveries of the new variants began in early October. That’s the first real spec bump for a van that has been stuck at about 160 miles of rated range for years. more…",
+      "author": "Fred Lambert",
+      "date": "2026-10-29",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Rivian"
+      ],
+      "featured": false,
+      "xpReward": 38,
+      "url": "https://electrek.co/2026/10/29/rivian-electric-van-awd-30-percent-more-range/",
+      "image": "/images/feed/feed-744c2f9b5229.jpg",
+      "source": "Electrek",
+      "isLive": true
+    },
+    {
+      "id": "feed-3902401e62cf",
+      "title": "Toyota’s EV sales more than doubled in a year, but gas cars are getting crushed in China",
+      "excerpt": "Toyota’s EV sales have jumped 127% through September, but that isn’t telling the whole story. Slumping demand for gas and hybrid cars in China has pushed global sales lower for three months in a row.…",
+      "body": "Toyota’s EV sales have jumped 127% through September, but that isn’t telling the whole story. Slumping demand for gas and hybrid cars in China has pushed global sales lower for three months in a row — a development drawing significant attention in the electric vehicles, hybrids, and automotive technology space.\n\nThis report, published by Electrek, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Ev. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Electrek using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Peter Johnson",
+      "date": "2026-10-29",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Ev"
+      ],
+      "featured": false,
+      "xpReward": 51,
+      "url": "https://electrek.co/2026/10/29/toyotas-ev-sales-doubled-but-gas-cars-getting-crushed-china/",
+      "image": "/images/feed/feed-3902401e62cf.jpg",
+      "source": "Electrek",
+      "isLive": true
+    },
+    {
+      "id": "feed-846d658b3513",
+      "title": "Rivian (RIVN) Q3 2026 earnings: revenue up 38%, R2 now its best-seller",
+      "excerpt": "Rivian (RIVN) just released its Q3 2026 earnings, with revenue up 38% year-over-year to $2.155 billion. The R2, in its first full quarter of deliveries, is already the company’s best-selling vehicle,…",
+      "body": "Rivian (RIVN) just released its Q3 2026 earnings, with revenue up 38% year-over-year to $2.155 billion. The R2, in its first full quarter of deliveries, is already the company’s best-selling vehicle, ahead of both the R1 and the Amazon van. The results beat Wall Street’s expectations, and Rivian is raising its 2026 guidance on every metric. But the car business is still losing money, and the R2 ramp made the automotive margin worse this quarter. more…",
+      "author": "Fred Lambert",
+      "date": "2026-10-29",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Rivian"
+      ],
+      "featured": false,
+      "xpReward": 51,
+      "url": "https://electrek.co/2026/10/29/rivian-rivn-q3-2026-earnings-r2-best-seller/",
+      "image": "/images/feed/feed-846d658b3513.jpg",
+      "source": "Electrek",
+      "isLive": true
+    },
+    {
+      "id": "feed-092eb3159128",
+      "title": "Astronauts deploy solar array on 100th US spacewalk by International Space Station crew members",
+      "excerpt": "NASA astronaut Anil Menon and Joshua Kutryk of the Canadian Space Agency deployed a new solar array on Thursday (Oct. 29) during a seven-hour spacewalk outside the International Space Station.",
+      "body": "Two astronauts successfully installed and deployed the second-to-last upgraded solar array for the International Space Station (ISS) during the 100th U.S. spacewalk from the orbiting outpost. Anil Menon of NASA and Joshua Kutryk of the Canadian Space Agency (CSA), both ISS Expedition 75 crewmates, completed the 7-hour-and-11-minute extravehicular activity (EVA) at 3:08 p.m. EDT (1908 GMT) on Thursday (Oct. 29). The spacewalk began and ended inside the U.S. Quest airlock, with both astronauts wearing NASA's extravehicular mobility unit (EMU) spacesuits. It was the first spacewalk by a Canadian astronaut since April 2019, when David Saint-Jacques ventured into the void with NASA's Anne McClain.",
+      "author": " Robert Z. Pearlman ",
+      "date": "2026-10-29",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Space Station",
+        "Astronaut",
+        "Space"
+      ],
+      "featured": false,
+      "xpReward": 39,
+      "url": "https://www.space.com/space-exploration/international-space-station/100-us-spacewalks-from-the-iss-astronauts-deploy-new-solar-array-on-landmark-eva",
+      "image": "/images/feed/feed-092eb3159128.jpg",
+      "source": "Space.com",
+      "isLive": true
+    },
+    {
+      "id": "feed-b9a6e6fdd6fd",
+      "title": "Square Enix should never make a Final Fantasy game without turn-based combat again",
+      "excerpt": "Final Fantasy Resonance is everything Square Enix's RPG series has struggled to achieve ove the last decade, and it should guide the series' future",
+      "body": "I had few expectations going into Final Fantasy Resonance , the premium game based on Square Enix's mobile gacha Brave Exvius . Those expectations lowered in the first 10 hours, thanks to its frankly atrocious writing. But after clearing most of the story and approaching the endgame, I find I've changed stances entirely. Resonance is everything Final Fantasy has struggled to achieve over the better part of two decades — confident, innovative, engaging, and, most importantly, completely and unashamedly itself. It's the blueprint Square Enix needs to follow for the series' future.",
+      "author": "Josh Broadwell",
+      "date": "2026-10-29",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Game"
+      ],
+      "featured": false,
+      "xpReward": 46,
+      "url": "https://www.polygon.com/final-fantasy-resonance-blueprint-for-new-ff-games/",
+      "image": "/images/feed/feed-b9a6e6fdd6fd.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-a890f24e6234",
+      "title": "'Crystal Lake' is great, but nothing tops the space horror shenanigans of 'Jason X'",
+      "excerpt": "The Voorhees legend continues in Crystal Lake, but Jason X remains the Citizen Kane of this franchise.",
+      "body": "Peacock's \"Crystal Lake\" takes the story of the Voorhees family back to the beginning. It's a full-circle moment revisiting Pamela Voorhees (Linda Cardellini), who's the real star of 1980's \"Friday the 13th\" and the catalyst for all the murder and mayhem. While it's a welcome shake-up to the timeline of the horror franchise, nothing tops the originality of the slasher-in-space spectacle known as \"Jason X\". It was 2001, and the \"Friday the 13th\" franchise had hit a bit of a snag. Audiences had seen Jason Voorhees go everywhere from Crystal Lake to Manhattan and Hell, but where else could this hockey-masked killer go? Screenwriter Todd Farmer had the answer: space . \"Jason X\" says the quiet part out loud: Jason (Kane Hodder) can't die.",
+      "author": " Sergio Pereira ",
+      "date": "2026-10-29",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Space"
+      ],
+      "featured": false,
+      "xpReward": 53,
+      "url": "https://www.space.com/entertainment/space-movies-shows/crystal-lake-is-great-but-nothing-tops-the-space-horror-shenanigans-of-jason-x",
+      "image": "/images/feed/feed-a890f24e6234.jpg",
+      "source": "Space.com",
+      "isLive": true
+    },
+    {
+      "id": "feed-8daa67dfa9bb",
+      "title": "Star Trek and X-Men Icon Patrick Stewart Dies at 86",
+      "excerpt": "Sir Patrick Stewart, the actor famous for roles in Star Trek: The Next Generation, X-Men films, and Dune, has died, his family announced.",
+      "body": "Patrick Stewart, the actor best known for his roles as Jean-Luc Picard in Star Trek: The Next Generation and Professor Charles Xavier in the X-Men film franchise, has died, according to a statement from his family. Stewart was 86.",
+      "author": "Michael McWhertor",
+      "date": "2026-10-29",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 50,
+      "url": "https://www.polygon.com/patrick-stewart-dies-star-trek-x-men/",
+      "image": "/images/feed/feed-8daa67dfa9bb.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-db83db5c214c",
+      "title": "OpenAI-backed Thrive Holdings acquires ADT",
+      "excerpt": "OpenAI-backed Thrive Holdings is buying ADT in a $15.3 billion deal, with plans to bring AI to the home security business.",
+      "body": "OpenAI-backed Thrive Holdings is buying ADT in a $15.3 billion deal, with plans to bring AI to the home security business.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Openai. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Julie Bort",
+      "date": "2026-10-29",
+      "readTime": "2 min",
+      "section": "ai",
+      "tags": [
+        "Openai"
+      ],
+      "featured": false,
+      "xpReward": 53,
+      "url": "https://techcrunch.com/2026/10/29/openai-backed-thrive-holdings-acquires-adt/",
+      "image": "/images/feed/feed-db83db5c214c.webp",
+      "source": "TechCrunch",
+      "isLive": true
+    },
+    {
+      "id": "feed-beead6b9e9b9",
+      "title": "Woman Died After ChatGPT Advised Her to Stop Taking Medication, Lawsuit Alleges",
+      "excerpt": "A 31-year-old Seattle woman turned to ChatGPT-4o when she became concerned about side effects from her medication.",
+      "body": "A 31-year-old Seattle woman turned to ChatGPT-4o when she became concerned about side effects from her medication.\n\nThis report, published by CNET, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Chatgpt. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to CNET using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Corin Cesaric-Epple",
+      "date": "2026-10-29",
+      "readTime": "2 min",
+      "section": "ai",
+      "tags": [
+        "Chatgpt"
+      ],
+      "featured": false,
+      "xpReward": 40,
+      "url": "https://www.cnet.com/tech/services-and-software/woman-died-after-chatgpt-advised-her-to-stop-taking-medication-lawsuit-alleges/",
+      "image": "/images/feed/feed-beead6b9e9b9.jpg",
+      "source": "CNET",
+      "isLive": true
+    },
+    {
+      "id": "feed-c8a18843bcc9",
+      "title": "Polymarket Halted International Trading After Hackers Drained Accounts",
+      "excerpt": "The company says an unnamed third-party provider was compromised. Trading has resumed, and Polymarket says affected traders will be made whole.",
+      "body": "The company says an unnamed third-party provider was compromised. Trading has resumed, and Polymarket says affected traders will be made whole.\n\nThis report, published by Wired, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Hacker. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Wired using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Kate Knibbs",
+      "date": "2026-10-29",
+      "readTime": "2 min",
+      "section": "cybersecurity",
+      "tags": [
+        "Hacker"
+      ],
+      "featured": false,
+      "xpReward": 51,
+      "url": "https://www.wired.com/story/polymarket-flagship-platform-hack-traders-lose-money/",
+      "image": "/images/feed/feed-c8a18843bcc9.jpg",
+      "source": "Wired",
+      "isLive": true
+    },
+    {
+      "id": "feed-4ddbafbe1568",
+      "title": "Moto Buds 2 Plus deal brings Bose-tuned buds under $100",
+      "excerpt": "Save $50 on the Moto Buds 2 Plus and get Motorola’s premium 2026 earbuds with hybrid drivers, Audio Share, and ANC.",
+      "body": "Amazon has cut the Moto Buds 2 Plus to $99, $50 off the $149.99 retail price. That’s a 34% discount relative to the RRP, and it makes Motorola’s newer premium earbuds a lot more tempting right now. See the deal at Amazon",
+      "author": "Matt Horne",
+      "date": "2026-10-29",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 34,
+      "url": "https://www.androidauthority.com/moto-buds-2-plus-deal-3729769/",
+      "image": "/images/feed/feed-4ddbafbe1568.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-37490fcf1fe2",
+      "title": "Acting Legend Sir Patrick Stewart Has Died At 86",
+      "excerpt": "The iconic actor known for his work in series like Star Trek and X-Men passed after 'a brief and poignant journey with Alzheimer’s disease and Lewy body dementia'",
+      "body": "The iconic actor known for his work in series like Star Trek and X-Men passed after 'a brief and poignant journey with Alzheimer’s disease and Lewy body dementia'\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Kenneth Shepard",
+      "date": "2026-10-29",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 43,
+      "url": "https://kotaku.com/patrick-stewart-death-cause-announcement-x-men-star-trek-2000751164",
+      "image": "/images/feed/feed-37490fcf1fe2.jpg",
+      "source": "Kotaku",
+      "isLive": true
+    },
+    {
+      "id": "feed-c8362fe5b245",
+      "title": "Apple VP talks new iPad mini: OLED without ProMotion, Acoustic Display, more",
+      "excerpt": "Apple unveiled its “biggest update ever” for the iPad mini this week, introducing a thinner, lighter design and an OLED display. In a pair of interviews, Dave Pakula, Apple’s vice president of Hardwar…",
+      "body": "Apple unveiled its “biggest update ever” for the iPad mini this week, introducing a thinner, lighter design and an OLED display. In a pair of interviews, Dave Pakula, Apple’s vice president of Hardwar — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Chance Miller",
+      "date": "2026-10-29",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 45,
+      "url": "https://9to5mac.com/2026/10/29/apple-vp-talks-new-ipad-mini-oled-without-promotion-acoustic-display-more/",
+      "image": "/images/feed/feed-c8362fe5b245.jpg",
+      "source": "9to5Mac",
+      "isLive": true
+    },
+    {
+      "id": "feed-876d20617259",
+      "title": "Save $102 on Lenovo’s big-screen Idea Tab Pro Gen 2 tablet",
+      "excerpt": "Lenovo Idea Tab Pro Gen 2 drops to $447.36 on Amazon, with a 13-inch 3.5K 144Hz display, pen, and folio case included.",
+      "body": "Lenovo’s Idea Tab Pro Gen 2 is built for people who want a big Android tablet for movies, notes, and getting work done, and there’s a solid deal on it right now on Amazon. This model stands out with a 13-inch 3.5K IPS touchscreen and a fast 144Hz refresh rate, giving you a large, sharp display that’s well suited for both entertainment and day-to-day tasks. See the deal at Amazon",
+      "author": "Matt Horne",
+      "date": "2026-10-29",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Tablet"
+      ],
+      "featured": false,
+      "xpReward": 39,
+      "url": "https://www.androidauthority.com/lenovo-idea-tab-pro-gen-2-deal-3729766/",
+      "image": "/images/feed/feed-876d20617259.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-9fab1f4beef1",
+      "title": "Nothing Headphones Sale: Stylish and Up to 41% Off",
+      "excerpt": "Some of the brand’s best styles, including the Nothing Headphone (1) and CMF Headphone Pro, are at the lowest prices I’ve ever seen ahead of Black Friday.",
+      "body": "Some of the brand’s best styles, including the Nothing Headphone (1) and CMF Headphone Pro, are at the lowest prices I’ve ever seen ahead of Black Friday.\n\nThis report, published by Wired, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Headphones. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Wired using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Harry Rabinowitz",
+      "date": "2026-10-29",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Headphones"
+      ],
+      "featured": false,
+      "xpReward": 49,
+      "url": "https://www.wired.com/story/nothing-cmf-deals-october-2026/",
+      "image": "/images/feed/feed-9fab1f4beef1.jpg",
+      "source": "Wired",
+      "isLive": true
+    },
+    {
+      "id": "feed-cafa5235113f",
+      "title": "'Whence the Weeping' quest walkthrough in Phantom Blade Zero",
+      "excerpt": "Here's how you complete the \"Whence the Weeping\" side quest in Phantom Blade Zero and where you must go to find the source of the weeping.",
+      "body": "\"Whence the Weeping\" is a side quest in Phantom Blade Zero that you start very early in the game. Unlike the \"A Healer's Mercy\" and \"Flesh Lily\" secondary missions, which have more straightforward objectives, this quest asks you to simply \"find the source of the weeping.\" Besides, it takes longer to finish than one would assume based on when this side quest starts.",
+      "author": "Paulo Kawanishi",
+      "date": "2026-10-29",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 40,
+      "url": "https://www.polygon.com/phantom-blade-zero-whence-the-weeping-quest-walkthrough/",
+      "image": "/images/feed/feed-cafa5235113f.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-aabcde2bdef3",
+      "title": "Popcorn bucket innovation is at an all-time low and the Dune: Part Three 'Double Sandworm' is proof",
+      "excerpt": "Just what the Sandworm bucket needed: a second hole.",
+      "body": "Just what the Sandworm bucket needed: a second hole.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "staff@engadget.com (Ian Carlos Campbell)",
+      "date": "2026-10-29",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 51,
+      "url": "https://www.engadget.com/2301587/popcorn-bucket-innovation-is-at-an-all-time-low-and-the-dune-part-three-double-sandworm-is-proof/",
+      "image": "/images/feed/feed-aabcde2bdef3.jpg",
+      "source": "Engadget",
+      "isLive": true
+    },
+    {
+      "id": "feed-17bf5f8852d6",
+      "title": "Here’s A Metroid Prime Trilogy Dev’s Take On Why Metroid Prime 4′s Bike Sections Sucked",
+      "excerpt": "Jack Mathews, lead technical engineer for the Prime Trilogy, explains why Sol Valley was 'just a waste'",
+      "body": "Jack Mathews, lead technical engineer for the Prime Trilogy, explains why Sol Valley was 'just a waste'\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Ash Parrish",
+      "date": "2026-10-29",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 36,
+      "url": "https://kotaku.com/heres-a-metroid-prime-trilogy-devs-take-on-why-metroid-prime-4s-bike-sections-sucked-2000751031",
+      "image": "/images/feed/feed-17bf5f8852d6.jpg",
+      "source": "Kotaku",
+      "isLive": true
+    },
+    {
+      "id": "feed-25292e4cd11b",
+      "title": "Time may be up for Samsung Galaxy Watch extended software support",
+      "excerpt": "Samsung is reportedly considering ending OS upgrades on older Galaxy Watches.",
+      "body": "TL;DR Samsung is reportedly considering an end to major OS upgrades on older Galaxy Watches. According to the leaker, the security update schedule will continue as planned. Galaxy Watches have faced persistent performance issues and bugs. Samsung Galaxy Watch owners have dealt with a lot, especially lately. Some watches have overheated so much that they’ve caused burns on the wrists of those who wear them. Others charge so slowly because of thermal throttling that people are using fans and ice baths to speed the process. But now a new rumor raises a painful possibility for someone who’s invested in a Galaxy Watch: Samsung might be about to stop OS upgrades on older models.",
+      "author": "Chandra Steele",
+      "date": "2026-10-29",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 48,
+      "url": "https://www.androidauthority.com/samsung-galaxy-watch-os-updates-3729748/",
+      "image": "/images/feed/feed-25292e4cd11b.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-e174fdbadbe6",
+      "title": "XPENG L05 Offers A Bit More",
+      "excerpt": "XPENG recently launched sales of the new L05 in China and began shipments to global markets. Having seen a camouflaged prototype in Munich a few months ago, I had the impression that it was basically…",
+      "body": "XPENG recently launched sales of the new L05 in China and began shipments to global markets. Having seen a camouflaged prototype in Munich a few months ago, I had the impression that it was basically a longer L03. Looking at the production model, other than a few added features and ... [continued] The post XPENG L05 Offers A Bit More appeared first on CleanTechnica .",
+      "author": "Larry Evans",
+      "date": "2026-10-29",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Cars"
+      ],
+      "featured": false,
+      "xpReward": 42,
+      "url": "https://cleantechnica.com/2026/10/29/xpeng-l05-offers-a-bit-more/",
+      "image": "/images/feed/feed-e174fdbadbe6.jpg",
+      "source": "CleanTechnica",
+      "isLive": true
+    },
+    {
+      "id": "feed-8c7bd80e8240",
+      "title": "IgE disruptor for food allergy with Claude-enabled antibody design [pdf]",
+      "excerpt": "",
+      "body": "This report, published by Hacker News, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Claude. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Hacker News using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "matco11",
+      "date": "2026-10-29",
+      "readTime": "2 min",
+      "section": "ai",
+      "tags": [
+        "Claude"
+      ],
+      "featured": false,
+      "xpReward": 52,
+      "url": "https://divergencelabs.com/publications/ige-preprint.pdf",
+      "image": "/images/topics/topic-ai-ml.png",
+      "source": "Hacker News",
+      "isLive": true
+    },
+    {
+      "id": "feed-386a2777e7f7",
+      "title": "Fake crypto app on Apple App Store linked to $23K wallet theft",
+      "excerpt": "A fake cryptocurrency trading app called Padre Terminal, previously available on the Apple App Store for iOS devices, has been linked to the theft of approximately $23,000 from 27 Solana wallets. [...…",
+      "body": "A fake cryptocurrency trading app called Padre Terminal, previously available on the Apple App Store for iOS devices, has been linked to the theft of approximately $23,000 from 27 Solana wallets. [ — a development drawing significant attention in the cybersecurity and digital privacy space.\n\nThis report, published by BleepingComputer, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cybersecurity. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to BleepingComputer using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Bill Toulas",
+      "date": "2026-10-29",
+      "readTime": "2 min",
+      "section": "cybersecurity",
+      "tags": [
+        "Cybersecurity"
+      ],
+      "featured": false,
+      "xpReward": 49,
+      "url": "https://www.bleepingcomputer.com/news/security/fake-crypto-app-on-apple-app-store-linked-to-23k-wallet-theft/",
+      "image": "/images/feed/feed-386a2777e7f7.jpg",
+      "source": "BleepingComputer",
+      "isLive": true
+    },
+    {
+      "id": "feed-ae192d86e0a6",
+      "title": "ThreatsDay: Critical Firewall Flaws, Banking Trojans Rented, Weaponized PDF, Token Theft + 26 More Stories",
+      "excerpt": "Some attacks take real skill. Others just need someone to leave a door open. This week has both. Exposed passwords, old bugs still getting exploited, and trusted software doing things it shouldn't. Th…",
+      "body": "Some attacks take real skill. Others just need someone to leave a door open. This week has both. Exposed passwords, old bugs still getting exploited, and trusted software doing things it shouldn't. There's a strange mix of clever tricks and careless mistakes. Hackers are borrowing trust from familiar apps, websites, and AI tools. Some are using AI to speed things up. Others are leaving their",
+      "author": "info@thehackernews.com (The Hacker News)",
+      "date": "2026-10-29",
+      "readTime": "2 min",
+      "section": "cybersecurity",
+      "tags": [
+        "Firewall"
+      ],
+      "featured": false,
+      "xpReward": 51,
+      "url": "https://thehackernews.com/2026/10/threatsday-critical-firewall-flaws.html",
+      "image": "/images/feed/feed-ae192d86e0a6.jpg",
+      "source": "The Hacker News",
       "isLive": true
     },
     {
@@ -51,125 +623,11 @@
       "tags": [
         "Cars"
       ],
-      "featured": true,
-      "xpReward": 33,
+      "featured": false,
+      "xpReward": 48,
       "url": "https://insideevs.com/news/813746/ford-fathom-pricing-high-30k/",
       "image": "/images/feed/feed-566f78cc8ad8.jpg",
       "source": "InsideEVs",
-      "isLive": true
-    },
-    {
-      "id": "feed-d605c8ee80a5",
-      "title": "Day 29: Managing Technical Debt, Drift and Model Governance in Enterprise IT",
-      "excerpt": "Shipping a model is not the finish line. Ordinary software stays exactly as correct as it was on release day until someone changes the code. An AI system can get worse without anyone touching it, beca…",
-      "body": "Shipping a model is not the finish line. Ordinary software stays exactly as correct as it was on release day until someone changes the code. An AI system can get worse without anyone touching it , because the world feeding it keeps moving. That slow decay is called drift , and managing it is the heart of long-term AI maintenance. In plain terms: A map is accurate the day it is printed. A year later new roads exist, and the map still looks confident while sending you down a closed street. Diagram: Data drift happens when the distribution of production inputs moves away from the training data, for example when a firmware update changes the units a device reports. The model was never trained on the new range, so its accuracy degrades quietly. See the animated version . 1.",
-      "author": "Suresh Kumar Pallapothu",
-      "date": "2026-10-29",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 32,
-      "url": "https://dev.to/suresh_kumar_de3920bedd1c/day-29-managing-technical-debt-drift-and-model-governance-in-enterprise-it-b7",
-      "image": "/images/feed/feed-d605c8ee80a5.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-4d38d07de099",
-      "title": "Authentication in SPAs: 8 Ways to Handle Tokens and Sessions",
-      "excerpt": "Authentication is one of those things that looks simple until you start thinking about security, token storage, session expiration, and multiple browser tabs. You can store a JWT in localStorage, keep…",
-      "body": "Authentication is one of those things that looks simple until you start thinking about security, token storage, session expiration, and multiple browser tabs. You can store a JWT in localStorage , keep an access token in memory, use HttpOnly cookies, or introduce a Backend for Frontend (BFF). Each approach comes with different trade-offs. The important question isn't just how to log users in. It's how to keep them authenticated without exposing their credentials unnecessarily. 1. Memory + Silent Refresh Keep the access token in JavaScript memory and the refresh token in an HttpOnly cookie. When the access token expires, the client calls a refresh endpoint. The browser automatically sends the cookie, and the backend issues a new access token.",
-      "author": "Amin Sadeghi",
-      "date": "2026-10-29",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 37,
-      "url": "https://dev.to/aydope/authentication-in-spas-8-ways-to-handle-tokens-and-sessions-3l11",
-      "image": "/images/feed/feed-4d38d07de099.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-f227b42e2da4",
-      "title": "Dados sensíveis em saúde",
-      "excerpt": "Resposta curta Dados sensíveis em saúde são categorizados como tais pela LGPD (art. 5º, XII) e exigem tratamento com base legal específica — geralmente consentimento explícito ou hipóteses de exceção…",
-      "body": "Resposta curta Dados sensíveis em saúde são categorizados como tais pela LGPD (art. 5º, XII) e exigem tratamento com base legal específica — geralmente consentimento explícito ou hipóteses de exceção previstas no art. 11 — além de medidas técnicas e organizacionais reforçadas. O Conselho Federal de Medicina (CFM) exige, ainda, conformidade com a Resolução CFM nº 2.288/2021, que estabelece critérios éticos e de segurança para o uso de dados pessoais em contextos clínicos e de pesquisa. TL;DR Dados sensíveis em saúde incluem informações sobre condição física ou mental, origem racial/étnica, vida sexual, convicções religiosas e dados genéticos (LGPD, art. 5º, XII). O consentimento para tratamento deve ser explícito , informado e documentado , conforme exigido pelo art.",
-      "author": "Matheus Feijão ",
-      "date": "2026-10-29",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 47,
-      "url": "https://dev.to/beanstechbr/dados-sensiveis-em-saude-2fjb",
-      "image": "/images/feed/feed-f227b42e2da4.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-0a58553390f9",
-      "title": "15 deterministic tools your AI agent should call instead of guessing",
-      "excerpt": "Ask an LLM whether EKU9003173C9 is a valid Mexican RFC, what the German VAT rate was on a given date, or which HTS code applies to a stainless steel sink, and you get a confident answer. Sometimes it…",
-      "body": "Ask an LLM whether EKU9003173C9 is a valid Mexican RFC, what the German VAT rate was on a given date, or which HTS code applies to a stainless steel sink, and you get a confident answer. Sometimes it is right. For an invoicing, KYC or customs agent, \"sometimes\" is not good enough: a check digit is either correct or not, a tariff code is either in the official schedule or not, and a payroll withholding comes from a published table, not from a model's memory. This post is about the class of work an agent should delegate to deterministic tools and how we packaged 15 of them as one MCP server on Apify . Everything runs against official or open sources, has no LLM inside, stores nothing, and costs half a cent per call. What belongs in a tool, not in a prompt Three tests.",
-      "author": "hexadata",
-      "date": "2026-10-29",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 36,
-      "url": "https://dev.to/hexadata/15-deterministic-tools-your-ai-agent-should-call-instead-of-guessing-7ke",
-      "image": "/images/feed/feed-0a58553390f9.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-9c85477c5aa3",
-      "title": "What I Built...",
-      "excerpt": "This is a submission for the MLH x DEV Writing Challenge. During the hackathon, I worked on a voice agent — a project that explored making interactions with technology feel more natural through voice.…",
-      "body": "This is a submission for the MLH x DEV Writing Challenge . What I Built During the hackathon, I worked on a voice agent — a project that explored making interactions with technology feel more natural through voice. The idea was to move beyond the usual text-based interactions and explore a more conversational way for people to communicate with software. Building it meant figuring things out as I went, experimenting with the available tools, and trying to turn an idea into something that actually worked. The experience was hectic, with a lot happening in a short amount of time. Looking back, what stands out isn't every technical detail but the process itself: making decisions under pressure, troubleshooting unexpected issues, and learning by building.",
-      "author": "Ayush Anand",
-      "date": "2026-10-29",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 34,
-      "url": "https://dev.to/ayushanand10047/what-i-built-4h25",
-      "image": "/images/feed/feed-9c85477c5aa3.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-af72b231509c",
-      "title": "Hacker may have stolen millions in a malware attack against online poker players",
-      "excerpt": "Wired has the story of a superuser cheating scandal.",
-      "body": "Wired has the story of a superuser cheating scandal.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Anna Washenko)",
-      "date": "2026-10-29",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 32,
-      "url": "https://www.engadget.com/2301500/hacker-may-have-stolen-millions-in-a-malware-attack-against-online-poker-players/",
-      "image": "/images/feed/feed-af72b231509c.jpg",
-      "source": "Engadget",
       "isLive": true
     },
     {
@@ -185,7 +643,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 42,
       "url": "https://kotaku.com/ace-combat-8-wings-of-theve-the-kotaku-review-2000750998",
       "image": "/images/feed/feed-9565fe0e2861.jpg",
       "source": "Kotaku",
@@ -206,48 +664,10 @@
         "Astronaut"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 53,
       "url": "https://www.space.com/space-exploration/artemis/see-nasas-artemis-iii-astronauts-meet-trump-at-the-white-house-as-they-train-for-a-critical-2027-moon-lander-test-flight-photos",
       "image": "/images/feed/feed-fbbe7e03265c.jpg",
       "source": "Space.com",
-      "isLive": true
-    },
-    {
-      "id": "feed-f3ace899ddd8",
-      "title": "New James Bond Officially Joins The 007 Franchise Today",
-      "excerpt": "Isaac Rouse is the new James Bond in SilverFin, an adaptation of 007 author Charlie Higson's young adult novel based on Ian Fleming's super spy.",
-      "body": "Ian Fleming's James Bond is set for a cinematic revival with director Denis Villeneuve's in-the-works feature film, currently known colloquially as Bond 26 . Casting for the new 007 is currently underway, with a half-dozen leading men in contention to succeed actor Daniel Craig, who retired as Bond in 2021's No Time To Die after starring in five franchise films.",
-      "author": "Michael McWhertor",
-      "date": "2026-10-29",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 35,
-      "url": "https://www.polygon.com/new-james-bond-actor-silverfin-isaac-rouse-recast/",
-      "image": "/images/feed/feed-f3ace899ddd8.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-c75dfd1536f7",
-      "title": "How to get comms modules in DMZ in Modern Warfare 4",
-      "excerpt": "This guide explains how to get comms modules in DMZ in Modern Warfare 4 and the best locations to find them.",
-      "body": "Getting comms modules in DMZ in Call of Duty: Modern Warfare 4 is a pain in the butt, because this epic-tier crafting ingredient is incredibly elusive if you don't know where to look. You need comms modules to unlock uncommon ingredient printing (along with high-tenacity fibers ), to increase your weapon storage, and for other equipment such as fulton drop markers . Once you've unlocked epic ingredient printing you can simply make more, but that's not feasible until you've acquired even rarer ingredients.",
-      "author": "Ford James",
-      "date": "2026-10-29",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 32,
-      "url": "https://www.polygon.com/mw4-modern-warfare-4-dmz-comms-modules-how-to-get/",
-      "image": "/images/feed/feed-c75dfd1536f7.jpg",
-      "source": "Polygon",
       "isLive": true
     },
     {
@@ -263,48 +683,10 @@
         "Gemini"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 45,
       "url": "https://www.theverge.com/ai-artificial-intelligence/1022519/google-gemini-file-editing-documents-pdfs",
       "image": "/images/feed/feed-8439773cf284.jpg",
       "source": "The Verge",
-      "isLive": true
-    },
-    {
-      "id": "feed-a0611e92d05e",
-      "title": "Netflix is making a live-action PUBG show written and directed by Donald Glover",
-      "excerpt": "The streamer also has an Assassin's Creed series in the works, along with a Gears of War feature film.",
-      "body": "The streamer also has an Assassin's Creed series in the works, along with a Gears of War feature film.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Lawrence Bonk)",
-      "date": "2026-10-29",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 30,
-      "url": "https://www.engadget.com/2301458/netflix-is-making-a-live-action-pubg-show-written-and-directed-by-donald-glover/",
-      "image": "/images/feed/feed-a0611e92d05e.jpg",
-      "source": "Engadget",
-      "isLive": true
-    },
-    {
-      "id": "feed-2256815dcd61",
-      "title": "Don't expect more Assassin's Creed remakes anytime soon",
-      "excerpt": "Ubisoft shared some updates on the franchise, including confirmation of a New Game+ option for Assassin's Creed Valhalla.",
-      "body": "Ubisoft shared some updates on the franchise, including confirmation of a New Game+ option for Assassin's Creed Valhalla.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Kris Holt)",
-      "date": "2026-10-29",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 35,
-      "url": "https://www.engadget.com/2301452/dont-expect-more-assassins-creed-remakes-anytime-soon/",
-      "image": "/images/feed/feed-2256815dcd61.jpg",
-      "source": "Engadget",
       "isLive": true
     },
     {
@@ -320,7 +702,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 53,
       "url": "https://www.wired.com/story/a-defense-contractor-gave-their-personal-ai-agent-access-to-a-secure-pentagon-system/",
       "image": "/images/feed/feed-c5a804515168.jpg",
       "source": "Wired",
@@ -341,48 +723,10 @@
         "Hacker"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 37,
       "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-cisco-sd-wan-flaw-to-deploy-custom-keydrift-malware/",
       "image": "/images/feed/feed-81e027c44df6.jpg",
       "source": "BleepingComputer",
-      "isLive": true
-    },
-    {
-      "id": "feed-07608c2f1419",
-      "title": "NVIDIA CEO Jensen Huang may have been the target of a Chinese government spy",
-      "excerpt": "President Trump reportedly chose to do nothing in response.",
-      "body": "President Trump reportedly chose to do nothing in response.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Will Shanklin)",
-      "date": "2026-10-29",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 49,
-      "url": "https://www.engadget.com/2301447/nvidia-ceo-jensen-huang-may-have-been-the-target-of-a-chinese-government-spy/",
-      "image": "/images/feed/feed-07608c2f1419.jpg",
-      "source": "Engadget",
-      "isLive": true
-    },
-    {
-      "id": "feed-fb2e75a3957d",
-      "title": "'Pokémon' Officially Brings Back Long-Lost Rare Monster After 10 Years",
-      "excerpt": "This elusive monster was last available in a 2016 event, but it's coming back for Pokémon Legends: Z-A",
-      "body": "The most elusive Pokémon probably aren't the ones you think. The list of unavailable Pokémon is full of monsters that sound ordinary but, for one reason or another, aren't obtainable. That's why fans are so excited about the new Pokémon Legends: Z-A challenge.",
-      "author": "Patricia Hernandez",
-      "date": "2026-10-29",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 38,
-      "url": "https://www.polygon.com/pokemon-legends-za-vivillon-poke-ball-pattern-challenge-how-to-get/",
-      "image": "/images/feed/feed-fb2e75a3957d.png",
-      "source": "Polygon",
       "isLive": true
     },
     {
@@ -398,48 +742,10 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 53,
       "url": "https://insideevs.com/news/813762/vw-ev-sales-low-profits/",
       "image": "/images/feed/feed-d7968f003387.jpg",
       "source": "InsideEVs",
-      "isLive": true
-    },
-    {
-      "id": "feed-df596a2e1e77",
-      "title": "Netflix Officially Confirms PUBG TV Adaptation in the Works",
-      "excerpt": "Battle royale shooter PUBG is getting a live-action TV series from Netflix, with Donald Glover set to write, direct, star and produce the adaptation.",
-      "body": "Netflix has a long history of video game adaptations with series like Arcane , Castlevania , Resident Evil , and the upcoming Assassin's Creed live-action show , but the streaming service's latest project is a big surprise. Krafton and Netflix announced Thursday that PUBG , the enduring game that popularized the battle royale genre, is in development as a live-action television series for Netflix.",
-      "author": "Michael McWhertor",
-      "date": "2026-10-29",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 30,
-      "url": "https://www.polygon.com/netflix-pubg-tv-series-donald-glover-krafton/",
-      "image": "/images/feed/feed-df596a2e1e77.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-2ca415938285",
-      "title": "Meta will now alert parents if teens 'repeatedly' search for self-harm content on Facebook",
-      "excerpt": "The company will also notify parents about conversations with Meta AI.",
-      "body": "The company will also notify parents about conversations with Meta AI.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Karissa Bell)",
-      "date": "2026-10-29",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 48,
-      "url": "https://www.engadget.com/2301410/meta-will-now-alert-parents-if-teens-repeatedly-search-for-self-harm-content-on-facebook/",
-      "image": "/images/feed/feed-2ca415938285.jpg",
-      "source": "Engadget",
       "isLive": true
     },
     {
@@ -455,67 +761,10 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 45,
       "url": "https://www.nasa.gov/solar-system/planets/mars/nasa-funded-study-details-one-of-oldest-mars-meteorites-ever-found/",
       "image": "/images/feed/feed-42f37f20b061.jpg",
       "source": "NASA Breaking News",
-      "isLive": true
-    },
-    {
-      "id": "feed-daa2fdef8804",
-      "title": "'Rings of Power' Season 3 Will Introduce a Character That Subverts Tolkien’s Mythos",
-      "excerpt": "'The Lord of the Rings: The Rings of Power' will introduce an \"Orc with an arc.\"",
-      "body": "The Age of Men is over. The Age of the Orc Discourse has begun. In a recent interview with IGN about the upcoming season of The Lord of the Rings: The Rings of Power , co-showrunner Patrick McKay said big changes are coming, including a five-year time skip . McKay went as far as to describe season 3 as a “soft reboot” of sorts. While that’s certainly a big deal, another line in the interview will stand out for many Tolkien-heads. The show will introduce “an Orc with an arc.”",
-      "author": "Elijah Gonzalez",
-      "date": "2026-10-29",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 46,
-      "url": "https://www.polygon.com/lord-of-the-rings-rings-of-power-orc-with-an-arc-tolkien-dilemma/",
-      "image": "/images/feed/feed-daa2fdef8804.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-68cabe2c40a1",
-      "title": "James Gunn Finally Confirming What’s Official DCU Canon in The Suicide Squad",
-      "excerpt": "James Gunn will decide DCU canon in a podcast all about 2021's The Suicide Squad",
-      "body": "Ever since James Gunn was named co-head of DC Studios in 2022, the filmmaker has spent years answering fan questions about what past and current projects constitute the new DC Universe canon. One of the biggest points of contention is 2021's The Suicide Squad , which Gunn directed before the new DCU was a thing. Now he's finally going to give the definitive answer on exactly what from the film is canon, and you'll be able to watch the whole thing.",
-      "author": "Willa Rowe",
-      "date": "2026-10-29",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 53,
-      "url": "https://www.polygon.com/dc-james-gunn-suicide-squad-canon-podcast-announced/",
-      "image": "/images/feed/feed-68cabe2c40a1.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-e9bfa149374f",
-      "title": "iOS 27.2 adds new video feature that’s perfect for iPhone Duo",
-      "excerpt": "iOS 27.2 launched this week with many new features, including an upgrade for the Apple TV app that’s especially perfect for iPhone Duo: Multiview. more…",
-      "body": "iOS 27.2 launched this week with many new features, including an upgrade for the Apple TV app that’s especially perfect for iPhone Duo: Multiview. more — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Iphone. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Ryan Christoffel",
-      "date": "2026-10-29",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Iphone"
-      ],
-      "featured": false,
-      "xpReward": 43,
-      "url": "https://9to5mac.com/2026/10/29/ios-27-2-adds-new-video-feature-thats-perfect-for-iphone-duo/",
-      "image": "/images/feed/feed-e9bfa149374f.jpg",
-      "source": "9to5Mac",
       "isLive": true
     },
     {
@@ -531,7 +780,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 49,
       "url": "https://www.nasa.gov/news-release/nasa-names-troy-asher-armstrong-flight-research-center-director/",
       "image": "/images/feed/feed-fa1514b311ff.jpg",
       "source": "NASA Breaking News",
@@ -569,29 +818,10 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 44,
       "url": "https://electrek.co/2026/10/29/ecoflow-delta-3-ultra-power-station-exclusive-refurb-anker-solix-segway-f3-e-scooter-more/",
       "image": "/images/feed/feed-516381e9ee28.jpg",
       "source": "Electrek",
-      "isLive": true
-    },
-    {
-      "id": "feed-d8eced41f6de",
-      "title": "Google brings richer document editing to Gemini on mobile and the web",
-      "excerpt": "Gemini is ready for your revision notes as its document powers expand.",
-      "body": "TL;DR Gemini is bringing in-app document editing and preview to mobile and the web. After creating custom files, Gemini users can directly interact with the preview to deliver further revision requests. The mobile app supports PDFs, while Gemini on the web can handle a larger variety of file types. At this point, we’ve all seen how easy it is for AI to generate some documents . But there’s still often a big gap between getting that first draft produced, and fine-tuning the model’s output to the point where every last element is just how we want it to be. Google’s always working on tweaks to improve that process, and today the company shares some of its latest progress.",
-      "author": "Stephen Schenck",
-      "date": "2026-10-29",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 48,
-      "url": "https://www.androidauthority.com/gemini-document-editing-3729712/",
-      "image": "/images/feed/feed-d8eced41f6de.jpg",
-      "source": "Android Authority",
       "isLive": true
     },
     {
@@ -607,29 +837,10 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 53,
       "url": "https://www.nasa.gov/directorates/stmd/prizes-challenges-crowdsourcing-program/center-of-excellence-for-collaborative-innovation-coeci/nih-nasa-qusafe-challenge/",
       "image": "/images/feed/feed-02747af278d8.jpg",
       "source": "NASA Breaking News",
-      "isLive": true
-    },
-    {
-      "id": "feed-a17397b3a909",
-      "title": "Hyundai hints at IONIQ P as the name for its new entry-level EV",
-      "excerpt": "Hyundai is launching a new mass-market electric SUV to be made in India, expected to go on sale as the IONIQ P. more…",
-      "body": "Hyundai is launching a new mass-market electric SUV to be made in India, expected to go on sale as the IONIQ P. more — a development drawing significant attention in the electric vehicles, hybrids, and automotive technology space.\n\nThis report, published by Electrek, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Ev. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Electrek using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Peter Johnson",
-      "date": "2026-10-29",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Ev"
-      ],
-      "featured": false,
-      "xpReward": 35,
-      "url": "https://electrek.co/2026/10/29/hyundai-ioniq-p-name-new-entry-level-ev/",
-      "image": "/images/feed/feed-a17397b3a909.jpg",
-      "source": "Electrek",
       "isLive": true
     },
     {
@@ -645,7 +856,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 34,
       "url": "https://openai.com/index/updated-model-spec",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "OpenAI Blog",
@@ -664,29 +875,10 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 46,
       "url": "https://techcrunch.com/2026/10/29/mistral-releases-weights-for-its-trillion-parameter-ai-model-targeting-cybersecurity/",
-      "image": "/images/feed/feed-f4d2fa0b488e.webp",
+      "image": "/images/feed/feed-f4d2fa0b488e.jpg",
       "source": "TechCrunch",
-      "isLive": true
-    },
-    {
-      "id": "feed-051d41a275d1",
-      "title": "Ireland’s Grid Flexibility Assessment Shows Why Location Matters",
-      "excerpt": "Ireland's Naas substation shows why flexible batteries and loads must match the location, timing and operating conditions of grid constraints. The post Ireland’s Grid Flexibility Assessment Shows Why…",
-      "body": "Ireland's Naas substation shows why flexible batteries and loads must match the location, timing and operating conditions of grid constraints. The post Ireland’s Grid Flexibility Assessment Shows Why — a development drawing significant attention in the electric vehicles, hybrids, and automotive technology space.\n\nThis report, published by CleanTechnica, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cars. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to CleanTechnica using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Michael Barnard",
-      "date": "2026-10-29",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Cars"
-      ],
-      "featured": false,
-      "xpReward": 32,
-      "url": "https://cleantechnica.com/2026/10/29/grid-flexibility-location-ireland-naas/",
-      "image": "/images/feed/feed-051d41a275d1.png",
-      "source": "CleanTechnica",
       "isLive": true
     },
     {
@@ -702,7 +894,7 @@
         "Security"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 36,
       "url": "https://www.zdnet.com/tech/firefox-chrome-browsers-patch-200-security-flaws-update-asap/",
       "image": "/images/feed/feed-f6f781c31770.jpg",
       "source": "ZDNet",
@@ -721,105 +913,10 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 50,
       "url": "https://www.bleepingcomputer.com/news/security/chrome-extensions-with-134-million-installs-caught-hijacking-searches/",
       "image": "/images/feed/feed-b125bdeac9bf.jpg",
       "source": "BleepingComputer",
-      "isLive": true
-    },
-    {
-      "id": "feed-1c2933e18579",
-      "title": "Ex-Tesla Autopilot head calls vision-only a ‘weird religious stance’",
-      "excerpt": "GM Chief Product Officer Sterling Anderson, who ran Tesla’s Autopilot program in 2015 and 2016, says dropping radar for a camera-only self-driving system is “a weird religious stance that ignores phys…",
-      "body": "GM Chief Product Officer Sterling Anderson, who ran Tesla’s Autopilot program in 2015 and 2016, says dropping radar for a camera-only self-driving system is “a weird religious stance that ignores physics.” It’s the bluntest rebuke of Tesla’s vision-only bet yet from someone who helped build the original Autopilot. And it lands while Tesla is pushing camera-only Cybercabs into driverless service in Austin. more…",
-      "author": "Fred Lambert",
-      "date": "2026-10-29",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Tesla"
-      ],
-      "featured": false,
-      "xpReward": 46,
-      "url": "https://electrek.co/2026/10/29/ex-tesla-autopilot-head-vision-only-weird-religious-stance/",
-      "image": "/images/feed/feed-1c2933e18579.png",
-      "source": "Electrek",
-      "isLive": true
-    },
-    {
-      "id": "feed-3e1aa5baab4c",
-      "title": "Big cats, unexplained lights and a floodlit eclipse — 7 skywatching 'horror stories' to keep you entertained this Halloween",
-      "excerpt": "Stargazing doesn't always go to plan, and we have the stories to prove it.",
-      "body": "Halloween is almost upon us! To celebrate we've pulled together a series of short \"skywatching horror stories\" perfect for getting you in the mood for the spooky season. Granted, stargazing may not be the most hazardous of past times. But you'd be surprised how often things can go wrong. The best laid plans can be shattered by the unforeseen, unexpected phenomena can leave you scared witless, or mother nature itself can step in to remind us how little control we have over the environment around us. Many of the stories serve as a cautionary tale, while others are simply..unfortunate. Be sure to share your stories of skywatching \"horror stories\" in the comments below for a chance to feature in next year's Halloween coverage!",
-      "author": " Anthony Wood ",
-      "date": "2026-10-29",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Space"
-      ],
-      "featured": false,
-      "xpReward": 30,
-      "url": "https://www.space.com/stargazing/big-cats-unexplained-lights-and-a-floodlit-eclipse-7-skywatching-horror-stories-to-keep-you-entertained-this-halloween",
-      "image": "/images/feed/feed-3e1aa5baab4c.jpg",
-      "source": "Space.com",
-      "isLive": true
-    },
-    {
-      "id": "feed-879452bb4332",
-      "title": "Linux Kernel TCP Flaw With 9.8 CVSS Score Affects Ubuntu, Red Hat and Other Distributions",
-      "excerpt": "A flaw in the Linux kernel's TCP code, tracked as CVE-2026-98432, affects Ubuntu, Red Hat Enterprise Linux (RHEL), and other Linux distributions. The kernel's own CVE team rates it 9.8 out of 10 on th…",
-      "body": "A flaw in the Linux kernel's TCP code, tracked as&nbsp;CVE-2026-98432, affects Ubuntu, Red Hat Enterprise Linux (RHEL), and other Linux distributions. The kernel's own CVE team rates it 9.8 out of 10 on the CVSS scale. Anthropic said&nbsp;on October 27 that its AI model wrote an exploit that uses the flaw to let a remote attacker with no credentials run commands as root on Linux servers with a",
-      "author": "info@thehackernews.com (The Hacker News)",
-      "date": "2026-10-29",
-      "readTime": "2 min",
-      "section": "cybersecurity",
-      "tags": [
-        "Cybersecurity"
-      ],
-      "featured": false,
-      "xpReward": 42,
-      "url": "https://thehackernews.com/2026/10/linux-kernel-tcp-flaw-with-98-cvss.html",
-      "image": "/images/feed/feed-879452bb4332.png",
-      "source": "The Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-e7d47ae05eeb",
-      "title": "This $15,000 low-speed EV is now on sale, and it’s street-legal",
-      "excerpt": "It may be small, but it’s already drawing a big response. The 2027 Fiat Topolino is now on sale in the US: a street-legal, low-speed EV that starts under $15,000. more…",
-      "body": "It may be small, but it’s already drawing a big response. The 2027 Fiat Topolino is now on sale in the US: a street-legal, low-speed EV that starts under $15,000. more — a development drawing significant attention in the electric vehicles, hybrids, and automotive technology space.\n\nThis report, published by Electrek, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Ev. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Electrek using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Peter Johnson",
-      "date": "2026-10-29",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Ev"
-      ],
-      "featured": false,
-      "xpReward": 42,
-      "url": "https://electrek.co/2026/10/29/15000-low-speed-ev-now-on-sale-street-legal/",
-      "image": "/images/feed/feed-e7d47ae05eeb.jpg",
-      "source": "Electrek",
-      "isLive": true
-    },
-    {
-      "id": "feed-f7cee97da1e9",
-      "title": "Envía tu nombre a Titán a bordo de la misión Dragonfly de la NASA",
-      "excerpt": "Read this release in English here. Puede que nunca llegues a surcar los cielos bajo las nubes o sobre las arenas orgánicas de la luna Titán de Saturno, ¡pero tu nombre sí puede hacerlo! La NASA invita…",
-      "body": "La campaña Viaje a Titán ofrece al público la oportunidad de enviar su nombre en un microchip a bordo de la misión Dragonfly de la NASA. Esta aeronave de ala giratoria explorará desde el aire Titán, la luna de Saturno. Crédito: NASA/Johns Hopkins APL Read this release in English here . Puede que nunca llegues a surcar los cielos bajo las nubes o sobre las arenas orgánicas de la luna Titán de Saturno, ¡pero tu nombre sí puede hacerlo! La NASA invita al público a enviar su nombre a bordo de la aeronave de ala giratoria Dragonfly de la agencia y a formar parte de la primera misión científica que volará sobre la superficie de otro mundo para su exploración.",
-      "author": "María José Viñas",
-      "date": "2026-10-29",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Nasa"
-      ],
-      "featured": false,
-      "xpReward": 52,
-      "url": "https://www.nasa.gov/news-release/envia-tu-nombre-a-titan-a-bordo-de-la-mision-dragonfly-de-la-nasa/",
-      "image": "https://www.nasa.gov/wp-content/uploads/2026/10/27-10097-01j-hero-image-16-9-spanish-v01.jpg",
-      "source": "NASA Breaking News",
       "isLive": true
     },
     {
@@ -836,119 +933,24 @@
         "Claude"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 32,
       "url": "https://thehackernews.com/2026/10/fake-chatgpt-and-claude-apps-abuse.html",
       "image": "/images/feed/feed-e67783a0fd1c.jpg",
       "source": "The Hacker News",
       "isLive": true
-    },
-    {
-      "id": "feed-e58642a94bba",
-      "title": "LLM Voice",
-      "excerpt": "",
-      "body": "This report, published by Hacker News, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Llm. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Hacker News using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "ibobev",
-      "date": "2026-10-29",
-      "readTime": "2 min",
-      "section": "ai",
-      "tags": [
-        "Llm"
-      ],
-      "featured": false,
-      "xpReward": 48,
-      "url": "https://martinfowler.com/bliki/LLM-Voice.html",
-      "image": "/images/topics/topic-ai-ml.png",
-      "source": "Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-50aadfb48019",
-      "title": "Microsoft fixes Remote Desktop failures caused by recent Windows updates",
-      "excerpt": "Microsoft has resolved a known issue that prevents non-admin users from connecting to devices via Remote Desktop when the \"Administrator protection\" security feature is enabled. [...]",
-      "body": "Microsoft has resolved a known issue that prevents non-admin users from connecting to devices via Remote Desktop when the \"Administrator protection\" security feature is enabled. [...]\n\nThis report, published by BleepingComputer, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cybersecurity. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to BleepingComputer using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Sergiu Gatlan",
-      "date": "2026-10-29",
-      "readTime": "2 min",
-      "section": "cybersecurity",
-      "tags": [
-        "Cybersecurity"
-      ],
-      "featured": false,
-      "xpReward": 35,
-      "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-fixes-remote-desktop-failures-caused-by-recent-windows-updates/",
-      "image": "/images/feed/feed-50aadfb48019.jpg",
-      "source": "BleepingComputer",
-      "isLive": true
-    },
-    {
-      "id": "feed-6049171eb855",
-      "title": "Mistral’s Le Chonk is now a top open model for coding, ranking alongside Codex GPT-6.1 Terra",
-      "excerpt": "Mistral has released the weights for Large 4, along with some impressive Artificial Analysis scores.",
-      "body": "Mistral has released the weights for Large 4, along with some impressive Artificial Analysis scores.\n\nThis report, published by ZDNet, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gpt. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to ZDNet using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Radhika Rajkumar",
-      "date": "2026-10-29",
-      "readTime": "2 min",
-      "section": "ai",
-      "tags": [
-        "Gpt"
-      ],
-      "featured": false,
-      "xpReward": 47,
-      "url": "https://www.zdnet.com/innovation/mistral-large-4-weights-release/",
-      "image": "/images/feed/feed-6049171eb855.jpg",
-      "source": "ZDNet",
-      "isLive": true
-    },
-    {
-      "id": "feed-f37ba01b6b00",
-      "title": "3 Ways AI Agents Already Operate in Your Browser",
-      "excerpt": "AI agents can control authenticated browsers, interact with corporate applications, and access sensitive data while appearing to act as legitimate employees. Keep Aware examines three ways agents oper…",
-      "body": "AI agents can control authenticated browsers, interact with corporate applications, and access sensitive data while appearing to act as legitimate employees. Keep Aware examines three ways agents operate inside browsers and why traditional security tools may struggle to distinguish their activity from human users. [...]",
-      "author": "Sponsored by Keep Aware",
-      "date": "2026-10-29",
-      "readTime": "2 min",
-      "section": "cybersecurity",
-      "tags": [
-        "Cybersecurity"
-      ],
-      "featured": false,
-      "xpReward": 39,
-      "url": "https://www.bleepingcomputer.com/news/security/3-ways-ai-agents-already-operate-in-your-browser/",
-      "image": "/images/feed/feed-f37ba01b6b00.jpg",
-      "source": "BleepingComputer",
-      "isLive": true
-    },
-    {
-      "id": "feed-45629b2d3a20",
-      "title": "An AI Breakthrough Has Made Decades of Computer Science Research ‘Irrelevant’",
-      "excerpt": "Anthropic and OpenAI say they’ve disproved a key tenet of computer science. Researchers are struggling with the fall but also feel like “overexcited bunnies” as they look at new questions to explore.",
-      "body": "Anthropic and OpenAI say they’ve disproved a key tenet of computer science. Researchers are struggling with the fall but also feel like “overexcited bunnies” as they look at new questions to explore.\n\nThis report, published by Wired, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Ai. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Wired using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Isabella Ward",
-      "date": "2026-10-29",
-      "readTime": "2 min",
-      "section": "ai",
-      "tags": [
-        "Ai"
-      ],
-      "featured": false,
-      "xpReward": 51,
-      "url": "https://www.wired.com/story/ai-made-decades-of-computer-science-research-irrelevant/",
-      "image": "/images/feed/feed-45629b2d3a20.jpg",
-      "source": "Wired",
-      "isLive": true
     }
   ],
   "breakingNews": [
-    "DEV.TO: Skills over MCP: 21 checks, run on Hugging Face's 25 skills",
-    "DEV.TO: SARIF explained: why linters speak it, and how mcpscore 1.14.0 writes it",
-    "INSIDEEVS: Ford Fathom Pricing Will Stretch Into the 'High $30,000 Range'",
-    "DEV.TO: Day 29: Managing Technical Debt, Drift and Model Governance in Enterprise IT",
-    "DEV.TO: Authentication in SPAs: 8 Ways to Handle Tokens and Sessions",
-    "DEV.TO: Dados sensíveis em saúde",
-    "DEV.TO: 15 deterministic tools your AI agent should call instead of guessing",
-    "DEV.TO: What I Built...",
-    "ENGADGET: Hacker may have stolen millions in a malware attack against online poker players",
-    "KOTAKU: Ace Combat 8: Wings of Theve: The Kotaku Review"
+    "DEV.TO: Pre-emptive integration analysis: stop putting knowledge into your agents' context, watch their work instead",
+    "DEV.TO: Heads of Security: Defending Against Prompt Injection by Gating Attention",
+    "DEV.TO: Which SSH clients support MCP in 2026",
+    "POLYGON: Patrick Stewart's Greatest Captain Picard Quote Is Still a Defining Star Trek Moment",
+    "DEV.TO: Best Shopify supplier inventory sync apps compared (2026)",
+    "DEV.TO: Как связать сайт, SEO-аналитику и Telegram-бота без потери атрибуции: гайд с кодом",
+    "DEV.TO: Yes, {} + [] = 0. No, JavaScript Isn’t Broken",
+    "DEV.TO: My Manager Doesn't Understand Me. Are You Sure?",
+    "ANDROID AUTHORITY: Google’s got some big updates landing for pretty much everything in your smart home",
+    "ELECTREK: Rivian’s electric van gets 30% more range and AWD, now delivering"
   ],
   "sectionVideos": {}
 }
