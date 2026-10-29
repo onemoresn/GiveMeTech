@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-10-29T01:12:38.578Z",
+  "fetchedAt": "2026-10-29T02:14:58.398Z",
   "articles": [
     {
-      "id": "feed-e75c28ee6893",
-      "title": "Which agent tool calls need a human? A simple consequence matrix",
-      "excerpt": "\"Human in the loop\" is easy to say and hard to apply. If your agent asks permission for everything, people click Approve without reading. If it asks for nothing, one prompt injection can send your dat…",
-      "body": "\"Human in the loop\" is easy to say and hard to apply. If your agent asks permission for everything, people click Approve without reading. If it asks for nothing, one prompt injection can send your data anywhere. What works for me is deciding per tool, before launch, using one question: what is the worst thing this call can do? Seven consequence classes Class What it covers Default rule R0 Read-public public data auto, log R1 Read-private the user's or company's data auto in the user's own scope, log W1 Write-internal drafts, tickets, files you can undo auto with caps X1 External send, post, share, webhook human approval (or an allow-list) X2 Financial pay, refund, change prices approval every time; two people above a cap X3 Irreversible delete, publish, merge, deploy approval plus a dry-ru…",
-      "author": "Elay osetrov",
+      "id": "feed-8a878cbfc908",
+      "title": "Performance at Scale: Optimizing Large and High-Volume Forms",
+      "excerpt": "Designing a Form Architecture That Survives Scale Cut re-renders: minimize DOM churn and validation cost Virtualize and cache fields without losing user input Measure what matters: profiling, benchmar…",
+      "body": "Designing a Form Architecture That Survives Scale Cut re-renders: minimize DOM churn and validation cost Virtualize and cache fields without losing user input Measure what matters: profiling, benchmarking, and CI-friendly tests Practical Application — checklists, hooks, and snippets Large, high-volume forms die from three predictable things: gratuitous re-renders, synchronous/over-eager validation, and DOM churn from mounting/unmounting fields. Tackle those three and you turn a sluggish 100+ field form into a responsive, resilient data-collection surface.",
+      "author": "beefed.ai",
       "date": "2026-10-29",
       "readTime": "2 min",
       "section": "software",
@@ -14,18 +14,38 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 47,
-      "url": "https://dev.to/setrov/which-agent-tool-calls-need-a-human-a-simple-consequence-matrix-28n6",
-      "image": "/images/feed/feed-e75c28ee6893.webp",
+      "xpReward": 43,
+      "url": "https://dev.to/beefedai/performance-at-scale-optimizing-large-and-high-volume-forms-ilp",
+      "image": "/images/feed/feed-8a878cbfc908.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-8e7b89b2fb88",
-      "title": "Godot save files lie about their format - sniff the content, not the extension",
-      "excerpt": "In Godot 4, the most-used save addon on GitHub writes a file called save_data.sav. It is plain JSON. That is not a bug. It is a naming choice, and it is fine for the game. It breaks every other progra…",
-      "body": "In Godot 4, the most-used save addon on GitHub writes a file called save_data.sav . It is plain JSON. That is not a bug. It is a naming choice, and it is fine for the game. It breaks every other program that touches the file - an external editor, a debug script, a CI check, or a coding agent - as soon as that program decides the file format from the extension. What the file actually is SaveMadeEasy (220+ stars, MIT) is the Godot 4 save/load addon you find first when you search for one. In its source, the default path is const default_file_path : = \"user://save_data.sav\" and it writes with file . store_string ( JSON . stringify ( current_state_dictionary , \" \\t \" )) Encryption is off by default.",
-      "author": "onpont",
+      "id": "feed-0a3c3519e13a",
+      "title": "Storing users' API keys in a Windows desktop app with DPAPI, from Python, without a dependency",
+      "excerpt": "A bring-your-own-key desktop app ends up holding a lot of other people's secrets. Ours stores keys for speech recognition, translation and LLM providers in a JSON settings file under the user's profil…",
+      "body": "A bring-your-own-key desktop app ends up holding a lot of other people's secrets. Ours stores keys for speech recognition, translation and LLM providers in a JSON settings file under the user's profile. For the first versions they sat there in plain text. Anything that could read the user's files could read the keys: backup tools, sync clients, a careless \"send me your settings file\" over support chat. On Windows the standard answer is DPAPI. CryptProtectData encrypts bytes with a key derived from the current user's logon credentials. Only the same user on the same machine can decrypt them with CryptUnprotectData . There's no key file to manage and no password prompt. This post covers how we wired it in with plain ctypes and, more importantly, how the migration and failure paths work.",
+      "author": "devs",
+      "date": "2026-10-29",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Python",
+        "Api"
+      ],
+      "featured": true,
+      "xpReward": 40,
+      "url": "https://dev.to/madnessbrains_i/storing-users-api-keys-in-a-windows-desktop-app-with-dpapi-from-python-without-a-dependency-4912",
+      "image": "/images/feed/feed-0a3c3519e13a.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-1c142ca04441",
+      "title": "Search Results That Jump Back to an Old Query in React: Finding and Fixing the Race",
+      "excerpt": "The problem A developer built a search bar in React. Each time the user types a letter, the component sends a request to the server and shows the results. Most of the time it works. But sometimes the…",
+      "body": "The problem A developer built a search bar in React. Each time the user types a letter, the component sends a request to the server and shows the results. Most of the time it works. But sometimes the list shows results for an older, shorter search. The box says \"react\", and the list shows results for \"r\". Typing slowly hides the bug. Typing fast makes it show up again. This is a common bug, and it is easy to miss in local testing, because a local server answers almost every request at the same speed. The root cause Every keystroke starts a new request. The network does not promise that answers come back in the same order the requests went out. A short query like \"r\" can match many rows and take longer on the server. A longer query like \"react\" can come back fast.",
+      "author": "ByteBridge Talent LLC",
       "date": "2026-10-29",
       "readTime": "2 min",
       "section": "software",
@@ -33,18 +53,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 49,
-      "url": "https://dev.to/onpont/godot-save-files-lie-about-their-format-sniff-the-content-not-the-extension-1blk",
-      "image": "https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2F5x2dqbqpe3rk5fii93ve.png",
+      "xpReward": 34,
+      "url": "https://dev.to/team_bytebridgetalentllc/search-results-that-jump-back-to-an-old-query-in-react-finding-and-fixing-the-race-5361",
+      "image": "/images/feed/feed-1c142ca04441.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-53e839beb691",
-      "title": "Your AI agent just did something it shouldn't. Here's the first hour.",
-      "excerpt": "Picture the message in your team chat: \"Why did the support bot email a customer's invoice to an address nobody recognizes?\" If your agent can call tools, this will happen to you in some form. It migh…",
-      "body": "Picture the message in your team chat: \"Why did the support bot email a customer's invoice to an address nobody recognizes?\" If your agent can call tools, this will happen to you in some form. It might be a prompt injection, a model misreading an instruction, or a leaked key. Most incident response plans were written for servers and phishing. They don't say what to do when the thing that misbehaved is a language model holding your credentials. Here is the order of operations I use. Most of it comes down to one rule: contain first, understand later. Before anything happens: four things to build now You can't improvise these during an incident. A kill switch. One action that disables a single tool, or the whole agent, without a deploy. Test it the way you'd test a backup restore.",
-      "author": "Elay osetrov",
+      "id": "feed-2299faadcad2",
+      "title": "MCP ใกล้ตายจริงไหม? เมื่อ AI agent เลิกเรียกเครื่องมือทีละตัว แล้วหันมาเขียนโค้ดแทน",
+      "excerpt": "โดย Nokka (นก-กา) | ตรวจข้อมูล 27 ต.ค. 2026 บทความนี้เขียนโดย AI (deepseek-v4.1-flash · ผู้ให้บริการโมเดล: ollama-cloud) ผ่าน Hermes Agent ภายใต้การควบคุมและตรวจสอบคุณภาพโดยมนุษย์ - Nokka (นก-กา) มีคล…",
+      "body": "โดย Nokka (นก-กา) | ตรวจข้อมูล 27 ต.ค. 2026 บทความนี้เขียนโดย AI (deepseek-v4.1-flash · ผู้ให้บริการโมเดล: ollama-cloud) ผ่าน Hermes Agent ภายใต้การควบคุมและตรวจสอบคุณภาพโดยมนุษย์ - Nokka (นก-กา) มีคลิปสั้นความยาว 79 วินาทีจากบัญชี @ducktate.com ขึ้นหัวว่า \"Apparently MCP is obsolete for AI AGENTS\" โพสต์เมื่อ 26 ต.ค. 2026 ยอดชมตอนที่ผมเช็กอยู่ที่ 17,673 ครั้ง กดใจ 615 คอมเมนต์ 18 [1] คำกล่าวหานั้นแรงพอให้ต้องไปดูต้นทางว่าเขาพูดถึงอะไรกันแน่ ถ้าอ่านผิวเผิน คุณอาจเข้าใจว่า Model Context Protocol หมดอายุแล้ว และคิดจะทิ้งของที่ทีมลงทุนไปทั้งกอง คำตอบสั้น ๆ คือ MCP ไม่ได้ตาย ตัวที่กำลังเปลี่ยนคือวิธีที่ agent ใช้มัน จากเดิมที่เรียกเครื่องมือทีละครั้ง ตอนนี้หันมาเขียนโค้ดที่เรียกหลายตัวในรอบเดียว คลิปนี้พูดอะไร ใจความที่ได้ยินจากเสียงในคลิปมีสามชั้น ชั้นแรก เขาบอกว่าการที่ agent ต้องโหลดนิยามเคร…",
+      "author": "Nokka",
       "date": "2026-10-29",
       "readTime": "2 min",
       "section": "software",
@@ -52,18 +72,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 47,
-      "url": "https://dev.to/setrov/your-ai-agent-just-did-something-it-shouldnt-heres-the-first-hour-1637",
-      "image": "/images/feed/feed-53e839beb691.webp",
+      "xpReward": 43,
+      "url": "https://dev.to/sarantoon/mcp-aikltaaycchringaihm-emuue-ai-agent-elikeriiykekhruuengmuuethiilataw-aelwhanmaaekhiiynokhdaethn-2mf6",
+      "image": "/images/feed/feed-2299faadcad2.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-01035c98dba7",
-      "title": "Give Claude Code a real browser with Playwright MCP",
-      "excerpt": "Claude Code can write a login form, but it cannot see whether the form works. Give it a real browser and it can open the page, click through, and tell you what broke. Playwright MCP is Microsoft's Mod…",
-      "body": "Claude Code can write a login form, but it cannot see whether the form works. Give it a real browser and it can open the page, click through, and tell you what broke. Playwright MCP is Microsoft's Model Context Protocol server that does exactly this. Instead of screenshots, it hands the model Playwright's accessibility tree: a structured text view of the page. That means no vision model is needed, and actions are more deterministic than clicking at pixel coordinates. Our shorter how-to is on the Deduped use-case page . Here is the full setup.",
-      "author": "Deduped",
+      "id": "feed-04a036f1b838",
+      "title": "Why AI Agent Cache Hit Rates Collapse: GPT, Claude, and Auditable Gateways",
+      "excerpt": "A source-backed guide to third-party agent cache failures, GPT and Claude prompt-caching mechanics, reproducible hit-rate measurement, and Modelflare's public compensation boundary. AI agent caching i…",
+      "body": "A source-backed guide to third-party agent cache failures, GPT and Claude prompt-caching mechanics, reproducible hit-rate measurement, and Modelflare's public compensation boundary. AI agent caching is not a checkbox. It is a protocol, routing, and accounting contract. This article explains why an opaque third-party agent can show a very low cache hit rate even when the upstream model supports prompt caching, how GPT and Claude measure reuse differently, and what an auditable gateway should guarantee. The decision in one sentence Do not put a production, cache-sensitive agent behind a third-party agent or gateway that cannot expose native cache usage, preserve a stable prefix, keep model and route affinity, and reconcile the result against a durable ledger.",
+      "author": "Magnus",
       "date": "2026-10-29",
       "readTime": "2 min",
       "section": "software",
@@ -71,18 +91,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 41,
-      "url": "https://dev.to/dedupedai/give-claude-code-a-real-browser-with-playwright-mcp-4048",
-      "image": "/images/feed/feed-01035c98dba7.webp",
+      "xpReward": 44,
+      "url": "https://dev.to/modelflare_dev/why-ai-agent-cache-hit-rates-collapse-gpt-claude-and-auditable-gateways-1ian",
+      "image": "/images/feed/feed-04a036f1b838.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-b3e1ce4e931e",
-      "title": "Cut Claude Code token spend with Headroom: a 5 step setup",
-      "excerpt": "Claude Code gets expensive for a boring reason: most of what it reads is noise. Test logs, JSON tool output, long diffs and old conversation turns all go back to the model on every step, and you pay f…",
-      "body": "Claude Code gets expensive for a boring reason: most of what it reads is noise. Test logs, JSON tool output, long diffs and old conversation turns all go back to the model on every step, and you pay for each token again. Headroom is an open source tool that sits between your agent and the model and compresses that material before it is sent. According to its README, a log that costs 10,144 tokens can shrink to 1,260 while the same fatal error is still found. Compression runs on your machine, and the originals are cached locally so the model can ask for the full text when it needs it. This is a practical walkthrough for Claude Code. Our longer write-up of the same setup is on the Deduped use-case page .",
-      "author": "Deduped",
+      "id": "feed-9b8d3b26675d",
+      "title": "A 1.5% redirect rate looked fine. One site's sitemap was 92% redirects.",
+      "excerpt": "I probed 1,089 sitemap URLs across 119 sites with redirects switched off. 1,062 came back 200. Sixteen came back 301. That is a 1.5% redirect rate, which reads like a rounding error — the kind of numb…",
+      "body": "I probed 1,089 sitemap URLs across 119 sites with redirects switched off. 1,062 came back 200 . Sixteen came back 301 . That is a 1.5% redirect rate, which reads like a rounding error — the kind of number you put in a slide and move on from. Then I grouped the same results by domain. Two sites accounted for all sixteen: one at 11 of 12 (92%) , one at 5 of 12 (42%) . The other 117 sites contributed zero. The aggregate number was not a measurement of the fleet. It was 1,062 green lights diluting two red ones. That is the bug this post is about, and it is not a redirect bug. The redirects were correct and intentional. The bug was that my sitemap validator — and probably yours — had been reporting on an XML file for months and calling it a verdict on the server.",
+      "author": "tong zhang",
       "date": "2026-10-29",
       "readTime": "2 min",
       "section": "software",
@@ -90,37 +110,37 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 36,
-      "url": "https://dev.to/dedupedai/cut-claude-code-token-spend-with-headroom-a-5-step-setup-551l",
-      "image": "/images/feed/feed-b3e1ce4e931e.webp",
+      "xpReward": 54,
+      "url": "https://dev.to/tong_zhang_142dabd4f2b865/a-15-redirect-rate-looked-fine-one-sites-sitemap-was-92-redirects-47nk",
+      "image": "/images/feed/feed-9b8d3b26675d.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-60a31ce2d7ff",
-      "title": "Semantic Retrieval for Internal Engineering Docs Using 25-Question Evaluation Sets",
-      "excerpt": "Pick the retrieval design that wins on a labeled set of real documentation questions, then spend latency only where that set shows a quality gain. Choice Retrieval quality Latency control Operational…",
-      "body": "Pick the retrieval design that wins on a labeled set of real documentation questions, then spend latency only where that set shows a quality gain. Choice Retrieval quality Latency control Operational fit Staged retrieval with explicit collections Measurable against expected sources Each stage gets its own bound Best default for a small team shipping weekly One broad vector query Easy to start, harder to diagnose One limit and timeout Fine for a narrow, clean corpus Search every source at request time Fresh by construction A slow source can hold up the answer Better when indexing is unacceptable Short answer: use staged retrieval, explicit collections, bounded queries, traceable source context, and a 25-question labeled evaluation set before production rollout.",
-      "author": "YatesHolloway6872",
+      "id": "feed-d4a937bb44e3",
+      "title": "'Slow Horses' Season 7 Confirmed? Release Date, Plot, and Everything You Need to Know",
+      "excerpt": "Here’s when you’ll find out what happens next after that brutal cliffhanger",
+      "body": "Apple’s tight spy thriller Slow Horses usually ties up each season-long mystery in six episodes, but the season 6 finale ended with a shocking cliffhanger. If you haven’t read Mick Herron’s Slough House books and are desperate to know what happens next, including which characters will be returning, we’ve got some answers. Here’s everything we know about Slow Horses season 7, including the potential release date and plot details.",
+      "author": "Sam Nelson",
       "date": "2026-10-29",
       "readTime": "2 min",
-      "section": "software",
+      "section": "gaming",
       "tags": [
-        "Software"
+        "Gaming"
       ],
-      "featured": true,
-      "xpReward": 35,
-      "url": "https://dev.to/yatesholloway6872/semantic-retrieval-for-internal-engineering-docs-using-25-question-evaluation-sets-1fkd",
-      "image": "/images/feed/feed-60a31ce2d7ff.webp",
-      "source": "Dev.to",
+      "featured": false,
+      "xpReward": 33,
+      "url": "https://www.polygon.com/slow-horses-season-7-release-date-plot/",
+      "image": "/images/feed/feed-d4a937bb44e3.jpg",
+      "source": "Polygon",
       "isLive": true
     },
     {
-      "id": "feed-17b1032e1520",
-      "title": "SC-500 practice, week 3: 5 questions (AI security is in)",
-      "excerpt": "AZ-500 retired on 31 August 2026. Its successor is SC-500: Implementing End-to-End Security Controls for Cloud and AI Workloads, so from this week the series follows the SC-500 study guide. Most of it…",
-      "body": "AZ-500 retired on 31 August 2026. Its successor is SC-500: Implementing End-to-End Security Controls for Cloud and AI Workloads , so from this week the series follows the SC-500 study guide. Most of it is the same Azure security you know (identity, Key Vault, networking, Defender for Cloud, Sentinel). The new part is securing AI . This week: Defender for AI alerts, keyless access to Microsoft Foundry, user consent for apps, Entra-only Azure SQL and Trusted launch VMs. How to use these: read the question, pick your answer before you open Answer , and write it down (or in the comments). Then check the \"why not the others\" part even if you got it right: that is where the exam traps live. Every scenario, name and number is made up by me; only the question formats follow the real exam.",
-      "author": "cuong do",
+      "id": "feed-2098667acb31",
+      "title": "What Graphium can do 03: Calculate between cells of a table",
+      "excerpt": "When you write down a bread recipe, you often want the hydration: the weight of the water divided by the weight of the flour. A Graphium note has a calculation block that works things out as you type,…",
+      "body": "When you write down a bread recipe, you often want the hydration: the weight of the water divided by the weight of the flour. A Graphium note has a calculation block that works things out as you type, with variables and units. Write cell(\"table\", \"row\", \"column\") there, and it reads one cell from a table in the same note, so you can calculate between cells. water = cell(\"Dough\", \"Water\", \"Weight\") flour = cell(\"Dough\", \"Flour\", \"Weight\") water / flour * 100 The row is found by the name written in the table's first column. You can also point at a row by its number, but then adding or reordering rows makes the line read a different value, and the line doesn't tell you which value it used.",
+      "author": "Masaya Kumagai",
       "date": "2026-10-29",
       "readTime": "2 min",
       "section": "software",
@@ -129,17 +149,17 @@
       ],
       "featured": false,
       "xpReward": 50,
-      "url": "https://dev.to/cuong_do_hcm_93/sc-500-practice-week-3-5-questions-ai-security-is-in-1eao",
-      "image": "/images/feed/feed-17b1032e1520.webp",
+      "url": "https://dev.to/kumagallium/what-graphium-can-do-03-calculate-between-cells-of-a-table-39e5",
+      "image": "/images/feed/feed-2098667acb31.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-c51bbccb7c0c",
-      "title": "Shrek 5 Might Be the Disney Fairy Tale It Swore to Destroy",
-      "excerpt": "Few things are like Shrek's humor, but 16 years later, Shrek's ability to reflect pop culture and subvert fairy tales might be a thing of the past.",
-      "body": "Though DreamWorks treated it like a green-skinned black sheep throughout its decade-long development — so much so that animators considered working on it a punishment — the Shrek franchise quickly became beloved by families everywhere when the first movie debuted in 2001.",
-      "author": "Aimee Hart",
+      "id": "feed-b4fe699334a0",
+      "title": "All ribbon locations in Phantom Blade Zero",
+      "excerpt": "In this guide, you find all ribbon locations in Phantom Blade Zero, and how to get there, so you can complete the \"Young Mistress\" side quest.",
+      "body": "If you find all the ribbons in the Village of Lu you will complete an important Phantom Blade Zero side quest: \"Young Mistress.\" They were left by Mu Xiaokui, daughter of Soul's master. He has known her since she was a child, and they have established a bond that you can only truly understand by hearing the short dialogues that play whenever you collect a ribbon. In addition, completing this side quest also makes the final boss fight in the area more challenging.",
+      "author": "Paulo Kawanishi",
       "date": "2026-10-29",
       "readTime": "2 min",
       "section": "gaming",
@@ -147,10 +167,162 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 36,
-      "url": "https://www.polygon.com/shrek-disney-fairy-tale-parody/",
-      "image": "/images/feed/feed-c51bbccb7c0c.jpg",
+      "xpReward": 53,
+      "url": "https://www.polygon.com/phantom-blade-zero-ribbon-location-where-to-find-rewards/",
+      "image": "/images/feed/feed-b4fe699334a0.jpg",
       "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-e8cc9465c22c",
+      "title": "Where to find the Flesh Lily in Phantom Blade Zero",
+      "excerpt": "In this guide, we explain where you can find the Flesh Lily in Phantom Blade Zero to complete Yu'er's side quest.",
+      "body": "Locating the Flesh Lily in Phantom Blade Zero is part of one of the first secondary missions in the game. The \"Flesh Lily\" is a long quest that you only complete after reaching the fourth area in the game, Pangzhen. Although it takes a while for you to see the conclusion of this tale, completing the first step is worthwhile, as it involves obtaining one of the strongest weapons in the early game.",
+      "author": "Paulo Kawanishi",
+      "date": "2026-10-29",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 44,
+      "url": "https://www.polygon.com/phantom-blade-zero-flesh-lily-location-where-to-find/",
+      "image": "/images/feed/feed-e8cc9465c22c.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-e376cdfdbd5d",
+      "title": "Where to find the Outpost cell key in Phantom Blade Zero",
+      "excerpt": "Here's where to find the cell key in Phantom Blade Zero to open the locked door in the Outpost Courtyard, and the reward from opening it.",
+      "body": "The Outpost cell key is a secondary objective in Phantom Blade Zero that teaches you that exploring the maps thoroughly is worthwhile. As you progress in the story, you will come across plenty of locked doors, and it might take some time before you can obtain the means to open them, as some are connected to the main story.",
+      "author": "Paulo Kawanishi",
+      "date": "2026-10-29",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 33,
+      "url": "https://www.polygon.com/phantom-blade-zero-cell-key-location-where-to-find-outpost-courtyard/",
+      "image": "/images/feed/feed-e376cdfdbd5d.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-e3d9df374e49",
+      "title": "'A Healer's Mercy' quest walkthrough in Phantom Blade Zero",
+      "excerpt": "Here's where to find the wounded thieves' locations needed to complete 'A Healer's Mercy' in Phantom Blade Zero",
+      "body": "To complete \"A Healer's Mercy\" in Phantom Blade Zero , you must find four lost thieves in the Crimson Forest, the second region. As none of them are waiting on the main path, it's quite a hassle to distribute Yu'er's medicine and get the thieves back to thieving.",
+      "author": "Marloes Valentina Stella",
+      "date": "2026-10-29",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 34,
+      "url": "https://www.polygon.com/phantom-blade-zero-a-healers-mercy-quest-walkthrough-wounded-thieves/",
+      "image": "/images/feed/feed-e3d9df374e49.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-a5d3061a3f9e",
+      "title": "All medicine locations for 'Apprentice Healer' in Phantom Blade Zero",
+      "excerpt": "Here's where to find the medicinal herb locations needed to complete the \"Apprentice Healer\" quest in Phantom Blade Zero",
+      "body": "To complete the \"Apprentice Healer\" quest in Phantom Blade Zero , you must find three medicinal herbs for Yu'er. It's easier said than done, as two of these herbs are found in a hidden valley, and entering this mysterious location is quite the challenge on its own.",
+      "author": "Marloes Valentina Stella",
+      "date": "2026-10-29",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 30,
+      "url": "https://www.polygon.com/phantom-blade-zero-medicine-herb-locations-apprentice-healer/",
+      "image": "/images/feed/feed-a5d3061a3f9e.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-e2b70da4d464",
+      "title": "Where to find the primal stone for 'A Severed Mindseal' in Phantom Blade Zero",
+      "excerpt": "Here's the primal stone location needed to complete 'A Severed Mindseal' in Phantom Blade Zero.",
+      "body": "To find the Primal Stone during the \"A Severed Mindseal\" quest in Phantom Blade Zero , you must search a mysterious tower imbued with primal energy. It's easier said than done, but you'll make the Friendly Shadow Warden (that odd fellow you met on the roof of the Sha-Chi Tower) very happy.",
+      "author": "Marloes Valentina Stella",
+      "date": "2026-10-29",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 49,
+      "url": "https://www.polygon.com/phantom-blade-zero-primal-stone-location-severed-mindseal/",
+      "image": "/images/feed/feed-e2b70da4d464.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-08fef8edfb04",
+      "title": "Construction Materials Stand Out At Greenbuild 2026",
+      "excerpt": "Last week, I attended Greenbuild International Conference + Expo 2026 in the North Hall of the Javits Center here in NYC. After being overwhelmed by shows like CES and InterSolar Europe, the smaller s…",
+      "body": "Last week, I attended Greenbuild International Conference + Expo 2026 in the North Hall of the Javits Center here in NYC. After being overwhelmed by shows like CES and InterSolar Europe, the smaller scale of Greenbuild was a welcome break. At the show, there were a few heat pumps and ... [continued] The post Construction Materials Stand Out At Greenbuild 2026 appeared first on CleanTechnica .",
+      "author": "Larry Evans",
+      "date": "2026-10-29",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Cars"
+      ],
+      "featured": false,
+      "xpReward": 30,
+      "url": "https://cleantechnica.com/2026/10/28/construction-materials-stand-out-at-greenbuild-2026/",
+      "image": "/images/feed/feed-08fef8edfb04.jpg",
+      "source": "CleanTechnica",
+      "isLive": true
+    },
+    {
+      "id": "feed-01076e8f2aff",
+      "title": "Russia now requires Apple to store user communications and hand them over if requested",
+      "excerpt": "As Bloomberg reported today, Apple and Microsoft are now subject to Russian regulations requiring companies to store users’ communications and provide them to security agencies if requested. Here are…",
+      "body": "As Bloomberg reported today, Apple and Microsoft are now subject to Russian regulations requiring companies to store users’ communications and provide them to security agencies if requested. Here are — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Marcus Mendes",
+      "date": "2026-10-29",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 39,
+      "url": "https://9to5mac.com/2026/10/28/russia-now-requires-apple-to-store-user-communications-and-hand-them-over-if-requested/",
+      "image": "/images/feed/feed-01076e8f2aff.jpg",
+      "source": "9to5Mac",
+      "isLive": true
+    },
+    {
+      "id": "feed-53bcb2888536",
+      "title": "When one door closes: Polestar 2 production ends, and what might come next",
+      "excerpt": "Forget about the 600+ hp hybrid-powered Polestar 1 supercoupe; the car that established Polestar as a standalone brand was the 2. As the brand pulls out of the US and shifts its focus to the rest of t…",
+      "body": "Forget about the 600+ hp hybrid-powered Polestar 1 supercoupe; the car that established Polestar as a standalone brand was the 2. As the brand pulls out of the US and shifts its focus to the rest of the world, it’s time to look back at the EV that helped define Polestar, along with a look around at some of the best EV deals of all time. more…",
+      "author": "Jo Borrás",
+      "date": "2026-10-29",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Cars"
+      ],
+      "featured": false,
+      "xpReward": 54,
+      "url": "https://electrek.co/2026/10/28/when-one-door-closes-polestar-2-production-ends-and-what-might-come-next/",
+      "image": "/images/feed/feed-53bcb2888536.jpg",
+      "source": "Electrek",
       "isLive": true
     },
     {
@@ -166,48 +338,10 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 43,
       "url": "https://cleantechnica.com/2026/10/28/nearly-half-of-eu-cities-do-not-yet-meet-new-clean-air-standards-report-shows-collaboration-is-key/",
       "image": "/images/feed/feed-e928d51741fc.jpg",
       "source": "CleanTechnica",
-      "isLive": true
-    },
-    {
-      "id": "feed-9434f199a26c",
-      "title": "Scarlett Johansson’s Most Unsettling Sci-Fi Movie Is Officially Getting Cut From Netflix",
-      "excerpt": "Scarlett Johansson’s strangest sci-fi movie is a haunting experience worth catching before it leaves Netflix.",
-      "body": "Scarlett Johansson has spent years playing some of sci-fi ’s most recognizable women. Luc Besson transformed her into something approaching a god in 2014’s Lucy , and the much-maligned live-action Ghost in the Shell gave her a fully cybernetically enhanced body to play around with in a near-future Newport City. Of course, there’s also Black Widow, the former assassin who became one of the Marvel Cinematic Universe ’s most dependable heroes across nine films, from Iron Man 2 to Black Widow . Johansson has built a career playing characters who straddle the line between human and something otherworldly, but you’ve never seen ScarJo quite like this.",
-      "author": "Ryan Epps",
-      "date": "2026-10-29",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 48,
-      "url": "https://www.polygon.com/scarlett-johansson-under-the-skin-sci-fi-movie-leaving-netflix-november-2026/",
-      "image": "/images/feed/feed-9434f199a26c.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-15f89843a2f8",
-      "title": "BioWare Co-Founder Says EA’s Private Equity Acquisition Was ‘Final Nail In The Coffin’ For The Mass Effect Studio",
-      "excerpt": "Greg Zeschuk left the studio after Mass Effect 3, but still weighed in on the company's closure earlier this month following EA's acquisition by private equity",
-      "body": "Greg Zeschuk left the studio after Mass Effect 3, but still weighed in on the company's closure earlier this month following EA's acquisition by private equity\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Kenneth Shepard",
-      "date": "2026-10-29",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 30,
-      "url": "https://kotaku.com/bioware-co-founder-says-eas-acquisition-was-final-nail-in-the-coffin-for-the-mass-effect-studio-2000750626",
-      "image": "/images/feed/feed-15f89843a2f8.jpg",
-      "source": "Kotaku",
       "isLive": true
     },
     {
@@ -223,7 +357,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 50,
       "url": "https://cleantechnica.com/2026/10/28/trump-rolling-back-methane-pollution-safeguards/",
       "image": "/images/feed/feed-4b8919851ed4.jpg",
       "source": "CleanTechnica",
@@ -242,7 +376,7 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 49,
       "url": "https://electrek.co/2026/10/28/byd-1-million-employees-more-than-toyota-gm-ford-tesla/",
       "image": "/images/feed/feed-de0ac1caa3c5.jpg",
       "source": "Electrek",
@@ -280,7 +414,7 @@
         "Llm"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 48,
       "url": "https://github.com/ZigEmbeddedGroup/microzig/blob/main/CODE_OF_CONDUCT.md",
       "image": "/images/feed/feed-4f1b34fd00ad.png",
       "source": "Hacker News",
@@ -299,28 +433,9 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 37,
       "url": "https://cleantechnica.com/2026/10/28/the-truth-about-renewable-electricity-your-questions-answered/",
       "image": "/images/feed/feed-641e8e154d62.jpg",
-      "source": "CleanTechnica",
-      "isLive": true
-    },
-    {
-      "id": "feed-f83d25e28923",
-      "title": "After Years-Long Community Objection, Dairyland Power Pulls the Plug on NTEC Gas Plant",
-      "excerpt": "SUPERIOR, Wisconsin — Today, Dairyland Power Coop announced the cancellation of plans for NTEC, which was proposed to be built on the shores of Lake Superior, and asked the Wisconsin Public Service Co…",
-      "body": "SUPERIOR, Wisconsin — Today, Dairyland Power Coop announced the cancellation of plans for NTEC, which was proposed to be built on the shores of Lake Superior, and asked the Wisconsin Public Service Commission (PSC) to withdraw its permits. The Nemadji Trail Energy Center (NTEC), a 625 MW natural gas plant, has ... [continued] The post After Years-Long Community Objection, Dairyland Power Pulls the Plug on NTEC Gas Plant appeared first on CleanTechnica .",
-      "author": "Sierra Club",
-      "date": "2026-10-29",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Cars"
-      ],
-      "featured": false,
-      "xpReward": 35,
-      "url": "https://cleantechnica.com/2026/10/28/after-years-long-community-objection-dairyland-power-pulls-the-plug-on-ntec-gas-plant/",
-      "image": "/images/feed/feed-f83d25e28923.jpg",
       "source": "CleanTechnica",
       "isLive": true
     },
@@ -337,7 +452,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 48,
       "url": "https://9to5mac.com/2026/10/28/apple-and-openai-trade-secrets-lawsuit-now-has-an-official-trial-date/",
       "image": "/images/feed/feed-9b66b4e7feef.jpg",
       "source": "9to5Mac",
@@ -356,29 +471,10 @@
         "Macbook"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 31,
       "url": "https://www.cnet.com/tech/computing/max-out-new-apple-touchscreen-macbook-pro-nearly-15k/",
       "image": "/images/feed/feed-3e32baf93626.png",
       "source": "CNET",
-      "isLive": true
-    },
-    {
-      "id": "feed-c8a4558a8992",
-      "title": "Louisiana DEQ Issues Rushed, Controversial Air Permit to Proposed Hyundai Steel Facility",
-      "excerpt": "Donaldsonville, Louisiana — Yesterday, the Louisiana Department of Environmental Quality (LDEQ) posted the final, approved air permit for Hyundai’s proposed steel plant. Hyundai promised a state-of-th…",
-      "body": "Donaldsonville, Louisiana — Yesterday, the Louisiana Department of Environmental Quality (LDEQ) posted the final, approved air permit for Hyundai’s proposed steel plant. Hyundai promised a state-of-the-art, clean facility, but the proposed plan falls short of those promises and would still bring thousands of tons of pollution to Cancer Alley, a ... [continued] The post Louisiana DEQ Issues Rushed, Controversial Air Permit to Proposed Hyundai Steel Facility appeared first on CleanTechnica .",
-      "author": "Sierra Club",
-      "date": "2026-10-28",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Cars"
-      ],
-      "featured": false,
-      "xpReward": 43,
-      "url": "https://cleantechnica.com/2026/10/28/louisiana-deq-issues-rushed-controversial-air-permit-to-proposed-hyundai-steel-facility/",
-      "image": "/images/feed/feed-c8a4558a8992.png",
-      "source": "CleanTechnica",
       "isLive": true
     },
     {
@@ -396,29 +492,10 @@
         "Security"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 30,
       "url": "https://alpinelinux.org/posts/GitLab-security-incident-CVE-2026-97229.html",
       "image": "/images/topics/topic-cybersecurity.png",
       "source": "Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-25ee1aff09c2",
-      "title": "Call of Duty: Modern Warfare 4 DMZ Review",
-      "excerpt": "A bigger and better version of Call of Duty's extraction shooter mode.",
-      "body": "This is a standalone review that covers only Call of Duty: Modern Warfare 4&#39;s DMZ mode. You can find our campaign and multiplayer review here . Extraction shooters can feel a little like a modern trend, with some heavy hitters like Marathon and Arc Raiders shaking the table within the last year or so, but they’ve been a growing experiment in the shooter space for the past decade or so. Call of Duty dabbled in it with the original DMZ back in 2022 (you could even argue they were late to the party by then), and its return in 2026 is timely.",
-      "author": "jon Burgess",
-      "date": "2026-10-28",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 46,
-      "url": "https://www.ign.com/articles/call-of-duty-modern-warfare-4-dmz-review",
-      "image": "/images/feed/feed-25ee1aff09c2.jpg",
-      "source": "IGN",
       "isLive": true
     },
     {
@@ -434,9 +511,9 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 31,
       "url": "https://techcrunch.com/2026/10/28/upwind-raises-400m-after-walking-away-from-datadog-acquisition-offer/",
-      "image": "/images/feed/feed-edad344f449a.webp",
+      "image": "/images/feed/feed-edad344f449a.jpg",
       "source": "TechCrunch",
       "isLive": true
     },
@@ -453,7 +530,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 54,
       "url": "https://www.engadget.com/2300569/fcc-chair-wants-to-let-prisons-jam-illegal-cellphones/",
       "image": "/images/feed/feed-3d0c44e1139c.jpg",
       "source": "Engadget",
@@ -472,7 +549,7 @@
         "Macbook"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 51,
       "url": "https://www.cnet.com/tech/computing/touchscreen-macbook-pro-invites-smudges-fingerprints/",
       "image": "/images/feed/feed-206d9e64164a.png",
       "source": "CNET",
@@ -492,7 +569,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 34,
       "url": "https://www.space.com/space-exploration/on-this-day-in-space-october-28-2026",
       "image": "/images/feed/feed-34d1f1cd1924.jpg",
       "source": "Space.com",
@@ -511,29 +588,10 @@
         "Macbook"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 50,
       "url": "https://www.wired.com/story/the-2000-nit-oled-in-apples-new-macbook-pro-is-a-big-deal/",
       "image": "/images/feed/feed-4cb653fc9800.jpg",
       "source": "Wired",
-      "isLive": true
-    },
-    {
-      "id": "feed-ab0d42167e77",
-      "title": "Kane Parsons Confirms Meetings With Valve, But Won't Adapt Their Games If It Can't Be Done Right",
-      "excerpt": "Backrooms director Kane Parsons has confirmed he has had meetings with Valve, but he has no plans to adapt any of their IP if it can't be done well.",
-      "body": "Backrooms director Kane Parsons has confirmed his meetings with Valve, but says that he has no plans to adapt any of their games if it can&#39;t be done well. When speaking on an October 28 episode of The Kyle Buchanan Show , Parsons wore a Valve hoodie, which prompted Buchanan to inquire about Parsons&#39; recent trips to the developer&#39;s corporate offices. (Following the release of Backrooms, the director noted that he wanted to make a Portal movie and subsequently posted about trips to Valve on Instagram .) Naturally, Parsons didn&#39;t confirm or deny what exactly is going on between them, but confirmed that he has had conversations with the company — but he only wants to work with them if it&#39;s done right.",
-      "author": "Cade Onder",
-      "date": "2026-10-28",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 54,
-      "url": "https://www.ign.com/articles/kane-parsons-confirms-meetings-with-valve-but-wont-adapt-their-games-if-it-cant-be-done-right",
-      "image": "/images/feed/feed-ab0d42167e77.jpg",
-      "source": "IGN",
       "isLive": true
     },
     {
@@ -550,68 +608,10 @@
         "Laptop"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 42,
       "url": "https://techcrunch.com/2026/10/28/apples-touchscreen-macbook-pro-pushes-laptop-pricing-to-a-new-extreme/",
-      "image": "/images/feed/feed-e6dd5dda3aa0.jpg",
+      "image": "/images/feed/feed-e6dd5dda3aa0.webp",
       "source": "TechCrunch",
-      "isLive": true
-    },
-    {
-      "id": "feed-5150975bbeff",
-      "title": "iPhone Duo could capture nearly 30% of foldable market in 2027, per report",
-      "excerpt": "In a report released today, TrendForce says that with strong demand for the iPhone Duo out of the gate, Apple is poised to capture nearly 30% of the global foldable smartphone market by 2027. Here are…",
-      "body": "In a report released today, TrendForce says that with strong demand for the iPhone Duo out of the gate, Apple is poised to capture nearly 30% of the global foldable smartphone market by 2027. Here are — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Iphone, Foldable. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Marcus Mendes",
-      "date": "2026-10-28",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Iphone",
-        "Foldable"
-      ],
-      "featured": false,
-      "xpReward": 52,
-      "url": "https://9to5mac.com/2026/10/28/iphone-duo-could-capture-nearly-30-of-foldable-market-in-2027-per-report/",
-      "image": "/images/feed/feed-5150975bbeff.jpg",
-      "source": "9to5Mac",
-      "isLive": true
-    },
-    {
-      "id": "feed-a4ae5331f283",
-      "title": "James Gunn Confirms Batman and Wonder Woman Are 'Diamond Characters' in the DCU Despite Their Continued Absence",
-      "excerpt": "James Gunn has clarified DC Studios’ 8-10 year roadmap and confirmed its focus on Superman, Batman, and Wonder Woman as its “diamond characters.”",
-      "body": "James Gunn has clarified DC Studios’ 8-10 year roadmap and confirmed its focus on Superman, Batman, and Wonder Woman as its “diamond characters.” Gunn shared this information on Threads in response to a now-deleted post, where he urged the original poster to study up on his quotes from January 2023 in regards to what his version of the DCU will end up looking like. “I said some stories would be standalone like the Guardians movies were (which is what Clayface is), and some stories would have part of a larger narrative structure, which is what the Superman Saga is. All that said, each piece of the larger story should work on its own with or without having to see everything else,” he said.",
-      "author": "Virginia Glaze",
-      "date": "2026-10-28",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 30,
-      "url": "https://www.ign.com/articles/james-gunn-confirms-batman-and-wonder-woman-are-diamond-characters-in-the-dcu-despite-their-continued-absence",
-      "image": "/images/feed/feed-a4ae5331f283.jpg",
-      "source": "IGN",
-      "isLive": true
-    },
-    {
-      "id": "feed-ce9bfbd528ea",
-      "title": "Outlander's Sam Heughan Hints at Role in Lord of the Rings: The Hunt for Gollum",
-      "excerpt": "During a recent appearance at a book festival, Outlander star Sam Heughan strongly suggested that he may have a role in the upcoming film The Lord of the Rings: The Hunt for Gollum.",
-      "body": "Outlander star Sam Heughan has strongly suggested that he may have a role in the upcoming film The Lord of the Rings: The Hunt for Gollum . Heughan spoke earlier this month at Scotland’s Wigtown Book Festival, during which the topic of J. R. R. Tolkien’s literary saga and subsequent film adaptations came up. This wouldn’t be an unusual topic to raise with Heughan, as he’s named after Samwise Gamgee and his brother, Cirdan, is named after an Elf. (Their parents belonged to a London hippie community called Gandalf&#39;s Garden.) When the moderator suggested the Lord of the Rings film franchise was “exhausted” at this point, Heughan cryptically replied, &quot;No, it&#39;s not exhausted.",
-      "author": "Jim Vejvoda",
-      "date": "2026-10-28",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 34,
-      "url": "https://www.ign.com/articles/outlanders-sam-heughan-hints-at-role-in-lord-of-the-rings-the-hunt-for-gollum",
-      "image": "/images/feed/feed-ce9bfbd528ea.jpg",
-      "source": "IGN",
       "isLive": true
     },
     {
@@ -627,7 +627,7 @@
         "Hacker"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 34,
       "url": "https://www.theverge.com/tech/1021528/ice-cbp-data-leak",
       "image": "/images/feed/feed-d0cbfbebeaab.jpg",
       "source": "The Verge",
@@ -647,7 +647,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 51,
       "url": "https://www.nasa.gov/organizations/oiir/nasa-welcomes-vietnam-as-newest-artemis-accords-signatory/",
       "image": "/images/feed/feed-57b5e30eab86.jpg",
       "source": "NASA Breaking News",
@@ -666,9 +666,9 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 32,
       "url": "https://techcrunch.com/2026/10/28/microsoft-recorded-10-billion-in-revenue-from-openai/",
-      "image": "/images/feed/feed-65911ac3f4f5.webp",
+      "image": "/images/feed/feed-65911ac3f4f5.jpg",
       "source": "TechCrunch",
       "isLive": true
     },
@@ -686,7 +686,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 49,
       "url": "https://www.space.com/space-exploration/human-spaceflight/5-days-beneath-the-waves-what-its-like-to-live-in-an-underwater-space-station",
       "image": "/images/feed/feed-528c4b586c13.jpg",
       "source": "Space.com",
@@ -705,7 +705,7 @@
         "Gemini"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 32,
       "url": "https://www.cnet.com/tech/services-and-software/google-genie-4-gemini-4-carbon-ai-news/",
       "image": "/images/feed/feed-db1cdd2358bb.jpg",
       "source": "CNET",
@@ -724,7 +724,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 44,
       "url": "https://www.bleepingcomputer.com/news/security/police-seize-virtualine-bulletproof-service-tied-to-ransowmare-cybercrime/",
       "image": "/images/feed/feed-a1a2d4901169.jpg",
       "source": "BleepingComputer",
@@ -743,7 +743,7 @@
         "Gemini"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 39,
       "url": "https://www.theverge.com/tech/1021339/google-gemini-4-carbon-cybersecurity-frontier",
       "image": "/images/feed/feed-8bdc1d3d9ec7.jpg",
       "source": "The Verge",
@@ -763,9 +763,9 @@
         "Security"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 32,
       "url": "https://techcrunch.com/2026/10/28/hacker-stole-personnel-data-about-thousands-of-homeland-security-employees-including-cbp-and-ice-agents/",
-      "image": "/images/feed/feed-fb104c013e47.jpg",
+      "image": "/images/feed/feed-fb104c013e47.webp",
       "source": "TechCrunch",
       "isLive": true
     },
@@ -782,7 +782,7 @@
         "Astronaut"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 34,
       "url": "https://www.space.com/space-exploration/international-space-station/iss-astronaut-will-conduct-canadas-1st-spacewalk-in-7-years-on-oct-29-watch-it-live",
       "image": "/images/feed/feed-adc7f722b251.jpg",
       "source": "Space.com",
@@ -801,7 +801,7 @@
         "Security"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 31,
       "url": "https://www.wired.com/story/massive-leak-exposes-41000-homeland-security-workers-including-undercover-ice-agents/",
       "image": "/images/feed/feed-34dd884a9c98.jpg",
       "source": "Wired",
@@ -820,7 +820,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 44,
       "url": "https://www.space.com/space-exploration/private-spaceflight/meet-apeiron-virgin-galactics-1st-delta-class-space-plane",
       "image": "/images/feed/feed-f871cbbe777d.jpg",
       "source": "Space.com",
@@ -839,7 +839,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 34,
       "url": "https://techcrunch.com/2026/10/28/anthropic-just-launched-tools-to-show-companies-what-their-ai-spending-is-buying/",
       "image": "/images/feed/feed-b2173123b9bf.jpg",
       "source": "TechCrunch",
@@ -858,7 +858,7 @@
         "Artemis"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 51,
       "url": "https://www.nasa.gov/image-article/artemis-iii-sls-core-stage-joins-boosters-at-kennedy/",
       "image": "/images/feed/feed-47cde1769100.jpg",
       "source": "NASA Breaking News",
@@ -877,7 +877,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 46,
       "url": "https://www.bleepingcomputer.com/news/security/discord-to-let-search-engines-index-public-server-messages/",
       "image": "/images/feed/feed-f7bbe08d1603.jpg",
       "source": "BleepingComputer",
@@ -896,7 +896,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 51,
       "url": "https://www.nasa.gov/aeronautics/nasa-challenge-drone-entrepreneur/",
       "image": "https://www.nasa.gov/wp-content/uploads/2026/10/usrc-gardner-ag3-team.jpg",
       "source": "NASA Breaking News",
@@ -915,7 +915,7 @@
         "Claude"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 45,
       "url": "https://www.zdnet.com/innovation/claude-enterprise-efficiency-cost-tracking/",
       "image": "/images/feed/feed-63d1fa22fca3.jpg",
       "source": "ZDNet",
@@ -934,7 +934,7 @@
         "Gemini"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 40,
       "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
       "image": "/images/feed/feed-dff358d38296.png",
       "source": "Hacker News",
@@ -942,16 +942,16 @@
     }
   ],
   "breakingNews": [
-    "DEV.TO: Which agent tool calls need a human? A simple consequence matrix",
-    "DEV.TO: Godot save files lie about their format - sniff the content, not the extension",
-    "DEV.TO: Your AI agent just did something it shouldn't. Here's the first hour.",
-    "DEV.TO: Give Claude Code a real browser with Playwright MCP",
-    "DEV.TO: Cut Claude Code token spend with Headroom: a 5 step setup",
-    "DEV.TO: Semantic Retrieval for Internal Engineering Docs Using 25-Question Evaluation Sets",
-    "DEV.TO: SC-500 practice, week 3: 5 questions (AI security is in)",
-    "POLYGON: Shrek 5 Might Be the Disney Fairy Tale It Swore to Destroy",
-    "CLEANTECHNICA: Nearly Half of EU Cities Do Not Yet Meet New Clean Air Standards: Report Shows Collaboration Is Key",
-    "POLYGON: Scarlett Johansson’s Most Unsettling Sci-Fi Movie Is Officially Getting Cut From Netflix"
+    "DEV.TO: Performance at Scale: Optimizing Large and High-Volume Forms",
+    "DEV.TO: Storing users' API keys in a Windows desktop app with DPAPI, from Python, without a dependency",
+    "DEV.TO: Search Results That Jump Back to an Old Query in React: Finding and Fixing the Race",
+    "DEV.TO: MCP ใกล้ตายจริงไหม? เมื่อ AI agent เลิกเรียกเครื่องมือทีละตัว แล้วหันมาเขียนโค้ดแทน",
+    "DEV.TO: Why AI Agent Cache Hit Rates Collapse: GPT, Claude, and Auditable Gateways",
+    "DEV.TO: A 1.5% redirect rate looked fine. One site's sitemap was 92% redirects.",
+    "POLYGON: 'Slow Horses' Season 7 Confirmed? Release Date, Plot, and Everything You Need to Know",
+    "DEV.TO: What Graphium can do 03: Calculate between cells of a table",
+    "POLYGON: All ribbon locations in Phantom Blade Zero",
+    "POLYGON: Where to find the Flesh Lily in Phantom Blade Zero"
   ],
   "sectionVideos": {}
 }
