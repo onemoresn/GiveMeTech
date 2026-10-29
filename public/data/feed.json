@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-10-29T03:13:07.420Z",
+  "fetchedAt": "2026-10-29T04:13:07.281Z",
   "articles": [
     {
-      "id": "feed-62287596974a",
-      "title": "Amazon just bet $200 that your phone can't replace a clock or a photo frame",
-      "excerpt": "On Wednesday, Amazon unveiled five new Alexa devices: the Echo Show 16 ($499.99, pre-order), the Echo Studio with Home Camera ($249.99), a redesigned Echo Dot ($99.99), the Echo Time ($199.99), and th…",
-      "body": "On Wednesday, Amazon unveiled five new Alexa devices: the Echo Show 16 ($499.99, pre-order), the Echo Studio with Home Camera ($249.99), a redesigned Echo Dot ($99.99), the Echo Time ($199.99), and the Alexa Photo Frame (from $199.99). Reuters confirmed the lineup the same day, and the details check out across independent coverage. This is not the interesting part. The interesting part is the two cheapest new ideas in the list: a $200 clock and a $200 photo frame, in a year when your phone already does both for free. I read the announcements the way I always do — by asking what the product is actually selling, once you strip out the adjectives. What Amazon actually announced The Echo Dot is the workhorse of the lineup.",
-      "author": "frank chu",
+      "id": "feed-6a539500364d",
+      "title": "I Found Three Wrappers Hiding Failures, Wrote Them Into a Test as a Fact, and Left Them for Five Days",
+      "excerpt": "A field note from the autonomous Claude Code agent I run every day on one Windows PC. The numbers come from its own ledgers, not from memory. Free to read first: a PDF sample of the book behind this s…",
+      "body": "A field note from the autonomous Claude Code agent I run every day on one Windows PC. The numbers come from its own ledgers, not from memory. Free to read first: a PDF sample of the book behind this setup — its first 3 chapters: https://dbsoul.gumroad.com/l/autonomous-ai-agents-claude-code-free-sample My agent runs on scheduled tasks. Each task starts a small Python wrapper, and the wrapper starts the real runner. My runners have a guard: if a runner gets a flag it does not know, it stops with exit code 2. On October 13: found by reading A reader had asked whether the scheduler commands were part of my tests. They were not, so my agent wrote a test that reads all 17 wrappers and checks every flag they pass against the runner's allowed list.",
+      "author": "Sungsoo Youn",
       "date": "2026-10-29",
       "readTime": "2 min",
       "section": "software",
@@ -14,18 +14,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 40,
-      "url": "https://dev.to/frankchu/amazon-just-bet-200-that-your-phone-cant-replace-a-clock-or-a-photo-frame-45g7",
-      "image": "/images/feed/feed-62287596974a.webp",
+      "xpReward": 53,
+      "url": "https://dev.to/dbsoul/i-found-three-wrappers-hiding-failures-wrote-them-into-a-test-as-a-fact-and-left-them-for-five-3ha0",
+      "image": "/images/feed/feed-6a539500364d.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-0b7ffcc06cbe",
-      "title": "Too many ADRs made our AI follow outdated decisions. The fix: keep them all, let an index name the current ones",
-      "excerpt": "The obvious fix for \"my AI agent keeps relying on superseded architecture decisions\" is a small parser: read each ADR's Supersedes field and mark the old records as replaced. We built exactly that. Th…",
-      "body": "The obvious fix for \"my AI agent keeps relying on superseded architecture decisions\" is a small parser: read each ADR's Supersedes field and mark the old records as replaced. We built exactly that. Then we ran it on two other repositories of ours, with 270 and 93 ADRs, and it reported live decisions as dead. In the larger repository, every one of the 5 records it called \"superseded\" was a false alarm. A parser that just picks up ADR numbers does not just miss things. It creates misreadings of its own, and an AI agent will trust them. This is a write-up of how we rebuilt the ADR index in ELN workflow, our in-house plugin suite for Claude Code, so that \"which decisions are current?\" is answered by one deterministic set of rules instead of by the model reading ADR bodies and guessing.",
-      "author": "uehara",
+      "id": "feed-a292f2a4596b",
+      "title": "Node.js Error Tracking: Capturing and Posting Errors for Incident Reconstruction in 2026",
+      "excerpt": "Short answer: capture structured delivery errors at the notification boundary, enqueue them durably, and post them asynchronously to an error tracking API so incident reconstruction does not depend on…",
+      "body": "Short answer: capture structured delivery errors at the notification boundary, enqueue them durably, and post them asynchronously to an error tracking API so incident reconstruction does not depend on request latency. The least complex design that still reconstructs a failed delivery is a structured event captured at the notification boundary, enriched with a stable order and attempt ID, then posted asynchronously to a generic error API. Keep the original exception, response status, and retry state together. Do not make the customer request wait for telemetry.",
+      "author": "CorneliusHayes8579",
       "date": "2026-10-29",
       "readTime": "2 min",
       "section": "software",
@@ -33,18 +33,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 48,
-      "url": "https://dev.to/uehara/too-many-adrs-made-our-ai-follow-outdated-decisions-the-fix-keep-them-all-let-an-index-name-the-4hk9",
-      "image": "/images/feed/feed-0b7ffcc06cbe.webp",
+      "xpReward": 37,
+      "url": "https://dev.to/corneliushayes8579/nodejs-error-tracking-capturing-and-posting-errors-for-incident-reconstruction-in-2026-396a",
+      "image": "/images/feed/feed-a292f2a4596b.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-dc3110c97d87",
-      "title": "Notion Version History Is Just Timestamps. Here’s What Real Versioning Looks Like",
-      "excerpt": "I write technical documentation in Notion. A few weeks ago I needed to get back to “the version I sent to the client before the review” — a specific state I remembered clearly but couldn’t locate. I o…",
-      "body": "I write technical documentation in Notion. A few weeks ago I needed to get back to “the version I sent to the client before the review” — a specific state I remembered clearly but couldn’t locate. I opened Page History and got a flat list of timestamps. No labels, no summaries, no way to tell which snapshot was the one I wanted. I clicked through a dozen entries, comparing them by eye, and gave up. That was the moment I realized: Notion’s version history isn’t version control. It’s a list of timestamps. And for anyone who has used Git, that gap is hard to unsee. What Notion actually gives you Notion’s Page History records snapshots on a time interval . A new version is saved every 10 minutes while you’re actively editing or two minutes after you stop edit.",
-      "author": "Bingfeng",
+      "id": "feed-622de56359c9",
+      "title": "Como Criar Wearables Laváveis com Fibra Eletrônica em 2027",
+      "excerpt": "Wearables Laváveis: Fibra Eletrônica, Tela Tátil e Como Montar o Seu Próprio Protótipo em 2027 Introdução Os wearables de tecido inteligente laváveis já não são mais ficção científica – startups como…",
+      "body": "Wearables Laváveis: Fibra Eletrônica, Tela Tátil e Como Montar o Seu Próprio Protótipo em 2027 Introdução Os wearables de tecido inteligente laváveis já não são mais ficção científica – startups como FiberTech , Textronics e SoftSkin anunciam lançamentos comerciais para 2027, e o Hacker News está fervendo com discussões sobre protótipos que realmente sobrevivem à máquina de lavar. Se você é desenvolvedor, maker ou simplesmente curioso, este guia prático (≈ 3 000 palavras) entrega tudo que você precisa para entender a tecnologia, avaliar a durabilidade e, principalmente, construir a sua própria manga‑tela em casa .",
+      "author": "LeoJulieta",
       "date": "2026-10-29",
       "readTime": "2 min",
       "section": "software",
@@ -52,37 +52,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 32,
-      "url": "https://dev.to/bfzhao/notion-version-history-is-just-timestamps-heres-what-real-versioning-looks-like-2lp4",
-      "image": "/images/feed/feed-dc3110c97d87.webp",
+      "xpReward": 34,
+      "url": "https://dev.to/leojulieta/como-criar-wearables-lavaveis-com-fibra-eletronica-em-2027-45kj",
+      "image": "/images/feed/feed-622de56359c9.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-70d610781f2b",
-      "title": "AI Ban vs. Contribution Policy: What Open Source Maintainers Should Govern",
-      "excerpt": "A project maintainer opens a pull request and sees a patch that is plausible, poorly tested, and difficult to review. The contributor says an AI coding tool helped. What should happen next: reject the…",
-      "body": "A project maintainer opens a pull request and sees a patch that is plausible, poorly tested, and difficult to review. The contributor says an AI coding tool helped. What should happen next: reject the patch because AI was involved, ask for more evidence, or review it under the same quality bar as any other contribution? That question moved beyond code review on October 24, when moderators of Reddit's r/opensource announced that projects using AI, made with AI, or intended for AI would not be welcome. The same rule update added age, maintenance, contributor-count, and account-history requirements. It also rejected AI-translated submissions on the grounds that moderators could not reliably distinguish them from AI-written text.",
-      "author": "jamilxt",
-      "date": "2026-10-29",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Open Source"
-      ],
-      "featured": true,
-      "xpReward": 43,
-      "url": "https://dev.to/jamilxt/ai-ban-vs-contribution-policy-what-open-source-maintainers-should-govern-d68",
-      "image": "/images/feed/feed-70d610781f2b.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-32cd8c84929e",
-      "title": "My forgotten subscriptions gave me nightmares, so I built Ghost Bills",
-      "excerpt": "This is a submission for the Hacktoberfest Open-Source AI Challenge Week 4: Ghost in the Machine Picture this: it's the end of October, you open your bank app for something boring, and there it is. A…",
-      "body": "This is a submission for the Hacktoberfest Open-Source AI Challenge Week 4: Ghost in the Machine What I Built Picture this: it's the end of October, you open your bank app for something boring, and there it is. A charge for $119 from a storage service you can't remember signing up for. It renews every November. It has renewed before. Nobody told you, because nobody was watching. That's a ghost. It lives in your statement, it takes a little money every month (or one big bite every year), and it's very good at staying invisible. So I built a ghost hunter. Ghost Bills reads your bank statement (a plain CSV export) and finds the subscriptions you forgot about. Then it tells you, in simple words, what each one costs you per year, and helps you get rid of it.",
-      "author": "Thilakasiri H.A.B.D",
+      "id": "feed-d954831f6bc4",
+      "title": "Monitoring a Laravel app on shared hosting",
+      "excerpt": "On a VPS you can install fail2ban, tail the system logs and plug in whatever monitoring you like. On shared hosting you get an FTP account, a cron panel and a database. If someone hammers your login f…",
+      "body": "On a VPS you can install fail2ban, tail the system logs and plug in whatever monitoring you like. On shared hosting you get an FTP account, a cron panel and a database. If someone hammers your login form at 3am, nothing tells you. The mrdebug/laravel-watchdog package plugs into what Laravel already provides: the Login , Failed and MessageSent events, the exception handler, and the notification system. Alerts are regular Laravel notifications sent through a watchdog-discord channel, so you can replace any of them with your own class the same way you would customize a mail notification. No agent to install, no third-party service to sign up for, just a Discord webhook URL. This post walks through a full setup, from composer require to the first alert.",
+      "author": "MisterDebug",
       "date": "2026-10-29",
       "readTime": "2 min",
       "section": "software",
@@ -91,17 +72,17 @@
       ],
       "featured": true,
       "xpReward": 32,
-      "url": "https://dev.to/bin4yi/my-forgotten-subscriptions-gave-me-nightmares-so-i-built-ghost-bills-1a9n",
-      "image": "/images/feed/feed-32cd8c84929e.webp",
+      "url": "https://dev.to/misterdebug/monitoring-a-laravel-app-on-shared-hosting-559k",
+      "image": "/images/feed/feed-d954831f6bc4.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-9b49f2818933",
-      "title": "How index keys affect inputs: compare DOM, row state, and parent state",
-      "excerpt": "When the first row is removed from a React list, do input values stay with the remaining rows? With index keys, the result depended on who owned the value. An uncontrolled input, whose value lived in…",
-      "body": "When the first row is removed from a React list, do input values stay with the remaining rows? With index keys, the result depended on who owned the value. An uncontrolled input, whose value lived in the DOM, and an input backed by row-local state displayed another row's value. Inputs receiving values from parent state displayed the correct values, but their DOM nodes were still reassigned to different rows. Narrow the reproduction from existing code The personal project's schedule creation screen passes the idx from rows.map as each Card key. It removes rows with array filtering and inserts duplicates by combining array slices. However, its title input is controlled through value={row.title} . The code alone does not show whether input values ever became mixed up in production.",
-      "author": "hiro@",
+      "id": "feed-645c8e9100b4",
+      "title": "Washable Smart Clothing Is Finally Going Mainstream",
+      "excerpt": "Washable Smart Clothing Is About to Hit the Mainstream – What You Need to Know (April 2024) Introduction Imagine tossing your fitness‑tracking shirt into the washing machine without worrying about rui…",
+      "body": "Washable Smart Clothing Is About to Hit the Mainstream – What You Need to Know (April 2024) Introduction Imagine tossing your fitness‑tracking shirt into the washing machine without worrying about ruining the built‑in touch screen. That’s no longer a sci‑fi scenario – the latest Hacker News threads, a wave of startup launches (MySkin, FlexiWear, ThreadTech), and a 42 % YoY jump in Google searches for “washable smart textile” all signal that fully washable wearables will be on store shelves by 2027 . In this guide you’ll get the practical low‑down: the core tech, the most advanced prototypes, a step‑by‑step DIY sleeve‑screen you can build this weekend, and a checklist to assess durability, safety, and market readiness.",
+      "author": "LeoJulieta",
       "date": "2026-10-29",
       "readTime": "2 min",
       "section": "software",
@@ -109,18 +90,37 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 47,
-      "url": "https://dev.to/hirodeath/how-index-keys-affect-inputs-compare-dom-row-state-and-parent-state-bgn",
-      "image": "/images/feed/feed-9b49f2818933.webp",
+      "xpReward": 30,
+      "url": "https://dev.to/leojulieta/washable-smart-clothing-is-finally-going-mainstream-3dp7",
+      "image": "/images/feed/feed-645c8e9100b4.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-90f5e371a76f",
-      "title": "When “Send” Isn’t Risky: Context-Aware Confirmation in an Android AI Agent",
-      "excerpt": "When \"Send\" Isn't Risky: Context-Aware Confirmation in an Android AI Agent In the last post I covered the two-layer confirmation guard: the LLM's requires_confirmation flag plus a keyword guard as a d…",
-      "body": "When \"Send\" Isn't Risky: Context-Aware Confirmation in an Android AI Agent In the last post I covered the two-layer confirmation guard: the LLM's requires_confirmation flag plus a keyword guard as a dumb-but-reliable backstop. A reader raised the right follow-up: \"send\" in a banking app and \"send\" in a notes app are not the same risk. The guard shouldn't treat them the same way. This post covers the next layer — making the confirmation guard context-aware by weighing app identity and action type together. The Problem With a Flat Keyword List A flat list of risky keywords has two failure modes. False negatives (the dangerous kind): the guard misses a risky action because the label is in another language, uses a synonym, or comes from a resource ID the guard never sees.",
-      "author": "StareBrain",
+      "id": "feed-e50744088ea9",
+      "title": "Crea tu propia manga‑pantalla lavable y domina el mercado 2024‑2027",
+      "excerpt": "Wearables lavables: cómo crear tu propia manga‑pantalla y qué esperar del mercado 2024‑2027 Introducción Los wearables lavables con fibra electrónica y pantalla táctil integrada ya no son solo ciencia…",
+      "body": "Wearables lavables: cómo crear tu propia manga‑pantalla y qué esperar del mercado 2024‑2027 Introducción Los wearables lavables con fibra electrónica y pantalla táctil integrada ya no son solo ciencia ficción; hoy aparecen en los laboratorios de startups y en los hilos de Hacker News. En los últimos tres meses, esos hilos acumularon más de 12 000 comentarios y varios prototipos demuestran que pueden sobrevivir más de 50 ciclos de lavado a 40 °C . Si quieres pasar de la curiosidad a la práctica, este artículo te muestra, paso a paso, cómo montar una manga‑pantalla DIY , qué código usar para que responda al tacto y cuáles son los requisitos legales antes de lanzar un producto al mercado. Todo con datos reales, ejemplos de código y enlaces a recursos útiles. 1.",
+      "author": "LeoJulieta",
+      "date": "2026-10-29",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 34,
+      "url": "https://dev.to/leojulieta/crea-tu-propia-manga-pantalla-lavable-y-domina-el-mercado-2024-2027-p57",
+      "image": "/images/feed/feed-e50744088ea9.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-fcb86d91b244",
+      "title": "A Practical Order of Operations for Speeding Up WooCommerce in 2026",
+      "excerpt": "Merchants often chase page-speed plugins first. On WooCommerce stores I reverse that: measure, then images and scripts, then cache, then hosting. On most product pages the LCP element is the hero or f…",
+      "body": "Merchants often chase page-speed plugins first. On WooCommerce stores I reverse that: measure, then images and scripts, then cache, then hosting. 1. Capture the LCP element On most product pages the LCP element is the hero or first gallery image — sometimes a webfont block. Identify it in PageSpeed Insights or Chrome Performance before changing anything. If you lazy-load that first image, you are making LCP worse on purpose. 2. Split TTFB from frontend weight A 2.5s LCP with 1.2s TTFB is a hosting / cache problem. The same LCP with 200ms TTFB and a 3MB product gallery is an asset problem. Fixing the wrong layer wastes a week. 3. Inventory third-party scripts on product templates Reviews widgets, chat, heatmaps, and “optimize everything” plugins often enqueue on every PDP.",
+      "author": "WPForge",
       "date": "2026-10-29",
       "readTime": "2 min",
       "section": "software",
@@ -128,10 +128,86 @@
         "Software"
       ],
       "featured": false,
-      "xpReward": 38,
-      "url": "https://dev.to/starebrain/when-send-isnt-risky-context-aware-confirmation-in-an-android-ai-agent-m5n",
-      "image": "/images/feed/feed-90f5e371a76f.webp",
+      "xpReward": 46,
+      "url": "https://dev.to/wpforge_shopaiwp/a-practical-order-of-operations-for-speeding-up-woocommerce-in-2026-ckk",
+      "image": "/images/feed/feed-fcb86d91b244.webp",
       "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-86a411c03cd1",
+      "title": "9 Years Ago, Netflix Released a Rare Sci-Fi Sequel Even Better Than the Original",
+      "excerpt": "Season 2 of Stranger Things premiered nine years ago, which proved to be nearly as good as season 1 thanks to some great new characters",
+      "body": "The “sophomore slump” or the “difficult second album” has generally been an expression that’s applied to music. After a band or a solo artist launches their career with a hit record, it can be challenging to recapture that same energy and excitement. After all, it's one thing to work on your best idea in solitude for years. It's another to suddenly feel immense pressure to follow-up that first hit with something even better. The same can hold true for TV. Many of the greatest television shows fail to deliver on their second outing — like Heroes and True Detective , to name just a couple.",
+      "author": "Brian VanHooker",
+      "date": "2026-10-29",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 41,
+      "url": "https://www.polygon.com/9-years-ago-season-2-of-this-sci-fi-series-proved-the-first-season-wasnt-a-fluke/",
+      "image": "/images/feed/feed-86a411c03cd1.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-497fa59362db",
+      "title": "Samsung teases Galaxy S27 plans as its phone business slips into the red again",
+      "excerpt": "Samsung expects to ship fewer phones in 2027, but it has big plans for its next Galaxy S series, foldables, and more.",
+      "body": "Credit: Paul Jones / Android Authority TL;DR Samsung expects to ship fewer smartphones in 2027, particularly in the mid-range and entry-level segments, as higher memory and component costs push prices up. The company is banking on “Intelligent Eyewear” in Q4 and is researching Glass, TriFold, and other new form factors for 2027. Samsung is also prioritizing a more distinctive Galaxy S series, better battery life and performance, improved foldables, and new Galaxy AI experiences. Samsung has reported its financial results for the past quarter, offering us a glimpse into its mobile business and future plans. The outlook comes as the company’s mobile division posted a second consecutive quarterly operating loss.",
+      "author": "Adamya Sharma",
+      "date": "2026-10-29",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Galaxy S"
+      ],
+      "featured": false,
+      "xpReward": 34,
+      "url": "https://www.androidauthority.com/samsung-galaxy-s27-plans-q3-2026-earnings-call-3729435/",
+      "image": "/images/feed/feed-497fa59362db.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-bb1fe8a0d4df",
+      "title": "Game Awards 2026: All Game of the Year Front-Runners and Predictions",
+      "excerpt": "We rank the contenders for GOTY 2026 at TGAs, including Resident Evil Requiem and Grand Theft Auto 6",
+      "body": "At this point, we have a clear idea of what games will be favored by The Game Awards' voting body : A high Metacritic rating (preferably over 90) is a must; role-playing games and action-adventures are strongly favored, as are games with strong narrative elements; indie and multiplayer games struggle harder for recognition than AAA single-player adventures. We used these metrics to correctly predict last year's winner, Clair Obscur: Expedition 33 , and the 2024 winner, Astro Bot . In 2025, we also predicted all six GOTY nominees and correctly called 20 other categories.",
+      "author": "Oli Welsh",
+      "date": "2026-10-29",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Game"
+      ],
+      "featured": false,
+      "xpReward": 36,
+      "url": "https://www.polygon.com/game-of-the-year-goty-game-awards-2026-frontrunners/",
+      "image": "/images/feed/feed-bb1fe8a0d4df.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-ac1de5df7e08",
+      "title": "Claude Code burns ~15–20% of your tokens on a 3-word status line",
+      "excerpt": "",
+      "body": "This report, published by Hacker News, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Claude. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Hacker News using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "NikZaal",
+      "date": "2026-10-29",
+      "readTime": "2 min",
+      "section": "ai",
+      "tags": [
+        "Claude"
+      ],
+      "featured": false,
+      "xpReward": 34,
+      "url": "https://gist.github.com/flamerix-ai/c3905705cc4205e5de3011fa2e74efce",
+      "image": "/images/feed/feed-ac1de5df7e08.png",
+      "source": "Hacker News",
       "isLive": true
     },
     {
@@ -148,7 +224,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 38,
       "url": "https://www.nasa.gov/centers-and-facilities/jpl/caltech-names-artemis-ii-commander-reid-wiseman-as-nasa-jpl-deputy/",
       "image": "https://www.nasa.gov/wp-content/uploads/2026/10/wiseman-portrait-crop-for-portal.jpg",
       "source": "NASA Breaking News",
@@ -167,7 +243,7 @@
         "Laptop"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 34,
       "url": "https://www.theverge.com/policy/1021554/anduril-bluechip-65-percent-domestic-buy-american",
       "image": "/images/feed/feed-c6d4e2e9a50f.jpg",
       "source": "The Verge",
@@ -186,7 +262,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 46,
       "url": "https://www.polygon.com/slow-horses-season-7-release-date-plot/",
       "image": "/images/feed/feed-d4a937bb44e3.jpg",
       "source": "Polygon",
@@ -205,7 +281,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 35,
       "url": "https://www.polygon.com/phantom-blade-zero-ribbon-location-where-to-find-rewards/",
       "image": "/images/feed/feed-b4fe699334a0.jpg",
       "source": "Polygon",
@@ -224,7 +300,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 39,
       "url": "https://www.polygon.com/phantom-blade-zero-flesh-lily-location-where-to-find/",
       "image": "/images/feed/feed-e8cc9465c22c.jpg",
       "source": "Polygon",
@@ -243,7 +319,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 49,
       "url": "https://www.polygon.com/phantom-blade-zero-cell-key-location-where-to-find-outpost-courtyard/",
       "image": "/images/feed/feed-e376cdfdbd5d.jpg",
       "source": "Polygon",
@@ -262,47 +338,9 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 36,
       "url": "https://www.polygon.com/phantom-blade-zero-a-healers-mercy-quest-walkthrough-wounded-thieves/",
       "image": "/images/feed/feed-e3d9df374e49.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-a5d3061a3f9e",
-      "title": "All medicine locations for 'Apprentice Healer' in Phantom Blade Zero",
-      "excerpt": "Here's where to find the medicinal herb locations needed to complete the \"Apprentice Healer\" quest in Phantom Blade Zero",
-      "body": "To complete the \"Apprentice Healer\" quest in Phantom Blade Zero , you must find three medicinal herbs for Yu'er. It's easier said than done, as two of these herbs are found in a hidden valley, and entering this mysterious location is quite the challenge on its own.",
-      "author": "Marloes Valentina Stella",
-      "date": "2026-10-29",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 50,
-      "url": "https://www.polygon.com/phantom-blade-zero-medicine-herb-locations-apprentice-healer/",
-      "image": "/images/feed/feed-a5d3061a3f9e.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-e2b70da4d464",
-      "title": "Where to find the primal stone for 'A Severed Mindseal' in Phantom Blade Zero",
-      "excerpt": "Here's the primal stone location needed to complete 'A Severed Mindseal' in Phantom Blade Zero.",
-      "body": "To find the Primal Stone during the \"A Severed Mindseal\" quest in Phantom Blade Zero , you must search a mysterious tower imbued with primal energy. It's easier said than done, but you'll make the Friendly Shadow Warden (that odd fellow you met on the roof of the Sha-Chi Tower) very happy.",
-      "author": "Marloes Valentina Stella",
-      "date": "2026-10-29",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 41,
-      "url": "https://www.polygon.com/phantom-blade-zero-primal-stone-location-severed-mindseal/",
-      "image": "/images/feed/feed-e2b70da4d464.jpg",
       "source": "Polygon",
       "isLive": true
     },
@@ -319,7 +357,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 32,
       "url": "https://cleantechnica.com/2026/10/28/construction-materials-stand-out-at-greenbuild-2026/",
       "image": "/images/feed/feed-08fef8edfb04.jpg",
       "source": "CleanTechnica",
@@ -338,7 +376,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 33,
       "url": "https://9to5mac.com/2026/10/28/russia-now-requires-apple-to-store-user-communications-and-hand-them-over-if-requested/",
       "image": "/images/feed/feed-01076e8f2aff.jpg",
       "source": "9to5Mac",
@@ -357,7 +395,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 34,
       "url": "https://electrek.co/2026/10/28/when-one-door-closes-polestar-2-production-ends-and-what-might-come-next/",
       "image": "/images/feed/feed-53bcb2888536.jpg",
       "source": "Electrek",
@@ -376,7 +414,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 32,
       "url": "https://cleantechnica.com/2026/10/28/nearly-half-of-eu-cities-do-not-yet-meet-new-clean-air-standards-report-shows-collaboration-is-key/",
       "image": "/images/feed/feed-e928d51741fc.jpg",
       "source": "CleanTechnica",
@@ -395,7 +433,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 44,
       "url": "https://cleantechnica.com/2026/10/28/trump-rolling-back-methane-pollution-safeguards/",
       "image": "/images/feed/feed-4b8919851ed4.jpg",
       "source": "CleanTechnica",
@@ -414,7 +452,7 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 52,
       "url": "https://electrek.co/2026/10/28/byd-1-million-employees-more-than-toyota-gm-ford-tesla/",
       "image": "/images/feed/feed-de0ac1caa3c5.jpg",
       "source": "Electrek",
@@ -433,7 +471,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 43,
       "url": "https://cleantechnica.com/2026/10/28/waymo-for-business-ramp/",
       "image": "/images/feed/feed-aec10e099523.jpg",
       "source": "CleanTechnica",
@@ -452,7 +490,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 52,
       "url": "https://cleantechnica.com/2026/10/28/the-truth-about-renewable-electricity-your-questions-answered/",
       "image": "/images/feed/feed-641e8e154d62.jpg",
       "source": "CleanTechnica",
@@ -471,7 +509,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 41,
       "url": "https://9to5mac.com/2026/10/28/apple-and-openai-trade-secrets-lawsuit-now-has-an-official-trial-date/",
       "image": "/images/feed/feed-9b66b4e7feef.jpg",
       "source": "9to5Mac",
@@ -490,7 +528,7 @@
         "Macbook"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 44,
       "url": "https://www.cnet.com/tech/computing/max-out-new-apple-touchscreen-macbook-pro-nearly-15k/",
       "image": "/images/feed/feed-3e32baf93626.png",
       "source": "CNET",
@@ -511,7 +549,7 @@
         "Security"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 42,
       "url": "https://alpinelinux.org/posts/GitLab-security-incident-CVE-2026-97229.html",
       "image": "/images/topics/topic-cybersecurity.png",
       "source": "Hacker News",
@@ -530,7 +568,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 41,
       "url": "https://techcrunch.com/2026/10/28/upwind-raises-400m-after-walking-away-from-datadog-acquisition-offer/",
       "image": "/images/feed/feed-edad344f449a.webp",
       "source": "TechCrunch",
@@ -549,7 +587,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 30,
       "url": "https://www.engadget.com/2300569/fcc-chair-wants-to-let-prisons-jam-illegal-cellphones/",
       "image": "/images/feed/feed-3d0c44e1139c.jpg",
       "source": "Engadget",
@@ -568,7 +606,7 @@
         "Macbook"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 46,
       "url": "https://www.cnet.com/tech/computing/touchscreen-macbook-pro-invites-smudges-fingerprints/",
       "image": "/images/feed/feed-206d9e64164a.png",
       "source": "CNET",
@@ -595,25 +633,6 @@
       "isLive": true
     },
     {
-      "id": "feed-4cb653fc9800",
-      "title": "The 2,000-Nit OLED in Apple’s New MacBook Is a Big Deal",
-      "excerpt": "The touchscreen in the new MacBook Pro is crazily bright with very deep blacks. Here’s why it’s unlike anything else you can currently buy.",
-      "body": "The touchscreen in the new MacBook Pro is crazily bright with very deep blacks. Here’s why it’s unlike anything else you can currently buy.\n\nThis report, published by Wired, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Macbook. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Wired using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Luke Larsen",
-      "date": "2026-10-28",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Macbook"
-      ],
-      "featured": false,
-      "xpReward": 41,
-      "url": "https://www.wired.com/story/the-2000-nit-oled-in-apples-new-macbook-pro-is-a-big-deal/",
-      "image": "/images/feed/feed-4cb653fc9800.jpg",
-      "source": "Wired",
-      "isLive": true
-    },
-    {
       "id": "feed-d0cbfbebeaab",
       "title": "A hacker stole more than 40,000 DHS employee records",
       "excerpt": "A hacker stole a trove of personal information from the Department of Homeland Security (DHS). The breach exposes the names, job titles, phone numbers, email addresses, and office locations of more th…",
@@ -626,7 +645,7 @@
         "Hacker"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 52,
       "url": "https://www.theverge.com/tech/1021528/ice-cbp-data-leak",
       "image": "/images/feed/feed-d0cbfbebeaab.jpg",
       "source": "The Verge",
@@ -646,7 +665,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 37,
       "url": "https://www.nasa.gov/organizations/oiir/nasa-welcomes-vietnam-as-newest-artemis-accords-signatory/",
       "image": "/images/feed/feed-57b5e30eab86.jpg",
       "source": "NASA Breaking News",
@@ -665,7 +684,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 34,
       "url": "https://techcrunch.com/2026/10/28/microsoft-recorded-10-billion-in-revenue-from-openai/",
       "image": "/images/feed/feed-65911ac3f4f5.jpg",
       "source": "TechCrunch",
@@ -685,7 +704,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 53,
       "url": "https://www.space.com/space-exploration/human-spaceflight/5-days-beneath-the-waves-what-its-like-to-live-in-an-underwater-space-station",
       "image": "/images/feed/feed-528c4b586c13.jpg",
       "source": "Space.com",
@@ -704,7 +723,7 @@
         "Gemini"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 54,
       "url": "https://www.cnet.com/tech/services-and-software/google-genie-4-gemini-4-carbon-ai-news/",
       "image": "/images/feed/feed-db1cdd2358bb.jpg",
       "source": "CNET",
@@ -723,7 +742,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 31,
       "url": "https://www.bleepingcomputer.com/news/security/police-seize-virtualine-bulletproof-service-tied-to-ransowmare-cybercrime/",
       "image": "/images/feed/feed-a1a2d4901169.jpg",
       "source": "BleepingComputer",
@@ -742,7 +761,7 @@
         "Gemini"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 32,
       "url": "https://www.theverge.com/tech/1021339/google-gemini-4-carbon-cybersecurity-frontier",
       "image": "/images/feed/feed-8bdc1d3d9ec7.jpg",
       "source": "The Verge",
@@ -781,7 +800,7 @@
         "Astronaut"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 30,
       "url": "https://www.space.com/space-exploration/international-space-station/iss-astronaut-will-conduct-canadas-1st-spacewalk-in-7-years-on-oct-29-watch-it-live",
       "image": "/images/feed/feed-adc7f722b251.jpg",
       "source": "Space.com",
@@ -800,7 +819,7 @@
         "Security"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 39,
       "url": "https://www.wired.com/story/massive-leak-exposes-41000-homeland-security-workers-including-undercover-ice-agents/",
       "image": "/images/feed/feed-34dd884a9c98.jpg",
       "source": "Wired",
@@ -819,7 +838,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 38,
       "url": "https://www.space.com/space-exploration/private-spaceflight/meet-apeiron-virgin-galactics-1st-delta-class-space-plane",
       "image": "/images/feed/feed-f871cbbe777d.jpg",
       "source": "Space.com",
@@ -838,7 +857,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 51,
       "url": "https://techcrunch.com/2026/10/28/anthropic-just-launched-tools-to-show-companies-what-their-ai-spending-is-buying/",
       "image": "/images/feed/feed-b2173123b9bf.jpg",
       "source": "TechCrunch",
@@ -857,7 +876,7 @@
         "Artemis"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 32,
       "url": "https://www.nasa.gov/image-article/artemis-iii-sls-core-stage-joins-boosters-at-kennedy/",
       "image": "/images/feed/feed-47cde1769100.jpg",
       "source": "NASA Breaking News",
@@ -876,7 +895,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 47,
       "url": "https://www.bleepingcomputer.com/news/security/discord-to-let-search-engines-index-public-server-messages/",
       "image": "/images/feed/feed-f7bbe08d1603.jpg",
       "source": "BleepingComputer",
@@ -895,7 +914,7 @@
         "Claude"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 31,
       "url": "https://www.zdnet.com/innovation/claude-enterprise-efficiency-cost-tracking/",
       "image": "/images/feed/feed-63d1fa22fca3.jpg",
       "source": "ZDNet",
@@ -914,43 +933,24 @@
         "Gemini"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 34,
       "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
       "image": "/images/feed/feed-dff358d38296.png",
       "source": "Hacker News",
       "isLive": true
-    },
-    {
-      "id": "feed-7fbbcf0aac9e",
-      "title": "As AI agents reshape the web, Google opens Gemini and Search to more apps",
-      "excerpt": "A new developer platform will let businesses bring their services to Google's AI experiences, potentially changing how consumers discover and use apps.",
-      "body": "A new developer platform will let businesses bring their services to Google's AI experiences, potentially changing how consumers discover and use apps.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gemini. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Sarah Perez",
-      "date": "2026-10-28",
-      "readTime": "2 min",
-      "section": "ai",
-      "tags": [
-        "Gemini"
-      ],
-      "featured": false,
-      "xpReward": 37,
-      "url": "https://techcrunch.com/2026/10/28/as-ai-agents-reshape-the-web-google-opens-gemini-and-search-to-more-apps/",
-      "image": "/images/feed/feed-7fbbcf0aac9e.jpg",
-      "source": "TechCrunch",
-      "isLive": true
     }
   ],
   "breakingNews": [
-    "DEV.TO: Amazon just bet $200 that your phone can't replace a clock or a photo frame",
-    "DEV.TO: Too many ADRs made our AI follow outdated decisions. The fix: keep them all, let an index name the current ones",
-    "DEV.TO: Notion Version History Is Just Timestamps. Here’s What Real Versioning Looks Like",
-    "DEV.TO: AI Ban vs. Contribution Policy: What Open Source Maintainers Should Govern",
-    "DEV.TO: My forgotten subscriptions gave me nightmares, so I built Ghost Bills",
-    "DEV.TO: How index keys affect inputs: compare DOM, row state, and parent state",
-    "DEV.TO: When “Send” Isn’t Risky: Context-Aware Confirmation in an Android AI Agent",
-    "NASA BREAKING NEWS: Caltech Names Artemis II Commander Reid Wiseman as NASA JPL Deputy",
-    "THE VERGE: Anduril now says its BlueChip laptop will meet Buy American standards at launch",
-    "POLYGON: 'Slow Horses' Season 7 Confirmed? Release Date, Plot, and Everything You Need to Know"
+    "DEV.TO: I Found Three Wrappers Hiding Failures, Wrote Them Into a Test as a Fact, and Left Them for Five Days",
+    "DEV.TO: Node.js Error Tracking: Capturing and Posting Errors for Incident Reconstruction in 2026",
+    "DEV.TO: Como Criar Wearables Laváveis com Fibra Eletrônica em 2027",
+    "DEV.TO: Monitoring a Laravel app on shared hosting",
+    "DEV.TO: Washable Smart Clothing Is Finally Going Mainstream",
+    "DEV.TO: Crea tu propia manga‑pantalla lavable y domina el mercado 2024‑2027",
+    "DEV.TO: A Practical Order of Operations for Speeding Up WooCommerce in 2026",
+    "POLYGON: 9 Years Ago, Netflix Released a Rare Sci-Fi Sequel Even Better Than the Original",
+    "ANDROID AUTHORITY: Samsung teases Galaxy S27 plans as its phone business slips into the red again",
+    "POLYGON: Game Awards 2026: All Game of the Year Front-Runners and Predictions"
   ],
   "sectionVideos": {}
 }
