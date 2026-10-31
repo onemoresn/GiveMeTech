@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-10-31T04:12:24.409Z",
+  "fetchedAt": "2026-10-31T05:11:27.004Z",
   "articles": [
     {
-      "id": "feed-0a900f887ac0",
-      "title": "合并前怎么拦住不合规的开源许可证",
-      "excerpt": "这篇讲依赖用了不合规的开源许可证时，怎么在合并前拦住。看完你可以在仓库 设置 → 安全 里打开许可证门禁和 未通过时拒绝合并，并到 AngusSecurity 策略里勾上 许可证合规，看允许名单和禁止名单在哪填。 仓库 xlliu/e2e-license-gate 的安全概览现在写着「许可证门禁未通过，拒绝合并」。许可合规页有两条开放发现，高危的 GPL-3.0-only 属于强互惠（分发软件时，…",
-      "body": "这篇讲依赖用了不合规的开源许可证时，怎么在合并前拦住。看完你可以在仓库 设置 → 安全 里打开许可证门禁和 未通过时拒绝合并 ，并到 AngusSecurity 策略里勾上 许可证合规 ，看允许名单和禁止名单在哪填。 仓库 xlliu/e2e-license-gate 的安全概览现在写着「许可证门禁未通过，拒绝合并」。许可合规页有两条开放发现，高危的 GPL-3.0-only 属于强互惠（分发软件时，要把相关代码也按同样的许可证公开），低危的 MIT 属于宽松（基本只要求保留版权声明）。 先登录 AngusGit，再打开仓库 xlliu/e2e-license-gate ；你自己的仓库也从登录后的仓库列表进入。安全扫描在团队版、企业版和云服务中提供；社区版没有 安全 菜单。开始前先让扫描跑起来：系统管理员打开 管理 → 安全设置 ，页面标题是 AngusSecurity 集成 ， 配置启用 为 已启用 、 平台可达 为 正常 ；还没开通时点 开通集成 。页面要求 angus.git.external-security.enabled=true 时，把环境变量 ANGUS_GIT_EXTERNAL_SECURITY_ENABLED 设为 true 并重启 AngusGit。仓库管理员再到该仓库 设置 → 安全 ，打开 本仓自动安全扫描 和 许可证合规 ，保存后提示「安全设置已保存」。对照本文时按仓库里已经保存的设置来看即可，不必再点 保存 、 立即扫描 或 立即执行 。 1.",
-      "author": "Wen Ping",
+      "id": "feed-6e966be13991",
+      "title": "What Abstraction Does React Introduce?",
+      "excerpt": "JavaScript could already update the DOM. So why did we need React? In my previous post, we discussed the history of Web UI and how it evolved from HTML to React. But there are many misconceptions abou…",
+      "body": "JavaScript could already update the DOM. So why did we need React? In my previous post, we discussed the history of Web UI and how it evolved from HTML to React. But there are many misconceptions about React. One of them is that React removes DOM manipulation. That’s not the proper way to understand it. Instead, React abstracts DOM manipulation. So, what is abstraction? The bigger picture of React's abstraction is where you describe UI declaratively as a function of application state, organize UI into components, and then let React handle the synchronization between that description and the React rendering environment. That is about the overall abstraction, which abstracts many underlying tasks. Let's understand that. Abstractions 1.",
+      "author": "Neel-Vekariya",
       "date": "2026-10-31",
       "readTime": "2 min",
       "section": "software",
@@ -14,18 +14,37 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 43,
-      "url": "https://dev.to/wenping/he-bing-qian-zen-yao-lan-zhu-bu-he-gui-de-kai-yuan-xu-ke-zheng-48jp",
-      "image": "/images/feed/feed-0a900f887ac0.webp",
+      "xpReward": 36,
+      "url": "https://dev.to/neel-vekariya/what-abstraction-does-react-introduce-23h8",
+      "image": "/images/feed/feed-6e966be13991.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-e815e5677aab",
-      "title": "仓库能推之后：内置流水线 YAML 怎么写",
-      "excerpt": "这篇讲代码能推上 AngusGit 之后，怎么写一份让每次推送都自动构建和测试的 .anguscicd.yaml。看完你可以写齐顶层字段，把多个 Job（流水线里的一组步骤）按顺序串起来，配好什么时候自动运行，并在脚本里引用凭证（平台上保存的令牌、密码），而不把令牌写进仓库文件。 开始之前先弄清三件事。这份文件用的是 AngusGit 自己的语法，和 GitLab CI 的 .gitlab-ci.…",
-      "body": "这篇讲代码能推上 AngusGit 之后，怎么写一份让每次推送都自动构建和测试的 .anguscicd.yaml 。看完你可以写齐顶层字段，把多个 Job（流水线里的一组步骤）按顺序串起来，配好什么时候自动运行，并在脚本里引用凭证（平台上保存的令牌、密码），而不把令牌写进仓库文件。 开始之前先弄清三件事。这份文件用的是 AngusGit 自己的语法，和 GitLab CI 的 .gitlab-ci.yml 、GitHub Actions 的 workflow 文件都不通用。流水线功能只在团队版和企业版中提供，社区版没有 CI/CD 菜单。运行器（Runner，真正执行任务的机器）要先接好，否则推送之后任务会一直停在等待中。登录 AngusGit，侧栏进入 CI/CD → 运行器 ，点 新增 Runner 。 控制面地址 改成构建机访问得到的地址。名称写这台机器，例如 build-linux-01 。点 生成令牌 ，令牌 1 小时内有效，明文只显示一次。任务要在容器里跑时，页签选 Docker 一键拉起 ，标签填 linux,docker 。任务要直接在构建机上跑时，页签选 Zip 安装 ，标签不要带 docker ，机器上先装好 JDK 21。把命令复制到构建机执行，回到列表看到这台运行器是 空闲 ，再写 YAML。 下文的 YAML 都取自示例仓库 xlliu/test-cicd-example ，克隆地址是 https://git.anguskit.com/xlliu/test-cicd-example.git ，可以对照着看。文中用到仓库里的两份文件： .anguscicd/01-basic-build.yaml （ name: basic-build-test ）在控制台里显示为 test-cicd-example · 01 Basic Build ， .angus…",
-      "author": "Wen Ping",
+      "id": "feed-1e15bcaddacc",
+      "title": "🎃 Halloween for Developers: A World Full of Bugs, Ghosts & Endless Debugging! 👻",
+      "excerpt": "It's Halloween! While the world is afraid of ghosts, developers are afraid of something much scarier... PRODUCTION BUGS! 😂 Imagine a world where: 👻 Bugs appear without anyone touching the code. 💀 Y…",
+      "body": "It's Halloween! While the world is afraid of ghosts, developers are afraid of something much scarier... PRODUCTION BUGS! 😂 Imagine a world where: 👻 Bugs appear without anyone touching the code. 💀 Your application works perfectly on localhost but crashes in production. 🎃 You fix one issue and accidentally create three more. 🧟 Your manager says, \"It's just a small change!\" ☕ Coffee becomes your only debugging partner. Welcome to the spooky life of a Software Developer! 👻 1. The Real Ghosts of Software Development Every developer has experienced these terrifying moments: The Invisible Bug: Everything looks fine, but something is secretly broken. The Production Monster: It works on your machine, but production says NO!",
+      "author": "kiran",
+      "date": "2026-10-31",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Developer"
+      ],
+      "featured": true,
+      "xpReward": 52,
+      "url": "https://dev.to/kiranbasnal/halloween-for-developers-a-world-full-of-bugs-ghosts-endless-debugging-1mld",
+      "image": "/images/feed/feed-1e15bcaddacc.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-12edd434b6e8",
+      "title": "Debug a Flaky CI Test from Structured Test Replay JSON",
+      "excerpt": "A flaky test gives you an unusually valuable experiment: the same test failed and then passed inside one recorded run. Instead of rerunning it until the failure disappears, compare the attempts. The C…",
+      "body": "A flaky test gives you an unusually valuable experiment: the same test failed and then passed inside one recorded run. Instead of rerunning it until the failure disappears, compare the attempts. The Cypress Cloud CLI exposes Test Replay commands, network requests, and console logs as JSON. Its local replay viewer requires version 0.4.0 or newer, and the current CLI documentation requires Node.js 22.21.0 or later. Cloud CLI is currently Beta , so use the latest supported version for exploration and pin the validated version in repeatable automation. I am a Cypress Ambassador. IDs and outputs below are synthetic, and the workflow was checked against the public Cloud CLI documentation.",
+      "author": "Raju Dandigam",
       "date": "2026-10-31",
       "readTime": "2 min",
       "section": "software",
@@ -33,18 +52,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 33,
-      "url": "https://dev.to/wenping/cang-ku-neng-tui-zhi-hou-nei-zhi-liu-shui-xian-yaml-zen-yao-xie-293",
-      "image": "/images/feed/feed-e815e5677aab.webp",
+      "xpReward": 50,
+      "url": "https://dev.to/raju_dandigam/debug-a-flaky-ci-test-from-structured-test-replay-json-1fo0",
+      "image": "/images/feed/feed-12edd434b6e8.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-56b21a6641b6",
-      "title": "内网怎么把 Git 装起来：部署完成后用 clone 和合并请求验收",
-      "excerpt": "这篇讲在内网把 AngusGit 装起来之后，怎么确认团队真的能用。看完你可以在一台 Linux 上按安装向导装完，再用建仓、SSH 克隆、推送分支、合并拉取请求四步验收。拉取请求（Pull Request）是把一个分支的改动申请合进另一个分支的页面，同事可以在上面查看改动，确认后再合并。 验收里的 SSH 要先有公钥。本机还没有 ~/.ssh/id_ed25519.pub 时，执行 ssh-ke…",
-      "body": "这篇讲在内网把 AngusGit 装起来之后，怎么确认团队真的能用。看完你可以在一台 Linux 上按安装向导装完，再用建仓、SSH 克隆、推送分支、合并拉取请求四步验收。拉取请求（Pull Request）是把一个分支的改动申请合进另一个分支的页面，同事可以在上面查看改动，确认后再合并。 验收里的 SSH 要先有公钥。本机还没有 ~/.ssh/id_ed25519.pub 时，执行 ssh-keygen -t ed25519 -C \"you@example.com\" ，保存路径直接回车，再执行 cat ~/.ssh/id_ed25519.pub ，复制以 ssh-ed25519 开头的一整行。登录 AngusGit 后，侧栏进入 我的 → SSH密钥 ，点 添加SSH密钥 ，标题自定，粘贴这一行，点 添加密钥 。地址里的用户名固定是 git ，端口是 2222。想改用 HTTPS 时，到 我的 → 访问令牌 点 生成新令牌 ， 密码验证 填登录密码，勾选 git:write ，仓库权限设为 WRITE ，生成后马上复制。推送时用户名填登录名，密码填这把令牌。 AngusGit 的私有化安装包自带一个交互式向导，在一台内网 Linux 服务器上按提示选几项、填几项就能装完。向导里要选定安装方式、访问方式和数据库，日常则要把数据库和仓库目录一起备份。下文以社区版（最多 10 个用户）为例；团队版和企业版的安装步骤相同，只是需要额外提供许可证文件。 1.",
-      "author": "Wen Ping",
+      "id": "feed-7ec3e96d00a9",
+      "title": "I can't ask my old team lead why anymore, so I built a séance",
+      "excerpt": "This is a submission for the Hacktoberfest Open-Source AI Challenge Week 4: Ghost in the Machine. A month ago my team lead left. He was the one who knew why our code is shaped the way it is: why one p…",
+      "body": "This is a submission for the Hacktoberfest Open-Source AI Challenge Week 4: Ghost in the Machine . A month ago my team lead left. He was the one who knew why our code is shaped the way it is: why one piece is split from another, why a check lives here and not there, why a decision that looks wrong was actually right. More than once since then I have hit one of those decisions, opened a chat to ask him, and stopped halfway through typing. He has moved on. It felt wrong to pull him back into code he no longer owns, and there was nobody else to ask. git blame did not help. It showed me the last person who touched the file, not the person who decided why it exists.",
+      "author": "Tanay",
       "date": "2026-10-31",
       "readTime": "2 min",
       "section": "software",
@@ -52,37 +71,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 49,
-      "url": "https://dev.to/wenping/nei-wang-zen-yao-ba-git-zhuang-qi-lai-bu-shu-wan-cheng-hou-yong-clone-he-he-bing-qing-qiu-yan-shou-48gm",
-      "image": "/images/feed/feed-56b21a6641b6.webp",
+      "xpReward": 50,
+      "url": "https://dev.to/tanay_singh_1005/i-cant-ask-my-old-team-lead-why-anymore-so-i-built-a-seance-3ih2",
+      "image": "/images/feed/feed-7ec3e96d00a9.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-b5e46be1d655",
-      "title": "导入 GitHub Actions 之后：事件、密钥和 Runner 还要对一遍",
-      "excerpt": "这篇讲把 GitHub Actions 的 workflow 贴进 导入 GitHub Actions、点 转换 之后，对话框里还没保存的 YAML 和贴进去的 workflow 差在哪里。看完你可以对照 未映射（需人工改） 和 注意 两份清单，改完触发事件、密钥和运行器（Runner，真正执行任务的机器）再创建流水线；REPO_TOKEN 这类密钥要另外建成凭证，导入不会替你创建。下文把转换出来…",
-      "body": "这篇讲把 GitHub Actions 的 workflow 贴进 导入 GitHub Actions 、点 转换 之后，对话框里还没保存的 YAML 和贴进去的 workflow 差在哪里。看完你可以对照 未映射（需人工改） 和 注意 两份清单，改完触发事件、密钥和运行器（Runner，真正执行任务的机器）再创建流水线； REPO_TOKEN 这类密钥要另外建成凭证，导入不会替你创建。下文把转换出来、还没保存的那份 YAML 称为初稿，贴进去的 workflow 称为原文件。 先登录 AngusGit。流水线在团队版和企业版中提供，社区版没有 CI/CD 菜单。侧栏进入 CI/CD → 流水线 ，点 新建流水线 ，选 导入 GitHub Actions 。密钥要自己建：打开 CI/CD → 配置 ，切到 凭证 ，点 新建凭证 。 名称 填 workflow 里的名字，例如 REPO_TOKEN ，创建后不能改。 类型 选 凭证文本 。 可见性 选 指定仓库 ，在 绑定仓库 里选上这个仓库。 值 粘贴令牌，保存后不能再看明文。本文示例转换后是 runner.mode: NATIVE 、标签 ubuntu-latest 。还没有这种运行器时，侧栏进入 CI/CD → 运行器 ，点 新增 Runner ， 生成令牌 （1 小时内有效，只显示一次），页签选 Zip 安装 ，标签填 ubuntu-latest ，不要带 docker ，否则会变成容器模式，接不到这份任务。把命令复制到构建机执行，列表里变成 空闲 后再创建流水线。 .github/workflows/ 下的文件不会在 AngusGit 上运行，所以必须走导入。对话框说明是：「子集映射为 AngusCICD YAML。Marketplace Action、托管 runs-on 镜像不会自动可用，请看未映射清单。」流水线…",
-      "author": "Wen Ping",
-      "date": "2026-10-31",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Github"
-      ],
-      "featured": true,
-      "xpReward": 40,
-      "url": "https://dev.to/wenping/dao-ru-github-actions-zhi-hou-shi-jian-mi-yao-he-runner-huan-yao-dui-bian-4816",
-      "image": "/images/feed/feed-b5e46be1d655.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-5a23c42a0c7d",
-      "title": "What happens when you enter a URL in your browser?",
-      "excerpt": "You type dev.to, press Enter, and the page is there in about a second. It feels instant, so we never think about it. But a lot happens in that small gap, and it is worth knowing, because this one ques…",
-      "body": "You type dev.to , press Enter, and the page is there in about a second. It feels instant, so we never think about it. But a lot happens in that small gap, and it is worth knowing, because this one question quietly covers DNS, TCP, TLS, HTTP and how browsers paint pixels. Let us go through it step by step. Everything below comes from a real test run against dev.to , and every command is included, so you can run the same checks on any site you like. Step 1: The browser reads the URL Before any network work, the browser parses what you typed. A URL like https://dev.to/some-article has three parts: the scheme ( https ), the host ( dev.to ) and the path ( /some-article ). The scheme tells the browser which port to use by default. HTTPS means port 443, plain HTTP means port 80.",
-      "author": "MITESH KUMAR  ANSHU",
+      "id": "feed-5a68aabe3490",
+      "title": "TikTok の［Sleep hours］では夜の TikTok は止まらない：メッセージは残して、寝る前に「おすすめ」を止める方法（iPhone・2026年）",
+      "excerpt": "minulo は、TikTok を「おすすめ」を消した状態で無料で開け、布団に入るときに公式の TikTok アプリも止められる iPhone のアプリで、夜もメッセージだけは使えます。インスタのリールや YouTube のショートも、minulo の中では同じように消えます。夜の TikTok を公式の機能で本当に止めるなら、iPhone のスクリーンタイムの休止時間で「休止時間中にブロック」を…",
+      "body": "minulo は、TikTok を「おすすめ」を消した状態で無料で開け、布団に入るときに公式の TikTok アプリも止められる iPhone のアプリで、夜もメッセージだけは使えます。インスタのリールや YouTube のショートも、minulo の中では同じように消えます。夜の TikTok を公式の機能で本当に止めるなら、iPhone のスクリーンタイムの休止時間で「休止時間中にブロック」をオンにしますが、TikTok のメッセージも一緒に止まります。（この記事は minulo の開発者が書いています） TikTok のことは TikTok ヘルプ、iPhone の設定は Apple の iPhone ユーザガイドで、2026年10月に確かめました。TikTok のメニューは英語の画面の名前で書いています。医療的な助言ではなく、設定の手順です。 公式の設定でできること、できないこと TikTok の［Sleep hours］ ［プロフィール］→［メニュー］→［Settings and privacy］→［Time and well-being］→［Screen time］を開くと、同じ画面に［Sleep hours］があります。 寝る時間になると、TikTok はプッシュ通知を止め、アプリの中で休憩をすすめる表示を出します。終わりの時刻は年齢から決まり、18歳以上なら少なくとも7時間の睡眠が目安です。時間に気づくきっかけにはなりますが、TikTok は開いたまま見られます。 TikTok の［Daily screen time］ 1日の上限に達すると知らせてくれます。ただ、画面に出ているパスコードを入れれば見続けられるので、止める仕組みではありません。 iPhone の休止時間 設定 &gt; スクリーンタイム &gt; 休止時間 &gt; スケジュールで、たとえば2…",
+      "author": "ayumu kitabayashi",
       "date": "2026-10-31",
       "readTime": "2 min",
       "section": "software",
@@ -90,18 +90,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 53,
-      "url": "https://dev.to/miteshanshu/what-happens-when-you-enter-a-url-in-your-browser-4a4a",
-      "image": "/images/feed/feed-5a23c42a0c7d.webp",
+      "xpReward": 41,
+      "url": "https://dev.to/ayumu_kitabayashi_8e0de96/tiktok-nosleep-hoursdehaye-no-tiktok-hazhi-maranaimetusezihacan-site-qin-ruqian-niosusume-wozhi-merufang-fa-iphone2026nian--1a4j",
+      "image": "/images/feed/feed-5a68aabe3490.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-3fe4ea8c2c06",
-      "title": "Vetal PR : I Gave Git a Ghost. It Won't Let Me Push Until I Explain My Own Diff.",
-      "excerpt": "This is a submission for the Hacktoberfest Open-Source AI Challenge Week 4: Ghost in the Machine If you grew up in India, you probably know this story even if you never read it. A king named Vikram wa…",
-      "body": "This is a submission for the Hacktoberfest Open-Source AI Challenge Week 4: Ghost in the Machine What I Built If you grew up in India, you probably know this story even if you never read it. A king named Vikram walks into a cremation ground at night, climbs a tamarind tree, and cuts down a corpse. A ghost lives in that corpse: Vetal . Vikram slings him over his shoulder and starts walking, and Vetal starts talking. He tells a story. Every story ends in a riddle. And every riddle comes with the same warning: \"If you know the answer and keep silent, your head will burst into a thousand pieces.\" Vikram always knows. So he speaks, and the moment he breaks his silence, Vetal laughs and flies back to the tree. Twenty-five stories. Twenty-five walks back to the tree.",
-      "author": "Abhijeet Mohanta",
+      "id": "feed-e276c0745a62",
+      "title": "Black October: 9 AI Dev Platforms Were Breached. Rotate Your Keys Today",
+      "excerpt": "TL;DR: In October 2026, at least nine AI developer platforms disclosed security incidents, according to a Wiz research post published on October 30. The common thread is that attackers went after stor…",
+      "body": "TL;DR: In October 2026, at least nine AI developer platforms disclosed security incidents, according to a Wiz research post published on October 30 . The common thread is that attackers went after stored environment variables, especially the ones that unlock AI models. Stolen keys were tested within about 30 minutes and later resold. If you have an OpenAI, Anthropic, Bedrock or similar key sitting in a hosting or dev platform, rotate it today. Then put a spend cap on it and narrow its scope. There's a checklist below. Any other month, one AI platform breach would have been the security story of the week. This month there were nine, and Wiz's researchers had to point out that hardly anyone was connecting them. They called it \"Black October\".",
+      "author": "Lycore Development",
       "date": "2026-10-31",
       "readTime": "2 min",
       "section": "software",
@@ -109,18 +109,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 30,
-      "url": "https://dev.to/abhijeetkaze/vetal-pr-i-gave-git-a-ghost-it-wont-let-me-push-until-i-explain-my-own-diff-aob",
-      "image": "/images/feed/feed-3fe4ea8c2c06.webp",
+      "xpReward": 44,
+      "url": "https://dev.to/lycore/black-october-9-ai-dev-platforms-were-breached-rotate-your-keys-today-35d3",
+      "image": "/images/feed/feed-e276c0745a62.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-127406a630e0",
-      "title": "Mapping Apache NiFi data-flow interfaces before changing access policy",
-      "excerpt": "Mapping Apache NiFi data-flow interfaces before changing access policy Apache NiFi sits on the path between data sources, transformations, and destinations. That position makes its user interface and…",
-      "body": "Mapping Apache NiFi data-flow interfaces before changing access policy Apache NiFi sits on the path between data sources, transformations, and destinations. That position makes its user interface and REST API more than a monitoring convenience. They can expose flow definitions, processor configuration, connection metadata, and operational controls. An inventory is useful when it distinguishes an observed NiFi interface from a confirmed anonymous or vulnerable deployment. Why the interface matters NiFi's administration guide describes authenticated access, authorization policies, and the nifi.security.allow.anonymous.authentication setting. A secured instance does not allow anonymous authentication unless that property is enabled.",
-      "author": "StarkMan",
+      "id": "feed-e358008177f2",
+      "title": "Raindance AI: Clip-Length Pickers, Head-Swap vs Whole-Person, and Seedance via TryAllAPI",
+      "excerpt": "How I shipped a timeline-aware Raindance remake product on Cloudflare Workers — where duration knobs drive Seedance costs through TryAllAPI. raindanceai.app is not “upload and hope.” Users pick solo (…",
+      "body": "How I shipped a timeline-aware Raindance remake product on Cloudflare Workers — where duration knobs drive Seedance costs through TryAllAPI. raindanceai.app is not “upload and hope.” Users pick solo (1 photo) or duet (2 photos) , choose Head swap or Whole person , then select a 3–10s moment from the trend clip (including quick Part 1 / 2 / 3 for a full ~30s stitch later in CapCut). Output is an MP4 ready for Shorts/Reels. This post focuses on the API + duration economics side: why an aggregator, which Seedance knobs matter, and how pricing from $5.99 maps to credits. Prices and model ids change; treat live site / console as source of truth. Product shape that drives the API design Unlike one-shot 15s party templates, Raindance exposes length: Clip length controls: 3s through 10s.",
+      "author": "Raindance Lab",
       "date": "2026-10-31",
       "readTime": "2 min",
       "section": "software",
@@ -128,10 +128,29 @@
         "Software"
       ],
       "featured": false,
-      "xpReward": 40,
-      "url": "https://dev.to/stark_zhuang_df5076f35c68/mapping-apache-nifi-data-flow-interfaces-before-changing-access-policy-181i",
-      "image": "/images/feed/feed-127406a630e0.webp",
+      "xpReward": 33,
+      "url": "https://dev.to/raindance_lab/raindance-ai-clip-length-pickers-head-swap-vs-whole-person-and-seedance-via-tryallapi-2o0k",
+      "image": "/images/feed/feed-e358008177f2.webp",
       "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-6937a10f3535",
+      "title": "APOD: 2026 October 31 – Night on a Spooky Planet",
+      "excerpt": "APOD Science APOD APOD: 2026 October 31 –… Today’s APOD Archive Submissions Index Search Calendar RSS Education About Discuss APOD Astronomy Picture of the Day Discover the cosmos! Each day a differen…",
+      "body": "APOD Science APOD APOD: 2026 October 31 –… Today’s APOD Archive Submissions Index Search Calendar RSS Education About Discuss APOD Astronomy Picture of the Day Discover the cosmos! Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer. Night on a Spooky Planet Explanation: What spooky planet is this? Planet Earth on a dark and stormy night, of course. The ghostly scene was photographed at Hverir , a geothermally active area found along northeastern Iceland’s volcanic landscape . Triggered by solar activity , geomagnetic storms have unleashed energetic particles trapped in Earth’s magnetic field.",
+      "author": "NASA Breaking News",
+      "date": "2026-10-31",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Space"
+      ],
+      "featured": false,
+      "xpReward": 43,
+      "url": "https://science.nasa.gov/image-article/apod-2026-october-31-night-on-a-spooky-planet/",
+      "image": "/images/feed/feed-6937a10f3535.jpg",
+      "source": "NASA Breaking News",
       "isLive": true
     },
     {
@@ -147,7 +166,7 @@
         "Xbox"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 30,
       "url": "https://www.polygon.com/new-xbox-games-november-2026/",
       "image": "/images/feed/feed-9f9316fcde1d.jpg",
       "source": "Polygon",
@@ -166,7 +185,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 47,
       "url": "https://www.ign.com/articles/by-skipping-last-gen-systems-stranger-than-heaven-is-allowing-rgg-studio-to-fully-leverage-the-power-of-current-gen-consoles-at-long-last",
       "image": "/images/feed/feed-850198205dce.png",
       "source": "IGN",
@@ -185,10 +204,29 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 36,
       "url": "https://cleantechnica.com/2026/10/30/hyundai-ioniq-3-named-european-car-of-the-year-2027-finalist/",
       "image": "/images/feed/feed-26fc1debd2a3.jpg",
       "source": "CleanTechnica",
+      "isLive": true
+    },
+    {
+      "id": "feed-a9e2dda1166c",
+      "title": "OpenAI raises less than half of $30B target",
+      "excerpt": "",
+      "body": "This report, published by Hacker News, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Openai. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Hacker News using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "timr",
+      "date": "2026-10-31",
+      "readTime": "2 min",
+      "section": "ai",
+      "tags": [
+        "Openai"
+      ],
+      "featured": false,
+      "xpReward": 31,
+      "url": "https://www.wsj.com/tech/ai/openai-raises-less-than-half-of-30-billion-target-in-latest-round-91aecdc5",
+      "image": "/images/topics/topic-ai-ml.png",
+      "source": "Hacker News",
       "isLive": true
     },
     {
@@ -223,7 +261,7 @@
         "Autonomous Driving"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 43,
       "url": "https://cleantechnica.com/2026/10/30/toyota-waymo-advance-autonomous-driving-collaboration-for-safer-streets-and-freedom-of-movement-for-all/",
       "image": "/images/feed/feed-bc77f841741d.jpg",
       "source": "CleanTechnica",
@@ -242,7 +280,7 @@
         "Gameplay"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 46,
       "url": "https://www.polygon.com/classic-games-bad-graphics-good-gameplay/",
       "image": "/images/feed/feed-1361c1b56238.jpg",
       "source": "Polygon",
@@ -280,7 +318,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 30,
       "url": "https://www.polygon.com/top-10-pokemon-cards-most-likely-to-be-fake-how-to-tell/",
       "image": "/images/feed/feed-ec43398075a0.jpg",
       "source": "Polygon",
@@ -299,7 +337,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 48,
       "url": "https://www.ign.com/articles/final-fantasy-xiv-evercold-delayed-new-release-date-announced-at-ffxiv-fan-fest",
       "image": "/images/feed/feed-c69b947ae85b.jpg",
       "source": "IGN",
@@ -318,7 +356,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 38,
       "url": "https://www.polygon.com/mike-flanagan-series-ranked/",
       "image": "/images/feed/feed-93a5d83b14dc.jpg",
       "source": "Polygon",
@@ -337,7 +375,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 45,
       "url": "https://cleantechnica.com/2026/10/30/homepower-1000-plus-v2-portable-power-put-to-use/",
       "image": "/images/feed/feed-75ab6a29f080.jpg",
       "source": "CleanTechnica",
@@ -358,7 +396,7 @@
         "Vehicle"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 45,
       "url": "https://cleantechnica.com/2026/10/30/electric-vehicle-council-celebrating-10-years-of-ev-progress-in-australia/",
       "image": "/images/feed/feed-dcf40710bd40.jpg",
       "source": "CleanTechnica",
@@ -377,7 +415,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 50,
       "url": "https://9to5mac.com/2026/10/30/download-all-20-apple-homeview-wallpapers-in-light-and-dark-mode-here/",
       "image": "/images/feed/feed-df53fcadcfdb.jpg",
       "source": "9to5Mac",
@@ -396,7 +434,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 39,
       "url": "https://9to5mac.com/2026/10/30/whatsapp-announces-four-new-features-to-make-group-chats-easier-to-manage/",
       "image": "/images/feed/feed-edbe57d73b91.jpg",
       "source": "9to5Mac",
@@ -415,7 +453,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 35,
       "url": "https://www.space.com/entertainment/the-world-mourns-the-passing-of-star-treks-patrick-stewart-with-a-galaxy-of-tearful-tributes",
       "image": "/images/feed/feed-c4633831b2d2.png",
       "source": "Space.com",
@@ -434,7 +472,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 30,
       "url": "https://9to5mac.com/2026/10/30/daily-october-30-2026/",
       "image": "/images/feed/feed-d017624c709a.jpg",
       "source": "9to5Mac",
@@ -453,7 +491,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 52,
       "url": "https://9to5mac.com/2026/10/30/apple-confirms-ios-27-3-beta-is-coming-next-week-with-apple-intelligence-in-china/",
       "image": "/images/feed/feed-fffbf9548deb.jpg",
       "source": "9to5Mac",
@@ -472,7 +510,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 38,
       "url": "https://www.wired.com/story/googles-pixel-watch-5-is-down-to-its-lowest-price-yet/",
       "image": "/images/feed/feed-dd381be2fa23.jpg",
       "source": "Wired",
@@ -491,7 +529,7 @@
         "Iphone"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 35,
       "url": "https://www.cnet.com/tech/mobile/samsung-slice-apple-iphone-duo-z-fold-8-ad/",
       "image": "/images/feed/feed-eadd31c78881.jpg",
       "source": "CNET",
@@ -510,9 +548,9 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 45,
       "url": "https://techcrunch.com/2026/10/30/anthropic-expected-to-receive-high-junk-rating-from-credit-agencies-following-ipo-report-says/",
-      "image": "/images/feed/feed-d12607a6e474.webp",
+      "image": "/images/feed/feed-d12607a6e474.jpg",
       "source": "TechCrunch",
       "isLive": true
     },
@@ -529,7 +567,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 42,
       "url": "https://9to5mac.com/2026/10/30/pluribus-season-2-reportedly-begins-filming-tomorrow/",
       "image": "/images/feed/feed-702128da0bf4.jpg",
       "source": "9to5Mac",
@@ -548,9 +586,9 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 41,
       "url": "https://techcrunch.com/2026/10/30/last-minute-halloween-costumes-for-tech-nerds/",
-      "image": "/images/feed/feed-62efadaf1b1a.jpg",
+      "image": "/images/feed/feed-62efadaf1b1a.webp",
       "source": "TechCrunch",
       "isLive": true
     },
@@ -567,7 +605,7 @@
         "Claude"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 33,
       "url": "https://www.wired.com/story/uncanny-valley-podcast-how-a-contractors-claude-agent-got-into-the-pentagon/",
       "image": "/images/feed/feed-ddc37ba70c3e.jpg",
       "source": "Wired",
@@ -586,7 +624,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 46,
       "url": "https://arstechnica.com/security/2026/10/anthropic-vs-code-extension-on-cursor-backdoored-for-nearly-12-hours/",
       "image": "/images/feed/feed-0697c0d6577e.jpg",
       "source": "Ars Technica",
@@ -605,7 +643,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 45,
       "url": "https://www.bleepingcomputer.com/news/security/critical-linux-kernel-flaw-allows-remote-root-attacks-on-mptcp-servers/",
       "image": "/images/feed/feed-c2baec552feb.jpg",
       "source": "BleepingComputer",
@@ -625,7 +663,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 38,
       "url": "https://www.space.com/space-exploration/human-spaceflight/an-aquanaut-comes-home-returning-to-earth-from-an-undersea-space-station",
       "image": "/images/feed/feed-a8b519f362c0.jpg",
       "source": "Space.com",
@@ -644,7 +682,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 45,
       "url": "https://www.theverge.com/ai-artificial-intelligence/1023820/sam-altman-ram-shortage-cloud-servers",
       "image": "/images/feed/feed-22e8c569cc06.jpg",
       "source": "The Verge",
@@ -664,7 +702,7 @@
         "Claude"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 34,
       "url": "https://www.wired.com/story/trojan-malware-targets-thousands-of-anthropic-claude-developer-systems/",
       "image": "/images/feed/feed-13947adb5fdd.jpg",
       "source": "Wired",
@@ -684,7 +722,7 @@
         "Orbit"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 42,
       "url": "https://www.space.com/space-exploration/launches-spacecraft/india-launches-nvs-03-navigation-satellite-gslv-rocket",
       "image": "/images/feed/feed-9a8a7d8be1c8.jpg",
       "source": "Space.com",
@@ -703,7 +741,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 39,
       "url": "https://www.theverge.com/tech/1023763/openai-google-microsoft-ai-scraping-standard-opt-out",
       "image": "/images/feed/feed-18ea57daed9d.jpg",
       "source": "The Verge",
@@ -722,7 +760,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 30,
       "url": "https://electrek.co/2026/10/30/byd-reveals-flashy-new-feature-upcoming-luxury-ev/",
       "image": "/images/feed/feed-4d20faed0a18.jpg",
       "source": "Electrek",
@@ -741,7 +779,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 37,
       "url": "https://www.nasa.gov/news-release/nasa-releases-max-power-key-events-for-media-participants/",
       "image": "/images/feed/feed-ed4709d47839.jpg",
       "source": "NASA Breaking News",
@@ -760,7 +798,7 @@
         "Rivian"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 43,
       "url": "https://electrek.co/2026/10/30/podcast-rivian-earnings-waymo-partners-with-toyota-ford-bets-on-v2h-for-fathom-and-more/",
       "image": "/images/feed/feed-8cacda895b21.jpg",
       "source": "Electrek",
@@ -779,7 +817,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 52,
       "url": "https://www.space.com/entertainment/space-movies-shows/5-horror-franchises-that-went-to-space-and-one-that-absolutely-should-have-but-didnt",
       "image": "/images/feed/feed-a1c7541af339.jpg",
       "source": "Space.com",
@@ -798,29 +836,10 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 51,
       "url": "https://spacenews.com/esi-supplying-solar-array-components-to-missile-defense-programs/",
       "image": "/images/feed/feed-17e9220c850c.png",
       "source": "SpaceNews",
-      "isLive": true
-    },
-    {
-      "id": "feed-b119c6eeb05f",
-      "title": "Google&#8217;s satellite AI server transmits its first response to Earth",
-      "excerpt": "Google's AI chip-equipped satellite has generated its first response from space. In a blog post on Friday, Google says it successfully booted up the satellite's Tensor Processing Units (TPUs), allowin…",
-      "body": "Google's AI chip-equipped satellite has generated its first response from space. In a blog post on Friday, Google says it successfully booted up the satellite's Tensor Processing Units (TPUs), allowing the on-board Gemma 4 model to follow through on a prompt to create a haiku about being in space: Blue marble below Data streams in silent grace Starlight feeds my core. &#10024; Google says it tried out other space-themed limericks and telemetry prompts as well. The test is part of Google's Project Suncatcher, an experimental initiative that could eventually put AI data centers in space. Google launched the satellite into orbit earlier this … Read the full story at The Verge.",
-      "author": "Emma Roth",
-      "date": "2026-10-30",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Satellite"
-      ],
-      "featured": false,
-      "xpReward": 36,
-      "url": "https://www.theverge.com/tech/1023528/google-project-suncatcher-ai-satellite-transmission",
-      "image": "/images/feed/feed-b119c6eeb05f.png",
-      "source": "The Verge",
       "isLive": true
     },
     {
@@ -836,7 +855,7 @@
         "Hacker"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 34,
       "url": "https://thehackernews.com/2026/10/chinese-hackers-use-ai-powered-artex-to.html",
       "image": "/images/feed/feed-5caf201c7d73.jpg",
       "source": "The Hacker News",
@@ -856,7 +875,7 @@
         "Security"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 47,
       "url": "https://www.zdnet.com/tech/netgear-routers-vulnerable-security-exploit/",
       "image": "https://www.zdnet.com/wp-content/uploads/sites/3/wirelessred-GettyImages-865321186.jpg",
       "source": "ZDNet",
@@ -875,7 +894,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 43,
       "url": "https://www.bleepingcomputer.com/news/security/trezor-warns-of-suspected-crypto-theft-implant-in-hardware-wallet/",
       "image": "/images/feed/feed-68cc4ea87196.jpg",
       "source": "BleepingComputer",
@@ -894,7 +913,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 30,
       "url": "https://www.wired.com/story/people-are-creating-survival-guides-to-cope-with-the-ao3-apocalypse/",
       "image": "/images/feed/feed-e29dd3432bcc.jpg",
       "source": "Wired",
@@ -913,43 +932,24 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 40,
       "url": "https://thehackernews.com/2026/10/teamviewer-flaw-lets-remote-computers.html",
       "image": "/images/feed/feed-8fe595add26b.jpg",
       "source": "The Hacker News",
       "isLive": true
-    },
-    {
-      "id": "feed-14b39e2399e0",
-      "title": "Making it easier for websites to express AI training preferences",
-      "excerpt": "OpenAI will honor a shared robots.txt signal to help website operators communicate their AI training preferences to participating providers.",
-      "body": "OpenAI will honor a shared robots.txt signal to help website operators communicate their AI training preferences to participating providers.\n\nThis report, published by OpenAI Blog, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Ai. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to OpenAI Blog using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "OpenAI Blog",
-      "date": "2026-10-30",
-      "readTime": "2 min",
-      "section": "ai",
-      "tags": [
-        "Ai"
-      ],
-      "featured": false,
-      "xpReward": 36,
-      "url": "https://openai.com/index/helping-websites-express-ai-training-preferences",
-      "image": "/images/feed/feed-14b39e2399e0.png",
-      "source": "OpenAI Blog",
-      "isLive": true
     }
   ],
   "breakingNews": [
-    "DEV.TO: 合并前怎么拦住不合规的开源许可证",
-    "DEV.TO: 仓库能推之后：内置流水线 YAML 怎么写",
-    "DEV.TO: 内网怎么把 Git 装起来：部署完成后用 clone 和合并请求验收",
-    "DEV.TO: 导入 GitHub Actions 之后：事件、密钥和 Runner 还要对一遍",
-    "DEV.TO: What happens when you enter a URL in your browser?",
-    "DEV.TO: Vetal PR : I Gave Git a Ghost. It Won't Let Me Push Until I Explain My Own Diff.",
-    "DEV.TO: Mapping Apache NiFi data-flow interfaces before changing access policy",
+    "DEV.TO: What Abstraction Does React Introduce?",
+    "DEV.TO: 🎃 Halloween for Developers: A World Full of Bugs, Ghosts & Endless Debugging! 👻",
+    "DEV.TO: Debug a Flaky CI Test from Structured Test Replay JSON",
+    "DEV.TO: I can't ask my old team lead why anymore, so I built a séance",
+    "DEV.TO: TikTok の［Sleep hours］では夜の TikTok は止まらない：メッセージは残して、寝る前に「おすすめ」を止める方法（iPhone・2026年）",
+    "DEV.TO: Black October: 9 AI Dev Platforms Were Breached. Rotate Your Keys Today",
+    "DEV.TO: Raindance AI: Clip-Length Pickers, Head-Swap vs Whole-Person, and Seedance via TryAllAPI",
+    "NASA BREAKING NEWS: APOD: 2026 October 31 – Night on a Spooky Planet",
     "POLYGON: 5 Must-Play New Xbox Games Coming in November, Including GTA 6",
-    "IGN: By Skipping Last-Gen Systems, Stranger Than Heaven is Allowing RGG Studio to Fully Leverage the Power of Current-Gen Consoles at Long Last",
-    "CLEANTECHNICA: Hyundai IONIQ 3 Named European Car of the Year 2027 Finalist"
+    "IGN: By Skipping Last-Gen Systems, Stranger Than Heaven is Allowing RGG Studio to Fully Leverage the Power of Current-Gen Consoles at Long Last"
   ],
   "sectionVideos": {}
 }
