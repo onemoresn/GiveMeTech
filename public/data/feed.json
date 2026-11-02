@@ -1,6 +1,426 @@
 {
-  "fetchedAt": "2026-11-02T21:12:38.871Z",
+  "fetchedAt": "2026-11-02T22:12:34.778Z",
   "articles": [
+    {
+      "id": "feed-dc25cb33eef2",
+      "title": "Your DNS TTL is why the outage lasted 2 hours: set it before you need it",
+      "excerpt": "The server died at 14:02. A new one was up at 14:20, and the A record was updated at 14:21. Half the users were still hitting the dead IP at 16:00. The fix took a minute. The TTL was 86400. DNS change…",
+      "body": "The server died at 14:02. A new one was up at 14:20, and the A record was updated at 14:21. Half the users were still hitting the dead IP at 16:00. The fix took a minute. The TTL was 86400. DNS changes don't \"propagate\". Resolvers cache your old answer for as long as you told them they could, and you told them a day. TL;DR TTL is a promise: \"you may cache this answer for N seconds\". Resolvers keep that promise even when you change your mind. Lowering a TTL only helps after the old TTL has expired. Lower it at least one old-TTL ahead of any planned change. 300 seconds is a sane default for records you might need to move. 3600+ is fine for records that never change. My opinion: \"DNS propagation takes 24 to 48 hours\" is mostly a myth caused by long TTLs people set themselves.",
+      "author": "upordown.online",
+      "date": "2026-11-02",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 40,
+      "url": "https://dev.to/upordownonline/your-dns-ttl-is-why-the-outage-lasted-2-hours-set-it-before-you-need-it-meh",
+      "image": "/images/feed/feed-dc25cb33eef2.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-3be4c857a59a",
+      "title": "Scaling Declarative Schema Synchronization: Concurrency, Locking, and Distributed Safety",
+      "excerpt": "Scaling Declarative Schema Synchronization: Concurrency, Locking, and Distributed Safety We’ve all been there: you open up your db/migration folder on a Monday morning only to find a chaotic stack of…",
+      "body": "Scaling Declarative Schema Synchronization: Concurrency, Locking, and Distributed Safety We’ve all been there: you open up your db/migration folder on a Monday morning only to find a chaotic stack of V142__add_status.sql , V143__fix_status_typo.sql , and a broken CI build because two feature branches collided on V144 . Traditional migration tools like Flyway and Liquibase served us well for a long time, but in fast-moving, distributed microservices, linear script chains create constant friction and Git merge hell.",
+      "author": "Eugene Naoumov",
+      "date": "2026-11-02",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 30,
+      "url": "https://dev.to/eugene_naoumov_ec511dd3b6/scaling-declarative-schema-synchronization-concurrency-locking-and-distributed-safety-5dn0",
+      "image": "/images/feed/feed-3be4c857a59a.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-a37f3dfe6ab3",
+      "title": "Ping is not an uptime check: 5 ways ICMP lies about whether your site is up",
+      "excerpt": "The monitor said the server was up: 0% packet loss, 12 ms round trip. The site had been returning 502 Bad Gateway for forty minutes. Nobody got paged, because the uptime check was a ping. The opposite…",
+      "body": "The monitor said the server was up: 0% packet loss, 12 ms round trip. The site had been returning 502 Bad Gateway for forty minutes. Nobody got paged, because the uptime check was a ping. The opposite happens too. A team moves behind a cloud firewall, ping starts timing out, and the pager goes off at 3 AM for a site that is serving traffic perfectly well. TL;DR Ping tests whether a host answers ICMP echo. Users don't use ICMP. They use DNS, TCP, TLS and HTTP. Ping can be green during a full outage and red during perfect health. For uptime, check an HTTP request to a real page, with a timeout and a content check. My opinion: ping-based uptime monitoring for websites should be retired. Use it only as a diagnostic.",
+      "author": "upordown.online",
+      "date": "2026-11-02",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 54,
+      "url": "https://dev.to/upordownonline/ping-is-not-an-uptime-check-5-ways-icmp-lies-about-whether-your-site-is-up-4el0",
+      "image": "/images/feed/feed-a37f3dfe6ab3.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-63310d2895ea",
+      "title": "Use it, or lose it 🧠",
+      "excerpt": "Don't quit doing deep intellectual and creative work (like programming, art etc.) just because an LLM can do it well enough. Even if an LLM can do your work perfectly for free (they can't do it perfec…",
+      "body": "Don't quit doing deep intellectual and creative work (like programming, art etc.) just because an LLM can do it well enough. Even if an LLM can do your work perfectly for free (they can't do it perfectly yet, certainly not for free), you should keep doing some form of deep intellectual and creative work like people do Gym Workout - to keep yourself intellectually healthy. Again: use it or lose it. 🧠 Fayaz Follow A Software Engineer who strongly believes you can add immense value by knowingly implementing Software Engineering best practices even at the age of AI, and puts human life and dignity above all else.",
+      "author": "Fayaz",
+      "date": "2026-11-02",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 40,
+      "url": "https://dev.to/fm/use-it-or-lose-it-42l",
+      "image": "/images/feed/feed-63310d2895ea.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-6fcc26dce520",
+      "title": "Your health check returns 200 while users get errors: 7 health check mistakes",
+      "excerpt": "The dashboard was green. The load balancer was happy. Every /health probe returned 200 OK in 4 ms. Meanwhile, every checkout request was failing because the database connection pool was exhausted, and…",
+      "body": "The dashboard was green. The load balancer was happy. Every /health probe returned 200 OK in 4 ms. Meanwhile, every checkout request was failing because the database connection pool was exhausted, and nobody found out until support tickets started piling up. If that sounds familiar, the health check wasn't broken. It was answering a different question than the one you cared about. TL;DR A health check that only proves the process is alive will stay green through most real outages. Split it in two: a cheap liveness check and a readiness check that touches real dependencies with tight timeouts. Monitor from the outside on a real user path too. Your own /health can't see DNS, TLS or CDN problems. My opinion: a single /health endpoint used for everything is a design smell.",
+      "author": "upordown.online",
+      "date": "2026-11-02",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 44,
+      "url": "https://dev.to/upordownonline/your-health-check-returns-200-while-users-get-errors-7-health-check-mistakes-d84",
+      "image": "/images/feed/feed-6fcc26dce520.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-6395069e20ec",
+      "title": "Golden-File Tests for a Score Calculator: Check Every Row Against the Published Table",
+      "excerpt": "If you build a calculator that turns a raw result into points, the scoring table is the product. A bug in the arithmetic is easy to spot. A single wrong row in a 100-line table is not, and users will…",
+      "body": "If you build a calculator that turns a raw result into points, the scoring table is the product. A bug in the arithmetic is easy to spot. A single wrong row in a 100-line table is not, and users will trust it anyway. This post shows a small way to protect a lookup-table calculator: keep the table as data, keep a second copy of the source numbers as a \"golden file,\" and test every row automatically. The numbers in the examples below are made up for illustration. When you build one for a real standard, copy the values from the governing document and cite it on the page. Step 1: keep the table as data, not code Hard-coding thresholds inside if statements makes them impossible to review.",
+      "author": "Leene Casella",
+      "date": "2026-11-02",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 48,
+      "url": "https://dev.to/leenecasella/golden-file-tests-for-a-score-calculator-check-every-row-against-the-published-table-2l62",
+      "image": "/images/feed/feed-6395069e20ec.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-4bf0f9f67099",
+      "title": "THRIVE MARKET SRE – TECHNICAL INTERVIEW PREP, questions and answers for Aisel for the next step",
+      "excerpt": "PART 1. WHAT YOU KNOW ABOUT THRIVE (use this in your answers) Company is 10+ years old, everything runs on AWS. Core app is PHP, mostly APIs for mobile apps, plus smaller APIs. They moved from a Puppe…",
+      "body": "PART 1. WHAT YOU KNOW ABOUT THRIVE (use this in your answers) Company is 10+ years old, everything runs on AWS. Core app is PHP, mostly APIs for mobile apps, plus smaller APIs. They moved from a Puppet-based system to Kubernetes on EKS. CI is GitHub Actions, CD is Argo CD. Still have legacy systems in different AWS accounts. They want to move them into the main prod account (caches, ALBs, services). Biggest priorities: cost, legacy migration, Kubernetes work. Most incidents are app-related: DB slowness or cache issues make PHP-FPM workers fill up, Nginx upstream queues grow, error rate goes up. One past infra issue: CPU steal on Kubernetes nodes. They care about early signals, SLOs, and error rate. They are starting to use AI for monitoring.",
+      "author": "Aisalkyn Aidarova",
+      "date": "2026-11-02",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 50,
+      "url": "https://dev.to/jumptotech/thrive-market-sre-technical-interview-prep-questions-and-answers-for-aisel-for-the-next-step-16df",
+      "image": "/images/feed/feed-4bf0f9f67099.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-8e89fdd4cb7f",
+      "title": "Next time your flight touches down, Google Maps could be there with a custom greeting",
+      "excerpt": "Google is prepping airport arrival messages that nudge you to try Ask Maps.",
+      "body": "TL;DR Google Maps appears to be working on new greeting messages for when users take flights to new cities. The greetings seem designed to encourage the use of the app’s Ask Maps feature. Google’s building out support for messages in over 90 airports around the world. Have you ever landed at an airport and seen some smartly dressed valets standing around with travelers’ names printed on cards, waiting to greet them? Not all of us will ever be the sort of bigwig who gets that kind of white-glove service, but we might be able to at least pretend a little bit, thanks to a new system that’s in the works for Google Maps . You’re reading an Authority Insights story.",
+      "author": "Stephen Schenck",
+      "date": "2026-11-02",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 47,
+      "url": "https://www.androidauthority.com/google-maps-airport-greetings-3730863/",
+      "image": "/images/feed/feed-8e89fdd4cb7f.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-1eee81eb7b2a",
+      "title": "Hardee’s gets EV fast charging – with Carl’s Jr. locations to follow",
+      "excerpt": "EV drivers have a new reason to pull into Hardee’s. Energized EV has opened four fast-charging ports at a restaurant in Temple, Georgia, kicking off a planned rollout at Hardee’s and Carl’s Jr. locati…",
+      "body": "EV drivers have a new reason to pull into Hardee’s. Energized EV has opened four fast-charging ports at a restaurant in Temple, Georgia, kicking off a planned rollout at Hardee’s and Carl’s Jr. locati — a development drawing significant attention in the electric vehicles, hybrids, and automotive technology space.\n\nThis report, published by Electrek, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Fast Charging, Ev. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Electrek using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Michelle Lewis",
+      "date": "2026-11-02",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Fast Charging",
+        "Ev"
+      ],
+      "featured": false,
+      "xpReward": 38,
+      "url": "https://electrek.co/2026/11/02/hardees-gets-ev-fast-charging-with-carls-jr-locations-to-follow/",
+      "image": "/images/feed/feed-1eee81eb7b2a.jpg",
+      "source": "Electrek",
+      "isLive": true
+    },
+    {
+      "id": "feed-fd2c81643c2c",
+      "title": "Apple set an iPhone sales record even without a new standard iPhone",
+      "excerpt": "Apple had a record-breaking quarter for iPhone sales - despite not releasing a standard model during its latest refresh. In its fourth-quarter earnings report released on Monday, Apple says it earned…",
+      "body": "Apple had a record-breaking quarter for iPhone sales - despite not releasing a standard model during its latest refresh. In its fourth-quarter earnings report released on Monday, Apple says it earned $57.58 billion in iPhone revenue, marking a 17 percent jump from the same time last year. The increase in revenue follows the launch of Apple's iPhone 18 lineup in September, which included a pricier iPhone 18 Pro and Pro Max model. The company raised prices across its older models at the same time. Apple also took the wraps off its first folding phone, the iPhone Duo , but its preorder sales aren't included in this earnings report. Like other … Read the full story at The Verge.",
+      "author": "Emma Roth",
+      "date": "2026-11-02",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Iphone"
+      ],
+      "featured": false,
+      "xpReward": 44,
+      "url": "https://www.theverge.com/tech/1024748/apple-q4-2026-iphone-sales-earnings",
+      "image": "/images/feed/feed-fd2c81643c2c.jpg",
+      "source": "The Verge",
+      "isLive": true
+    },
+    {
+      "id": "feed-d2f4d3bb9302",
+      "title": "GOG Explains How One Of The Most Important PC Games Ever Made Is Trapped In Licensing Hell",
+      "excerpt": "Dune 2: The Building of a Dynasty was a very influential RTS that is owned by at least four different companies",
+      "body": "Dune 2: The Building of a Dynasty was a very influential RTS that is owned by at least four different companies\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Zack Zwiezen",
+      "date": "2026-11-02",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 42,
+      "url": "https://kotaku.com/gog-explains-how-one-of-the-most-important-pc-games-ever-made-is-trapped-in-licensing-hell-2000752406",
+      "image": "/images/feed/feed-d2f4d3bb9302.jpg",
+      "source": "Kotaku",
+      "isLive": true
+    },
+    {
+      "id": "feed-420c353b7b82",
+      "title": "2024's Best Action Game Is (Mostly) Just as Good in Stunning Switch 2 Port",
+      "excerpt": "Stellar Blade and its top-notch action have been ported to Nintendo Switch 2. It plays great, though in handheld mode its visuals falter at times.",
+      "body": "Shift Up’s Stellar Blade is one of the decade’s great action games, blending together quick-paced sword combat and powerful parries. A sequel is on the way , but before it arrives, Shift Up isn’t done with the first game. It arrives on Nintendo Switch 2 later this week, the latest in a long line of satisfying Switch 2 ports, even if it shares the same issues as most of them.",
+      "author": "Austin Manchester",
+      "date": "2026-11-02",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Game"
+      ],
+      "featured": false,
+      "xpReward": 49,
+      "url": "https://www.polygon.com/stellar-blade-nintendo-switch-2-impressions/",
+      "image": "/images/feed/feed-420c353b7b82.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-9f6f8b147c66",
+      "title": "Over 370,000 Dreo Space Heaters Recalled After 17 Catch Fire",
+      "excerpt": "The $100 unit was available from outlets including Best Buy and Costco.",
+      "body": "The $100 unit was available from outlets including Best Buy and Costco.\n\nThis report, published by CNET, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Space. As the situation continues to evolve, professionals and enthusiasts in the space exploration and astronomy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to CNET using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Ty Pendlebury",
+      "date": "2026-11-02",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Space"
+      ],
+      "featured": false,
+      "xpReward": 36,
+      "url": "https://www.cnet.com/home/energy-and-utilities/370000-dreo-space-heaters-recalled/",
+      "image": "/images/feed/feed-9f6f8b147c66.png",
+      "source": "CNET",
+      "isLive": true
+    },
+    {
+      "id": "feed-91fe4dfbdad7",
+      "title": "GTA 6 Sneakers: Rockstar Games, Nike and Travis Scott Reportedly Team Up",
+      "excerpt": "You could see these shoes the same day Rockstar releases the long-awaited game.",
+      "body": "You could see these shoes the same day Rockstar releases the long-awaited game.\n\nThis report, published by CNET, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to CNET using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Zachary McAuliffe",
+      "date": "2026-11-02",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 39,
+      "url": "https://www.cnet.com/tech/gaming/rockstar-games-nike-travis-scott-grand-theft-auto-6-sneakers/",
+      "image": "/images/feed/feed-91fe4dfbdad7.png",
+      "source": "CNET",
+      "isLive": true
+    },
+    {
+      "id": "feed-5a3f9fa8e658",
+      "title": "John Ternus addresses iPhone Duo supply constraints, display issue",
+      "excerpt": "Today Apple reported record Q4 earnings, which beat Wall Street expectations overall. And in an interview with Reuters, CEO John Ternus addressed current iPhone Duo supply constraints and also referen…",
+      "body": "Today Apple reported record Q4 earnings, which beat Wall Street expectations overall. And in an interview with Reuters, CEO John Ternus addressed current iPhone Duo supply constraints and also referen — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Iphone. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Ryan Christoffel",
+      "date": "2026-11-02",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Iphone"
+      ],
+      "featured": false,
+      "xpReward": 48,
+      "url": "https://9to5mac.com/2026/11/02/john-ternus-addresses-iphone-duo-supply-constraints-display-issue/",
+      "image": "/images/feed/feed-5a3f9fa8e658.jpg",
+      "source": "9to5Mac",
+      "isLive": true
+    },
+    {
+      "id": "feed-b871ff7a0872",
+      "title": "Chinese hackers use ARTEX AI in automated attacks against 200 orgs",
+      "excerpt": "Chinese hackers used ARTEX, an open-source, multi-agent AI penetration-testing framework, in attacks against more than 200 organizations across 14 countries. [...]",
+      "body": "Chinese hackers used ARTEX, an open-source, multi-agent AI penetration-testing framework, in attacks against more than 200 organizations across 14 countries. [...]\n\nThis report, published by BleepingComputer, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Hacker. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to BleepingComputer using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Bill Toulas",
+      "date": "2026-11-02",
+      "readTime": "2 min",
+      "section": "cybersecurity",
+      "tags": [
+        "Hacker"
+      ],
+      "featured": false,
+      "xpReward": 49,
+      "url": "https://www.bleepingcomputer.com/news/security/chinese-hackers-use-artex-ai-in-automated-attacks-against-200-orgs/",
+      "image": "/images/feed/feed-b871ff7a0872.jpg",
+      "source": "BleepingComputer",
+      "isLive": true
+    },
+    {
+      "id": "feed-a37c355f010b",
+      "title": "Forget texting and driving, this everyday phone habit sends even more people to the ER",
+      "excerpt": "Just to be clear, texting and driving is still a terrible idea.",
+      "body": "TL;DR A new study analyzing nearly 1.8 million federal hospital records reveals the everyday phone habits linked to thousands of ER visits in the US. Losing balance while walking and using a phone topped the list, accounting for an estimated 7,760 ER visits between 2021 and 2025, with seniors most affected. Distracted driving, falling down stairs, and walking into obstacles were also among the leading causes of phone-related injuries. Smartphones have become such an integral part of our lives that many of us hardly ever think twice before pulling one out of our pockets . I know I’m guilty of pulling mine out even when I’m in the middle of real-world conversations, and as it turns out, people are doing the same, albeit in far more serious situations.",
+      "author": "Karandeep Singh Oberoi",
+      "date": "2026-11-02",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 53,
+      "url": "https://www.androidauthority.com/phone-use-emergency-room-injuries-study-3730842/",
+      "image": "/images/feed/feed-a37c355f010b.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-2e2eb16df790",
+      "title": "Happy 65 Years: NASA’s Johnson Space Center Then and Now",
+      "excerpt": "Sixty-five years ago, a bold vision took root in Houston: a NASA center dedicated to human spaceflight. Since its founding, NASA’s Johnson Space Center has helped lead the nation’s human spaceflight p…",
+      "body": "6 Min Read Happy 65 Years: NASA’s Johnson Space Center Then and Now View of the Manned Spacecraft Center during construction in 1963. Sixty-five years ago, a bold vision took root in Houston: a NASA center dedicated to human spaceflight. Since its founding, NASA’s Johnson Space Center has helped lead the nation’s human spaceflight program, supporting missions from Project Mercury through Artemis. Today, Johnson serves as NASA’s Center of Excellence for Human Spaceflight, and its workforce is helping to usher in a Golden Age of innovation and discovery. Johnson is home to America’s astronaut corps, the Mission Control Center, and the teams behind some of humanity’s greatest achievements in space.",
+      "author": "Sumer Loggins",
+      "date": "2026-11-02",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Nasa",
+        "Space"
+      ],
+      "featured": false,
+      "xpReward": 37,
+      "url": "https://www.nasa.gov/centers-and-facilities/johnson/happy-65-years-nasas-johnson-space-center-then-and-now/",
+      "image": "/images/feed/feed-2e2eb16df790.jpg",
+      "source": "NASA Breaking News",
+      "isLive": true
+    },
+    {
+      "id": "feed-7b54cd709ff8",
+      "title": "Apple reports Q4 2026 earnings: $114.5 billion in revenue, up 12% [Charts]",
+      "excerpt": "Apple just released its earnings report for the fourth fiscal quarter of 2026. The company reported $114.5 billion in revenue, and $30.71 billion in net profit. Here’s the full breakdown. more…",
+      "body": "Apple just released its earnings report for the fourth fiscal quarter of 2026. The company reported $114.5 billion in revenue, and $30.71 billion in net profit. Here’s the full breakdown. more — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Marcus Mendes",
+      "date": "2026-11-02",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 33,
+      "url": "https://9to5mac.com/2026/11/02/apple-reports-q4-2026-earnings/",
+      "image": "/images/feed/feed-7b54cd709ff8.jpg",
+      "source": "9to5Mac",
+      "isLive": true
+    },
+    {
+      "id": "feed-8592e7392510",
+      "title": "A Scam Website Is Trying To Cash In On AO3 Outage By ‘Selling’ Audiobooks Of Fanfics",
+      "excerpt": "AO3 is taking steps to address the issue",
+      "body": "AO3 is taking steps to address the issue\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Ash Parrish",
+      "date": "2026-11-02",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 35,
+      "url": "https://kotaku.com/a-scam-website-is-trying-to-cash-in-on-ao3-outage-by-selling-audiobooks-of-fanfics-2000752419",
+      "image": "/images/feed/feed-8592e7392510.jpg",
+      "source": "Kotaku",
+      "isLive": true
+    },
+    {
+      "id": "feed-a8f758e0eb92",
+      "title": "How to Save $25 on Burga’s Phone Accessories With This Sale",
+      "excerpt": "Whether you need a phone case, magnetic ring, Apple Watch band, or power bank, now’s a great time to save $25 on orders over $50.",
+      "body": "Whether you need a phone case, magnetic ring, Apple Watch band, or power bank, now’s a great time to save $25 on orders over $50.\n\nThis report, published by Wired, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Wired using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Louryn Strampe",
+      "date": "2026-11-02",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 43,
+      "url": "https://www.wired.com/story/burga-sale-november-2026/",
+      "image": "/images/feed/feed-a8f758e0eb92.jpg",
+      "source": "Wired",
+      "isLive": true
+    },
+    {
+      "id": "feed-2924a275a7c7",
+      "title": "Daniel Craig's Taut 92-minute Thriller Is Blowing Up on Streaming",
+      "excerpt": "Daniel Craig's forgotten psychological thriller is climbing HBO Max's charts, despite earning one of the worst Rotten Tomatoes scores of his career.",
+      "body": "Daniel Craig has established himself as one of Hollywood's most reliable leading men, particularly when it comes to action movies and suspenseful thrillers. From his gritty breakout role in Layer Cake to the high-stakes mysteries of Knives Out and The Girl With the Dragon Tattoo , Craig has built an impressive filmography outside his best-known role as James Bond.",
+      "author": "Sam Hill",
+      "date": "2026-11-02",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 34,
+      "url": "https://www.polygon.com/daniel-craig-dream-house-streaming-success-hbo-max-november-2026/",
+      "image": "/images/feed/feed-2924a275a7c7.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
     {
       "id": "feed-b7114c274dfe",
       "title": "Cadillac’s most affordable EV just got a bit cheaper",
@@ -13,144 +433,30 @@
       "tags": [
         "Ev"
       ],
-      "featured": true,
-      "xpReward": 35,
+      "featured": false,
+      "xpReward": 51,
       "url": "https://electrek.co/2026/11/02/cadillacs-most-affordable-ev-cheaper/",
       "image": "/images/feed/feed-b7114c274dfe.jpg",
       "source": "Electrek",
       "isLive": true
     },
     {
-      "id": "feed-a5d3aa23cd03",
-      "title": "Spousal Open Work Permits in Canada: Who Qualifies in 2026 and What to Prepare",
-      "excerpt": "If your spouse or common-law partner studies or works in Canada, you may qualify for an open work permit. Eligibility depends on their specific program or work situation. An open work permit generally…",
-      "body": "If your spouse or common-law partner studies or works in Canada, you may qualify for an open work permit. Eligibility depends on their specific program or work situation. An open work permit generally allows work for most Canadian employers, subject to the conditions printed on the permit and restrictions on certain employers. If your partner is an international student Under the rules effective January 21, 2025, a spouse or common-law partner may qualify if the student holds a valid study permit and is enrolled in a master's program lasting at least 16 months, a doctoral program, one of IRCC's listed professional degree programs at a university, or another specifically eligible program.",
-      "author": "Titanium Law Professional Corporation",
+      "id": "feed-80db3977b74c",
+      "title": "Meta will end Quest 2 OS updates in 2027",
+      "excerpt": "Meta is planning to release the last OS update for its Quest 2 and Quest Pro VR headsets by March 2027, the company announced today. The last OS update for those devices is planned to be v213, and aft…",
+      "body": "Meta is planning to release the last OS update for its Quest 2 and Quest Pro VR headsets by March 2027, the company announced today . The last OS update for those devices is planned to be v213, and after that, Meta will continue to ship security patches and critical bug fixes through the end of 2027. Apps that support the Quest 2 or Quest Pro can also be submitted through December 2027, Meta says. Meta is calling the Quest 3 and 3S \"now the baseline for Meta VR gamers.\" The company is announcing this shift ahead of the planned release of its new VR Glasses , which are set to launch sometime in spring 2027. \"Quest 2 and Quest Pro laid the fou … Read the full story at The Verge.",
+      "author": "Jay Peters",
       "date": "2026-11-02",
       "readTime": "2 min",
-      "section": "software",
+      "section": "gaming",
       "tags": [
-        "Software"
+        "Gaming"
       ],
-      "featured": true,
+      "featured": false,
       "xpReward": 54,
-      "url": "https://dev.to/titaniumlaw/spousal-open-work-permits-in-canada-who-qualifies-in-2026-and-what-to-prepare-569m",
-      "image": "/images/feed/feed-a5d3aa23cd03.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-790f29afa005",
-      "title": "On-Page SEO Checklist: 8 Things to Fix on Every Page",
-      "excerpt": "The headline people click in Google. Put your main keyword and the city near the front, and keep it short so it doesn't get cut off. The short text under the title in search results. It doesn't help y…",
-      "body": "On-page SEO is everything you control on the page itself. Here's the whole list, one or two lines each. Tomorrow I'll go through every one properly. 1. Title tag The headline people click in Google. Put your main keyword and the city near the front, and keep it short so it doesn't get cut off. 2. Meta description The short text under the title in search results. It doesn't help you rank directly, but a good one gets you more clicks. 3. URL Short and readable. /dentist-kaithal beats /page?id=4821 . 4. Headings One H1 that says what the page is. Use H2s and H3s to break the rest into sections. 5. Content Answer exactly what the person searched for, in plain words. If the answer is buried, rewrite it. 6. Keywords Use your main keyword naturally in the title, the H1 and the first paragraph.",
-      "author": "Rachit Sharma",
-      "date": "2026-11-02",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 38,
-      "url": "https://dev.to/rachitsharma08/on-page-seo-checklist-8-things-to-fix-on-every-page-4j1m",
-      "image": "/images/feed/feed-790f29afa005.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-e4fca51c3152",
-      "title": "Google Says Videostrong Built a 1.3 Million-Device Android Botnet Into Its Own TV Boxes",
-      "excerpt": "TL;DR what: Google, with Japan's National Police Agency, Lumen, HUMAN Security, Plume, Synthient and TrendAI, took down the control servers of a 1.3 million-device Android botnet and says Shenzhen dev…",
-      "body": "TL;DR what: Google, with Japan's National Police Agency, Lumen, HUMAN Security, Plume, Synthient and TrendAI, took down the control servers of a 1.3 million-device Android botnet and says Shenzhen device maker Videostrong intentionally built the x.cpe backdoor into its boxes. impact: Operators could silently install apps, run commands, capture screens, steal account details and open reverse shells, and criminal buyers turned the boxes into residential proxies and ad fraud engines across 206 models. fix: There is no patch: x.cpe lives in firmware signed with the maker's key and reinstalls on reboot, so TrendAI says cleanup needs vendor action, platform protection or device replacement, while Google has banned Videostrong from certified Android.",
-      "author": "Etairos.ai",
-      "date": "2026-11-02",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 35,
-      "url": "https://dev.to/etairos/google-says-videostrong-built-a-13-million-device-android-botnet-into-its-own-tv-boxes-57nc",
-      "image": "/images/feed/feed-e4fca51c3152.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-5bc257d3b0c3",
-      "title": "I Built LLM Explained: 43 Interactive Pages That Take You From Tokens to AI Agents",
-      "excerpt": "I kept running into the same problem while learning about large language models. I'd read a blog post about attention, nod along, and two days later I couldn't tell you why we divide by √d_k. I'd see…",
-      "body": "I kept running into the same problem while learning about large language models. I'd read a blog post about attention, nod along, and two days later I couldn't tell you why we divide by √d_k. I'd see \"GQA\", \"MLA\", \"MoE\", \"LoRA\", \"HNSW\" or \"context rot\" in a paper or a tweet, open five tabs, and close them all with the uneasy feeling that I sort of got it. And the field keeps moving, so there's always a new term on top of the ones I hadn't really nailed down. So I built the resource I wished I had: LLM Explained . It's a free, interactive course that goes from \"why did RNNs hit a wall?\" all the way to \"how does a production agent retrieve, reason, act and get evaluated?\" I built it to learn, and writing each page forced me to understand things properly.",
-      "author": "amananandrai",
-      "date": "2026-11-02",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 48,
-      "url": "https://dev.to/amananandrai/i-built-llm-explained-43-interactive-pages-that-take-you-from-tokens-to-ai-agents-2n37",
-      "image": "/images/feed/feed-5bc257d3b0c3.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-a46a4be1d9b3",
-      "title": "Why UI Tests Break Every Sprint (and What an AI Testing Agent Changes)",
-      "excerpt": "The problem most test suites share Almost every team that automates UI testing hits the same wall. The suite starts small and works well. Then the product grows, the interface changes, and a growing s…",
-      "body": "The problem most test suites share Almost every team that automates UI testing hits the same wall. The suite starts small and works well. Then the product grows, the interface changes, and a growing share of your week goes to fixing tests that fail even though the application works fine. This is not a discipline problem. It comes from how most automated tests are built. Why traditional UI tests are brittle A typical scripted UI test identifies elements by locators : IDs, CSS selectors, XPath expressions. For example: driver . find_element ( By . CSS_SELECTOR , \" #checkout &gt; div.row:nth-child(2) &gt; button.btn-primary \" ). click () This line says nothing about what the user is trying to do. It describes where a button currently sits in the page structure.",
-      "author": "vivek",
-      "date": "2026-11-02",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 32,
-      "url": "https://dev.to/vivek_1122/why-ui-tests-break-every-sprint-and-what-an-ai-testing-agent-changes-4cea",
-      "image": "/images/feed/feed-a46a4be1d9b3.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-68d2a3305a90",
-      "title": "Word.LineFormat lost 8 documented properties in Office.js 16.0.20619",
-      "excerpt": "Office.js 16.0.20619.15190 finished rolling out on 30 October. On every Word platform it removed eight properties from Word.LineFormat, the object behind the outline of shapes and text boxes: Removed…",
-      "body": "Office.js 16.0.20619.15190 finished rolling out on 30 October. On every Word platform it removed eight properties from Word.LineFormat , the object behind the outline of shapes and text boxes: Removed from Word.LineFormat Still there backgroundColor dashStyle pattern foregroundColor beginArrowheadLength , beginArrowheadStyle , beginArrowheadWidth weight , style , transparency endArrowheadLength , endArrowheadStyle , endArrowheadWidth isVisible , insetPen set() and toJSON() on the same class changed in the same build, which is consistent with the properties being taken out rather than moved. Why this matters: they are documented as production APIs All eight properties belong to the WordApiDesktop 1.3 requirement set.",
-      "author": "Roman",
-      "date": "2026-11-02",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 40,
-      "url": "https://dev.to/r0men_/wordlineformat-lost-8-documented-properties-in-officejs-16020619-1h85",
-      "image": "/images/feed/feed-68d2a3305a90.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-6ab79982365e",
-      "title": "Find Duplicate Files in the Browser: SHA-256 Groups, Not Uploads",
-      "excerpt": "Duplicate files are rarely duplicates by name. They are duplicates by content — the same photo saved three times with three different names, the same export saved again by an older tool. So the useful…",
-      "body": "Duplicate files are rarely duplicates by name. They are duplicates by content — the same photo saved three times with three different names, the same export saved again by an older tool. So the useful question is not \"do these two files look the same\" but \"do these two files hash the same\". That is a question you can answer exactly, and you can answer it without handing your files to anybody. I work on OnePassApps, and the File Studio in our browser app has a Find duplicates tab that does precisely this. It hashes the content of the files you pick, groups the ones that match, and leaves every file where it is. What the panel says Open the File Studio and pick the Find duplicates tab. The empty panel is small and specific: 01 Source 0 files · 0 B. Only the files you choose are compared.",
-      "author": "OnePassApps",
-      "date": "2026-11-02",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 40,
-      "url": "https://dev.to/onepassapps/find-duplicate-files-in-the-browser-sha-256-groups-not-uploads-1fd",
-      "image": "/images/feed/feed-6ab79982365e.webp",
-      "source": "Dev.to",
+      "url": "https://www.theverge.com/tech/1024835/meta-vr-quest-2-pro-os-end-updates",
+      "image": "/images/feed/feed-80db3977b74c.jpg",
+      "source": "The Verge",
       "isLive": true
     },
     {
@@ -166,7 +472,7 @@
         "Xbox"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 50,
       "url": "https://kotaku.com/creative-director-says-he-wanted-to-make-south-of-midnight-but-doesnt-think-xbox-should-have-funded-it-2000752408",
       "image": "/images/feed/feed-edb4c1c0e1e9.jpg",
       "source": "Kotaku",
@@ -185,7 +491,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 46,
       "url": "https://www.androidauthority.com/google-app-you-tab-3730826/",
       "image": "/images/feed/feed-f8e31517894a.jpg",
       "source": "Android Authority",
@@ -204,7 +510,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 35,
       "url": "https://insideevs.com/news/814122/bmw-ix3-vs-x3-range/",
       "image": "/images/feed/feed-4e709ed34057.jpg",
       "source": "InsideEVs",
@@ -223,7 +529,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 35,
       "url": "https://insideevs.com/news/814107/ford-privacy-transparency-new-site/",
       "image": "/images/feed/feed-65e86ea47111.jpg",
       "source": "InsideEVs",
@@ -242,48 +548,10 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 46,
       "url": "https://www.nasa.gov/centers-and-facilities/nesc/tb-26-09-measured-hammer-tap-inputs/",
       "image": "/images/feed/feed-c3728cdad9e0.png",
       "source": "NASA Breaking News",
-      "isLive": true
-    },
-    {
-      "id": "feed-064ebf46205f",
-      "title": "Apple releases new tvOS 27.2 build ahead of updated Apple TV 4K launch [U]",
-      "excerpt": "Ahead of the new Apple TV 4K’s November 13 launch, Apple today released an updated build of tvOS 27.2 exclusively for the fourth-generation model. Here are the details. more…",
-      "body": "Ahead of the new Apple TV 4K’s November 13 launch, Apple today released an updated build of tvOS 27.2 exclusively for the fourth-generation model. Here are the details. more — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Marcus Mendes",
-      "date": "2026-11-02",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 53,
-      "url": "https://9to5mac.com/2026/11/02/apple-releases-new-tvos-27-2-build-ahead-of-updated-apple-tv-4k-launch/",
-      "image": "/images/feed/feed-064ebf46205f.jpg",
-      "source": "9to5Mac",
-      "isLive": true
-    },
-    {
-      "id": "feed-428d902dad1a",
-      "title": "Developers, Creators, And Fans Remember BioWare: ‘I’ve Been Trying To Replicate That Feeling For Almost My Whole Life’",
-      "excerpt": "The Mass Effect and Dragon Age studio may be gone, but its legacy and impact remain",
-      "body": "The Mass Effect and Dragon Age studio may be gone, but its legacy and impact remain\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Kenneth Shepard",
-      "date": "2026-11-02",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 47,
-      "url": "https://kotaku.com/bioware-closure-mass-effect-universe-dragon-age-baldurs-gate-kotor-2000752411",
-      "image": "/images/feed/feed-428d902dad1a.jpg",
-      "source": "Kotaku",
       "isLive": true
     },
     {
@@ -299,7 +567,7 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 44,
       "url": "https://electrek.co/2026/11/02/tesla-powerwall-3-heat-pump-optimization-sg-ready/",
       "image": "/images/feed/feed-d986b23d0037.jpg",
       "source": "Electrek",
@@ -318,48 +586,10 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 36,
       "url": "https://insideevs.com/news/814101/bmw-level-2-adas-standard/",
       "image": "/images/feed/feed-9d513b64208d.jpg",
       "source": "InsideEVs",
-      "isLive": true
-    },
-    {
-      "id": "feed-a7234b884519",
-      "title": "OpenAI is retiring ChatGPT Classic app, will soon combine Chat and Work tabs in new app",
-      "excerpt": "Users who still rely on the ChatGPT Classic app were greeted today with a message informing them that the app will soon be retired. Separately, OpenAI is also preparing to merge ChatGPT and Work into…",
-      "body": "Users who still rely on the ChatGPT Classic app were greeted today with a message informing them that the app will soon be retired. Separately, OpenAI is also preparing to merge ChatGPT and Work into — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Marcus Mendes",
-      "date": "2026-11-02",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 43,
-      "url": "https://9to5mac.com/2026/11/02/openai-is-retiring-chatgpt-classic-app-will-soon-combine-chat-and-work-tabs-in-new-app/",
-      "image": "/images/feed/feed-a7234b884519.jpg",
-      "source": "9to5Mac",
-      "isLive": true
-    },
-    {
-      "id": "feed-9749b67472c4",
-      "title": "Jurassic Park Meets Outlast in Terrifying Steam Game Coming Next Week",
-      "excerpt": "Wilderdark, a survival horror game set on a dinosaur-infested island, is coming to Steam on Tuesday, Nov. 10.",
-      "body": "For some reason, there haven't been that many truly great dinosaur video games throughout history. Ark: Survival Evolved had plenty of success despite the fact it was quite janky, and The Isle has spawned myriad viral videos thanks to its proximity chat. Jurassic World Evolution 3 is by far the best licensed dinosaur game, but it focuses on managing the theme park, as opposed to fighting and surviving.",
-      "author": "Ford James",
-      "date": "2026-11-02",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Game"
-      ],
-      "featured": false,
-      "xpReward": 39,
-      "url": "https://www.polygon.com/wilderdark-survival-horror-jurassic-park-steam-release/",
-      "image": "/images/feed/feed-9749b67472c4.jpg",
-      "source": "Polygon",
       "isLive": true
     },
     {
@@ -375,29 +605,10 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 37,
       "url": "https://www.space.com/entertainment/space-books/new-star-trek-the-original-voyages-book-traces-the-stellar-legacy-of-the-bold-sci-fi-brand",
       "image": "/images/feed/feed-6be25270f47e.jpg",
       "source": "Space.com",
-      "isLive": true
-    },
-    {
-      "id": "feed-d2af558e1f22",
-      "title": "iOS 27.2’s clever new Messages feature can be tailored to your needs",
-      "excerpt": "iOS 27.2 launched last week with a convenient new Messages feature called ‘Suggested Actions.’ Here’s how you can customize the feature to your liking. more…",
-      "body": "iOS 27.2 launched last week with a convenient new Messages feature called ‘Suggested Actions.’ Here’s how you can customize the feature to your liking. more — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Ryan Christoffel",
-      "date": "2026-11-02",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 33,
-      "url": "https://9to5mac.com/2026/11/02/ios-27-2s-clever-new-messages-feature-can-be-tailored-to-your-needs/",
-      "image": "/images/feed/feed-d2af558e1f22.jpg",
-      "source": "9to5Mac",
       "isLive": true
     },
     {
@@ -413,162 +624,10 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 37,
       "url": "https://cleantechnica.com/2026/11/02/electric-trucks-us-canada-battery-swapping-trade-wars/",
       "image": "/images/feed/feed-bc0d927e1a75.jpg",
       "source": "CleanTechnica",
-      "isLive": true
-    },
-    {
-      "id": "feed-160863f304fa",
-      "title": "MagSafe Monday: Pelican’s MagSafe Battery Pack is the battery built to go anywhere",
-      "excerpt": "A few weeks ago, I wrote about why the Pelican MagSafe Wallet is my favorite wallet for the fall, and the short version was that it’s built for being out and about. The Pelican MagSafe Battery Pack is…",
-      "body": "A few weeks ago, I wrote about why the Pelican MagSafe Wallet is my favorite wallet for the fall, and the short version was that it’s built for being out and about. The Pelican MagSafe Battery Pack is the exact same idea applied to a power bank: a 5,000mAh MagSafe battery wrapped in a hardshell that’s meant to tossed around, more…",
-      "author": "Bradley C",
-      "date": "2026-11-02",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 50,
-      "url": "https://9to5mac.com/2026/11/02/magsafe-monday-pelicans-magsafe-battery-pack-is-the-battery-built-to-go-anywhere/",
-      "image": "/images/feed/feed-160863f304fa.jpg",
-      "source": "9to5Mac",
-      "isLive": true
-    },
-    {
-      "id": "feed-3854fe6e4c53",
-      "title": "Germany says lawmakers’ iPhones may have been hacked with spyware",
-      "excerpt": "German lawmakers and a filmmaker are among the people who received notifications from Apple warning that their phones may have been hacked.",
-      "body": "German lawmakers and a filmmaker are among the people who received notifications from Apple warning that their phones may have been hacked.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Iphone. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Zack Whittaker",
-      "date": "2026-11-02",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Iphone"
-      ],
-      "featured": false,
-      "xpReward": 45,
-      "url": "https://techcrunch.com/2026/11/02/germany-says-lawmakers-iphones-may-have-been-hacked-with-spyware/",
-      "image": "/images/feed/feed-3854fe6e4c53.jpg",
-      "source": "TechCrunch",
-      "isLive": true
-    },
-    {
-      "id": "feed-886400ad1bce",
-      "title": "Casio's new keyboard lets anyone play along to songs without ever hitting a wrong note",
-      "excerpt": "Casio's new Feel Sync technology helps keep new players in tune.",
-      "body": "Casio's new Feel Sync technology helps keep new players in tune.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Lawrence Bonk)",
-      "date": "2026-11-02",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 45,
-      "url": "https://www.engadget.com/2304552/casio-new-keyboard-lets-anyone-play-along-to-songs-without-ever-hitting-a-wrong-note/",
-      "image": "/images/feed/feed-886400ad1bce.jpg",
-      "source": "Engadget",
-      "isLive": true
-    },
-    {
-      "id": "feed-284068451203",
-      "title": "Volvo Is Getting Crushed In The U.S.",
-      "excerpt": "Tariffs and a lack of demand is putting Volvo up against a major profitability crisis.",
-      "body": "Tariffs and a lack of demand is putting Volvo up against a major profitability crisis.\n\nThis report, published by InsideEVs, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cars. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to InsideEVs using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "InsideEVs",
-      "date": "2026-11-02",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Cars"
-      ],
-      "featured": false,
-      "xpReward": 30,
-      "url": "https://insideevs.com/news/813589/volvo-profitability-crisis-us-market/",
-      "image": "/images/feed/feed-284068451203.jpg",
-      "source": "InsideEVs",
-      "isLive": true
-    },
-    {
-      "id": "feed-9382897a5852",
-      "title": "Anthropic reveals $900B AI spending commitments ahead of IPO",
-      "excerpt": "",
-      "body": "This report, published by Hacker News, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Anthropic. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Hacker News using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "zomtorg",
-      "date": "2026-11-02",
-      "readTime": "2 min",
-      "section": "ai",
-      "tags": [
-        "Anthropic"
-      ],
-      "featured": false,
-      "xpReward": 49,
-      "url": "https://www.ft.com/content/4d91dbab-6fe4-45ab-beee-d77e091cb37f",
-      "image": "/images/topics/topic-ai-ml.png",
-      "source": "Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-5c48ceda79d5",
-      "title": "One of the GameCube’s Great Cult Classics Gets the Remaster It Deserves",
-      "excerpt": "Godzilla: Destroy All Monsters Remastered is a faithfully clumsy revival of a cult classic that's still a casual joy to play.",
-      "body": "When I was a kid, there were some games I only knew through magazines. I never played them, but they were all over the pages of Electronic Gaming Monthly and Nintendo Power, so I knew everything about them anyway. Godzilla: Destroy All Monsters Melee was firmly a “magazine game” when it was released for the GameCube in 2002. I even had a free poster of it on my wall as a kid, one I kept hung up even after a wave of middling reviews eventually dropped.",
-      "author": "Giovanni Colantonio",
-      "date": "2026-11-02",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 42,
-      "url": "https://www.polygon.com/godzilla-destroy-all-monsters-melee-remastered-review/",
-      "image": "/images/feed/feed-5c48ceda79d5.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-6d4a6b2281f7",
-      "title": "Hideo Kojima's Next Game Officially Gets New Teaser Image, Fans Already Hunting for Clues",
-      "excerpt": "Kojima Productions released a new teaser image of OD for the studio's 10th anniversary exhibition.",
-      "body": "More than four years after its initial announcement, OD remains one of the biggest mysteries in the video game industry. We know Kojima Productions ’ next game is some sort of horror experience, and that genre auteur Jordan Peele contributed to the project, but specifics are hard to come by. Despite the caginess, we got a new look at OD as part of Kojima Productions’ 10th anniversary exhibition, which is running through Dec. 20 at Azabudai Hills Gallery in Tokyo.",
-      "author": "Elijah Gonzalez",
-      "date": "2026-11-02",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Game"
-      ],
-      "featured": false,
-      "xpReward": 51,
-      "url": "https://www.polygon.com/od-teaser-image-hideo-kojima-horror/",
-      "image": "/images/feed/feed-6d4a6b2281f7.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-0c0cc2ff95a3",
-      "title": "A 21-Year Veteran Of Xbox Who Is Suddenly No Longer At The Company Says She Has ‘Serious Concerns’ About The Whole Process",
-      "excerpt": "Helen Chiang has broken her silence after weeks of speculation",
-      "body": "Helen Chiang has broken her silence after weeks of speculation\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Xbox. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Ethan Gach",
-      "date": "2026-11-02",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Xbox"
-      ],
-      "featured": false,
-      "xpReward": 39,
-      "url": "https://kotaku.com/a-21-year-veteran-of-xbox-who-is-suddenly-no-longer-at-the-company-says-she-has-serious-concerns-about-the-whole-process-2000752405",
-      "image": "/images/feed/feed-0c0cc2ff95a3.jpg",
-      "source": "Kotaku",
       "isLive": true
     },
     {
@@ -584,9 +643,9 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 54,
       "url": "https://techcrunch.com/2026/11/02/new-york-times-and-other-outlets-sue-web-browser-brave-over-alleged-content-scraping/",
-      "image": "/images/feed/feed-a72f414af34a.jpg",
+      "image": "/images/feed/feed-a72f414af34a.webp",
       "source": "TechCrunch",
       "isLive": true
     },
@@ -603,29 +662,10 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 45,
       "url": "https://www.bleepingcomputer.com/news/security/fintech-platform-sageworks-taken-offline-after-suspected-cyberattack/",
       "image": "/images/feed/feed-9ceec0263f89.jpg",
       "source": "BleepingComputer",
-      "isLive": true
-    },
-    {
-      "id": "feed-d31f3afa9072",
-      "title": "Undiscovered Star Wars Secret Finally Found, Dev Who Hid It: ‘It’s Been A Long 3 And A Half Years’",
-      "excerpt": "If you enter in a familiar code in Jedi: Survivor you'll see something very strange",
-      "body": "If you enter in a familiar code in Jedi: Survivor you'll see something very strange\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Zack Zwiezen",
-      "date": "2026-11-02",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 31,
-      "url": "https://kotaku.com/undiscovered-star-wars-secret-finally-found-dev-who-hid-it-its-been-a-long-3-and-a-half-years-2000752375",
-      "image": "/images/feed/feed-d31f3afa9072.jpg",
-      "source": "Kotaku",
       "isLive": true
     },
     {
@@ -641,7 +681,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 53,
       "url": "https://www.space.com/stargazing/skywatching-kit/viltrox-af-35mm-f-1-8-ii-evo-fe-apo-lens-review-how-good-is-this-budget-lens-for-astrophotography",
       "image": "/images/feed/feed-fe3eb404fb87.jpg",
       "source": "Space.com",
@@ -660,7 +700,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 36,
       "url": "https://www.nasa.gov/image-article/nasas-chapea-crew-returns-to-earth/",
       "image": "/images/feed/feed-be2773da2dd6.jpg",
       "source": "NASA Breaking News",
@@ -679,7 +719,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 54,
       "url": "https://science.nasa.gov/solar-system/skywatching/whats-up-november-2026-skywatching-tips-from-nasa/",
       "image": "https://science.nasa.gov/wp-content/uploads/2023/07/moonrise-at-vasquez-rocks-credit-nasa-preston-dyches-cc-by-nc-2.0.jpg",
       "source": "NASA Breaking News",
@@ -698,7 +738,7 @@
         "Malware"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 41,
       "url": "https://www.bleepingcomputer.com/news/security/google-disrupts-million-device-xcpe-android-malware-botnet-bans-tv-box-maker/",
       "image": "/images/feed/feed-c001fcb1d6f9.jpg",
       "source": "BleepingComputer",
@@ -718,7 +758,7 @@
         "Chatgpt"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 32,
       "url": "https://www.zdnet.com/innovation/openai-merge-chatgpt-chat-work-tabs/",
       "image": "/images/feed/feed-38324ca6d983.jpg",
       "source": "ZDNet",
@@ -737,10 +777,29 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 40,
       "url": "https://www.theverge.com/ai-artificial-intelligence/1024604/openai-data-center-grid-protection-program",
       "image": "/images/feed/feed-4abc12850bea.png",
       "source": "The Verge",
+      "isLive": true
+    },
+    {
+      "id": "feed-2e9e52017892",
+      "title": "Self-Employed? Solopreneur? NIST Has a Cybersecurity Guide Just for You",
+      "excerpt": "",
+      "body": "This report, published by Hacker News, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cybersecurity. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Hacker News using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "tomrod",
+      "date": "2026-11-02",
+      "readTime": "2 min",
+      "section": "cybersecurity",
+      "tags": [
+        "Cybersecurity"
+      ],
+      "featured": false,
+      "xpReward": 48,
+      "url": "https://www.nist.gov/news-events/news/2026/11/self-employed-solopreneur-nist-has-cybersecurity-guide-just-you",
+      "image": "/images/feed/feed-2e9e52017892.jpg",
+      "source": "Hacker News",
       "isLive": true
     },
     {
@@ -756,29 +815,10 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 33,
       "url": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-october-2026/",
       "image": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Oct_AI_Recap_social.max-600x600.format-webp.webp",
       "source": "Google AI Blog",
-      "isLive": true
-    },
-    {
-      "id": "feed-470a6b4cd7e4",
-      "title": "NASA Invites Media to Northrop Grumman CRS-25 Station Resupply Launch",
-      "excerpt": "Media accreditation is open for the next launch to deliver NASA science investigations, supplies, and equipment to the International Space Station. A Northrop Grumman Cygnus XL spacecraft will launch…",
-      "body": "Northrop Grumman’s Cygnus XL cargo spacecraft is pictured on Oct. 9, 2026, in the grip of the Canadarm2 robotic arm moments before its release into Earth orbit after a nearly six‑month stay attached to the International Space Station’s Unity module. The orbital outpost was soaring 263 miles above the Indian Ocean, off the coast of Madagascar, at the time of this photograph. Credit: NASA Media accreditation is open for the next launch to deliver NASA science investigations, supplies, and equipment to the International Space Station. A Northrop Grumman Cygnus XL spacecraft will launch in November to the orbital laboratory on a SpaceX Falcon 9 rocket for NASA. The mission is known as NASA’s Northrop Grumman Commercial Resupply Services 25, or NASA’s Northrop Grumman CRS-25.",
-      "author": "Jessica Taveau",
-      "date": "2026-11-02",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Nasa"
-      ],
-      "featured": false,
-      "xpReward": 51,
-      "url": "https://www.nasa.gov/news-release/nasa-invites-media-to-northrop-grumman-crs-25-station-resupply-launch/",
-      "image": "/images/feed/feed-470a6b4cd7e4.jpg",
-      "source": "NASA Breaking News",
       "isLive": true
     },
     {
@@ -794,31 +834,10 @@
         "Claude"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 45,
       "url": "https://www.zdnet.com/health/athenahealth-claude-ai-medical-partnership/",
       "image": "/images/feed/feed-9d1f4182f667.jpg",
       "source": "ZDNet",
-      "isLive": true
-    },
-    {
-      "id": "feed-040ae121924d",
-      "title": "James Webb Space Telescope uncovers new clues about the origins of 'interstellar invader' comet 3I/ATLAS",
-      "excerpt": "The findings are another clue towards understanding the origins of 3I/ATLAS and the planet-forming conditions around other stars.",
-      "body": "Using the James Webb Space Telescope (JWST), scientists have found that the interstellar comet 3I/ATLAS was built from tiny grains of ice mixed with dust that are quite different from the solar system’s comets. These ice grains do, however, bear striking similarities to some icy bodies located at the edge of the solar system, beyond the orbit of Neptune, so-called trans-Neptunian objects (TNOs). 3I/ATLAS was discovered entering the solar system in the summer of 2025. It was only the third object found entering the solar system from farther afield in the Milky Way after 1I/'Oumuamua , seen in 2017, and 2I/Borisov , detected in 2019. This meant the interstellar comet offered a rare chance to glimpse the conditions under which such bodies form in other star systems.",
-      "author": " Keith Cooper ",
-      "date": "2026-11-02",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "James Webb",
-        "Telescope",
-        "Space"
-      ],
-      "featured": false,
-      "xpReward": 31,
-      "url": "https://www.space.com/astronomy/asteroids/james-webb-space-telescope-uncovers-new-clues-about-the-origins-of-interstellar-invader-comet-3i-atlas",
-      "image": "/images/feed/feed-040ae121924d.jpg",
-      "source": "Space.com",
       "isLive": true
     },
     {
@@ -834,7 +853,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 40,
       "url": "https://www.technologyreview.com/2026/11/02/1147660/raising-the-quality-of-insights-in-agentic-analytics/",
       "image": "/images/feed/feed-adc599e6d52a.png",
       "source": "MIT Tech Review",
@@ -853,10 +872,29 @@
         "Phishing"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 31,
       "url": "https://thehackernews.com/2026/11/weekly-recap-critical-cves-linux-ddos.html",
       "image": "/images/feed/feed-15396809c02d.jpg",
       "source": "The Hacker News",
+      "isLive": true
+    },
+    {
+      "id": "feed-c20faddd0182",
+      "title": "Anthropic's internal AI use, at retail prices, now exceeds its employee pay",
+      "excerpt": "",
+      "body": "This report, published by Hacker News, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Anthropic. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Hacker News using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "entryleveljobsc",
+      "date": "2026-11-02",
+      "readTime": "2 min",
+      "section": "ai",
+      "tags": [
+        "Anthropic"
+      ],
+      "featured": false,
+      "xpReward": 51,
+      "url": "https://www.businessinsider.com/anthropic-claude-internal-ai-use-exceeds-employee-pay-tokens-2026-11",
+      "image": "/images/feed/feed-c20faddd0182.jpg",
+      "source": "Hacker News",
       "isLive": true
     },
     {
@@ -872,7 +910,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 31,
       "url": "https://thehackernews.com/2026/11/google-disrupts-13-million-device.html",
       "image": "/images/feed/feed-e5de376f71d3.jpg",
       "source": "The Hacker News",
@@ -891,62 +929,24 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 30,
       "url": "https://www.bleepingcomputer.com/news/security/btcpay-server-warns-of-hot-wallet-thefts-targeting-outdated-instances/",
       "image": "/images/feed/feed-aaf4976c3b8c.jpg",
       "source": "BleepingComputer",
       "isLive": true
-    },
-    {
-      "id": "feed-b374ae2519eb",
-      "title": "Your Mobile Carrier Stores Your Call Logs for Years",
-      "excerpt": "Mobile carriers can retain years of call and text metadata, exposing sensitive details about customers' relationships, locations, and daily routines if breached. Cape examines the privacy risks of lon…",
-      "body": "Mobile carriers can retain years of call and text metadata, exposing sensitive details about customers' relationships, locations, and daily routines if breached. Cape examines the privacy risks of long-term telecom data retention and how its mobile service reduces exposure by automatically deleting call records. [...]",
-      "author": "Sponsored by Cape",
-      "date": "2026-11-02",
-      "readTime": "2 min",
-      "section": "cybersecurity",
-      "tags": [
-        "Cybersecurity"
-      ],
-      "featured": false,
-      "xpReward": 36,
-      "url": "https://www.bleepingcomputer.com/news/security/your-mobile-carrier-stores-your-call-logs-for-years/",
-      "image": "/images/feed/feed-b374ae2519eb.jpg",
-      "source": "BleepingComputer",
-      "isLive": true
-    },
-    {
-      "id": "feed-9c1ebae49ad8",
-      "title": "DarkBlinders Compromises Israeli Target and Iraqi Kurdish Government Cloud Environment",
-      "excerpt": "Cybersecurity researchers have disclosed details of a cyber espionage campaign targeting Israel and the Kurdistan Region of Iraq by an Iran state-aligned threat actor between August and October 2026.…",
-      "body": "Cybersecurity researchers have disclosed details of a cyber espionage campaign targeting Israel and the Kurdistan Region of Iraq by an Iran state-aligned threat actor between August and October 2026. According to a report published by Dream Research Labs, the campaign has led to the compromise of a high-profile individual in Israel, along with additional compromises affecting a government cloud",
-      "author": "info@thehackernews.com (The Hacker News)",
-      "date": "2026-11-02",
-      "readTime": "2 min",
-      "section": "cybersecurity",
-      "tags": [
-        "Cybersecurity"
-      ],
-      "featured": false,
-      "xpReward": 42,
-      "url": "https://thehackernews.com/2026/11/darkblinders-compromises-israeli-target.html",
-      "image": "/images/feed/feed-9c1ebae49ad8.png",
-      "source": "The Hacker News",
-      "isLive": true
     }
   ],
   "breakingNews": [
-    "ELECTREK: Cadillac’s most affordable EV just got a bit cheaper",
-    "DEV.TO: Spousal Open Work Permits in Canada: Who Qualifies in 2026 and What to Prepare",
-    "DEV.TO: On-Page SEO Checklist: 8 Things to Fix on Every Page",
-    "DEV.TO: Google Says Videostrong Built a 1.3 Million-Device Android Botnet Into Its Own TV Boxes",
-    "DEV.TO: I Built LLM Explained: 43 Interactive Pages That Take You From Tokens to AI Agents",
-    "DEV.TO: Why UI Tests Break Every Sprint (and What an AI Testing Agent Changes)",
-    "DEV.TO: Word.LineFormat lost 8 documented properties in Office.js 16.0.20619",
-    "DEV.TO: Find Duplicate Files in the Browser: SHA-256 Groups, Not Uploads",
-    "KOTAKU: South Of Midnight Director Says He Doesn’t Think Xbox Should Have Funded It",
-    "ANDROID AUTHORITY: Sneak peek: Google app is preparing a big change for its bottom bar"
+    "DEV.TO: Your DNS TTL is why the outage lasted 2 hours: set it before you need it",
+    "DEV.TO: Scaling Declarative Schema Synchronization: Concurrency, Locking, and Distributed Safety",
+    "DEV.TO: Ping is not an uptime check: 5 ways ICMP lies about whether your site is up",
+    "DEV.TO: Use it, or lose it 🧠",
+    "DEV.TO: Your health check returns 200 while users get errors: 7 health check mistakes",
+    "DEV.TO: Golden-File Tests for a Score Calculator: Check Every Row Against the Published Table",
+    "DEV.TO: THRIVE MARKET SRE – TECHNICAL INTERVIEW PREP, questions and answers for Aisel for the next step",
+    "ANDROID AUTHORITY: Next time your flight touches down, Google Maps could be there with a custom greeting",
+    "ELECTREK: Hardee’s gets EV fast charging – with Carl’s Jr. locations to follow",
+    "THE VERGE: Apple set an iPhone sales record even without a new standard iPhone"
   ],
   "sectionVideos": {}
 }
