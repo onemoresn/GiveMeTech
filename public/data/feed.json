@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-11-02T22:12:34.778Z",
+  "fetchedAt": "2026-11-02T23:23:15.828Z",
   "articles": [
     {
-      "id": "feed-dc25cb33eef2",
-      "title": "Your DNS TTL is why the outage lasted 2 hours: set it before you need it",
-      "excerpt": "The server died at 14:02. A new one was up at 14:20, and the A record was updated at 14:21. Half the users were still hitting the dead IP at 16:00. The fix took a minute. The TTL was 86400. DNS change…",
-      "body": "The server died at 14:02. A new one was up at 14:20, and the A record was updated at 14:21. Half the users were still hitting the dead IP at 16:00. The fix took a minute. The TTL was 86400. DNS changes don't \"propagate\". Resolvers cache your old answer for as long as you told them they could, and you told them a day. TL;DR TTL is a promise: \"you may cache this answer for N seconds\". Resolvers keep that promise even when you change your mind. Lowering a TTL only helps after the old TTL has expired. Lower it at least one old-TTL ahead of any planned change. 300 seconds is a sane default for records you might need to move. 3600+ is fine for records that never change. My opinion: \"DNS propagation takes 24 to 48 hours\" is mostly a myth caused by long TTLs people set themselves.",
-      "author": "upordown.online",
+      "id": "feed-ae88bf5ee983",
+      "title": "How I made DSQL easier",
+      "excerpt": "It’s been a year and a half since AWS released Aurora DSQL, a serverless relational database. It’s pay-as-you-go: no paying for idle compute when usage is zero. DynamoDB and DSQL serve different purpo…",
+      "body": "It’s been a year and a half since AWS released Aurora DSQL, a serverless relational database. It’s pay-as-you-go: no paying for idle compute when usage is zero. DynamoDB and DSQL serve different purposes. I’ve seen it many times, and so have plenty of others: people modelling and using DynamoDB as a relational database. They then complain that they don’t like DynamoDB and that it’s not good, when in reality they just tried to eat soup with a fork and then blamed the fork for their own choices. I was beyond excited to try out DSQL; I enjoyed it. But I never got that out-of-the-box feeling like I did with DynamoDB. I had to do the following manually: Connect to the DSQL cluster with an admin connection. Create your schema and tables. Create a database role.",
+      "author": "Damien Pace",
       "date": "2026-11-02",
       "readTime": "2 min",
       "section": "software",
@@ -14,18 +14,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 40,
-      "url": "https://dev.to/upordownonline/your-dns-ttl-is-why-the-outage-lasted-2-hours-set-it-before-you-need-it-meh",
-      "image": "/images/feed/feed-dc25cb33eef2.webp",
+      "xpReward": 39,
+      "url": "https://dev.to/damien_pace_2c3ec240cbd46/how-i-made-dsql-easier-4je5",
+      "image": "/images/feed/feed-ae88bf5ee983.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-3be4c857a59a",
-      "title": "Scaling Declarative Schema Synchronization: Concurrency, Locking, and Distributed Safety",
-      "excerpt": "Scaling Declarative Schema Synchronization: Concurrency, Locking, and Distributed Safety We’ve all been there: you open up your db/migration folder on a Monday morning only to find a chaotic stack of…",
-      "body": "Scaling Declarative Schema Synchronization: Concurrency, Locking, and Distributed Safety We’ve all been there: you open up your db/migration folder on a Monday morning only to find a chaotic stack of V142__add_status.sql , V143__fix_status_typo.sql , and a broken CI build because two feature branches collided on V144 . Traditional migration tools like Flyway and Liquibase served us well for a long time, but in fast-moving, distributed microservices, linear script chains create constant friction and Git merge hell.",
-      "author": "Eugene Naoumov",
+      "id": "feed-22f4917350c9",
+      "title": "Proof of Place: what a satellite can and cannot prove",
+      "excerpt": "Proof of Place: what a satellite can and cannot prove Tokenised real estate, carbon plots, insured warehouses, leased equipment — the same question keeps coming back in a different costume: was the th…",
+      "body": "Proof of Place: what a satellite can and cannot prove Tokenised real estate, carbon plots, insured warehouses, leased equipment — the same question keeps coming back in a different costume: was the thing actually there, then, in that state? Not \"does the issuer say so\". Was it there. Satellite imagery is the first answer everybody reaches for, and it is a good answer for about a third of the cases. This is a map of which third, written from the side that has to hand the report to a client. The four layers, weakest to strongest Every \"proof of place\" product is some combination of these, and the honest ones say which layers they checked and which they could not.",
+      "author": "iamthat",
       "date": "2026-11-02",
       "readTime": "2 min",
       "section": "software",
@@ -33,18 +33,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 30,
-      "url": "https://dev.to/eugene_naoumov_ec511dd3b6/scaling-declarative-schema-synchronization-concurrency-locking-and-distributed-safety-5dn0",
-      "image": "/images/feed/feed-3be4c857a59a.webp",
+      "xpReward": 53,
+      "url": "https://dev.to/mrpkk/proof-of-place-what-a-satellite-can-and-cannot-prove-3lid",
+      "image": "/images/feed/feed-22f4917350c9.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-a37f3dfe6ab3",
-      "title": "Ping is not an uptime check: 5 ways ICMP lies about whether your site is up",
-      "excerpt": "The monitor said the server was up: 0% packet loss, 12 ms round trip. The site had been returning 502 Bad Gateway for forty minutes. Nobody got paged, because the uptime check was a ping. The opposite…",
-      "body": "The monitor said the server was up: 0% packet loss, 12 ms round trip. The site had been returning 502 Bad Gateway for forty minutes. Nobody got paged, because the uptime check was a ping. The opposite happens too. A team moves behind a cloud firewall, ping starts timing out, and the pager goes off at 3 AM for a site that is serving traffic perfectly well. TL;DR Ping tests whether a host answers ICMP echo. Users don't use ICMP. They use DNS, TCP, TLS and HTTP. Ping can be green during a full outage and red during perfect health. For uptime, check an HTTP request to a real page, with a timeout and a content check. My opinion: ping-based uptime monitoring for websites should be retired. Use it only as a diagnostic.",
-      "author": "upordown.online",
+      "id": "feed-8a56fce2421e",
+      "title": "Study: poisoning 0.1% of pretraining data implants a working RCE backdoor in an AI agent",
+      "excerpt": "📅 2 November 2026 • arXiv / Hacker News A study posted to arXiv on October 27, 2026 describes a result that changes the threat model for AI agents: poisoning a small share of pretraining data can imp…",
+      "body": "📅 2 November 2026 • arXiv / Hacker News A study posted to arXiv on October 27, 2026 describes a result that changes the threat model for AI agents: poisoning a small share of pretraining data can implant a working backdoor in an agent. The paper, numbered 2610.37741 , is authored by Xinyan Hu and 7 co-authors, including Nicholas Carlini, Matthew Jagielski and Javier Rando. The team reports the first demonstration that pretraining-data poisoning can give an agent a remote code execution (RCE) backdoor — code that runs on the machine of the user operating the agent. A CLI agent is a format where the model executes commands on the user's machine, so an implanted code-execution instruction directly touches that machine.",
+      "author": "News",
       "date": "2026-11-02",
       "readTime": "2 min",
       "section": "software",
@@ -52,18 +52,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 54,
-      "url": "https://dev.to/upordownonline/ping-is-not-an-uptime-check-5-ways-icmp-lies-about-whether-your-site-is-up-4el0",
-      "image": "/images/feed/feed-a37f3dfe6ab3.webp",
+      "xpReward": 46,
+      "url": "https://dev.to/delimitter/study-poisoning-01-of-pretraining-data-implants-a-working-rce-backdoor-in-an-ai-agent-3moh",
+      "image": "/images/feed/feed-8a56fce2421e.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-63310d2895ea",
-      "title": "Use it, or lose it 🧠",
-      "excerpt": "Don't quit doing deep intellectual and creative work (like programming, art etc.) just because an LLM can do it well enough. Even if an LLM can do your work perfectly for free (they can't do it perfec…",
-      "body": "Don't quit doing deep intellectual and creative work (like programming, art etc.) just because an LLM can do it well enough. Even if an LLM can do your work perfectly for free (they can't do it perfectly yet, certainly not for free), you should keep doing some form of deep intellectual and creative work like people do Gym Workout - to keep yourself intellectually healthy. Again: use it or lose it. 🧠 Fayaz Follow A Software Engineer who strongly believes you can add immense value by knowingly implementing Software Engineering best practices even at the age of AI, and puts human life and dignity above all else.",
-      "author": "Fayaz",
+      "id": "feed-394433f8f5df",
+      "title": "How to unlock your Xiaomi scooter 6",
+      "excerpt": "Diagram Description The diagram illustrates how to establish a serial communication interface between a computer and a Xiaomi 6 electric scooter controller using an FT232RL USB-to-TTL UART adapter. Fl…",
+      "body": "Diagram Description The diagram illustrates how to establish a serial communication interface between a computer and a Xiaomi 6 electric scooter controller using an FT232RL USB-to-TTL UART adapter. • The M8 Female Julet Connector (Controller Side): This is the round waterproof connector coming from the scooter's main controller. It exposes 5 specific pins: sw (switch/power), rx (receive data), tx (transmit data), Gnd (ground), and Vcc (power supply). • The FT232RL Circuit (Computer Side): This USB dongle acts as a bridge. It converts the computer's USB signals into serial data that the controller's processor can understand. • The Wire Layout: • Data Lines (Crossed): The rx pin of the Julet connector connects to the tx pin of the FT232RL.",
+      "author": "Mohamed Amine TLILI",
       "date": "2026-11-02",
       "readTime": "2 min",
       "section": "software",
@@ -71,18 +71,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 40,
-      "url": "https://dev.to/fm/use-it-or-lose-it-42l",
-      "image": "/images/feed/feed-63310d2895ea.webp",
+      "xpReward": 33,
+      "url": "https://dev.to/mat99/how-to-unlock-your-xiaomi-scooter-6-1ojd",
+      "image": "/images/feed/feed-394433f8f5df.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-6fcc26dce520",
-      "title": "Your health check returns 200 while users get errors: 7 health check mistakes",
-      "excerpt": "The dashboard was green. The load balancer was happy. Every /health probe returned 200 OK in 4 ms. Meanwhile, every checkout request was failing because the database connection pool was exhausted, and…",
-      "body": "The dashboard was green. The load balancer was happy. Every /health probe returned 200 OK in 4 ms. Meanwhile, every checkout request was failing because the database connection pool was exhausted, and nobody found out until support tickets started piling up. If that sounds familiar, the health check wasn't broken. It was answering a different question than the one you cared about. TL;DR A health check that only proves the process is alive will stay green through most real outages. Split it in two: a cheap liveness check and a readiness check that touches real dependencies with tight timeouts. Monitor from the outside on a real user path too. Your own /health can't see DNS, TLS or CDN problems. My opinion: a single /health endpoint used for everything is a design smell.",
-      "author": "upordown.online",
+      "id": "feed-f613d53d6652",
+      "title": "Picking a winner fairly in a browser spin wheel: modulo bias, rejection sampling and a shuffle bag",
+      "excerpt": "This article was written with the help of AI and checked against the site's real code. The test code was run before publishing. A spin wheel looks like a physics toy, but the animation has nothing to…",
+      "body": "This article was written with the help of AI and checked against the site's real code. The test code was run before publishing. A spin wheel looks like a physics toy, but the animation has nothing to do with the result. In the wheel I work on, the winner is chosen first. Then the wheel is told where to stop. That split makes the code simple, and it moves the fairness question to one small function. Here is how that function works, including a change we made because true randomness can look broken. Step 1: Choose the winner without bias The usual snippet is this: const winner = Math . floor ( Math . random () * entries . length ); For a party game this is fine.",
+      "author": "BestSpinnerWheel",
       "date": "2026-11-02",
       "readTime": "2 min",
       "section": "software",
@@ -90,18 +90,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 44,
-      "url": "https://dev.to/upordownonline/your-health-check-returns-200-while-users-get-errors-7-health-check-mistakes-d84",
-      "image": "/images/feed/feed-6fcc26dce520.webp",
+      "xpReward": 32,
+      "url": "https://dev.to/bestspinnerwheel/picking-a-winner-fairly-in-a-browser-spin-wheel-modulo-bias-rejection-sampling-and-a-shuffle-bag-4aik",
+      "image": "/images/feed/feed-f613d53d6652.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-6395069e20ec",
-      "title": "Golden-File Tests for a Score Calculator: Check Every Row Against the Published Table",
-      "excerpt": "If you build a calculator that turns a raw result into points, the scoring table is the product. A bug in the arithmetic is easy to spot. A single wrong row in a 100-line table is not, and users will…",
-      "body": "If you build a calculator that turns a raw result into points, the scoring table is the product. A bug in the arithmetic is easy to spot. A single wrong row in a 100-line table is not, and users will trust it anyway. This post shows a small way to protect a lookup-table calculator: keep the table as data, keep a second copy of the source numbers as a \"golden file,\" and test every row automatically. The numbers in the examples below are made up for illustration. When you build one for a real standard, copy the values from the governing document and cite it on the page. Step 1: keep the table as data, not code Hard-coding thresholds inside if statements makes them impossible to review.",
-      "author": "Leene Casella",
+      "id": "feed-c368c304bd55",
+      "title": "Trajectory raises $45M to make AI model training accessible to nontechnical experts",
+      "excerpt": "The one-year-old startup is now valued at $300 million.",
+      "body": "The one-year-old startup is now valued at $300 million.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Software. As the situation continues to evolve, professionals and enthusiasts in the software development and engineering field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Marina Temkin",
       "date": "2026-11-02",
       "readTime": "2 min",
       "section": "software",
@@ -109,37 +109,37 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 48,
-      "url": "https://dev.to/leenecasella/golden-file-tests-for-a-score-calculator-check-every-row-against-the-published-table-2l62",
-      "image": "/images/feed/feed-6395069e20ec.webp",
-      "source": "Dev.to",
+      "xpReward": 35,
+      "url": "https://techcrunch.com/2026/11/02/trajectory-raises-45m-to-make-ai-model-training-accessible-to-nontechnical-experts/",
+      "image": "/images/feed/feed-c368c304bd55.jpg",
+      "source": "TechCrunch",
       "isLive": true
     },
     {
-      "id": "feed-4bf0f9f67099",
-      "title": "THRIVE MARKET SRE – TECHNICAL INTERVIEW PREP, questions and answers for Aisel for the next step",
-      "excerpt": "PART 1. WHAT YOU KNOW ABOUT THRIVE (use this in your answers) Company is 10+ years old, everything runs on AWS. Core app is PHP, mostly APIs for mobile apps, plus smaller APIs. They moved from a Puppe…",
-      "body": "PART 1. WHAT YOU KNOW ABOUT THRIVE (use this in your answers) Company is 10+ years old, everything runs on AWS. Core app is PHP, mostly APIs for mobile apps, plus smaller APIs. They moved from a Puppet-based system to Kubernetes on EKS. CI is GitHub Actions, CD is Argo CD. Still have legacy systems in different AWS accounts. They want to move them into the main prod account (caches, ALBs, services). Biggest priorities: cost, legacy migration, Kubernetes work. Most incidents are app-related: DB slowness or cache issues make PHP-FPM workers fill up, Nginx upstream queues grow, error rate goes up. One past infra issue: CPU steal on Kubernetes nodes. They care about early signals, SLOs, and error rate. They are starting to use AI for monitoring.",
-      "author": "Aisalkyn Aidarova",
+      "id": "feed-0736c7feec60",
+      "title": "Goldman Sachs restricts Claude Code and GitHub Copilot to engineers",
+      "excerpt": "📅 2 November 2026 • The Decoder / Bloomberg Goldman Sachs has drawn a clear line around who can use advanced AI coding tools inside the bank. According to The Decoder, citing Bloomberg, internal rule…",
+      "body": "📅 2 November 2026 • The Decoder / Bloomberg Goldman Sachs has drawn a clear line around who can use advanced AI coding tools inside the bank. According to The Decoder, citing Bloomberg, internal rules introduced in October 2026 keep Claude Code and GitHub Copilot available only to engineers. Traders and bankers, who previously had access to both tools, have lost it. The tools in question write, refactor and run code, and their use had spread well beyond engineering teams, into parts of the business that have no software development function at all. The restriction reverses months of open usage. Before the new rules, non-technical staff had used these tools for months, including for monitoring trading flows and for generating content .",
+      "author": "News",
       "date": "2026-11-02",
       "readTime": "2 min",
       "section": "software",
       "tags": [
-        "Software"
+        "Github"
       ],
       "featured": false,
-      "xpReward": 50,
-      "url": "https://dev.to/jumptotech/thrive-market-sre-technical-interview-prep-questions-and-answers-for-aisel-for-the-next-step-16df",
-      "image": "/images/feed/feed-4bf0f9f67099.webp",
+      "xpReward": 54,
+      "url": "https://dev.to/delimitter/goldman-sachs-restricts-claude-code-and-github-copilot-to-engineers-26jh",
+      "image": "/images/feed/feed-0736c7feec60.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-8e89fdd4cb7f",
-      "title": "Next time your flight touches down, Google Maps could be there with a custom greeting",
-      "excerpt": "Google is prepping airport arrival messages that nudge you to try Ask Maps.",
-      "body": "TL;DR Google Maps appears to be working on new greeting messages for when users take flights to new cities. The greetings seem designed to encourage the use of the app’s Ask Maps feature. Google’s building out support for messages in over 90 airports around the world. Have you ever landed at an airport and seen some smartly dressed valets standing around with travelers’ names printed on cards, waiting to greet them? Not all of us will ever be the sort of bigwig who gets that kind of white-glove service, but we might be able to at least pretend a little bit, thanks to a new system that’s in the works for Google Maps . You’re reading an Authority Insights story.",
-      "author": "Stephen Schenck",
+      "id": "feed-94c78faed5f7",
+      "title": "Apple says memory costs and Siri AI will weigh on holiday quarter profit margins",
+      "excerpt": "Following today’s earnings report, Apple held its quarterly earnings call, during which the company discussed the impact of rising memory costs on its profit margins and warned of additional pressure…",
+      "body": "Following today’s earnings report, Apple held its quarterly earnings call, during which the company discussed the impact of rising memory costs on its profit margins and warned of additional pressure — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Marcus Mendes",
       "date": "2026-11-02",
       "readTime": "2 min",
       "section": "gadgets",
@@ -147,10 +147,276 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 47,
-      "url": "https://www.androidauthority.com/google-maps-airport-greetings-3730863/",
-      "image": "/images/feed/feed-8e89fdd4cb7f.jpg",
+      "xpReward": 34,
+      "url": "https://9to5mac.com/2026/11/02/apple-says-memory-costs-and-siri-ai-will-weigh-on-holiday-quarter-profit-margins/",
+      "image": "/images/feed/feed-94c78faed5f7.jpg",
+      "source": "9to5Mac",
+      "isLive": true
+    },
+    {
+      "id": "feed-08479b99df48",
+      "title": "Apple’s inventory surges 154% as memory chip costs climb",
+      "excerpt": "Apple says unprecedented memory chip costs will continue to rise, raising questions about future device prices as its inventory climbs to $14.5 billion.",
+      "body": "Apple says unprecedented memory chip costs will continue to rise, raising questions about future device prices as its inventory climbs to $14.5 billion.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Sarah Perez",
+      "date": "2026-11-02",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 33,
+      "url": "https://techcrunch.com/2026/11/02/apples-inventory-surges-154-as-memory-chip-costs-climb/",
+      "image": "/images/feed/feed-08479b99df48.webp",
+      "source": "TechCrunch",
+      "isLive": true
+    },
+    {
+      "id": "feed-0fbc07c2e7f3",
+      "title": "World of Warcraft Forever release time in your time zone",
+      "excerpt": "Here's what time World of Warcraft: Forever is set to launch in your time zone.",
+      "body": "The release of World of Warcraft: Forever brings a third — or, depending on how you count them, a sixth or seventh — way to play World of Warcraft to everyone with a WoW subscription. Joining the modern game and the Classic servers, Forever is based on WoW as it was at launch in 2004, but with new content, rebalanced classes, graphical enhancements, and lots of modernization.",
+      "author": "Oli Welsh",
+      "date": "2026-11-02",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 31,
+      "url": "https://www.polygon.com/world-of-warcraft-forever-wow-release-time-est-pst/",
+      "image": "/images/feed/feed-0fbc07c2e7f3.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-c87f44f2f637",
+      "title": "How to use your phone's camera to translate anything",
+      "excerpt": "With the aid of a quick picture, you can use your phone's camera to translate pretty much any text while you're traveling across the globe.",
+      "body": "With the aid of a quick picture, you can use your phone's camera to translate pretty much any text while you're traveling across the globe.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "staff@engadget.com (Calvin Wankhede)",
+      "date": "2026-11-02",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 31,
+      "url": "https://www.engadget.com/2300368/how-to-use-phone-camera-built-in-translation-feature-google/",
+      "image": "/images/feed/feed-c87f44f2f637.jpg",
+      "source": "Engadget",
+      "isLive": true
+    },
+    {
+      "id": "feed-71139e0d099b",
+      "title": "Apple is ‘not able to predict’ when it&#8217;ll have enough iPhone Duos to go around",
+      "excerpt": "Apple CEO John Ternus doesn't have a timeline for when iPhone Duo supply constraints could lift. During an interview with Reuters, Ternus said the company is \"working hard to get it to as many custome…",
+      "body": "Apple CEO John Ternus doesn't have a timeline for when iPhone Duo supply constraints could lift. During an interview with Reuters , Ternus said the company is \"working hard to get it to as many customers as quickly as possible, but at this &#8203;point, we're not able to predict when supply and demand will be in balance.\" Apple launched its first foldable last month for $1,999, featuring a 5.4 outer display and 7.6-inch inner screen. Preorders for the iPhone Duo quickly sold out, with some shipments expected to arrive in 2027. Apple also made a limited number of iPhone Duo models available in-store at launch. In his interview with Reuters , Ternu … Read the full story at The Verge.",
+      "author": "Emma Roth",
+      "date": "2026-11-02",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Iphone"
+      ],
+      "featured": false,
+      "xpReward": 44,
+      "url": "https://www.theverge.com/tech/1024915/apple-iphone-duo-supply-chain-constraints",
+      "image": "/images/feed/feed-71139e0d099b.jpg",
+      "source": "The Verge",
+      "isLive": true
+    },
+    {
+      "id": "feed-1a28c6d7fb08",
+      "title": "Nintendo Officially Comments on Zelda Remake's Divisive Graphics",
+      "excerpt": "The Legend of Zelda: Ocarina of Time remake has a divisive graphical style. Nintendo explains the art direction behind the Switch 2 game.",
+      "body": "Nintendo 's upcoming remake of The Legend of Zelda: Ocarina of Time looks drastically different from the Nintendo 64 original. That's understandable, given the nearly 28 years that have passed since the first 3D Zelda debuted. Beyond the graphical advancements, however, the Switch 2 remake of Ocarina of Time makes some bold character design choices, some of which have divided longtime Zelda fans .",
+      "author": "Michael McWhertor",
+      "date": "2026-11-02",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Nintendo"
+      ],
+      "featured": false,
+      "xpReward": 44,
+      "url": "https://www.polygon.com/zelda-ocarina-of-time-art-style-link-zelda-puppets/",
+      "image": "/images/feed/feed-1a28c6d7fb08.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-7ec2b0e21306",
+      "title": "Can’t Find the Siri Remote? Your iPhone Can Now Lead You Right to It",
+      "excerpt": "If you have a remote that’s less than five years old, you should be able to hunt it down with Find My tracking.",
+      "body": "If you have a remote that’s less than five years old, you should be able to hunt it down with Find My tracking.\n\nThis report, published by CNET, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Iphone. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to CNET using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Ty Pendlebury",
+      "date": "2026-11-02",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Iphone"
+      ],
+      "featured": false,
+      "xpReward": 31,
+      "url": "https://www.cnet.com/tech/find-siri-remote-apple-tv-find-my/",
+      "image": "/images/feed/feed-7ec2b0e21306.jpg",
+      "source": "CNET",
+      "isLive": true
+    },
+    {
+      "id": "feed-e0f58e30960b",
+      "title": "9to5Mac Daily: November 2, 2026 – What’s next for the Mac and iPad",
+      "excerpt": "Listen to a recap of the top stories of the day from 9to5Mac. 9to5Mac Daily is available on iTunes and Apple’s Podcasts app, Stitcher, TuneIn, Google Play, or through our dedicated RSS feed for Overca…",
+      "body": "Listen to a recap of the top stories of the day from 9to5Mac . 9to5Mac Daily is available on iTunes and Apple’s Podcasts app , Stitcher , TuneIn , Google Play , or through our dedicated RSS feed for Overcast and other podcast players. Sponsored by Backblaze : Backup you can rely on. Save 20% with code 9to5daily . more…",
+      "author": "Seth Kurkowski",
+      "date": "2026-11-02",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 49,
+      "url": "https://9to5mac.com/2026/11/02/daily-november-2-2026/",
+      "image": "/images/feed/feed-e0f58e30960b.jpg",
+      "source": "9to5Mac",
+      "isLive": true
+    },
+    {
+      "id": "feed-7d174f9b7148",
+      "title": "The BMW iX is sold out, but you might like what takes its place even more",
+      "excerpt": "BMW is saying goodbye to the iX. With the 2026 model essentially sold out, BMW is preparing to introduce its replacement, which already looks like a big upgrade. more…",
+      "body": "BMW is saying goodbye to the iX. With the 2026 model essentially sold out, BMW is preparing to introduce its replacement, which already looks like a big upgrade. more — a development drawing significant attention in the electric vehicles, hybrids, and automotive technology space.\n\nThis report, published by Electrek, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cars. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Electrek using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Peter Johnson",
+      "date": "2026-11-02",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Cars"
+      ],
+      "featured": false,
+      "xpReward": 49,
+      "url": "https://electrek.co/2026/11/02/bmw-ix-sold-out-replacement-better/",
+      "image": "/images/feed/feed-7d174f9b7148.jpg",
+      "source": "Electrek",
+      "isLive": true
+    },
+    {
+      "id": "feed-b78461801437",
+      "title": "Anthropic's growth just flattened",
+      "excerpt": "",
+      "body": "This report, published by Hacker News, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Anthropic. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Hacker News using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "cdrnsf",
+      "date": "2026-11-02",
+      "readTime": "2 min",
+      "section": "ai",
+      "tags": [
+        "Anthropic"
+      ],
+      "featured": false,
+      "xpReward": 42,
+      "url": "https://www.regenerator1.com/p/anthropics-growth-just-flattened",
+      "image": "/images/feed/feed-b78461801437.jpg",
+      "source": "Hacker News",
+      "isLive": true
+    },
+    {
+      "id": "feed-acdf7e3bc1bf",
+      "title": "The SEC Should Block Anthropic's IPO to Protect the Public",
+      "excerpt": "",
+      "body": "This report, published by Hacker News, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Anthropic. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Hacker News using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "cdrnsf",
+      "date": "2026-11-02",
+      "readTime": "2 min",
+      "section": "ai",
+      "tags": [
+        "Anthropic"
+      ],
+      "featured": false,
+      "xpReward": 42,
+      "url": "https://www.techpolicy.press/the-sec-should-block-anthropics-ipo-to-protect-the-public/",
+      "image": "/images/feed/feed-acdf7e3bc1bf.png",
+      "source": "Hacker News",
+      "isLive": true
+    },
+    {
+      "id": "feed-e247c739484f",
+      "title": "Dead by Daylight Fans Are Uninstalling the Game in Protest",
+      "excerpt": "Behavior Interactive gifted Vtuber TheBurntPeanut all Dead by Daylight DLC, a controversial decision the community didn't take lightly.",
+      "body": "Behavior Interactive gifted Vtuber TheBurntPeanut all Dead by Daylight DLC, a controversial decision the community didn't take lightly.\n\nThis report, published by Polygon, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Game. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Polygon using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Ashely Claudino",
+      "date": "2026-11-02",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Game"
+      ],
+      "featured": false,
+      "xpReward": 42,
+      "url": "https://www.polygon.com/dead-by-daylight-theburntpeanut-controversy-explained/",
+      "image": "/images/feed/feed-e247c739484f.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-ba9fd1c216aa",
+      "title": "Quick Share will soon work directly in Android and iOS apps",
+      "excerpt": "Google will soon let devs bake Quick Share directly into their apps.",
+      "body": "Credit: Ryan Haines / Android Authority TL;DR Google will launch a Quick Share SDK for Android and iOS in the first half of 2027. This will allow developers to embed peer-to-peer file sharing and Tap to Share inside of apps. With this functionality, you’ll be able to share without having to bring up the share sheet and launch the full-screen Quick Share experience. In case you didn’t know, Google recently held its Android Dev Summit . In addition to offering a few details about Android 18, it also announced some news related to Quick Share. The company will be launching an SDK that will make the file-sharing tool even more convenient than it currently is. As the name suggests, Quick Share is a quick and fairly simple way to share files between two devices.",
+      "author": "Ryan McNeal",
+      "date": "2026-11-02",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 37,
+      "url": "https://www.androidauthority.com/quick-share-sdk-launch-time-frame-3730882/",
+      "image": "/images/feed/feed-ba9fd1c216aa.jpg",
       "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-b86b88ec9ca0",
+      "title": "Anthropic warns that it’s very close to RSI capability, aka self-building AI",
+      "excerpt": "RSI is the point at which AI grows so good at training itself that it spawns a dramatic acceleration of AI capabilities. To the AI doomers, RSI represents the cataclysm from which there is no return.",
+      "body": "RSI is the point at which AI grows so good at training itself that it spawns a dramatic acceleration of AI capabilities. To the AI doomers, RSI represents the cataclysm from which there is no return.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Anthropic. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Julie Bort",
+      "date": "2026-11-02",
+      "readTime": "2 min",
+      "section": "ai",
+      "tags": [
+        "Anthropic"
+      ],
+      "featured": false,
+      "xpReward": 45,
+      "url": "https://techcrunch.com/2026/11/02/anthropic-warns-that-its-very-close-to-rsi-capability-aka-self-building-ai/",
+      "image": "/images/feed/feed-b86b88ec9ca0.webp",
+      "source": "TechCrunch",
+      "isLive": true
+    },
+    {
+      "id": "feed-5bdddd4e733a",
+      "title": "Sony Wants to Buy Your PS5 Console for $400",
+      "excerpt": "Sony is offering $400 to people who are willing to part ways with their PS5 and two controllers.",
+      "body": "Sony is offering $400 to people who are willing to part ways with their PS5 and two controllers. As spotted by ResetEra user Jay_Horror , PlayStation is sending out notifications to fans who have the PlayStation app on their phones. The notification tells users that they can trade in their console to Sony and have money sent directly to their bank account. This offer is valued up to $400 for anyone who has a standard PS5 and two controllers. Although trade-in programs, particularly around the holiday season, aren&#39;t uncommon for retailers like GameStop, it isn&#39;t as normal to see platform holders reaching out directly to customers like this.",
+      "author": "Cade Onder",
+      "date": "2026-11-02",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 41,
+      "url": "https://www.ign.com/articles/sony-wants-to-buy-your-ps5-console-for-400",
+      "image": "/images/feed/feed-5bdddd4e733a.jpg",
+      "source": "IGN",
       "isLive": true
     },
     {
@@ -167,29 +433,10 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 52,
       "url": "https://electrek.co/2026/11/02/hardees-gets-ev-fast-charging-with-carls-jr-locations-to-follow/",
       "image": "/images/feed/feed-1eee81eb7b2a.jpg",
       "source": "Electrek",
-      "isLive": true
-    },
-    {
-      "id": "feed-fd2c81643c2c",
-      "title": "Apple set an iPhone sales record even without a new standard iPhone",
-      "excerpt": "Apple had a record-breaking quarter for iPhone sales - despite not releasing a standard model during its latest refresh. In its fourth-quarter earnings report released on Monday, Apple says it earned…",
-      "body": "Apple had a record-breaking quarter for iPhone sales - despite not releasing a standard model during its latest refresh. In its fourth-quarter earnings report released on Monday, Apple says it earned $57.58 billion in iPhone revenue, marking a 17 percent jump from the same time last year. The increase in revenue follows the launch of Apple's iPhone 18 lineup in September, which included a pricier iPhone 18 Pro and Pro Max model. The company raised prices across its older models at the same time. Apple also took the wraps off its first folding phone, the iPhone Duo , but its preorder sales aren't included in this earnings report. Like other … Read the full story at The Verge.",
-      "author": "Emma Roth",
-      "date": "2026-11-02",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Iphone"
-      ],
-      "featured": false,
-      "xpReward": 44,
-      "url": "https://www.theverge.com/tech/1024748/apple-q4-2026-iphone-sales-earnings",
-      "image": "/images/feed/feed-fd2c81643c2c.jpg",
-      "source": "The Verge",
       "isLive": true
     },
     {
@@ -205,7 +452,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 50,
       "url": "https://kotaku.com/gog-explains-how-one-of-the-most-important-pc-games-ever-made-is-trapped-in-licensing-hell-2000752406",
       "image": "/images/feed/feed-d2f4d3bb9302.jpg",
       "source": "Kotaku",
@@ -224,7 +471,7 @@
         "Game"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 39,
       "url": "https://www.polygon.com/stellar-blade-nintendo-switch-2-impressions/",
       "image": "/images/feed/feed-420c353b7b82.jpg",
       "source": "Polygon",
@@ -243,18 +490,18 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 33,
       "url": "https://www.cnet.com/home/energy-and-utilities/370000-dreo-space-heaters-recalled/",
       "image": "/images/feed/feed-9f6f8b147c66.png",
       "source": "CNET",
       "isLive": true
     },
     {
-      "id": "feed-91fe4dfbdad7",
-      "title": "GTA 6 Sneakers: Rockstar Games, Nike and Travis Scott Reportedly Team Up",
-      "excerpt": "You could see these shoes the same day Rockstar releases the long-awaited game.",
-      "body": "You could see these shoes the same day Rockstar releases the long-awaited game.\n\nThis report, published by CNET, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to CNET using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Zachary McAuliffe",
+      "id": "feed-873e7bc036b4",
+      "title": "The Legend of Zelda: Ocarina of Time Remake Added Fast Travel Before Devs Decided It Never Needed It in the First Place",
+      "excerpt": "The Legend of Zelda producer Eiji Aonuma asked the Ocarina of Time remake team to add fast travel warp points throughout Hyrule, but it didn't take long for him to realize that was probably a bad idea…",
+      "body": "The Legend of Zelda producer Eiji Aonuma asked the Ocarina of Time remake team to add fast travel warp points throughout Hyrule, but it didn&#39;t take long for him to realize that was probably a bad idea. Aonuma, one of the franchise&#39;s most experienced developers, touched on the trashed concept as part of an Ask the Developer interview shared by Nintendo today. The Nintendo Switch 2 version of one of the most influential video games of all time already seems to have made a few changes to its gameplay formula, but there&#39;s one change that he said was better left on the cutting room floor. The Legend of Zelda: Ocarina of Time players and speedrunners have spent who knows how much time making Link forward roll to quickly cross great distances.",
+      "author": "Michael Cripe",
       "date": "2026-11-02",
       "readTime": "2 min",
       "section": "gaming",
@@ -262,29 +509,10 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 39,
-      "url": "https://www.cnet.com/tech/gaming/rockstar-games-nike-travis-scott-grand-theft-auto-6-sneakers/",
-      "image": "/images/feed/feed-91fe4dfbdad7.png",
-      "source": "CNET",
-      "isLive": true
-    },
-    {
-      "id": "feed-5a3f9fa8e658",
-      "title": "John Ternus addresses iPhone Duo supply constraints, display issue",
-      "excerpt": "Today Apple reported record Q4 earnings, which beat Wall Street expectations overall. And in an interview with Reuters, CEO John Ternus addressed current iPhone Duo supply constraints and also referen…",
-      "body": "Today Apple reported record Q4 earnings, which beat Wall Street expectations overall. And in an interview with Reuters, CEO John Ternus addressed current iPhone Duo supply constraints and also referen — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Iphone. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Ryan Christoffel",
-      "date": "2026-11-02",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Iphone"
-      ],
-      "featured": false,
-      "xpReward": 48,
-      "url": "https://9to5mac.com/2026/11/02/john-ternus-addresses-iphone-duo-supply-constraints-display-issue/",
-      "image": "/images/feed/feed-5a3f9fa8e658.jpg",
-      "source": "9to5Mac",
+      "xpReward": 45,
+      "url": "https://www.ign.com/articles/the-legend-of-zelda-ocarina-of-time-remake-added-fast-travel-before-devs-decided-it-never-needed-it-in-the-first-place",
+      "image": "/images/feed/feed-873e7bc036b4.png",
+      "source": "IGN",
       "isLive": true
     },
     {
@@ -300,29 +528,10 @@
         "Hacker"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 35,
       "url": "https://www.bleepingcomputer.com/news/security/chinese-hackers-use-artex-ai-in-automated-attacks-against-200-orgs/",
       "image": "/images/feed/feed-b871ff7a0872.jpg",
       "source": "BleepingComputer",
-      "isLive": true
-    },
-    {
-      "id": "feed-a37c355f010b",
-      "title": "Forget texting and driving, this everyday phone habit sends even more people to the ER",
-      "excerpt": "Just to be clear, texting and driving is still a terrible idea.",
-      "body": "TL;DR A new study analyzing nearly 1.8 million federal hospital records reveals the everyday phone habits linked to thousands of ER visits in the US. Losing balance while walking and using a phone topped the list, accounting for an estimated 7,760 ER visits between 2021 and 2025, with seniors most affected. Distracted driving, falling down stairs, and walking into obstacles were also among the leading causes of phone-related injuries. Smartphones have become such an integral part of our lives that many of us hardly ever think twice before pulling one out of our pockets . I know I’m guilty of pulling mine out even when I’m in the middle of real-world conversations, and as it turns out, people are doing the same, albeit in far more serious situations.",
-      "author": "Karandeep Singh Oberoi",
-      "date": "2026-11-02",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 53,
-      "url": "https://www.androidauthority.com/phone-use-emergency-room-injuries-study-3730842/",
-      "image": "/images/feed/feed-a37c355f010b.jpg",
-      "source": "Android Authority",
       "isLive": true
     },
     {
@@ -339,86 +548,10 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 51,
       "url": "https://www.nasa.gov/centers-and-facilities/johnson/happy-65-years-nasas-johnson-space-center-then-and-now/",
-      "image": "/images/feed/feed-2e2eb16df790.jpg",
+      "image": "https://www.nasa.gov/wp-content/uploads/2026/10/s63-11625.jpg",
       "source": "NASA Breaking News",
-      "isLive": true
-    },
-    {
-      "id": "feed-7b54cd709ff8",
-      "title": "Apple reports Q4 2026 earnings: $114.5 billion in revenue, up 12% [Charts]",
-      "excerpt": "Apple just released its earnings report for the fourth fiscal quarter of 2026. The company reported $114.5 billion in revenue, and $30.71 billion in net profit. Here’s the full breakdown. more…",
-      "body": "Apple just released its earnings report for the fourth fiscal quarter of 2026. The company reported $114.5 billion in revenue, and $30.71 billion in net profit. Here’s the full breakdown. more — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Marcus Mendes",
-      "date": "2026-11-02",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 33,
-      "url": "https://9to5mac.com/2026/11/02/apple-reports-q4-2026-earnings/",
-      "image": "/images/feed/feed-7b54cd709ff8.jpg",
-      "source": "9to5Mac",
-      "isLive": true
-    },
-    {
-      "id": "feed-8592e7392510",
-      "title": "A Scam Website Is Trying To Cash In On AO3 Outage By ‘Selling’ Audiobooks Of Fanfics",
-      "excerpt": "AO3 is taking steps to address the issue",
-      "body": "AO3 is taking steps to address the issue\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Ash Parrish",
-      "date": "2026-11-02",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 35,
-      "url": "https://kotaku.com/a-scam-website-is-trying-to-cash-in-on-ao3-outage-by-selling-audiobooks-of-fanfics-2000752419",
-      "image": "/images/feed/feed-8592e7392510.jpg",
-      "source": "Kotaku",
-      "isLive": true
-    },
-    {
-      "id": "feed-a8f758e0eb92",
-      "title": "How to Save $25 on Burga’s Phone Accessories With This Sale",
-      "excerpt": "Whether you need a phone case, magnetic ring, Apple Watch band, or power bank, now’s a great time to save $25 on orders over $50.",
-      "body": "Whether you need a phone case, magnetic ring, Apple Watch band, or power bank, now’s a great time to save $25 on orders over $50.\n\nThis report, published by Wired, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Wired using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Louryn Strampe",
-      "date": "2026-11-02",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 43,
-      "url": "https://www.wired.com/story/burga-sale-november-2026/",
-      "image": "/images/feed/feed-a8f758e0eb92.jpg",
-      "source": "Wired",
-      "isLive": true
-    },
-    {
-      "id": "feed-2924a275a7c7",
-      "title": "Daniel Craig's Taut 92-minute Thriller Is Blowing Up on Streaming",
-      "excerpt": "Daniel Craig's forgotten psychological thriller is climbing HBO Max's charts, despite earning one of the worst Rotten Tomatoes scores of his career.",
-      "body": "Daniel Craig has established himself as one of Hollywood's most reliable leading men, particularly when it comes to action movies and suspenseful thrillers. From his gritty breakout role in Layer Cake to the high-stakes mysteries of Knives Out and The Girl With the Dragon Tattoo , Craig has built an impressive filmography outside his best-known role as James Bond.",
-      "author": "Sam Hill",
-      "date": "2026-11-02",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 34,
-      "url": "https://www.polygon.com/daniel-craig-dream-house-streaming-success-hbo-max-november-2026/",
-      "image": "/images/feed/feed-2924a275a7c7.jpg",
-      "source": "Polygon",
       "isLive": true
     },
     {
@@ -434,67 +567,29 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 40,
       "url": "https://electrek.co/2026/11/02/cadillacs-most-affordable-ev-cheaper/",
       "image": "/images/feed/feed-b7114c274dfe.jpg",
       "source": "Electrek",
       "isLive": true
     },
     {
-      "id": "feed-80db3977b74c",
-      "title": "Meta will end Quest 2 OS updates in 2027",
-      "excerpt": "Meta is planning to release the last OS update for its Quest 2 and Quest Pro VR headsets by March 2027, the company announced today. The last OS update for those devices is planned to be v213, and aft…",
-      "body": "Meta is planning to release the last OS update for its Quest 2 and Quest Pro VR headsets by March 2027, the company announced today . The last OS update for those devices is planned to be v213, and after that, Meta will continue to ship security patches and critical bug fixes through the end of 2027. Apps that support the Quest 2 or Quest Pro can also be submitted through December 2027, Meta says. Meta is calling the Quest 3 and 3S \"now the baseline for Meta VR gamers.\" The company is announcing this shift ahead of the planned release of its new VR Glasses , which are set to launch sometime in spring 2027. \"Quest 2 and Quest Pro laid the fou … Read the full story at The Verge.",
-      "author": "Jay Peters",
+      "id": "feed-4d617b83e3b4",
+      "title": "The Swift Observatory Is Dropping Back to Earth This Week. Here’s What to Know",
+      "excerpt": "Most of the space telescope is slated to burn up in the atmosphere, but some fragments may make their way down to Earth.",
+      "body": "Most of the space telescope is slated to burn up in the atmosphere, but some fragments may make their way down to Earth.\n\nThis report, published by CNET, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Space. As the situation continues to evolve, professionals and enthusiasts in the space exploration and astronomy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to CNET using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Joe Hindy",
       "date": "2026-11-02",
       "readTime": "2 min",
-      "section": "gaming",
+      "section": "space",
       "tags": [
-        "Gaming"
+        "Space"
       ],
       "featured": false,
-      "xpReward": 54,
-      "url": "https://www.theverge.com/tech/1024835/meta-vr-quest-2-pro-os-end-updates",
-      "image": "/images/feed/feed-80db3977b74c.jpg",
-      "source": "The Verge",
-      "isLive": true
-    },
-    {
-      "id": "feed-edb4c1c0e1e9",
-      "title": "South Of Midnight Director Says He Doesn’t Think Xbox Should Have Funded It",
-      "excerpt": "'In hindsight at least, it was unsustainable'",
-      "body": "'In hindsight at least, it was unsustainable'\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Xbox. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Rebekah Valentine",
-      "date": "2026-11-02",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Xbox"
-      ],
-      "featured": false,
-      "xpReward": 50,
-      "url": "https://kotaku.com/creative-director-says-he-wanted-to-make-south-of-midnight-but-doesnt-think-xbox-should-have-funded-it-2000752408",
-      "image": "/images/feed/feed-edb4c1c0e1e9.jpg",
-      "source": "Kotaku",
-      "isLive": true
-    },
-    {
-      "id": "feed-f8e31517894a",
-      "title": "Sneak peek: Google app is preparing a big change for its bottom bar",
-      "excerpt": "Google may swap out the Google app's Activity tab for something new.",
-      "body": "Credit: Edgar Cervantes / Android Authority TL;DR Google is working on a “You” tab that could replace the “Activity” tab in the Google app. In addition to various history groups, the new tab would include your profile picture, email, and a drop-down icon for the account switcher. A pinning feature for your AI conversations could also be on the way. Google just recently announced redesigns for the Messages, Contacts, and Phone apps. As those redesigns roll out, the company is quietly toiling away on another change, this time targeting the Google app. This update could shake up the tab bar, replacing one of the tabs with something new. You’re reading an Authority Insights story.",
-      "author": "Ryan McNeal",
-      "date": "2026-11-02",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 46,
-      "url": "https://www.androidauthority.com/google-app-you-tab-3730826/",
-      "image": "/images/feed/feed-f8e31517894a.jpg",
-      "source": "Android Authority",
+      "xpReward": 49,
+      "url": "https://www.cnet.com/science/space/neil-gehrels-swift-observatory-drops-back-to-earth/",
+      "image": "/images/feed/feed-4d617b83e3b4.jpg",
+      "source": "CNET",
       "isLive": true
     },
     {
@@ -510,7 +605,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 40,
       "url": "https://insideevs.com/news/814122/bmw-ix3-vs-x3-range/",
       "image": "/images/feed/feed-4e709ed34057.jpg",
       "source": "InsideEVs",
@@ -529,7 +624,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 52,
       "url": "https://insideevs.com/news/814107/ford-privacy-transparency-new-site/",
       "image": "/images/feed/feed-65e86ea47111.jpg",
       "source": "InsideEVs",
@@ -548,9 +643,9 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 40,
       "url": "https://www.nasa.gov/centers-and-facilities/nesc/tb-26-09-measured-hammer-tap-inputs/",
-      "image": "/images/feed/feed-c3728cdad9e0.png",
+      "image": "https://www.nasa.gov/wp-content/uploads/2015/04/tb-26-09-1-illustrative-hammer-force-time-histories.png",
       "source": "NASA Breaking News",
       "isLive": true
     },
@@ -567,7 +662,7 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 42,
       "url": "https://electrek.co/2026/11/02/tesla-powerwall-3-heat-pump-optimization-sg-ready/",
       "image": "/images/feed/feed-d986b23d0037.jpg",
       "source": "Electrek",
@@ -586,7 +681,7 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 50,
       "url": "https://insideevs.com/news/814101/bmw-level-2-adas-standard/",
       "image": "/images/feed/feed-9d513b64208d.jpg",
       "source": "InsideEVs",
@@ -605,29 +700,10 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 43,
       "url": "https://www.space.com/entertainment/space-books/new-star-trek-the-original-voyages-book-traces-the-stellar-legacy-of-the-bold-sci-fi-brand",
       "image": "/images/feed/feed-6be25270f47e.jpg",
       "source": "Space.com",
-      "isLive": true
-    },
-    {
-      "id": "feed-bc0d927e1a75",
-      "title": "Swarm Of Electric Trucks Coming To US (Battery Swapping Included?)",
-      "excerpt": "The Australian firm Janus Electric has hooked up with Canada's Electrovaya to accelerate the electric truck conversion field in North America, regardless of the sharp U-turn in US electrification poli…",
-      "body": "The Australian firm Janus Electric has hooked up with Canada's Electrovaya to accelerate the electric truck conversion field in North America, regardless of the sharp U-turn in US electrification policy. The post Swarm Of Electric Trucks Coming To US (Battery Swapping Included?) appeared first on CleanTechnica .",
-      "author": "Tina Casey",
-      "date": "2026-11-02",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Cars"
-      ],
-      "featured": false,
-      "xpReward": 37,
-      "url": "https://cleantechnica.com/2026/11/02/electric-trucks-us-canada-battery-swapping-trade-wars/",
-      "image": "/images/feed/feed-bc0d927e1a75.jpg",
-      "source": "CleanTechnica",
       "isLive": true
     },
     {
@@ -643,7 +719,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 45,
       "url": "https://techcrunch.com/2026/11/02/new-york-times-and-other-outlets-sue-web-browser-brave-over-alleged-content-scraping/",
       "image": "/images/feed/feed-a72f414af34a.webp",
       "source": "TechCrunch",
@@ -662,7 +738,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 48,
       "url": "https://www.bleepingcomputer.com/news/security/fintech-platform-sageworks-taken-offline-after-suspected-cyberattack/",
       "image": "/images/feed/feed-9ceec0263f89.jpg",
       "source": "BleepingComputer",
@@ -681,7 +757,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 52,
       "url": "https://www.space.com/stargazing/skywatching-kit/viltrox-af-35mm-f-1-8-ii-evo-fe-apo-lens-review-how-good-is-this-budget-lens-for-astrophotography",
       "image": "/images/feed/feed-fe3eb404fb87.jpg",
       "source": "Space.com",
@@ -700,28 +776,9 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 45,
       "url": "https://www.nasa.gov/image-article/nasas-chapea-crew-returns-to-earth/",
-      "image": "/images/feed/feed-be2773da2dd6.jpg",
-      "source": "NASA Breaking News",
-      "isLive": true
-    },
-    {
-      "id": "feed-0314d9c0ce71",
-      "title": "What’s Up: November 2026 Skywatching Tips from NASA",
-      "excerpt": "Meteor Showers, a Spacecraft Milestone, and a Supermoon Catch Taurid and Leonid meteors, spot Mars near Jupiter, celebrate Voyager 1’s light-day milestone, and watch November’s supermoon. Skywatching…",
-      "body": "Skywatching Skywatching Home What’s Up Meteor Showers Eclipses Daily Moon Guide More Tips &#038; Guides Skywatching FAQ Night Sky Network Meteor Showers, a Spacecraft Milestone, and a Supermoon Catch Taurid and Leonid meteors, spot Mars near Jupiter, celebrate Voyager 1’s light-day milestone, and watch November’s supermoon. Skywatching Highlights Around Nov. 5: Southern Taurids peak; occasional bright fireballs Around Nov. 12: Northern Taurids peak; around five meteors per hour under ideal conditions Nov. 15-16: Mars and Jupiter appear 1.2 degrees apart before sunrise Nov. 17: Shine Bright for Voyager’s Light-Day activation Nov. 17-18: Leonids before dawn after moonset; up to around 15 meteors per hour under ideal conditions Nov.",
-      "author": "NASA Breaking News",
-      "date": "2026-11-02",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Nasa"
-      ],
-      "featured": false,
-      "xpReward": 54,
-      "url": "https://science.nasa.gov/solar-system/skywatching/whats-up-november-2026-skywatching-tips-from-nasa/",
-      "image": "https://science.nasa.gov/wp-content/uploads/2023/07/moonrise-at-vasquez-rocks-credit-nasa-preston-dyches-cc-by-nc-2.0.jpg",
+      "image": "https://www.nasa.gov/wp-content/uploads/2026/11/jsc2026e424293orig.jpg",
       "source": "NASA Breaking News",
       "isLive": true
     },
@@ -738,7 +795,7 @@
         "Malware"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 30,
       "url": "https://www.bleepingcomputer.com/news/security/google-disrupts-million-device-xcpe-android-malware-botnet-bans-tv-box-maker/",
       "image": "/images/feed/feed-c001fcb1d6f9.jpg",
       "source": "BleepingComputer",
@@ -758,7 +815,7 @@
         "Chatgpt"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 40,
       "url": "https://www.zdnet.com/innovation/openai-merge-chatgpt-chat-work-tabs/",
       "image": "/images/feed/feed-38324ca6d983.jpg",
       "source": "ZDNet",
@@ -777,7 +834,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 37,
       "url": "https://www.theverge.com/ai-artificial-intelligence/1024604/openai-data-center-grid-protection-program",
       "image": "/images/feed/feed-4abc12850bea.png",
       "source": "The Verge",
@@ -796,7 +853,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 36,
       "url": "https://www.nist.gov/news-events/news/2026/11/self-employed-solopreneur-nist-has-cybersecurity-guide-just-you",
       "image": "/images/feed/feed-2e9e52017892.jpg",
       "source": "Hacker News",
@@ -815,48 +872,10 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 36,
       "url": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-october-2026/",
       "image": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Oct_AI_Recap_social.max-600x600.format-webp.webp",
       "source": "Google AI Blog",
-      "isLive": true
-    },
-    {
-      "id": "feed-9d1f4182f667",
-      "title": "Athenahealth patients can ask Claude about their medical records now",
-      "excerpt": "The partnership could provide one of the nation’s largest AI companies with a bevy of personal medical data.",
-      "body": "The partnership could provide one of the nation’s largest AI companies with a bevy of personal medical data.\n\nThis report, published by ZDNet, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Claude. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to ZDNet using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Nina Raemont",
-      "date": "2026-11-02",
-      "readTime": "2 min",
-      "section": "ai",
-      "tags": [
-        "Claude"
-      ],
-      "featured": false,
-      "xpReward": 45,
-      "url": "https://www.zdnet.com/health/athenahealth-claude-ai-medical-partnership/",
-      "image": "/images/feed/feed-9d1f4182f667.jpg",
-      "source": "ZDNet",
-      "isLive": true
-    },
-    {
-      "id": "feed-adc599e6d52a",
-      "title": "Raising the quality of insights in agentic analytics",
-      "excerpt": "In just a few years, generative AI has changed the face of enterprise analytics, notably by making analytics accessible to users across the organization. Agentic AI promises to do even more, by automa…",
-      "body": "In just a few years, generative AI has changed the face of enterprise analytics, notably by making analytics accessible to users across the organization. Agentic AI promises to do even more, by automating entire workflows and taking actions based on agent insights. But there is a problem: The quality of insights that agents currently generate leaves much to be desired. Fewer than half of agent-generated insights at the organizations surveyed for this report lead to business improvement. And while most respondents praise the quality of their agents’ descriptive insights, reviews of their prescriptive insights—those on which actions are based—are decidedly mixed.",
-      "author": "MIT Technology Review Insights",
-      "date": "2026-11-02",
-      "readTime": "2 min",
-      "section": "ai",
-      "tags": [
-        "Ai"
-      ],
-      "featured": false,
-      "xpReward": 40,
-      "url": "https://www.technologyreview.com/2026/11/02/1147660/raising-the-quality-of-insights-in-agentic-analytics/",
-      "image": "/images/feed/feed-adc599e6d52a.png",
-      "source": "MIT Tech Review",
       "isLive": true
     },
     {
@@ -872,29 +891,10 @@
         "Phishing"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 34,
       "url": "https://thehackernews.com/2026/11/weekly-recap-critical-cves-linux-ddos.html",
       "image": "/images/feed/feed-15396809c02d.jpg",
       "source": "The Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-c20faddd0182",
-      "title": "Anthropic's internal AI use, at retail prices, now exceeds its employee pay",
-      "excerpt": "",
-      "body": "This report, published by Hacker News, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Anthropic. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Hacker News using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "entryleveljobsc",
-      "date": "2026-11-02",
-      "readTime": "2 min",
-      "section": "ai",
-      "tags": [
-        "Anthropic"
-      ],
-      "featured": false,
-      "xpReward": 51,
-      "url": "https://www.businessinsider.com/anthropic-claude-internal-ai-use-exceeds-employee-pay-tokens-2026-11",
-      "image": "/images/feed/feed-c20faddd0182.jpg",
-      "source": "Hacker News",
       "isLive": true
     },
     {
@@ -910,7 +910,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 49,
       "url": "https://thehackernews.com/2026/11/google-disrupts-13-million-device.html",
       "image": "/images/feed/feed-e5de376f71d3.jpg",
       "source": "The Hacker News",
@@ -937,16 +937,16 @@
     }
   ],
   "breakingNews": [
-    "DEV.TO: Your DNS TTL is why the outage lasted 2 hours: set it before you need it",
-    "DEV.TO: Scaling Declarative Schema Synchronization: Concurrency, Locking, and Distributed Safety",
-    "DEV.TO: Ping is not an uptime check: 5 ways ICMP lies about whether your site is up",
-    "DEV.TO: Use it, or lose it 🧠",
-    "DEV.TO: Your health check returns 200 while users get errors: 7 health check mistakes",
-    "DEV.TO: Golden-File Tests for a Score Calculator: Check Every Row Against the Published Table",
-    "DEV.TO: THRIVE MARKET SRE – TECHNICAL INTERVIEW PREP, questions and answers for Aisel for the next step",
-    "ANDROID AUTHORITY: Next time your flight touches down, Google Maps could be there with a custom greeting",
-    "ELECTREK: Hardee’s gets EV fast charging – with Carl’s Jr. locations to follow",
-    "THE VERGE: Apple set an iPhone sales record even without a new standard iPhone"
+    "DEV.TO: How I made DSQL easier",
+    "DEV.TO: Proof of Place: what a satellite can and cannot prove",
+    "DEV.TO: Study: poisoning 0.1% of pretraining data implants a working RCE backdoor in an AI agent",
+    "DEV.TO: How to unlock your Xiaomi scooter 6",
+    "DEV.TO: Picking a winner fairly in a browser spin wheel: modulo bias, rejection sampling and a shuffle bag",
+    "TECHCRUNCH: Trajectory raises $45M to make AI model training accessible to nontechnical experts",
+    "DEV.TO: Goldman Sachs restricts Claude Code and GitHub Copilot to engineers",
+    "9TO5MAC: Apple says memory costs and Siri AI will weigh on holiday quarter profit margins",
+    "TECHCRUNCH: Apple’s inventory surges 154% as memory chip costs climb",
+    "POLYGON: World of Warcraft Forever release time in your time zone"
   ],
   "sectionVideos": {}
 }
