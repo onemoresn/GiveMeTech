@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-11-03T05:10:02.850Z",
+  "fetchedAt": "2026-11-03T06:15:17.727Z",
   "articles": [
     {
-      "id": "feed-be812a00ee15",
-      "title": "Overwrote a secret by mistake? Writing, pulling and rolling back keys",
-      "excerpt": "This is part 4 of the series \"dotvault, Start to Finish: One Command from Your Laptop to CI, Your Team, and Your AI Agents.\" dotvault will be released free of charge when this series ends. Paste the s…",
-      "body": "This is part 4 of the series \"dotvault, Start to Finish: One Command from Your Laptop to CI, Your Team, and Your AI Agents.\" dotvault will be released free of charge when this series ends. Paste the staging DATABASE_URL over the dev one by mistake, and with a plain .env the old value is gone the moment you save. In dotvault it is not: one command, dotvault rollback , brings it back. Writing a key never destroys the previous value. Each write is a new version: DATABASE_URL v1, then v2. dotvault versions DATABASE_URL lists them newest first with a timestamp, the writer's ID and a hash of the value. dotvault rollback DATABASE_URL --to 1 restores v1, and the restore itself is recorded as v3, so v2 stays in the history. Deleting a key removes its current value and keeps the history too.",
-      "author": "uehara",
+      "id": "feed-2b7144c443d6",
+      "title": "Your Canvas Is Freezing the Page. OffscreenCanvas Fixes That.",
+      "excerpt": "You open the profiler, record a session, and the flame chart looks great. 60 frames a second, steady, no dropped frames. You ship it. Then someone clicks a button while the animation is running, and f…",
+      "body": "You open the profiler, record a session, and the flame chart looks great. 60 frames a second, steady, no dropped frames. You ship it. Then someone clicks a button while the animation is running, and for half a second, nothing happens. Not a dropped frame — the whole page. The click just sits there, queued, waiting for a thread that's busy painting pixels nobody asked it to interrupt. Here's the part that doesn't show up in a frame-rate graph: your canvas animation was never competing with itself. It was competing with every click handler, every layout pass, every bit of input handling on the page — because by default, all of that runs on exactly one thread, and canvas drawing calls are first-class citizens on it. The fix everyone reaches for first The instinct is to blame the math.",
+      "author": "Parsa J",
       "date": "2026-11-03",
       "readTime": "2 min",
       "section": "software",
@@ -14,17 +14,112 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 53,
-      "url": "https://dev.to/uehara/overwrote-a-secret-by-mistake-writing-pulling-and-rolling-back-keys-5874",
-      "image": "/images/feed/feed-be812a00ee15.webp",
+      "xpReward": 47,
+      "url": "https://dev.to/parsajiravand/your-canvas-is-freezing-the-page-offscreencanvas-fixes-that-hn9",
+      "image": "/images/feed/feed-2b7144c443d6.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-e03812209dd3",
-      "title": "Why Most Backtests Lie — and the 7 Checks That Catch Them",
-      "excerpt": "A beautiful backtest is the easiest thing in trading to fake — usually by accident. Here are the seven ways backtests mislead, and the check that catches each one. A backtest is a story about the past…",
-      "body": "A beautiful backtest is the easiest thing in trading to fake — usually by accident. Here are the seven ways backtests mislead, and the check that catches each one. A backtest is a story about the past, told by someone who already knows how it ends. That is why it lies so well — usually without anyone intending to lie. Every trader has lived the same disappointment: a strategy that looked unstoppable in testing falls apart the moment real money touches it. The usual explanation is “the market changed.” Sometimes that is true. More often, the backtest was never evidence in the first place. It was a fitting exercise that found noise and dressed it as signal. Here are the seven ways backtests mislead, and the check that catches each one. 1.",
+      "id": "feed-4d90e3496d94",
+      "title": "Mattermost title matches require ownership checks",
+      "excerpt": "Mattermost title matches require ownership checks Mattermost provides team messaging, file sharing, integrations, and administrative controls. A public login page can indicate a collaboration service…",
+      "body": "Mattermost title matches require ownership checks Mattermost provides team messaging, file sharing, integrations, and administrative controls. A public login page can indicate a collaboration service that belongs in an asset inventory. It can also be a demonstration, a documentation page, a proxy error, or a site that merely uses the product name. The first job is ownership and role, not a vulnerability verdict. What ZoomEye returned On 2026-11-03T04:15:18Z, a ZoomEye SDK query with page=1 , pagesize=1 , and sub_type=all returned 29,906 total matches for title=\"Mattermost\" . The same run returned 835,861 for app=\"Mattermost\" . The application clause is much broader than the title clause, so the title result is the more conservative starting observation.",
+      "author": "yutianle",
+      "date": "2026-11-03",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 34,
+      "url": "https://dev.to/bianliang/mattermost-title-matches-require-ownership-checks-3m47",
+      "image": "/images/feed/feed-4d90e3496d94.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-7404a8b0d77b",
+      "title": "Next.js 16.4 ensureStatic: Locking Routes Fully Static",
+      "excerpt": "You ship a route you're sure is fully static. A teammate adds one fetch() call to a shared layout three weeks later — no cache directive, just a quick lookup they needed for a banner. Nothing errors.…",
+      "body": "You ship a route you're sure is fully static. A teammate adds one fetch() call to a shared layout three weeks later — no cache directive, just a quick lookup they needed for a banner. Nothing errors. The build succeeds. The route still \"looks\" static in dev. It isn't anymore: that one call now forces the whole subtree to render on every request, and nobody notices until the latency dashboard does. This is written against Next.js 16.4.3 (verified against the framework's own GitHub release notes and documentation as of October 2026). The guardrail for exactly this scenario — ensureStatic — was stabilized in 16.4.0 , after shipping unstable for a few releases.",
+      "author": "Parsa J",
+      "date": "2026-11-03",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 47,
+      "url": "https://dev.to/parsajiravand/nextjs-164-ensurestatic-locking-routes-fully-static-30dp",
+      "image": "/images/feed/feed-7404a8b0d77b.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-0803ae9d504c",
+      "title": "ElevenLabs vs four free voice clones: a blind test on my own voice",
+      "excerpt": "I pay ElevenLabs $6 a month for a clone of my voice. Four free voice models say they are as good. So I made a clone of my own voice with each of them, hid which clip was which, and ranked them by ear.…",
+      "body": "I pay ElevenLabs $6 a month for a clone of my voice. Four free voice models say they are as good. So I made a clone of my own voice with each of them, hid which clip was which, and ranked them by ear. One clip in every round is the real me. The test One recording of me, made for this test, is the source of every clone. ElevenLabs' Instant clone takes 1 to 2 minutes of it; each free model took the length its maker's card asks for. Every model ran on its default settings and the first take is the clip. The free models are Chatterbox (Resemble AI), Qwen3-TTS (Alibaba), IndexTTS-2.5 (bilibili) and Fish S2 Pro (Fish Audio), run on one rented Runpod A40 each. Four rounds, six clips in each (five clones and the real me), shuffled by a script.",
+      "author": "Cynxio",
+      "date": "2026-11-03",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 47,
+      "url": "https://dev.to/cynxio/elevenlabs-vs-four-free-voice-clones-a-blind-test-on-my-own-voice-4e15",
+      "image": "/images/feed/feed-0803ae9d504c.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-317f52889601",
+      "title": "I Ran 6 n8n AI Workflows on a 1.8B Local Model: 192 Runs, 0 Broken JSON, 7 Fake Hot Leads",
+      "excerpt": "Every \"run your AI workflows locally\" post shows the happy path. I wanted the failure list instead, so I took six of my own n8n workflows, pointed them at a 1.8B model running on CPU, and ran every te…",
+      "body": "Every \"run your AI workflows locally\" post shows the happy path. I wanted the failure list instead, so I took six of my own n8n workflows, pointed them at a 1.8B model running on CPU, and ran every test case 3 times. Setup: n8n 1.123.84 self-hosted, Qwen 1.8B (Q4_K_M) in Ollama on CPU through its OpenAI-compatible /v1 endpoint, temperature 0.2, response_format: json_object . No paid APIs. Each workflow was called through its webhook by a small Python script that saved every raw response. Where I had a guarded version (a Code node after the LLM that checks the output before anything acts on it), I ran raw and guarded side by side. Total: 192 runs. Here is what happened.",
+      "author": "Crzy undefined (undefined)",
+      "date": "2026-11-03",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 37,
+      "url": "https://dev.to/crzy_undefinedundefined/i-ran-6-n8n-ai-workflows-on-a-18b-local-model-192-runs-0-broken-json-7-fake-hot-leads-1nj6",
+      "image": "/images/feed/feed-317f52889601.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-293495368f9f",
+      "title": "How to Add a Custom Claude Connector With Your Own Remote MCP Server",
+      "excerpt": "TLDR Claude connectors let Claude reach your apps and act in them using your own permissions. You turn them on from the \"+\" menu, and on Team and Enterprise, an Owner enables them first. Start with tw…",
+      "body": "TLDR Claude connectors let Claude reach your apps and act in them using your own permissions. You turn them on from the \"+\" menu, and on Team and Enterprise, an Owner enables them first. Start with two or three for apps you use daily, like Google Drive, Gmail, and Slack. MCP apps show a live interface in the chat, and custom connectors let you add your own MCP server. Unmeshed publishes your workflows as MCP tools, so Claude can run them with sign-in, retries, and a full history. So, what are Claude connectors? If you've seen the Connectors option in Claude and clicked right past it, you're not alone. Here's the short version. Connectors let Claude reach into your apps, like Google Drive or Slack, and actually do things there. Most guides list a pile of them and stop.",
+      "author": "The Unmeshed Team",
+      "date": "2026-11-03",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 47,
+      "url": "https://dev.to/unmeshed/how-to-add-a-custom-claude-connector-with-your-own-remote-mcp-server-2oln",
+      "image": "/images/feed/feed-293495368f9f.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-2bfe17f516c0",
+      "title": "PBO, Explained in Plain English: The Probability Your Best Backtest Is a Fluke",
+      "excerpt": "You tested 8 strategies and one looks brilliant. PBO asks the question most backtests never face: among everything you tried, how likely is the winner just the luckiest loser? You ran 8 versions of a…",
+      "body": "You tested 8 strategies and one looks brilliant. PBO asks the question most backtests never face: among everything you tried, how likely is the winner just the luckiest loser? You ran 8 versions of a strategy. Seven were mediocre. One was brilliant. You ship the brilliant one. Question: did you find an edge, or did you run a lottery and crown the winning ticket? That is exactly what PBO — the Probability of Backtest Overfitting — measures. And it is one of the least explained ideas in trading, because the people who understand it write papers, and the people who write blog posts mostly skip it. Here it is in plain English, with a worked example.",
       "author": "Dron Pancholi",
       "date": "2026-11-03",
       "readTime": "2 min",
@@ -32,30 +127,125 @@
       "tags": [
         "Software"
       ],
-      "featured": true,
-      "xpReward": 40,
-      "url": "https://dev.to/dronpancholi/why-most-backtests-lie-and-the-7-checks-that-catch-them-5fj2",
-      "image": "/images/feed/feed-e03812209dd3.webp",
+      "featured": false,
+      "xpReward": 54,
+      "url": "https://dev.to/dronpancholi/pbo-explained-in-plain-english-the-probability-your-best-backtest-is-a-fluke-581e",
+      "image": "/images/feed/feed-2bfe17f516c0.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-59abc23cb4c1",
-      "title": "Data-Driven API Runs: CSV Tables in a Cloud Client vs Plain Spec Files",
-      "excerpt": "Quick answer Data-driven testing means running the same request and assertion logic against many input rows rather than copying a test for each case. Cloud clients popularized this with a CSV table at…",
-      "body": "Quick answer Data-driven testing means running the same request and assertion logic against many input rows rather than copying a test for each case. Cloud clients popularized this with a CSV table attached to a request, but that table lives inside a proprietary collection and is hard to review or run in CI. Plain spec files do the same job with a portable data file and a small runner, which keeps the cases in version control alongside the contract. If you reach for a CSV, first ask whether the data belongs in the OpenAPI examples and a parameterized test; the answer is usually yes, and you avoid locking the cases into one GUI.",
-      "author": "Jeff",
+      "id": "feed-fe4e625528ab",
+      "title": "Dell Coupon Codes: 20% Off for November 2026",
+      "excerpt": "Get 20% off with verified Dell promo code, plus today’s coupons for up to $600 off laptops, Alienware monitors, and all things tech.",
+      "body": "Get 20% off with verified Dell promo code, plus today’s coupons for up to $600 off laptops, Alienware monitors, and all things tech.\n\nThis report, published by Wired, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Wired using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Luke Larsen",
       "date": "2026-11-03",
       "readTime": "2 min",
-      "section": "software",
+      "section": "gadgets",
       "tags": [
-        "Api"
+        "Gadgets"
       ],
-      "featured": true,
-      "xpReward": 42,
-      "url": "https://dev.to/jeff_pdc/data-driven-api-runs-csv-tables-in-a-cloud-client-vs-plain-spec-files-1pn",
-      "image": "/images/feed/feed-59abc23cb4c1.webp",
-      "source": "Dev.to",
+      "featured": false,
+      "xpReward": 54,
+      "url": "https://www.wired.com/story/dell-coupon-code/",
+      "image": "/images/feed/feed-fe4e625528ab.jpg",
+      "source": "Wired",
+      "isLive": true
+    },
+    {
+      "id": "feed-9e3fa95afff2",
+      "title": "Newegg Promo Codes and Coupons for November 2026",
+      "excerpt": "Enjoy up to 10% off your entire order with today’s Newegg promo code and discount codes. Save with the latest deals for gaming PCs, laptops, and computer parts.",
+      "body": "Enjoy up to 10% off your entire order with today’s Newegg promo code and discount codes. Save with the latest deals for gaming PCs, laptops, and computer parts.\n\nThis report, published by Wired, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Wired using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Molly Higgins",
+      "date": "2026-11-03",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 33,
+      "url": "https://www.wired.com/story/newegg-promo-code/",
+      "image": "/images/feed/feed-9e3fa95afff2.jpg",
+      "source": "Wired",
+      "isLive": true
+    },
+    {
+      "id": "feed-be847ce0e0c4",
+      "title": "$150 billion more paid by Americans for gas this year than last",
+      "excerpt": "Since the beginning of America’s war against Iran, Americans have paid an additional $150+ billion for gas and diesel than they did last year during the same time period, according to a study from Bro…",
+      "body": "Since the beginning of America’s war against Iran, Americans have paid an additional $150+ billion for gas and diesel than they did last year during the same time period, according to a study from Brown University. Global gas prices have risen because supply has been disrupted (Iran having one of the ... [continued] The post $150 billion more paid by Americans for gas this year than last appeared first on CleanTechnica .",
+      "author": "Scott Cooney",
+      "date": "2026-11-03",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Cars"
+      ],
+      "featured": false,
+      "xpReward": 49,
+      "url": "https://cleantechnica.com/2026/11/03/150-billion-more-paid-by-americans-for-gas-this-year-than-last/",
+      "image": "/images/feed/feed-be847ce0e0c4.png",
+      "source": "CleanTechnica",
+      "isLive": true
+    },
+    {
+      "id": "feed-35b001ee2209",
+      "title": "Attackers Exploit Critical Siemens IoT2050 Flaw to Plant Remote Command Backdoors",
+      "excerpt": "A maximum-severity security flaw impacting Siemens SIMATIC IoT2050 Advanced devices has come under active exploitation, VulnCheck has revealed. The vulnerability, tracked as CVE-2026-58115 (CVSS score…",
+      "body": "A maximum-severity security flaw impacting Siemens SIMATIC IoT2050 Advanced devices has come under active exploitation, VulnCheck has revealed. The vulnerability, tracked as CVE-2026-58115 (CVSS score: 10.0), is a case of missing authentication for a critical function that could be exploited by an unauthenticated remote attacker to run arbitrary code. \"SIMATIC IoT2050 Advanced devices running",
+      "author": "info@thehackernews.com (The Hacker News)",
+      "date": "2026-11-03",
+      "readTime": "2 min",
+      "section": "cybersecurity",
+      "tags": [
+        "Exploit"
+      ],
+      "featured": false,
+      "xpReward": 40,
+      "url": "https://thehackernews.com/2026/11/attackers-exploit-critical-siemens.html",
+      "image": "/images/feed/feed-35b001ee2209.jpg",
+      "source": "The Hacker News",
+      "isLive": true
+    },
+    {
+      "id": "feed-3abb639db9d3",
+      "title": "Attackers Target Unpatched CryptoPayment Gateway Flaw That Can Expose Wallet Credentials",
+      "excerpt": "Threat actors are attempting to exploit an unpatched maximum-severity security vulnerability in the CryptoPayment Gateway WordPress plugin, according to findings from Defused Cyber. The vulnerability…",
+      "body": "Threat actors are attempting to exploit an unpatched maximum-severity security vulnerability in the CryptoPayment Gateway WordPress plugin, according to findings from Defused Cyber. The vulnerability in question is CVE-2026-81648, which carries a CVSS score of 10.0. Successful exploitation of the flaw could permit unauthenticated users to delete arbitrary files on the server and extract",
+      "author": "info@thehackernews.com (The Hacker News)",
+      "date": "2026-11-03",
+      "readTime": "2 min",
+      "section": "cybersecurity",
+      "tags": [
+        "Cybersecurity"
+      ],
+      "featured": false,
+      "xpReward": 47,
+      "url": "https://thehackernews.com/2026/11/attackers-target-unpatched.html",
+      "image": "/images/feed/feed-3abb639db9d3.jpg",
+      "source": "The Hacker News",
+      "isLive": true
+    },
+    {
+      "id": "feed-8364113bab44",
+      "title": "APOD: 2026 November 3 – Comet PanSTARRs and Rainbow Meteor",
+      "excerpt": "APOD Science APOD APOD: 2026 November 3 –… Today’s APOD Archive Submissions Index Search Calendar RSS Education About Discuss APOD Astronomy Picture of the Day Discover the cosmos! Each day a differen…",
+      "body": "APOD Science APOD APOD: 2026 November 3 –… Today’s APOD Archive Submissions Index Search Calendar RSS Education About Discuss APOD Astronomy Picture of the Day Discover the cosmos! Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer. Comet PanSTARRs and Rainbow Meteor Explanation: Did this meteor come from that comet? Probably not. Although many meteors do originate from comets, there are thousands of comets that have visited the inner Solar System recently, and matching meteors to them can be tricky. And to be clear, the pictured comet is far behind the streaking meteor .",
+      "author": "NASA Breaking News",
+      "date": "2026-11-03",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Space"
+      ],
+      "featured": false,
+      "xpReward": 30,
+      "url": "https://science.nasa.gov/image-article/apod-2026-november-3-comet-panstarrs-and-rainbow-meteor/",
+      "image": "/images/feed/feed-8364113bab44.jpg",
+      "source": "NASA Breaking News",
       "isLive": true
     },
     {
@@ -70,87 +260,11 @@
       "tags": [
         "Gadgets"
       ],
-      "featured": true,
-      "xpReward": 51,
+      "featured": false,
+      "xpReward": 48,
       "url": "https://www.androidauthority.com/android-family-hub-rollout-3730927/",
       "image": "/images/feed/feed-7422bd576e6e.jpg",
       "source": "Android Authority",
-      "isLive": true
-    },
-    {
-      "id": "feed-60f13936211f",
-      "title": "To plan or not to plan: the Terraform file that leaked every password we had",
-      "excerpt": "Committing an API key to a repo is the nightmare every developer has had at least once. Most of us have a scanner, a hook and a .gitignore that are supposed to make it impossible. I never thought I wo…",
-      "body": "Committing an API key to a repo is the nightmare every developer has had at least once. Most of us have a scanner, a hook and a .gitignore that are supposed to make it impossible. I never thought I would be writing this post. Then a Terraform plan file showed up in our git history. A Terraform plan file is a zip archive. It does not care what you name it. Our .gitignore cared. Our secret scanner cared. Both were looking for *.tfplan , tfplan and plan , and the file that was committed was called out . I ran it. I know the convention. The command I meant to type was terraform plan -out=tfplan . The command I typed was terraform plan -out=out . Terraform does not care. The file went in with the next git add . . The one small mercy: the repository is private.",
-      "author": "vadim albarov",
-      "date": "2026-11-03",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 51,
-      "url": "https://dev.to/vadim_albarov/to-plan-or-not-to-plan-the-terraform-file-that-leaked-every-password-we-had-4fke",
-      "image": "/images/feed/feed-60f13936211f.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-8181bc5ff9e7",
-      "title": "Google VR Studio Behind ‘Job Simulator’ Unveils ‘Hyper Visor’ Arcade Blaster for XREAL Aura",
-      "excerpt": "시야가 인터페이스가 되는 시대, 시각 훈련은 왜 아직도 안대인가 구글이 인수한 XR 스튜디오 Owlchemy Labs가 'Job Simulator' 이후 처음으로 XREAL Aura 전용 아케이드 슈터 'Hyper Visor'를 공개했습니다. XREAL Aura는 Android XR을 구동하는 첫 번째 시스루 AR 안경이고, 이 게임은 출시 타이틀입니다.…",
-      "body": "시야가 인터페이스가 되는 시대, 시각 훈련은 왜 아직도 안대인가 구글이 인수한 XR 스튜디오 Owlchemy Labs가 'Job Simulator' 이후 처음으로 XREAL Aura 전용 아케이드 슈터 'Hyper Visor'를 공개했습니다. XREAL Aura는 Android XR을 구동하는 첫 번째 시스루 AR 안경이고, 이 게임은 출시 타이틀입니다. 이 뉴스가 중요한 이유는 기술 자체보다 방향입니다. 구글이 밀고 있는 몰입형 플랫폼의 무게중심이 '보는 방식'으로 옮겨가고 있습니다. 화면이 눈앞에 붙고, 시야 자체가 인터페이스가 되는 순간입니다. 제품 리더 관점에서 이 변화는 하드웨어 스펙 경쟁이 아니라 '인터페이스가 신체 어디에 붙는가'의 문제로 넘어가는 신호입니다. 그런데 이 변화가 유독 의미 있게 다가오는 사람들이 있습니다. 약시(amblyopia, 흔히 'lazy eye')나 양안 협응 문제를 가진 사람들입니다. 이들에게 눈은 오랫동안 '고칠 수 없는 것'으로 설명돼 왔고, 훈련은 안대나 적청 안경 같은 불편한 도구를 견디는 일과 동의어였습니다. 웨어러블이 시야를 인터페이스로 만들 만큼 성숙했다면, 훈련 방식도 같은 수준으로 갈 수 있지 않을까 하는 질문이 자연스럽게 따라옵니다. Seven Sports가 만든 Amblyotube는 Meta Quest용 재활·교육 소프트웨어입니다. 왼쪽 눈과 오른쪽 눈에 서로 다른 시각 경험을 제공하는 방식으로, 좋아하는 YouTube 스타일 콘텐츠를 보면서 시각 협응과 주의력 훈련을 합니다.",
-      "author": "Ashish",
-      "date": "2026-11-03",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 53,
-      "url": "https://dev.to/ashish_624379625242c5d263/google-vr-studio-behind-job-simulator-unveils-hyper-visor-arcade-blaster-for-xreal-aura-4nli",
-      "image": "/images/feed/feed-8181bc5ff9e7.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-c408d41896c5",
-      "title": "Using OpenAPI links to Connect a Response to the Next Request",
-      "excerpt": "Quick answer OpenAPI links let you declare that a value in one response is meant to be used in a later request, connecting operations into a flow instead of leaving them as a flat list. A link can map…",
-      "body": "Quick answer OpenAPI links let you declare that a value in one response is meant to be used in a later request, connecting operations into a flow instead of leaving them as a flat list. A link can map a returned id into a path or query parameter on the next call, so clients and generated code can follow the workflow without hardcoding field names. Most teams ignore links and hand-write the same extraction in every client; the ones that use them get discoverable, machine-readable workflows. Start with one obvious pair, such as create order then retrieve it by the returned id, and add operation references so the link is unambiguous. What a link actually declares A link lives on a response and points at another operation, describing how to build the next request from runtime data.",
-      "author": "Jeff",
-      "date": "2026-11-03",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 51,
-      "url": "https://dev.to/jeff_pdc/using-openapi-links-to-connect-a-response-to-the-next-request-376",
-      "image": "/images/feed/feed-c408d41896c5.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-69577ad7753e",
-      "title": "Time Zones Are Hard: Building a Converter with Intl.DateTimeFormat (DST Gaps, Folds and 5:45 Offsets)",
-      "excerpt": "Remote teams, international calls and API logs share one problem: a time that is perfectly clear in one city is ambiguous everywhere else. \"Let's meet at 3 pm\" is not a time until it has a zone attach…",
-      "body": "Remote teams, international calls and API logs share one problem: a time that is perfectly clear in one city is ambiguous everywhere else. \"Let's meet at 3 pm\" is not a time until it has a zone attached. We built a free Time Zone Converter to deal with this. You enter a date and time in any of 40 IANA time zones , and it shows the same moment in up to 8 other zones at once , each with its UTC offset and daylight-saving abbreviation. There's no server call and no sign-up. The browser's built-in Intl.DateTimeFormat does the work. This post covers why that API is enough for most of the job, and which edge cases are worth knowing even if you never use our tool.",
-      "author": "Md Shohan",
-      "date": "2026-11-03",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 54,
-      "url": "https://dev.to/md_shohan_102187760726951/time-zones-are-hard-building-a-converter-with-intldatetimeformat-dst-gaps-folds-and-545-903",
-      "image": "/images/feed/feed-69577ad7753e.webp",
-      "source": "Dev.to",
       "isLive": true
     },
     {
@@ -166,10 +280,29 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 43,
       "url": "https://www.polygon.com/zelda-ocarina-of-time-release-time-est-pst-pre-orders/",
       "image": "/images/feed/feed-085177caba9a.jpg",
       "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-f52119c7ed3c",
+      "title": "The Pacific’s Busy Storm Season",
+      "excerpt": "Super Typhoon In-fa developed an unusually large eye, and the remnants of Typhoon Champi transitioned into an extratropical storm that targeted Alaska.",
+      "body": "Earth Observatory Science Earth Observatory The Pacific’s Busy Storm Season Earth Earth Observatory Image of the Day EO Explorer Topics All Topics Atmosphere Land Heat &#038; Radiation Life on Earth Human Dimensions Natural Events Oceans Remote Sensing Technology Snow &#038; Ice Water More Content Collections Global Maps World of Change Articles Earth Matters Blog Blue Marble: Next Generation EO Kids Mission: Biomes About About Us Subscribe 🛜 RSS Contact Us Search Tropical cyclone activity in the Northwest Pacific Basin has been elevated since April 2026, when Sinlaku surged to super typhoon strength and battered Micronesia, Guam, and the Northern Mariana Islands. Twenty-five named storms later, the basin still hummed with activity in late October.",
+      "author": "NASA Breaking News",
+      "date": "2026-11-03",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Space"
+      ],
+      "featured": false,
+      "xpReward": 40,
+      "url": "https://science.nasa.gov/earth/earth-observatory/the-pacifics-busy-storm-season/",
+      "image": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/the-pacific",
+      "source": "NASA Breaking News",
       "isLive": true
     },
     {
@@ -185,7 +318,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 51,
       "url": "https://www.polygon.com/avatar-the-last-airbenders-best-quote/",
       "image": "/images/feed/feed-bab6c80d4b42.jpg",
       "source": "Polygon",
@@ -204,7 +337,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 42,
       "url": "https://cleantechnica.com/2026/11/02/congress-is-cutting-off-transportation-investments-that-help-families-save-money/",
       "image": "/images/feed/feed-837c2bc718c3.png",
       "source": "CleanTechnica",
@@ -223,7 +356,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 37,
       "url": "https://www.androidauthority.com/quick-share-automatic-photo-backup-windows-google-play-services-3730922/",
       "image": "/images/feed/feed-72f367308045.jpg",
       "source": "Android Authority",
@@ -242,7 +375,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 41,
       "url": "https://9to5mac.com/2026/11/02/scotus-sets-hearing-date-for-apples-appeal-in-epic-games-case/",
       "image": "/images/feed/feed-ebfa6a2139ae.jpg",
       "source": "9to5Mac",
@@ -262,7 +395,7 @@
         "Galaxy S"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 40,
       "url": "https://www.androidauthority.com/samsung-galaxy-s27-ultra-dummy-leak-3730910/",
       "image": "/images/feed/feed-2d02bf260750.jpg",
       "source": "Android Authority",
@@ -281,7 +414,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 53,
       "url": "https://krebsonsecurity.com/2026/11/tech-firms-dismantle-botnet-that-turned-1-3m-tv-boxes-into-proxies/",
       "image": "/images/topics/topic-cybersecurity.png",
       "source": "Krebs on Security",
@@ -300,7 +433,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 30,
       "url": "https://9to5mac.com/2026/11/02/apple-recently-notified-users-in-99-countries-of-potential-mercenary-spyware-attacks/",
       "image": "/images/feed/feed-998eef9b97a7.jpg",
       "source": "9to5Mac",
@@ -319,48 +452,10 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 37,
       "url": "https://cleantechnica.com/2026/11/02/the-future-of-buildings-in-illinois-is-electric/",
       "image": "/images/feed/feed-785ef3f0aa4c.jpg",
       "source": "CleanTechnica",
-      "isLive": true
-    },
-    {
-      "id": "feed-e5f58cdb71b8",
-      "title": "This Chinese Android phone brand has launched a Harry Potter collab",
-      "excerpt": "Everything about this latest collectible Android phone is designed to evoke the popular franchise, from its magical packaging to its themed accessories.",
-      "body": "Everything about this latest collectible Android phone is designed to evoke the popular franchise, from its magical packaging to its themed accessories.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Android Phone. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Alec Hively)",
-      "date": "2026-11-03",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Android Phone"
-      ],
-      "featured": false,
-      "xpReward": 53,
-      "url": "https://www.engadget.com/2300381/chinese-android-phone-brand-realme-harry-potter-collaboration/",
-      "image": "/images/feed/feed-e5f58cdb71b8.jpg",
-      "source": "Engadget",
-      "isLive": true
-    },
-    {
-      "id": "feed-e55ce43271d9",
-      "title": "Apple to require 18+ age ratings for dating apps and AI romantic companions",
-      "excerpt": "Apple today announced new age rating requirements coming to the App Store, covering apps with location-sharing features, as well as dating and relationship features. Here are the details. more…",
-      "body": "Apple today announced new age rating requirements coming to the App Store, covering apps with location-sharing features, as well as dating and relationship features. Here are the details. more — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Marcus Mendes",
-      "date": "2026-11-03",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 42,
-      "url": "https://9to5mac.com/2026/11/02/apple-to-require-18-age-ratings-for-dating-apps-and-ai-romantic-companions/",
-      "image": "/images/feed/feed-e55ce43271d9.jpg",
-      "source": "9to5Mac",
       "isLive": true
     },
     {
@@ -376,7 +471,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 53,
       "url": "https://cleantechnica.com/2026/11/02/they-are-trying-to-silence-us/",
       "image": "/images/feed/feed-59f4279fe1ba.png",
       "source": "CleanTechnica",
@@ -414,7 +509,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 30,
       "url": "https://www.polygon.com/exclusive-look-the-art-of-the-mandalorian-and-grogu/",
       "image": "/images/feed/feed-b3ca0a23dc87.png",
       "source": "Polygon",
@@ -433,7 +528,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 46,
       "url": "https://www.ign.com/articles/a-concerning-amount-of-gta-fans-would-give-up-their-pets-to-play-gta-6-early",
       "image": "/images/feed/feed-96507493fdbe.jpg",
       "source": "IGN",
@@ -452,7 +547,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 38,
       "url": "https://cleantechnica.com/2026/11/02/the-ets-investment-engine-scaling-europes-strategic-e-fuel-market-for-shipping-aviation/",
       "image": "/images/feed/feed-afad6b63eee2.png",
       "source": "CleanTechnica",
@@ -471,7 +566,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 45,
       "url": "https://www.ign.com/articles/john-goodman-says-digger-reviews-killed-the-movie-before-it-was-released",
       "image": "/images/feed/feed-a45e26b4f077.jpg",
       "source": "IGN",
@@ -490,7 +585,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 47,
       "url": "https://electrek.co/2026/11/02/bp-pulse-makes-850-ev-fast-chargers-easier-to-use-in-the-us/",
       "image": "/images/feed/feed-89ae0db91227.jpg",
       "source": "Electrek",
@@ -510,7 +605,7 @@
         "Claude"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 53,
       "url": "https://www.cnet.com/tech/gaming/anthropic-claude-update-video-game-cloning/",
       "image": "/images/feed/feed-16c8a0644754.png",
       "source": "CNET",
@@ -529,7 +624,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 32,
       "url": "https://www.ign.com/articles/johnny-depp-is-open-to-playing-jack-sparrow-again-in-a-new-pirates-of-the-caribbean-movie",
       "image": "/images/feed/feed-a9920a9d9452.jpg",
       "source": "IGN",
@@ -549,7 +644,7 @@
         "Vr Headset"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 53,
       "url": "https://www.ign.com/articles/best-meta-quest-3-deal-november-2026",
       "image": "/images/feed/feed-e58ba4be1cb8.jpg",
       "source": "IGN",
@@ -568,29 +663,10 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 47,
       "url": "https://openai.com/index/scaling-git-at-openai/",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-7d174f9b7148",
-      "title": "The BMW iX is sold out, but you might like what takes its place even more",
-      "excerpt": "BMW is saying goodbye to the iX. With the 2026 model essentially sold out, BMW is preparing to introduce its replacement, which already looks like a big upgrade. more…",
-      "body": "BMW is saying goodbye to the iX. With the 2026 model essentially sold out, BMW is preparing to introduce its replacement, which already looks like a big upgrade. more — a development drawing significant attention in the electric vehicles, hybrids, and automotive technology space.\n\nThis report, published by Electrek, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cars. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Electrek using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Peter Johnson",
-      "date": "2026-11-02",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Cars"
-      ],
-      "featured": false,
-      "xpReward": 41,
-      "url": "https://electrek.co/2026/11/02/bmw-ix-sold-out-replacement-better/",
-      "image": "/images/feed/feed-7d174f9b7148.jpg",
-      "source": "Electrek",
       "isLive": true
     },
     {
@@ -606,7 +682,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 30,
       "url": "https://www.techpolicy.press/the-sec-should-block-anthropics-ipo-to-protect-the-public/",
       "image": "/images/feed/feed-acdf7e3bc1bf.png",
       "source": "Hacker News",
@@ -625,7 +701,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 54,
       "url": "https://techcrunch.com/2026/11/02/anthropic-warns-that-its-very-close-to-rsi-capability-aka-self-building-ai/",
       "image": "/images/feed/feed-b86b88ec9ca0.webp",
       "source": "TechCrunch",
@@ -644,7 +720,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 40,
       "url": "https://www.cnet.com/home/energy-and-utilities/370000-dreo-space-heaters-recalled/",
       "image": "/images/feed/feed-9f6f8b147c66.png",
       "source": "CNET",
@@ -663,7 +739,7 @@
         "Hacker"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 43,
       "url": "https://www.bleepingcomputer.com/news/security/chinese-hackers-use-artex-ai-in-automated-attacks-against-200-orgs/",
       "image": "/images/feed/feed-b871ff7a0872.jpg",
       "source": "BleepingComputer",
@@ -683,9 +759,9 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 30,
       "url": "https://www.nasa.gov/centers-and-facilities/johnson/happy-65-years-nasas-johnson-space-center-then-and-now/",
-      "image": "/images/feed/feed-2e2eb16df790.jpg",
+      "image": "https://www.nasa.gov/wp-content/uploads/2026/10/s63-11625.jpg",
       "source": "NASA Breaking News",
       "isLive": true
     },
@@ -702,7 +778,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 46,
       "url": "https://www.cnet.com/science/space/neil-gehrels-swift-observatory-drops-back-to-earth/",
       "image": "/images/feed/feed-4d617b83e3b4.jpg",
       "source": "CNET",
@@ -721,9 +797,9 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 41,
       "url": "https://www.nasa.gov/centers-and-facilities/nesc/tb-26-09-measured-hammer-tap-inputs/",
-      "image": "/images/feed/feed-c3728cdad9e0.png",
+      "image": "/images/topics/topic-space.png",
       "source": "NASA Breaking News",
       "isLive": true
     },
@@ -740,7 +816,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 54,
       "url": "https://www.space.com/entertainment/space-books/new-star-trek-the-original-voyages-book-traces-the-stellar-legacy-of-the-bold-sci-fi-brand",
       "image": "/images/feed/feed-6be25270f47e.jpg",
       "source": "Space.com",
@@ -759,7 +835,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 35,
       "url": "https://techcrunch.com/2026/11/02/new-york-times-and-other-outlets-sue-web-browser-brave-over-alleged-content-scraping/",
       "image": "/images/feed/feed-a72f414af34a.webp",
       "source": "TechCrunch",
@@ -778,48 +854,10 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 48,
       "url": "https://www.bleepingcomputer.com/news/security/fintech-platform-sageworks-taken-offline-after-suspected-cyberattack/",
       "image": "/images/feed/feed-9ceec0263f89.jpg",
       "source": "BleepingComputer",
-      "isLive": true
-    },
-    {
-      "id": "feed-fe3eb404fb87",
-      "title": "Viltrox AF 35mm f/1.8 II EVO FE (APO) lens review — how good is this budget lens for astrophotography?",
-      "excerpt": "The Viltrox AF 35mm f/1.8 II FE (APO) is an inexpensive prime that works well for astrophotography thanks to its focal length and maximum aperture.",
-      "body": "Key specs Type: Full-frame prime lens Focal length: 35 mm Maximum aperture: f/1.8 Lens mount: Sony FE &amp; Nikon Z Weight: 12.52 oz / 355 g Dimensions: 3.33 x 4.37 in / 69 x 76 mm Filter thread: 58 mm Release date: April 2026 Budget primes can be, surprisingly, excellent choices for photographers shooting all subjects. It’s all too easy to get carried away with the best specs, such as a large maximum aperture and impressive optical design often seen in more expensive options. But affordable lenses like the Viltrox AF 35mm f/1.8 II FE (APO) have the potential to impress and delight in equal measure. The 35mm f/1.8 is a compact and lightweight lens offering a reasonably fast maximum aperture, making it a prime candidate for astrophotography.",
-      "author": " James Abbott ",
-      "date": "2026-11-02",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Space"
-      ],
-      "featured": false,
-      "xpReward": 48,
-      "url": "https://www.space.com/stargazing/skywatching-kit/viltrox-af-35mm-f-1-8-ii-evo-fe-apo-lens-review-how-good-is-this-budget-lens-for-astrophotography",
-      "image": "/images/feed/feed-fe3eb404fb87.jpg",
-      "source": "Space.com",
-      "isLive": true
-    },
-    {
-      "id": "feed-be2773da2dd6",
-      "title": "NASA’s CHAPEA Crew “Returns” to Earth",
-      "excerpt": "The four-member Crew Health and Performance Exploration Analog (CHAPEA) crew poses outside for the first time in more than a year following the end of their simulated Mars journey on Oct. 31, 2026. Cr…",
-      "body": "NASA/James Blair The four-member Crew Health and Performance Exploration Analog (CHAPEA) crew poses outside for the first time in more than a year following the end of their simulated Mars journey on Oct. 31, 2026. Crew members Matthew Montgomery (left), James Spicer (middle left), Ross Elder (middle right), and Ellen Ellis (right) spent more than a year testing systems, maintaining crops, managing limited resources and communication delays, conducting extravehicular activities and more in efforts to help NASA better understand how crews adapt to long-duration stays. Insights from their experiences will help NASA design its future Moon Base and plan for missions on Mars. Image credit: NASA/James Blair",
-      "author": "HQ Web Team",
-      "date": "2026-11-02",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Nasa"
-      ],
-      "featured": false,
-      "xpReward": 33,
-      "url": "https://www.nasa.gov/image-article/nasas-chapea-crew-returns-to-earth/",
-      "image": "/images/feed/feed-be2773da2dd6.jpg",
-      "source": "NASA Breaking News",
       "isLive": true
     },
     {
@@ -835,7 +873,7 @@
         "Malware"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 49,
       "url": "https://www.bleepingcomputer.com/news/security/google-disrupts-million-device-xcpe-android-malware-botnet-bans-tv-box-maker/",
       "image": "/images/feed/feed-c001fcb1d6f9.jpg",
       "source": "BleepingComputer",
@@ -855,7 +893,7 @@
         "Chatgpt"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 49,
       "url": "https://www.zdnet.com/innovation/openai-merge-chatgpt-chat-work-tabs/",
       "image": "/images/feed/feed-38324ca6d983.jpg",
       "source": "ZDNet",
@@ -874,7 +912,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 49,
       "url": "https://www.theverge.com/ai-artificial-intelligence/1024604/openai-data-center-grid-protection-program",
       "image": "/images/feed/feed-4abc12850bea.png",
       "source": "The Verge",
@@ -893,62 +931,24 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 44,
       "url": "https://www.nist.gov/news-events/news/2026/11/self-employed-solopreneur-nist-has-cybersecurity-guide-just-you",
       "image": "/images/feed/feed-2e9e52017892.jpg",
       "source": "Hacker News",
       "isLive": true
-    },
-    {
-      "id": "feed-15396809c02d",
-      "title": "⚡ Weekly Recap: Critical CVEs, Linux DDoS Botnet, Device-Code Phishing, Android Spyware and More",
-      "excerpt": "Some attacks this week didn't need much of a trick. A fake support call, a trusted extension, a shared link, or a device with no password. Small things that people barely think about. Yet each was eno…",
-      "body": "Some attacks this week didn't need much of a trick. A fake support call, a trusted extension, a shared link, or a device with no password. Small things that people barely think about. Yet each was enough to cause serious trouble. Then there were the bigger messes. Billions stolen, hidden networks of hacked devices, poisoned software, and attackers finding new ways to turn normal tools against",
-      "author": "info@thehackernews.com (The Hacker News)",
-      "date": "2026-11-02",
-      "readTime": "2 min",
-      "section": "cybersecurity",
-      "tags": [
-        "Phishing"
-      ],
-      "featured": false,
-      "xpReward": 39,
-      "url": "https://thehackernews.com/2026/11/weekly-recap-critical-cves-linux-ddos.html",
-      "image": "/images/feed/feed-15396809c02d.jpg",
-      "source": "The Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-e5de376f71d3",
-      "title": "Google Disrupts 1.3 Million-Device Android Botnet, Says TV Box Maker Sold Criminal Access",
-      "excerpt": "A botnet of more than 1.3 million Android devices, mostly TV set-top boxes, lost control of its servers in late October in a takedown led by Google. Google says it is highly confident that device make…",
-      "body": "A botnet of more than 1.3 million Android devices, mostly TV set-top boxes, lost control of its servers in late October in a takedown led by Google. Google says&nbsp;it is highly confident that device maker Videostrong intentionally put a backdoor in the boxes and sold access to criminals. They used the boxes for ad fraud and to pass other people's internet traffic through owners' home",
-      "author": "info@thehackernews.com (The Hacker News)",
-      "date": "2026-11-02",
-      "readTime": "2 min",
-      "section": "cybersecurity",
-      "tags": [
-        "Cybersecurity"
-      ],
-      "featured": false,
-      "xpReward": 48,
-      "url": "https://thehackernews.com/2026/11/google-disrupts-13-million-device.html",
-      "image": "/images/feed/feed-e5de376f71d3.jpg",
-      "source": "The Hacker News",
-      "isLive": true
     }
   ],
   "breakingNews": [
-    "DEV.TO: Overwrote a secret by mistake? Writing, pulling and rolling back keys",
-    "DEV.TO: Why Most Backtests Lie — and the 7 Checks That Catch Them",
-    "DEV.TO: Data-Driven API Runs: CSV Tables in a Cloud Client vs Plain Spec Files",
-    "ANDROID AUTHORITY: Google confirms Android Family Hub, an iOS-style home for family controls in Settings",
-    "DEV.TO: To plan or not to plan: the Terraform file that leaked every password we had",
-    "DEV.TO: Google VR Studio Behind ‘Job Simulator’ Unveils ‘Hyper Visor’ Arcade Blaster for XREAL Aura",
-    "DEV.TO: Using OpenAPI links to Connect a Response to the Next Request",
-    "DEV.TO: Time Zones Are Hard: Building a Converter with Intl.DateTimeFormat (DST Gaps, Folds and 5:45 Offsets)",
-    "POLYGON: Zelda Ocarina of Time release time in your time zone",
-    "POLYGON: 20 Years Later, Uncle Iroh's Wisest 'Avatar: The Last Airbender Quote' Is Still Undefeated"
+    "DEV.TO: Your Canvas Is Freezing the Page. OffscreenCanvas Fixes That.",
+    "DEV.TO: Mattermost title matches require ownership checks",
+    "DEV.TO: Next.js 16.4 ensureStatic: Locking Routes Fully Static",
+    "DEV.TO: ElevenLabs vs four free voice clones: a blind test on my own voice",
+    "DEV.TO: I Ran 6 n8n AI Workflows on a 1.8B Local Model: 192 Runs, 0 Broken JSON, 7 Fake Hot Leads",
+    "DEV.TO: How to Add a Custom Claude Connector With Your Own Remote MCP Server",
+    "DEV.TO: PBO, Explained in Plain English: The Probability Your Best Backtest Is a Fluke",
+    "WIRED: Dell Coupon Codes: 20% Off for November 2026",
+    "WIRED: Newegg Promo Codes and Coupons for November 2026",
+    "CLEANTECHNICA: $150 billion more paid by Americans for gas this year than last"
   ],
   "sectionVideos": {}
 }
