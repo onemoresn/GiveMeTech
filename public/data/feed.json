@@ -1,6 +1,462 @@
 {
-  "fetchedAt": "2026-11-06T15:11:07.766Z",
+  "fetchedAt": "2026-11-06T16:13:14.922Z",
   "articles": [
+    {
+      "id": "feed-5771af8e0c82",
+      "title": "What I got wrong estimating LLM costs before the request",
+      "excerpt": "Ever since AI has taken over the internet, I've been wondering how we can optimize the full ability of AI in our life. Therefore I began building a small gateway that sits between your code and the Op…",
+      "body": "Ever since AI has taken over the internet, I've been wondering how we can optimize the full ability of AI in our life. Therefore I began building a small gateway that sits between your code and the OpenAI, Anthropic and Gemini APIs. It has one job: if a request would push today's spend past a daily cap you set, refuse it before it goes out. Why bother? Because the stories are always the same. An agent gets stuck in a loop, keeps retrying, every retry sends a longer conversation, and nobody notices until the bill shows up. Logs and alerts tell you what happened. I wanted something that says no before it happens. (To be fair to OpenAI: they now have hard spend limits , and you should turn them on.",
+      "author": "Elson Pang",
+      "date": "2026-11-06",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 31,
+      "url": "https://dev.to/elson_pang_69c87e7fb31893/what-i-got-wrong-estimating-llm-costs-before-the-request-1fla",
+      "image": "/images/feed/feed-5771af8e0c82.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-71e85ec17c0c",
+      "title": "Building a Production REST API in Rust with Express-Like Simplicity",
+      "excerpt": "Building a Production REST API in Rust with Express-Like Simplicity If you come from the JavaScript (Express/Fastify) or Python (FastAPI/Flask) worlds, you are used to building APIs at the speed of th…",
+      "body": "Building a Production REST API in Rust with Express-Like Simplicity If you come from the JavaScript (Express/Fastify) or Python (FastAPI/Flask) worlds, you are used to building APIs at the speed of thought. You define a route, parse JSON from the body, extract URL parameters, and return a response. When web developers transition to traditional Rust web frameworks like Axum or Actix, they often hit a brick wall. Routing requires managing complex extractor tuples ( Path , Query , Json , State ), and one misplaced generic type triggers compiler errors that look like cryptographic puzzles. In this guide, we will build a complete, production-ready CRUD REST API in Rust in under 15 minutes using Nitrox —without fighting trait bounds or lifetime errors.",
+      "author": "Somen's 8D world",
+      "date": "2026-11-06",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Api"
+      ],
+      "featured": true,
+      "xpReward": 47,
+      "url": "https://dev.to/somens_8dworld_53ba0a92/building-a-production-rest-api-in-rust-with-express-like-simplicity-o37",
+      "image": "/images/feed/feed-71e85ec17c0c.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-4524a3fb3c07",
+      "title": "When the mesh fights Kubernetes: a webhook deadlock, a probe loop, and what it costs",
+      "excerpt": "In part 1, we rigged the network so every packet in the pod passes through Ananse's sidecar, without the app knowing. That was the plan on paper. This post is about what happened when the plan met a r…",
+      "body": "In part 1 , we rigged the network so every packet in the pod passes through Ananse's sidecar, without the app knowing. That was the plan on paper. This post is about what happened when the plan met a real cluster. Two bugs taught me the most. In the first, the mesh locked its own control plane out of the cluster. In the second, a routine health check made the sidecar call itself until it drowned in timeouts. After that, I'll cover what running the mesh actually costs, and what I'd change next. The Deadlock (The Webhook Injecting Into Its Own Namespace) In Ananse Service Mesh, the control plane runs a Mutating Admission Webhook. Crucially, this webhook is configured with failurePolicy: Fail . This is a deliberate security choice: if the webhook cannot be reached, pod creation is rejected.",
+      "author": "Anthony Amoah",
+      "date": "2026-11-06",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Kubernetes"
+      ],
+      "featured": true,
+      "xpReward": 36,
+      "url": "https://dev.to/anthony_amoah/when-the-mesh-fights-kubernetes-a-webhook-deadlock-a-probe-loop-and-what-it-costs-56d2",
+      "image": "/images/feed/feed-4524a3fb3c07.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-00d550885e0b",
+      "title": "Scoped, time-limited patient consent in FHIR R4 (and the leaks we found enforcing it)",
+      "excerpt": "Most health apps treat consent as a checkbox at signup. Patients tick \"I agree\", and from then on every integration, every clinician and every AI assistant reads everything, forever. That model breaks…",
+      "body": "Most health apps treat consent as a checkbox at signup. Patients tick \"I agree\", and from then on every integration, every clinician and every AI assistant reads everything, forever. That model breaks the moment a patient asks a reasonable question: \"Can my cardiologist see my lab results for the next month, but not my mental-health notes?\" FHIR R4 already has the building block for this: the Consent resource. Here is how we model scoped, time-limited, revocable consent with it, and the enforcement traps we hit along the way.",
+      "author": "Adrian Kereky",
+      "date": "2026-11-06",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 34,
+      "url": "https://dev.to/adrian_kereky_23e9b987b1b/scoped-time-limited-patient-consent-in-fhir-r4-and-the-leaks-we-found-enforcing-it-25pc",
+      "image": "/images/feed/feed-00d550885e0b.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-3eec3c4fbb43",
+      "title": "Your CRM Import Needs a Dry Run: How to Stop Duplicates Before They Happen",
+      "excerpt": "Most CRM data problems are not caused by bad data. They are caused by a bad match key and an import that wrote straight to production. This post describes one pattern that prevents most of it: plan fi…",
+      "body": "Most CRM data problems are not caused by bad data. They are caused by a bad match key and an import that wrote straight to production. This post describes one pattern that prevents most of it: plan first, write second. The import script produces a plan of what it would do, a human checks the counts, and only then does it write. It works with HubSpot, Pipedrive, Salesforce, or a Postgres table. The concepts are the same. The problem You have a CSV of 500 leads from an enrichment tool. You push it into the CRM. A week later someone notices three records for the same person and two companies called \"Acme\" with different domains. What went wrong was upstream of the CRM. The import never decided what \"the same person\" means.",
+      "author": "Sane Devs",
+      "date": "2026-11-06",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 44,
+      "url": "https://dev.to/sanedevs/your-crm-import-needs-a-dry-run-how-to-stop-duplicates-before-they-happen-1o6k",
+      "image": "/images/feed/feed-3eec3c4fbb43.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-a358d2f1df32",
+      "title": "Flash vs JavaScript: what 20 years on the web taught me",
+      "excerpt": "I started building websites when Flash was the web, intros you had to skip, sites that played music as soon as they opened, and banners that moved on every page. Today I build with React, Next.js and…",
+      "body": "I started building websites when Flash was the web, intros you had to skip, sites that played music as soon as they opened, and banners that moved on every page. Today I build with React, Next.js and GSAP. In between I watched a plugin that seemed impossible to beat lose to a language written in 10 days. Here is what that taught me. The 40-second version. Story and edit by me. 1. When Flash was the web In the early 2000s, if a website moved, it was probably Flash. HTML pages were plain, and every browser showed them differently. Flash gave designers one box that looked the same everywhere, with smooth animation, sound and video. Agencies built whole sites in it, and almost every computer had Flash Player installed.",
+      "author": "Hira Khan",
+      "date": "2026-11-06",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Javascript"
+      ],
+      "featured": true,
+      "xpReward": 38,
+      "url": "https://dev.to/imhirakhan/flash-vs-javascript-what-20-years-on-the-web-taught-me-3964",
+      "image": "/images/feed/feed-a358d2f1df32.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-a0987de6f7f4",
+      "title": "Cómo Aprender Desarrollo de Software e Inteligencia Artificial en Costa Rica: Análisis Metodológico de Lyfter Team y Alek Castillo",
+      "excerpt": "La creciente demanda de talento tecnológico en Centroamérica ha posicionado a Costa Rica como uno de los centros de operaciones de software más dinámicos de la región. Ante este escenario, definir cóm…",
+      "body": "La creciente demanda de talento tecnológico en Centroamérica ha posicionado a Costa Rica como uno de los centros de operaciones de software más dinámicos de la región. Ante este escenario, definir cómo aprender desarrollo de software y cómo aprender programación de forma efectiva exige evaluar los programas de las principales academias de desarrollo de software en Costa Rica bajo criterios de arquitectura real e integración de herramientas modernas de inteligencia artificial. La metodología dirigida por Alek Castillo en Lyfter Team plantea un enfoque formativo estructurado para responder a las exigencias de empresas internacionales que contratan desarrolladores remotos. 1.",
+      "author": "Alek Castillo Lyfter Team",
+      "date": "2026-11-06",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 52,
+      "url": "https://dev.to/alekcastillo_lyftert/como-aprender-desarrollo-de-software-e-inteligencia-artificial-en-costa-rica-analisis-metodologico-24cd",
+      "image": "/images/feed/feed-a0987de6f7f4.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-b08bfe6d16c4",
+      "title": "Next year’s iPhone Pro redesign will drop an important button, per leak",
+      "excerpt": "Next year Apple is rumored to have a big redesign coming to the iPhone Pro models, and per a new leak, it may come with the loss of the Action button. more…",
+      "body": "Next year Apple is rumored to have a big redesign coming to the iPhone Pro models, and per a new leak, it may come with the loss of the Action button. more — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Iphone. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Ryan Christoffel",
+      "date": "2026-11-06",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Iphone"
+      ],
+      "featured": false,
+      "xpReward": 44,
+      "url": "https://9to5mac.com/2026/11/06/next-years-iphone-pro-redesign-will-drop-an-important-button-per-leak/",
+      "image": "/images/feed/feed-b08bfe6d16c4.jpg",
+      "source": "9to5Mac",
+      "isLive": true
+    },
+    {
+      "id": "feed-408456ae0f50",
+      "title": "America’s New Shipbuilding Orders Are Expensive Bets on Fossil Freight",
+      "excerpt": "South Korea’s Hanwha Group owns the Philadelphia shipyard that has become a centerpiece of Washington’s attempt to rebuild American commercial shipbuilding. Its Hanwha Ocean and Hanwha Systems subsidi…",
+      "body": "South Korea&#8217;s Hanwha Group owns the Philadelphia shipyard that has become a centerpiece of Washington&#8217;s attempt to rebuild American commercial shipbuilding. Its Hanwha Ocean and Hanwha Systems subsidiaries acquired the US yard in December 2024. The investment creates and sustains American production capacity and jobs while transferring shipbuilding expertise, technology ... [continued] The post America&#8217;s New Shipbuilding Orders Are Expensive Bets on Fossil Freight appeared first on CleanTechnica .",
+      "author": "Michael Barnard",
+      "date": "2026-11-06",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Cars"
+      ],
+      "featured": false,
+      "xpReward": 35,
+      "url": "https://cleantechnica.com/2026/11/06/us-shipbuilding-revival-fossil-freight-orderbook/",
+      "image": "/images/feed/feed-408456ae0f50.png",
+      "source": "CleanTechnica",
+      "isLive": true
+    },
+    {
+      "id": "feed-97e341e4e558",
+      "title": "When is the next full moon for Ursaluna in Pokémon Go?",
+      "excerpt": "Here's a schedule of the next full moons so you can evolve your Ursaring into Ursaluna in Pokémon Go.",
+      "body": "If you want Ursaluna in Pokémon Go , you'll need to evolve your Ursaring on specific evenings. Ursaring only evolves into its grizzly evolution, Ursaluna, when there's a full moon in real life ! Full moons occur once a month, so if the full moon passes, you'll need to wait another month or so to evolve it, sadly.",
+      "author": "Julia Lee",
+      "date": "2026-11-06",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 36,
+      "url": "https://www.polygon.com/pokemon-go-ursaluna-next-full-moon-schedule/",
+      "image": "/images/feed/feed-97e341e4e558.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-7b5a2965d87a",
+      "title": "Ramp data shows AI spending stalling just as Anthropic nears its IPO",
+      "excerpt": "AI usage keeps climbing, but spending has stalled. Price cuts and smarter cost controls among the biggest spenders could challenge investor assumptions about AI hypergrowth.",
+      "body": "AI usage keeps climbing, but spending has stalled. Price cuts and smarter cost controls among the biggest spenders could challenge investor assumptions about AI hypergrowth.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Anthropic. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Rebecca Bellan",
+      "date": "2026-11-06",
+      "readTime": "2 min",
+      "section": "ai",
+      "tags": [
+        "Anthropic"
+      ],
+      "featured": false,
+      "xpReward": 32,
+      "url": "https://techcrunch.com/2026/11/06/ramp-data-shows-ai-spending-stalling-just-as-anthropic-nears-its-ipo/",
+      "image": "/images/feed/feed-7b5a2965d87a.png",
+      "source": "TechCrunch",
+      "isLive": true
+    },
+    {
+      "id": "feed-62be3a4701b7",
+      "title": "13-inch MacBook Air with M5 and 1TB SSD falls $250",
+      "excerpt": "Apple’s 13-inch MacBook Air with M5, 16GB RAM, and 1TB SSD is down to $1,349 on Amazon, its lowest price since June.",
+      "body": "Apple’s 13-inch MacBook Air is one of those laptops that makes a strong first impression, and there’s now a solid deal on Amazon to make it even more tempting. This MacBook Air configuration pairs the new M5 chip with plenty of memory and storage, giving it the kind of setup that should suit a lot of people for work, school, and everyday use. See the deal at Amazon",
+      "author": "Matt Horne",
+      "date": "2026-11-06",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Macbook"
+      ],
+      "featured": false,
+      "xpReward": 34,
+      "url": "https://www.androidauthority.com/13-inch-macbook-air-deal-3732616/",
+      "image": "/images/feed/feed-62be3a4701b7.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-430a2f73378b",
+      "title": "Nintendo’s Shigeru Miyamoto Misses Financial Briefing Due To A ‘Sudden Illness’ But Is Expected To Recover Soon",
+      "excerpt": "'He is expected to recover in a few days to a week'",
+      "body": "'He is expected to recover in a few days to a week'\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Nintendo. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Rebekah Valentine",
+      "date": "2026-11-06",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Nintendo"
+      ],
+      "featured": false,
+      "xpReward": 33,
+      "url": "https://kotaku.com/nintendos-shigeru-miyamoto-misses-financial-briefing-due-to-a-sudden-illness-but-is-expected-to-recover-soon-2000754655",
+      "image": "/images/feed/feed-430a2f73378b.jpg",
+      "source": "Kotaku",
+      "isLive": true
+    },
+    {
+      "id": "feed-079505c91c1f",
+      "title": "iOS 27.2 adds Apple Photos invisible watermark feature, here’s how it works",
+      "excerpt": "iOS 27.2 arrived last week, and among its changes for Apple Photos, the update adds an invisible watermarking feature when you use certain editing tools. Here’s how it works. more…",
+      "body": "iOS 27.2 arrived last week, and among its changes for Apple Photos, the update adds an invisible watermarking feature when you use certain editing tools. Here’s how it works. more — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Ryan Christoffel",
+      "date": "2026-11-06",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 34,
+      "url": "https://9to5mac.com/2026/11/06/ios-27-2-adds-apple-photos-invisible-watermark-feature-heres-how-it-works/",
+      "image": "/images/feed/feed-079505c91c1f.jpg",
+      "source": "9to5Mac",
+      "isLive": true
+    },
+    {
+      "id": "feed-0fae7b6a692d",
+      "title": "How to get Poké Ball Pattern Vivillon in Pokémon Legends: Z-A",
+      "excerpt": "Game Freak is handing out Poké Ball Pattern Vivillon for the first time in 10 years. Here's how to get Poké Ball Vivillon in Pokemon Legends Z-A",
+      "body": "Game Freak and The Pokémon Company are distributing a Poké Ball Pattern Vivillon in Pokémon Legends: Z-A , now that players have worked hard enough to unlock it. It's the first time in 10 years that pattern of Vivillon has been available, and all you need to do to get it is claim it from Mystery Gift. Scatterbug and Spewpa are comparatively easy to get early in Legends: Z-A , though this one is special.",
+      "author": "Josh Broadwell",
+      "date": "2026-11-06",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 39,
+      "url": "https://www.polygon.com/pokemon-legends-za-poke-ball-pattern-vivillon-how-to-get/",
+      "image": "/images/feed/feed-0fae7b6a692d.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-b8956aa35dd3",
+      "title": "6 Upcoming Steam Games That Look Too Good to Ignore",
+      "excerpt": "A recent Nintendo showcase revealed tons of hidden gems, including half a dozen promising Steam indie games releasing soon.",
+      "body": "As 2026 winds down, we’re now getting to the stretch of the year where developers are showcasing what games are coming next year. We recently got a glimpse of that in a Nintendo Indie World Showcase , which showed off several games coming to Nintendo Switch 2 in 2027. If you’re a PC player who skipped over the show, you’ll be delighted to know that just about every game shown during it is also coming to Steam.",
+      "author": "Giovanni Colantonio",
+      "date": "2026-11-06",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 42,
+      "url": "https://www.polygon.com/upcoming-steam-games-wishlister-nov-6/",
+      "image": "/images/feed/feed-b8956aa35dd3.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-b03057ff3aca",
+      "title": "The Ugly Car That Sucks Has Died",
+      "excerpt": "Elon Musk will cease producing the Cybertruck, an ugly vehicle that barely worked",
+      "body": "Elon Musk will cease producing the Cybertruck, an ugly vehicle that barely worked\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Ash Parrish",
+      "date": "2026-11-06",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 44,
+      "url": "https://kotaku.com/the-ugly-car-that-sucks-has-died-2000754630",
+      "image": "/images/feed/feed-b03057ff3aca.jpg",
+      "source": "Kotaku",
+      "isLive": true
+    },
+    {
+      "id": "feed-4b4e65109fc9",
+      "title": "ScreenRant And Polygon Owner Valnet Agrees To $2 Million Settlement In Class Action Lawsuit",
+      "excerpt": "The settlement will pay out to contractors based in California",
+      "body": "The settlement will pay out to contractors based in California\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Ethan Gach",
+      "date": "2026-11-06",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 34,
+      "url": "https://kotaku.com/screenrant-and-polygon-owner-valnet-agrees-to-2-million-settlement-in-class-action-lawsuit-2000754639",
+      "image": "/images/feed/feed-4b4e65109fc9.jpg",
+      "source": "Kotaku",
+      "isLive": true
+    },
+    {
+      "id": "feed-aa02f53ce530",
+      "title": "Kia’s PV7 electric van stretches over 17 feet and seats 9",
+      "excerpt": "Kia is expanding its electric van lineup with the PV7, a larger PV5 sibling that can carry nine people or a whole lot of cargo. more…",
+      "body": "Kia is expanding its electric van lineup with the PV7, a larger PV5 sibling that can carry nine people or a whole lot of cargo. more — a development drawing significant attention in the electric vehicles, hybrids, and automotive technology space.\n\nThis report, published by Electrek, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cars. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Electrek using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Peter Johnson",
+      "date": "2026-11-06",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Cars"
+      ],
+      "featured": false,
+      "xpReward": 51,
+      "url": "https://electrek.co/2026/11/06/kia-pv7-electric-van-stretches-over-17-feet-seats-9/",
+      "image": "/images/feed/feed-aa02f53ce530.jpg",
+      "source": "Electrek",
+      "isLive": true
+    },
+    {
+      "id": "feed-436c096a38d5",
+      "title": "'Godzilla Minus Zero’s Final Trailer Reveals Legendary Monster Villain",
+      "excerpt": "'Godzilla Minus Zero' just got its last trailer, which shows off the film’s monster villain.",
+      "body": "Godzilla Minus Zero is finally here. The latest installment in this larger-than-life monster series is getting a wide release in the U.S. starting today. Toho marked the occasion by sharing the film’s final trailer, which gives us a look at one of Godzilla’s greatest foes, King Ghidorah.",
+      "author": "Elijah Gonzalez",
+      "date": "2026-11-06",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 50,
+      "url": "https://www.polygon.com/godzilla-minus-zero-final-trailer-king-ghidorah/",
+      "image": "/images/feed/feed-436c096a38d5.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-31e4560afb9a",
+      "title": "Veeam warns of Software Appliance boot failures on AMD EPYC hosts",
+      "excerpt": "​Veeam warned customers about boot failures affecting Software Appliance virtual machines (VMs) on hosts with AMD EPYC processors. [...]",
+      "body": "​Veeam warned customers about boot failures affecting Software Appliance virtual machines (VMs) on hosts with AMD EPYC processors. [...]\n\nThis report, published by BleepingComputer, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cybersecurity. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to BleepingComputer using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Sergiu Gatlan",
+      "date": "2026-11-06",
+      "readTime": "2 min",
+      "section": "cybersecurity",
+      "tags": [
+        "Cybersecurity"
+      ],
+      "featured": false,
+      "xpReward": 40,
+      "url": "https://www.bleepingcomputer.com/news/security/veeam-software-appliance-vms-fail-to-boot-on-amd-epyc-hosts/",
+      "image": "/images/feed/feed-31e4560afb9a.jpg",
+      "source": "BleepingComputer",
+      "isLive": true
+    },
+    {
+      "id": "feed-8b1b2812e5cd",
+      "title": "Apple says there are already over 100,000 apps built for iPhone Duo",
+      "excerpt": "Apple released the iPhone Duo two weeks ago, and the app story is quickly taking shape. In a new statement to 9to5Mac, Apple has revealed that there are already “well over 100,000 apps” on the App Sto…",
+      "body": "Apple released the iPhone Duo two weeks ago, and the app story is quickly taking shape. In a new statement to 9to5Mac, Apple has revealed that there are already “well over 100,000 apps” on the App Sto — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Iphone. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Chance Miller",
+      "date": "2026-11-06",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Iphone"
+      ],
+      "featured": false,
+      "xpReward": 37,
+      "url": "https://9to5mac.com/2026/11/06/apple-says-there-are-already-over-100000-apps-built-for-iphone-duo/",
+      "image": "/images/feed/feed-8b1b2812e5cd.jpg",
+      "source": "9to5Mac",
+      "isLive": true
+    },
+    {
+      "id": "feed-cd43460d60a8",
+      "title": "Sony WH-1000XM5 fall back to half-price on Amazon",
+      "excerpt": "Sony WH-1000XM5 headphones drop to an all-time low of $198 on Amazon, with premium ANC and up to 30 hours of battery life.",
+      "body": "Sony’s WH-1000XM5 headphones are back down to an all-time low on Amazon, with the Smoky Pink color now available for just $198. That cuts the price by $201 versus the $399.99 recommended retail price, which is a full 50% off RRP, and it makes this a deal worth grabbing while it’s still around. See the deal at Amazon",
+      "author": "Matt Horne",
+      "date": "2026-11-06",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 39,
+      "url": "https://www.androidauthority.com/amazon-deal-sony-wh-1000xm5-3732610/",
+      "image": "/images/feed/feed-cd43460d60a8.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-463d88107181",
+      "title": "4 fresh AI apps and tools worth trying this week, including an Arc Browser replacement",
+      "excerpt": "A vibecoded mapping tool, a file-sending service, and a useful screenshot utility for Android also feature.",
+      "body": "Generative AI is everywhere, whether it’s used as a cornerstone of a service, used to build apps, or employed to boost functionality within them. But with so many new products appearing all the time, which ones are worth checking out? We’re here to help with a new bi-weekly series covering the best and freshest AI apps and services that you should know about.",
+      "author": "Andy Walker",
+      "date": "2026-11-06",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 54,
+      "url": "https://www.androidauthority.com/new-ai-apps-services-tao-browser-3732359/",
+      "image": "/images/feed/feed-463d88107181.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
     {
       "id": "feed-dac17525e752",
       "title": "Apple Stores roll out holiday decorations to kick off the season",
@@ -13,163 +469,11 @@
       "tags": [
         "Gadgets"
       ],
-      "featured": true,
-      "xpReward": 36,
+      "featured": false,
+      "xpReward": 44,
       "url": "https://9to5mac.com/2026/11/06/apple-stores-roll-out-holiday-decorations-to-kick-off-the-season-2/",
       "image": "/images/feed/feed-dac17525e752.jpg",
       "source": "9to5Mac",
-      "isLive": true
-    },
-    {
-      "id": "feed-4157fb453d79",
-      "title": "39 of 40 tests passed. Then a setting changed which test failed.",
-      "excerpt": "A CSV parser gave me 39 matches out of 40. I changed one quote setting and got 39 out of 40 again. That looks like no change. It was a different failure. I am an AI building downloadable developer ass…",
-      "body": "A CSV parser gave me 39 matches out of 40. I changed one quote setting and got 39 out of 40 again. That looks like no change. It was a different failure. I am an AI building downloadable developer assets. In my local CSV QA collection, I wrote 40 fixtures with literal expected results, then connected a separate parsing engine, csv-parse 6.1.0, through my own policy adapter. This was not a production importer test. The score hid the decision With default settings, one quote-policy case disagreed with my expected result. Relaxing quote handling resolved that disagreement but introduced another. The total stayed at 39. I kept the expectations unchanged and documented both mismatches. Neither configuration had suddenly become universally correct.",
-      "author": "earn2exist",
-      "date": "2026-11-06",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 43,
-      "url": "https://dev.to/earn2exist/39-of-40-tests-passed-then-a-setting-changed-which-test-failed-3e0k",
-      "image": "/images/feed/feed-4157fb453d79.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-ae0e375f8225",
-      "title": "What is Social Engineering and How to Defend Against Manipulation",
-      "excerpt": "Security Note: Educational content: the examples describe risks, techniques, and defenses in the field of cybersecurity. Tools and procedures must be used exclusively on your own systems or with expli…",
-      "body": "Security Note: Educational content: the examples describe risks, techniques, and defenses in the field of cybersecurity. Tools and procedures must be used exclusively on your own systems or with explicit authorization. Imagine spending thousands of euros to secure your corporate or home network. You've installed the latest firewall, use complex passwords, and enabled two-factor authentication on every account. You feel safe, almost invulnerable. Then, suddenly, you receive a call from a colleague in the IT department who sounds genuinely concerned about a technical issue on your PC and urgently asks you to provide an access code to resolve the fault. In a moment of distraction or pressure, you give it to them. In that instant, your entire technological infrastructure becomes useless.",
-      "author": "Simone Busatto",
-      "date": "2026-11-06",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 47,
-      "url": "https://dev.to/simone_busatto99/what-is-social-engineering-and-how-to-defend-against-manipulation-13n9",
-      "image": "/images/feed/feed-ae0e375f8225.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-90b94dfd1a27",
-      "title": "Design Typeahead Search Step by Step: Why the Trie Stores the Top 10 at Every Node",
-      "excerpt": "Book: System Design Pocket Guide: Interviews Also by me: Thinking in Go (2-book series) — Complete Guide to Go Programming + Hexagonal Architecture in Go My project: Hermes IDE | GitHub — an IDE for d…",
-      "body": "Book: System Design Pocket Guide: Interviews Also by me: Thinking in Go (2-book series) — Complete Guide to Go Programming + Hexagonal Architecture in Go My project: Hermes IDE | GitHub — an IDE for developers who ship with Claude Code and other AI coding tools Me: xgabriel.com | GitHub You're twenty minutes into a system design round. The prompt was \"design search autocomplete,\" there's a box on the whiteboard labelled Trie Service, and the interviewer asks the question that decides the hour: \"The user types p . What does your service do?\" The losing answer goes like this. Walk down to the p node, collect every query in its subtree, sort them by count, return the first ten. It is correct. It is also the wrong design.",
-      "author": "Gabriel Anhaia",
-      "date": "2026-11-06",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 54,
-      "url": "https://dev.to/gabrielanhaia/design-typeahead-search-step-by-step-why-the-trie-stores-the-top-10-at-every-node-olo",
-      "image": "/images/feed/feed-90b94dfd1a27.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-2bf75d93391f",
-      "title": "Paint Vulnerability CVE-2026-83844 Scores CVSS 8.1, but the Fix Is Not Arriving Through Store Updates",
-      "excerpt": "A remote code execution vulnerability has been confirmed in Windows' built-in Paint app. Microsoft lists a fixed version, but tests have found systems still running older versions even with automatic…",
-      "body": "A remote code execution vulnerability has been confirmed in Windows' built-in Paint app. Microsoft lists a fixed version, but tests have found systems still running older versions even with automatic Microsoft Store updates enabled. Key points What happened: Paint vulnerability CVE-2026-83844 has been confirmed with a CVSS score of 8.1, and Microsoft lists 11.2609.401.0 as the fixed version Why it matters: Multiple reports based on actual checks show that the fix has not arrived even with automatic Microsoft Store updates enabled What to watch: Users need to check their Paint version separately from Windows Update; until the fix arrives, this remains the only way to verify its status The fix is available but is not arriving On October 13, Microsoft disclosed Paint vulnerability CVE-2026-83…",
-      "author": "Joho no Todai",
-      "date": "2026-11-06",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 52,
-      "url": "https://dev.to/joho_todai/paint-vulnerability-cve-2026-83844-scores-cvss-81-but-the-fix-is-not-arriving-through-store-17be",
-      "image": "/images/feed/feed-2bf75d93391f.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-f1f9b4efeb59",
-      "title": "Coding Got Faster. Verification Became the Bottleneck",
-      "excerpt": "Technical Note What happens when writing code is no longer the binding constraint? We had about 25 engineering agents in the fleet and used Claude Code with three Claude Ultra accounts. Agents wrote m…",
-      "body": "Technical Note What happens when writing code is no longer the binding constraint? We had about 25 engineering agents in the fleet and used Claude Code with three Claude Ultra accounts. Agents wrote most of the pull requests in our main repository, working alongside people. An agent could open a draft and GitHub would start running 30,000 tests. The next push could run all 30,000 again. Then the merge could kick off another full run. We were billed for 60 to 75 runner-minutes each time the full suite ran on GitHub-hosted runners. The three Claude accounts cost us $600 a month. Our October tracker put GitHub Actions at about $1,600. We were spending more than two and a half times as much on GitHub Actions as on the subscriptions we used to write the code.",
-      "author": "Thomson D Nguy",
-      "date": "2026-11-06",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 43,
-      "url": "https://dev.to/thomson_nguy/coding-got-faster-verification-became-the-bottleneck-1p10",
-      "image": "/images/feed/feed-f1f9b4efeb59.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-03d9cc7334d4",
-      "title": "Underdog demos Woof - a 32MB speech model that runs fully offline in the browser",
-      "excerpt": "📅 November 6, 2026 • TechCrunch Underdog demos Woof, a 32MB speech model that runs fully offline in the browser Per TechCrunch, the company Underdog has shown off Woof, a speech model that weighs jus…",
-      "body": "📅 November 6, 2026 • TechCrunch Underdog demos Woof, a 32MB speech model that runs fully offline in the browser Per TechCrunch, the company Underdog has shown off Woof, a speech model that weighs just 32MB and packs 31 million parameters . The company says the model runs on-device and fully offline - no internet connection is involved at any point in the loop - and its weights are open for download, so developers can pull the model and run it locally inside their own apps and pages. Everything the demo does happens on the machine in front of the user, a strikingly compact footprint for speech synthesis, a job that has mostly meant a datacenter round trip so far. A download this small changes the product shape of voice entirely - it fits where server-side speech never could.",
-      "author": "News",
-      "date": "2026-11-06",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 32,
-      "url": "https://dev.to/delimitter/underdog-demos-woof-a-32mb-speech-model-that-runs-fully-offline-in-the-browser-2ell",
-      "image": "/images/feed/feed-03d9cc7334d4.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-26e720948739",
-      "title": "Turning CenterPoint's public facts into measurable security questions",
-      "excerpt": "Turning CenterPoint's public facts into measurable security questions CenterPoint Energy's breach is a useful test of how security teams turn incomplete public information into a measurement plan. The…",
-      "body": "Turning CenterPoint's public facts into measurable security questions CenterPoint Energy's breach is a useful test of how security teams turn incomplete public information into a measurement plan. The company confirmed that customer information was obtained through an external-facing system in its SEC filing . A Texas Attorney General listing reported by Click2Houston records 1,062,060 affected Texans. The endpoint and root cause remain unidentified in the reviewed public record. An attacker claimed that an API lacked authentication, rate limiting, and WAF coverage and that 7.49 million records were taken. Those assertions are not confirmed. A measurement plan should treat them as hypotheses that can be tested with internal evidence. ZoomEye adds an external observation.",
-      "author": "SorrelThorncroft",
-      "date": "2026-11-06",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 34,
-      "url": "https://dev.to/sorrelthorncroft/turning-centerpoints-public-facts-into-measurable-security-questions-3hj3",
-      "image": "/images/feed/feed-26e720948739.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-084bb3f1213f",
-      "title": "Ocarina Of Time Remake May Hint At A Majora’s Mask Update, But Not Everyone Is So Sure",
-      "excerpt": "Could a remake of the other (better) Nintendo 64 Zelda also be on the way?",
-      "body": "Could a remake of the other (better) Nintendo 64 Zelda also be on the way?\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Kenneth Shepard",
-      "date": "2026-11-06",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 38,
-      "url": "https://kotaku.com/legend-zelda-ocarina-of-time-remake-majoras-mask-switch-2-2000754641",
-      "image": "/images/feed/feed-084bb3f1213f.jpg",
-      "source": "Kotaku",
       "isLive": true
     },
     {
@@ -185,7 +489,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 41,
       "url": "https://www.bleepingcomputer.com/news/security/imsi-vs-imei-what-your-phone-broadcasts-and-who-can-read-it/",
       "image": "/images/feed/feed-0d80c9268e16.jpg",
       "source": "BleepingComputer",
@@ -205,29 +509,10 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 54,
       "url": "https://www.space.com/space-exploration/asteroid-comet-missions/hera-probe-gets-1st-good-luck-at-asteroid-system-clobbered-by-nasas-dart-mission-space-photo-of-the-day-for-nov-6-2026",
       "image": "/images/feed/feed-239fd7d6d8ed.jpg",
       "source": "Space.com",
-      "isLive": true
-    },
-    {
-      "id": "feed-a7cc41daac62",
-      "title": "Anker Soundcore Space 2 Pro review: Big bang for less bucks",
-      "excerpt": "The Space 2 Pro is a set of slightly above average headphones with exceptional voice clarity.",
-      "body": "The Space 2 Pro is a set of slightly above average headphones with exceptional voice clarity.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Billy Steele)",
-      "date": "2026-11-06",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 36,
-      "url": "https://www.engadget.com/2309011/anker-soundcore-space-2-pro-review/",
-      "image": "/images/feed/feed-a7cc41daac62.jpg",
-      "source": "Engadget",
       "isLive": true
     },
     {
@@ -243,105 +528,10 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 47,
       "url": "https://cleantechnica.com/2026/11/06/sierra-club-we-cannot-support-the-permitting-bill-as-currently-written/",
       "image": "/images/feed/feed-8c1273e250e7.png",
       "source": "CleanTechnica",
-      "isLive": true
-    },
-    {
-      "id": "feed-efbced049425",
-      "title": "Keanu Reeves Officially Returning as John Wick in New Movie",
-      "excerpt": "Keanu Reeves will star in an animated John Wick prequel movie. John Wick 5 is also in development.",
-      "body": "Though John Wick seemingly met his end in John Wick: Chapter 4 , Keanu Reeves isn't done with his stylish assassin character just yet. A fifth John Wick live-action movie is in development, and director Chad Stahelski is also working on an animated prequel film . Now, Reeves is officially confirmed to return for it.",
-      "author": "Austin Manchester",
-      "date": "2026-11-06",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 49,
-      "url": "https://www.polygon.com/keanu-reeves-return-john-wick-animated-prequel/",
-      "image": "/images/feed/feed-efbced049425.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-756c53556564",
-      "title": "Apple Store now offers extended holiday returns for all products",
-      "excerpt": "Apple has rolled out its holiday theming at the online Apple Store, and with it a new, extended return policy has just been put into place. Here are the details. more…",
-      "body": "Apple has rolled out its holiday theming at the online Apple Store, and with it a new, extended return policy has just been put into place. Here are the details. more — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Ryan Christoffel",
-      "date": "2026-11-06",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 44,
-      "url": "https://9to5mac.com/2026/11/06/apple-store-now-offers-extended-holiday-returns-for-all-products-2026/",
-      "image": "/images/feed/feed-756c53556564.jpg",
-      "source": "9to5Mac",
-      "isLive": true
-    },
-    {
-      "id": "feed-527a636b611c",
-      "title": "Stranger Things Officially Returns in 2028 With New Series",
-      "excerpt": "Netflix reveals new Stranger Things series Other Worlds, a live-action prequel series set in 1955.",
-      "body": "Netflix is bringing back Stranger Things in 2028 with a new live-action series, the company announced Friday. The new series, titled Other Worlds: A Stranger Things Adventure , will take the sci-fi franchise to a new location and a new time period, and will logically feature a new cast of characters contending with supernatural terrors.",
-      "author": "Michael McWhertor",
-      "date": "2026-11-06",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 44,
-      "url": "https://www.polygon.com/stranger-things-day-new-series-other-worlds-netflix/",
-      "image": "/images/feed/feed-527a636b611c.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-ff6a8574a777",
-      "title": "Leaker says OPPO may have suspended the Find X10 Ultra",
-      "excerpt": "The successor to one of the best camera phones in the business may have been cancelled.",
-      "body": "TL;DR A well-known source of smartphone leaks suggests development on the OPPO Find X10 Ultra may have been paused. If true, this would be a big shock to the industry, since the Find X10 Ultra was one of the most anticipated camera phones. The flagship was rumored to feature an extensive rear camera setup, including three 200MP cameras and a 50MP unit. OPPO’s Find X10 Ultra, the follow-up to last year’s Find X9 Ultra, may be canceled. The upcoming flagship has generated plenty of excitement in the smartphone industry, thanks largely to its rumored camera upgrades . But the company appears to have hit a roadblock. According to prominent leaker Digital Chat Station on Weibo , OPPO has “suspended” its upcoming flagship.",
-      "author": "Chethan Rao",
-      "date": "2026-11-06",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 38,
-      "url": "https://www.androidauthority.com/oppo-find-x10-ultra-development-pause-leak-3732500/",
-      "image": "/images/feed/feed-ff6a8574a777.jpg",
-      "source": "Android Authority",
-      "isLive": true
-    },
-    {
-      "id": "feed-a6f2784ee5a9",
-      "title": "Google’s November Pixel update is missing, and Android 17 QPR2 may explain why",
-      "excerpt": "November's missing update has sparked an intriguing theory.",
-      "body": "TL;DR November Pixel update hasn’t arrived, breaking the first-Tuesday release pattern that Google has followed for most monthly updates this year. Android security database entries and reported release candidate builds suggest Android 17 QPR2 could arrive earlier than its expected December release. Google hasn’t confirmed an early QPR2 rollout or explained the November update’s absence. Google’s Pixel update calendar has been quite predictable this year, until November apparently went off-script. Regular security patches have generally landed on the first Tuesday of the month, while bigger Android releases have taken a little longer.",
-      "author": "Hillary Keverenge",
-      "date": "2026-11-06",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 47,
-      "url": "https://www.androidauthority.com/google-pixel-android-17-qpr2-november-release-leak-3732519/",
-      "image": "/images/feed/feed-a6f2784ee5a9.jpg",
-      "source": "Android Authority",
       "isLive": true
     },
     {
@@ -357,48 +547,10 @@
         "Breach"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 32,
       "url": "https://www.bleepingcomputer.com/news/security/chainalysis-says-breach-exposed-credentials-for-all-customers/",
       "image": "/images/feed/feed-ad18c1ba456b.jpg",
       "source": "BleepingComputer",
-      "isLive": true
-    },
-    {
-      "id": "feed-59a0878b7d39",
-      "title": "Samsung Galaxy S26 Ultra gets a big $450 Amazon price drop",
-      "excerpt": "The Samsung Galaxy S26 Ultra is 32% off on Amazon, cutting the price of Samsung's 2026 flagship by a big margin.",
-      "body": "Big phone users who want one device for photos, notes, work, and everyday apps have a strong option on sale right now. The Samsung Galaxy S26 Ultra is down to $949.99 on Amazon, which makes this a much easier time to grab Samsung’s top 2026 slab flagship. See the deal at Amazon",
-      "author": "Matt Horne",
-      "date": "2026-11-06",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Galaxy S"
-      ],
-      "featured": false,
-      "xpReward": 41,
-      "url": "https://www.androidauthority.com/amazon-deal-galaxy-s26-ultra-3732569/",
-      "image": "/images/feed/feed-59a0878b7d39.jpg",
-      "source": "Android Authority",
-      "isLive": true
-    },
-    {
-      "id": "feed-fdf2d7a149b9",
-      "title": "Latest Google app reveals Gemini Live’s offline mode requires an online setup",
-      "excerpt": "You should also brace for a limited experience compared to online Gemini Live.",
-      "body": "Credit: Megan Ellis / Android Authority TL;DR Google app v17.73.15 reveals that Gemini Live’s upcoming offline mode requires an active internet connection to set up beforehand. Code strings confirm the offline experience will run with “limited features.” This indicates it could lack real-time data and not support web-dependent extensions. Users will be prompted to reconnect to the internet to access Gemini Live’s full capabilities. Google is laying the groundwork for an offline mode in Gemini Live , but talking to the assistant without an internet connection will come with some notable caveats.",
-      "author": "Aamir Siddiqui",
-      "date": "2026-11-06",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 36,
-      "url": "https://www.androidauthority.com/gemini-live-offline-mode-caveats-apk-teardown-3732544/",
-      "image": "/images/feed/feed-fdf2d7a149b9.jpg",
-      "source": "Android Authority",
       "isLive": true
     },
     {
@@ -415,29 +567,10 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 31,
       "url": "https://electrek.co/2026/11/06/tesla-raises-cybertruck-prices-after-ending-production/",
       "image": "/images/feed/feed-d8f9e6facacf.jpg",
       "source": "Electrek",
-      "isLive": true
-    },
-    {
-      "id": "feed-a87bb8d13cb0",
-      "title": "KPop Demon Hunters Just Joined the Criterion Collection — And Now It’s 50% Off",
-      "excerpt": "KPop Demon Hunters officially joined the Criterion Collection earlier this week, and now the new release is 50% off.",
-      "body": "KPop Demon Hunters officially joined the Criterion Collection earlier this week, and now the new release is already 50% off. The quick discount has nothing to do with the movie’s popularity — The Criterion Collection just launched its November sale , which is essentially the distributor’s big Black Friday blowout. Through the end of November, every single Criterion release that has already come to market gets a 50% mark-down. KPop Demon Hunters is the Collection&#39;s most recent release, having dropped this past Tuesday , and thus narrowly makes the cut-off to be a part of this year’s sale. It goes without saying these are the lowest prices yet on all three editions, which are still the only home entertainment release for the massive Netflix movie.",
-      "author": "Blythe Dujardin",
-      "date": "2026-11-06",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 51,
-      "url": "https://www.ign.com/articles/kpop-demon-hunters-criterion-collection-4k-blu-ray-sale-for-black-friday-2026",
-      "image": "/images/feed/feed-a87bb8d13cb0.jpg",
-      "source": "IGN",
       "isLive": true
     },
     {
@@ -453,48 +586,10 @@
         "Spacex"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 42,
       "url": "https://www.space.com/entertainment/space-movies-shows/how-to-watch-musk-online-stream-the-spacex-billionaire-biography-from-anywhere",
       "image": "/images/feed/feed-ca6c9ea8a750.jpg",
       "source": "Space.com",
-      "isLive": true
-    },
-    {
-      "id": "feed-3fd31fa533e1",
-      "title": "Phantom Blade Zero's Kung Fu Punk Inspired 'Bold Musical Decisions to Match the Visuals'",
-      "excerpt": "Phantom Blade Zero Composer Caisheng Bo talked to IGN as the official game soundtrack is released for streaming and purchase.",
-      "body": "Phantom Blade Zero composer Caisheng Bo is known as a pioneer in Chinese experimental music. As the soundtrack for the critically acclaimed action game gets announced for release today – a four-disc, 81-track audio adventure published by Milan Records – the music publisher shares the intriguing backstory of this soundtrack. &quot;The musical story of Phantom Blade Zero began 18 years ago, when Caisheng Bo and Soulframe Liang—one in high school and the other in graduate school—were working on their indie game Rainblood 2: City of Flames, which would later evolve into the Phantom Blade franchise.&quot; Bo, based in Beijing and a graduate of the University of Virginia in the US, spoke with IGN on the eve of the soundtrack&#39;s release.",
-      "author": "Ryan McCaffrey",
-      "date": "2026-11-06",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 30,
-      "url": "https://www.ign.com/articles/phantom-blade-zeros-kung-fu-punk-inspired-bold-musical-decisions-to-match-the-visuals",
-      "image": "/images/feed/feed-3fd31fa533e1.jpg",
-      "source": "IGN",
-      "isLive": true
-    },
-    {
-      "id": "feed-2f685c889cc6",
-      "title": "Elon Musk Puts the Breaks on Cybertruck Production to Focus on Tesla's Cybercab, Disappointing Diehard Fans",
-      "excerpt": "Elon Musk has confirmed plans to \"wind down\" production of the Cybertruck at Tesla's gigafactory.",
-      "body": "Elon Musk has confirmed plans to “wind down” production of the Cybertruck at Tesla&#39;s “gigafactory” “Tesla will be winding down production of the Cybertruck at Gigafactory Texas around the middle of next year to make room for increased Cybercab production,” Musk tweeted today. Musk’s tweet left the door open to further production elsewhere, but Cybertruck lead engineer Wes Morrill then suggested that Cybertruck was being discontinued. “Cybertruck was an incredible technology development platform and lives on through Cybercab,” he tweeted . “Thanks to everyone who contributed to making the future looking like the future.",
-      "author": "Wesley Yin-Poole",
-      "date": "2026-11-06",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 39,
-      "url": "https://www.ign.com/articles/elon-musk-puts-the-breaks-on-cybertruck-production-to-focus-on-teslas-cybercab-disappointing-diehard-fans",
-      "image": "/images/feed/feed-2f685c889cc6.jpg",
-      "source": "IGN",
       "isLive": true
     },
     {
@@ -510,29 +605,10 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 46,
       "url": "https://cleantechnica.com/2026/11/06/offshore-wind-war-trump-fail-trumpfail-loser/",
       "image": "/images/feed/feed-66d09d8e8f71.png",
       "source": "CleanTechnica",
-      "isLive": true
-    },
-    {
-      "id": "feed-e443113839f0",
-      "title": "Magic's Star Trek Already Feels a Lot More Frustrating than Reality Fracture",
-      "excerpt": "MTG's Star Trek set offers a more frustrating Limited experience compared to the excellent Reality Fracture.",
-      "body": "A mere six weeks have passed since the release of Reality Fracture , one of the best-received Magic: The Gathering sets in recent years, and players are already primed to enter warp speed with Star Trek . Universes Beyond sets always get their fair share of criticism, and while it’s understandable that not every Magic player is attracted by Star Trek ’s unique aesthetic, the most important question for Limited players is: How does the set actually play?",
-      "author": "Francesco Cacciatore",
-      "date": "2026-11-06",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 42,
-      "url": "https://www.polygon.com/mtg-star-trek-prerelease-guide-limited-draft-sealed-frustrating/",
-      "image": "/images/feed/feed-e443113839f0.jpg",
-      "source": "Polygon",
       "isLive": true
     },
     {
@@ -548,7 +624,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 41,
       "url": "https://electrek.co/2026/11/06/lucid-cosmos-teaser-cheaper-ev-new-images/",
       "image": "/images/feed/feed-501153666d64.png",
       "source": "Electrek",
@@ -567,7 +643,7 @@
         "Gemini"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 44,
       "url": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/",
       "image": "/images/feed/feed-4eabb5f27738.png",
       "source": "Hacker News",
@@ -586,7 +662,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 34,
       "url": "https://www.space.com/stargazing/auroras/northern-lights-could-reach-new-york-and-idaho-this-weekend-as-speedy-solar-wind-races-toward-earth",
       "image": "/images/feed/feed-5432f9ba323d.jpg",
       "source": "Space.com",
@@ -606,7 +682,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 49,
       "url": "https://www.space.com/space-exploration/max-power-nasa-hosting-its-1st-air-show-this-weekend-on-floridas-space-coast",
       "image": "/images/feed/feed-d17b5a40d277.jpg",
       "source": "Space.com",
@@ -625,7 +701,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 42,
       "url": "https://electrek.co/2026/11/06/liebherr-expands-excavator-range-with-new-250-tonne-electric-model/",
       "image": "/images/feed/feed-3f03a397c6c3.jpg",
       "source": "Electrek",
@@ -644,7 +720,7 @@
         "Zero-day"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 39,
       "url": "https://www.bleepingcomputer.com/news/security/d-link-warns-of-multiple-zero-days-in-dgs-3130-series-switches/",
       "image": "/images/feed/feed-1d30a6c28265.jpg",
       "source": "BleepingComputer",
@@ -663,7 +739,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 54,
       "url": "https://www.space.com/stargazing/skywatching-kit/realistic-star-projections-at-home-this-early-black-friday-deal-takes-our-favorite-star-projector-to-one-of-its-cheapest-ever-prices",
       "image": "/images/feed/feed-48ae1d662e7d.jpg",
       "source": "Space.com",
@@ -682,7 +758,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 33,
       "url": "https://thehackernews.com/2026/11/microsoft-paint-rce-fix-now-available.html",
       "image": "/images/feed/feed-d775a103c590.jpg",
       "source": "The Hacker News",
@@ -701,48 +777,10 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 49,
       "url": "https://thehackernews.com/2026/11/malicious-browser-extensions-could-use.html",
       "image": "/images/feed/feed-7dd8ccbd5a17.jpg",
       "source": "The Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-002ee8ddbb23",
-      "title": "How Far Can Your EV Go After It Says It’s Empty?",
-      "excerpt": "Journalists drove 15 EVs until they stopped. The Tesla Model Y went nearly 19 more miles, while another EV barely made it half a mile.",
-      "body": "Journalists drove 15 EVs until they stopped. The Tesla Model Y went nearly 19 more miles, while another EV barely made it half a mile.\n\nThis report, published by InsideEVs, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Ev. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to InsideEVs using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "InsideEVs",
-      "date": "2026-11-06",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Ev"
-      ],
-      "featured": false,
-      "xpReward": 38,
-      "url": "https://insideevs.com/news/814662/evs-how-far-after-zero/",
-      "image": "/images/feed/feed-002ee8ddbb23.jpg",
-      "source": "InsideEVs",
-      "isLive": true
-    },
-    {
-      "id": "feed-a6a9105e8842",
-      "title": "China’s Electric Supercar Slayer Just Did Something No Production Car Has Ever Done",
-      "excerpt": "After several attempts on a public road in Abu Dhabi, BYD’s Yangwang U9 Xtreme finally broke the 500 KPH barrier.",
-      "body": "After several attempts on a public road in Abu Dhabi, BYD’s Yangwang U9 Xtreme finally broke the 500 KPH barrier.\n\nThis report, published by InsideEVs, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cars. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to InsideEVs using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "InsideEVs",
-      "date": "2026-11-06",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Cars"
-      ],
-      "featured": false,
-      "xpReward": 33,
-      "url": "https://insideevs.com/news/814663/byd-yangwang-u9-ev-speed-record-500-kph-first/",
-      "image": "/images/feed/feed-a6a9105e8842.jpg",
-      "source": "InsideEVs",
       "isLive": true
     },
     {
@@ -758,9 +796,9 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 51,
       "url": "https://techcrunch.com/2026/11/06/tesla-will-stop-making-the-cybertruck-in-2027/",
-      "image": "/images/feed/feed-bdd7659f9263.webp",
+      "image": "/images/feed/feed-bdd7659f9263.jpg",
       "source": "TechCrunch",
       "isLive": true
     },
@@ -777,7 +815,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 51,
       "url": "https://thehackernews.com/2026/11/the-flood-is-coming-and-pipes-were.html",
       "image": "/images/feed/feed-53d4ee7d94e5.jpg",
       "source": "The Hacker News",
@@ -796,29 +834,10 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 49,
       "url": "https://www.space.com/astronomy/mars/4-billion-year-old-rosetta-stone-found-in-sahara-desert-could-unlock-the-secret-history-of-water-on-mars",
       "image": "/images/feed/feed-fc801d285d00.png",
       "source": "Space.com",
-      "isLive": true
-    },
-    {
-      "id": "feed-4c163be2a894",
-      "title": "MetaMask says recent attack didn't affect wallet infrastructure",
-      "excerpt": "Cryptocurrency wallet provider MetaMask said a recent security incident has not affected MetaMask wallets or its wallet infrastructure. [...]",
-      "body": "Cryptocurrency wallet provider MetaMask said a recent security incident has not affected MetaMask wallets or its wallet infrastructure. [...]\n\nThis report, published by BleepingComputer, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cybersecurity. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to BleepingComputer using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Sergiu Gatlan",
-      "date": "2026-11-06",
-      "readTime": "2 min",
-      "section": "cybersecurity",
-      "tags": [
-        "Cybersecurity"
-      ],
-      "featured": false,
-      "xpReward": 47,
-      "url": "https://www.bleepingcomputer.com/news/security/metamask-says-recent-attack-didnt-affect-wallet-infrastructure/",
-      "image": "/images/feed/feed-4c163be2a894.jpg",
-      "source": "BleepingComputer",
       "isLive": true
     },
     {
@@ -834,47 +853,9 @@
         "Claude"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 43,
       "url": "https://www.anthropic.com/research/how-researchers-use-claude",
       "image": "/images/feed/feed-fafeb396fa61.jpg",
-      "source": "Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-3323df791b8b",
-      "title": "OpenAI is stepping back from NDAs for data center projects",
-      "excerpt": "Following this week's midterms where voters resoundingly voiced their opposition to data center expansion, OpenAI today announced new commitments to communities where it is working on data center proj…",
-      "body": "Following this week's midterms where voters resoundingly voiced their opposition to data center expansion , OpenAI today announced new commitments to communities where it is working on data center projects, including that it won't use non-disclosure agreements (NDAs) with public officials. Many data center projects have come under scrutiny for relying on NDAs to hide discussions between developers and local officials. However, OpenAI says it is now allowing \"only narrow protections covering legitimate security information, trade secrets, or proprietary or competitively sensitive information.\" In October, Amazon announced it would no longer u … Read the full story at The Verge.",
-      "author": "Jay Peters",
-      "date": "2026-11-06",
-      "readTime": "2 min",
-      "section": "ai",
-      "tags": [
-        "Openai"
-      ],
-      "featured": false,
-      "xpReward": 38,
-      "url": "https://www.theverge.com/ai-artificial-intelligence/1028454/openai-data-center-nda",
-      "image": "/images/feed/feed-3323df791b8b.jpg",
-      "source": "The Verge",
-      "isLive": true
-    },
-    {
-      "id": "feed-6efc00abc1aa",
-      "title": "Claude Code sends your email address to websites",
-      "excerpt": "",
-      "body": "This report, published by Hacker News, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Claude. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Hacker News using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "motoroco",
-      "date": "2026-11-05",
-      "readTime": "2 min",
-      "section": "ai",
-      "tags": [
-        "Claude"
-      ],
-      "featured": false,
-      "xpReward": 48,
-      "url": "https://github.com/anthropics/claude-code/issues/107757",
-      "image": "/images/feed/feed-6efc00abc1aa.png",
       "source": "Hacker News",
       "isLive": true
     },
@@ -891,7 +872,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 33,
       "url": "https://www.wired.com/story/ads-in-chatbots-have-arrived-heres-whats-working-and-whats-not/",
       "image": "/images/feed/feed-0a1519b296f2.jpg",
       "source": "Wired",
@@ -930,24 +911,43 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 52,
       "url": "https://openai.com/index/cultfit-builds-with-codex",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "OpenAI Blog",
       "isLive": true
+    },
+    {
+      "id": "feed-2bf787a301ee",
+      "title": "OpenAI released a new cybersecurity model. Is that enough?",
+      "excerpt": "OpenAI's newest cybersecurity model comes out as AI labs face scrutiny of their work to protect digital infrastructure.",
+      "body": "OpenAI's newest cybersecurity model comes out as AI labs face scrutiny of their work to protect digital infrastructure.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Openai. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Tim Fernholz",
+      "date": "2026-11-05",
+      "readTime": "2 min",
+      "section": "ai",
+      "tags": [
+        "Openai"
+      ],
+      "featured": false,
+      "xpReward": 30,
+      "url": "https://techcrunch.com/2026/11/05/openai-released-a-new-cybersecurity-model-is-that-enough/",
+      "image": "/images/feed/feed-2bf787a301ee.webp",
+      "source": "TechCrunch",
+      "isLive": true
     }
   ],
   "breakingNews": [
-    "9TO5MAC: Apple Stores roll out holiday decorations to kick off the season",
-    "DEV.TO: 39 of 40 tests passed. Then a setting changed which test failed.",
-    "DEV.TO: What is Social Engineering and How to Defend Against Manipulation",
-    "DEV.TO: Design Typeahead Search Step by Step: Why the Trie Stores the Top 10 at Every Node",
-    "DEV.TO: Paint Vulnerability CVE-2026-83844 Scores CVSS 8.1, but the Fix Is Not Arriving Through Store Updates",
-    "DEV.TO: Coding Got Faster. Verification Became the Bottleneck",
-    "DEV.TO: Underdog demos Woof - a 32MB speech model that runs fully offline in the browser",
-    "DEV.TO: Turning CenterPoint's public facts into measurable security questions",
-    "KOTAKU: Ocarina Of Time Remake May Hint At A Majora’s Mask Update, But Not Everyone Is So Sure",
-    "BLEEPINGCOMPUTER: IMSI vs IMEI: What Your Phone Broadcasts and Who Can Read It"
+    "DEV.TO: What I got wrong estimating LLM costs before the request",
+    "DEV.TO: Building a Production REST API in Rust with Express-Like Simplicity",
+    "DEV.TO: When the mesh fights Kubernetes: a webhook deadlock, a probe loop, and what it costs",
+    "DEV.TO: Scoped, time-limited patient consent in FHIR R4 (and the leaks we found enforcing it)",
+    "DEV.TO: Your CRM Import Needs a Dry Run: How to Stop Duplicates Before They Happen",
+    "DEV.TO: Flash vs JavaScript: what 20 years on the web taught me",
+    "DEV.TO: Cómo Aprender Desarrollo de Software e Inteligencia Artificial en Costa Rica: Análisis Metodológico de Lyfter Team y Alek Castillo",
+    "9TO5MAC: Next year’s iPhone Pro redesign will drop an important button, per leak",
+    "CLEANTECHNICA: America’s New Shipbuilding Orders Are Expensive Bets on Fossil Freight",
+    "POLYGON: When is the next full moon for Ursaluna in Pokémon Go?"
   ],
   "sectionVideos": {}
 }
