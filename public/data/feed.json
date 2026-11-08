@@ -1,88 +1,12 @@
 {
-  "fetchedAt": "2026-11-08T04:12:37.324Z",
+  "fetchedAt": "2026-11-08T05:10:31.112Z",
   "articles": [
     {
-      "id": "feed-e5eb5b6a15e7",
-      "title": "Digital Approval Workflow: How to Audit Your Current Setup",
-      "excerpt": "A digital approval workflow allows businesses to streamline documentation processes and ensures the right people are approving requests. But an approval workflow doesn’t necessarily operate efficientl…",
-      "body": "A digital approval workflow allows businesses to streamline documentation processes and ensures the right people are approving requests. But an approval workflow doesn’t necessarily operate efficiently in practice. By carrying out an audit, organizations will have a better understanding of how their approval process is operating. This will allow you to identify any inefficiencies in your approval process. What is a Digital Approval Workflow Audit? It is a structured process to review your digital approval processes. It can help identify whether you are making sure requests are being approved correctly and efficiently. It can also help you identify any redundant processes, delays, missing documentation and lack of ownership.",
-      "author": "Kh3loix",
-      "date": "2026-11-08",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 37,
-      "url": "https://dev.to/ts888/digital-approval-workflow-how-to-audit-your-current-setup-4ch3",
-      "image": "/images/feed/feed-e5eb5b6a15e7.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-542f49739ebd",
-      "title": "Auto-detecting file types taught me guesses need an escape hatch",
-      "excerpt": "I shipped a single endpoint that takes any document and returns Markdown, and the first week was mostly about the bytes before the conversion. PDF, DOCX, PPTX, XLSX, EPUB, HTML — none of them announce…",
-      "body": "I shipped a single endpoint that takes any document and returns Markdown, and the first week was mostly about the bytes before the conversion. PDF, DOCX, PPTX, XLSX, EPUB, HTML — none of them announce themselves reliably. Magic numbers lie, extensions lie more, and a PDF renamed .txt is still a PDF. The lesson I keep returning to: when you auto-detect, you are making a guess on behalf of the caller, so the guess has to be inspectable. I added a detected_type field to the response and a way to force the parser when the guess is wrong. That turned silent corruption into a boring error the agent can correct on the next call. Most \"bad output\" reports weren't converter bugs; they were wrong sniffing. The second lesson is that one door only works if the door tells you what went through it.",
-      "author": "InApp",
-      "date": "2026-11-08",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 39,
-      "url": "https://dev.to/imapphelp/auto-detecting-file-types-taught-me-guesses-need-an-escape-hatch-38ic",
-      "image": "/images/feed/feed-542f49739ebd.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-417b84f90038",
-      "title": "Apache APISIX Admin Exposure: The Gap Between a 9180 Listener and a Key-Protected Control Plane",
-      "excerpt": "Apache APISIX Admin Exposure: The Gap Between a 9180 Listener and a Key-Protected Control Plane Apache APISIX uses its Admin API to change routes, upstreams, consumers, and other gateway configuration…",
-      "body": "Apache APISIX Admin Exposure: The Gap Between a 9180 Listener and a Key-Protected Control Plane Apache APISIX uses its Admin API to change routes, upstreams, consumers, and other gateway configuration. The official documentation shows the Admin API on port 9180 and uses an X-API-KEY header for administrative requests. That makes the control plane an attractive asset to inventory. A public listener is not proof that the API is unauthenticated, and a missing key in a scan is not proof that the service is vulnerable. The useful question is how many assets can be associated with APISIX, and which of those associations are strong enough to inspect. On November 8, 2026, ZoomEye count-only queries for this assessment used sub_type=all , page 1, and page size 1.",
-      "author": "facilishz",
-      "date": "2026-11-08",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 35,
-      "url": "https://dev.to/facilishz/apache-apisix-admin-exposure-the-gap-between-a-9180-listener-and-a-key-protected-control-plane-30hn",
-      "image": "/images/feed/feed-417b84f90038.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-5ee3b03dbb43",
-      "title": "AI Ships Fast, but Focus Drifts",
-      "excerpt": "One incident still sticks with me. Our application services have to update a batch of data in shared memory atomically. That memory is managed centrally by the system: cross-process locks, memory orde…",
-      "body": "One incident still sticks with me. Our application services have to update a batch of data in shared memory atomically. That memory is managed centrally by the system: cross-process locks, memory ordering, and version switching are all wrapped inside the .so library, and callers reach it through a single shared header. At the time, though, the library offered no interface for \"atomic bulk update\". The AI's approach was about as blunt as it gets: grab the physical address through mmap , overwrite field by field according to its own reading of the layout, and casually invent a flag on the side to serve as a \"currently being modified\" lock. In a single process it ran fine, and the tests passed.",
-      "author": "Jo Yet",
-      "date": "2026-11-08",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 30,
-      "url": "https://dev.to/joyet/ai-ships-fast-but-focus-drifts-1ocm",
-      "image": "/images/feed/feed-5ee3b03dbb43.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-be6463a22d3d",
-      "title": "Why coding agent memory files go stale - and what teams should do instead",
-      "excerpt": "Originally published at getlockstep.dev. A coding agent reads a memory file that says the checkout migration is blocked on database approval. The approval landed last week. The migration shipped. The…",
-      "body": "Originally published at getlockstep.dev . A coding agent reads a memory file that says the checkout migration is blocked on database approval. The approval landed last week. The migration shipped. The task closed. Nobody removed the note. The agent now plans around a blocker that no longer exists. This failure is easy to misdiagnose as weak retrieval. The agent retrieved the exact memory the team gave it. The problem is lifecycle: temporary state survived without an owner, status, or expiry, so old context still looked current.",
-      "author": "Naman Jain",
+      "id": "feed-c8f5a94a6163",
+      "title": "The same small trial is read as \"no effect\" at post-test and \"an effect\" at six weeks",
+      "excerpt": "For weeks I have been measuring how far my own numbers can see, and the result was not flattering. On my own publishing account the smallest difference one new piece against a small baseline could det…",
+      "body": "For weeks I have been measuring how far my own numbers can see, and the result was not flattering. On my own publishing account the smallest difference one new piece against a small baseline could detect was larger than the largest number I had ever produced. The design was not underpowered. It was aimed where the data never goes. That is easy to say about myself. The harder test is a paper where nobody handed me the ruler, whose authors have never heard of my arithmetic, and where the numbers have to come out of their own tables. I found one in nursing education. The paper \"Integrating ChatGPT into nursing education: a randomized trial exploring knowledge, retention, and student perspectives on endotracheal suctioning.\" BMC Medical Education , 2026.",
+      "author": "Nuncius",
       "date": "2026-11-08",
       "readTime": "2 min",
       "section": "software",
@@ -91,36 +15,112 @@
       ],
       "featured": true,
       "xpReward": 33,
-      "url": "https://dev.to/naman_here/why-coding-agent-memory-files-go-stale-and-what-teams-should-do-instead-1659",
-      "image": "/images/feed/feed-be6463a22d3d.webp",
+      "url": "https://dev.to/nuncius-ghost/the-same-small-trial-is-read-as-no-effect-at-post-test-and-an-effect-at-six-weeks-oka",
+      "image": "/images/feed/feed-c8f5a94a6163.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-18aecba579d1",
-      "title": "AI Agent Memory: Anthropic's 4 Layers, Built in Python",
-      "excerpt": "Agent memory is the record of what an AI agent learned in past sessions, kept as text it can load again later. Anthropic measured what that record is worth on 6 November 2026: with memory, Claude Opus…",
-      "body": "Agent memory is the record of what an AI agent learned in past sessions, kept as text it can load again later. Anthropic measured what that record is worth on 6 November 2026: with memory, Claude Opus 5.5 scored 0.838 on the company's Continual Learning Bench, up from 0.655 without it. We build a working version in Python below. Key takeaways Anthropic splits agent memory into four layers: transcripts, notes, representations such as wikis, and a small block of injected context. Memory lifted every recent Claude model on CL-Bench. Older models gained most: Opus 4.7 rose from 0.383 to 0.700. Offline \"dreaming\" passes fix wrong notes. In a Pokémon Red run, a corrected note let the agent reach Cerulean City, which the wrong note had blocked.",
-      "author": "Muhammad Saud",
+      "id": "feed-e7e34da0d6de",
+      "title": "Reviewing a PR with Git Diff and Context",
+      "excerpt": "Quick answer: Start the review from the local git diff, then read the change against the definitions, callers, and imports that surround it rather than judging each line in isolation. The desktop open…",
+      "body": "Quick answer: Start the review from the local git diff, then read the change against the definitions, callers, and imports that surround it rather than judging each line in isolation. The desktop opens the project structure first, then a file shows its full source with views for source, full comparison, and changes. Every finding is tied to reproducible evidence, and you confirm the context before you act. Open the structure before the diff When you choose a code folder, the project structure opens first. That ordering matters, because a diff is hard to judge without knowing where the changed files sit and how heavily they are referenced.",
+      "author": "Jeff",
       "date": "2026-11-08",
       "readTime": "2 min",
       "section": "software",
       "tags": [
-        "Python"
+        "Software"
       ],
       "featured": true,
-      "xpReward": 30,
-      "url": "https://dev.to/ali_82f3409ed625e8ba8515b/ai-agent-memory-anthropics-4-layers-built-in-python-4leo",
-      "image": "/images/feed/feed-18aecba579d1.webp",
+      "xpReward": 47,
+      "url": "https://dev.to/jeff_pdc/reviewing-a-pr-with-git-diff-and-context-1ehf",
+      "image": "/images/feed/feed-e7e34da0d6de.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-ed274fc8f238",
-      "title": "Postman Is a Desktop App: Testing APIs When You're Not at Your Desk",
-      "excerpt": "It's 11pm. Production is returning 502s on one endpoint and only one, and the person who noticed is asking you to confirm whether it's still happening. You are not at your laptop. This sounds like a s…",
-      "body": "It's 11pm. Production is returning 502s on one endpoint and only one, and the person who noticed is asking you to confirm whether it's still happening. You are not at your laptop. This sounds like a small problem. It isn't, because every option you have at 11pm is bad in a different way. Termux and curl. Works fine. Becomes miserable the moment you need an auth header, a request body, or the same environment variables you used yesterday. Wait until morning. Correct, and completely useless to the person currently waiting on you. A cloud request tunnel. Sends production traffic and its auth headers through a third party's logs. I've done it. I don't love it. A public API playground. Requires pasting an internal URL and a bearer token into someone else's website.",
-      "author": "Vivek Sagar",
+      "id": "feed-44185bb012f5",
+      "title": "Microsoft's AI Frontiers Research Group Is Gone — and Its Founder Left With It",
+      "excerpt": "Microsoft's flagship AI research group is finished. John Langford, the Microsoft Research leader who helped create AI Frontiers, announced on November 6 that he has left the company — and that the gro…",
+      "body": "Microsoft's flagship AI research group is finished. John Langford, the Microsoft Research leader who helped create AI Frontiers, announced on November 6 that he has left the company — and that the group itself is over. The roughly 50-person team behind the AutoGen agent framework and the Fara computer-use agent was folded into Microsoft AI in early September. Langford says the two groups simply could not work together: one was built for research, the other for scaling. What Langford said In a post titled \"The End of AI Frontiers\" on his blog Machine Learning (Theory), Langford explained that the group was set up inside Microsoft Research after ChatGPT launched, to run research in a more coordinated way.",
+      "author": "Rohan Tech official",
+      "date": "2026-11-08",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 43,
+      "url": "https://dev.to/rohan_techofficial_81a0f/microsofts-ai-frontiers-research-group-is-gone-and-its-founder-left-with-it-1boj",
+      "image": "/images/feed/feed-44185bb012f5.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-b7b537705066",
+      "title": "My background agents went quiet for hours. Nothing had failed.",
+      "excerpt": "Originally published at omerbinsaleem.com by Omer Bin Saleem (Omer Saleem). Two background agents each sat on one command for about two and a half hours, with no error and no completion notice. Here i…",
+      "body": "Originally published at omerbinsaleem.com by Omer Bin Saleem (Omer Saleem). Two background agents each sat on one command for about two and a half hours, with no error and no completion notice. Here is the brief rule and the silence check I use now. What changed Every build brief now bans wait loops and rm -rf. Any agent quiet for about 30 minutes gets a timestamp check instead of more waiting. How to do it Know the failure mode. In a background agent, a command that needs a permission prompt, or a blocked foreground sleep, does not fail. It just waits forever. One of my agents stopped on cp ... &amp;&amp; rm -rf ... , the other on until ...; do sleep 5; done . Both looked like they were still working.",
+      "author": "Omer Saleem",
+      "date": "2026-11-08",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 33,
+      "url": "https://dev.to/omerbinsaleem/my-background-agents-went-quiet-for-hours-nothing-had-failed-18dg",
+      "image": "/images/feed/feed-b7b537705066.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-8ba320e7768b",
+      "title": "Logout Does Not Necessarily Clear the Browser's Back-Forward Snapshot",
+      "excerpt": "Logout Does Not Necessarily Clear the Browser's Back-Forward Snapshot A browser's back-forward cache, often called bfcache, can keep an entire page in memory so that Back and Forward navigation feel i…",
+      "body": "Logout Does Not Necessarily Clear the Browser's Back-Forward Snapshot A browser's back-forward cache, often called bfcache, can keep an entire page in memory so that Back and Forward navigation feel immediate. MDN explains that a page restored from bfcache may not be revalidated with the server. That creates a gap between server-side logout and what a user can still see in the browser interface. The session cookie may be gone while the previously rendered page is restored from local memory. The risk grows with shared devices and sensitive dashboards. A user opens an invoice or account page, signs out, and hands the device to another person. The second person presses Back. If the page is restored from bfcache, the old DOM may appear before the application has checked the session again.",
+      "author": "OnaEiuspkz",
+      "date": "2026-11-08",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 31,
+      "url": "https://dev.to/onaeiuspkz/logout-does-not-necessarily-clear-the-browsers-back-forward-snapshot-3hek",
+      "image": "/images/feed/feed-8ba320e7768b.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-8aad7dca320b",
+      "title": "How to sign a PDF with a photo of your signature, without printing it",
+      "excerpt": "The usual way to sign a PDF that someone sent you is to print it, sign the paper, and scan it back, which takes a printer and a scanner for a single line of ink. The other common route, drawing your n…",
+      "body": "The usual way to sign a PDF that someone sent you is to print it, sign the paper, and scan it back, which takes a printer and a scanner for a single line of ink. The other common route, drawing your name with a trackpad, gives a signature that doesn't look like yours. A third option is a photo: sign a sheet of white paper once, take a picture, and let the PDF editor keep only the ink. The steps below do that in the PDF Editor of the osFoundry desktop app, on an example freelance agreement. Photograph the signature once Sign a plain white sheet with the pen you normally use and take a photo of it in bright, even light. The editor's own hint says the same: use the flash if the room is dim.",
+      "author": "Hanako H.",
+      "date": "2026-11-08",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 46,
+      "url": "https://dev.to/bestaitool/how-to-sign-a-pdf-with-a-photo-of-your-signature-without-printing-it-2h9",
+      "image": "/images/feed/feed-8aad7dca320b.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-4a0d8ad03e57",
+      "title": "Vibe-Coded App Security Holes to Close Before Real Users",
+      "excerpt": "Vibe-coded app security holes are the gaps your AI builder left open while making the app work. Before real users sign up, close four of them: open database tables, secrets in front-end code, auth che…",
+      "body": "Vibe-coded app security holes are the gaps your AI builder left open while making the app work. Before real users sign up, close four of them: open database tables, secrets in front-end code, auth checks that point the wrong way, and production settings never switched on. The problem: it works, and it is wide open Your app works. You typed what you wanted, the AI tool built it, and it looks right. People can sign up, add details, and pay. So the question is simple: can anyone else read all of it? In June 2026, Symbiotic Security scanned 1,072 vibe-coded apps using Supabase. 98% had at least one flaw, 16% a critical one, and only 26 were clean. On 172, anyone could delete records without signing in; on 39, anyone could read every table.",
+      "author": "Israr Kundi",
       "date": "2026-11-08",
       "readTime": "2 min",
       "section": "software",
@@ -128,10 +128,29 @@
         "Software"
       ],
       "featured": false,
-      "xpReward": 38,
-      "url": "https://dev.to/vivek_sagar_03577d2d6d942/postman-is-a-desktop-app-testing-apis-when-youre-not-at-your-desk-2ap6",
-      "image": "/images/feed/feed-ed274fc8f238.webp",
+      "xpReward": 33,
+      "url": "https://dev.to/israr-kundi/vibe-coded-app-security-holes-to-close-before-real-users-3blf",
+      "image": "/images/feed/feed-4a0d8ad03e57.webp",
       "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-0f45f928d32b",
+      "title": "10 Perfectly Designed Final Fantasy Magic Cards That Are 10/10, No Notes",
+      "excerpt": "Discover 10 perfectly designed Final Fantasy Magic: The Gathering cards that nail the crossover's flavor and mechanics.",
+      "body": "Packed with hilarious nods, like Suplex , and incredible powerhouses, like Diamond Weapon , it comes as no surprise that Final Fantasy is among the best Universe Beyond sets in the game. But the most perfect designs among them capture a fundamental element of their source material, whether that's Bahamut 's devastating Mega Flare, Phoenix Down' s clutch resurrection, or the sheer spectacle of summoning Primal Odin .",
+      "author": "Ryan Epps",
+      "date": "2026-11-08",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 51,
+      "url": "https://www.polygon.com/best-final-fantasy-magic-the-gathering-card-designs/",
+      "image": "/images/feed/feed-0f45f928d32b.png",
+      "source": "Polygon",
       "isLive": true
     },
     {
@@ -147,7 +166,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 37,
       "url": "https://www.polygon.com/the-legend-of-korra-season-3-best-season/",
       "image": "/images/feed/feed-95ac365881a9.jpg",
       "source": "Polygon",
@@ -166,10 +185,29 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 35,
       "url": "https://www.polygon.com/best-dragon-age-replacements/",
       "image": "/images/feed/feed-f57d1df1b903.jpg",
       "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-fd76eb13ab29",
+      "title": "Goodbye Claude, Hello Pi",
+      "excerpt": "",
+      "body": "This report, published by Hacker News, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Claude. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Hacker News using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "karagenit",
+      "date": "2026-11-08",
+      "readTime": "2 min",
+      "section": "ai",
+      "tags": [
+        "Claude"
+      ],
+      "featured": false,
+      "xpReward": 42,
+      "url": "https://caleb.software/posts/claude-to-pi.html",
+      "image": "/images/topics/topic-ai-ml.png",
+      "source": "Hacker News",
       "isLive": true
     },
     {
@@ -185,7 +223,7 @@
         "Game"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 35,
       "url": "https://www.polygon.com/gta-games-all-2026-where-to-play/",
       "image": "/images/feed/feed-52afe4922f5f.jpg",
       "source": "Polygon",
@@ -204,7 +242,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 48,
       "url": "https://www.polygon.com/top-bioware-games/",
       "image": "/images/feed/feed-b16fd1c30c8d.jpg",
       "source": "Polygon",
@@ -223,7 +261,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 48,
       "url": "https://www.polygon.com/star-trek-captain-pike-most-inspiring-quote/",
       "image": "/images/feed/feed-3dfb1b622dcb.jpg",
       "source": "Polygon",
@@ -242,7 +280,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 40,
       "url": "https://www.engadget.com/2307469/how-to-sync-apple-music-across-devices/",
       "image": "/images/feed/feed-6804a856f9c4.jpg",
       "source": "Engadget",
@@ -261,7 +299,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 31,
       "url": "https://www.engadget.com/2307479/samsung-one-ui-9-5-beta-program-how-to-sign-up/",
       "image": "/images/feed/feed-819550fbcc1b.jpg",
       "source": "Engadget",
@@ -280,7 +318,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 36,
       "url": "https://www.engadget.com/2307324/spam-callers-how-they-get-your-number/",
       "image": "/images/feed/feed-06cf4ad5607b.jpg",
       "source": "Engadget",
@@ -299,7 +337,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 50,
       "url": "https://www.engadget.com/2307150/apple-one-family-plan-what-comes-with-which-subscription-best/",
       "image": "/images/feed/feed-578fe9efcbca.jpg",
       "source": "Engadget",
@@ -318,7 +356,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 40,
       "url": "https://cleantechnica.com/2026/11/07/wind-farms-us-energy-policy-lawsuits-trump/",
       "image": "/images/feed/feed-34ed9ad4aabe.png",
       "source": "CleanTechnica",
@@ -337,7 +375,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 54,
       "url": "https://www.engadget.com/2309904/useful-ipad-apps-make-daily-life-easier/",
       "image": "/images/feed/feed-0539e2805900.jpg",
       "source": "Engadget",
@@ -356,29 +394,10 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 45,
       "url": "https://www.ign.com/articles/lego-black-friday-2026-sales-what-to-expect",
       "image": "/images/feed/feed-b659438d7fd3.jpg",
       "source": "IGN",
-      "isLive": true
-    },
-    {
-      "id": "feed-93dd50c02c6f",
-      "title": "Cyberpunk 2077 Meets Papers, Please in Steam’s Latest Surprise Viral Hit",
-      "excerpt": "Probably Stolen is the latest indie game to explode in popularity on Steam, pulling in over 150,000 concurrent players, and it's showing no signs of s",
-      "body": "Every now and then, a game with little to no fanfare pre-launch gets blessed by the algorithm and surges in popularity. Probably Stolen is the latest recipient of this; after being released on Oct. 28, it's continued to climb in popularity, peaking at 174,382 concurrent players on Nov. 4, according to SteamDB .",
-      "author": "Ford James",
-      "date": "2026-11-08",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 46,
-      "url": "https://www.polygon.com/probably-stolen-cyberpunk-shopkeeping-simulator-steam-hit/",
-      "image": "/images/feed/feed-93dd50c02c6f.jpg",
-      "source": "Polygon",
       "isLive": true
     },
     {
@@ -394,7 +413,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 44,
       "url": "https://www.engadget.com/2307095/why-keep-nintendo-switch-2-screen-protector/",
       "image": "/images/feed/feed-38e481888f28.jpg",
       "source": "Engadget",
@@ -413,29 +432,10 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 50,
       "url": "https://www.engadget.com/2306821/why-never-put-playstation-5-on-carpeted-floor/",
       "image": "/images/feed/feed-85960bec5715.jpg",
       "source": "Engadget",
-      "isLive": true
-    },
-    {
-      "id": "feed-56aafbfa9ff3",
-      "title": "NASA Awards Moon Base Transportation, Technology, Science Projects",
-      "excerpt": "NASA announced a suite of awards and mission updates on Saturday to expand the agency’s Moon Base exploration, science, and infrastructure capabilities. The investments will advance commercial robotic…",
-      "body": "Artist&#8217;s concept of living and working at Moon Base. Credit: NASA NASA announced a suite of awards and mission updates on Saturday to expand the agency&#8217;s Moon Base exploration, science, and infrastructure capabilities. The investments will advance commercial robotic deliveries, a nuclear-powered rover named PROMISE, launch and orbital transfer services, and surface infrastructure as the agency works with American industry to establish a sustained presence on the Moon’s South Pole. The agency shared the news at the MAX POWER aerospace expo and air show at NASA’s Kennedy Space Center in Florida. “We are building the Moon Base mission by mission,” said NASA Administrator Jared Isaacman.",
-      "author": "Jessica Taveau",
-      "date": "2026-11-07",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Nasa"
-      ],
-      "featured": false,
-      "xpReward": 46,
-      "url": "https://www.nasa.gov/news-release/nasa-awards-moon-base-transportation-technology-science-projects/",
-      "image": "/images/feed/feed-56aafbfa9ff3.jpg",
-      "source": "NASA Breaking News",
       "isLive": true
     },
     {
@@ -452,7 +452,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 39,
       "url": "https://cleantechnica.com/2026/11/07/ev-charging-credit-bmw-free-hours-us-market/",
       "image": "/images/feed/feed-7204e1b5fbc9.png",
       "source": "CleanTechnica",
@@ -471,7 +471,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 49,
       "url": "https://techcrunch.com/2026/11/07/chinese-exec-was-recruited-to-spy-on-nvidia-ceo-according-to-us-intelligence-memo/",
       "image": "/images/feed/feed-f4f061dd3e2b.jpg",
       "source": "TechCrunch",
@@ -490,7 +490,7 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 47,
       "url": "https://cleantechnica.com/2026/11/07/redd-picking-up-our-new-tesla-model-y/",
       "image": "/images/feed/feed-fe3c517a29ba.jpg",
       "source": "CleanTechnica",
@@ -509,30 +509,10 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 54,
       "url": "https://cleantechnica.com/2026/11/07/the-velotric-gomad-electric-utility-ebike-cleantechnica-tested/",
       "image": "/images/feed/feed-24df5fa91192.jpg",
       "source": "CleanTechnica",
-      "isLive": true
-    },
-    {
-      "id": "feed-942d60470dba",
-      "title": "NASA Seeks Next Generation of Explorers to Join Astronaut Corps",
-      "excerpt": "NASA is looking for the explorers who will help write the next chapter of human spaceflight. Applications are now open for the agency’s next class of astronauts, who will join NASA as America returns…",
-      "body": "NASA announced its 2025 Astronaut Candidate Class on Sept. 22, 2025, at the agency’s Johnson Space Center in Houston. Credit: NASA/Helen Arase Vargas NASA is looking for the explorers who will help write the next chapter of human spaceflight. Applications are now open for the agency’s next class of astronauts, who will join NASA as America returns to the Moon, builds the Moon Base, and lays the groundwork for the first crewed missions to Mars. The next generation of astronauts will train to operate on the lunar surface, live and work beyond Earth, and take on missions that will push the boundaries of human exploration farther than ever before. U.S. citizens interested in joining the astronaut corps have until 11:59 p.m. EST Thursday, Dec.",
-      "author": "Jessica Taveau",
-      "date": "2026-11-07",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Nasa",
-        "Astronaut"
-      ],
-      "featured": false,
-      "xpReward": 45,
-      "url": "https://www.nasa.gov/news-release/nasa-seeks-next-generation-of-explorers-to-join-astronaut-corps/",
-      "image": "/images/feed/feed-942d60470dba.jpg",
-      "source": "NASA Breaking News",
       "isLive": true
     },
     {
@@ -548,7 +528,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 48,
       "url": "https://techcrunch.com/2026/11/07/binance-cfo-is-leaving-to-pursue-a-new-venture-after-6-3-billion-hack/",
       "image": "/images/feed/feed-ff59ab9d8295.jpg",
       "source": "TechCrunch",
@@ -567,7 +547,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 37,
       "url": "https://cleantechnica.com/2026/11/07/esbjerg-seawater-heat-pumps-cold-water-district-heating/",
       "image": "/images/feed/feed-be0a01bbb403.png",
       "source": "CleanTechnica",
@@ -586,7 +566,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 54,
       "url": "https://www.space.com/entertainment/space-movies-shows/this-week-in-space-podcast-episode-235-robots-in-dark-and-scary-places",
       "image": "/images/feed/feed-712cef52f7f4.jpg",
       "source": "Space.com",
@@ -606,7 +586,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 47,
       "url": "https://cleantechnica.com/2026/11/07/cybertruck-tesla-gm-ev1-ev-sales-us-market-electric-pickups/",
       "image": "/images/feed/feed-738956fb030f.png",
       "source": "CleanTechnica",
@@ -627,7 +607,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 30,
       "url": "https://www.space.com/space-exploration/on-this-day-in-space-november-7-2026",
       "image": "/images/feed/feed-55d189290d02.jpg",
       "source": "Space.com",
@@ -646,7 +626,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 53,
       "url": "https://electrek.co/2026/11/07/tesla-solar-roof-fraud-liable-experiment-lawsuit/",
       "image": "/images/feed/feed-3b4928a397ba.jpg",
       "source": "Electrek",
@@ -665,7 +645,7 @@
         "Hacker"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 46,
       "url": "https://www.bleepingcomputer.com/news/security/hackers-pull-off-133-million-french-bank-heist-via-service-provider/",
       "image": "/images/feed/feed-0fdcc08f6305.jpg",
       "source": "BleepingComputer",
@@ -684,7 +664,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 36,
       "url": "https://www.space.com/space-exploration/launches-spacecraft/send-your-name-to-saturns-moon-titan-with-nasas-upcoming-dragonfly-mission",
       "image": "/images/feed/feed-59d10bb78368.jpg",
       "source": "Space.com",
@@ -703,7 +683,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 45,
       "url": "https://www.theverge.com/podcast/1029038/ai-cybersecurity-hackers-data-breach-dark-age-alex-stamos",
       "image": "/images/feed/feed-c350b1638a53.jpg",
       "source": "The Verge",
@@ -722,7 +702,7 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 34,
       "url": "https://www.bleepingcomputer.com/news/security/ctm360-exposes-fake-gift-card-scams-exploiting-trusted-brands/",
       "image": "/images/feed/feed-0a53cb4de44f.jpg",
       "source": "BleepingComputer",
@@ -741,7 +721,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 31,
       "url": "https://insideevs.com/reviews/812960/zeekr-7gt-privilege-review/",
       "image": "/images/feed/feed-969f93ccdbe5.jpg",
       "source": "InsideEVs",
@@ -760,7 +740,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 53,
       "url": "https://www.space.com/entertainment/space-games/star-wars-is-experiencing-a-golden-age-of-video-games",
       "image": "/images/feed/feed-3ae5bae2b29e.jpg",
       "source": "Space.com",
@@ -779,7 +759,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 32,
       "url": "https://www.wired.com/story/kernel-panic-refrigeration-hacks-internet-of-things/",
       "image": "/images/feed/feed-caa493ce51a5.jpg",
       "source": "Wired",
@@ -798,7 +778,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 54,
       "url": "https://www.theverge.com/ai-artificial-intelligence/1029126/anthropic-metr-report-accelerating-ai-development",
       "image": "/images/feed/feed-d36485a6e1db.jpg",
       "source": "The Verge",
@@ -818,9 +798,29 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 54,
       "url": "https://www.space.com/space-exploration/i-think-we-will-prevail-nasa-chief-jared-isaacman-on-artemis-china-and-the-new-moon-race-exclusive",
       "image": "/images/feed/feed-b779e160d1af.png",
+      "source": "Space.com",
+      "isLive": true
+    },
+    {
+      "id": "feed-3013a430965d",
+      "title": "SpaceX launches mystery mission for US Space Force in gorgeous sunset liftoff from California (video, photos)",
+      "excerpt": "SpaceX launched a classified mission for the U.S. Space Force from California this evening (Nov. 6). It was the company's 125th liftoff of 2026.",
+      "body": "SpaceX just launched a classified mission for the U.S. military. A Falcon 9 rocket lifted off from California's Vandenberg Space Force Base this evening (Nov. 6) at 7:48 p.m. EST (4:48 p.m. local California time; 0048 GMT on Nov. 7), rising into the sky as the sun sank toward the Pacific. The launch kicked off the USSF-432 mission for the U.S. Space Force , which we know little about. Neither SpaceX nor the Space Force told us much about USSF-432 beforehand, and we learned tonight; SpaceX cut its webcast off about 10 minutes into the flight, shortly after the Falcon 9's first stage came back to Earth for a landing. A SpaceX Falcon 9 rocket launches the USSF-432 mission for the U.S. Space Force from Vandenberg Space Force Base on Nov. 6, 2026.",
+      "author": " Mike Wall ",
+      "date": "2026-11-07",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Spacex",
+        "Space"
+      ],
+      "featured": false,
+      "xpReward": 49,
+      "url": "https://www.space.com/space-exploration/launches-spacecraft/spacex-launches-classified-mission-space-force-ussf-432",
+      "image": "/images/feed/feed-3013a430965d.jpg",
       "source": "Space.com",
       "isLive": true
     },
@@ -838,7 +838,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 30,
       "url": "https://www.theverge.com/ai-artificial-intelligence/1029380/openai-1-25-trillion-investment-valuation",
       "image": "/images/feed/feed-53c8a40c524c.jpg",
       "source": "The Verge",
@@ -857,10 +857,29 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 45,
       "url": "https://techcrunch.com/2026/11/06/openai-reportedly-raises-an-additional-11-billion-at-a-1-25-trillion-valuation/",
-      "image": "/images/feed/feed-41cd6da548e0.webp",
+      "image": "/images/feed/feed-41cd6da548e0.jpg",
       "source": "TechCrunch",
+      "isLive": true
+    },
+    {
+      "id": "feed-49e1fdb5f729",
+      "title": "On this day in space! Nov. 6, 1572: A German astronomer discovers the Tycho supernova with the naked eye, but everyone thought the cosmic explosion was a 'new star'",
+      "excerpt": "On Nov. 6, 1572, the German astronomer Wolfgang Schulër observed a supernova later caleld the Tycho supernova with his bare eyes. Here's why it mattered.",
+      "body": "On Nov. 6, 1572, the German astronomer Wolfgang Schulër observed a supernova with his bare eyes. He spotted the exploding star in the constellation Cassiopeia. It was as bright as Venus and could even be seen during the day. Astronomers were really confused, because it looked like a star just appeared out of nowhere. Schulër may have been the first to see it, but the Danish astronomer Tycho Brahe is widely credited for the discovery. Brahe studied it in detail and wrote a whole book about this so-called \"new star.\" It then became known as \"Tycho's Star.\" At the time, supernovas had not yet been discovered. Tycho's Star was finally classified as a supernova in the 1940s. Scientists now think it was a small star called a white dwarf that exploded thousands of years ago.",
+      "author": " Hanneke Weitering ",
+      "date": "2026-11-06",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Space"
+      ],
+      "featured": false,
+      "xpReward": 41,
+      "url": "https://www.space.com/space-exploration/on-this-day-in-space-november-6-2026",
+      "image": "/images/feed/feed-49e1fdb5f729.jpg",
+      "source": "Space.com",
       "isLive": true
     },
     {
@@ -877,7 +896,7 @@
         "Gpt"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 46,
       "url": "https://www.bleepingcomputer.com/news/security/openais-new-gpt-6-cyber-ai-finds-81-firefox-flaws-948-linux-bugs/",
       "image": "/images/feed/feed-86cd7cb41c9e.jpg",
       "source": "BleepingComputer",
@@ -896,7 +915,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 36,
       "url": "https://www.wired.com/story/free-chinese-ai-models-are-getting-scary-good-at-hacking/",
       "image": "/images/feed/feed-2b7f2f98758a.jpg",
       "source": "Wired",
@@ -916,43 +935,24 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 45,
       "url": "https://www.cnet.com/tech/services-and-software/roundup-chatgpt-claude-gpt-6-cyber-images-2-6-personal-finance/",
       "image": "https://www.cnet.com/wp-content/uploads/sites/2/AdobeStock_1957197742_Editorial_Use_Only.jpeg",
       "source": "CNET",
       "isLive": true
-    },
-    {
-      "id": "feed-7b5a2965d87a",
-      "title": "Ramp data shows AI spending stalling just as Anthropic nears its IPO",
-      "excerpt": "AI usage keeps climbing, but spending has stalled. Price cuts and smarter cost controls among the biggest spenders could challenge investor assumptions about AI hypergrowth.",
-      "body": "AI usage keeps climbing, but spending has stalled. Price cuts and smarter cost controls among the biggest spenders could challenge investor assumptions about AI hypergrowth.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Anthropic. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Rebecca Bellan",
-      "date": "2026-11-06",
-      "readTime": "2 min",
-      "section": "ai",
-      "tags": [
-        "Anthropic"
-      ],
-      "featured": false,
-      "xpReward": 37,
-      "url": "https://techcrunch.com/2026/11/06/ramp-data-shows-ai-spending-stalling-just-as-anthropic-nears-its-ipo/",
-      "image": "/images/feed/feed-7b5a2965d87a.webp",
-      "source": "TechCrunch",
-      "isLive": true
     }
   ],
   "breakingNews": [
-    "DEV.TO: Digital Approval Workflow: How to Audit Your Current Setup",
-    "DEV.TO: Auto-detecting file types taught me guesses need an escape hatch",
-    "DEV.TO: Apache APISIX Admin Exposure: The Gap Between a 9180 Listener and a Key-Protected Control Plane",
-    "DEV.TO: AI Ships Fast, but Focus Drifts",
-    "DEV.TO: Why coding agent memory files go stale - and what teams should do instead",
-    "DEV.TO: AI Agent Memory: Anthropic's 4 Layers, Built in Python",
-    "DEV.TO: Postman Is a Desktop App: Testing APIs When You're Not at Your Desk",
+    "DEV.TO: The same small trial is read as \"no effect\" at post-test and \"an effect\" at six weeks",
+    "DEV.TO: Reviewing a PR with Git Diff and Context",
+    "DEV.TO: Microsoft's AI Frontiers Research Group Is Gone — and Its Founder Left With It",
+    "DEV.TO: My background agents went quiet for hours. Nothing had failed.",
+    "DEV.TO: Logout Does Not Necessarily Clear the Browser's Back-Forward Snapshot",
+    "DEV.TO: How to sign a PDF with a photo of your signature, without printing it",
+    "DEV.TO: Vibe-Coded App Security Holes to Close Before Real Users",
+    "POLYGON: 10 Perfectly Designed Final Fantasy Magic Cards That Are 10/10, No Notes",
     "POLYGON: Paramount’s 4-Part Action Fantasy Epic Has One of the Best Seasons in TV History",
-    "POLYGON: 9 Near-Perfect Dragon Age Replacements For Fans of Fantasy RPGs",
-    "POLYGON: How to Play Every GTA Game in 2026"
+    "POLYGON: 9 Near-Perfect Dragon Age Replacements For Fans of Fantasy RPGs"
   ],
   "sectionVideos": {}
 }
