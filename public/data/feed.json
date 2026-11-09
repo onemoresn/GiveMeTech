@@ -1,6 +1,349 @@
 {
-  "fetchedAt": "2026-11-09T12:15:24.203Z",
+  "fetchedAt": "2026-11-09T13:13:08.274Z",
   "articles": [
+    {
+      "id": "feed-32b0794e9abf",
+      "title": "chmod 755 Is Not 'Read, Write, Execute': 5 Permission Traps",
+      "excerpt": "Every tutorial hands you the same two commands: chmod 755 for directories, chmod 644 for files. Both work. Neither explains what you just agreed to. I built a small permissions calculator while cleani…",
+      "body": "Every tutorial hands you the same two commands: chmod 755 for directories, chmod 644 for files. Both work. Neither explains what you just agreed to. I built a small permissions calculator while cleaning up a deploy script, and these are the traps that bit me hardest — every number below I re-ran in a shell today. 1. rwx on a directory is not about the files On a regular file the three bits are obvious. On a directory they mean something else entirely: r lists names, w creates and deletes entries, x lets you traverse — stat a child, cd into it, open anything inside. I set a directory to 666 and got exactly that behaviour: listing it returned an empty result without an error, creating a file inside failed with EACCES, and cd into it failed too. Readable but useless.",
+      "author": "zhihu wu",
+      "date": "2026-11-09",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 54,
+      "url": "https://dev.to/zhihu_wu_dea1d82af01a04d7/chmod-755-is-not-read-write-execute-5-permission-traps-27i2",
+      "image": "/images/feed/feed-32b0794e9abf.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-b19f9057ddd2",
+      "title": "Same loop, same numbers, 13x slower. I only swapped two lines.",
+      "excerpt": "Two functions that add up every number in a 4096 by 4096 grid: function sumRows(grid) { let s = 0; for (let r = 0; r < N; r++) for (let c = 0; c < N; c++) s += grid[r][c]; return s; } function sumCols…",
+      "body": "Two functions that add up every number in a 4096 by 4096 grid: function sumRows ( grid ) { let s = 0 ; for ( let r = 0 ; r &lt; N ; r ++ ) for ( let c = 0 ; c &lt; N ; c ++ ) s += grid [ r ][ c ]; return s ; } function sumCols ( grid ) { let s = 0 ; for ( let c = 0 ; c &lt; N ; c ++ ) for ( let r = 0 ; r &lt; N ; r ++ ) s += grid [ r ][ c ]; return s ; } Same grid. Same 16.7 million additions. Same answer. The only difference is which loop is on the outside. On my laptop (Node 24, Apple M3), median of 5 runs: sumRows 11 ms sumCols 146 ms 13 times slower. Nothing in the code tells you that. The CPU never reads just one number Reading from RAM takes around 100 nanoseconds. In that time the CPU could do hundreds of additions. So it cheats.",
+      "author": "Thới Hải Đức",
+      "date": "2026-11-09",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 40,
+      "url": "https://dev.to/haiduc0147/same-loop-same-numbers-13x-slower-i-only-swapped-two-lines-26ie",
+      "image": "/images/feed/feed-b19f9057ddd2.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-85c4e11b7a55",
+      "title": "A job offer on LinkedIn came with malware in a Git hook. It's the \"Contagious Interview\" playbook",
+      "excerpt": "A recruiter messaged me on LinkedIn about building the website for a blockchain basketball game. Then they sent a documentation pack as a .tar.gz file. The plan was simple: review the docs, sign the N…",
+      "body": "A recruiter messaged me on LinkedIn about building the website for a blockchain basketball game. Then they sent a documentation pack as a .tar.gz file. The plan was simple: review the docs, sign the NDA, then we'd schedule a call. The docs were real enough to read. The archive also held a Git hook that would have downloaded a script and run it on my Mac the first time I checked out a branch. One of its branches was called NDA . It follows the playbook of a campaign security researchers have been tracking for a while, called Contagious Interview : fake recruiters, web3 projects, and code that runs when a developer does something routine. With so many developers looking for work right now, I'm writing up exactly what it looked like, so it's easier to spot.",
+      "author": "Huzaifa Khan",
+      "date": "2026-11-09",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 48,
+      "url": "https://dev.to/huzaifa207/a-job-offer-on-linkedin-came-with-malware-in-a-git-hook-its-the-contagious-interview-playbook-34ia",
+      "image": "/images/feed/feed-85c4e11b7a55.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-3ee4982f48e4",
+      "title": "AI Brief: Apple's HALO Robot, 5,000 Agents per Repo",
+      "excerpt": "Apple's humanoid hit 91% task success using a Qwen model, GitHub internally tested 5,000 agents working in one repository, and Sam Altman told Stanford that a token budget now substitutes for a hundre…",
+      "body": "Apple's humanoid hit 91% task success using a Qwen model, GitHub internally tested 5,000 agents working in one repository, and Sam Altman told Stanford that a token budget now substitutes for a hundred engineers. Here is what actually moved on 2026-11-09. ▸ Apple's HALO runs on Qwen. Apple disclosed its HALO humanoid system, which calls Alibaba's Qwen model on a Unitree G1 and averages 91% success per task. The same day: Meta shipped model variants specialized through Muse Wonder training, and an unreleased Anthropic model reportedly helped crack a major quantum computing problem. (source: @NewlearnerChannel) ▸ Agent infrastructure is being stress-tested. Perplexity launched Teammate, an agent built for sustained, complex work rather than one-shot answers.",
+      "author": "keeper",
+      "date": "2026-11-09",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 53,
+      "url": "https://dev.to/lanternproton/ai-brief-apples-halo-robot-5000-agents-per-repo-4c0c",
+      "image": "/images/feed/feed-3ee4982f48e4.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-38ad32bce034",
+      "title": "用 osFoundry Operator 讓 AI 代理操作 App，每個動作都留下紀錄",
+      "excerpt": "「我的 GPU endpoint 有哪些還在計費？」這個問題很簡單，但要回答它，通常得點進三個畫面、讀出數字，再回到聊天視窗把它們打出來。把這件事交給 AI 代理聽起來很不錯，直到你開始追問：它到底點了什麼？osFoundry Operator 就是圍繞這個問題設計的：代理在對話旁邊的 App 即時窗格裡工作，它做的每個動作都會被記錄下來。 osFoundry 是一款把聊天、代理、檔案和工具整合在…",
+      "body": "「我的 GPU endpoint 有哪些還在計費？」這個問題很簡單，但要回答它，通常得點進三個畫面、讀出數字，再回到聊天視窗把它們打出來。把這件事交給 AI 代理聽起來很不錯，直到你開始追問：它到底點了什麼？osFoundry Operator 就是圍繞這個問題設計的：代理在對話旁邊的 App 即時窗格裡工作，它做的每個動作都會被記錄下來。 對話旁邊，就是 App 的即時窗格 osFoundry 是一款把聊天、代理、檔案和工具整合在同一個視窗裡的桌面 App。Operator 把畫面分成三欄。左邊是 Operator 的工作階段清單，中間是對話，右邊則是即時的 dashboard 窗格：一份真正的 osFoundry App，Operator 會在裡面開啟各個畫面。窗格上方會顯示目前所在的畫面（這裡是 Dashboard /models/endpoints），並提供 Home 與 Project 捷徑、Reload dashboard 和 Open in a new window。拖曳分隔線就能把窗格拉寬。 在這個例子裡，Sammy 問哪些 GPU endpoint 正在計費。Operator 在窗格中開啟 Endpoints，讀取上面的卡片，然後在聊天中回答：一個 endpoint 是 Active，每小時 $1.45，目前已花費 $7.54；一個還在 Creating，但已經開始計費；另一個是 Stopped。答案來自它剛剛開啟的畫面，而那個畫面還留在原處，隨時可以核對。它也主動提議停止那個運作中的 endpoint，並表示按下 Stop 之前會先詢問。 活動列：Operator 實際做了什麼 窗格下方有一條細長的活動列，顯示 Operator 目前是閒置還是工作中，以及上次動作的時間。展開之後，Log 會列出 Operator 在這個窗格中做過的所有動作，最新的在最上…",
+      "author": "tauchiii",
+      "date": "2026-11-09",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 48,
+      "url": "https://dev.to/tauchi-zh/yong-osfoundry-operator-rang-ai-dai-li-cao-zuo-appmei-ge-dong-zuo-du-liu-xia-ji-lu-3p45",
+      "image": "/images/feed/feed-38ad32bce034.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-b83ca903a53d",
+      "title": "AI 에이전트에게 부서와 역할을 줬더니 osFoundry에서 \"확인만 하면\" 되더라",
+      "excerpt": "AI 에이전트와의 채팅은 한 번으로 끝나는 일에는 충분합니다. 하지만 계속 이어지는 일은 다릅니다. 매주 진행 보고서, 출시 때마다 나가는 보도자료, 매일 하는 경쟁사 체크. 각각 담당이 있어야 하고, 정해진 시간에 돌아가야 하고, 기자 42명에게 메일 보내기처럼 되돌릴 수 없는 단계는 누군가 승인해야 합니다. osFoundry의 Departments는 이…",
+      "body": "AI 에이전트와의 채팅은 한 번으로 끝나는 일에는 충분합니다. 하지만 계속 이어지는 일은 다릅니다. 매주 진행 보고서, 출시 때마다 나가는 보도자료, 매일 하는 경쟁사 체크. 각각 담당이 있어야 하고, 정해진 시간에 돌아가야 하고, 기자 42명에게 메일 보내기처럼 되돌릴 수 없는 단계는 누군가 승인해야 합니다. osFoundry의 Departments는 이런 일에 \"부서\"라는 자리를 만들어 주고, 에이전트가 지금 뭘 하는지는 Agent Registry에서 볼 수 있습니다. 부서가 사람, 에이전트, 직무를 가진다 osFoundry 는 채팅, AI 에이전트, 파일, 각종 도구를 한 창에 모은 데스크톱 앱입니다. Departments에서는 부서마다 구성원(사람과 에이전트), 직무(Duties), Department Projects, 기록을 가집니다. 목록에는 부서별 상태와 스폰서가 나오는데, 예시에서는 Customer Support가 일시 중지, Launch Operations가 운영 중이고 그 아래 Press Desk라는 하위 부서가 있으며, Research는 아직 초안입니다. 새로 만든 부서는 초안으로 시작합니다. 자리는 비어 있고 직무는 일시 중지 상태라서, 자리를 채우고 직무를 켜기 전에는 아무것도 돌아가지 않습니다. Desk: 지금 사람이 봐야 할 것 부서를 열면 먼저 Desk가 나옵니다. 처리가 필요한 것을 한 페이지에 모은 화면입니다. Launch Operations 예시에는 이런 것들이 있습니다.",
+      "author": "tauchiii",
+      "date": "2026-11-09",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 39,
+      "url": "https://dev.to/tauchi-ko/ai-eijeonteuege-buseowa-yeoghaleul-jweossdeoni-osfoundryeseo-hwaginman-hamyeon-doedeora-57ke",
+      "image": "/images/feed/feed-b83ca903a53d.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-f6fddbfc72ca",
+      "title": "Seven Tests I Write Before I Trust a .NET Play Counter",
+      "excerpt": "A play counter is the easiest feature to demo and one of the easiest to get quietly wrong. plays = plays + 1 passes every manual test you'll ever click through. It also counts a retried request four t…",
+      "body": "A play counter is the easiest feature to demo and one of the easiest to get quietly wrong. plays = plays + 1 passes every manual test you'll ever click through. It also counts a retried request four times, loses plays when a worker crashes at the wrong moment, and happily lets one script \"listen\" to a track 2,000 times an hour. So when I built a Spotify-style play count in .NET 10 recently, I didn't start with the counter. I started with the tests that would tell me the counter was lying. Here are seven of them, roughly in the order they bit me. The test bodies are trimmed to the part that matters; where something is cut, the comment says so. Tech Skill Builder is $5/month for a very limited time only (normally $10). Grab it now before it goes back to $10.",
+      "author": "MICHAEL-MAURICE",
+      "date": "2026-11-09",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 37,
+      "url": "https://dev.to/michael_maurice/seven-tests-i-write-before-i-trust-a-net-play-counter-35i3",
+      "image": "/images/feed/feed-f6fddbfc72ca.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-0f1810b0623b",
+      "title": "Yoshi Is Finally Due To Arrive In Lego Form In A New Adult Set For 2027",
+      "excerpt": "'Adult set' doesn't mean what you might think, just that it's a bigger, more complicated build",
+      "body": "'Adult set' doesn't mean what you might think, just that it's a bigger, more complicated build\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "John Walker",
+      "date": "2026-11-09",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 54,
+      "url": "https://kotaku.com/lego-yoshi-adult-set-nintendo-today-app-mario-kart-standard-2000755074",
+      "image": "/images/feed/feed-0f1810b0623b.jpg",
+      "source": "Kotaku",
+      "isLive": true
+    },
+    {
+      "id": "feed-52b3d73c5dd6",
+      "title": "Sony Announces New Japan-Only PlayStation Portal With Internal Storage",
+      "excerpt": "The new model launches next month, with the internal storage being included for future unannounced device capabilities",
+      "body": "The new model launches next month, with the internal storage being included for future unannounced device capabilities\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Playstation. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Alicia Haddick",
+      "date": "2026-11-09",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Playstation"
+      ],
+      "featured": false,
+      "xpReward": 43,
+      "url": "https://kotaku.com/sony-playstation-portal-japan-only-internal-storage-ps5-streaming-2000754915",
+      "image": "/images/feed/feed-52b3d73c5dd6.jpg",
+      "source": "Kotaku",
+      "isLive": true
+    },
+    {
+      "id": "feed-7b4d10651673",
+      "title": "NASA unveils $10 billion in moon base contracts, new lunar missions and the 'PROMISE' of a nuclear-powered rover",
+      "excerpt": "NASA is pushing ahead with its plan to build a moon base for astronauts by 2032, unveiling up to $10 billion in new contracts to launch and deliver cargo to Earth's nearest neighbor.",
+      "body": "CAPE CANAVERAL, Fla. — NASA is pushing ahead with its plan to build a moon base for astronauts by 2032, with the agency unveiling up to $10 billion in contracts to launch and deliver cargo to the moon and other efforts on Saturday (Nov. 7). The NASA announcement, revealed here during the space agency's \"Max Power\" air show event at Kennedy Space Center , included plans for a new $10 billion Commercial Lunar Payload Services (CLPS) framework, dubbed CLPS 2, about$1.3 billion in funding for the agency's Venture-Class Acquisition of Dedicated and Rideshare (VADR) program, and the nuclear-powered \"PROMISE\" rover on the moon.",
+      "author": " Josh Dinner ",
+      "date": "2026-11-09",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Nasa"
+      ],
+      "featured": false,
+      "xpReward": 34,
+      "url": "https://www.space.com/space-exploration/artemis/nasa-unveils-usd10-billion-in-moon-base-contracts-new-lunar-missions-and-the-promise-of-a-nuclear-powered-rover",
+      "image": "/images/feed/feed-7b4d10651673.jpg",
+      "source": "Space.com",
+      "isLive": true
+    },
+    {
+      "id": "feed-76edefd7cc0c",
+      "title": "NASA chief Jared Isaacman skydives into space agency's MAX POWER air show — 'Going into this job, I I knew we had to do something like this.'",
+      "excerpt": "\"I promise you, there'll be more to come.\"",
+      "body": "CAPE CANAVERAL, Fla. — NASA Administrator Jared Isaacman knows how to make an entrance. Under the bright afternoon sun on Saturday (Nov. 7), Isaacman plummeted through the air above 10,000 onlookers, skydiving into the agency's air show MAX POWER. MAX POWER overtook NASA's Kennedy Space Center here over the weekend, combining aeronautics and aerospace in a massive public air show, the first of its kind for the space agency. A mix of astronauts, fighter jet displays and new technology on display, the spectacle is a lot space-ier than a traditional air show, and Isaacman made sure to really showcase this merging of worlds.",
+      "author": " Chelsea Gohd ",
+      "date": "2026-11-09",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Nasa",
+        "Space"
+      ],
+      "featured": false,
+      "xpReward": 39,
+      "url": "https://www.space.com/space-exploration/nasa-chief-jared-isaacman-skydives-into-space-agencys-max-power-air-show-going-into-this-job-i-i-knew-we-had-to-do-something-like-this",
+      "image": "/images/feed/feed-76edefd7cc0c.jpg",
+      "source": "Space.com",
+      "isLive": true
+    },
+    {
+      "id": "feed-440201f148eb",
+      "title": "Nacon Revolution 5 Unlimited controller review: More customization than I can handle",
+      "excerpt": "Nacon's new controller aims to rival Sony's own DualSense Edge.",
+      "body": "Nacon's new controller aims to rival Sony's own DualSense Edge.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "staff@engadget.com (Mat Smith)",
+      "date": "2026-11-09",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 31,
+      "url": "https://www.engadget.com/2308886/nacon-revolution-5-unlimited-controller-review/",
+      "image": "/images/feed/feed-440201f148eb.jpg",
+      "source": "Engadget",
+      "isLive": true
+    },
+    {
+      "id": "feed-cda4780921de",
+      "title": "Electric dirt bikes keep getting called e-bikes. The bicycle industry wants that to stop",
+      "excerpt": "The line between electric bicycles and electric motorcycles has been getting increasingly blurry – though perhaps not because the vehicles themselves are actually that hard to tell apart. more…",
+      "body": "The line between electric bicycles and electric motorcycles has been getting increasingly blurry – though perhaps not because the vehicles themselves are actually that hard to tell apart. more — a development drawing significant attention in the electric vehicles, hybrids, and automotive technology space.\n\nThis report, published by Electrek, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cars. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Electrek using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Micah Toll",
+      "date": "2026-11-09",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Cars"
+      ],
+      "featured": false,
+      "xpReward": 45,
+      "url": "https://electrek.co/2026/11/09/electric-dirt-bikes-keep-getting-called-e-bikes-the-bicycle-industry-wants-that-to-stop/",
+      "image": "/images/feed/feed-cda4780921de.jpg",
+      "source": "Electrek",
+      "isLive": true
+    },
+    {
+      "id": "feed-cd768ed5cb71",
+      "title": "Teens and parents can expect Instagram notifications about AI age estimation",
+      "excerpt": "Meta says it’s expanding its AI age estimation globally to automatically extend Instagram account protections to millions more teenagers. It says parents in the US can also expect to receive notificat…",
+      "body": "Meta says it’s expanding its AI age estimation globally to automatically extend Instagram account protections to millions more teenagers. It says parents in the US can also expect to receive notificat — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Ben Lovejoy",
+      "date": "2026-11-09",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 47,
+      "url": "https://9to5mac.com/2026/11/09/teens-and-parents-can-expect-instagram-notifications-about-ai-age-estimation/",
+      "image": "/images/feed/feed-cd768ed5cb71.jpg",
+      "source": "9to5Mac",
+      "isLive": true
+    },
+    {
+      "id": "feed-09550357cb85",
+      "title": "Going the distance: these electric semi trucks cover over 600 miles EVERY DAY",
+      "excerpt": "“Sure, diesel is high, but electric trucks don’t work.” It’s a common refrain these days – especially from people selling diesel trucks. Perception lags reality, however, and the reality is that these…",
+      "body": "“Sure, diesel is high, but electric trucks don’t work.” It’s a common refrain these days – especially from people selling diesel trucks. Perception lags reality, however, and the reality is that these electric semi trucks are covering more than 600 miles per day, seven days a week. more…",
+      "author": "Jo Borrás",
+      "date": "2026-11-09",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Cars"
+      ],
+      "featured": false,
+      "xpReward": 38,
+      "url": "https://electrek.co/2026/11/09/going-the-distance-these-electric-semi-trucks-cover-over-600-miles-every-day/",
+      "image": "/images/feed/feed-09550357cb85.jpg",
+      "source": "Electrek",
+      "isLive": true
+    },
+    {
+      "id": "feed-79735cd55c78",
+      "title": "Samsung could soon start charging for Galaxy AI with a new $4.99 Premium subscription (Updated)",
+      "excerpt": "Samsung could test Galaxy AI Premium with Galaxy S27 users first.",
+      "body": "TL;DR Samsung could reportedly start offering a paid Galaxy AI Premium subscription. It could offer new Galaxy AI features and higher usage limits than the free tier. It could cost $4.99 per month or $47.99 annually. Update: November 9, 2026 (07:32 AM ET): A separate report from SamMobile offers more details about Samsung’s Galaxy AI Premium plans. According to the outlet, Samsung could offer three paid tiers, called Starter, Plus, and Pro. The report does not mention any “Max” tier. Daily Briefing will reportedly be part of the Plus tier and is a separate feature from Now Brief. Bixby Action is said to be reserved for the top tier, letting you create command triggers and system routines for everyday tasks.",
+      "author": "Akshay Gangwar",
+      "date": "2026-11-09",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 46,
+      "url": "https://www.androidauthority.com/samsung-galaxy-ai-premium-subscription-report-3732775/",
+      "image": "/images/feed/feed-79735cd55c78.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-5bc80791e1d0",
+      "title": "How Wuthering Waves Drives the Next Evolution of Anime Action RPGs",
+      "excerpt": "Fast combat, fluid traversal and Resonators who fight like themselves: how Wuthering Waves keeps raising the bar for anime action RPGs.",
+      "body": "Fast combat, fluid traversal and Resonators who fight like themselves: how Wuthering Waves keeps raising the bar for anime action RPGs.\n\nThis report, published by Polygon, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Polygon using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Polygon Advertiser Content",
+      "date": "2026-11-09",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 51,
+      "url": "https://www.polygon.com/wuthering-waves-wuwa-pushing-boundaries-next-evolution-anime-action-rpgs/",
+      "image": "/images/feed/feed-5bc80791e1d0.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-06df6adaa409",
+      "title": "Ukraine dismantles crypto scam network that stole €4.3 million",
+      "excerpt": "Ukrainian law enforcement arrested four suspects in a case involving the theft of more than €4.3 million using a network of cryptocurrency investment scam call centers. [...]",
+      "body": "Ukrainian law enforcement arrested four suspects in a case involving the theft of more than €4.3 million using a network of cryptocurrency investment scam call centers. [...]\n\nThis report, published by BleepingComputer, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cybersecurity. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to BleepingComputer using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Sergiu Gatlan",
+      "date": "2026-11-09",
+      "readTime": "2 min",
+      "section": "cybersecurity",
+      "tags": [
+        "Cybersecurity"
+      ],
+      "featured": false,
+      "xpReward": 31,
+      "url": "https://www.bleepingcomputer.com/news/security/ukraine-dismantles-crypto-scam-network-that-stole-43-million/",
+      "image": "/images/feed/feed-06df6adaa409.jpg",
+      "source": "BleepingComputer",
+      "isLive": true
+    },
     {
       "id": "feed-35f50e151e0b",
       "title": "Apple staff accused of signing up customers to subscriptions without consent; company responds",
@@ -13,144 +356,11 @@
       "tags": [
         "Gadgets"
       ],
-      "featured": true,
-      "xpReward": 53,
+      "featured": false,
+      "xpReward": 34,
       "url": "https://9to5mac.com/2026/11/09/apple-staff-accused-of-signing-up-customers-to-subscriptions-without-consent-company-responds/",
       "image": "/images/feed/feed-35f50e151e0b.jpg",
       "source": "9to5Mac",
-      "isLive": true
-    },
-    {
-      "id": "feed-b4bed02ffee7",
-      "title": "How I Built a 100% Local, Privacy-First Tool Suite Using WebAssembly",
-      "excerpt": "As developers, we know the golden rule of data privacy: never send user data to a server if you don’t have to. Yet, the internet is flooded with \"free\" online converters and AI tools that require you…",
-      "body": "As developers, we know the golden rule of data privacy: never send user data to a server if you don’t have to. Yet, the internet is flooded with \"free\" online converters and AI tools that require you to upload your files to unknown servers. I got tired of this trade-off, so I built PrivateTools — a suite of 47+ utilities that process everything 100% locally in the browser. Here is a look at 5 of our newest tools and the tech behind them: 1. Local AI Audio Transcriber Instead of relying on cloud APIs, this tool runs OpenAI’s Whisper model directly in the browser using @xenova/transformers and WebAssembly. Users can transcribe confidential meetings or lectures with zero network requests. 🔗 Try it: Local AI Audio Transcriber 2.",
-      "author": "Sikandar",
-      "date": "2026-11-09",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 46,
-      "url": "https://dev.to/sikandardevbusiness/how-i-built-a-100-local-privacy-first-tool-suite-using-webassembly-4pg1",
-      "image": "/images/feed/feed-b4bed02ffee7.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-baf36c18d84e",
-      "title": "Your AI Agent Forgot the Timestamp: Persistent Memory, Security Audits, and Low-Risk Auto-Approvals",
-      "excerpt": "Originally published on tamiz.pro. Your AI coding agent just generated a fix for a race condition. It looked correct. But it silently dropped a timestamp field that another part of the codebase depend…",
-      "body": "Originally published on tamiz.pro . Your AI coding agent just generated a fix for a race condition. It looked correct. But it silently dropped a timestamp field that another part of the codebase depended on. The agent didn't know — because it doesn't remember. It doesn't remember the schema change from last week, the deprecation warning you logged, or the exact shape of the Event interface. This is the fundamental problem with stateless AI agents: they are brilliant at pattern matching and terrible at continuity. The industry is waking up to this. The response is not a bigger context window. It's a new architecture built on three pillars: persistent memory , security audits , and low-risk auto-approvals . Together, they are redefining what it means to ship code with an AI partner.",
-      "author": "Tamiz Uddin",
-      "date": "2026-11-09",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 45,
-      "url": "https://dev.to/tamizuddin/your-ai-agent-forgot-the-timestamp-persistent-memory-security-audits-and-low-risk-auto-approvals-3n90",
-      "image": "/images/feed/feed-baf36c18d84e.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-5a77294b35e7",
-      "title": "Agentic Memory Patterns in the Wild: Vector, Graph, and SQL Approaches from Recent Open-Source Systems",
-      "excerpt": "Agentic Memory Patterns in the Wild: Vector, Graph, and SQL Approaches from Recent Open-Source Systems Open-source AI agents break without auditable, resilient memory. Most “agent frameworks” claim to…",
-      "body": "Agentic Memory Patterns in the Wild: Vector, Graph, and SQL Approaches from Recent Open-Source Systems Open-source AI agents break without auditable, resilient memory. Most “agent frameworks” claim to address this, but actual open implementations diverge in key ways. Agentic memory is nowhere near generic cache—with embedding, context refetch, audit surface, and latent failure modes baked in. Below is what happens in practice: vector, SQL, and graph each break for specific, predictable reasons. Memory Architecture Locks You In Agent loops aren’t memory-agnostic. Every choice—vector, SQL, or graph—creates tradeoffs that surface in API quirks and catastrophic failures.",
-      "author": "Priyesh Dave",
-      "date": "2026-11-09",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 42,
-      "url": "https://dev.to/priyeshdave6/agentic-memory-patterns-in-the-wild-vector-graph-and-sql-approaches-from-recent-open-source-1m8c",
-      "image": "/images/feed/feed-5a77294b35e7.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-4def54963eda",
-      "title": "Two Things Landed on My Desk This Week That Shouldn't Belong in the Same Paragraph",
-      "excerpt": "Two Things Landed on My Desk This Week That Shouldn't Belong in the Same Paragraph Two things landed on my desk this week that shouldn't belong in the same paragraph: a printout of a 1973 typewritten…",
-      "body": "Two Things Landed on My Desk This Week That Shouldn't Belong in the Same Paragraph Two things landed on my desk this week that shouldn't belong in the same paragraph: a printout of a 1973 typewritten memo, and a curl command that spins up an autonomous AI agent in a terminal window. I've been turning both over in my head because they point at the same quiet thing — the gap between raw capability and the infrastructure to actually use it. Last Tuesday I was sitting in my kitchen at 11 p.m., laptop open, coffee cold, trying to explain to a non-technical friend why \"AI can do anything now\" is both true and completely useless. She runs a small business — a bakery, actually, two ovens and a laminated list of regulars.",
-      "author": "Ashish",
-      "date": "2026-11-09",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 30,
-      "url": "https://dev.to/ashish_624379625242c5d263/two-things-landed-on-my-desk-this-week-that-shouldnt-belong-in-the-same-paragraph-45gd",
-      "image": "/images/feed/feed-4def54963eda.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-b6022fbe3f61",
-      "title": "Building a Credit-Aware Lead Enrichment Waterfall and HubSpot Sync in Python",
-      "excerpt": "Lead capture workflows often look simple on a whiteboard: export contacts from a sourcing table like Clay, enrich their details across data providers, and push them into HubSpot. In practice, running…",
-      "body": "Lead capture workflows often look simple on a whiteboard: export contacts from a sourcing table like Clay, enrich their details across data providers, and push them into HubSpot. In practice, running this pipeline without strict data hygiene creates two immediate problems: inflated API bills and corrupted CRM records. When each lead triggers unconditional lookups across multiple data vendors (such as Apollo, Hunter, or Dropcontact), teams pay for redundant data. If your primary provider already gives you a valid work email and verified job title, querying secondary providers for the same contact burns credits without adding information.",
-      "author": "Sane Devs",
-      "date": "2026-11-09",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Python"
-      ],
-      "featured": true,
-      "xpReward": 51,
-      "url": "https://dev.to/sanedevs/building-a-credit-aware-lead-enrichment-waterfall-and-hubspot-sync-in-python-1c85",
-      "image": "/images/feed/feed-b6022fbe3f61.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-21edac56605e",
-      "title": "Build a Chat API with ASP.NET Core and an LLM",
-      "excerpt": "Build a Chat API with ASP.NET Core and an LLM Learn how to build a chat API with ASP.NET Core and an LLM using Microsoft.Extensions.AI: conversation history, ownership, failure handling, and testing.…",
-      "body": "Build a Chat API with ASP.NET Core and an LLM Learn how to build a chat API with ASP.NET Core and an LLM using Microsoft.Extensions.AI: conversation history, ownership, failure handling, and testing. build-chat-api-aspnet-core-llm chat API with ASP.NET Core Introduction In the previous guide, we built the foundation of an AI application with ASP.NET Core and kept the LLM as a dependency inside the application, not the owner of authentication, business logic, and data access. Now we'll build something users can interact with: a chat API with ASP.NET Core. A chat interface is usually the first feature people associate with an AI application, but sending a message to a model is only one part of the workflow.",
-      "author": "AI Engineering Foundry",
-      "date": "2026-11-09",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Api"
-      ],
-      "featured": false,
-      "xpReward": 53,
-      "url": "https://dev.to/aiengfoundry/build-a-chat-api-with-aspnet-core-and-an-llm-5b04",
-      "image": "/images/feed/feed-21edac56605e.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-9240a6cbe264",
-      "title": "Agent Runs Need Deadlines",
-      "excerpt": "Originally published at Trida AI. The quote went out at half past nine. The agent that was checking its prices finished at twenty to ten, found two prices changed, and did what it had been asked to do…",
-      "body": "Originally published at Trida AI . The quote went out at half past nine. The agent that was checking its prices finished at twenty to ten, found two prices changed, and did what it had been asked to do: it updated the customer record and drafted a correction. Nothing had gone wrong, technically. The work was simply late, and late work, acted on, became a second problem on top of the first. Take that scene as a pattern rather than a report. It repeats wherever an agent's answer has a moment it is needed by: a summary wanted before a meeting starts, a check wanted before a payment is released, a price wanted before the quote is sent. Many runs carry budgets for steps and tokens. Fewer carry the time by which the answer stops being useful.",
-      "author": "FDE at Trida AI",
-      "date": "2026-11-09",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 32,
-      "url": "https://dev.to/tridaai/agent-runs-need-deadlines-3klo",
-      "image": "/images/feed/feed-9240a6cbe264.webp",
-      "source": "Dev.to",
       "isLive": true
     },
     {
@@ -166,7 +376,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 32,
       "url": "https://www.polygon.com/mass-effect-future-casey-hudson-optimistic/",
       "image": "/images/feed/feed-82340ff8536e.jpg",
       "source": "Polygon",
@@ -185,7 +395,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 31,
       "url": "https://kotaku.com/super-smash-bros-creator-masahiro-sakurai-cautions-against-the-use-of-gen-ai-we-can-come-up-with-better-ideas-2000754922",
       "image": "/images/feed/feed-731a1094a8e8.jpg",
       "source": "Kotaku",
@@ -204,7 +414,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 32,
       "url": "https://www.androidauthority.com/google-digital-wellbeing-weekly-insights-apk-teardown-3732858/",
       "image": "/images/feed/feed-01f80feaf4eb.jpg",
       "source": "Android Authority",
@@ -223,18 +433,56 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 48,
       "url": "https://www.androidauthority.com/armsx3-ps3-emulator-ios-3732874/",
       "image": "/images/feed/feed-67d8b7bda5b4.jpg",
       "source": "Android Authority",
       "isLive": true
     },
     {
-      "id": "feed-ec9ce2be1f03",
-      "title": "Nvidia Shares Dip By Hundreds Of Billions Following CEO’s Statement On Affair With Possible Chinese Spy",
-      "excerpt": "The markets have not been kind to Nvidia this morning as CEO Jensen Huang's statement takes its toll on the company's stocks",
-      "body": "The markets have not been kind to Nvidia this morning as CEO Jensen Huang's statement takes its toll on the company's stocks\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Lewis Parker",
+      "id": "feed-79c62f0871a6",
+      "title": "Internal Mass Effect 2 Trailer Gives Us the Earliest Look at the Game Yet",
+      "excerpt": "The lead animator for Mass Effect 2 has shared a previously unreleased trailer for the game, only ever seen by the developers at BioWare.",
+      "body": "The lead animator for Mass Effect 2 has shared a previously unreleased trailer for the game, only ever seen by the developers at BioWare. This trailer, described as a demo reel of the in-progress cinematics, dates back to April 2009. It would have been used to demonstrate the kind of work that the animation team was doing for Mass Effect 2, and eagle-eyed fans will notice several scenes that did make it into the final game. Fuck it - here's something for #N7Day I haven't shown before. A very pre-alpha internal trailer intended to highlight the cinematics we were creating in Montreal. Faces were the average of all the customisation sliders in Maya, and we ran every scene with each possible squamate when polishing.",
+      "author": "Wesley Yin-Poole",
+      "date": "2026-11-09",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Game"
+      ],
+      "featured": false,
+      "xpReward": 39,
+      "url": "https://www.ign.com/articles/internal-mass-effect-2-trailer-gives-us-the-earliest-look-at-the-game-yet",
+      "image": "/images/feed/feed-79c62f0871a6.jpg",
+      "source": "IGN",
+      "isLive": true
+    },
+    {
+      "id": "feed-32e60999ea66",
+      "title": "Hours of YouTube and 85 handtyped pages of notes on LLM Inference – Start here",
+      "excerpt": "",
+      "body": "This report, published by Hacker News, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Llm. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Hacker News using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "samirswr",
+      "date": "2026-11-09",
+      "readTime": "2 min",
+      "section": "ai",
+      "tags": [
+        "Llm"
+      ],
+      "featured": false,
+      "xpReward": 52,
+      "url": "https://github.com/samir-sarwar/samir-vllm",
+      "image": "/images/feed/feed-32e60999ea66.png",
+      "source": "Hacker News",
+      "isLive": true
+    },
+    {
+      "id": "feed-5d19c486e116",
+      "title": "Iconic British Retail Store Gets GTA 6 Takeover Featuring Exclusive $3,355 Varsity Jacket",
+      "excerpt": "Luxury British department store Selfridges has had the ground floor of its flagship London store overtaken by GTA 6 ahead of its November 19 release date. It’s not just a little display, either; Rocks…",
+      "body": "Luxury British department store Selfridges has had the ground floor of its flagship London store overtaken by GTA 6 ahead of its November 19 release date. It’s not just a little display, either; Rockstar and the retailer have gone all-out. The front of the installation at 400 Oxford Street has a blue Grotti Cheetah Classic parked in the window — the exact car seen driving around Miami to promote GTA 6 . There’s VI signage and Vice City iconography all over the store.",
+      "author": "Kirk McKeand",
       "date": "2026-11-09",
       "readTime": "2 min",
       "section": "gaming",
@@ -242,10 +490,10 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 41,
-      "url": "https://kotaku.com/nvidia-share-price-jensen-huang-ai-affair-alice-megaspeed-markets-2000755054",
-      "image": "/images/feed/feed-ec9ce2be1f03.jpg",
-      "source": "Kotaku",
+      "xpReward": 44,
+      "url": "https://www.ign.com/articles/selfridges-gta-6-takeover-varsity-jacket",
+      "image": "/images/feed/feed-5d19c486e116.jpg",
+      "source": "IGN",
       "isLive": true
     },
     {
@@ -261,28 +509,9 @@
         "Android Phone"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 40,
       "url": "https://www.androidauthority.com/pixel-11-pro-three-months-later-3731692/",
       "image": "/images/feed/feed-797fa642f2be.jpg",
-      "source": "Android Authority",
-      "isLive": true
-    },
-    {
-      "id": "feed-b7ebbab9a1f4",
-      "title": "Motorola Razr Flex 2027 surfaces on official company website",
-      "excerpt": "Motorola's next foldable plans are starting to take shape.",
-      "body": "TL;DR The Razr Flex 2027 has appeared on Motorola’s Australian testing website, giving the rumored name its clearest confirmation yet from the company’s own support infrastructure. Earlier leaks point to a smaller, wider foldable that could complement the Razr Fold rather than replace it. A mysterious video shows what appears to be a foldable device at a Motorola event, although its connection to the Razr Flex 2027 remains unverified. Motorola is making a serious push into the premium smartphone market. The Signature 27 marks its return to flagship slab phones, while the Razr Fold 2026 has already expanded its foldable ambitions beyond the familiar flip-style Razrs. But Motorola might not be stopping there.",
-      "author": "Hillary Keverenge",
-      "date": "2026-11-09",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 30,
-      "url": "https://www.androidauthority.com/motorola-razr-flex-2027-support-page-video-leak-3732853/",
-      "image": "/images/feed/feed-b7ebbab9a1f4.jpg",
       "source": "Android Authority",
       "isLive": true
     },
@@ -299,7 +528,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 52,
       "url": "https://thehackernews.com/2026/11/default-adminadmin-server-password.html",
       "image": "/images/feed/feed-7b474482f4b9.jpg",
       "source": "The Hacker News",
@@ -319,7 +548,7 @@
         "Orbit"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 39,
       "url": "https://www.space.com/space-exploration/satellites/yes-it-runs-doom-satellite-plays-iconic-game-in-worlds-1st-demonstration-of-orbital-voice-control",
       "image": "/images/feed/feed-627524d3eeb5.jpg",
       "source": "Space.com",
@@ -338,48 +567,10 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 45,
       "url": "https://www.nasa.gov/centers-and-facilities/johnson/chapea-mission-2-crew-reflects-after-378-days-on-simulated-mars/",
       "image": "https://www.nasa.gov/wp-content/uploads/2026/11/jsc2026e424286.jpg",
       "source": "NASA Breaking News",
-      "isLive": true
-    },
-    {
-      "id": "feed-9f84d17c49b2",
-      "title": "Security Bite Podcast: Mac malware likely helped pull off the record $6.3B Binance hack",
-      "excerpt": "9to5Mac Security Bite is exclusively brought to you by Mosyle, the only Apple Unified Platform. Making Apple devices work-ready and enterprise-safe is all we do. Our unique integrated approach to mana…",
-      "body": "9to5Mac Security Bite is exclusively brought to you by Mosyle, the only Apple Unified Platform . Making Apple devices work-ready and enterprise-safe is all we do. Our unique integrated approach to management and security combines state-of-the-art Apple-specific security solutions for fully automated Hardening &amp; Compliance, Next Generation EDR, AI-powered Zero Trust, and exclusive Privilege Management with the most powerful and modern Apple MDM on the market. The result is a totally automated Apple Unified Platform currently trusted by over 45,000 organizations to make millions of Apple devices work-ready with no effort and at an affordable cost. Request your EXTENDED TRIAL today and understand why Mosyle is everything you need to work with Apple .",
-      "author": "Arin Waichulis",
-      "date": "2026-11-09",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 46,
-      "url": "https://9to5mac.com/2026/11/09/security-bite-podcast-mac-malware-likely-helped-pull-off-the-record-6-3b-binance-hack/",
-      "image": "/images/feed/feed-9f84d17c49b2.jpg",
-      "source": "9to5Mac",
-      "isLive": true
-    },
-    {
-      "id": "feed-faed6178293f",
-      "title": "WoW: Forever Boosts Dungeon XP As Blizzard Struggles to Get Leveling Balance Right",
-      "excerpt": "Blizzard has increased experience from killing monsters in dungeons in World of Warcraft: Forever as it tries to balance leveling",
-      "body": "Blizzard has increased experience from killing monsters in dungeons in World of Warcraft: Forever as it tries to balance leveling\n\nThis report, published by Polygon, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Polygon using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Oli Welsh",
-      "date": "2026-11-09",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 52,
-      "url": "https://www.polygon.com/wow-forever-dungeon-xp-boost-leveling/",
-      "image": "/images/feed/feed-faed6178293f.jpg",
-      "source": "Polygon",
       "isLive": true
     },
     {
@@ -395,86 +586,10 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 45,
       "url": "https://thehackernews.com/2026/11/web3auth-flaw-exploited-to-steal-keplr.html",
       "image": "/images/feed/feed-099ca1c739d2.jpg",
       "source": "The Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-029c683f1f86",
-      "title": "Popular Nintendo Blogger Supper Mario Broth Says He May Only Have a Year to Live",
-      "excerpt": "A popular Nintendo blogger who tells his viewers obscure facts about Super Mario has been hit with serious health conditions, including heart failure. The online personality has vowed to continue runn…",
-      "body": "A popular Nintendo blogger who tells his viewers obscure facts about Super Mario has been hit with serious health conditions, including heart failure. The online personality has vowed to continue running the blog for as long as he’s able. Supper Mario Broth is a blog and series of social media accounts known for posting arcane and funny trivia about everyone’s favorite Italian plumber. The blog has shared thousands of facts from the series since its creation in 2012. In The Legend of Zelda: Ocarina of Time for Nintendo Switch 2, it is possible to play the ocarina using Dry Bones in Super Mario Maker 2.",
-      "author": "Kirk McKeand",
-      "date": "2026-11-09",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Nintendo"
-      ],
-      "featured": false,
-      "xpReward": 31,
-      "url": "https://www.ign.com/articles/supper-mario-broth-health-condition",
-      "image": "https://assets-prd.ignimgs.com/2026/11/09/gettyimages-1229469375-1794221614141.jpg",
-      "source": "IGN",
-      "isLive": true
-    },
-    {
-      "id": "feed-5049b41aac23",
-      "title": "Google Wallet can now scan receipts, and here’s how and why to use it",
-      "excerpt": "Adding receipts to Google Wallet is easy, once you know where to access the feature.",
-      "body": "Google Wallet has evolved over the years, with its current inception supporting contactless payments along with storing passes and loyalty cards. If you’re like me, you may use the app even though you don’t actually use your phone for payments because it has many other handy features. One of the newest features is the ability to add physical receipts to the app. If you haven’t tried it yet, here’s all you need to know about setting it up to keep track of your purchases .",
-      "author": "Megan Ellis",
-      "date": "2026-11-09",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 42,
-      "url": "https://www.androidauthority.com/how-to-set-up-google-wallet-receipt-scanning-3732455/",
-      "image": "/images/feed/feed-5049b41aac23.jpg",
-      "source": "Android Authority",
-      "isLive": true
-    },
-    {
-      "id": "feed-dd76bb67c577",
-      "title": "Fortnite Officially Reveals Pirate Shop Access Token Odds",
-      "excerpt": "The odds of finding Fortnite's most-wanted items, like the Pirate Shop Access token and the limited-time golden skin, have been revealed.",
-      "body": "Since Fortnite Treasure Hunters began on Nov. 1, Epic Games has been flooded with disgruntled fans wanting to know the odds of treasures that can be found in chests this season, namely the Pirate Shop Access token . Epic has finally relented, revealing the odds for each item and how much Treasure Hours influence them.",
-      "author": "Ashely Claudino",
-      "date": "2026-11-09",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Fortnite"
-      ],
-      "featured": false,
-      "xpReward": 52,
-      "url": "https://www.polygon.com/fortnite-pirate-shop-access-token-treasure-odds-revealed/",
-      "image": "/images/feed/feed-dd76bb67c577.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-d3453eacb97f",
-      "title": "Spy x Family Officially Announces New Season and Movie Coming Soon",
-      "excerpt": "Spy x Family will be back soon with a fourth anime season and the franchise's second feature film.",
-      "body": "One of the best anime series in recent years is coming with a new season and a feature film. Spy x Family , the comedy-action manga created by Tatsuya Endo and published by Shueisha, is getting a fourth anime season and a new movie, both coming in 2027.",
-      "author": "Francesco Cacciatore",
-      "date": "2026-11-09",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 36,
-      "url": "https://www.polygon.com/spy-x-family-season-4-anime-movie-announced/",
-      "image": "/images/feed/feed-d3453eacb97f.jpg",
-      "source": "Polygon",
       "isLive": true
     },
     {
@@ -490,7 +605,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 35,
       "url": "https://thehackernews.com/2026/11/lnbits-urges-all-operators-to-shut-down.html",
       "image": "/images/feed/feed-60cde8707224.jpg",
       "source": "The Hacker News",
@@ -509,7 +624,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 45,
       "url": "https://www.technologyreview.com/2026/11/09/1148166/the-climate-case-for-ai-has-not-been-made/",
       "image": "/images/feed/feed-8be9fd4aca1a.jpg",
       "source": "MIT Tech Review",
@@ -528,7 +643,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 42,
       "url": "https://www.wired.com/story/dhs-has-used-this-controversial-investigative-tool-185000-times-since-trump-took-office/",
       "image": "/images/feed/feed-a24a947ad254.jpg",
       "source": "Wired",
@@ -547,7 +662,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 54,
       "url": "https://insideevs.com/news/814815/gm-super-cruise-cadillac-europe/",
       "image": "/images/feed/feed-66771b5add04.jpg",
       "source": "InsideEVs",
@@ -566,7 +681,7 @@
         "Hacker"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 44,
       "url": "https://thehackernews.com/2026/11/taiwan-based-hacker-used-bossai-ai.html",
       "image": "/images/feed/feed-7230f925fc30.jpg",
       "source": "The Hacker News",
@@ -585,7 +700,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 41,
       "url": "https://insideevs.com/news/814803/byd-yangwang-altior-luxury-ev-rolls-royce-rival/",
       "image": "/images/feed/feed-b614ee8a3544.jpg",
       "source": "InsideEVs",
@@ -604,7 +719,7 @@
         "Chatgpt"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 43,
       "url": "https://news.ycombinator.com/item?id=50422628",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "Hacker News",
@@ -623,28 +738,9 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 51,
       "url": "https://thehackernews.com/2026/11/former-openai-engineer-pleads-not.html",
       "image": "/images/feed/feed-819ca9452f53.jpg",
-      "source": "The Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-6f49bcbe8708",
-      "title": "U.S. Agencies Warn Refrigeration Controller Attacks Could Cause Fires and Inventory Losses",
-      "excerpt": "U.S. government agencies have warned that threat actors are actively targeting industrial refrigeration and cold-chain monitoring systems globally with an aim to cause service disruptions, fire hazard…",
-      "body": "U.S. government agencies have warned that threat actors are actively targeting industrial refrigeration and cold-chain monitoring systems globally with an aim to cause service disruptions, fire hazards, and loss of inventory. \"The actors may exploit vulnerabilities or weaknesses in unpatched or internet-accessible controllers to remotely alter settings and force units into continuous heating",
-      "author": "info@thehackernews.com (The Hacker News)",
-      "date": "2026-11-09",
-      "readTime": "2 min",
-      "section": "cybersecurity",
-      "tags": [
-        "Cybersecurity"
-      ],
-      "featured": false,
-      "xpReward": 43,
-      "url": "https://thehackernews.com/2026/11/us-agencies-warn-refrigeration.html",
-      "image": "/images/feed/feed-6f49bcbe8708.jpg",
       "source": "The Hacker News",
       "isLive": true
     },
@@ -661,7 +757,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 35,
       "url": "https://science.nasa.gov/image-article/apod-2026-november-9-rigel-and-the-witch-head-nebula/",
       "image": "/images/feed/feed-af67c14c8b1c.jpg",
       "source": "NASA Breaking News",
@@ -680,7 +776,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 37,
       "url": "https://science.nasa.gov/earth/earth-observatory/ozone-hole-reaches-its-2026-maximum/",
       "image": "/images/feed/feed-65ed2713ee3d.jpg",
       "source": "NASA Breaking News",
@@ -699,7 +795,7 @@
         "Spacex"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 47,
       "url": "https://techcrunch.com/2026/11/08/sequoia-partners-reportedly-blindsided-when-roelof-botha-joined-spacex-board/",
       "image": "/images/feed/feed-c5a5f1b30a56.webp",
       "source": "TechCrunch",
@@ -718,7 +814,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 33,
       "url": "https://cleantechnica.com/2026/11/08/bigger-than-godzilla/",
       "image": "/images/feed/feed-540c6e67c022.jpg",
       "source": "CleanTechnica",
@@ -737,7 +833,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 41,
       "url": "https://www.theverge.com/ai-artificial-intelligence/1029552/apple-siri-ai-agentic",
       "image": "/images/feed/feed-3fa60b95a7a4.jpg",
       "source": "The Verge",
@@ -758,7 +854,7 @@
         "Vehicle"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 45,
       "url": "https://cleantechnica.com/2026/11/08/top-selling-electric-vehicles-in-the-world-32-ev-share-in-september/",
       "image": "/images/feed/feed-4bd487a68615.png",
       "source": "CleanTechnica",
@@ -777,7 +873,7 @@
         "Claude"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 53,
       "url": "https://www.thestateofai.com/news/goldman-sachs-claude-code-traders-bankers",
       "image": "/images/feed/feed-a5f23dd24d67.png",
       "source": "Hacker News",
@@ -796,85 +892,9 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 40,
       "url": "https://electrek.co/2026/11/08/french-carmaker-renault-wants-to-get-into-the-military-robot-business/",
       "image": "/images/feed/feed-c1e836732a0a.jpg",
-      "source": "Electrek",
-      "isLive": true
-    },
-    {
-      "id": "feed-2885eb994440",
-      "title": "Even California’s Biggest Ports Aren’t Betting On Hydrogen For Ships",
-      "excerpt": "California has been one of hydrogen’s most enthusiastic supporters for two decades. The state has subsidized hydrogen vehicles, backed refueling networks, supported fuel-cell buses and trucks, investe…",
-      "body": "California has been one of hydrogen&#8217;s most enthusiastic supporters for two decades. The state has subsidized hydrogen vehicles, backed refueling networks, supported fuel-cell buses and trucks, invested in hydrogen production and kept the technology prominent in its zero-emission transportation policies. Los Angeles and Long Beach, the two enormous ports that ... [continued] The post Even California&#8217;s Biggest Ports Aren&#8217;t Betting On Hydrogen For Ships appeared first on CleanTechnica .",
-      "author": "Michael Barnard",
-      "date": "2026-11-08",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Cars"
-      ],
-      "featured": false,
-      "xpReward": 37,
-      "url": "https://cleantechnica.com/2026/11/08/california-biggest-ports-not-betting-hydrogen-ships/",
-      "image": "/images/feed/feed-2885eb994440.png",
-      "source": "CleanTechnica",
-      "isLive": true
-    },
-    {
-      "id": "feed-cf4b41abdd6d",
-      "title": "Legendary sci-fi magazine 'Starlog' returns as a yearly release, just in time for its 50th anniversary",
-      "excerpt": "Before the rise of online entertainment sites, this is where genre fans got their news",
-      "body": "\"Starlog\" was one of the greatest sci-fi and fantasy magazines ever, and after a 17-year absence, it's being resurrected. The legendary sci-fi mag went dark back in 2009 as part of the wave of popular publications folding due to years of declining readership and subscriptions. But as of Nov. 13, this geek favorite periodical returns as an annual print edition, and it's available for pre-order now. It’s another indication of digital fatigue in the world, and fans of a certain age will recall the pleasure of poring over each colorful issue packed with in-depth interviews, behind-the-scenes photos, TV guides, classic movie retrospectives, book reviews, con news, and VFX features. The triumphant relaunch of \"Starlog\" magazine happens on Nov.",
-      "author": " Jeff Spry ",
-      "date": "2026-11-08",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Space"
-      ],
-      "featured": false,
-      "xpReward": 38,
-      "url": "https://www.space.com/entertainment/legendary-sci-fi-magazine-starlog-returns-as-a-yearly-release-just-in-time-for-its-50th-anniversary",
-      "image": "/images/feed/feed-cf4b41abdd6d.jpg",
-      "source": "Space.com",
-      "isLive": true
-    },
-    {
-      "id": "feed-7a5cc7a39fff",
-      "title": "NASA Announces $1 Million to Students for Moon Base Challenge",
-      "excerpt": "On Sunday, NASA announced the opening of its $1 million Moon Base Student Challenge during a MAX POWER event at Kennedy Space Center Visitor Complex in Florida. As part of a Golden Age of Science, the…",
-      "body": "Artist’s concept depicting astronauts, habitats, rovers, power systems, and cargo operations supporting sustained human activities at the Moon Base near the lunar South Pole. Credit: NASA On Sunday, NASA announced the opening of its $1 million Moon Base Student Challenge during a MAX POWER event at Kennedy Space Center Visitor Complex in Florida. As part of a Golden Age of Science, the competition invites student teams at U.S. high schools and post-secondary schools to contribute designs for the Moon Base. “We’re looking for students ready to think creatively, work as a team, and take on real problems connected to NASA’s future on the Moon,” said NASA Administrator Jared Isaacman. “You do not have to wait until graduation to contribute.",
-      "author": "Jessica Taveau",
-      "date": "2026-11-08",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Nasa"
-      ],
-      "featured": false,
-      "xpReward": 36,
-      "url": "https://www.nasa.gov/news-release/nasa-announces-1-million-to-students-for-moon-base-challenge/",
-      "image": "https://www.nasa.gov/wp-content/uploads/2026/11/stmd-exteriorlunarbase-hdlandscapeversion-2026-0521.png",
-      "source": "NASA Breaking News",
-      "isLive": true
-    },
-    {
-      "id": "feed-5d99675e90f4",
-      "title": "New ID. AURA is the mainstream EV VW needs – but its software is the real story",
-      "excerpt": "Volkswagen built its global empire on the promise of affordable, accessible transportation, embodied by the iconic Type 1 Beetle. Now facing an existential crisis after a decades-long push upmarket, t…",
-      "body": "Volkswagen built its global empire on the promise of affordable, accessible transportation, embodied by the iconic Type 1 Beetle. Now facing an existential crisis after a decades-long push upmarket , the automaker faces a reckoning – and a retreat back into affordable, mass-market electric sedans like the new FAW-VW ID. AURA L5 (and the software that powers it) might be exactly what VW needs to reach a new generation of buyers. more…",
-      "author": "Jo Borrás",
-      "date": "2026-11-08",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Ev"
-      ],
-      "featured": false,
-      "xpReward": 48,
-      "url": "https://electrek.co/2026/11/08/new-id-aura-is-the-mainstream-ev-vw-needs-but-its-software-is-the-real-story/",
-      "image": "/images/feed/feed-5d99675e90f4.jpg",
       "source": "Electrek",
       "isLive": true
     },
@@ -891,7 +911,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 43,
       "url": "https://techcrunch.com/2026/11/06/openai-reportedly-raises-an-additional-11-billion-at-a-1-25-trillion-valuation/",
       "image": "/images/feed/feed-41cd6da548e0.jpg",
       "source": "TechCrunch",
@@ -911,43 +931,24 @@
         "Gpt"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 40,
       "url": "https://www.bleepingcomputer.com/news/security/openais-new-gpt-6-cyber-ai-finds-81-firefox-flaws-948-linux-bugs/",
       "image": "/images/feed/feed-86cd7cb41c9e.jpg",
       "source": "BleepingComputer",
       "isLive": true
-    },
-    {
-      "id": "feed-2b7f2f98758a",
-      "title": "Free Chinese AI Models Are Getting Scary Good at Hacking",
-      "excerpt": "An experiment in which AI models were asked to break into simulated networks showed the hacking skills of DeepSeek and GLM to be not far behind OpenAI’s most advanced cyber model, which isn’t public.",
-      "body": "An experiment in which AI models were asked to break into simulated networks showed the hacking skills of DeepSeek and GLM to be not far behind OpenAI’s most advanced cyber model, which isn’t public.\n\nThis report, published by Wired, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Ai. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Wired using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Will Knight, Lily Hay Newman",
-      "date": "2026-11-06",
-      "readTime": "2 min",
-      "section": "ai",
-      "tags": [
-        "Ai"
-      ],
-      "featured": false,
-      "xpReward": 51,
-      "url": "https://www.wired.com/story/free-chinese-ai-models-are-getting-scary-good-at-hacking/",
-      "image": "/images/feed/feed-2b7f2f98758a.jpg",
-      "source": "Wired",
-      "isLive": true
     }
   ],
   "breakingNews": [
-    "9TO5MAC: Apple staff accused of signing up customers to subscriptions without consent; company responds",
-    "DEV.TO: How I Built a 100% Local, Privacy-First Tool Suite Using WebAssembly",
-    "DEV.TO: Your AI Agent Forgot the Timestamp: Persistent Memory, Security Audits, and Low-Risk Auto-Approvals",
-    "DEV.TO: Agentic Memory Patterns in the Wild: Vector, Graph, and SQL Approaches from Recent Open-Source Systems",
-    "DEV.TO: Two Things Landed on My Desk This Week That Shouldn't Belong in the Same Paragraph",
-    "DEV.TO: Building a Credit-Aware Lead Enrichment Waterfall and HubSpot Sync in Python",
-    "DEV.TO: Build a Chat API with ASP.NET Core and an LLM",
-    "DEV.TO: Agent Runs Need Deadlines",
-    "POLYGON: Mass Effect Creator Is ‘Optimistic’ the Series Will Live On",
-    "KOTAKU: Super Smash Bros. Creator Masahiro Sakurai Cautions Against The Use Of Gen AI: ‘We Can Come Up With Better Ideas’"
+    "DEV.TO: chmod 755 Is Not 'Read, Write, Execute': 5 Permission Traps",
+    "DEV.TO: Same loop, same numbers, 13x slower. I only swapped two lines.",
+    "DEV.TO: A job offer on LinkedIn came with malware in a Git hook. It's the \"Contagious Interview\" playbook",
+    "DEV.TO: AI Brief: Apple's HALO Robot, 5,000 Agents per Repo",
+    "DEV.TO: 用 osFoundry Operator 讓 AI 代理操作 App，每個動作都留下紀錄",
+    "DEV.TO: AI 에이전트에게 부서와 역할을 줬더니 osFoundry에서 \"확인만 하면\" 되더라",
+    "DEV.TO: Seven Tests I Write Before I Trust a .NET Play Counter",
+    "KOTAKU: Yoshi Is Finally Due To Arrive In Lego Form In A New Adult Set For 2027",
+    "KOTAKU: Sony Announces New Japan-Only PlayStation Portal With Internal Storage",
+    "SPACE.COM: NASA unveils $10 billion in moon base contracts, new lunar missions and the 'PROMISE' of a nuclear-powered rover"
   ],
   "sectionVideos": {}
 }
