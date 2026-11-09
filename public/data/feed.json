@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-11-09T19:10:52.880Z",
+  "fetchedAt": "2026-11-09T20:14:57.485Z",
   "articles": [
     {
-      "id": "feed-5223c7a83160",
-      "title": "Apple’s $50 Intelligence Usage Packs extend access to some AI features",
-      "excerpt": "After publishing a support article in early September outlining usage limits for some Apple Intelligence features, the company has updated Logic Pro with an option to \"Buy More Usage\" for a one-time p…",
-      "body": "After publishing a support article in early September outlining usage limits for some Apple Intelligence features, the company has updated Logic Pro with an option to \"Buy More Usage\" for a one-time purchase price of $49.99, as spotted by 9to5Mac . It has a built-in AI assistant to do things like \"start a new song, set up a vocal track from a single prompt, or refine an active project.\" These Intelligence Usage Packs, as Apple calls them, will allow users to continue accessing certain Apple Intelligence features that have usage limits because they rely on cloud-based AI models from OpenAI or Google Gemini. The Usage Packs can only be used … Read the full story at The Verge.",
-      "author": "Andrew Liszewski",
+      "id": "feed-254c340c6b3c",
+      "title": "How to Consume a Job from a Message Queue in Node.js (Weekly Digest)",
+      "excerpt": "To consume a job from a message queue in Node.js, send it through the queue's consume API, run an idempotent worker, then acknowledge the message only after the weekly digest result is durable. Use a…",
+      "body": "To consume a job from a message queue in Node.js, send it through the queue's consume API, run an idempotent worker, then acknowledge the message only after the weekly digest result is durable. Use a workflow engine when the digest is a multi-step process with durable state, joins, or long-running orchestration. That is the decision rule. For a fintech product, the important invariant is not “the worker ran once.” It is “each customer’s digest has one durable business result, even if delivery happens more than once.” Standard queues are at-least-once, so idempotency belongs in the consumer. A successful message should be acknowledged and removed; a failed one should be retried or moved toward a dead-letter queue instead of disappearing.",
+      "author": "ethanbrooks1486",
       "date": "2026-11-09",
       "readTime": "2 min",
       "section": "software",
@@ -15,9 +15,466 @@
       ],
       "featured": true,
       "xpReward": 48,
-      "url": "https://www.theverge.com/tech/1030084/apple-intelligence-usage-packs-ai-features-creator-studio-logic-pro",
-      "image": "/images/feed/feed-5223c7a83160.jpg",
-      "source": "The Verge",
+      "url": "https://dev.to/ethanbrooks1486/how-to-consume-a-job-from-a-message-queue-in-nodejs-weekly-digest-4fdo",
+      "image": "/images/feed/feed-254c340c6b3c.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-1f1874211d9d",
+      "title": "Week one inside an inherited engineering department: what I actually look at",
+      "excerpt": "The situation repeats itself: I walk into a company as its fractional CTO, the engineering org is a few dozen developers, and nobody — not the CEO, not the VP R&D, not the team leads — can answer \"wha…",
+      "body": "The situation repeats itself: I walk into a company as its fractional CTO, the engineering org is a few dozen developers, and nobody — not the CEO, not the VP R&amp;D, not the team leads — can answer \"what is everyone working on?\" without opening four different trackers. The first week decides whether you're credible or just another consultant. Here's what I actually do with those seven days. What I stopped doing I stopped asking for status reports. I stopped asking for slide decks. Both are already out of date by the time they reach you, and both are written by the people you're supposed to be checking on. Nobody in an 80-developer department is lying to you. Everyone is just reading a different tracker, and none of them match. What I look at instead, in order 1.",
+      "author": "yaniv zalevas",
+      "date": "2026-11-09",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 44,
+      "url": "https://dev.to/yaniv_zalevas_a91253c56bb/week-one-inside-an-inherited-engineering-department-what-i-actually-look-at-1och",
+      "image": "/images/feed/feed-1f1874211d9d.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-78165c1d5202",
+      "title": "Browser Storage Upload: Webhook Notification Rules for Private-Bucket Retention, Thumbnails, and Virus-Scan Processing",
+      "excerpt": "Short answer: let the browser upload a signed object into a private quarantine bucket, then let a verified storage event create the scan and thumbnail job; the application, not the browser, should enf…",
+      "body": "Short answer: let the browser upload a signed object into a private quarantine bucket, then let a verified storage event create the scan and thumbnail job; the application, not the browser, should enforce the deletion deadline. That decision fits a customer-support system retaining signed documents. It also draws a line that is easy to miss: an upload being durable does not mean the file is safe to show, and a successful scan does not mean the file may be retained forever. I would record the deadline beside the document before issuing the upload authorization, then make every later state transition carry that deadline. What must the retention-first upload architecture guarantee? The first invariant is private ingress.",
+      "author": "JerichoRhodes5847",
+      "date": "2026-11-09",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 36,
+      "url": "https://dev.to/jerichorhodes5847/browser-storage-upload-webhook-notification-rules-for-private-bucket-retention-thumbnails-and-3a25",
+      "image": "/images/feed/feed-78165c1d5202.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-54dfbfedef16",
+      "title": "Storing Generated Images — Object Storage Is Better Than Relational Databases Explained",
+      "excerpt": "TL;DR: Put the generated image bytes in object storage and keep a small, transactional record in the relational database. The database should answer who owns an image, which prompt produced it, and wh…",
+      "body": "TL;DR: Put the generated image bytes in object storage and keep a small, transactional record in the relational database. The database should answer who owns an image, which prompt produced it, and whether the audit copy is complete. It should not carry the growing byte stream through every transaction, backup, replica, and query path. That division matters even more in a developer-tools system that processes receipts. A receipt may be an ordinary image, a generated reconstruction, or a transformed derivative, but the original file still has to survive for audit. Large-file throughput is the constraint that changes the design: the application should stream bytes to a durable object key, then commit metadata that points to that key. The better boundary is usually the boring one.",
+      "author": "MiloHastings5316",
+      "date": "2026-11-09",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Database"
+      ],
+      "featured": true,
+      "xpReward": 53,
+      "url": "https://dev.to/milohastings5316/storing-generated-images-object-storage-is-better-than-relational-databases-explained-4jj6",
+      "image": "/images/feed/feed-54dfbfedef16.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-cd02f18399f3",
+      "title": "Jensen Huang pulls out of ElevenLabs Summit amid Nvidia controversy",
+      "excerpt": "The Nvidia CEO also pulled out of an Anthropic event earlier.",
+      "body": "The Nvidia CEO also pulled out of an Anthropic event earlier.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Ai. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Ivan Mehta",
+      "date": "2026-11-09",
+      "readTime": "2 min",
+      "section": "ai",
+      "tags": [
+        "Ai"
+      ],
+      "featured": true,
+      "xpReward": 38,
+      "url": "https://techcrunch.com/2026/11/09/jensen-huang-pulls-out-of-elevenlabs-summit-amid-nvidia-controversy/",
+      "image": "/images/feed/feed-cd02f18399f3.jpg",
+      "source": "TechCrunch",
+      "isLive": true
+    },
+    {
+      "id": "feed-b39ba896ff80",
+      "title": "5 numbers worth pulling from your own coding-agent sessions in 2026",
+      "excerpt": "Picture a team with a plausible PR, passing checks and no clear record of the commands behind it. A fast approval would be convenient. An informed approval needs more than confidence in the final diff…",
+      "body": "Picture a team with a plausible PR, passing checks and no clear record of the commands behind it. A fast approval would be convenient. An informed approval needs more than confidence in the final diff. Getting agent-generated code merged sooner with fewer rollbacks depends partly on what a reviewer can establish about the session behind the change. Missing evidence creates a different bottleneck from missing code. I would start AI coding agent monitoring with five numbers, each connected to evidence a reviewer can inspect. High-velocity teams do not need another leaderboard. A compact record of coverage, risky actions and unresolved findings is more useful than a total token count. A clean diff does not explain how the agent got there The diff shows committed changes.",
+      "author": "Anna",
+      "date": "2026-11-09",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 44,
+      "url": "https://dev.to/uss/5-numbers-worth-pulling-from-your-own-coding-agent-sessions-43gg",
+      "image": "/images/feed/feed-b39ba896ff80.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-d1ab71e00f47",
+      "title": "Apple to open new Developer Center in Istanbul as part of broader Turkey investment",
+      "excerpt": "Apple today announced a long-term investment in Turkey, with seven new facilities focused on app development and manufacturing set to open in the country starting next year. Here are the details. more…",
+      "body": "Apple today announced a long-term investment in Turkey, with seven new facilities focused on app development and manufacturing set to open in the country starting next year. Here are the details. more — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Marcus Mendes",
+      "date": "2026-11-09",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 31,
+      "url": "https://9to5mac.com/2026/11/09/apple-to-open-new-developer-center-in-istanbul-as-part-of-broader-turkey-investment/",
+      "image": "/images/feed/feed-d1ab71e00f47.jpg",
+      "source": "9to5Mac",
+      "isLive": true
+    },
+    {
+      "id": "feed-b60c6dae5228",
+      "title": "My screenshot was 1080x1350. The page was 1722 pixels tall.",
+      "excerpt": "A piece of artwork went live last month without the contact line at the bottom. Phone, handle and site were in the HTML, the CSS placed them, the browser laid them out, and the file that got published…",
+      "body": "A piece of artwork went live last month without the contact line at the bottom. Phone, handle and site were in the HTML, the CSS placed them, the browser laid them out, and the file that got published did not contain them. Three checks ran before publishing, and all three passed. What the check asked The pipeline was short: render a local HTML file, screenshot it, verify it. Verification asked two questions. Is the image 1080 by 1350? It is. Does each element sit inside its own box, with no overlap and no text against the edge? Yes. Nobody asked whether the file contained the whole page. The image had the dimensions from the request, and the layout assertions had run against a live DOM whose document was 1722 pixels tall.",
+      "author": "Jonas Francisco de Lima Filho",
+      "date": "2026-11-09",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 31,
+      "url": "https://dev.to/jonasfilhodev/my-screenshot-was-1080x1350-the-page-was-1722-pixels-tall-57c2",
+      "image": "/images/feed/feed-b60c6dae5228.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-d086601ddaed",
+      "title": "Why did my AWS bill go up? How to find the cause in 10 minutes",
+      "excerpt": "Your bill is higher than last month and nothing obvious changed. Traffic is flat, nobody launched anything big, and the invoice is one long list of line items. The good news: AWS records exactly where…",
+      "body": "Your bill is higher than last month and nothing obvious changed. Traffic is flat, nobody launched anything big, and the invoice is one long list of line items. The good news: AWS records exactly where every cent went. Finding the cause is a matter of narrowing it down in the right order — service, then usage type, then region . Step 1: compare like with like The most common mistake is comparing this month so far with the whole of last month. Ten days of spending will always look smaller than thirty, and a real spike hides behind it. Compare the same days of each month instead: the 1st to the 10th of this month against the 1st to the 10th of last month. Step 2: find the service that moved In the console: Billing and Cost Management → Cost Explorer .",
+      "author": "hamza waheed",
+      "date": "2026-11-09",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 33,
+      "url": "https://dev.to/hamzafounder/why-did-my-aws-bill-go-up-how-to-find-the-cause-in-10-minutes-648",
+      "image": "/images/feed/feed-d086601ddaed.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-7c8ace7a1926",
+      "title": "iOS 27.3: Three new iPhone features coming soon",
+      "excerpt": "iOS 27.3 is currently in beta and packed with new features, here are three that will hit your iPhone when the update launches next month. more…",
+      "body": "iOS 27.3 is currently in beta and packed with new features, here are three that will hit your iPhone when the update launches next month. more — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Iphone. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Ryan Christoffel",
+      "date": "2026-11-09",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Iphone"
+      ],
+      "featured": false,
+      "xpReward": 53,
+      "url": "https://9to5mac.com/2026/11/09/ios-27-3-three-new-iphone-features-coming-soon/",
+      "image": "/images/feed/feed-7c8ace7a1926.jpg",
+      "source": "9to5Mac",
+      "isLive": true
+    },
+    {
+      "id": "feed-86a4c1329217",
+      "title": "Zelda: Ocarina of Time’s Best Replacement Has 11,000+ ‘Very Positive’ Reviews on Steam",
+      "excerpt": "Death's Door turns five years old this year, and it's still one of the best games like The Legend of Zelda around.",
+      "body": "The Legend of Zelda: Ocarina of Time remake was released last week, nearly three decades after the original came to Nintendo 64. Plenty of newcomers are discovering the greatest game ever for the first time (raises hand) on Nintendo Switch 2 . However, as it’s a Switch 2 exclusive, plenty of gamers might be left feeling like Squidward watching everyone else have fun and frolic in Hyrule.",
+      "author": "Austin Manchester",
+      "date": "2026-11-09",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 39,
+      "url": "https://www.polygon.com/deaths-door-five-year-anniversary-retrospective/",
+      "image": "/images/feed/feed-86a4c1329217.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-afeff8df5d60",
+      "title": "Every Legend of Zelda Game, Ranked",
+      "excerpt": "Polygon ranks all the mainline games in Nintendo's Zelda series, including the 2026 Switch 2 remake of Ocarina of Time",
+      "body": "Created by the great Shigeru Miyamoto in the 1980s as an expression of his childhood love of exploring without a map, Zelda has always held a revered position in gaming culture, although it never quite enjoyed popular success to match — not, that is, until its unlikely rebirth in 2017, thanks to the runaway success of the Nintendo Switch and the revolutionary design of Breath of the Wild .",
+      "author": "Oli Welsh",
+      "date": "2026-11-09",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Game"
+      ],
+      "featured": false,
+      "xpReward": 45,
+      "url": "https://www.polygon.com/zelda-games-all-ranked/",
+      "image": "/images/feed/feed-afeff8df5d60.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-79aa1266f8fb",
+      "title": "Score $70 off the Skullcandy Crusher 720 in this Amazon deal",
+      "excerpt": "The Skullcandy Crusher 720 adds bass you can feel to music and games, and it is 33% off on Amazon.",
+      "body": "Skullcandy’s Crusher 720 headphones are built around one idea: bass you can actually feel. They’re now $139.99 on Amazon , $70 off the $209.99 list price and matching their lowest price since launch. See the deal at Amazon",
+      "author": "Matt Horne",
+      "date": "2026-11-09",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 38,
+      "url": "https://www.androidauthority.com/skullcandy-crusher-720-deal-3733108/",
+      "image": "/images/feed/feed-79aa1266f8fb.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-a8f9524b6ea9",
+      "title": "Windows 11 is finally adding an easier way to disable the Sticky Keys pop-up",
+      "excerpt": "There's a checkbox that simply turns it off.",
+      "body": "There's a checkbox that simply turns it off.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "staff@engadget.com (Lawrence Bonk)",
+      "date": "2026-11-09",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 51,
+      "url": "https://www.engadget.com/2311340/windows-11-is-finally-adding-an-easier-way-to-disable-sticky-keys-pop-up/",
+      "image": "/images/feed/feed-a8f9524b6ea9.jpg",
+      "source": "Engadget",
+      "isLive": true
+    },
+    {
+      "id": "feed-bf9b480b8d7a",
+      "title": "One UI 9.5 leak reveals new Shorten and Translate shortcuts in Samsung Keyboard",
+      "excerpt": "Samsung's next One UI update could give its keyboard a couple of extra tricks.",
+      "body": "TL;DR A One UI 9.5 leak reveals two additional Galaxy AI tools for Samsung Keyboard: Shorten and Translate. Shorten could condense lengthy text, while Translate appears to offer another way to translate text directly through the keyboard. The leaked interface also shows a rearranged Galaxy AI menu, with Samsung’s One UI 9.5 beta reportedly approaching. Samsung may be done with the heavy lifting of Android 17 , but the software team isn’t putting down its tools just yet. With One UI 9 now making its way across more Galaxy devices, attention is shifting to One UI 9.5. The upcoming update won’t change the underlying Android version, but it’s shaping up to be more than a routine polish job. And the latest leak suggests Samsung’s keyboard is getting extra attention, too.",
+      "author": "Hillary Keverenge",
+      "date": "2026-11-09",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 52,
+      "url": "https://www.androidauthority.com/samsung-keyboard-one-ui-9-5-shorten-translate-leak-3733097/",
+      "image": "/images/feed/feed-bf9b480b8d7a.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-1f7d1616205d",
+      "title": "What is the Business Scrub password in Zelda Ocarina of Time?",
+      "excerpt": "Zelda Ocarina of Time's Business Scrub password is hard to find and tricky to use, but the reward is worth the effort",
+      "body": "Getting the Business Scrub password in The Legend of Zelda: Ocarina of Time remake is one of the trickier side quests you can tackle. It involves a bit of time travel, which means finding the password is something you can't do until roughly the middle of the game. However, it's worth the trouble, as the entrepreneurial little scrub has a very important item for you.",
+      "author": "Josh Broadwell",
+      "date": "2026-11-09",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 39,
+      "url": "https://www.polygon.com/zelda-ocarina-of-time-business-scrub-password/",
+      "image": "/images/feed/feed-1f7d1616205d.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-0d9f90507d86",
+      "title": "How to use your iPhone to take the best picture of the Moon",
+      "excerpt": "We explain how to take the best photos of the Moon with your iPhone, regardless of which model.",
+      "body": "We explain how to take the best photos of the Moon with your iPhone, regardless of which model.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Iphone. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "staff@engadget.com (Steve Dent)",
+      "date": "2026-11-09",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Iphone"
+      ],
+      "featured": false,
+      "xpReward": 50,
+      "url": "https://www.engadget.com/2307830/how-to-use-iphone-take-best-picture-of-moon-guide/",
+      "image": "/images/feed/feed-0d9f90507d86.jpg",
+      "source": "Engadget",
+      "isLive": true
+    },
+    {
+      "id": "feed-a78daa756eff",
+      "title": "La NASA busca a la próxima generación de astronautas",
+      "excerpt": "Read this release in English here.La NASA busca a los exploradores que ayudarán a escribir el próximo capítulo de los vuelos espaciales tripulados. Ya está abierto el plazo de inscripción para la próx…",
+      "body": "La NASA anunció su promoción de candidatos a astronautas de 2025 el 22 de septiembre de 2025 en el Centro Espacial Johnson de la agencia, en Houston. Crédito: NASA/Helen Arase Vargas Read this release in English here . La NASA busca a los exploradores que ayudarán a escribir el próximo capítulo de los vuelos espaciales tripulados. Ya está abierto el plazo de inscripción para la próxima promoción de astronautas de la agencia, que se incorporarán a la NASA en un momento en el que Estados Unidos regresa a la Luna, construye la Base Lunar y sienta las bases para las primeras misiones tripuladas a Marte.",
+      "author": "María José Viñas",
+      "date": "2026-11-09",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Nasa",
+        "Astronaut"
+      ],
+      "featured": false,
+      "xpReward": 48,
+      "url": "https://www.nasa.gov/news-release/la-nasa-busca-a-la-proxima-generacion-de-astronautas/",
+      "image": "/images/feed/feed-a78daa756eff.jpg",
+      "source": "NASA Breaking News",
+      "isLive": true
+    },
+    {
+      "id": "feed-49527c336eec",
+      "title": "Samsung is focusing 70% of its Galaxy S27 production on the Ultra and Pro",
+      "excerpt": "Samsung really wants you to buy one of its premium phones.",
+      "body": "Credit: Stephen Radochia / Android Authority TL;DR The Pro and Ultra will reportedly account for over 70% of Galaxy S27 production. The reported goal is to funnel demand toward the more profitable models. It’s said Samsung is planning to manufacture around 18 million Ultra models and 7-8 million Pro units. Samsung is currently preparing for the launch of the Galaxy S27 series, which should happen in early 2027. This next generation of the Galaxy S will introduce a Pro model , increasing the lineup to four phones. When the Galaxy S27 series becomes available, you’ll likely have an easier time getting your hands on the Pro or Ultra. That’s because Samsung is reportedly focusing most of its production on those models.",
+      "author": "Ryan McNeal",
+      "date": "2026-11-09",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Galaxy S"
+      ],
+      "featured": false,
+      "xpReward": 38,
+      "url": "https://www.androidauthority.com/galaxy-s27-ultra-pro-production-volume-3733071/",
+      "image": "/images/feed/feed-49527c336eec.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-9d2e28e73a2d",
+      "title": "Anthropic releases new Mythos and Fable models amid RSI concerns",
+      "excerpt": "Anthropic says the new models \"show improvements in areas like coding, reasoning, and vision,\" as well as in communicating more clearly with users.",
+      "body": "Anthropic says the new models \"show improvements in areas like coding, reasoning, and vision,\" as well as in communicating more clearly with users.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Anthropic. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Russell Brandom",
+      "date": "2026-11-09",
+      "readTime": "2 min",
+      "section": "ai",
+      "tags": [
+        "Anthropic"
+      ],
+      "featured": false,
+      "xpReward": 53,
+      "url": "https://techcrunch.com/2026/11/09/anthropic-releases-new-mythos-and-fable-models-amid-rsi-concerns/",
+      "image": "/images/feed/feed-9d2e28e73a2d.webp",
+      "source": "TechCrunch",
+      "isLive": true
+    },
+    {
+      "id": "feed-07fcf3007d4b",
+      "title": "Even More Free DLC for Hollow Knight: Silksong Might Be on the Way",
+      "excerpt": "The physical edition of Hollow Knight: Silksong indicate that free DLC might be on the way as well as additional \"giant\" expansions.",
+      "body": "After approximately 100 years of waiting, Hollow Knight: Silksong was released last fall. Players were eager to jump into it as Silksong hit a peak of nearly 600,000 concurrent players on Steam alone. Critics adored it too as Silksong was nominated for several end-of-year awards and won a handful of them, such as Best Action/Adventure Game at The Game Awards . Around that time, Team Cherry announced it was working on a new Silksong expansion called Sea of Sorrow .",
+      "author": "Austin Manchester",
+      "date": "2026-11-09",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 54,
+      "url": "https://www.polygon.com/hollow-knight-silksong-free-dlc-rumor/",
+      "image": "/images/feed/feed-07fcf3007d4b.png",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-e9cc7b97eabf",
+      "title": "A Major 2027 Pokémon TCG Change Could Be Bad News For Everyone",
+      "excerpt": "Pokémon fans are already paying outrageous prices for new products, but regional changes alongside TPC's investments don't bode well",
+      "body": "Being a Pokémon Trading Card Game fan is tough on wallets. Major retailers like Target and Walmart charge more than the manufacturer's retail price; stores like Best Buy, which stick to MSRP, are extremely competitive. Increased vendor prices and extraordinary resale price gouging are pushing more card shops to sell TCG products for or above market rates. And now, Pokémon fans are starting to fear that the hobby's pricing is about to get even worse across the board.",
+      "author": "Patricia Hernandez",
+      "date": "2026-11-09",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 38,
+      "url": "https://www.polygon.com/pokemon-tcg-price-increase-packs-cost-tpc-ex-set-release-date/",
+      "image": "/images/feed/feed-e9cc7b97eabf.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-fb183730e801",
+      "title": "BMW Is Embracing Cheaper LFP Batteries For Its Newest EVs",
+      "excerpt": "BMW's newest EVs boast impressive range. Now cheaper batteries could help bring their prices down, even if it means fewer miles.",
+      "body": "BMW's newest EVs boast impressive range. Now cheaper batteries could help bring their prices down, even if it means fewer miles.\n\nThis report, published by InsideEVs, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cars. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to InsideEVs using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "InsideEVs",
+      "date": "2026-11-09",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Cars"
+      ],
+      "featured": false,
+      "xpReward": 53,
+      "url": "https://insideevs.com/news/814874/bmw-confirms-lfp-batteries-evs/",
+      "image": "/images/feed/feed-fb183730e801.jpg",
+      "source": "InsideEVs",
+      "isLive": true
+    },
+    {
+      "id": "feed-d684dbe5cf10",
+      "title": "Toyota sells 3 electric SUVs, but which one is best for you?",
+      "excerpt": "Toyota now offers three fully electric SUVs: the bZ, C-HR, and bZ Woodland. Here’s how they stack up. more…",
+      "body": "Toyota now offers three fully electric SUVs: the bZ, C-HR, and bZ Woodland. Here’s how they stack up. more — a development drawing significant attention in the electric vehicles, hybrids, and automotive technology space.\n\nThis report, published by Electrek, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cars. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Electrek using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Peter Johnson",
+      "date": "2026-11-09",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Cars"
+      ],
+      "featured": false,
+      "xpReward": 48,
+      "url": "https://electrek.co/2026/11/09/toyota-sells-3-electric-suvs-which-one-is-best/",
+      "image": "/images/feed/feed-d684dbe5cf10.jpg",
+      "source": "Electrek",
+      "isLive": true
+    },
+    {
+      "id": "feed-c04f3cc8701a",
+      "title": "The FlashForge AD5X Multi-Color 3D Printer Drops to as Low as $172 for Black Friday",
+      "excerpt": "Currently double the price on Amazon.",
+      "body": "Here&#39;s your chance to pick up a fully featured and moddable 3D printer at an unbeatable price. AliExpress is offering first time customers the FlashForge AD5X Multi-Color 3D Printer for just $171.97 after you apply coupon code &quot; DBDEAL40 &quot;. Returning customers can get it for $183.99 with same code. The same printer sells for $349 on Amazon . Update: If the $40 off coupon no longer works, then try $38 off coupon &quot; USAFF38 &quot;. Make sure you&#39;re signed into your account to see the shipping options (you may have to refresh the page twice ). You&#39;re buying it from FlashForge&#39;s official store on AliExpress. It ships free from the United States and arrives within 1 to 2 weeks.",
+      "author": "Eric Song",
+      "date": "2026-11-09",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 43,
+      "url": "https://www.ign.com/articles/flashforge-ad5x-3d-printer-black-friday-deal",
+      "image": "/images/feed/feed-c04f3cc8701a.jpg",
+      "source": "IGN",
       "isLive": true
     },
     {
@@ -32,181 +489,10 @@
       "tags": [
         "Gaming"
       ],
-      "featured": true,
-      "xpReward": 51,
-      "url": "https://www.polygon.com/james-gunns-dcu-canceled/",
-      "image": "/images/feed/feed-6658fb753790.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-fff0e8719cb8",
-      "title": "The Two Limits of Our QR Code Maker: Module Scale Caps at 32 px, the Quiet Zone at 16 Modules",
-      "excerpt": "I work on OnePassApps, the team behind app.onepassapps.com. Our QR Code Maker draws a static code in your tab and hands back a PNG or an SVG. This post is about the three numbers that decide how big t…",
-      "body": "I work on OnePassApps, the team behind app.onepassapps.com. Our QR Code Maker draws a static code in your tab and hands back a PNG or an SVG. This post is about the three numbers that decide how big that file comes out, and about the two limits the panel applies without ever telling you they are there. I typed them in, read the panel back and checked the arithmetic outside the browser. You can try it on the QR Code Maker , or read what it does in the guide .",
-      "author": "OnePassApps",
-      "date": "2026-11-09",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 36,
-      "url": "https://dev.to/onepassapps/the-two-limits-of-our-qr-code-maker-module-scale-caps-at-32-px-the-quiet-zone-at-16-modules-50mn",
-      "image": "/images/feed/feed-fff0e8719cb8.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-957a742d72c9",
-      "title": "How and why I built my open-source documentation app that runs in a single Docker container 😁",
-      "excerpt": "I'm a freelancer and solopreneur, and I run two products: a SaaS for CrossFit competitions, and Kerflow, an open-source tool to find local leads. Two products, two documentation sites to maintain. On…",
-      "body": "I'm a freelancer and solopreneur, and I run two products: a SaaS for CrossFit competitions, and Kerflow, an open-source tool to find local leads. Two products, two documentation sites to maintain. On my own. And every time, I ended up with the same setup. A Node project, a framework, a build step, a CI pipeline… just to show some Markdown. So I built tidydoc . A folder of Markdown files, one Docker container, and you are done. Today, I edit my docs with Claude Code (or by hand), commit, and push to GitHub. A few seconds later, the site is up to date. No rebuild, no container restart. A few developers asked me about it. So today, I will tell you why I built it, and how it works under the hood. Docs should not need a build pipeline Let me explain.",
-      "author": "Fabien",
-      "date": "2026-11-09",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 37,
-      "url": "https://dev.to/fabzh/how-and-why-i-built-my-open-source-documentation-app-that-runs-in-a-single-docker-container-4kfc",
-      "image": "/images/feed/feed-957a742d72c9.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-1ad73dad61aa",
-      "title": "Wenn Headsets schärfer streamen: Was das SteamVR-Update über Sehtraining verrät",
-      "excerpt": "Wenn Headsets schärfer streamen: Was das SteamVR-Update über Sehtraining verrät Valve hat ein SteamVR-Beta-Update veröffentlicht, das die gestreamte Bildqualität für alle Steam-Link-kompatiblen Standa…",
-      "body": "Wenn Headsets schärfer streamen: Was das SteamVR-Update über Sehtraining verrät Valve hat ein SteamVR-Beta-Update veröffentlicht, das die gestreamte Bildqualität für alle Steam-Link-kompatiblen Standalone-Headsets verbessert – also für Meta Quest, HTC Vive Focus und PICO. Wer seine Steam-Bibliothek drahtlos über Wi-Fi im Headset spielt, bekommt jetzt ein klareres Bild. Das ist eine Meldung aus der Gaming-Ecke, und doch steckt darin ein Gedanke, der weit über Spiele hinausgeht. Warum Bildqualität plötzlich relevant wird VR lebt davon, dass beide Augen zusammenarbeiten. Tiefe entsteht erst, wenn das Gehirn zwei leicht unterschiedliche Bilder zu einem Raum verschmilzt.",
-      "author": "Ashish",
-      "date": "2026-11-09",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 36,
-      "url": "https://dev.to/ashish_624379625242c5d263/wenn-headsets-scharfer-streamen-was-das-steamvr-update-uber-sehtraining-verrat-5edb",
-      "image": "/images/feed/feed-1ad73dad61aa.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-9909316ac59a",
-      "title": "Model symbiogenesis: one LoRA adapter erases another",
-      "excerpt": "Model symbiogenesis: one adapter erases another, the merge restores it Two LoRA adapters share one 4-bit Qwen3B host. One is a sentiment adapter (SST-2), the Reproduce: python research/symbiogenesis.p…",
-      "body": "Model symbiogenesis: one adapter erases another, the merge restores it Two LoRA adapters share one 4-bit Qwen3B host. One is a sentiment adapter (SST-2), the other a topic adapter (AG News). This is not a container experiment; it asks whether two learned behaviors coexist when their weights are merged. Reproduce: python research/symbiogenesis.py # -&gt; research/results/symbiogenesis.json Logit-scored accuracy (200 test rows each) state SST-2 AG News base 100.0% 80.5% SST-2 adapter 96.0% 88.0% AG News adapter 0.0% 70.5% 0.5/0.5 merge 98.5% 84.0% The AG News adapter alone does not just lower sentiment accuracy; it erases it under this scoring. The 0.5 merge restores sentiment to 98.5% and recovers AG News above the AG adapter (84.0 vs 70.5), but not above the SST-2 adapter's 88.0.",
-      "author": "mycute",
-      "date": "2026-11-09",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 48,
-      "url": "https://dev.to/mycute_97b39c4e34027570f9/model-symbiogenesis-one-lora-adapter-erases-another-g25",
-      "image": "/images/feed/feed-9909316ac59a.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-4d55b13f1b0a",
-      "title": "Advanced Component Design Patterns for Scalable React Applications",
-      "excerpt": "Building a small ReactJS application is relatively straightforward. However, as an application grows, managing components, sharing logic, and maintaining consistent functionality can become challengin…",
-      "body": "Building a small ReactJS application is relatively straightforward. However, as an application grows, managing components, sharing logic, and maintaining consistent functionality can become challenging. This is where advanced component design patterns become important. A well-structured React application is easier to understand, test, maintain, and scale. Developers who understand advanced component patterns can create reusable interfaces without introducing unnecessary complexity. Follow the Single Responsibility Principle Every component should ideally have one clear responsibility. For example, an e-commerce application may contain separate components for displaying product information, managing product quantities, handling checkout, and showing payment details.",
-      "author": "Ellah Shrma",
-      "date": "2026-11-09",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 42,
-      "url": "https://dev.to/ellahshrma22/advanced-component-design-patterns-for-scalable-react-applications-4ei8",
-      "image": "/images/feed/feed-4d55b13f1b0a.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-9701fa993814",
-      "title": "7 Decisions That Make or Break a File-Sharing API",
-      "excerpt": "File uploads are the feature every developer underestimates. \"Just accept the file and store it\" works in a demo. In production, the same feature meets 5 GB videos, malware, hotlinked downloads, and u…",
-      "body": "File uploads are the feature every developer underestimates. \"Just accept the file and store it\" works in a demo. In production, the same feature meets 5 GB videos, malware, hotlinked downloads, and users who expect the link to still work six months later. I build and run a file-sharing platform, and these are the seven decisions that mattered most. They are not about any one framework — they are about the choices that decide whether your upload feature survives real users. 1. Store files on object storage, not on your app server The first decision is where files live. Storing uploads on the same disk as your app server is the fastest way to fill that disk, lose files on a redeploy, and make horizontal scaling painful. Object storage exists for this.",
-      "author": "Surya Prakash",
-      "date": "2026-11-09",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Api"
-      ],
       "featured": false,
       "xpReward": 34,
-      "url": "https://dev.to/uploadex/7-decisions-that-make-or-break-a-file-sharing-api-593f",
-      "image": "/images/feed/feed-9701fa993814.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-8272bfc361bf",
-      "title": "Anthropic upgrades Claude with new Fable 5.2 model, details here",
-      "excerpt": "Anthropic is out with its second big update to Claude Fable 5 since introducing the model class back in June. Here’s what’s new with Claude Fable 5.2. more…",
-      "body": "Anthropic is out with its second big update to Claude Fable 5 since introducing the model class back in June. Here’s what’s new with Claude Fable 5.2. more — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Zac Hall",
-      "date": "2026-11-09",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 39,
-      "url": "https://9to5mac.com/2026/11/09/anthropic-upgrades-claude-with-new-fable-5-2-model-details-here/",
-      "image": "/images/feed/feed-8272bfc361bf.jpg",
-      "source": "9to5Mac",
-      "isLive": true
-    },
-    {
-      "id": "feed-5b721d1f845a",
-      "title": "Warhammer’s Brutal Fantasy Football Game Just Suffered Another Setback",
-      "excerpt": "Warhammer Blood Bowl has been delayed until 2027, but Blood Bowl 3 owners will receive a free upgrade and new teams.",
-      "body": "Warhammer fans will have to wait a little longer to return to the fantasy football pitch, but the upcoming overhaul is bringing some welcome additions. Warhammer Blood Bowl has been delayed into early 2027, pushing the game's full release out of its previously planned 2026 launch window. Publisher Slitherine announced the delay during its Dominion Days showcase in Berlin, explaining that additional development time is needed to deliver a more polished experience.",
-      "author": "Sam Hill",
-      "date": "2026-11-09",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Game"
-      ],
-      "featured": false,
-      "xpReward": 30,
-      "url": "https://www.polygon.com/warhammer-blood-bowl-delayed-2027/",
-      "image": "/images/feed/feed-5b721d1f845a.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-11b692ab46d0",
-      "title": "GTA 6 Jacket That Costs $3,000 Immediately Sells Out",
-      "excerpt": "Despite costing over $3,000, the official Grand Theft Auto 6 jacket immediately sold out.",
-      "body": "Despite costing over $3,000, the official Grand Theft Auto 6 jacket immediately sold out.\n\nThis report, published by Polygon, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Polygon using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Elijah Gonzalez",
-      "date": "2026-11-09",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 52,
-      "url": "https://www.polygon.com/gta-6-jacket-sold-out/",
-      "image": "/images/feed/feed-11b692ab46d0.jpg",
+      "url": "https://www.polygon.com/james-gunns-dcu-canceled/",
+      "image": "/images/feed/feed-6658fb753790.jpg",
       "source": "Polygon",
       "isLive": true
     },
@@ -223,29 +509,10 @@
         "Chatgpt"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 41,
       "url": "https://openai.com/index/chatgpt-enterprise-aws-marketplace",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "OpenAI Blog",
-      "isLive": true
-    },
-    {
-      "id": "feed-ab51db5dd21b",
-      "title": "Gmail users should know about this little-noticed feature",
-      "excerpt": "Gmail's unsend feature will delay it from dispatching your message. Here's how to extend the amount of time you have to use it.",
-      "body": "Gmail's unsend feature will delay it from dispatching your message. Here's how to extend the amount of time you have to use it.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Mariella Moon)",
-      "date": "2026-11-09",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 34,
-      "url": "https://www.engadget.com/2307742/gmail-unsend-feature/",
-      "image": "/images/feed/feed-ab51db5dd21b.jpg",
-      "source": "Engadget",
       "isLive": true
     },
     {
@@ -261,7 +528,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 44,
       "url": "https://www.space.com/entertainment/space-movies-shows/nyt-bestseller-robopocalypse-is-getting-a-tv-series-with-oscar-winners-ron-howard-and-akiva-goldsman-at-the-helm",
       "image": "/images/feed/feed-994e54c5ed94.png",
       "source": "Space.com",
@@ -281,7 +548,7 @@
         "Claude"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 30,
       "url": "https://www.theverge.com/ai-artificial-intelligence/1030005/anthropic-claude-fable-mythos-5-2",
       "image": "/images/feed/feed-c301a0197fe3.jpg",
       "source": "The Verge",
@@ -300,10 +567,48 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 43,
       "url": "https://electrek.co/2026/11/09/yozma-in-10-pro-electric-dirt-bike-anker-black-friday-security-sale-ecoflow-more/",
       "image": "/images/feed/feed-7b3c8cfefaaa.jpg",
       "source": "Electrek",
+      "isLive": true
+    },
+    {
+      "id": "feed-456a529aa2a3",
+      "title": "Claude Fable 5.2 and Mythos 5.2",
+      "excerpt": "",
+      "body": "This report, published by Hacker News, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Claude. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Hacker News using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "meetpateltech",
+      "date": "2026-11-09",
+      "readTime": "2 min",
+      "section": "ai",
+      "tags": [
+        "Claude"
+      ],
+      "featured": false,
+      "xpReward": 34,
+      "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+      "image": "/images/feed/feed-456a529aa2a3.jpg",
+      "source": "Hacker News",
+      "isLive": true
+    },
+    {
+      "id": "feed-5866039560ae",
+      "title": "NASA’s Chandra Finds Source of Star’s Mysterious Outbursts",
+      "excerpt": "Using NASA’s Chandra X-ray Observatory, astronomers have discovered what is triggering repeated outbursts from a giant, unstable star. A new study, published Monday in the latest issue of The Astrophy…",
+      "body": "A composite NASA Chandra X-ray and Sloan Digital Sky Survey (SDSS) optical image of the galaxy NGC 4559 located about 30 million light-years from Earth. The Chandra data shows X-ray point sources represented in purple, and the SDSS data shows the galaxy and foreground and background objects in red and blue. The luminous blue variable and supernova impostor AT 2016blu is in the middle of the small square. X-ray: NASA/CXC/Univ. of Virgina/M. Aghakhanloo et al.; Optical: SDSS; Image Processing: NASA/CXC/SAO/P. Edmonds Using NASA’s Chandra X-ray Observatory, astronomers have discovered what is triggering repeated outbursts from a giant, unstable star.",
+      "author": "NASA Breaking News",
+      "date": "2026-11-09",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Nasa"
+      ],
+      "featured": false,
+      "xpReward": 32,
+      "url": "https://science.nasa.gov/missions/chandra/nasas-chandra-finds-source-of-stars-mysterious-outbursts/",
+      "image": "/images/feed/feed-5866039560ae.jpg",
+      "source": "NASA Breaking News",
       "isLive": true
     },
     {
@@ -319,29 +624,10 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 33,
       "url": "https://electrek.co/2026/11/09/the-electric-vespa-just-got-better-where-it-actually-matters/",
       "image": "/images/feed/feed-d212c8f182c6.jpg",
       "source": "Electrek",
-      "isLive": true
-    },
-    {
-      "id": "feed-3c88e372525c",
-      "title": "All carpenter locations in Gerudo Fortress in Zelda Ocarina of Time",
-      "excerpt": "Here's where you can find all the carpenters in Gerudo Fortress in The Legend of Zelda: Ocarina of Time remake and the best route to reach each one.",
-      "body": "The Gerudo guards captured four carpenters at Gerudo Fortress in The Legend of Zelda: Ocarina of Time remake, and it's Link's job to rescue them. By heading west of Hyrule Field , you will enter Gerudo Valley. If you cross the broken bridge — which you can do by riding Epona — you can talk to the Master Craftsman, who will ask Link to help his apprentices by sneaking into the fortress and releasing them.",
-      "author": "Paulo Kawanishi",
-      "date": "2026-11-09",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 30,
-      "url": "https://www.polygon.com/zelda-ocarina-of-time-remake-ott-carpenter-locations-gerudo-fortress/",
-      "image": "/images/feed/feed-3c88e372525c.jpg",
-      "source": "Polygon",
       "isLive": true
     },
     {
@@ -357,29 +643,10 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 53,
       "url": "https://insideevs.com/news/814711/ford-first-fathoms-pre-production/",
       "image": "/images/feed/feed-ee2d7787b0a5.jpg",
       "source": "InsideEVs",
-      "isLive": true
-    },
-    {
-      "id": "feed-dc7d88d38c33",
-      "title": "You can grab three months of Game Pass Ultimate for under $20 per month",
-      "excerpt": "The price of Xbox Game Pass Ultimate has fluctuated between $20 and $30 per month over the last year, but you can get three months of the top plan for around $19 per month. At Newegg, using the coupon…",
-      "body": "The price of Xbox Game Pass Ultimate has fluctuated between $20 and $30 per month over the last year, but you can get three months of the top plan for around $19 per month. At Newegg , using the coupon code BNWF2656 at checkout knocks $11 off the usual cost of a three-month subscription. That brings the price down to just $57.99 for three months. In addition to full access to over 500 games on both Xbox consoles and Windows PC machines, the upgraded Ultimate plan includes EA Play and Ubisoft Plus Classics, which have their own libraries and benefits, and Fortnite Crew for full access to the Fortnite battles passes. On Xbox, Ultimate enables online multiplayer, as well.",
-      "author": "Brad Bourque",
-      "date": "2026-11-09",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Game"
-      ],
-      "featured": false,
-      "xpReward": 46,
-      "url": "https://www.theverge.com/gadgets/1029998/game-pass-ultimate-three-months-lego-pokemon-pikachu-deal-sale",
-      "image": "/images/feed/feed-dc7d88d38c33.jpg",
-      "source": "The Verge",
       "isLive": true
     },
     {
@@ -395,124 +662,10 @@
         "Hacker"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 30,
       "url": "https://www.bleepingcomputer.com/news/security/france-blames-iranian-hackers-for-supermarket-attacks-that-sparked-fires/",
       "image": "/images/feed/feed-5147b30c16c0.jpg",
       "source": "BleepingComputer",
-      "isLive": true
-    },
-    {
-      "id": "feed-6c4fbe50acaa",
-      "title": "Zelda: Ocarina of Time Is Scarier Than Ever on Switch 2",
-      "excerpt": "The Legend of Zelda: Ocarina of Time's Switch 2 remake makes the Nintendo 64 classic creepier than ever.",
-      "body": "When I first encountered The Legend of Zelda: Ocarina of Time growing up, it scared the crap out of me. The screeching Redeads, the skittering spiders, the disembodied hands — it was basically a horror movie to a young kid’s eyes. I’m older and harder to spook now, of course, which means that I knew the Nintendo 64 game’s fresh Switch 2 remake was bound to hit differently. Surely I’d laugh at everything that used to creep me out and realize that I was scared of a glorified cartoon!",
-      "author": "Giovanni Colantonio",
-      "date": "2026-11-09",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 31,
-      "url": "https://www.polygon.com/zelda-ocarina-of-time-remake-horror/",
-      "image": "/images/feed/feed-6c4fbe50acaa.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-589a2a55c5a5",
-      "title": "GTA 6: The Festival Officially Announced by Rockstar",
-      "excerpt": "Rockstar is taking the music of GTA 6 to the real world with Grand Theft Auto 6: The Festival, a unique live event in Miami.",
-      "body": "Rockstar Games is giving Grand Theft Auto 6 fans a unique opportunity to experience the soundtrack to Leonida's chaotic world in real life. On Nov. 21, Rockstar and PlayStation are hosting Grand Theft Auto 6: The Festival, a live music event in Miami, Florida. Tickets are highly exclusive, and only a lucky few will get the chance to acquire them.",
-      "author": "Ashely Claudino",
-      "date": "2026-11-09",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 43,
-      "url": "https://www.polygon.com/gta-6-festival-tickets-announcement/",
-      "image": "/images/feed/feed-589a2a55c5a5.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-a5f6b37366aa",
-      "title": "Apple releases iOS 26.7.3, watchOS 27.2.1, and more",
-      "excerpt": "Today Apple released a variety of software updates with the latest security fixes, including iOS 26.7.3 for iPhone, watchOS 27.2.1 for Apple Watch, and more. more…",
-      "body": "Today Apple released a variety of software updates with the latest security fixes, including iOS 26.7.3 for iPhone, watchOS 27.2.1 for Apple Watch, and more. more — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Ryan Christoffel",
-      "date": "2026-11-09",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 54,
-      "url": "https://9to5mac.com/2026/11/09/apple-releases-ios-26-7-3-watchos-27-2-1-and-more/",
-      "image": "/images/feed/feed-a5f6b37366aa.jpg",
-      "source": "9to5Mac",
-      "isLive": true
-    },
-    {
-      "id": "feed-050293d4a874",
-      "title": "Apple releases macOS 27.2.1 Golden Gate, Tahoe 26.7.3, and Sequoia 15.8.3",
-      "excerpt": "After rolling out the first Release Candidates of macOS Sequoia 15.8.3 and macOS Tahoe 26.7.3 last week, Apple today released the official versions of both systems, alongside macOS 27.2.1 Golden Gate.…",
-      "body": "After rolling out the first Release Candidates of macOS Sequoia 15.8.3 and macOS Tahoe 26.7.3 last week, Apple today released the official versions of both systems, alongside macOS 27.2.1 Golden Gate — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Marcus Mendes",
-      "date": "2026-11-09",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 48,
-      "url": "https://9to5mac.com/2026/11/09/apple-releases-macos-27-2-1-golden-gate-tahoe-26-7-3-and-sequoia-15-8-3/",
-      "image": "/images/feed/feed-050293d4a874.jpg",
-      "source": "9to5Mac",
-      "isLive": true
-    },
-    {
-      "id": "feed-23b021d4864f",
-      "title": "How does Google Wallet's notification feed work and can you disable it?",
-      "excerpt": "Google Wallet is attempting to make notifications easier to find with a notification feed, but if you're sick of alerts, find out how to disable them.",
-      "body": "Google Wallet is attempting to make notifications easier to find with a notification feed, but if you're sick of alerts, find out how to disable them.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Jack Peachey)",
-      "date": "2026-11-09",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 53,
-      "url": "https://www.engadget.com/2307741/google-wallet-notifications-how-works-disable/",
-      "image": "/images/feed/feed-23b021d4864f.jpg",
-      "source": "Engadget",
-      "isLive": true
-    },
-    {
-      "id": "feed-f1eae6753c4a",
-      "title": "Apple releases iOS 27.2.1 for iPhone, here’s what’s new",
-      "excerpt": "Apple has released a minor new software update for iPhone users today: iOS 27.2.1. Here’s what’s new. more…",
-      "body": "Apple has released a minor new software update for iPhone users today: iOS 27.2.1. Here’s what’s new. more — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Iphone. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Ryan Christoffel",
-      "date": "2026-11-09",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Iphone"
-      ],
-      "featured": false,
-      "xpReward": 49,
-      "url": "https://9to5mac.com/2026/11/09/apple-releases-ios-27-2-1-for-iphone-heres-whats-new/",
-      "image": "/images/feed/feed-f1eae6753c4a.jpg",
-      "source": "9to5Mac",
       "isLive": true
     },
     {
@@ -530,29 +683,10 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 41,
       "url": "https://www.space.com/space-exploration/launches-spacecraft/starfish-space-loses-contact-with-1st-otter-servicing-spacecraft-ending-nasa-tech-demo-mission",
       "image": "/images/feed/feed-e5e599a9fbc6.jpg",
       "source": "Space.com",
-      "isLive": true
-    },
-    {
-      "id": "feed-1104675f49ed",
-      "title": "Google is bringing Chrome’s real-time scam protection to Incognito and Guest modes",
-      "excerpt": "Google wants Chrome Incognito to forget your history, not its security checks.",
-      "body": "TL;DR Google is working to bring real-time Safe Browsing checks to Chrome’s Incognito and Guest modes. The change could help catch newly discovered scam and malicious websites that locally stored threat lists might miss. Google is designing the feature to preserve Incognito’s privacy protections, but it hasn’t confirmed a rollout date. Chrome’s Incognito mode is great at covering your tracks on your device. But keeping your browsing activity private shouldn’t mean getting less protection from dangerous websites. That’s one area where Incognito hasn’t quite kept pace with regular Chrome browsing, and Google is now working on a fix. A new Chromium code change, spotted by Windows Report , reveals plans to bring real-time Safe Browsing checks to Incognito and Guest modes.",
-      "author": "Hillary Keverenge",
-      "date": "2026-11-09",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 36,
-      "url": "https://www.androidauthority.com/chrome-incognito-guest-mode-real-time-safe-browsing-3733040/",
-      "image": "/images/feed/feed-1104675f49ed.jpg",
-      "source": "Android Authority",
       "isLive": true
     },
     {
@@ -570,7 +704,7 @@
         "Breach"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 37,
       "url": "https://thehackernews.com/2026/11/hackers-exploit-quboles-trusted-aws.html",
       "image": "/images/feed/feed-199419dac426.jpg",
       "source": "The Hacker News",
@@ -589,7 +723,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 54,
       "url": "https://www.bleepingcomputer.com/news/security/russian-cloud-firm-beget-rebuilds-from-scratch-after-data-wiper-attack/",
       "image": "/images/feed/feed-76dbedcda80e.jpg",
       "source": "BleepingComputer",
@@ -608,7 +742,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 49,
       "url": "https://www.nasa.gov/directorates/stmd/prizes-challenges-crowdsourcing-program/center-of-excellence-for-collaborative-innovation-coeci/nasa-advanced-mid-power-electric-rocket-challenge/",
       "image": "/images/feed/feed-33e385259494.jpg",
       "source": "NASA Breaking News",
@@ -627,7 +761,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 52,
       "url": "https://www.nasa.gov/news-release/la-nasa-destina-un-millon-de-dolares-al-reto-estudiantil-base-lunar/",
       "image": "https://www.nasa.gov/wp-content/uploads/2026/11/cpc-logistics-actionshot-1.png",
       "source": "NASA Breaking News",
@@ -647,7 +781,7 @@
         "Hacker"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 45,
       "url": "https://thehackernews.com/2026/11/hackers-compromise-etherspheres-bee-js.html",
       "image": "/images/feed/feed-64c0fe9ae1aa.jpg",
       "source": "The Hacker News",
@@ -666,7 +800,7 @@
         "Hacker"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 51,
       "url": "https://news.ycombinator.com/front?day=2024-11-08",
       "image": "/images/topics/topic-cybersecurity.png",
       "source": "Hacker News",
@@ -704,7 +838,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 51,
       "url": "https://electrek.co/2026/11/09/fords-ev-batteries-retain-over-90-health-after-100000-miles/",
       "image": "/images/feed/feed-f53b2c3ad0a3.jpg",
       "source": "Electrek",
@@ -723,7 +857,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 35,
       "url": "https://cleantechnica.com/2026/11/09/west-yorkshire-bus-depots-electric-bus-investment/",
       "image": "/images/feed/feed-2f4370bafed4.png",
       "source": "CleanTechnica",
@@ -742,7 +876,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 30,
       "url": "https://www.space.com/space-exploration/nasa-just-launched-a-usd1-million-moon-base-student-challenge-to-award-cash-prizes-to-students-that-solve-lunar-base-problems",
       "image": "/images/feed/feed-5c48326e944f.jpg",
       "source": "Space.com",
@@ -751,8 +885,8 @@
     {
       "id": "feed-f3c522ff77f3",
       "title": "Anthropic joins AI’s natural gas frenzy, buys $3.4B worth of turbines",
-      "excerpt": "Anthropic bought billions of dollars worth of natural gas turbines in a deal that could give it buyer's remorse.",
-      "body": "Anthropic bought billions of dollars worth of natural gas turbines in a deal that could give it buyer's remorse.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Anthropic. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "excerpt": "Anthropic bought billions of dollars' worth of natural gas turbines in a deal that could give it buyer's remorse.",
+      "body": "Anthropic bought billions of dollars' worth of natural gas turbines in a deal that could give it buyer's remorse.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Anthropic. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
       "author": "Tim De Chant",
       "date": "2026-11-09",
       "readTime": "2 min",
@@ -761,67 +895,10 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 46,
       "url": "https://techcrunch.com/2026/11/09/anthropic-joins-ais-natural-gas-frenzy-buys-3-4b-worth-of-turbines/",
-      "image": "/images/feed/feed-f3c522ff77f3.jpg",
+      "image": "/images/feed/feed-f3c522ff77f3.webp",
       "source": "TechCrunch",
-      "isLive": true
-    },
-    {
-      "id": "feed-ca5fdef3e133",
-      "title": "Astronauts Across Generations Share the Stage",
-      "excerpt": "On Nov. 6, 2026, Purpose Entertainment hosted the Artemis Celebration Gala at NASA’s Kennedy Space Center Visitor Complex in Merritt Island, Florida. Held on the eve of NASA’s MAX POWER event, the gal…",
-      "body": "From left: NASA astronauts Randy Bresnik, Luca Parmitano, Russell &#8220;Rusty&#8221; Schweickart, Frank Rubio, and Bob Hines onstage at the Artemis Celebration Gala at NASA&#8217;s Kennedy Space Center Visitor Complex in Merritt Island, Florida, on Nov. 6, 2026. Purpose Entertainment/Shanna Lockwood On Nov. 6, 2026, Purpose Entertainment hosted the Artemis Celebration Gala at NASA&#8217;s Kennedy Space Center Visitor Complex in Merritt Island, Florida. Held on the eve of NASA&#8217;s MAX POWER event, the gala celebrated the explorers, innovators, and visionaries advancing the next era of human spaceflight. The event honored the successful completion of the agency&#8217;s Artemis II mission, marking a historic milestone in America&#8217;s return to deep space exploration.",
-      "author": "Gary Daines",
-      "date": "2026-11-09",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Astronaut"
-      ],
-      "featured": false,
-      "xpReward": 38,
-      "url": "https://www.nasa.gov/image-article/astronauts-across-generations-share-the-stage/",
-      "image": "https://www.nasa.gov/wp-content/uploads/2026/11/20261106-artemiscelebrationgala-sl1-4202.jpg",
-      "source": "NASA Breaking News",
-      "isLive": true
-    },
-    {
-      "id": "feed-c4c2da51e604",
-      "title": "Netflix announces 'Stranger Things' spin-off 'Other Worlds', and it's already teasing a trip to Area 51 (video)",
-      "excerpt": "The first trailer for Other World: A Stranger Things Adventure doesn't show much, but there are enough clues for fans to figure out what it's about here.",
-      "body": "So, you thought \"Stranger Things\" was done and dusted after all that Conformity Gate nonsense? No way! Netflix's sci-fi sensation returns in the live-action prequel series \"Other Worlds: A Stranger Things Adventure.\" Created by the Duffer Brothers and Kate Trefry, with the episodes set to be directed by Joe Wright (\"Darkest Hour\", \"Black Mirror\"), this new show isn't set in Hawkins or the electric '80s. No, this time around, the action takes place in Marion, Nevada, in 1955, and you know what else is located in Nevada, right? Area 51 .",
-      "author": " Sergio Pereira ",
-      "date": "2026-11-09",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Space"
-      ],
-      "featured": false,
-      "xpReward": 36,
-      "url": "https://www.space.com/entertainment/space-movies-shows/netflix-announces-stranger-things-spin-off-other-worlds-and-its-already-teasing-a-trip-to-area-51-video",
-      "image": "/images/feed/feed-c4c2da51e604.jpg",
-      "source": "Space.com",
-      "isLive": true
-    },
-    {
-      "id": "feed-4e59e0d546b3",
-      "title": "Musk admits Tesla doesn’t have enough talent to build more than one car at a time after exodus",
-      "excerpt": "Elon Musk now says Tesla can’t build the Cybertruck and the Cybercab at the same time because there are only so many “smart, dedicated people” to go around. Half the executives he showed off in 2023 a…",
-      "body": "Elon Musk now says Tesla can’t build the Cybertruck and the Cybercab at the same time because there are only so many “smart, dedicated people” to go around. Half the executives he showed off in 2023 as proof of Tesla’s “bench strength” have since left the company. It’s the most honest explanation yet for how Tesla went from five consumer vehicle programs at the start of 2026 to a single platform, Model 3 and Model Y, by the middle of 2027. more…",
-      "author": "Fred Lambert",
-      "date": "2026-11-09",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Tesla"
-      ],
-      "featured": false,
-      "xpReward": 49,
-      "url": "https://electrek.co/2026/11/09/tesla-deep-bench-gone-musk-admits-talent-shortage/",
-      "image": "/images/feed/feed-4e59e0d546b3.jpg",
-      "source": "Electrek",
       "isLive": true
     },
     {
@@ -838,7 +915,7 @@
         "Breach"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 42,
       "url": "https://www.bleepingcomputer.com/news/security/binance-denies-data-breach-after-alleged-shinyhunters-claims/",
       "image": "/images/feed/feed-5644d5903671.jpg",
       "source": "BleepingComputer",
@@ -857,101 +934,24 @@
         "Generative Ai"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 31,
       "url": "https://www.theverge.com/tech/1029773/disney-adobe-generative-ai-partnership",
       "image": "/images/feed/feed-f9c4955a3661.jpg",
       "source": "The Verge",
       "isLive": true
-    },
-    {
-      "id": "feed-d0a257119abe",
-      "title": "BYD is going all out on its ultra-luxury EV with coach doors and 1,000+ km of range [Images]",
-      "excerpt": "BYD unveiled the Yangwang Altior, its new ultra-luxury EV with coach doors, over 1,000 km of CTLC range, a 1,000V fast-charging platform, and plenty of premium extras. more…",
-      "body": "BYD unveiled the Yangwang Altior, its new ultra-luxury EV with coach doors, over 1,000 km of CTLC range, a 1,000V fast-charging platform, and plenty of premium extras. more — a development drawing significant attention in the electric vehicles, hybrids, and automotive technology space.\n\nThis report, published by Electrek, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Ev. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Electrek using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Peter Johnson",
-      "date": "2026-11-09",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Ev"
-      ],
-      "featured": false,
-      "xpReward": 33,
-      "url": "https://electrek.co/2026/11/09/byds-ultra-luxury-ev-coach-doors-1000-km-range/",
-      "image": "/images/feed/feed-d0a257119abe.jpg",
-      "source": "Electrek",
-      "isLive": true
-    },
-    {
-      "id": "feed-08088be30a8e",
-      "title": "Innovating with AI in the special chemicals industry",
-      "excerpt": "As companies look to accelerate innovation with artificial intelligence, cloud computing, and advanced modeling, the primary challenge is connecting new technologies to reliable data, scientific exper…",
-      "body": "As companies look to accelerate innovation with artificial intelligence, cloud computing, and advanced modeling, the primary challenge is connecting new technologies to reliable data, scientific expertise, and the practical realities of bringing products to market. For specialty chemicals manufacturer Lubrizol, digital transformation is all about giving researchers the tools to test ideas faster, make better-informed decisions, and develop more sustainable materials without compromising performance. Girish Rao, vice president of information technology at Lubrizol, says the company is building a digital foundation that connects business processes, modern data platforms, and cloud infrastructure to support its research and development (R&amp;D) teams.",
-      "author": "MIT Technology Review Insights",
-      "date": "2026-11-09",
-      "readTime": "2 min",
-      "section": "ai",
-      "tags": [
-        "Ai"
-      ],
-      "featured": false,
-      "xpReward": 52,
-      "url": "https://www.technologyreview.com/2026/11/09/1147654/innovating-with-ai-in-the-special-chemicals-industry/",
-      "image": "/images/feed/feed-08088be30a8e.png",
-      "source": "MIT Tech Review",
-      "isLive": true
-    },
-    {
-      "id": "feed-8be9fd4aca1a",
-      "title": "The climate case for AI has not been made",
-      "excerpt": "This week, as countries meet in Antalya, Turkey for the United Nations climate conference, one topic likely to dominate the conversation is artificial intelligence. The host has already called on coun…",
-      "body": "This week, as countries meet in Antalya, Turkey for the United Nations climate conference, one topic likely to dominate the conversation is artificial intelligence. The host has already called on countries to commit to ensuring that AI is designed, powered, and deployed in ways that support climate action. But so far, industries around the world aren’t doing nearly enough to harness the technology to actually drive down the greenhouse-gas emissions heating up the planet, despite some very optimistic claims from AI companies.",
-      "author": "Mary Nichols, Jeremy Tamanini",
-      "date": "2026-11-09",
-      "readTime": "2 min",
-      "section": "ai",
-      "tags": [
-        "Ai"
-      ],
-      "featured": false,
-      "xpReward": 52,
-      "url": "https://www.technologyreview.com/2026/11/09/1148166/the-climate-case-for-ai-has-not-been-made/",
-      "image": "/images/feed/feed-8be9fd4aca1a.jpg",
-      "source": "MIT Tech Review",
-      "isLive": true
-    },
-    {
-      "id": "feed-86cd7cb41c9e",
-      "title": "OpenAI's new GPT-6 Cyber AI finds 81 Firefox flaws, 948 Linux bugs",
-      "excerpt": "OpenAI has revealed GPT-6 Cyber, a new artificial intelligence model that has discovered 81 previously unknown high-severity Firefox vulnerabilities and developed working exploits for 948 distinct Lin…",
-      "body": "OpenAI has revealed GPT-6 Cyber, a new artificial intelligence model that has discovered 81 previously unknown high-severity Firefox vulnerabilities and developed working exploits for 948 distinct Lin — a development drawing significant attention in the artificial intelligence and machine learning space.\n\nThis report, published by BleepingComputer, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Openai, Gpt. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to BleepingComputer using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Lawrence Abrams",
-      "date": "2026-11-06",
-      "readTime": "2 min",
-      "section": "ai",
-      "tags": [
-        "Openai",
-        "Gpt"
-      ],
-      "featured": false,
-      "xpReward": 45,
-      "url": "https://www.bleepingcomputer.com/news/security/openais-new-gpt-6-cyber-ai-finds-81-firefox-flaws-948-linux-bugs/",
-      "image": "/images/feed/feed-86cd7cb41c9e.jpg",
-      "source": "BleepingComputer",
-      "isLive": true
     }
   ],
   "breakingNews": [
-    "THE VERGE: Apple’s $50 Intelligence Usage Packs extend access to some AI features",
-    "POLYGON: James Gunn's DCU Is Officially Dead, and That's Good News for Superman Fans",
-    "DEV.TO: The Two Limits of Our QR Code Maker: Module Scale Caps at 32 px, the Quiet Zone at 16 Modules",
-    "DEV.TO: How and why I built my open-source documentation app that runs in a single Docker container 😁",
-    "DEV.TO: Wenn Headsets schärfer streamen: Was das SteamVR-Update über Sehtraining verrät",
-    "DEV.TO: Model symbiogenesis: one LoRA adapter erases another",
-    "DEV.TO: Advanced Component Design Patterns for Scalable React Applications",
-    "DEV.TO: 7 Decisions That Make or Break a File-Sharing API",
-    "9TO5MAC: Anthropic upgrades Claude with new Fable 5.2 model, details here",
-    "POLYGON: Warhammer’s Brutal Fantasy Football Game Just Suffered Another Setback"
+    "DEV.TO: How to Consume a Job from a Message Queue in Node.js (Weekly Digest)",
+    "DEV.TO: Week one inside an inherited engineering department: what I actually look at",
+    "DEV.TO: Browser Storage Upload: Webhook Notification Rules for Private-Bucket Retention, Thumbnails, and Virus-Scan Processing",
+    "DEV.TO: Storing Generated Images — Object Storage Is Better Than Relational Databases Explained",
+    "TECHCRUNCH: Jensen Huang pulls out of ElevenLabs Summit amid Nvidia controversy",
+    "DEV.TO: 5 numbers worth pulling from your own coding-agent sessions in 2026",
+    "9TO5MAC: Apple to open new Developer Center in Istanbul as part of broader Turkey investment",
+    "DEV.TO: My screenshot was 1080x1350. The page was 1722 pixels tall.",
+    "DEV.TO: Why did my AWS bill go up? How to find the cause in 10 minutes",
+    "9TO5MAC: iOS 27.3: Three new iPhone features coming soon"
   ],
   "sectionVideos": {}
 }
