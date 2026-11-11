@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-11T10:11:28.252Z",
+  "fetchedAt": "2026-11-11T11:11:19.737Z",
   "articles": [
     {
       "id": "feed-49cf590dc337",
@@ -14,18 +14,18 @@
         "Ai"
       ],
       "featured": true,
-      "xpReward": 48,
+      "xpReward": 38,
       "url": "https://openai.com/index/gilbert-tobin-sam-nickless",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "OpenAI Blog",
       "isLive": true
     },
     {
-      "id": "feed-974e238ee74c",
-      "title": "Word Count and Line Count: Why Every Tool Disagrees",
-      "excerpt": "You paste a draft into one tool and it says 1,204 words. Your editor says 1,198. A colleague runs wc -w and gets 1,211. Nobody made a mistake: each tool is answering a slightly different question, and…",
-      "body": "You paste a draft into one tool and it says 1,204 words. Your editor says 1,198. A colleague runs wc -w and gets 1,211. Nobody made a mistake: each tool is answering a slightly different question, and none of them tells you which one. The fix is knowing what each count actually measures. If you just want the numbers, the Skojio word counter shows words, characters, lines and bytes side by side, and explains which is which. A \"word\" is a definition, not a fact: hyphens, dashes, emoji and CJK text are where tools disagree. wc -l counts newline characters, so it is often one off from the line numbers your editor shows. One emoji can be 1 character, 2 code points, 4 UTF-16 units or 8 bytes, depending on who is counting.",
-      "author": "Skojio Community",
+      "id": "feed-3566ce6c69a1",
+      "title": "Store the date basis before joining merchant reports",
+      "excerpt": "Two exports both say October. One is a merchant's monthly processing statement. The other is an activity report filtered by settlement date. Your importer gives them the same 2026-10 key, joins the to…",
+      "body": "Two exports both say October. One is a merchant's monthly processing statement. The other is an activity report filtered by settlement date. Your importer gives them the same 2026-10 key, joins the totals, and raises a discrepancy. The files may be correct. The comparison contract may be missing. I work on BrowserAct. A guide we prepared about Worldpay iQ statements separates monthly processing statements, activity reports, and other financial records. For a developer, that distinction should survive ingestion. A human-readable month label cannot express which event date selected the underlying records. This article proposes an application-side review gate for document metadata. The example uses fictional merchants and synthetic records.",
+      "author": "BrowserAct",
       "date": "2026-11-11",
       "readTime": "2 min",
       "section": "software",
@@ -33,56 +33,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 34,
-      "url": "https://dev.to/skojiocommunity/word-count-and-line-count-why-every-tool-disagrees-4hdl",
-      "image": "/images/feed/feed-974e238ee74c.webp",
+      "xpReward": 54,
+      "url": "https://dev.to/browser_act_e2505dbdf454a/store-the-date-basis-before-joining-merchant-reports-4cbn",
+      "image": "/images/feed/feed-3566ce6c69a1.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-db5e45851997",
-      "title": "Instagram Reel Transcript: How to Get One for Free",
-      "excerpt": "You found a Reel with a script worth keeping, and Instagram gives you nothing to copy. No transcript, no caption export, no subtitle file. Typing it out by hand takes longer than the video itself. The…",
-      "body": "You found a Reel with a script worth keeping, and Instagram gives you nothing to copy. No transcript, no caption export, no subtitle file. Typing it out by hand takes longer than the video itself. The fix is speech-to-text on the audio. If you would rather skip the explanation, the Instagram transcript generator takes a public Reel link and returns the words, with optional timestamps and .txt or .srt download. The rest of this post covers how it works, what it does with your link, and where it gets things wrong. You need the link to a public Reel or video post. Private accounts, age-restricted posts, stories and photo posts do not work. The link goes to Skojio's server, which fetches the audio and transcribes it there. It is not processed on your device.",
-      "author": "Skojio Community",
-      "date": "2026-11-11",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 44,
-      "url": "https://dev.to/skojiocommunity/instagram-reel-transcript-how-to-get-one-for-free-5gig",
-      "image": "/images/feed/feed-db5e45851997.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-2e39c5f03e46",
-      "title": "A payment that never unlocked the plan: what our own webhook got wrong",
-      "excerpt": "Someone paid for our product and got nothing. The payment went through, the provider sent us the event, and our handler answered with a success code. The customer was charged and their account stayed…",
-      "body": "Someone paid for our product and got nothing. The payment went through, the provider sent us the event, and our handler answered with a success code. The customer was charged and their account stayed on the free plan. Nobody got an error, so nobody noticed. Here is what happened, and the three checks we added so it cannot happen silently again. The payer had no account yet The customer paid before they created an account. Our webhook looked up the account by the payer's email, found nothing, and returned 200 . From the provider's side the delivery succeeded, so it never retried. const user = await findUserByEmail ( email ) ; if ( ! user ) { logger . warn ( \"no registered user, skipping\" ) ; return NextResponse . json ( { received : true } , { status : 200 } ) ; } That 200 is the bug.",
-      "author": "Bedirhan Elibol",
-      "date": "2026-11-11",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 36,
-      "url": "https://dev.to/bedirhandev/a-payment-that-never-unlocked-the-plan-what-our-own-webhook-got-wrong-25lj",
-      "image": "/images/feed/feed-2e39c5f03e46.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-18f592a8b91d",
-      "title": "CLAUDE.md and AGENTS.md: what happens with conflicting information? Is there a precedence order?",
-      "excerpt": "Claude Code has no precedence order for conflicting CLAUDE.md instructions; Codex and Cursor do. Here is what each tool loads, which file wins, and how to remove the conflict instead of hoping the rig…",
-      "body": "Claude Code has no precedence order for conflicting CLAUDE.md instructions; Codex and Cursor do. Here is what each tool loads, which file wins, and how to remove the conflict instead of hoping the right file wins. Originally published on clogmeter.vercel.app . In Claude Code there is no precedence order: every CLAUDE.md it finds is concatenated into context, nothing overrides anything, and Anthropic's docs say that if two instructions contradict each other \"Claude may pick one arbitrarily.\" Codex and Cursor do define a winner (the closest AGENTS.md for Codex; Team → Project → User rules for Cursor), but in every tool that ordering is a hint to the model, not a guarantee. The only reliable fix is to keep each rule in exactly one place.",
-      "author": "Clogmeter",
+      "id": "feed-9aba9e916ca8",
+      "title": "Your RAG Index Is Already Out of Date: Building an Incremental Ingestion Pipeline",
+      "excerpt": "Most retrieval-augmented generation (RAG) tutorials end at the same point: load some documents, split them into chunks, embed them, store them in a vector database and ask questions. That is enough fo…",
+      "body": "Most retrieval-augmented generation (RAG) tutorials end at the same point: load some documents, split them into chunks, embed them, store them in a vector database and ask questions. That is enough for a demo. It is not enough for a system that a business relies on, because real documents change every day. Policies get revised, product pages get updated, a contract gets replaced and an old one should no longer be quoted. If your index does not reflect those changes, your assistant will confidently answer with yesterday's facts. In my experience, stale or duplicated chunks cause more wrong answers than the language model itself. The quick fix teams usually try is to rebuild the whole index every night.",
+      "author": "Yaman Kavishwar",
       "date": "2026-11-11",
       "readTime": "2 min",
       "section": "software",
@@ -91,17 +53,17 @@
       ],
       "featured": true,
       "xpReward": 35,
-      "url": "https://dev.to/clogmeter/claudemd-and-agentsmd-what-happens-with-conflicting-information-is-there-a-precedence-order-45n1",
-      "image": "/images/feed/feed-18f592a8b91d.webp",
+      "url": "https://dev.to/yamankavishwar/your-rag-index-is-already-out-of-date-building-an-incremental-ingestion-pipeline-3ag6",
+      "image": "/images/feed/feed-9aba9e916ca8.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-fc4ebed748ad",
-      "title": "Odoo can send an email with no recipient and tell you nothing",
-      "excerpt": "Odoo checks a mail template when you save it. After that, nothing checks it again. A field gets removed by an upgrade, a module is uninstalled, or an expression meets a record with an empty value, and…",
-      "body": "Odoo checks a mail template when you save it. After that, nothing checks it again. A field gets removed by an upgrade, a module is uninstalled, or an expression meets a record with an empty value, and the template breaks. Disclosure: I make a paid Odoo module that tests templates (link at the bottom). The technique below works without it. I tried it on Odoo 19: _generate_template with a broken placeholder in email_to returns an empty recipient and no error. The email just has nobody to go to. Calling _render_field on the same field raises the real error.",
-      "author": "Mehedi Hassan Shifat",
+      "id": "feed-cedcd92f02a0",
+      "title": "AI Weekly: Fable 5.2, Muse Ember, and TPU 8i Max",
+      "excerpt": "Anthropic shipped Claude Fable 5.2 and cut its price by 20%. Meta launched Muse Ember, a tiny-priced model built to run the cheap steps inside agents, and Thinking Machines released Inkling 2 Small wi…",
+      "body": "Anthropic shipped Claude Fable 5.2 and cut its price by 20%. Meta launched Muse Ember, a tiny-priced model built to run the cheap steps inside agents, and Thinking Machines released Inkling 2 Small with open weights promised. Google added two new eighth-generation TPUs, while a Corelight study showed how MCP servers quietly drift into running code nobody reviewed. This issue follows the usual order. Models first, then tooling, then standards, then infrastructure. A dated release ledger and a short list of upcoming deadlines close it out. Models: Claude Fable 5.2 Leads a Busy Week Claude Fable 5.2 and Mythos 5.2 Anthropic released Claude Fable 5.2 and Claude Mythos 5.2 on Monday, November 9. The two share one underlying model.",
+      "author": "Alex Merced",
       "date": "2026-11-11",
       "readTime": "2 min",
       "section": "software",
@@ -109,18 +71,56 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 50,
-      "url": "https://dev.to/mehedi_hassanshifat_072e/odoo-can-send-an-email-with-no-recipient-and-tell-you-nothing-ep",
-      "image": "/images/feed/feed-fc4ebed748ad.webp",
+      "xpReward": 38,
+      "url": "https://dev.to/alexmercedcoder/ai-weekly-fable-52-muse-ember-and-tpu-8i-max-3k1o",
+      "image": "/images/feed/feed-cedcd92f02a0.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-74fcc37d87ca",
-      "title": "A Day Isn't 24 Hours: Fixing Date Math & DST Bugs",
-      "excerpt": "TL;DR: Adding 24 hours to a timestamp does not reliably move a clock forward by one calendar day. Because of Daylight Saving Time transitions, a calendar day can span 23, 24, or 25 hours. To prevent b…",
-      "body": "TL;DR: Adding 24 hours to a timestamp does not reliably move a clock forward by one calendar day. Because of Daylight Saving Time transitions, a calendar day can span 23, 24, or 25 hours. To prevent brittle tests and production bugs, always perform date math using calendar intervals rather than fixed durations of hours or seconds. There is nothing quite as humbling as watching an entire CI pipeline turn red on code nobody has touched in months. A test suite runs cleanly for weeks, pull requests merge without incident, and then—out of nowhere on a random Sunday night—builds start failing across unrelated branches. When code breaks without anyone modifying it, the culprit is almost always an external assumption leaking into your test suite.",
-      "author": "Doogal Simpson",
+      "id": "feed-bf3bbb1e5c8b",
+      "title": "Logging pipeline runs without noise #0gyva",
+      "excerpt": "Store one structured record per run with durations and statuses, then aggregate p50/p95 instead of scanning raw logs. Source repository Mbin instance Author profile on DEV",
+      "body": "Store one structured record per run with durations and statuses, then aggregate p50/p95 instead of scanning raw logs. Source repository Mbin instance Author profile on DEV\n\nThis report, published by Dev.to, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Software. As the situation continues to evolve, professionals and enthusiasts in the software development and engineering field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Dev.to using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "devnote2319",
+      "date": "2026-11-11",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 48,
+      "url": "https://dev.to/devnote2319/logging-pipeline-runs-without-noise-0gyva-47m4",
+      "image": "/images/feed/feed-bf3bbb1e5c8b.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-52ef5cd0dc10",
+      "title": "The Tool-Design Mistakes That Make AI Agents Unreliable",
+      "excerpt": "The Tool-Design Mistakes That Make AI Agents Unreliable A lot of \"the model is unreliable\" complaints are actually tool-design problems. The model is doing exactly what an ambiguous or overloaded tool…",
+      "body": "The Tool-Design Mistakes That Make AI Agents Unreliable A lot of \"the model is unreliable\" complaints are actually tool-design problems. The model is doing exactly what an ambiguous or overloaded tool definition told it to do. 🧰 One Tool Doing Too Many Things A single tool with a dozen optional parameters covering unrelated use cases forces the model to guess which combination applies. Splitting it into several narrow, clearly-named tools removes the guesswork entirely. 📝 Descriptions That Don't Say When to Use It A tool description that only explains what a tool does, not when to use it versus a similar tool, leaves the model to infer the boundary — and it infers wrong often enough to matter at scale.",
+      "author": "klyx",
+      "date": "2026-11-11",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 45,
+      "url": "https://dev.to/klyx/the-tool-design-mistakes-that-make-ai-agents-unreliable-39jc",
+      "image": "/images/feed/feed-52ef5cd0dc10.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-f687a743b2a2",
+      "title": "Check that a research CSV join preserves one row per participant",
+      "excerpt": "A row count can stay the same even when a merge drops one participant and duplicates another. If your analysis expects one row per participant, compare the identifier counts before and after the join.…",
+      "body": "A row count can stay the same even when a merge drops one participant and duplicates another. If your analysis expects one row per participant, compare the identifier counts before and after the join. This example uses fictional identifiers. The two files have the same number of rows, but the second file lost P03 and has an extra P02. from collections import Counter before = Counter ( [ \"P01\" , \"P02\" , \"P03\" ] ) after = Counter ( [ \"P01\" , \"P02\" , \"P02\" ] ) lost = before - after extra = after - before assert sum ( before . values ( ) ) == sum ( after . values ( ) ) == 3 assert dict ( lost ) == { \"P03\" : 1 } assert dict ( extra ) == { \"P02\" : 1 } print ( f \"Lost rows: {dict(lost)}\" ) print ( f \"Extra rows: {dict(extra)}\" ) The output is Lost rows: {'P03': 1} and Extra rows: {'P02': 1} .",
+      "author": "bao han",
       "date": "2026-11-11",
       "readTime": "2 min",
       "section": "software",
@@ -128,18 +128,18 @@
         "Software"
       ],
       "featured": false,
-      "xpReward": 54,
-      "url": "https://dev.to/doogal/a-day-isnt-24-hours-fixing-date-math-dst-bugs-3kfi",
-      "image": "/images/feed/feed-74fcc37d87ca.webp",
+      "xpReward": 39,
+      "url": "https://dev.to/nanchuangresearch/check-that-a-research-csv-join-preserves-one-row-per-participant-mf6",
+      "image": "/images/feed/feed-f687a743b2a2.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-76f6a490238d",
-      "title": "State-Level AI Laws Are Leading the Charge While Federal Regulators Drag Their Feet",
-      "excerpt": "Published State AI Laws Are Moving Faster Than Federal AI Regulation AI regulation in the United States has an unusual source: individual states. While federal policymakers debate how artificial intel…",
-      "body": "Published State AI Laws Are Moving Faster Than Federal AI Regulation AI regulation in the United States has an unusual source: individual states. While federal policymakers debate how artificial intelligence should be governed, state legislatures have already begun writing laws that affect hiring software, automated decision systems, consumer privacy, transparency, and algorithmic accountability. For developers, product leaders, and compliance teams, this creates a complicated environment. The legal requirements may vary by state, making implementation harder. But waiting for a single federal framework also has a cost. By the time national legislation arrives, companies may have already shipped products and built compliance processes around state-specific rules.",
-      "author": "Amre ",
+      "id": "feed-2c1f648fa06f",
+      "title": "Best Air Purifiers (2026): Tested Picks for Every Room",
+      "excerpt": "Protect your home against dust, pets, allergens, and more with the best air purifiers, tested firsthand.",
+      "body": "Protect your home against dust, pets, allergens, and more with the best air purifiers, tested firsthand.\n\nThis report, published by Wired, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Software. As the situation continues to evolve, professionals and enthusiasts in the software development and engineering field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Wired using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Molly Higgins",
       "date": "2026-11-11",
       "readTime": "2 min",
       "section": "software",
@@ -147,10 +147,239 @@
         "Software"
       ],
       "featured": false,
-      "xpReward": 53,
-      "url": "https://dev.to/rpgbyters/state-level-ai-laws-are-leading-the-charge-while-federal-regulators-drag-their-feet-33al",
-      "image": "/images/feed/feed-76f6a490238d.webp",
-      "source": "Dev.to",
+      "xpReward": 46,
+      "url": "https://www.wired.com/gallery/best-air-purifiers/",
+      "image": "/images/feed/feed-2c1f648fa06f.jpg",
+      "source": "Wired",
+      "isLive": true
+    },
+    {
+      "id": "feed-65b51a6b789b",
+      "title": "Zelda: Ocarina Of Time Remake Is Set To Outsell The N64 Original In Its First Week",
+      "excerpt": "Nintendo's remake has already reached 70 percent of the first game's lifetime sales in just four days",
+      "body": "Nintendo's remake has already reached 70 percent of the first game's lifetime sales in just four days\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "John Walker",
+      "date": "2026-11-11",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 31,
+      "url": "https://kotaku.com/zelda-ocarina-of-time-remake-nintendo-64-sales-figures-switch-2-2000755871",
+      "image": "/images/feed/feed-65b51a6b789b.jpg",
+      "source": "Kotaku",
+      "isLive": true
+    },
+    {
+      "id": "feed-583f3a2a750b",
+      "title": "In One Scene, Prime Video Officially Rewrites Gandalf’s Mission in Lord of the Rings",
+      "excerpt": "Gandalf isn’t just an old man, he’s a divine guardian, as we learn in Lord of the Rings: The RIngs of Power season 3",
+      "body": "By the end of The Lord of the Rings: The Rings of Power season 2, Gandalf (Daniel Weyman) had chosen his name and wizard staff and found a mentor in the enigmatic Tom Bombadil (Rory Kinnear). Season 3 picks up five years later, and Gandalf has spent that time vexing the Dark Wizard (Ciarán Hinds) and his forces in Rhûn. Gandalf sees the Dark Wizard as a dangerous foe, but their relationship is more complicated. Here’s what you need to know about the two wizards, and how they fit into J.R.R. Tolkien’s complex cosmology.",
+      "author": "Sam Nelson",
+      "date": "2026-11-11",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 45,
+      "url": "https://www.polygon.com/rings-of-power-wizards-secret-flame-explained/",
+      "image": "/images/feed/feed-583f3a2a750b.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-3f4df26114f0",
+      "title": "What time will SpaceX launch Starship Flight 15, its 1st double landing test, on Nov. 13? (Full mission timeline)",
+      "excerpt": "SpaceX will attempt to reach orbit with its Starship megarocket and make its first-ever double catch on Nov. 13. Here's what time Starship Flight 15 will launch.",
+      "body": "SpaceX is just days away from what might be its most ambitious test flight yet of the company's massive Starship megarocket, the largest launch vehicle ever built. On Friday (Nov. 13), SpaceX will launch its next Starship test flight on a mission that, if successful, will return both its Super Heavy first-stage booster and Ship upper stage to Earth for back-to-back landings at their launch pad. It will be the first full recovery of an orbital rocket in history. And if you want to watch it live, you'll need to know what time and where to tune in. In our guide below, we'll explain exactly when and how to watch SpaceX's Starship Flight 15 mission .",
+      "author": " Tariq Malik ",
+      "date": "2026-11-11",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Spacex",
+        "Starship"
+      ],
+      "featured": false,
+      "xpReward": 39,
+      "url": "https://www.space.com/space-exploration/launches-spacecraft/spacex-starship-flight-15-1st-booster-ship-double-catch-full-recovery-what-time",
+      "image": "/images/feed/feed-3f4df26114f0.jpg",
+      "source": "Space.com",
+      "isLive": true
+    },
+    {
+      "id": "feed-7b0c837fc2da",
+      "title": "A 13-Year-Old Asked AI About Suicide on Her School Laptop. It Didn’t Get Flagged for Weeks",
+      "excerpt": "The young girl’s parents allege that she used Gemini via her school Chromebook to plan her suicide, but the school’s monitoring systems didn’t know until it was almost too late.",
+      "body": "The young girl’s parents allege that she used Gemini via her school Chromebook to plan her suicide, but the school’s monitoring systems didn’t know until it was almost too late.\n\nThis report, published by Wired, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Ai. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Wired using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Paresh Dave, Caroline Haskins",
+      "date": "2026-11-11",
+      "readTime": "2 min",
+      "section": "ai",
+      "tags": [
+        "Ai"
+      ],
+      "featured": false,
+      "xpReward": 33,
+      "url": "https://www.wired.com/story/teen-girl-asked-gemini-about-suicide-for-months-until-it-was-flagged/",
+      "image": "/images/feed/feed-7b0c837fc2da.jpg",
+      "source": "Wired",
+      "isLive": true
+    },
+    {
+      "id": "feed-4c7b98bfc0bd",
+      "title": "Apple is shutting down its online Support Community on November 20",
+      "excerpt": "Apple's Support Community is permanently closing in a few days.",
+      "body": "Apple's Support Community is permanently closing in a few days.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "staff@engadget.com (Mariella Moon)",
+      "date": "2026-11-11",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 48,
+      "url": "https://www.engadget.com/2313147/apple-shuts-down-support-community-forum/",
+      "image": "/images/feed/feed-4c7b98bfc0bd.jpg",
+      "source": "Engadget",
+      "isLive": true
+    },
+    {
+      "id": "feed-c8431f1a21a4",
+      "title": "Zelda: Ocarina of Time Is Already the Second-Best-Selling Switch 2 Game",
+      "excerpt": "Nintendo announced that the remake of The Legend of Zelda: OoT sold 5.2 million copies in 4 days, eclipsing Donkey Kong Bananza",
+      "body": "The Legend of Zelda: Ocarina of Time is the fastest-selling Switch 2 game yet. On Wednesday, Nintendo announced that the remake of the 1998 classic sold more than 5.2 million copies worldwide in its first four days on sale — \"the highest global sales for any Nintendo-published Nintendo Switch 2 game in its first four days.\"",
+      "author": "Oli Welsh",
+      "date": "2026-11-11",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Game"
+      ],
+      "featured": false,
+      "xpReward": 46,
+      "url": "https://www.polygon.com/zelda-ocarina-of-time-sales-second-best-selling-switch-2-game/",
+      "image": "/images/feed/feed-c8431f1a21a4.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-e0b3e51c44a2",
+      "title": "Your Wear OS watch can now run Meta’s Muse AI agent",
+      "excerpt": "But most of the action still happens on your phone.",
+      "body": "Credit: Meta TL;DR Meta’s Muse AI agent is now available on Wear OS and Apple Watch. The Wear OS app serves as a remote to interact with the agent or approve tasks, but it still requires a phone to run the agent. The mascot takes up the majority of the screen on the smartwatch, similar to what Meta teased for its Charm wearable. Meta’s Muse AI agent is steadily gaining traction for its cute, attractive visuals and a broader set of benefits for free users. When we first tried it last month , we were amazed that it’s actually pretty useful, even on the free tier. Last week, Meta added a voice mode to Muse , letting you interact with the AI agent in a fashion similar to Gemini Live. And now, Meta is offering another reason for smartwatch users to stick.",
+      "author": "Tushar Mehta",
+      "date": "2026-11-11",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 46,
+      "url": "https://www.androidauthority.com/meta-muse-ai-wear-os-3733785/",
+      "image": "/images/feed/feed-e0b3e51c44a2.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-5351ef6e769c",
+      "title": "The best Nova Launcher alternative isn’t on the Play Store — here’s how to install it",
+      "excerpt": "You don't need Nova Launcher to enjoy a Nova Launcher-like home screen.",
+      "body": "Although I no longer use it, there’s little doubt in my mind that Nova Launcher is a titan of the Android customization space. This app has seen the meteoric rise of the platform, from Ice Cream Sandwich right through to Android 17, and in that time, the launcher has experienced plenty of ups and downs itself. It was effectively abandonware at one point, then sold, then sold again, and now leaves once-committed users like me questioning its development trajectory . After its initial sale, Nova Launcher’s co-founder stated that an open-source release of the home screen was in the works, and suggested that should he leave the development team, that version would be made broadly available for fans to continue its legacy.",
+      "author": "Andy Walker",
+      "date": "2026-11-11",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 37,
+      "url": "https://www.androidauthority.com/how-to-install-supernova-nova-launcher-alternative-3732801/",
+      "image": "/images/feed/feed-5351ef6e769c.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-2056f8514a30",
+      "title": "Google brings Gemini email summaries and writing tools to more Gmail users",
+      "excerpt": "Your inbox has 99 problems, but Gemini could solve a few.",
+      "body": "TL;DR Google is expanding two Gemini-powered Gmail features to more Workspace users. AI Overview summarizes lengthy email threads, while Help me write drafts and improves emails. The features are rolling out to users aged 18 and older with Gmail smart features enabled, with availability expected within 15 days. We’ve all been part of an email thread that seems to go on forever. You open Gmail after a busy day, only to find 20 replies in a conversation, with everyone discussing different things. Now you have to scroll through the entire thread to figure out what you missed and whether you need to respond. Google wants to make situations like these less frustrating.",
+      "author": "Shimul Sood",
+      "date": "2026-11-11",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 44,
+      "url": "https://www.androidauthority.com/gmail-gemini-features-expansion-3733807/",
+      "image": "/images/feed/feed-2056f8514a30.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-40debe7f9879",
+      "title": "CISA flags Cisco BroadWorks flaw as actively exploited in attacks",
+      "excerpt": "The US Cybersecurity and Infrastructure Security Agency (CISA) warned on Tuesday that hackers are now exploiting a high-severity Cisco BroadWorks vulnerability in attacks. [...]",
+      "body": "The US Cybersecurity and Infrastructure Security Agency (CISA) warned on Tuesday that hackers are now exploiting a high-severity Cisco BroadWorks vulnerability in attacks. [...]\n\nThis report, published by BleepingComputer, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Exploit. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to BleepingComputer using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Sergiu Gatlan",
+      "date": "2026-11-11",
+      "readTime": "2 min",
+      "section": "cybersecurity",
+      "tags": [
+        "Exploit"
+      ],
+      "featured": false,
+      "xpReward": 39,
+      "url": "https://www.bleepingcomputer.com/news/security/cisa-flags-cisco-broadworks-flaw-as-actively-exploited-in-attacks/",
+      "image": "/images/feed/feed-40debe7f9879.jpg",
+      "source": "BleepingComputer",
+      "isLive": true
+    },
+    {
+      "id": "feed-de0cfa6ca8ec",
+      "title": "Early Black Friday Deals Under $100 (2026)",
+      "excerpt": "Here are the best discounts we’ve found so far on WIRED-tested gadgets under $100.",
+      "body": "Here are the best discounts we’ve found so far on WIRED-tested gadgets under $100.\n\nThis report, published by Wired, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Wired using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Molly Higgins",
+      "date": "2026-11-11",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 39,
+      "url": "https://www.wired.com/story/best-early-black-friday-deals-under-100-11-11-2026/",
+      "image": "/images/feed/feed-de0cfa6ca8ec.jpg",
+      "source": "Wired",
+      "isLive": true
+    },
+    {
+      "id": "feed-7aa740d26dc5",
+      "title": "Can’t see daily vitals on your Fitbit? It’s not just you, but a fix might not come soon",
+      "excerpt": "Daily health readings are disappearing after the latest Google Health update.",
+      "body": "TL;DR Some Fitbit users are reporting missing daily vitals, including heart rate variability, blood oxygen, and skin temperature, after updating to Google Health 5.12. Most reports are from iOS users, although Android may not be immune. Signing out and back in temporarily restores missing data, but a permanent fix might take time. Google’s latest Health app update is bringing plenty of new features, but it appears to have brought an unwelcome guest along for the ride. Some Fitbit users are finding their daily vitals missing after installing version 5.12, leaving important health metrics out of sight.",
+      "author": "Hillary Keverenge",
+      "date": "2026-11-11",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 36,
+      "url": "https://www.androidauthority.com/google-health-missing-vitals-fitbit-3733781/",
+      "image": "/images/feed/feed-7aa740d26dc5.jpg",
+      "source": "Android Authority",
       "isLive": true
     },
     {
@@ -166,48 +395,10 @@
         "Processor"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 43,
       "url": "https://www.androidauthority.com/2026-processors-vs-google-tensor-3721326/",
       "image": "/images/feed/feed-e7fdd50ab0ef.jpg",
       "source": "Android Authority",
-      "isLive": true
-    },
-    {
-      "id": "feed-fb4804a1450d",
-      "title": "The Best iPad to Buy (and What to Avoid) in 2026: Air, Pro, Mini",
-      "excerpt": "Apple sells four types of iPads. Here’s an updated breakdown of the brand’s tablets to help you find the best one for your needs.",
-      "body": "Apple sells four types of iPads. Here’s an updated breakdown of the brand’s tablets to help you find the best one for your needs.\n\nThis report, published by Wired, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Wired using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Luke Larsen",
-      "date": "2026-11-11",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 45,
-      "url": "https://www.wired.com/gallery/the-best-ipad/",
-      "image": "/images/feed/feed-fb4804a1450d.jpg",
-      "source": "Wired",
-      "isLive": true
-    },
-    {
-      "id": "feed-c4154524ca4a",
-      "title": "Lucid CEO says the company didn't know where its own cars were",
-      "excerpt": "Tesla rival Lucid has an interesting excuse for its third quarter earnings underperformance.",
-      "body": "Tesla rival Lucid has an interesting excuse for its third quarter earnings underperformance.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Steve Dent)",
-      "date": "2026-11-11",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 38,
-      "url": "https://www.engadget.com/2313113/lucid-q3-2026-losing-cars/",
-      "image": "/images/feed/feed-c4154524ca4a.jpg",
-      "source": "Engadget",
       "isLive": true
     },
     {
@@ -223,7 +414,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 47,
       "url": "https://www.polygon.com/david-walliams-doctor-who-god-complex/",
       "image": "/images/feed/feed-37188d60248d.jpg",
       "source": "Polygon",
@@ -242,29 +433,10 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 45,
       "url": "https://insideevs.com/news/815123/ammann-eabg-electric-asphalt-paver-volvo-penta/",
       "image": "/images/feed/feed-95c0c40ed519.jpg",
       "source": "InsideEVs",
-      "isLive": true
-    },
-    {
-      "id": "feed-30b4bc457eeb",
-      "title": "Samsung’s Galaxy Enhance-X editing app is getting an overhaul in One UI 9.5",
-      "excerpt": "Samsung's image editing app is getting a UI upgrade in One UI 9.5.",
-      "body": "Credit: Hadlee Simons / Android Authority TL;DR Samsung’s Galaxy Enhance-X editing tool is reportedly getting a major overhaul as part of the One UI 9.5 software update. Leaked images show significant tweaks to the editing page and the home page. This news comes shortly after other One UI 9.5 leaks revealed changes to Samsung Keyboard, Bixby widgets, and Samsung Notes. Samsung has a few downloadable apps for camera enthusiasts, and Galaxy Enhance-X is the one to get if you want more robust, AI-powered editing features. However, it looks like the app is set to receive some welcome tweaks as part of the One UI 9.5 software update. SamMobile has discovered that the Galaxy Enhance-X app is getting a visual overhaul in One UI 9.5.",
-      "author": "Hadlee Simons",
-      "date": "2026-11-11",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 51,
-      "url": "https://www.androidauthority.com/samsung-galaxy-enhance-x-one-ui-9-5-3733756/",
-      "image": "/images/feed/feed-30b4bc457eeb.jpg",
-      "source": "Android Authority",
       "isLive": true
     },
     {
@@ -280,7 +452,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 36,
       "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-fixes-exchange-sign-ins-broken-by-october-windows-server-updates/",
       "image": "/images/feed/feed-a135d214ecdd.jpg",
       "source": "BleepingComputer",
@@ -299,7 +471,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 50,
       "url": "https://www.ign.com/articles/magic-the-gathering-star-trek-booster-box-early-black-friday-deal",
       "image": "/images/feed/feed-513b8143a340.webp",
       "source": "IGN",
@@ -337,29 +509,10 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 33,
       "url": "https://blog.google/company-news/outreach-and-initiatives/arts-culture/esther-mahlangu/",
       "image": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/esther_video_still.max-600x600.format-webp.webp",
       "source": "Google AI Blog",
-      "isLive": true
-    },
-    {
-      "id": "feed-165cf296b7b2",
-      "title": "Samsung’s slidable phone is still a rumor, but its dimensions might be starting to take shape",
-      "excerpt": "The rumored Samsung phone might switch between tall and wide form factors.",
-      "body": "Credit: Adamya Sharma / Android Authority TL;DR A new rumor about a Samsung phone with a display that slides out into a taller layout. The rumor suggests the display’s aspect ratio could change between 16:9 and 21:9. Samsung also filed a patent for a similar “electronic device” with a display that expands vertically. The concept of rollable phones — or phones with displays that roll out to expand into a bigger size when you need it — isn’t exactly new. For almost a decade, we’ve seen countless rumors and even working prototypes with rolling screens . Given their prowess in display manufacturing, brands such as Samsung and LG have usually been at the top of these rumors, and they don’t seem to die down.",
-      "author": "Tushar Mehta",
-      "date": "2026-11-11",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 33,
-      "url": "https://www.androidauthority.com/samsung-slidable-phone-flexible-display-3733765/",
-      "image": "/images/feed/feed-165cf296b7b2.jpg",
-      "source": "Android Authority",
       "isLive": true
     },
     {
@@ -375,7 +528,7 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 39,
       "url": "https://thehackernews.com/2026/11/microsoft-patches-1259-flaws-including.html",
       "image": "/images/feed/feed-1847c39d5f75.jpg",
       "source": "The Hacker News",
@@ -394,29 +547,10 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 32,
       "url": "https://www.ign.com/articles/rings-of-power-season-3-episodes-1-4-review-recap",
       "image": "/images/feed/feed-4e99bba62a43.jpg",
       "source": "IGN",
-      "isLive": true
-    },
-    {
-      "id": "feed-761249f90041",
-      "title": "Netflix's New \"Carrie Meets Mean Girls\" Thriller Is a Near-Perfect 8-Episode Binge",
-      "excerpt": "Netflix’s The Body mixes mean girls, mass hysteria, and a dash of the devil into a campy, gay early-aughts teen show that’s above all a good time.",
-      "body": "You should know if The Body is a show for you from the premise alone. After a botched dance-team initiation, a group of Catholic high school girls inspire a wave of mass hysteria in their small religious town — it may or may not be connected to the devil. Personally, it’s as if someone smushed all of my favorite keywords into one eight-episode Netflix series.",
-      "author": "Maria Loreto",
-      "date": "2026-11-11",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 45,
-      "url": "https://www.polygon.com/the-body-review-netflix/",
-      "image": "/images/feed/feed-761249f90041.jpg",
-      "source": "Polygon",
       "isLive": true
     },
     {
@@ -432,7 +566,7 @@
         "Chatgpt"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 40,
       "url": "https://openai.com/index/chatgpt-plus-for-veterans",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "OpenAI Blog",
@@ -451,29 +585,10 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 52,
       "url": "https://thehackernews.com/2026/11/railway-says-stolen-customer-ai-keys.html",
       "image": "/images/feed/feed-1c58edc680c7.jpg",
       "source": "The Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-71a55c5c3194",
-      "title": "Google Health’s new blood pressure tracking feature is reaching Fitbit Air users",
-      "excerpt": "Manually record blood pressure readings right in Google Health.",
-      "body": "TL;DR Google Health’s manual blood pressure logging feature is rolling out to Fitbit Air users on Android and iOS. The feature lets users record readings manually or sync them from compatible apps, with graphs showing changes over time. The rollout is gradual, and manual logging doesn’t require a Google Health Premium subscription. Keeping tabs on your blood pressure is getting easier if you use the Google Health app. Following the recent announcement of manual blood pressure tracking, the feature is now making its way to Fitbit Air users, giving them another way to keep their health records in one place. Google announced the feature as part of the Health app’s version 5.12 update last week, but it wasn’t immediately available to everyone.",
-      "author": "Hillary Keverenge",
-      "date": "2026-11-11",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 30,
-      "url": "https://www.androidauthority.com/fitbit-air-google-health-blood-pressure-logging-3733477/",
-      "image": "/images/feed/feed-71a55c5c3194.jpg",
-      "source": "Android Authority",
       "isLive": true
     },
     {
@@ -489,48 +604,10 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 34,
       "url": "https://thehackernews.com/2026/11/microsoft-researchers-show-ai-agents.html",
       "image": "/images/feed/feed-d2c948589677.jpg",
       "source": "The Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-f4edd3bb0433",
-      "title": "Claude now has its own workplace tools, taking on Microsoft Office, Google Workspace",
-      "excerpt": "We've even got Claude Meetings, which can take notes and update documents for you.",
-      "body": "Credit: X.com/ClaudeAI TL;DR Anthropic has announced a suite of productivity tools to take on Microsoft Office and Google Workspace. The new tools include Claude Sheets for spreadsheets, Claude Whiteboards for collaborative digital whiteboards, and Claude Data. The company will also offer Claude Meetings, which lets you add Claude to a call so it can take notes and update documents for you. Microsoft Office and Google Workspace are two of the most notable productivity suites around, powering businesses around the world. Now, it looks like Anthropic wants a piece of this pie, as it just announced a trio of workplace tools. Anthropic announced via its Claude account on X that it’s now rolling out Claude Whiteboards, Claude Sheets, and Claude Data.",
-      "author": "Hadlee Simons",
-      "date": "2026-11-11",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 45,
-      "url": "https://www.androidauthority.com/claude-workplace-tools-sheets-data-whiteboards-3733706/",
-      "image": "/images/feed/feed-f4edd3bb0433.jpg",
-      "source": "Android Authority",
-      "isLive": true
-    },
-    {
-      "id": "feed-08a35d1af9f9",
-      "title": "Disney's Legendary 218-Episode Sci-Fi Series Is the Perfect Anti-'Lanterns' Binge",
-      "excerpt": "The DC Universe might be doomed, but X-Files is forever",
-      "body": "The fate of Lanterns season 2, and the DC Universe in general, has never been murkier. With the sudden ousting of DC Studios' co-CEOs James Gunn and Peter Safran, the status of HBO's hit show series about two mismatched Green Lanterns who get paired together to solve an intergalactic mystery is up in the air like never before. Season 1 was a critical hit that captured the zeitgeist, and Lanterns co-creator Chris Mundy had already assembled a season 2 writers' room. But in a recent interview , Mundy said the odds of the series continuing were likely \"50/50.”",
-      "author": "Brian VanHooker",
-      "date": "2026-11-11",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 42,
-      "url": "https://www.polygon.com/lanterns-x-files-binge/",
-      "image": "/images/feed/feed-08a35d1af9f9.jpg",
-      "source": "Polygon",
       "isLive": true
     },
     {
@@ -546,67 +623,10 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 39,
       "url": "https://thehackernews.com/2026/11/cisco-broadworks-and-openwave-flaws.html",
       "image": "/images/feed/feed-abd93facc520.jpg",
       "source": "The Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-a7ece05cea9f",
-      "title": "Vivid Seats Promo Codes and Deals: Get 10% Off",
-      "excerpt": "Whether you are heading to a sold-out concert or a championship game, use a Vivid Seats discount code to secure your seats for less this November 2026.",
-      "body": "Whether you are heading to a sold-out concert or a championship game, use a Vivid Seats discount code to secure your seats for less this November 2026.\n\nThis report, published by Wired, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Wired using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Molly Higgins",
-      "date": "2026-11-11",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 32,
-      "url": "https://www.wired.com/story/vivid-seats-promo-code/",
-      "image": "/images/feed/feed-a7ece05cea9f.png",
-      "source": "Wired",
-      "isLive": true
-    },
-    {
-      "id": "feed-92b0878c12ce",
-      "title": "APOD: 2026 November 11 – NGC 4449: Small Galaxy, Big Impact",
-      "excerpt": "APOD Science APOD APOD: 2026 November 11 – NGC… Today’s APOD Archive Submissions Index Search Calendar RSS Education About Discuss APOD Astronomy Picture of the Day Discover the cosmos! Each day a dif…",
-      "body": "APOD Science APOD APOD: 2026 November 11 – NGC… Today’s APOD Archive Submissions Index Search Calendar RSS Education About Discuss APOD Astronomy Picture of the Day Discover the cosmos! Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer. NGC 4449: Small Galaxy, Big Impact Explanation: Don’t judge a galaxy by its size. Our home galaxy, the Milky Way , is about 100,000 light years across. This huge expanse of space contains hundreds of billions of stars! The smallest galaxies, called dwarf galaxies , are about 1/10th the size of the Milky Way and only contain a few billion stars. They are also the most common type of galaxy in the whole universe.",
-      "author": "NASA Breaking News",
-      "date": "2026-11-11",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Space"
-      ],
-      "featured": false,
-      "xpReward": 45,
-      "url": "https://science.nasa.gov/image-article/apod-2026-november-11-ngc-4449-small-galaxy-big-impact/",
-      "image": "/images/feed/feed-92b0878c12ce.jpg",
-      "source": "NASA Breaking News",
-      "isLive": true
-    },
-    {
-      "id": "feed-9c90d63e82e1",
-      "title": "Water Surges Into Navajo Reservoir",
-      "excerpt": "Rounds of heavy rain in the U.S. Southwest flooded rivers and rapidly raised New Mexico’s second-largest reservoir.",
-      "body": "Earth Observatory Science Earth Observatory Water Surges Into Navajo… Earth Earth Observatory Image of the Day EO Explorer Topics All Topics Atmosphere Land Heat &#038; Radiation Life on Earth Human Dimensions Natural Events Oceans Remote Sensing Technology Snow &#038; Ice Water More Content Collections Global Maps World of Change Articles Earth Matters Blog Blue Marble: Next Generation EO Kids Mission: Biomes About About Us Subscribe 🛜 RSS Contact Us Search September 20, 2026 November 7, 2026 NASA Earth Observatory/Michala Garrison NASA Earth Observatory/Michala Garrison September 20, 2026 November 7, 2026 NASA Earth Observatory/Michala Garrison NASA Earth Observatory/Michala Garrison September 20, 2026 November 7, 2026 Curtain Toggle 2-Up Back-to-back extreme rain events inundated the F…",
-      "author": "NASA Breaking News",
-      "date": "2026-11-11",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Space"
-      ],
-      "featured": false,
-      "xpReward": 54,
-      "url": "https://science.nasa.gov/earth/earth-observatory/water-surges-into-navajo-reservoir/",
-      "image": "/images/feed/feed-9c90d63e82e1.jpg",
-      "source": "NASA Breaking News",
       "isLive": true
     },
     {
@@ -622,7 +642,7 @@
         "Vehicle"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 38,
       "url": "https://cleantechnica.com/2026/11/10/byd-commercial-vehicle-sales-rise-68-in-october/",
       "image": "/images/feed/feed-6b7a8a71be48.png",
       "source": "CleanTechnica",
@@ -641,7 +661,7 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 43,
       "url": "https://cleantechnica.com/2026/11/10/tesla-robotaxis-extend-into-san-antonio/",
       "image": "/images/feed/feed-35a25e2a104a.jpg",
       "source": "CleanTechnica",
@@ -660,7 +680,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 38,
       "url": "https://cleantechnica.com/2026/11/10/byds-bev-sales-soar-while-its-phev-sales-slide/",
       "image": "/images/feed/feed-07bf049bdee4.png",
       "source": "CleanTechnica",
@@ -679,7 +699,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 44,
       "url": "https://cleantechnica.com/2026/11/10/trump-administration-continues-systematic-dismantling-of-public-lands/",
       "image": "/images/feed/feed-ce8add35a58e.jpg",
       "source": "CleanTechnica",
@@ -698,7 +718,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 39,
       "url": "https://cleantechnica.com/2026/11/10/joint-letter-on-low-carbon-steel-credits-in-the-review-of-eu-co%e2%82%82-emission-standards-for-cars/",
       "image": "/images/feed/feed-f624f46651ea.png",
       "source": "CleanTechnica",
@@ -718,7 +738,7 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 46,
       "url": "https://electrek.co/2026/11/10/unplugged-performance-offers-take-over-tesla-cybertruck-production/",
       "image": "/images/feed/feed-d1b8206f96c2.jpg",
       "source": "Electrek",
@@ -738,7 +758,7 @@
         "Astronaut"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 44,
       "url": "https://www.cnet.com/science/space/nasa-astronaut-applications/",
       "image": "/images/feed/feed-7cca5fbfec2a.jpg",
       "source": "CNET",
@@ -757,7 +777,7 @@
         "Breach"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 54,
       "url": "https://www.bleepingcomputer.com/news/apple/railway-breach-leads-to-740-000-in-fraudulent-ai-charges/",
       "image": "/images/feed/feed-747f5843e929.jpg",
       "source": "BleepingComputer",
@@ -776,7 +796,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 44,
       "url": "https://www.vulncheck.com/blog/anthropic-glasswing-november-update",
       "image": "/images/feed/feed-5332af4a4cfe.png",
       "source": "Hacker News",
@@ -796,7 +816,7 @@
         "Starship"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 52,
       "url": "https://www.space.com/space-exploration/launches-spacecraft/spacex-moves-starship-flight-15-booster-to-launch-pad-for-squeeze-test-ahead-of-epic-double-catch-attempt-photos",
       "image": "/images/feed/feed-7d3c20895cd3.jpg",
       "source": "Space.com",
@@ -815,7 +835,7 @@
         "Gemini"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 34,
       "url": "https://www.cnet.com/tech/services-and-software/google-expands-gemini-4-carbon-availability/",
       "image": "/images/feed/feed-5a2efba77601.jpg",
       "source": "CNET",
@@ -834,29 +854,10 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 50,
       "url": "https://www.space.com/entertainment/anthony-mackie-ariana-debose-and-john-leguizamo-reveal-why-they-joined-andy-weirs-sci-fi-audio-drama-exoplanet-interview",
       "image": "/images/feed/feed-773365eaf04d.jpg",
       "source": "Space.com",
-      "isLive": true
-    },
-    {
-      "id": "feed-cd21f33e2e3d",
-      "title": "Microsoft Fixes Nearly 1,100 Security Vulnerabilities",
-      "excerpt": "Microsoft did another four-digit patch drop today, releasing updates to fix almost 1,100 security vulnerabilities in its Windows operating systems and supported software. This month's Patch Tuesday ad…",
-      "body": "Microsoft did another four-digit patch drop today, releasing updates to fix almost 1,100 security vulnerabilities in its Windows operating systems and supported software. This month&#8217;s Patch Tuesday addresses 63 critical flaws &#8212; including a zero-day in Microsoft Outlook &#8212; and comes amid important security updates from other software makers, including Adobe , Apple , Google and Mozilla . Image: Shutterstock.com. Diorama by @zepp1969. November&#8217;s patch release from Redmond tackles 1,093 vulnerabilities, fixing 63 &#8220;critical&#8221; flaws that can be exploited to seize control over a Windows system with little or no help from users. Nearly half of those critical bugs are remote code execution vulnerabilities.",
-      "author": "BrianKrebs",
-      "date": "2026-11-10",
-      "readTime": "2 min",
-      "section": "cybersecurity",
-      "tags": [
-        "Security"
-      ],
-      "featured": false,
-      "xpReward": 45,
-      "url": "https://krebsonsecurity.com/2026/11/microsoft-fixes-nearly-1100-security-vulnerabilities/",
-      "image": "/images/topics/topic-cybersecurity.png",
-      "source": "Krebs on Security",
       "isLive": true
     },
     {
@@ -874,7 +875,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 35,
       "url": "https://www.space.com/space-exploration/on-this-day-in-space-november-10-2026",
       "image": "/images/feed/feed-9e2827f0696e.jpg",
       "source": "Space.com",
@@ -893,7 +894,7 @@
         "Spacex"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 54,
       "url": "https://arstechnica.com/security/2026/11/grok-build-coding-agent-leaks-oodles-of-confidential-info-some-belonging-to-spacexsi/",
       "image": "/images/feed/feed-4514984ec2dd.webp",
       "source": "Ars Technica",
@@ -912,44 +913,43 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 42,
       "url": "https://techcrunch.com/2026/11/10/openai-acquires-odessia-travel-startup-created-by-sonder-founder/",
-      "image": "/images/feed/feed-24b56e0e82fb.jpg",
+      "image": "/images/feed/feed-24b56e0e82fb.webp",
       "source": "TechCrunch",
       "isLive": true
     },
     {
-      "id": "feed-eb94be6281ea",
-      "title": "OpenAI, Anthropic face new oversight as New York’s AI safety law takes effect",
-      "excerpt": "New York is preparing to enforce its sweeping AI safety law, requiring major developers like OpenAI and Anthropic to register, disclose safety practices, and report critical incidents or face fines.",
-      "body": "New York is preparing to enforce its sweeping AI safety law, requiring major developers like OpenAI and Anthropic to register, disclose safety practices, and report critical incidents or face fines.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Openai, Anthropic. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Rebecca Bellan",
+      "id": "feed-67e3839e0b5b",
+      "title": "A distant exoplanet mysteriously vanished from sight. Astronomers just discovered why",
+      "excerpt": "Astronomers have solved the mystery of an exoplanet that \"disappeared\" after seven years of observations.",
+      "body": "Astronomers have solved the mystery of an extrasolar planet, or exoplanet, that \"disappeared\" after seven years of observations. New research suggests that the planet hasn't vanished at all, but has been dragged off its orbit by an unseen planet. The exoplanet , designated TOI-2535 b, is located around 1,000 light-years away. TOI-2535 b was routinely observed with NASA's Transiting Exoplanet Survey Satellite ( TESS ) space telescope for seven years between April 2019 and March 2026 as it completed its 8.25-Earth day orbit of its parent star. That's 10 times quicker than the orbit of Mercury around the sun and means this blisteringly hot planet is classed as a \" hot Jupiter .\" However, something strange happened started to happen as astronomers observed the distant world.",
+      "author": " Robert Lea ",
       "date": "2026-11-10",
       "readTime": "2 min",
-      "section": "ai",
+      "section": "space",
       "tags": [
-        "Openai",
-        "Anthropic"
+        "Space"
       ],
       "featured": false,
-      "xpReward": 42,
-      "url": "https://techcrunch.com/2026/11/10/openai-anthropic-face-new-oversight-as-new-yorks-ai-safety-law-takes-effect/",
-      "image": "/images/feed/feed-eb94be6281ea.webp",
-      "source": "TechCrunch",
+      "xpReward": 41,
+      "url": "https://www.space.com/astronomy/exoplanets/a-distant-exoplanet-mysteriously-vanished-from-sight-astronomers-just-discovered-why",
+      "image": "/images/feed/feed-67e3839e0b5b.png",
+      "source": "Space.com",
       "isLive": true
     }
   ],
   "breakingNews": [
     "OPENAI BLOG: Gilbert + Tobin rethinks the business of law with AI",
-    "DEV.TO: Word Count and Line Count: Why Every Tool Disagrees",
-    "DEV.TO: Instagram Reel Transcript: How to Get One for Free",
-    "DEV.TO: A payment that never unlocked the plan: what our own webhook got wrong",
-    "DEV.TO: CLAUDE.md and AGENTS.md: what happens with conflicting information? Is there a precedence order?",
-    "DEV.TO: Odoo can send an email with no recipient and tell you nothing",
-    "DEV.TO: A Day Isn't 24 Hours: Fixing Date Math & DST Bugs",
-    "DEV.TO: State-Level AI Laws Are Leading the Charge While Federal Regulators Drag Their Feet",
-    "ANDROID AUTHORITY: Next-gen processors are leaving Google’s Tensor in the dust",
-    "WIRED: The Best iPad to Buy (and What to Avoid) in 2026: Air, Pro, Mini"
+    "DEV.TO: Store the date basis before joining merchant reports",
+    "DEV.TO: Your RAG Index Is Already Out of Date: Building an Incremental Ingestion Pipeline",
+    "DEV.TO: AI Weekly: Fable 5.2, Muse Ember, and TPU 8i Max",
+    "DEV.TO: Logging pipeline runs without noise #0gyva",
+    "DEV.TO: The Tool-Design Mistakes That Make AI Agents Unreliable",
+    "DEV.TO: Check that a research CSV join preserves one row per participant",
+    "WIRED: Best Air Purifiers (2026): Tested Picks for Every Room",
+    "KOTAKU: Zelda: Ocarina Of Time Remake Is Set To Outsell The N64 Original In Its First Week",
+    "POLYGON: In One Scene, Prime Video Officially Rewrites Gandalf’s Mission in Lord of the Rings"
   ],
   "sectionVideos": {}
 }
