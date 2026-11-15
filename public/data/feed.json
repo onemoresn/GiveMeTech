@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-11-15T00:23:36.425Z",
+  "fetchedAt": "2026-11-15T01:12:46.241Z",
   "articles": [
     {
-      "id": "feed-71cfc1d78c28",
-      "title": "eBPF Tutorial by Example 6: Capturing Signal Sending and Store State with Hash Maps",
-      "excerpt": "eBPF (Extended Berkeley Packet Filter) is a powerful network and performance analysis tool on the Linux kernel that allows developers to dynamically load, update, and run user-defined code at runtime.…",
-      "body": "eBPF (Extended Berkeley Packet Filter) is a powerful network and performance analysis tool on the Linux kernel that allows developers to dynamically load, update, and run user-defined code at runtime. This article is the sixth part of the eBPF Tutorial by Example. It mainly introduces how to implement an eBPF tool that captures a collection of system calls that send signals to processes and uses a hash map to store state.",
-      "author": "云微",
+      "id": "feed-47e3a3ace12e",
+      "title": "The flag file my watchdog wrote was 0 bytes, so the alert fired for 8 days",
+      "excerpt": "A monitoring script is supposed to stop shouting once you've been told. Mine shouted every morning for eight days, and the reason was a file with zero bytes. The pattern is common: a cron job runs eve…",
+      "body": "A monitoring script is supposed to stop shouting once you've been told. Mine shouted every morning for eight days, and the reason was a file with zero bytes. The design that looked fine The pattern is common: a cron job runs every hour, checks something, and when the check fails it sends a message. To avoid a message every hour, it keeps a latch — a small JSON file with the date of the last time it warned. If the latch says \"already warned today\", the job stays quiet. def already_warned ( chave ) : try : with open ( LATCH ) as fh : dados = json . load ( fh ) return dados . get ( chave ) == today ( ) except FileNotFoundError : return False except Exception : return False # &lt;-- the line that cost me 8 days Note the last branch. It exists \"to avoid crashing the monitor\".",
+      "author": "SAMUELFMEDEIROS",
       "date": "2026-11-15",
       "readTime": "2 min",
       "section": "software",
@@ -14,18 +14,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 48,
-      "url": "https://dev.to/yunwei37/ebpf-tutorial-by-example-6-capturing-signal-sending-and-store-state-with-hash-maps-12h9",
-      "image": "/images/feed/feed-71cfc1d78c28.webp",
+      "xpReward": 49,
+      "url": "https://dev.to/samuelfmedeiros/the-flag-file-my-watchdog-wrote-was-0-bytes-so-the-alert-fired-for-8-days-2959",
+      "image": "/images/feed/feed-47e3a3ace12e.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-26b0973bd25b",
-      "title": "DMARC TXT Record Reconciliation for Support Transfers (Before Policy Progression)",
-      "excerpt": "A customer-support team moving zones off a registrar-specific API has two changes to control: who publishes its DNS records, and what receiving systems should do with mail that fails authentication. C…",
-      "body": "A customer-support team moving zones off a registrar-specific API has two changes to control: who publishes its DNS records, and what receiving systems should do with mail that fails authentication. Combining those changes makes a delivery problem harder to explain, because the intended policy, the published TXT record, and the sender inventory can disagree. Preserve the policy while transferring the zone. Tighten it after reconciliation. Short answer: start DMARC policy rollout with monitoring, using p=none ; read aggregate reports for a few weeks, then progress to p=quarantine , and finally p=reject . Each stage updates the same TXT record. Before enforcement, legitimate senders need aligned SPF or DKIM; publishing DMARC does not repair alignment.",
-      "author": "MaximilianNilsson7568",
+      "id": "feed-5e00923f5239",
+      "title": "Building Signal2Speech: answering questions with an EEG headset at Hack the Nest 2026 (Update 1)",
+      "excerpt": "Note: This is only the first of many updates. We will also include a final post which will summarize the whole event. We are Order of the Golden Eagles, a team of four at Hack the Nest 2026 (Eastern M…",
+      "body": "Note: This is only the first of many updates. We will also include a final post which will summarize the whole event. We are Order of the Golden Eagles, a team of four at Hack the Nest 2026 (Eastern Michigan University), and we are building Signal2Speech. It is an accessibility prototype for people who have difficulty speaking or typing. A conversation partner asks a question, the app offers a few short replies, and the person wearing an EEG headset (a cap that reads electrical activity from the brain) picks, previews, and confirms the words they want spoken. Our main rule is that the app suggests what to say, but the wearer decides what actually gets said. We are about five and a half hours in. This post covers where the project stands and a few things we ran into along the way.",
+      "author": "Nate Rupard",
       "date": "2026-11-15",
       "readTime": "2 min",
       "section": "software",
@@ -33,18 +33,56 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 34,
-      "url": "https://dev.to/maximiliannilsson7568/dmarc-txt-record-reconciliation-for-support-transfers-before-policy-progression-371o",
-      "image": "/images/feed/feed-26b0973bd25b.webp",
+      "xpReward": 40,
+      "url": "https://dev.to/nrupard06/building-signal2speech-answering-questions-with-an-eeg-headset-at-hack-the-nest-2026-update-1-553m",
+      "image": "/images/feed/feed-5e00923f5239.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-ba4986f90e38",
-      "title": "A Few Dollars of Hardware That Blocks Ads for Your Whole Home: The ESP32 AdBlocker",
-      "excerpt": "I will be honest up front: I am not a hardware person. But I know a beautiful piece of thrift when I see one, and this is one — a whole-home ad blocker that runs on a chip costing about as much as a c…",
-      "body": "I will be honest up front: I am not a hardware person. But I know a beautiful piece of thrift when I see one, and this is one — a whole-home ad blocker that runs on a chip costing about as much as a coffee. The project is ESP32_AdBlocker by s60sc on GitHub: https://github.com/s60sc/ESP32_adblocker It has been around since 2021, is still maintained (version 3.7, 530+ stars), and it turns an ESP32 development board into a DNS sinkhole — the same trick a Pi-hole does, on a board a fraction of the size and price. How it works Every device in your home asks a DNS server \"where is this domain?\" before loading anything. Point that question at the ESP32 instead: If the domain is on the blocklist (ads, trackers), the ESP32 answers 0.0.0.0 — nowhere. The ad never loads.",
-      "author": "doogee “doogeetop” top",
+      "id": "feed-5a173bf451df",
+      "title": "Your CI artifacts and preview deployments can leak unprotected JavaScript",
+      "excerpt": "Many teams start obfuscating or VM-protecting client JavaScript in the production Vite or webpack build, then assume the problem is solved. The production CDN may be clean. Meanwhile, the unprotected…",
+      "body": "Many teams start obfuscating or VM-protecting client JavaScript in the production Vite or webpack build, then assume the problem is solved. The production CDN may be clean. Meanwhile, the unprotected bundle is sitting in a CI artifact, a preview URL, a GitHub Actions zip retained for 90 days, or a leftover object from last week's deploy. This article is about the places unprotected JavaScript escapes after you \"turned protection on,\" and how to close those holes without making pull-request previews useless.",
+      "author": "VEILVM",
+      "date": "2026-11-15",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Javascript"
+      ],
+      "featured": true,
+      "xpReward": 44,
+      "url": "https://dev.to/veilvm/your-ci-artifacts-and-preview-deployments-can-leak-unprotected-javascript-12k5",
+      "image": "/images/feed/feed-5a173bf451df.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-02e856acd88a",
+      "title": "Corevia 4.0 Is Here: Building Reliable Applications Beyond Traditional PHP Frameworks",
+      "excerpt": "Corevia 4.0 Is Here: Building Reliable Applications Beyond Traditional PHP Frameworks Corevia V4.0.0 is now available on GitHub. After building the foundations across Corevia V1, V2, and V3, I'm excit…",
+      "body": "Corevia 4.0 Is Here: Building Reliable Applications Beyond Traditional PHP Frameworks Corevia V4.0.0 is now available on GitHub. After building the foundations across Corevia V1, V2, and V3, I'm excited to share the next major milestone of the project. Corevia is an open-source, modular PHP application framework and runtime designed around a simple principle: Modern applications need more than routes, controllers, and database queries. They need reliable execution, clear boundaries, and the flexibility to integrate multiple technologies without unnecessary complexity. Version 4 extends that vision with safer application upgrades, stronger data and identity capabilities, durable operations, optional AI infrastructure, and improved cross-runtime integration.",
+      "author": "Saad Ahmed",
+      "date": "2026-11-15",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Framework"
+      ],
+      "featured": true,
+      "xpReward": 39,
+      "url": "https://dev.to/saad_ahmed_69441a812d950d/corevia-40-is-here-building-reliable-applications-beyond-traditional-php-frameworks-3cfj",
+      "image": "/images/feed/feed-02e856acd88a.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-d025b8872f60",
+      "title": "Electron Internationalization: A Practical Guide to Locale Detection, Message Formatting, RTL, and Runtime Language Switching",
+      "excerpt": "Most Electron apps are built in one language, and the first internationalization pass usually means dropping a few translated strings into the renderer. That works until you ship to a non-English user…",
+      "body": "Most Electron apps are built in one language, and the first internationalization pass usually means dropping a few translated strings into the renderer. That works until you ship to a non-English user: the menu bar and native dialogs stay English, dates and currency render in the wrong format, plurals break for languages with more than two forms, and a right-to-left locale leaves the layout mirrored only halfway. Desktop i18n is broader than web i18n because an Electron app owns the shell — the main process, the tray, the application menu, native dialogs, and every renderer window — and each surface reads its own strings.",
+      "author": "mp3sss",
       "date": "2026-11-15",
       "readTime": "2 min",
       "section": "software",
@@ -52,29 +90,182 @@
         "Software"
       ],
       "featured": true,
+      "xpReward": 35,
+      "url": "https://dev.to/mp3sss31/electron-internationalization-a-practical-guide-to-locale-detection-message-formatting-rtl-and-55fj",
+      "image": "/images/feed/feed-d025b8872f60.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-c9da41e1f803",
+      "title": "Build a Google Play Review Triage Queue with Python",
+      "excerpt": "Disclosure: ApiVault Labs publishes the Google Play Reviews Scraper used for collection in this guide. The Python review step below runs locally on a saved JSON export and makes no network requests. W…",
+      "body": "Disclosure: ApiVault Labs publishes the Google Play Reviews Scraper used for collection in this guide. The Python review step below runs locally on a saved JSON export and makes no network requests. We have a commercial interest in the Actor. A product team investigating an Android release needs a small set of review records it can inspect, reproduce and connect to follow-up work. An average star rating cannot tell that team which complaint needs a reply, whether two rows represent the same review, or whether a version value was missing from the source. This workflow produces a queue of low-star reviews with no observed developer reply. It keeps a separate list of exclusions so a reviewer can see what the rule left out.",
+      "author": "ApiVault Labs",
+      "date": "2026-11-15",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Python"
+      ],
+      "featured": true,
+      "xpReward": 43,
+      "url": "https://dev.to/apivault/build-a-google-play-review-triage-queue-with-python-2a46",
+      "image": "/images/feed/feed-c9da41e1f803.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-2d636191af06",
+      "title": "The Polite Catastrophe of 'Read-Only': Connecting Coding Agents to a 300-Table Legacy SQL Database",
+      "excerpt": "--- There is a particular, quiet melancholy in watching a sixty-line script bring a fifteen-year-old enterprise database to its knees without modifying a single byte. It nearly always begins on a Tues…",
+      "body": "--- title: \"The Polite Catastrophe of 'Read-Only': Connecting Coding Agents to a 300-Table Legacy SQL Database\" published: true description: \"Why db_datareader and SELECT-only filters fail on 300-table SQL monoliths: CONVERT_IMPLICIT scans, lock escalation, husk tables, and 3-Zoom subgraphs.\" tags: security, database, mcp, architecture There is a particular, quiet melancholy in watching a sixty-line script bring a fifteen-year-old enterprise database to its knees without modifying a single byte. It nearly always begins on a Tuesday morning.",
+      "author": "Tom Zafred",
+      "date": "2026-11-15",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Database"
+      ],
+      "featured": false,
       "xpReward": 32,
-      "url": "https://dev.to/doogee_doogeetoptop_1e/a-few-dollars-of-hardware-that-blocks-ads-for-your-whole-home-the-esp32-adblocker-1lm8",
-      "image": "/images/feed/feed-ba4986f90e38.webp",
+      "url": "https://dev.to/tomzafred/the-polite-catastrophe-of-read-only-connecting-coding-agents-to-a-300-table-legacy-sql-database-f6a",
+      "image": "/images/feed/feed-2d636191af06.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-c01ae5483721",
-      "title": "Support Image Files in Object Storage: Generate Tenant-Bound Pre-Signed Download URLs",
-      "excerpt": "A support agent needs a download link for a batch of product images. The storage system needs a different answer: a link that expires, names one exact object, and can only be created after the request…",
-      "body": "A support agent needs a download link for a batch of product images. The storage system needs a different answer: a link that expires, names one exact object, and can only be created after the requesting user has passed the tenant check. Those requirements make a signed URL an authorization handoff, not a harmless convenience endpoint. Short answer: keep tenant authorization in your application, keep the signing key there too, and sign a narrowly scoped object request only after both checks succeed. Return the URL with a short lifetime, record the decision, and treat the URL as a bearer credential until it expires. A browser can then download directly from object storage without receiving storage credentials or forcing the application server to stream every image.",
-      "author": "AbernathyCross6857",
+      "id": "feed-6d8dc8488d8d",
+      "title": "10 Must-Play Co-Op Games for People With Real-Life Schedules",
+      "excerpt": "Short on time but ready to game? These 10 co-op games range from one-level sessions to month-long campaigns, from Overcooked! to Gears of War: E-Day.",
+      "body": "Picture this: It’s Thursday at 7:42 p.m. You finally have two friends in the same voice call. Someone’s cat is walking across their keyboard, and a third friend is still stuck in a meeting, but you’re here, and you’re ready to game. There’s a problem, though: Many of today’s most popular co-op games ask a lot of their players. And often, you simply don’t have a lot of time or headspace to give. You need a co-op game that fits the time and energy you and your squad actually have.",
+      "author": "Rebecca Corgan",
       "date": "2026-11-15",
       "readTime": "2 min",
-      "section": "software",
+      "section": "gaming",
       "tags": [
-        "Software"
+        "Gaming"
       ],
-      "featured": true,
-      "xpReward": 36,
-      "url": "https://dev.to/abernathycross6857/support-image-files-in-object-storage-generate-tenant-bound-pre-signed-download-urls-1f47",
-      "image": "/images/feed/feed-c01ae5483721.webp",
-      "source": "Dev.to",
+      "featured": false,
+      "xpReward": 37,
+      "url": "https://www.polygon.com/co-op-games-real-life-schedules/",
+      "image": "https://static0.polygonimages.com/wordpress/wp-content/uploads/chorus/uploads/chorus_asset/file/22389863/snow__2_.png",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-7f0acb8d43d7",
+      "title": "Which NVIDIA GPU is closest to the PS5? The answer isn't so simple",
+      "excerpt": "One of the biggest questions when it comes to purchasing a gaming rig is whether to go console or PC. This NVIDIA GPU gives the closest results to a PS5.",
+      "body": "One of the biggest questions when it comes to purchasing a gaming rig is whether to go console or PC. This NVIDIA GPU gives the closest results to a PS5.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "staff@engadget.com (Dave Meikleham)",
+      "date": "2026-11-15",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 53,
+      "url": "https://www.engadget.com/2313644/nvidia-gpu-ps5-closest-match-answer-not-simple/",
+      "image": "/images/feed/feed-7f0acb8d43d7.jpg",
+      "source": "Engadget",
+      "isLive": true
+    },
+    {
+      "id": "feed-600a46338ee0",
+      "title": "What The US Midterm Elections Mean For Climate Progress",
+      "excerpt": "People across the United States voted in record numbers in last week’s incredibly consequential election, which has completely changed the makeup of Congress for its new term beginning in January 2027…",
+      "body": "People across the United States voted in record numbers in last week’s incredibly consequential election, which has completely changed the makeup of Congress for its new term beginning in January 2027. The success of our electoral processes—still underway—should not be taken for granted. It’s a win for democracy when millions of ... [continued] The post What The US Midterm Elections Mean For Climate Progress appeared first on CleanTechnica .",
+      "author": "Guest Contributor",
+      "date": "2026-11-15",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Cars"
+      ],
+      "featured": false,
+      "xpReward": 45,
+      "url": "https://cleantechnica.com/2026/11/14/what-the-us-midterm-elections-mean-for-climate-progress/",
+      "image": "/images/feed/feed-600a46338ee0.jpg",
+      "source": "CleanTechnica",
+      "isLive": true
+    },
+    {
+      "id": "feed-f26f59dff7ee",
+      "title": "This Sony patent would add a credit card reader to your PlayStation controller",
+      "excerpt": "As Sony and PlayStation head into a digital-only era, new tech on its upcoming controllers could help make online purchases even more convenient for gaming.",
+      "body": "As Sony and PlayStation head into a digital-only era, new tech on its upcoming controllers could help make online purchases even more convenient for gaming.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "staff@engadget.com (Yoni Yardeni)",
+      "date": "2026-11-15",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 39,
+      "url": "https://www.engadget.com/2313652/sony-patent-playstation-controller-adds-credit-card-reader/",
+      "image": "/images/feed/feed-f26f59dff7ee.jpg",
+      "source": "Engadget",
+      "isLive": true
+    },
+    {
+      "id": "feed-215bffef4942",
+      "title": "Hands-on: ESR’s MagSafe kickstand charger solves two key iPhone Duo shortcomings",
+      "excerpt": "iPhone Duo, because it offers a much larger inside display, means theres all tons of new use cases that you wouldn’t normally come across with your iPhone. Of course, one of them is the fact that you…",
+      "body": "iPhone Duo, because it offers a much larger inside display, means theres all tons of new use cases that you wouldn’t normally come across with your iPhone. Of course, one of them is the fact that you might want to prop up your iPhone Duo to watch a video on the larger display. A couple weeks ago, I wrote about one accessory that solves the kickstand problem. That said, what if you want to charge and prop up your phone at the same time? more…",
+      "author": "Michael Burkhardt",
+      "date": "2026-11-15",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Iphone",
+        "Hands-on"
+      ],
+      "featured": false,
+      "xpReward": 35,
+      "url": "https://9to5mac.com/2026/11/14/hands-on-esrs-magsafe-kickstand-charger-solves-two-key-iphone-duo-shortcomings/",
+      "image": "/images/feed/feed-215bffef4942.jpg",
+      "source": "9to5Mac",
+      "isLive": true
+    },
+    {
+      "id": "feed-f1f3638d6e2f",
+      "title": "$3.4 Billion — Anthropic Order for Gas Power Plants!",
+      "excerpt": "Wow, this is a nasty, dirty, polluting stunner I didn’t see until just now. Anthropic, the AI company behind Claude, has reportedly signed a $3.4 billion contract to buy gas-fired engines (power plant…",
+      "body": "Wow, this is a nasty, dirty, polluting stunner I didn&#8217;t see until just now. Anthropic, the AI company behind Claude, has reportedly signed a $3.4 billion contract to buy gas-fired engines (power plants) from OnePWR Solutions, a Texas-based energy company. These gas power plants would be able to provide Anthropic&#8217;s ... [continued] The post $3.4 Billion — Anthropic Order for Gas Power Plants! appeared first on CleanTechnica .",
+      "author": "Z. S.",
+      "date": "2026-11-15",
+      "readTime": "2 min",
+      "section": "ai",
+      "tags": [
+        "Anthropic"
+      ],
+      "featured": false,
+      "xpReward": 47,
+      "url": "https://cleantechnica.com/2026/11/14/3-4-billion-anthropic-order-for-gas-power-plants/",
+      "image": "/images/feed/feed-f1f3638d6e2f.jpg",
+      "source": "CleanTechnica",
+      "isLive": true
+    },
+    {
+      "id": "feed-494f583efec1",
+      "title": "What are the limitations of eGPUs vs onboard graphics cards for laptops?",
+      "excerpt": "Is it worth it to use an eGPU with your laptop? That depends. Let's take a closer look at the most important factors you should consider.",
+      "body": "Is it worth it to use an eGPU with your laptop? That depends. Let's take a closer look at the most important factors you should consider.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Laptop. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "staff@engadget.com (Husain Parvez)",
+      "date": "2026-11-15",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Laptop"
+      ],
+      "featured": false,
+      "xpReward": 31,
+      "url": "https://www.engadget.com/2313636/limitations-egpu-vs-onboard-graphics-card-laptop-pc/",
+      "image": "/images/feed/feed-494f583efec1.jpg",
+      "source": "Engadget",
       "isLive": true
     },
     {
@@ -90,68 +281,11 @@
         "Nintendo",
         "Game"
       ],
-      "featured": true,
-      "xpReward": 35,
+      "featured": false,
+      "xpReward": 45,
       "url": "https://www.polygon.com/kirby-world-beyond-nintendo-switch-2-2027/",
       "image": "https://static0.polygonimages.com/wordpress/wp-content/uploads/2026/09/ns2_kirbyandtheworldbeyond_scrn_19.jpeg",
       "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-40a683016cbb",
-      "title": "The file you generate is a memory budget, not a format: streaming PDFs, images and ZIPs under a hard ceiling",
-      "excerpt": "An endpoint that turns a database query into a downloadable file is one of the few places where your code touches every byte it produces. Most handlers do work on a few kilobytes of JSON and forget it…",
-      "body": "An endpoint that turns a database query into a downloadable file is one of the few places where your code touches every byte it produces. Most handlers do work on a few kilobytes of JSON and forget it. A file generator holds an object whose size is a function of someone else's data — a statement with 1,200 line items, a photo straight off a phone, a folder of receipts — and the platform it runs on has a memory limit that does not care how reasonable your intent was. The version of this that people ship first looks like this: build the file in memory, set the right content type, return it. It passes the test where one user downloads one small report.",
-      "author": "MapToSite",
-      "date": "2026-11-15",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 50,
-      "url": "https://dev.to/maptosite/the-file-you-generate-is-a-memory-budget-not-a-format-streaming-pdfs-images-and-zips-under-a-26n8",
-      "image": "/images/feed/feed-40a683016cbb.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-7f637d6eb3b8",
-      "title": "Search API for AI chatbots: give your bot live web results and today's news",
-      "excerpt": "A chatbot built on a language model knows what was in its training data and nothing after. Ask it about a price change last week, a library release from this month or this morning's headlines, and it…",
-      "body": "A chatbot built on a language model knows what was in its training data and nothing after. Ask it about a price change last week, a library release from this month or this morning's headlines, and it will either refuse or, worse, answer confidently with something out of date. The fix is a search API the model can call as a tool . The model decides when it needs fresh information, your code runs the search, and the results go back into the conversation before the model answers. This page shows how to do that, what the tools should look like, and what it costs. What a chatbot needs from a search API Not every search API suits a chatbot. Look for: Clean JSON with title, URL and snippet: no HTML to scrape, nothing the model has to untangle. News that is minutes old , by topic and by country.",
-      "author": "nestdaddy",
-      "date": "2026-11-15",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Api"
-      ],
-      "featured": false,
-      "xpReward": 43,
-      "url": "https://dev.to/nestdaddy/search-api-for-ai-chatbots-give-your-bot-live-web-results-and-todays-news-4je1",
-      "image": "/images/feed/feed-7f637d6eb3b8.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-e3a879e25236",
-      "title": "dz_invoice_tax: an exact Algerian invoice tax engine in Dart",
-      "excerpt": "An invoice total looks like three multiplications and an addition. Then you print the invoice and the lines do not add up to the total: one centime is missing, or one too many. The usual cause is a do…",
-      "body": "An invoice total looks like three multiplications and an addition. Then you print the invoice and the lines do not add up to the total: one centime is missing, or one too many. The usual cause is a double , or a tax that was rounded once on the total while the printed lines were rounded one by one. Algerian invoices add a second difficulty. A cash payment carries the droit de timbre de quittance, and its rules changed with the 2025 finance law: an exemption threshold, three brackets, a minimum, and no ceiling any more. An engine that still charges a flat 1 % gives a different amount from the current law on many cash invoices. dz_invoice_tax is a pure Dart engine for exactly this.",
-      "author": "Abdeldjalil Chougui",
-      "date": "2026-11-15",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 43,
-      "url": "https://dev.to/abdeldjalilchougui/dzinvoicetax-an-exact-algerian-invoice-tax-engine-in-dart-2nna",
-      "image": "/images/feed/feed-e3a879e25236.webp",
-      "source": "Dev.to",
       "isLive": true
     },
     {
@@ -167,7 +301,7 @@
         "Gadget"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 48,
       "url": "https://www.engadget.com/2310535/affordable-gadgets-under-10-dollars/",
       "image": "/images/feed/feed-ca6348c1fa68.jpg",
       "source": "Engadget",
@@ -186,7 +320,7 @@
         "Security"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 47,
       "url": "https://techcrunch.com/2026/11/14/where-was-nvidias-security-team/",
       "image": "https://techcrunch.com/wp-content/uploads/2026/11/Jensen-Huang-1.jpg?w=1024",
       "source": "TechCrunch",
@@ -205,7 +339,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 42,
       "url": "https://www.polygon.com/calvin-hobbes-best-spaceman-spiff-comics/",
       "image": "/images/feed/feed-d9be5f8318fe.jpg",
       "source": "Polygon",
@@ -224,7 +358,7 @@
         "Android Phone"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 50,
       "url": "https://www.engadget.com/2313576/hidden-way-check-which-services-running-on-android-phone/",
       "image": "/images/feed/feed-4e71306c18d7.jpg",
       "source": "Engadget",
@@ -243,28 +377,9 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 47,
       "url": "https://www.engadget.com/2313550/roku-tv-turns-on-by-itself-common-reasons-fixes/",
       "image": "/images/feed/feed-b36f51928873.jpg",
-      "source": "Engadget",
-      "isLive": true
-    },
-    {
-      "id": "feed-372135004431",
-      "title": "One cable mistake could be killing your desktop PC's gaming performance",
-      "excerpt": "Plugging your monitor into the motherboard instead of your dedicated GPU can ruin gaming performance. Here's how to check your ports and get your frames back.",
-      "body": "Plugging your monitor into the motherboard instead of your dedicated GPU can ruin gaming performance. Here's how to check your ports and get your frames back.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Husain Parvez)",
-      "date": "2026-11-14",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 32,
-      "url": "https://www.engadget.com/2313063/cable-mistake-desktop-pc-gaming-performance/",
-      "image": "/images/feed/feed-372135004431.jpg",
       "source": "Engadget",
       "isLive": true
     },
@@ -281,7 +396,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 47,
       "url": "https://kotaku.com/some-gta-6-box-copies-reported-to-have-download-code-issues-2000756883",
       "image": "/images/feed/feed-031c985e8acb.jpg",
       "source": "Kotaku",
@@ -300,7 +415,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 47,
       "url": "https://www.ign.com/articles/best-deals-for-november-14-2026",
       "image": "/images/feed/feed-f5c7684c2ecc.jpg",
       "source": "IGN",
@@ -319,67 +434,10 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 38,
       "url": "https://www.ign.com/articles/gta-6-leak-seemingly-reveals-full-track-list-days-before-launch",
       "image": "/images/feed/feed-7bc0a37d640f.jpg",
       "source": "IGN",
-      "isLive": true
-    },
-    {
-      "id": "feed-0a50b28a1151",
-      "title": "Why your SD card won't let you transfer files bigger than 4GB, and how to fix it",
-      "excerpt": "Some SD cards just won't accept files larger than 4GB, no matter the total capacity or how much free storage there is. But don't worry, it's not hard to fix.",
-      "body": "Some SD cards just won't accept files larger than 4GB, no matter the total capacity or how much free storage there is. But don't worry, it's not hard to fix.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Filipe Espósito)",
-      "date": "2026-11-14",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 39,
-      "url": "https://www.engadget.com/2313042/sd-card-4-gb-file-transfer-limit-fat32-explained/",
-      "image": "/images/feed/feed-0a50b28a1151.jpg",
-      "source": "Engadget",
-      "isLive": true
-    },
-    {
-      "id": "feed-c6c9591920c5",
-      "title": "This underrated Google Health app feature can make food tracking less annoying",
-      "excerpt": "There's a suite of features with Google's Health app, but you've likely overlooked the intuitive food tracking function that helps keep your diet in check.",
-      "body": "There's a suite of features with Google's Health app, but you've likely overlooked the intuitive food tracking function that helps keep your diet in check.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Christine Persaud)",
-      "date": "2026-11-14",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 31,
-      "url": "https://www.engadget.com/2312924/underrated-google-health-app-food-tracker/",
-      "image": "/images/feed/feed-c6c9591920c5.jpg",
-      "source": "Engadget",
-      "isLive": true
-    },
-    {
-      "id": "feed-38541fa103d0",
-      "title": "How to get better results from Google Gemini",
-      "excerpt": "These tips and tricks will help you prompt Gemini better.",
-      "body": "These tips and tricks will help you prompt Gemini better.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Charles Burgar)",
-      "date": "2026-11-14",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 52,
-      "url": "https://www.engadget.com/2312834/how-to-get-better-results-google-gemini/",
-      "image": "/images/feed/feed-38541fa103d0.jpg",
-      "source": "Engadget",
       "isLive": true
     },
     {
@@ -395,29 +453,10 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 53,
       "url": "https://www.ign.com/articles/league-of-legends-new-dawn-unveiled-with-debut-trailer-riot-announces-major-overhaul-coming-in-2027",
       "image": "https://assets-prd.ignimgs.com/2026/11/14/still003-1794673734402.png",
       "source": "IGN",
-      "isLive": true
-    },
-    {
-      "id": "feed-e2734be0c847",
-      "title": "League of Legends: New Dawn Revealed, Major Overhaul Set for 2027",
-      "excerpt": "Riot Games revealed at Worlds Finals 2026 a major update to League of Legends coming in 2027 with new gameplay and features.",
-      "body": "Riot Games revealed at Worlds Finals 2026 a major update to League of Legends coming in 2027 with new gameplay and features.\n\nThis report, published by Polygon, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Polygon using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Matt Patches",
-      "date": "2026-11-14",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 41,
-      "url": "https://www.polygon.com/league-of-legends-with-new-dawn-reveal-worlds-2026/",
-      "image": "https://static0.polygonimages.com/wordpress/wp-content/uploads/2026/11/still002.png",
-      "source": "Polygon",
       "isLive": true
     },
     {
@@ -434,7 +473,7 @@
         "Starship"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 41,
       "url": "https://www.theverge.com/science/1033930/spacex-chopstick-starship-catch",
       "image": "/images/feed/feed-22131668b1fb.jpg",
       "source": "The Verge",
@@ -453,7 +492,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 41,
       "url": "https://electrek.co/2026/11/14/20k-nissan-nx7-phev-goes-on-sale-with-nearly-200-miles-of-electric-range/",
       "image": "/images/feed/feed-bfc0e9e2164c.jpg",
       "source": "Electrek",
@@ -462,8 +501,8 @@
     {
       "id": "feed-50646efac2a9",
       "title": "SpaceX catches the Starship to end Flight 15",
-      "excerpt": "https://x.com/SpaceX/status/2121316300702056595",
-      "body": "https://x.com/SpaceX/status/2121316300702056595\n\nThis report, published by Hacker News, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Spacex, Starship. As the situation continues to evolve, professionals and enthusiasts in the space exploration and astronomy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Hacker News using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "excerpt": "https://x.com/SpaceX/status/2121316300702056595 https://youtu.be/jHlpfNSpBmw?t=3233",
+      "body": "https://x.com/SpaceX/status/2121316300702056595 https://youtu.be/jHlpfNSpBmw?t=3233\n\nThis report, published by Hacker News, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Spacex, Starship. As the situation continues to evolve, professionals and enthusiasts in the space exploration and astronomy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Hacker News using the link below. GiveMeTech will continue tracking this story as more details emerge.",
       "author": "ls612",
       "date": "2026-11-14",
       "readTime": "2 min",
@@ -473,7 +512,7 @@
         "Starship"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 53,
       "url": "https://www.spacex.com/launches/starship-flight-15",
       "image": "/images/feed/feed-50646efac2a9.jpg",
       "source": "Hacker News",
@@ -492,7 +531,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 41,
       "url": "https://cleantechnica.com/2026/11/14/fabric-molds-could-bring-material-saving-concrete-beams-within-reach/",
       "image": "/images/feed/feed-d1ba8ac45d19.jpg",
       "source": "CleanTechnica",
@@ -511,7 +550,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 52,
       "url": "https://cleantechnica.com/2026/11/14/ai-businesses-still-bleeding-billions/",
       "image": "/images/feed/feed-8dcee596d871.png",
       "source": "CleanTechnica",
@@ -530,7 +569,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 37,
       "url": "https://cleantechnica.com/2026/11/14/study-pinpoints-states-with-steepest-warming-trends-since-1980/",
       "image": "/images/feed/feed-969da142fe76.png",
       "source": "CleanTechnica",
@@ -549,7 +588,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 48,
       "url": "https://cleantechnica.com/2026/11/14/zoox-launches-robotaxis-in-atlanta/",
       "image": "/images/feed/feed-321a65a1340a.jpg",
       "source": "CleanTechnica",
@@ -568,7 +607,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 49,
       "url": "https://electrek.co/2026/11/14/check-your-ego-at-the-door-stellantis-new-electric-dolly-turns-any-car-into-a-tow-rig/",
       "image": "/images/feed/feed-da89989bafe7.jpg",
       "source": "Electrek",
@@ -587,7 +626,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 47,
       "url": "https://techcrunch.com/2026/11/14/the-ai-graveyard-a-running-list-of-projects-and-startups-that-didnt-make-it/",
       "image": "https://techcrunch.com/wp-content/uploads/2019/12/GettyImages-95927766-1.jpg?resize=1200,797",
       "source": "TechCrunch",
@@ -607,29 +646,10 @@
         "Security"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 41,
       "url": "https://www.bleepingcomputer.com/news/security/cursor-confirms-security-breach-led-to-malicious-claude-code-extension/",
       "image": "/images/feed/feed-60f9b9b30062.jpg",
       "source": "BleepingComputer",
-      "isLive": true
-    },
-    {
-      "id": "feed-83a4e4887d17",
-      "title": "Huawei set to challenge Tesla Powerwall with new, 20 kW home battery",
-      "excerpt": "This high-tech Huawei home battery pack hopes to hold back Tesla’s latest Powerwall with silicon carbide technology, AI-powered energy management baked in, and enough modular storage to keep even larg…",
-      "body": "This high-tech Huawei home battery pack hopes to hold back Tesla’s latest Powerwall with silicon carbide technology, AI-powered energy management baked in, and enough modular storage to keep even larg — a development drawing significant attention in the electric vehicles, hybrids, and automotive technology space.\n\nThis report, published by Electrek, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Tesla. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Electrek using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Jo Borrás",
-      "date": "2026-11-14",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Tesla"
-      ],
-      "featured": false,
-      "xpReward": 32,
-      "url": "https://electrek.co/2026/11/14/huawei-set-to-challenge-tesla-powerwall-with-new-20-kw-home-battery/",
-      "image": "/images/feed/feed-83a4e4887d17.jpg",
-      "source": "Electrek",
       "isLive": true
     },
     {
@@ -645,7 +665,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 37,
       "url": "https://www.space.com/entertainment/space-movies-shows/this-week-in-space-podcast-episode-236-alienspotting",
       "image": "/images/feed/feed-ff9b6b2164bc.jpg",
       "source": "Space.com",
@@ -664,7 +684,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 44,
       "url": "https://www.bleepingcomputer.com/news/security/us-disrupts-north-korean-campaign-behind-400-million-crypto-theft/",
       "image": "/images/feed/feed-f828612ff6ba.jpg",
       "source": "BleepingComputer",
@@ -683,7 +703,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 35,
       "url": "https://www.space.com/entertainment/space-games/alien-fireteam-elite-2-is-a-good-old-fashioned-bug-hunt-ironically-plagued-by-bugs",
       "image": "/images/feed/feed-e4dd1d13f3de.jpg",
       "source": "Space.com",
@@ -702,7 +722,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 35,
       "url": "https://www.theverge.com/podcast/1032907/helen-toner-openai-cset-ai-safety-policy-interview",
       "image": "/images/feed/feed-e906ce588cf4.jpg",
       "source": "The Verge",
@@ -722,7 +742,7 @@
         "Starship"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 35,
       "url": "https://www.space.com/space-exploration/launches-spacecraft/spacex-says-starship-flight-15-booster-aborted-chopsticks-landing-catch-after-launch-due-to-guidance-issue-video",
       "image": "/images/feed/feed-f54c2f6c5e67.jpg",
       "source": "Space.com",
@@ -743,7 +763,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 42,
       "url": "https://www.space.com/space-exploration/on-this-day-in-space-november-14-2026",
       "image": "/images/feed/feed-d0917e46d690.jpg",
       "source": "Space.com",
@@ -763,7 +783,7 @@
         "Starship"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 39,
       "url": "https://www.space.com/space-exploration/launches-spacecraft/spacex-chopsticks-catch-starship-upper-stage-flight-14",
       "image": "/images/feed/feed-1cfd40f11d57.jpg",
       "source": "Space.com",
@@ -782,7 +802,7 @@
         "Ransomware"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 41,
       "url": "https://www.wired.com/story/beware-the-new-ai-fueled-ransomware-boom/",
       "image": "/images/feed/feed-daae8022327d.png",
       "source": "Wired",
@@ -801,7 +821,7 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 54,
       "url": "https://thehackernews.com/2026/11/attackers-exploit-unrealircd-flaw-that.html",
       "image": "/images/feed/feed-d6bc4ec6947c.jpg",
       "source": "The Hacker News",
@@ -820,7 +840,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 36,
       "url": "https://www.bleepingcomputer.com/news/cryptocurrency/trezor-confirms-crypto-stealing-implants-in-three-wallets-releases-fix/",
       "image": "/images/feed/feed-b18b7197a903.jpg",
       "source": "BleepingComputer",
@@ -839,7 +859,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 50,
       "url": "https://www.bleepingcomputer.com/news/security/german-military-drone-operations-disrupted-by-cyberattack/",
       "image": "/images/feed/feed-c8ef556c39f8.jpg",
       "source": "BleepingComputer",
@@ -858,7 +878,7 @@
         "Chatgpt"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 49,
       "url": "https://techcrunch.com/2026/11/13/chatgpts-new-wallet-lets-ai-agents-shop-and-check-out-for-you/",
       "image": "https://techcrunch.com/wp-content/uploads/2026/11/chatgpt-wallet.jpg?resize=1200,729",
       "source": "TechCrunch",
@@ -877,7 +897,7 @@
         "Chatgpt"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 37,
       "url": "https://openai.com/index/introducing-chatgpt-wallet",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "OpenAI Blog",
@@ -896,7 +916,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 51,
       "url": "https://openai.com/business/customer-stories/shield",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "OpenAI Blog",
@@ -915,43 +935,24 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 52,
       "url": "https://openai.com/business/customer-stories/amplitude",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "OpenAI Blog",
       "isLive": true
-    },
-    {
-      "id": "feed-3987a8727774",
-      "title": "Google Search gets a major upgrade with Gemini 4 Hydrogen",
-      "excerpt": "We are bringing Gemini 4 Hydrogen to Google Search globally to provide you with more helpful, visual, and intuitive responses.",
-      "body": "We are bringing Gemini 4 Hydrogen to Google Search globally to provide you with more helpful, visual, and intuitive responses.\n\nThis report, published by Google AI Blog, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gemini. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Google AI Blog using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Google AI Blog",
-      "date": "2026-11-12",
-      "readTime": "2 min",
-      "section": "ai",
-      "tags": [
-        "Gemini"
-      ],
-      "featured": false,
-      "xpReward": 51,
-      "url": "https://blog.google/products-and-platforms/products/search/gemini-4-hydrogen-search-upgrade/",
-      "image": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/HydrogenUI_socialshare.max-600x600.format-webp.webp",
-      "source": "Google AI Blog",
-      "isLive": true
     }
   ],
   "breakingNews": [
-    "DEV.TO: eBPF Tutorial by Example 6: Capturing Signal Sending and Store State with Hash Maps",
-    "DEV.TO: DMARC TXT Record Reconciliation for Support Transfers (Before Policy Progression)",
-    "DEV.TO: A Few Dollars of Hardware That Blocks Ads for Your Whole Home: The ESP32 AdBlocker",
-    "DEV.TO: Support Image Files in Object Storage: Generate Tenant-Bound Pre-Signed Download URLs",
-    "POLYGON: Nintendo Officially Reveals New Kirby Game for Switch 2",
-    "DEV.TO: The file you generate is a memory budget, not a format: streaming PDFs, images and ZIPs under a hard ceiling",
-    "DEV.TO: Search API for AI chatbots: give your bot live web results and today's news",
-    "DEV.TO: dz_invoice_tax: an exact Algerian invoice tax engine in Dart",
-    "ENGADGET: 11 gadgets under $10 that solve everyday problems",
-    "TECHCRUNCH: Where was Nvidia’s security team?"
+    "DEV.TO: The flag file my watchdog wrote was 0 bytes, so the alert fired for 8 days",
+    "DEV.TO: Building Signal2Speech: answering questions with an EEG headset at Hack the Nest 2026 (Update 1)",
+    "DEV.TO: Your CI artifacts and preview deployments can leak unprotected JavaScript",
+    "DEV.TO: Corevia 4.0 Is Here: Building Reliable Applications Beyond Traditional PHP Frameworks",
+    "DEV.TO: Electron Internationalization: A Practical Guide to Locale Detection, Message Formatting, RTL, and Runtime Language Switching",
+    "DEV.TO: Build a Google Play Review Triage Queue with Python",
+    "DEV.TO: The Polite Catastrophe of 'Read-Only': Connecting Coding Agents to a 300-Table Legacy SQL Database",
+    "POLYGON: 10 Must-Play Co-Op Games for People With Real-Life Schedules",
+    "ENGADGET: Which NVIDIA GPU is closest to the PS5? The answer isn't so simple",
+    "CLEANTECHNICA: What The US Midterm Elections Mean For Climate Progress"
   ],
   "sectionVideos": {}
 }
