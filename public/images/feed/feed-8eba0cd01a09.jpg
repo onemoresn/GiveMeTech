@@ -1,0 +1,80 @@
+<svg viewBox="0 0 1120 486" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="One frame of the pipeline, with each stage marked as in Three.js today, in review or partly there, or still to build. The G-buffer prepass is in Three.js; the Hi-Z build is still to build; the SSR trace, which reads the Hi-Z pyramid, and the SSGI trace, which reads the G-buffer directly and also returns occlusion and bent normals, run side by side and are partly there, as is their denoise; the forward beauty pass, which reads both coverage cascades, is still to build. Three cached inputs from the pipeline setup feed the beauty pass: lightmaps and the light probe grid, in Three.js, and reflection probes, partly there. TRAA or TAAU, the last stage, is in Three.js. The previous frame&#39;s resolved output is fed back into the SSR and SSGI traces.">
+  <rect x="0" y="0" width="1120" height="486" fill="#f7f5f0" rx="10"/>
+  <style>
+    .solid { fill:#3b5bdb; }
+    .tint { fill:#dbe2fb; }
+    .outline { fill:#ffffff; stroke:#3b5bdb; stroke-width:2; }
+    .band { fill:#efece4; }
+    .lbl { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; fill:#1f2430; }
+    .lbl-sm { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; fill:#5a5f6b; }
+    .lbl-w { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; fill:#ffffff; }
+    .lbl-acc { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; fill:#e8590c; }
+    .mono { font-family: Menlo, Consolas, monospace; fill:#1f2430; }
+    .mono-w { font-family: Menlo, Consolas, monospace; fill:#ffffff; }
+    .arrow { stroke:#5a5f6b; stroke-width:1.5; fill:none; marker-end:url(#arrowhead); }
+    .feedback { stroke:#e8590c; stroke-width:2; fill:none; stroke-dasharray:6 4; marker-end:url(#arrowhead-acc); }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#5a5f6b"/>
+    </marker>
+    <marker id="arrowhead-acc" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#e8590c"/>
+    </marker>
+  </defs>
+  <text class="lbl" x="560.0" y="38" font-size="20" text-anchor="middle" font-weight="600">One Frame of the Pipeline</text>
+  <text class="lbl-sm" x="560.0" y="62" font-size="12" text-anchor="middle">screen-space detail on top of the cached lighting; the resolved frame feeds the next one</text>
+  <rect class="solid" x="320.0" y="78" width="22" height="14" rx="3"/>
+  <text class="lbl-sm" x="350.0" y="90" font-size="12">in Three.js</text>
+  <rect class="tint" x="470.0" y="78" width="22" height="14" rx="3"/>
+  <text class="lbl-sm" x="500.0" y="90" font-size="12">in review or partly there</text>
+  <rect class="outline" x="700.0" y="78" width="22" height="14" rx="3"/>
+  <text class="lbl-sm" x="730.0" y="90" font-size="12">still to build</text>
+  <rect class="band" x="462" y="104" width="622" height="74" rx="8"/>
+  <text class="lbl" x="476" y="137" font-size="13" font-weight="600">Cached inputs</text>
+  <text class="lbl-sm" x="476" y="155" font-size="12">from the pipeline setup</text>
+  <rect class="solid" x="652" y="124" width="132" height="34" rx="6"/>
+  <text class="lbl-w" x="718.0" y="146.0" font-size="13" text-anchor="middle" font-weight="600">lightmaps</text>
+  <rect class="solid" x="794" y="124" width="132" height="34" rx="6"/>
+  <text class="lbl-w" x="860.0" y="146.0" font-size="13" text-anchor="middle" font-weight="600">light probe grid</text>
+  <rect class="tint" x="936" y="124" width="132" height="34" rx="6"/>
+  <text class="lbl" x="1002.0" y="146.0" font-size="13" text-anchor="middle" font-weight="600">reflection probes</text>
+  <rect class="solid" x="20" y="238" width="128" height="84" rx="6"/>
+  <text class="lbl-w" x="84.0" y="267.0" font-size="13" text-anchor="middle" font-weight="600">G-buffer</text>
+  <text class="lbl-w" x="84.0" y="285.0" font-size="12" text-anchor="middle" opacity="0.85">depth, oct normals</text>
+  <text class="lbl-w" x="84.0" y="303.0" font-size="12" text-anchor="middle" opacity="0.85">roughness, motion</text>
+  <rect class="outline" x="220" y="238" width="128" height="84" rx="6"/>
+  <text class="lbl" x="284.0" y="267.0" font-size="13" text-anchor="middle" font-weight="600">Hi-Z build</text>
+  <text class="lbl-sm" x="284.0" y="285.0" font-size="12" text-anchor="middle">min/max depth</text>
+  <text class="lbl-sm" x="284.0" y="303.0" font-size="12" text-anchor="middle">mip pyramid</text>
+  <rect class="tint" x="420" y="238" width="128" height="84" rx="6"/>
+  <text class="lbl" x="484.0" y="276.0" font-size="13" text-anchor="middle" font-weight="600">SSR</text>
+  <text class="lbl-sm" x="484.0" y="294.0" font-size="12" text-anchor="middle">reflections</text>
+  <rect class="tint" x="420" y="344" width="128" height="84" rx="6"/>
+  <text class="lbl" x="484.0" y="373.0" font-size="13" text-anchor="middle" font-weight="600">SSGI</text>
+  <text class="lbl-sm" x="484.0" y="391.0" font-size="12" text-anchor="middle">bounce light, AO</text>
+  <text class="lbl-sm" x="484.0" y="409.0" font-size="12" text-anchor="middle">bent normals</text>
+  <rect class="tint" x="620" y="238" width="128" height="84" rx="6"/>
+  <text class="lbl" x="684.0" y="267.0" font-size="13" text-anchor="middle" font-weight="600">Denoise</text>
+  <text class="lbl-sm" x="684.0" y="285.0" font-size="12" text-anchor="middle">spatial + temporal</text>
+  <text class="lbl-sm" x="684.0" y="303.0" font-size="12" text-anchor="middle">half-res upsample</text>
+  <rect class="outline" x="770" y="238" width="180" height="84" rx="6"/>
+  <text class="lbl" x="860.0" y="276.0" font-size="13" text-anchor="middle" font-weight="600">Beauty</text>
+  <text class="lbl-sm" x="860.0" y="294.0" font-size="12" text-anchor="middle">resolve lighting</text>
+  <rect class="solid" x="974" y="238" width="126" height="84" rx="6"/>
+  <text class="lbl-w" x="1037.0" y="276.0" font-size="13" text-anchor="middle" font-weight="600">TRAA / TAAU</text>
+  <text class="lbl-w" x="1037.0" y="294.0" font-size="12" text-anchor="middle" opacity="0.85">resolve + upscale</text>
+  <path class="arrow" d="M150,280 L215,280"/>
+  <path class="arrow" d="M350,280 L415,280"/>
+  <path class="arrow" d="M550,280 L615,280"/>
+  <path class="arrow" d="M84,324 L84,386 L415,386"/>
+  <path class="arrow" d="M550,386 L684,386 L684,327"/>
+  <path class="arrow" d="M750,280 L765,280"/>
+  <path class="arrow" d="M952,280 L969,280"/>
+  <path class="arrow" d="M718,158 L718,190 L810,190 L810,233"/>
+  <path class="arrow" d="M860,158 L860,233"/>
+  <path class="arrow" d="M1002,158 L1002,190 L910,190 L910,233"/>
+  <path class="feedback" d="M1037,322 L1037,464 L584,464 L584,304 L555,304"/>
+  <path class="feedback" d="M584,410 L555,410"/>
+  <text class="lbl-acc" x="574" y="468" font-size="12" text-anchor="end" font-weight="600">reads last frame's output</text>
+</svg>
