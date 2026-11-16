@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-11-16T05:14:36.119Z",
+  "fetchedAt": "2026-11-16T06:32:40.022Z",
   "articles": [
     {
-      "id": "feed-94676687fd70",
-      "title": "Handling Poison Messages in AWS Event-Driven Pipelines",
-      "excerpt": "Imagine a hypothetical production pipeline where a Lambda function consumes events from an Amazon SQS queue to perform schema validation and write records to an Amazon DynamoDB table. One afternoon, a…",
-      "body": "Imagine a hypothetical production pipeline where a Lambda function consumes events from an Amazon SQS queue to perform schema validation and write records to an Amazon DynamoDB table. One afternoon, an upstream system pushes a malformed JSON payload that misses a required primary key. The Lambda function crashes, SQS puts the message back in the queue after the visibility timeout expires, and the function immediately consumes the same bad message again. This \"poison message\" loop creates a self-inflicted denial-of-service attack, inflating your execution costs and delaying the processing of valid downstream events. In event-driven architectures, poison messages are inevitable.",
-      "author": "Aniket Abhishek Soni",
+      "id": "feed-9973a1b1a018",
+      "title": "Why Your 'Run Once' Trigger Guard Silently Skips Records",
+      "excerpt": "If your trigger handler uses a static boolean to \"run once\", it is probably skipping records in production, and nothing tells you. No error, no failed test, just records that never got processed. Sear…",
+      "body": "If your trigger handler uses a static boolean to \"run once\", it is probably skipping records in production, and nothing tells you. No error, no failed test, just records that never got processed. The pattern everyone copies Search for \"Apex trigger recursion\" and you'll find this in almost every tutorial: public class AccountTriggerHandler { private static Boolean hasRun = false ; public static void beforeInsert ( List &lt; Account &gt; accounts ) { if ( hasRun ) { return ; } hasRun = true ; for ( Account acc : accounts ) { acc . Description = 'Processed' ; } } } The idea is sound: if the trigger updates records and that update fires the trigger again, stop the loop. The static variable lives for the whole transaction, so the second run sees hasRun = true and exits.",
+      "author": "ApexCraft Studio",
       "date": "2026-11-16",
       "readTime": "2 min",
       "section": "software",
@@ -14,18 +14,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 52,
-      "url": "https://dev.to/aniketsoni/handling-poison-messages-in-aws-event-driven-pipelines-jnd",
-      "image": "/images/feed/feed-94676687fd70.webp",
+      "xpReward": 43,
+      "url": "https://dev.to/apexcraftstudio/why-your-run-once-trigger-guard-silently-skips-records-4507",
+      "image": "/images/feed/feed-9973a1b1a018.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-8b364a5aa755",
-      "title": "1/7 is a whole number. Your number system just hasn't heard yet.",
-      "excerpt": "People invented numbers, and the rules you learned in school are one choice. Change a single rule and you get a different number system, just as solid, that mathematicians have used for over a century…",
-      "body": "People invented numbers, and the rules you learned in school are one choice. Change a single rule and you get a different number system, just as solid, that mathematicians have used for over a century. In that one, 1&nbsp;÷&nbsp;7 is a whole number. Grab a calculator. This takes two minutes, and you'll see it happen. 1. Square 5. Then keep going. 5 × 5 = 25 25 × 25 = 625 625 × 625 = 390625 390625 × 390625 = 152587890625 Look at the end of each answer. It stops changing. …625 shows up and never leaves, then …90625 , then …890625 . Each step locks in at least one more digit on the right, sometimes several at once. Keep squaring forever and the ending freezes into one endless number that runs off to the left : …918212890625 and here's the weird part: that number is its own square.",
-      "author": "CH",
+      "id": "feed-95c2b3d5d17e",
+      "title": "Stop your MQL5 EA from firing orders into a closed market",
+      "excerpt": "If your EA has ever filled its log with retcode 10018 (TRADE_RETCODE_MARKET_CLOSED), you know the pattern. A signal appears during the daily break, on a holiday, or a few seconds before the weekend cl…",
+      "body": "If your EA has ever filled its log with retcode 10018 (TRADE_RETCODE_MARKET_CLOSED), you know the pattern. A signal appears during the daily break, on a holiday, or a few seconds before the weekend close, and the EA tries again on every tick. Nothing is lost on that request, but retry logic, counters and alerts all get confused, and on a busy account it can look like the EA is broken. MT5 already knows the trading sessions for each symbol. You only have to ask. Reading the trade sessions SymbolInfoSessionTrade returns the start and end of each trading session for a given weekday. The times come back as seconds from midnight in server time.",
+      "author": "Omais Ali",
       "date": "2026-11-16",
       "readTime": "2 min",
       "section": "software",
@@ -33,18 +33,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 40,
-      "url": "https://dev.to/connabyss/17-is-a-whole-number-your-number-system-just-hasnt-heard-yet-33od",
-      "image": "/images/feed/feed-8b364a5aa755.webp",
+      "xpReward": 43,
+      "url": "https://dev.to/omaisali/stop-your-mql5-ea-from-firing-orders-into-a-closed-market-bc5",
+      "image": "/images/feed/feed-95c2b3d5d17e.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-fc8cf33702c2",
-      "title": "Sentinel-IR 0.5.10: we taught our code assistant to say \\\"I don't know\\",
-      "excerpt": "description: \"A 3-minute, no-jargon tour of what's new in Sentinel-IR and Sentinel-IR MCP: fewer fake all-clears, fewer false alarms, and a doorman who stopped ringing the neighbours' bells.\" Yesterda…",
-      "body": "description: \"A 3-minute, no-jargon tour of what's new in Sentinel-IR and Sentinel-IR MCP: fewer fake all-clears, fewer false alarms, and a doorman who stopped ringing the neighbours' bells.\" Yesterday was a heavy day here: four technical articles full of logs, Node versions and packet counts. Today is the opposite. Make a coffee. No stack traces were harmed in the making of this post. What is Sentinel, in one breath? When an AI assistant reads your code, it usually swallows whole files and hopes for the best.",
-      "author": "jackymenCZ (jackymenCZ)",
+      "id": "feed-376c38202b89",
+      "title": "Test an avatar camera in Discord before an event",
+      "excerpt": "A private Discord voice channel is a convenient place to verify an avatar-camera setup before a community event. Join a test channel alone or with a colleague, open the camera preview, and confirm tha…",
+      "body": "A private Discord voice channel is a convenient place to verify an avatar-camera setup before a community event. Join a test channel alone or with a colleague, open the camera preview, and confirm that the intended virtual camera is selected. Check the microphone input separately; Discord can keep an old audio device even after the camera changes. Move through a few real speaking patterns: a normal greeting, a longer explanation, a pause, and a glance toward the chat window. Ask your test partner whether motion stays in sync and whether the image remains clear in the compact call layout. If the video becomes choppy, close other apps using the camera and try a lower output size before adjusting unrelated Discord settings.",
+      "author": "赵yj",
       "date": "2026-11-16",
       "readTime": "2 min",
       "section": "software",
@@ -52,10 +52,143 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 52,
-      "url": "https://dev.to/jackymencz/sentinel-ir-0510-we-taught-our-code-assistant-to-say-i-dont-know-cj1",
-      "image": "/images/feed/feed-fc8cf33702c2.webp",
+      "xpReward": 33,
+      "url": "https://dev.to/yj_66d7294df017caf0384e3/test-an-avatar-camera-in-discord-before-an-event-29cl",
+      "image": "/images/feed/feed-376c38202b89.webp",
       "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-24cd1a404f47",
+      "title": "Three more tools, three more countries: Brunei's new pension fund, Mongolia's salary tax and a Punjabi calendar that starts in March",
+      "excerpt": "Some weeks the new tools are all about money. This week two of them are — and the third one is about time itself. I added three more to RozKaTool — free, no sign-up, everything runs in your browser —…",
+      "body": "Some weeks the new tools are all about money. This week two of them are — and the third one is about time itself. I added three more to RozKaTool — free, no sign-up, everything runs in your browser — and each one reaches a different corner of Asia: a pension fund that replaced two older schemes in Brunei, a salary tax with a hard monthly cap in Mongolia, and a calendar that starts its year in March. RozKaTool is now at 79 free tools, and the series keeps spreading: Nepal, Thailand, Bangladesh, the Philippines, Sri Lanka, Vietnam, Indonesia, Malaysia — and now Brunei, Mongolia and Punjab. 1. Brunei: one fund replaced two — and the employer rate changes four times Brunei has no personal income tax at all, which surprises almost everyone who first looks at a Bruneian payslip.",
+      "author": "Zahid Ghaffar",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 39,
+      "url": "https://dev.to/zaidi617796/three-more-tools-three-more-countries-bruneis-new-pension-fund-mongolias-salary-tax-and-a-6mo",
+      "image": "/images/feed/feed-24cd1a404f47.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-639b20b657ea",
+      "title": "Choose avatar expressions that read well in webinars",
+      "excerpt": "Webinars often place the speaker in a small tile beside slides, so expressions need to stay readable without competing with the material. Before the event, list the moments when your face adds meaning…",
+      "body": "Webinars often place the speaker in a small tile beside slides, so expressions need to stay readable without competing with the material. Before the event, list the moments when your face adds meaning: welcoming attendees, emphasizing a key point, or reacting during questions. Use a restrained idle expression between those moments so viewers can focus on the presentation. Test the avatar at the actual tile size. Record a short opening, a sentence with emphasis, and a neutral pause. Review whether the expression changes are clear at a glance and whether they remain comfortable over several minutes. If a gesture or expression draws attention away from the slide, simplify it rather than adding more motion.",
+      "author": "赵yj",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 30,
+      "url": "https://dev.to/yj_66d7294df017caf0384e3/choose-avatar-expressions-that-read-well-in-webinars-508n",
+      "image": "/images/feed/feed-639b20b657ea.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-cc39edbc00fb",
+      "title": "Easy agent skills that have proven useful in fixing bugs",
+      "excerpt": "What are agent skills? They're files that determine how an agent should behave and what tooling and workflows they should use. I think some are useful for now, but they will eventually be consumed by…",
+      "body": "What are agent skills? They're files that determine how an agent should behave and what tooling and workflows they should use. I think some are useful for now, but they will eventually be consumed by the models themselves and be integrated to the harnesses (some already have been). Project spesific workflows will provide value for a good while, since they are not generic. I've used VSC and Kiro professionally in agentic engineering and Cursor &amp; herdr on my hobby projects. This article focuses on relatively simple bugs, and isn't well suited for more complex items. How to use the stock agents/skills in Kiro Kiro comes with some stock options, I haven't yet tested all of these, but Bug Fix, Plan and Default are good enough.",
+      "author": "Kalle Tolonen",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 34,
+      "url": "https://dev.to/kalletolonen/easy-agent-skills-that-have-proven-useful-in-fixing-bugs-1fje",
+      "image": "/images/feed/feed-cc39edbc00fb.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-7320930dcaf1",
+      "title": "Add ChatGPT-style AI chat to your Expo app in 5 minutes",
+      "excerpt": "Almost every app wants an \"Ask AI\" screen now. Building one in React Native sounds easy until you hit the details: Text stutters while the response streams in, token by token Half-written markdown (**…",
+      "body": "Almost every app wants an \"Ask AI\" screen now. Building one in React Native sounds easy until you hit the details: Text stutters while the response streams in, token by token Half-written markdown ( **bold , an unclosed code block) breaks the layout fetch in React Native doesn't stream response bodies out of the box The keyboard covers the input on Android Then come stop, retry, chat history, file uploads... I rebuilt these one too many times, so I packaged them as an open-source library: react-native-ai-chat-kit . Here's how to add a full AI chat to an Expo app. 1.",
+      "author": "YOGESH BANSAL",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 39,
+      "url": "https://dev.to/yogesh_senior_dev/add-chatgpt-style-ai-chat-to-your-expo-app-in-5-minutes-15fd",
+      "image": "/images/feed/feed-7320930dcaf1.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-ba816123e006",
+      "title": "New leak shows Galaxy S27 Pro and Ultra camera design with three lenses",
+      "excerpt": "The S27 Ultra's downgrade to three cameras seems even more likely now.",
+      "body": "TL;DR The purported final design of the Galaxy S27 Pro and S27 Ultra has leaked. It shows a triple rear-camera setup for both phones, supporting earlier claims that the Ultra will drop to three cameras. The S27 Ultra is expected to feature a 200MP primary, 50MP ultrawide, and 50MP telephoto camera with 5x optical zoom. Samsung’s Galaxy S27 series is still a few months away, but the leaks are gaining momentum. Just days after a batch of Galaxy S27 Plus, S27 Pro, and S27 Ultra dummy units showed up online, a well-known leaker claims he knows what the real design will look like. In a post on X , leaker Ice Universe shared a line-art render of the Galaxy S27 Pro and S27 Ultra’s camera island. The leaker says this is the “real design” and that he is “100% sure” it’s accurate.",
+      "author": "Akshay Gangwar",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Galaxy S"
+      ],
+      "featured": false,
+      "xpReward": 30,
+      "url": "https://www.androidauthority.com/galaxy-s27-pro-ultra-camera-design-leak-3735297/",
+      "image": "/images/feed/feed-ba816123e006.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-b1b01f372b2e",
+      "title": "Apple's new research app is designed to make AI health tools more user-friendly",
+      "excerpt": "Apple has unveiled a new research study with the aim of learning how people use AI health tools.",
+      "body": "Apple has unveiled a new research study with the aim of learning how people use AI health tools.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "staff@engadget.com (Steve Dent)",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 42,
+      "url": "https://www.engadget.com/2317303/apple-new-research-app-designed-to-make-ai-health-tools-user-friendly/",
+      "image": "/images/feed/feed-b1b01f372b2e.jpg",
+      "source": "Engadget",
+      "isLive": true
+    },
+    {
+      "id": "feed-ed7ee9b6b3f3",
+      "title": "Lenovo’s first detachable Googlebook tipped to debut in January 2027",
+      "excerpt": "The Chromebook Duet’s spiritual successor is taking shape.",
+      "body": "TL;DR Leaker Evan Blass claims the Lenovo Googlebook Duet 13 will launch in January 2027. New renders showcase the detachable keyboard, rear kickstand, stylus, and a color-matched wireless mouse. The device could be among the first detachable Googlebooks to hit the market. The first wave of Googlebooks arrived in September with one notable absentee. Lenovo’s detachable 2-in-1, which had already appeared in multiple leaks leading up to the launch, never made it onto the stage. Now, we have a much better idea of when it could make its long-awaited debut. Reliable leaker Evan Blass has shared three new renders of the device on X , revealing that it will launch in January under the Lenovo Googlebook Duet 13 moniker.",
+      "author": "Hillary Keverenge",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 47,
+      "url": "https://www.androidauthority.com/lenovo-googlebook-duet-13-launch-date-leak-3735290/",
+      "image": "/images/feed/feed-ed7ee9b6b3f3.jpg",
+      "source": "Android Authority",
       "isLive": true
     },
     {
@@ -70,87 +203,30 @@
       "tags": [
         "Gadgets"
       ],
-      "featured": true,
-      "xpReward": 45,
+      "featured": false,
+      "xpReward": 39,
       "url": "https://www.androidauthority.com/november-pixel-drop-rollout-status-missing-features-3735295/",
       "image": "/images/feed/feed-d67a861496e9.jpg",
       "source": "Android Authority",
       "isLive": true
     },
     {
-      "id": "feed-e832fcafd647",
-      "title": "💻 Full-Stack Web Developer & Linux Administrator.",
-      "excerpt": "Hey everyone! 👋",
-      "body": "Hey everyone! 👋 ​I’m Shetu a passionate developer who loves turning complex server and coding challenges into simple, working solutions. I spend my days writing Python code, managing Linux servers, and figuring out how things work under the hood. ​I believe the best way to grow in tech is by sharing real experiences and helping each other out. If you share the same passion for coding, web apps, or server management, or if you just want to talk tech—my inbox is always open! Let’s connect and learn together. 💡✨",
-      "author": "Shetu Samiy",
+      "id": "feed-2c92c2bd075f",
+      "title": "APOD: 2026 November 16 – NGC 7129: Star Formation with Jets from Webb",
+      "excerpt": "APOD Science APOD APOD: 2026 November 16 – NGC… Today’s APOD Archive Submissions Index Search Calendar RSS Education About Discuss APOD Astronomy Picture of the Day Discover the cosmos! Each day a dif…",
+      "body": "APOD Science APOD APOD: 2026 November 16 – NGC… Today’s APOD Archive Submissions Index Search Calendar RSS Education About Discuss APOD Astronomy Picture of the Day Discover the cosmos! Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer. NGC 7129: Star Formation with Jets from Webb Explanation: How do stars form? To help answer this question, NASA used the James Webb Space Telescope to take the featured detailed image of the star-forming region NGC 7129 in infrared light . Star formation progresses when gravity pulls together massive amounts of gas, but soon things can get complicated when previously formed stars emit powerful jets and winds — and some then explode .",
+      "author": "NASA Breaking News",
       "date": "2026-11-16",
       "readTime": "2 min",
-      "section": "software",
+      "section": "space",
       "tags": [
-        "Developer"
-      ],
-      "featured": true,
-      "xpReward": 31,
-      "url": "https://dev.to/shetu_samiy_36e40eff998d8/full-stack-web-developer-linux-administrator-5gdj",
-      "image": "/images/feed/feed-e832fcafd647.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-dd7fc2c69f1b",
-      "title": "The router can tell you which model served you. It won't unless you ask.",
-      "excerpt": "Last week a reader pushed back on something I wrote about proving which model answered a request. His objection was the good kind: the response's model field is the router's claim, and treating it as…",
-      "body": "Last week a reader pushed back on something I wrote about proving which model answered a request. His objection was the good kind: the response's model field is the router's claim, and treating it as a fact is the error. He then ran a behavioural check over his own logs: 45 routed calls to one model, 20 direct calls to it, 29 calls to another, and the names and the behaviour agreed on every one of the 94. He also said he couldn't answer the harder question, because he only logged the model field and the router headers, and the routing header was empty or missing on every single call. So I went and read one router's documentation instead of arguing. OpenRouter, because it is the one with its docs fully public and because it is the router in the thread.",
-      "author": "Lumen",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 42,
-      "url": "https://dev.to/lumen_ilands/the-router-can-tell-you-which-model-served-you-it-wont-unless-you-ask-hp4",
-      "image": "/images/feed/feed-dd7fc2c69f1b.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-2768f544b3d3",
-      "title": "Humidifier Sizing in Python: Track Humidity Ratio, Not RH",
-      "excerpt": "Relative humidity is the number everyone reads and the wrong one to compute with. Heat 15°F air at 70% RH to 70°F and it drops to about 8% RH, yet not a single grain of water was added or removed. If…",
-      "body": "Relative humidity is the number everyone reads and the wrong one to compute with. Heat 15°F air at 70% RH to 70°F and it drops to about 8% RH, yet not a single grain of water was added or removed. If your code stores humidity as RH and carries it through a heating step, every downstream number is wrong. The variable that survives heating and cooling is the humidity ratio W: pounds of water per pound of dry air (or grains per pound, 7,000 grains = 1 lb). This post builds a small humidifier-sizing model around W, using the psychrometric equations from the ASHRAE Handbook of Fundamentals, and ends with a result that runs against intuition: on the coldest days a house needs less humidifier water, not more.",
-      "author": "Evgenii Konkin",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Python"
+        "Space"
       ],
       "featured": false,
-      "xpReward": 32,
-      "url": "https://dev.to/evgeniikonkin/humidifier-sizing-in-python-track-humidity-ratio-not-rh-3iik",
-      "image": "/images/feed/feed-2768f544b3d3.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-d172ff5ab98e",
-      "title": "Your 27-model ensemble has 1.5 opinions: measuring diversity with Fleiss' kappa and lineage-weighted voting",
-      "excerpt": "An ensemble is a claim about independence. You put k models in a room, they vote, and errors unique to each member cancel out. That only works if members actually disagree. If they all came from the s…",
-      "body": "An ensemble is a claim about independence. You put k models in a room, they vote, and errors unique to each member cancel out. That only works if members actually disagree. If they all came from the same handful of prompts, voting is theatre. Our platform has 3,784 model records and 46,807 graded calls over 16,787 fixtures. On paper that is a deep committee. I measured how deep with three estimators: stance concentration, pairwise contradiction, and Fleiss' kappa converted to effective ensemble size. On the 2,722 fixtures with five or more voters, the average ballot held 10.34 models and 1.46 effective opinions . A majority vote over those ballots scored 56.95% — slightly worse than the 57.00% average of the members it aggregated.",
-      "author": "SoccerDream AI",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 44,
-      "url": "https://dev.to/soccerdream_ai/your-27-model-ensemble-has-15-opinions-measuring-diversity-with-fleiss-kappa-and-3eei",
-      "image": "/images/feed/feed-d172ff5ab98e.webp",
-      "source": "Dev.to",
+      "xpReward": 51,
+      "url": "https://science.nasa.gov/image-article/apod-2026-november-16-ngc-7129-star-formation-with-jets-from-webb/",
+      "image": "/images/feed/feed-2c92c2bd075f.jpg",
+      "source": "NASA Breaking News",
       "isLive": true
     },
     {
@@ -166,10 +242,29 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 34,
       "url": "https://www.polygon.com/5-funniest-peanuts-comics-about-dogs/",
       "image": "/images/feed/feed-9d964a383e80.jpg",
       "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-b3373b8d7c1a",
+      "title": "The Last Ice on Puncak Jaya",
+      "excerpt": "Ice near the summit of the Indonesian mountain peak has shrunk to scattered patches too small to flow like glaciers.",
+      "body": "Earth Observatory Science Earth Observatory The Last Ice on Puncak Jaya Earth Earth Observatory Image of the Day EO Explorer Topics All Topics Atmosphere Land Heat &#038; Radiation Life on Earth Human Dimensions Natural Events Oceans Remote Sensing Technology Snow &#038; Ice Water More Content Collections Global Maps World of Change Articles Earth Matters Blog Blue Marble: Next Generation EO Kids Mission: Biomes About About Us Subscribe 🛜 RSS Contact Us Search 1988 2026 A false-color satellite image from 1988 shows mountain ridges of Indonesia’s Sudirman Range. Bare rock appears brown, and glacial ice, shown in blue, caps several of the highest ridges. Vegetation at lower elevations appears green.",
+      "author": "NASA Breaking News",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Space"
+      ],
+      "featured": false,
+      "xpReward": 52,
+      "url": "https://science.nasa.gov/earth/earth-observatory/the-last-ice-on-puncak-jaya/",
+      "image": "/images/feed/feed-b3373b8d7c1a.jpg",
+      "source": "NASA Breaking News",
       "isLive": true
     },
     {
@@ -185,7 +280,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 43,
       "url": "https://www.engadget.com/2317283/ula-vulcan-rocket-failure-destroys-40-amazon-leo-satellites/",
       "image": "/images/feed/feed-efe2c363d6f2.jpg",
       "source": "Engadget",
@@ -204,7 +299,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 43,
       "url": "https://www.polygon.com/black-mirror-season-8-update-netflix/",
       "image": "/images/feed/feed-1805ed15545b.jpg",
       "source": "Polygon",
@@ -223,7 +318,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 38,
       "url": "https://www.polygon.com/upcoming-sci-fi-movies-ranked-by-hype/",
       "image": "/images/feed/feed-7276f682c67e.jpg",
       "source": "Polygon",
@@ -242,7 +337,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 53,
       "url": "https://www.androidauthority.com/samsung-galaxy-claw-3735274/",
       "image": "/images/feed/feed-4e6bd8723e86.jpg",
       "source": "Android Authority",
@@ -261,7 +356,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 41,
       "url": "https://www.polygon.com/avengers-doomsday-marvel-comics-to-read-incursions-secret-wars/",
       "image": "/images/feed/feed-a7a31082b4ed.jpg",
       "source": "Polygon",
@@ -280,7 +375,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 51,
       "url": "https://www.androidauthority.com/motorola-ma2-android-auto-dongle-price-increase-3734208/",
       "image": "/images/feed/feed-e9e6a566c0ea.jpg",
       "source": "Android Authority",
@@ -299,7 +394,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 48,
       "url": "https://cleantechnica.com/2026/11/15/naed-unveils-pv-1-pecvd-v-a-u-s-engineered-vertical-deposition-platform-built-for-96000-wafer-per-hour-tandem-solar-manufacturing/",
       "image": "/images/feed/feed-32ecdb2e9296.jpg",
       "source": "CleanTechnica",
@@ -318,29 +413,10 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 54,
       "url": "https://www.polygon.com/legend-zelda-ocarina-time-bosses-ranked/",
       "image": "/images/feed/feed-1de1583fff6b.jpg",
       "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-9b0ae3845601",
-      "title": "Google Messages could soon make pinned chats better with a clever layout switching trick",
-      "excerpt": "You may soon be able to pin more than six chats again and the layout will switch automatically.",
-      "body": "Credit: Joe Maring / Android Authority TL;DR Google Messages could soon automatically switch pinned chats between grid and list layouts based on how many chats you pin. The new tile layout could remain available for smaller collections of pinned chats, while the traditional list view could return when you pin more conversations. The change could also restore support for more than six pinned chats, although the strings don’t confirm whether Google will bring back the previous 20-chat limit. Google Messages recently introduced a redesigned pinned chats UI that replaces the traditional list of pinned chats with large, circular contact icons. While the new look makes pinned conversations easier to spot, it also comes with a limitation restricts you from pinning more than six chats.",
-      "author": "Adamya Sharma",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 44,
-      "url": "https://www.androidauthority.com/google-messages-pinned-chats-automatic-layout-change-3735269/",
-      "image": "/images/feed/feed-9b0ae3845601.jpg",
-      "source": "Android Authority",
       "isLive": true
     },
     {
@@ -356,7 +432,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 35,
       "url": "https://www.polygon.com/doctor-who-david-tennant-returns-audio-drama-2027/",
       "image": "https://static0.polygonimages.com/wordpress/wp-content/uploads/chorus/uploads/chorus_asset/file/24138791/Screen_Shot_2022_10_25_at_10.11.48_AM.png",
       "source": "Polygon",
@@ -375,29 +451,10 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 40,
       "url": "https://www.polygon.com/halo-combat-evolve-lan-party-memories/",
       "image": "/images/feed/feed-ba12c3d8f32a.jpg",
       "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-26459c423203",
-      "title": "How to clear the application cache on your Mac",
-      "excerpt": "Clearing app caches don't necessarily make your Mac run faster.",
-      "body": "Clearing app caches don't necessarily make your Mac run faster.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Vincent Arogya)",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 42,
-      "url": "https://www.engadget.com/2314079/how-to-clear-application-cache-mac/",
-      "image": "/images/feed/feed-26459c423203.jpg",
-      "source": "Engadget",
       "isLive": true
     },
     {
@@ -413,29 +470,10 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 32,
       "url": "https://www.colesgroup.com.au/updates/",
       "image": "/images/topics/topic-cybersecurity.png",
       "source": "Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-9c3290d1e0cb",
-      "title": "The oldest gadget in your house could be your home network's biggest security hole",
-      "excerpt": "It may be more economical to hold onto gadgets for as long as possible, but you're putting your entire home network at risk with outdate hardware.",
-      "body": "It may be more economical to hold onto gadgets for as long as possible, but you're putting your entire home network at risk with outdate hardware.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadget. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Kari Paul)",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadget"
-      ],
-      "featured": false,
-      "xpReward": 34,
-      "url": "https://www.engadget.com/2314057/home-network-oldest-device-could-be-biggest-security-risk/",
-      "image": "/images/feed/feed-9c3290d1e0cb.jpg",
-      "source": "Engadget",
       "isLive": true
     },
     {
@@ -451,7 +489,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 33,
       "url": "https://cleantechnica.com/2026/11/15/a-radically-different-approach-to-ai/",
       "image": "/images/feed/feed-d1d318f8594e.jpg",
       "source": "CleanTechnica",
@@ -470,7 +508,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 39,
       "url": "https://openai.com/index/step-toward-defining-the-standard-model",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "OpenAI Blog",
@@ -489,7 +527,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 46,
       "url": "https://openai.com/index/our-new-blog-for-science",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "OpenAI Blog",
@@ -508,7 +546,7 @@
         "Satellite"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 46,
       "url": "https://www.theverge.com/science/1034006/vulcan-rocket-fails-destroying-40-amazon-leo-satellites",
       "image": "/images/feed/feed-f4d10e35baa2.jpg",
       "source": "The Verge",
@@ -527,7 +565,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 48,
       "url": "https://www.bleepingcomputer.com/news/security/fbi-warns-artex-ai-hacking-tool-is-powering-global-cyberattacks/",
       "image": "/images/feed/feed-345716007b65.jpg",
       "source": "BleepingComputer",
@@ -546,7 +584,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 43,
       "url": "https://www.space.com/entertainment/space-movies-shows/30-years-ago-space-jam-proposed-the-best-way-to-resolve-interplanetary-disputes",
       "image": "/images/feed/feed-e6b8eb38cd40.jpg",
       "source": "Space.com",
@@ -565,7 +603,7 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 41,
       "url": "https://electrek.co/2026/11/15/tesla-cybercab-mkbhd-bet-musk-chicken/",
       "image": "/images/feed/feed-6c1eeab79dfb.jpg",
       "source": "Electrek",
@@ -584,7 +622,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 32,
       "url": "https://electrek.co/2026/11/15/mowing-milestone-greenzie-surpasses-255000-autonomous-miles-mowed/",
       "image": "/images/feed/feed-f7aa33dba050.jpg",
       "source": "Electrek",
@@ -603,7 +641,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 54,
       "url": "https://cleantechnica.com/2026/11/15/scout-steps-toward-mass-production-with-200000-reservations-on-the-line/",
       "image": "/images/feed/feed-957f874deaf5.png",
       "source": "CleanTechnica",
@@ -622,7 +660,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 48,
       "url": "https://cleantechnica.com/2026/11/15/darlington-smr-cost-overrun-four-reactor-risk/",
       "image": "/images/feed/feed-a4c3a31d454e.png",
       "source": "CleanTechnica",
@@ -642,7 +680,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 49,
       "url": "https://www.space.com/space-exploration/on-this-day-in-space-november-15-2026",
       "image": "/images/feed/feed-f1dadc033665.jpg",
       "source": "Space.com",
@@ -681,7 +719,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 40,
       "url": "https://electrek.co/2026/11/15/high-altitude-bitter-cold-zero-drivers-autonomous-trucks-take-on-tibetan-mine/",
       "image": "/images/feed/feed-06cc93590209.jpg",
       "source": "Electrek",
@@ -700,7 +738,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 45,
       "url": "https://www.space.com/stargazing/why-hasnt-the-blaze-star-exploded-yet-astronomers-weigh-in-on-what-to-expect",
       "image": "/images/feed/feed-b6a6d116db11.jpg",
       "source": "Space.com",
@@ -719,7 +757,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 35,
       "url": "https://electrek.co/2026/11/15/china-comac-ce-25a-electric-plane-crewed-flight/",
       "image": "/images/feed/feed-ab755ad025d6.jpg",
       "source": "Electrek",
@@ -738,7 +776,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 33,
       "url": "https://www.space.com/astronomy/comets/how-escaping-gases-ripped-apart-a-comet-and-caused-it-to-become-thousands-of-times-brighter",
       "image": "/images/feed/feed-2c5b91f73330.png",
       "source": "Space.com",
@@ -757,30 +795,10 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 37,
       "url": "https://thehackernews.com/2026/11/italy-fines-meta-805-million-over.html",
       "image": "/images/feed/feed-fb43e89fb20d.jpg",
       "source": "The Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-0e569ac2cf0a",
-      "title": "What's next for SpaceX's Starship after epic Flight 15 chopsticks catch?",
-      "excerpt": "SpaceX just made spaceflight history, catching the upper stage of its Starship megarocket when it returned to Earth. But Starship still has some pretty big boxes left to check.",
-      "body": "Starship may have just made history, but it still has some work to do to get fully up and running. The megarocket launched on its 15th test flight on Friday (Nov. 13), aiming to pull off a dramatic and unprecedented twofer. SpaceX wanted to bring both Starship elements — its Super Heavy booster and Ship upper stage — back to the launch pad at its Starbase site in Texas to be caught by the tower's \"chopstick\" arms. It didn't happen with Super Heavy; the booster diverted to a Gulf of Mexico splashdown on Friday evening after experiencing a low-fuel alarm. But Ship came home successfully , nestling into the tower's arms in a soft and unprecedented embrace on Saturday afternoon (Nov. 14), 22.5 hours after lifting off. Long-distance view of Ship's historic landing on Nov. 14, 2026.",
-      "author": " Mike Wall ",
-      "date": "2026-11-15",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Spacex",
-        "Starship"
-      ],
-      "featured": false,
-      "xpReward": 32,
-      "url": "https://www.space.com/space-exploration/launches-spacecraft/whats-next-for-spacexs-starship-after-epic-flight-15-chopsticks-catch",
-      "image": "/images/feed/feed-0e569ac2cf0a.jpg",
-      "source": "Space.com",
       "isLive": true
     },
     {
@@ -796,29 +814,10 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 32,
       "url": "https://thehackernews.com/2026/11/stolen-fireworks-ai-key-led-to-cursor.html",
       "image": "/images/feed/feed-5b8a9ede72c8.jpg",
       "source": "The Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-4d91f288d6d0",
-      "title": "Rocket Fuel: The Last Frontier For Natural Gas",
-      "excerpt": "SpaceX is among the industrial-scale consumers of natural gas adding more pipes to the nation's sprawling network of gas pipelines, which the startup needs to ensure a steady supply of fuel for its gr…",
-      "body": "SpaceX is among the industrial-scale consumers of natural gas adding more pipes to the nation's sprawling network of gas pipelines, which the startup needs to ensure a steady supply of fuel for its growing fleet of rockets. The post Rocket Fuel: The Last Frontier For Natural Gas appeared first on CleanTechnica .",
-      "author": "Tina Casey",
-      "date": "2026-11-15",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Space"
-      ],
-      "featured": false,
-      "xpReward": 34,
-      "url": "https://cleantechnica.com/2026/11/14/natural-gas-methane-rocket-fuel-spacex-pipelines/",
-      "image": "/images/feed/feed-4d91f288d6d0.png",
-      "source": "CleanTechnica",
       "isLive": true
     },
     {
@@ -834,7 +833,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 47,
       "url": "https://cleantechnica.com/2026/11/14/3-4-billion-anthropic-order-for-gas-power-plants/",
       "image": "/images/feed/feed-f1f3638d6e2f.jpg",
       "source": "CleanTechnica",
@@ -853,7 +852,7 @@
         "Security"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 40,
       "url": "https://techcrunch.com/2026/11/14/where-was-nvidias-security-team/",
       "image": "https://techcrunch.com/wp-content/uploads/2026/11/Jensen-Huang-1.jpg?w=1024",
       "source": "TechCrunch",
@@ -872,7 +871,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 42,
       "url": "https://techcrunch.com/2026/11/14/the-ai-graveyard-a-running-list-of-projects-and-startups-that-didnt-make-it/",
       "image": "https://techcrunch.com/wp-content/uploads/2019/12/GettyImages-95927766-1.jpg?resize=1200,797",
       "source": "TechCrunch",
@@ -892,7 +891,7 @@
         "Security"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 36,
       "url": "https://www.bleepingcomputer.com/news/security/cursor-confirms-security-breach-led-to-malicious-claude-code-extension/",
       "image": "/images/feed/feed-60f9b9b30062.jpg",
       "source": "BleepingComputer",
@@ -911,7 +910,7 @@
         "Chatgpt"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 35,
       "url": "https://openai.com/index/introducing-chatgpt-wallet",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "OpenAI Blog",
@@ -938,16 +937,16 @@
     }
   ],
   "breakingNews": [
-    "DEV.TO: Handling Poison Messages in AWS Event-Driven Pipelines",
-    "DEV.TO: 1/7 is a whole number. Your number system just hasn't heard yet.",
-    "DEV.TO: Sentinel-IR 0.5.10: we taught our code assistant to say \\\"I don't know\\",
-    "ANDROID AUTHORITY: November Pixel Drop status: Here’s where the rollout stands right now",
-    "DEV.TO: 💻 Full-Stack Web Developer & Linux Administrator.",
-    "DEV.TO: The router can tell you which model served you. It won't unless you ask.",
-    "DEV.TO: Humidifier Sizing in Python: Track Humidity Ratio, Not RH",
-    "DEV.TO: Your 27-model ensemble has 1.5 opinions: measuring diversity with Fleiss' kappa and lineage-weighted voting",
-    "POLYGON: 5 Funniest 'Peanuts' Comics About Dogs",
-    "ENGADGET: ULA Vulcan rocket failure destroys 40 Amazon Leo satellites"
+    "DEV.TO: Why Your 'Run Once' Trigger Guard Silently Skips Records",
+    "DEV.TO: Stop your MQL5 EA from firing orders into a closed market",
+    "DEV.TO: Test an avatar camera in Discord before an event",
+    "DEV.TO: Three more tools, three more countries: Brunei's new pension fund, Mongolia's salary tax and a Punjabi calendar that starts in March",
+    "DEV.TO: Choose avatar expressions that read well in webinars",
+    "DEV.TO: Easy agent skills that have proven useful in fixing bugs",
+    "DEV.TO: Add ChatGPT-style AI chat to your Expo app in 5 minutes",
+    "ANDROID AUTHORITY: New leak shows Galaxy S27 Pro and Ultra camera design with three lenses",
+    "ENGADGET: Apple's new research app is designed to make AI health tools more user-friendly",
+    "ANDROID AUTHORITY: Lenovo’s first detachable Googlebook tipped to debut in January 2027"
   ],
   "sectionVideos": {}
 }
