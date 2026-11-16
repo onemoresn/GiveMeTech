@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-11-16T19:11:31.434Z",
+  "fetchedAt": "2026-11-16T20:12:56.774Z",
   "articles": [
     {
-      "id": "feed-91526a2fce1d",
-      "title": "Designing a Mobile-Friendly Contact Flow for a Small-Business Website",
-      "excerpt": "A contact button is only one part of a contact flow. Visitors also need to understand what will happen, the interaction needs to work on a phone, and the business needs a reliable way to respond. Here…",
-      "body": "A contact button is only one part of a contact flow. Visitors also need to understand what will happen, the interaction needs to work on a phone, and the business needs a reliable way to respond. Here is a platform-independent way to design and test that flow. Start with one action List the actions a visitor might take: send a message, call, request a quote, or submit a form. Pick the primary action for the page and make it visually clear. Secondary options can remain available without competing for attention. Use labels that describe the result. “Ask about a project” is more specific than “Submit.” Make links behave like links For navigation to another page or service, use a real anchor with a descriptive destination.",
-      "author": "Tarraqix",
+      "id": "feed-dacf32302a98",
+      "title": "Weekly Digest Recovery Using FIFO Queue Webhook Deduplication and Idempotency Keys",
+      "excerpt": "TL;DR: Put each active customer's weekly digest in a FIFO queue with a stable event ID, but treat its five-minute duplicate window as traffic filtering, not correctness. Before sending, atomically cla…",
+      "body": "TL;DR: Put each active customer's weekly digest in a FIFO queue with a stable event ID, but treat its five-minute duplicate window as traffic filtering, not correctness. Before sending, atomically claim that event ID in durable storage; acknowledge the message only after the send is recorded. Use a standard queue instead when ordering has no business value and delayed retries are the main requirement. The page is weekly_digest_duplicate_send_total &gt; 0 . At 03:07, the on-call view should contain the digest event ID, customer ID, queue type, message attempt, first-seen time, claim result, and final disposition. A graph of total queue depth looks reassuring while one customer receives the same edition twice, so it is not the first screen I would trust.",
+      "author": "BrodyVance2149",
       "date": "2026-11-16",
       "readTime": "2 min",
       "section": "software",
@@ -14,56 +14,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 46,
-      "url": "https://dev.to/azaan_ali_26ae331650a8a8e/designing-a-mobile-friendly-contact-flow-for-a-small-business-website-2f6e",
-      "image": "/images/feed/feed-91526a2fce1d.webp",
+      "xpReward": 47,
+      "url": "https://dev.to/brodyvance2149/weekly-digest-recovery-using-fifo-queue-webhook-deduplication-and-idempotency-keys-2475",
+      "image": "/images/feed/feed-dacf32302a98.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-f79eeb0507bb",
-      "title": "Guardrail independente de modelo",
-      "excerpt": "Resposta curta Guardrail independente de modelo é uma camada de segurança que opera fora do ciclo de inferência do modelo de IA, aplicando regras, filtros e validações padronizadas independentemente d…",
-      "body": "Resposta curta Guardrail independente de modelo é uma camada de segurança que opera fora do ciclo de inferência do modelo de IA, aplicando regras, filtros e validações padronizadas independentemente da arquitetura, tamanho ou fornecedor do modelo subjacente. Essa abordagem permite governança consistente em ambientes multimodelo — como LLMs de diferentes famílias (Granite, Llama, Mistral) — sem necessidade de reconfiguração por modelo. TL;DR Funciona como middleware ou proxy entre entrada do usuário e saída do modelo, sem alterar os pesos ou a inferência. Suporta políticas baseadas em regex, classificação de conteúdo, verificação de PII, regras lógicas e RAG-augmented validation.",
-      "author": "Matheus Feijão ",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 43,
-      "url": "https://dev.to/beanstechbr/guardrail-independente-de-modelo-j31",
-      "image": "/images/feed/feed-f79eeb0507bb.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-9360aaefb793",
-      "title": "Enhancing FastAPI Request Parameters with Pydantic Validation Options",
-      "excerpt": "Why Fine-Grained Validation on Request Parameters Matters When building modern APIs, validating incoming request data is crucial to ensure correctness, security, and maintainability. FastAPI, renowned…",
-      "body": "Why Fine-Grained Validation on Request Parameters Matters When building modern APIs, validating incoming request data is crucial to ensure correctness, security, and maintainability. FastAPI, renowned for its seamless integration with Pydantic, already offers powerful data validation for request bodies. However, until recently, its support for expressive validation on request parameters — such as query strings, path variables, or headers — was limited to basic type checks. This gap meant developers often had to add extra manual validation or rely on less idiomatic workarounds. This article dives into a recent improvement in FastAPI that unlocks the full power of Pydantic's validation options for request parameters.",
-      "author": "Priyadarshan Singh",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 41,
-      "url": "https://dev.to/pdrojack/enhancing-fastapi-request-parameters-with-pydantic-validation-options-fp2",
-      "image": "/images/feed/feed-9360aaefb793.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-6410540859ab",
-      "title": "Building an AI phone caller that has to admit it's an AI: what 26 real calls broke",
-      "excerpt": "I built Arogo, a small service where you type a question for a business (\"does the vet take new patients, and what's a first visit?\"), approve a plan, and a voice agent phones them and sends you the a…",
-      "body": "I built Arogo, a small service where you type a question for a business (\"does the vet take new patients, and what's a first visit?\"), approve a plan, and a voice agent phones them and sends you the answer plus the whole transcript. The stack is boring on purpose: a Node server, a voice-agent platform for the call itself, a phone number, and an LLM that writes the plan. The interesting part is everything that went wrong on real phone lines. We ran 26 real calls over two days. 12 businesses answered the question, 9 hung up on the AI, and 5 couldn't be reached. Here's what broke and what we changed. 1. The model hangs up after pressing a key Phone menus (\"press 2 for appointments\") were the first thing to kill calls.",
-      "author": "Ethan Beirne",
+      "id": "feed-2e89387be887",
+      "title": "Node.js Media Renewal Jobs: At-Least-Once Replay Governance for Duplicate Processing",
+      "excerpt": "A media subscription renewal reminder has a deadline, and the queue does not know about it. The queue only knows delivery. With an at-least-once background job queue, retries and duplicate jobs are no…",
+      "body": "A media subscription renewal reminder has a deadline, and the queue does not know about it. The queue only knows delivery. With an at-least-once background job queue, retries and duplicate jobs are normal; the engineering decision is how replay is governed so one renewal cycle creates one reminder intent. Short answer: make replay a recorded business decision. Derive one idempotency key from the renewal cycle, store the decision and outbound intent together, and route every later delivery through that record. Acknowledging a message is not evidence that the reminder happened. This framing matters during incidents. A consumer can disappear after committing storage but before acknowledging its delivery.",
+      "author": "BartholomewVance6831",
       "date": "2026-11-16",
       "readTime": "2 min",
       "section": "software",
@@ -72,9 +34,471 @@
       ],
       "featured": true,
       "xpReward": 49,
-      "url": "https://dev.to/ethan_beirne_8e367d0977af/building-an-ai-phone-caller-that-has-to-admit-its-an-ai-what-26-real-calls-broke-58aa",
-      "image": "/images/feed/feed-6410540859ab.webp",
+      "url": "https://dev.to/bartholomewvance6831/nodejs-media-renewal-jobs-at-least-once-replay-governance-for-duplicate-processing-2c1e",
+      "image": "/images/feed/feed-2e89387be887.webp",
       "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-ca343653dcc5",
+      "title": "Showing license expiry in the right time zone",
+      "excerpt": "A support ticket arrives: a customer in Auckland says your app reports their license as expired today, but their renewal receipt clearly says it runs through the end of the month. You check the key. I…",
+      "body": "A support ticket arrives: a customer in Auckland says your app reports their license as expired today , but their renewal receipt clearly says it runs through the end of the month. You check the key. It is signed, it is theirs, and the expiry instant is comfortably in the future. Then a second customer, in Los Angeles, with the same expiry on their key, reports no problem at all — their copy says \"expires tomorrow.\" Nothing is wrong with either license. Your UI rendered one instant onto two different calendars. This is not the clock-skew problem, where two machines honestly disagree about what time it is , and it is not an attacker rolling the clock back . Both clocks here are correct. The bug is in how Keyright 's expiry — a UTC instant — gets turned into a human-readable date.",
+      "author": "Zero Heartbeat",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 48,
+      "url": "https://dev.to/zero_heartbeat_06a3625d7a/showing-license-expiry-in-the-right-time-zone-504b",
+      "image": "/images/feed/feed-ca343653dcc5.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-75d5840ff8a5",
+      "title": "Exact VRAM & Memory Bandwidth Math for Running DeepSeek-R1, Qwen-2.5-Coder-32B & Llama-3.3-70B Locally",
+      "excerpt": "Most \"can my rig run this model?\" threads guess at VRAM numbers and ignore the two killers that actually cause CUDA/Metal out-of-memory panics or 3-token/sec crawl speeds: KV-cache growth at 8K–32K co…",
+      "body": "Most \"can my rig run this model?\" threads guess at VRAM numbers and ignore the two killers that actually cause CUDA/Metal out-of-memory panics or 3-token/sec crawl speeds: KV-cache growth at 8K–32K context and physical memory bus bandwidth . Here is the exact memory footprint math and measured token generation ceiling across 24GB GDDR6X CUDA cards vs. Unified Memory nodes so you can size local inference hardware without guessing. 1. The Real Local LLM Memory Formula Static GGUF file size is never your actual runtime footprint.",
+      "author": "Ryan // SheerAI",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 46,
+      "url": "https://dev.to/sheerai/exact-vram-memory-bandwidth-math-for-running-deepseek-r1-qwen-25-coder-32b-llama-33-70b-2ojc",
+      "image": "/images/feed/feed-75d5840ff8a5.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-4ed000727bf7",
+      "title": "Reklam Formundan CRM'e Kapalı Döngü: UTM, Webhook ve Conversions API ile Lead Veri Akışı Tasarlamak",
+      "excerpt": "Pazarlama tarafında \"lead geldi\" cümlesi kulağa basit gelir. Mühendislik tarafında ise aynı cümle; bir webhook çağrısı, doğrulanması gereken bir telefon numarası, kaybolmaya hazır bir kampanya paramet…",
+      "body": "Pazarlama tarafında \"lead geldi\" cümlesi kulağa basit gelir. Mühendislik tarafında ise aynı cümle; bir webhook çağrısı, doğrulanması gereken bir telefon numarası, kaybolmaya hazır bir kampanya parametresi ve haftalar sonra reklam platformuna geri bildirilmesi gereken bir satış olayı demektir. Bu yazıda gayrimenkul ve B2B satış süreçlerinde kullanılan bir lead veri hattını katman katman ele alıyorum. Katman 1: Yakalama Talepler genellikle dört kapıdan girer: Meta anlık formları, web sitesindeki açılış sayfası formları, WhatsApp tıklamaları ve emlak portalları. İlk tasarım kararı, bu kapıların hepsinin aynı alım uç noktasına (ingest endpoint) bağlanmasıdır. Her kaynağın ayrı bir e-posta bildirimiyle takip edildiği yapılarda veri daha ilk dakikada parçalanır.",
+      "author": "yol.net",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Api"
+      ],
+      "featured": true,
+      "xpReward": 35,
+      "url": "https://dev.to/yolnet/reklam-formundan-crme-kapali-dongu-utm-webhook-ve-conversions-api-ile-lead-veri-akisi-tasarlamak-dab",
+      "image": "/images/feed/feed-4ed000727bf7.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-6e394d6d04ab",
+      "title": "California state AG sues OpenAI over rogue agent incidents",
+      "excerpt": "The California lawsuit represents one of the first attempts to hold an AI lab legally accountable for a rogue agent incident",
+      "body": "The California lawsuit represents one of the first attempts to hold an AI lab legally accountable for a rogue agent incident\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Openai. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Russell Brandom",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "ai",
+      "tags": [
+        "Openai"
+      ],
+      "featured": true,
+      "xpReward": 53,
+      "url": "https://techcrunch.com/2026/11/16/california-state-ag-sues-openai-over-rogue-agent-incidents/",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/11/1920px-Rob_Bonta_at_Central_Bay_Operations_and_Maintenance_Facility_opening_December_2018.jpeg?resize=1200,981",
+      "source": "TechCrunch",
+      "isLive": true
+    },
+    {
+      "id": "feed-47d1e0e918c2",
+      "title": "How source-generated P/Invoke decompiles",
+      "excerpt": "Decompile a method marked [DllImport] and you get almost nothing back: an extern signature, a reconstructed attribute, and no body. Decompile a method marked [LibraryImport] and you get a page of real…",
+      "body": "Decompile a method marked [DllImport] and you get almost nothing back: an extern signature, a reconstructed attribute, and no body. Decompile a method marked [LibraryImport] and you get a page of real C# — fixed blocks, pointer casts, a nested call. Same native call, wildly different decompiled output. The reason is where the marshalling code lives, and it is worth understanding, because it changes what you can learn from an assembly by reading it. The real question Both attributes describe the same thing: a managed method that is really a call across the native boundary. So why does one survive decompilation as an empty husk and the other as a fully readable method?",
+      "author": "Zero Heartbeat",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 49,
+      "url": "https://dev.to/zero_heartbeat_06a3625d7a/how-source-generated-pinvoke-decompiles-5p5",
+      "image": "/images/feed/feed-47d1e0e918c2.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-f3d3fffef9ac",
+      "title": "Orchestrating Agents: What Strands Teaches About Workflow Determinism vs. LLM Freedom",
+      "excerpt": "Agent orchestration frameworks promise to tame LLM non-determinism by imposing execution order. Strands, an AWS-backed workflow tool, makes that trade explicit: you declare a dependency graph in Pytho…",
+      "body": "Agent orchestration frameworks promise to tame LLM non-determinism by imposing execution order. Strands, an AWS-backed workflow tool, makes that trade explicit: you declare a dependency graph in Python, and tasks run only when their upstream dependencies reach completed status. The model no longer decides who runs next. You do. But deterministic sequencing comes with a cost. Upstream results arrive as plain text spliced into the next step's prompt. No field names, no types, no validators. Each step is still a full agent loop, and the model inside it still decides which tools to call and what words to produce. Nine real production runs show what breaks when you split workflow control from data contracts.",
+      "author": "mech.app",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 50,
+      "url": "https://dev.to/mech_app_ai/orchestrating-agents-what-strands-teaches-about-workflow-determinism-vs-llm-freedom-4c88",
+      "image": "/images/feed/feed-f3d3fffef9ac.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-dacf34caa652",
+      "title": "Elon Musk says SpaceX’s Starship, already the largest rocket on Earth, will get even bigger with next-gen V4 model",
+      "excerpt": "Just a day after SpaceX caught the upper stage of its Starship megarocket back at the launch pad for the first time ever, Elon Musk told us that the spacecraft will get even bigger.",
+      "body": "As usual, SpaceX and its founder Elon Musk are thinking big. The company recovered the upper stage of its Starship megarocket for the first time ever on Saturday (Nov. 14), plucking it out of the sky with the \"chopstick\" arms of its Texas launch tower. It was a huge moment for SpaceX , bringing its vision of full and rapid rocket reuse much closer to reality. But Elon Musk isn't one to dwell on the past or rest on laurels, so he soon outlined an even more ambitious future for Starship. \"Starship V4 will be ~70m [230 feet] long, which is roughly a 40% length increase and allows >60% more propellant load,\" Musk said via X, the social media platform he owns, on Sunday evening (Nov. 15).",
+      "author": " Mike Wall ",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Spacex",
+        "Starship"
+      ],
+      "featured": false,
+      "xpReward": 39,
+      "url": "https://www.space.com/space-exploration/launches-spacecraft/elon-musk-says-spacexs-starship-already-the-largest-rocket-on-earth-will-get-even-bigger-with-next-gen-v4-model",
+      "image": "/images/feed/feed-dacf34caa652.jpg",
+      "source": "Space.com",
+      "isLive": true
+    },
+    {
+      "id": "feed-15bcb876f1a8",
+      "title": "What Makes The Legend of Zelda: Ocarina of Time So Great Anyway?",
+      "excerpt": "Zelda: Ocarina of Time always gets called one of the best games ever, and it deserves that title for reasons beyond simple nostalgia",
+      "body": "Spend even a little time online in gaming circles, and you'll inevitably come across claims that The Legend of Zelda: Ocarina of Time is one of the greatest games ever made. Those claims resurfaced with greater frequency with the announcement of the Nintendo Switch 2 Ocarina of Time remake and subsequent warm reception from critics . The reaction from those I know who played for the first time and enjoyed it has generally been \"yes, it really is one of the greats.\" What there's been less of, however, is a concerted effort to explain what exactly makes it deserving of that praise. Make no mistake, it does deserve it — and not just for reasons of nostalgia.",
+      "author": "Josh Broadwell",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 44,
+      "url": "https://www.polygon.com/zelda-ocarina-of-time-why-best-game-ever/",
+      "image": "https://static0.polygonimages.com/wordpress/wp-content/uploads/2026/11/ns2_thelegendofzeldaocarinaoftime_scrn_11.png",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-7a5477c6a7d7",
+      "title": "The Odyssey's Most Disturbing Scene Barely Used Any CGI. Here's How They Pulled It Off.",
+      "excerpt": "The Odyssey's effects team reveals how silicone, magnets, and Samantha Morton's performance brought a disturbing transformation to life.",
+      "body": "Christopher Nolan's The Odyssey arrives on digital, 4K Ultra HD and Blu-ray on Nov. 17, giving audiences another opportunity to experience the filmmaker's ambitious adaptation of Homer's epic poem. Among the story's many memorable encounters is Circe, a powerful sorceress who turns Odysseus' men into pigs. Played by Samantha Morton, Circe is responsible for one of the film's most unsettling sequences, which involves a human head being transformed into that of a pig.",
+      "author": "Terry Terrones",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 35,
+      "url": "https://www.polygon.com/the-odyssey-pig-transformation-practical-effects/",
+      "image": "/images/feed/feed-7a5477c6a7d7.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-4e45a0255415",
+      "title": "Booby-Trapped Video Game Console Explodes At Rival Gaming Store",
+      "excerpt": "Police are calling it an attempted murder",
+      "body": "Police are calling it an attempted murder\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Video Game, Gaming, Game. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Ethan Gach",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Video Game",
+        "Gaming",
+        "Game"
+      ],
+      "featured": false,
+      "xpReward": 53,
+      "url": "https://kotaku.com/booby-trapped-video-game-console-explodes-at-rival-gaming-store-2000757507",
+      "image": "/images/feed/feed-4e45a0255415.jpg",
+      "source": "Kotaku",
+      "isLive": true
+    },
+    {
+      "id": "feed-95ad65274d5a",
+      "title": "SpaceNukes Opens Los Alamos Manufacture and Materials Facility to Build Its Next-Generation Space Reactor",
+      "excerpt": "LOS ALAMOS, N.M., Nov. 16, 2026 — Space Nuclear Power Corp. (SpaceNukes) opened its Manufacture and Materials Development Facility at 150 Central Park Square in Los Alamos on Nov. 13. […] The post Spa…",
+      "body": "LOS ALAMOS, N.M., Nov. 16, 2026 — Space Nuclear Power Corp. (SpaceNukes) opened its Manufacture and Materials Development Facility at 150 Central Park Square in Los Alamos on Nov. 13. [&#8230;] The post SpaceNukes Opens Los Alamos Manufacture and Materials Facility to Build Its Next-Generation Space Reactor appeared first on SpaceNews .",
+      "author": "Space Nuclear Power Corporation",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Space"
+      ],
+      "featured": false,
+      "xpReward": 30,
+      "url": "https://spacenews.com/spacenukes-opens-los-alamos-manufacture-and-materials-facility-to-build-its-next-generation-space-reactor/",
+      "image": "/images/feed/feed-95ad65274d5a.png",
+      "source": "SpaceNews",
+      "isLive": true
+    },
+    {
+      "id": "feed-2cef84774423",
+      "title": "Here’s how to get Create My Widget on your Pixel right now",
+      "excerpt": "You don't need the November Pixel update to get Create My Widget.",
+      "body": "TL;DR Google has shared an official way for eligible Pixel owners to get early access to Create My Widget through the Play Store beta program. The method works even if your phone hasn’t received the November 2026 Pixel update. Create My Widget remains limited to select Pixel 10 and newer phones in five countries, with language and age restrictions. It’s been about a week since Google announced the November Pixel Drop , and not everyone has had a chance to try out all the new features yet. Some Pixel owners are still waiting for the update itself, while others have already installed it but are missing some of the promised features . Thankfully, there’s now a way to skip the queue for one of the more interesting additions.",
+      "author": "Hillary Keverenge",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 50,
+      "url": "https://www.androidauthority.com/google-pixel-create-my-widget-early-access-3735694/",
+      "image": "/images/feed/feed-2cef84774423.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-1d537f91c2cd",
+      "title": "Apple releases beautiful new iPhone wallpapers featuring Pokémon, download here",
+      "excerpt": "Apple is celebrating the 30th anniversary of Pokémon with a collection of original wallpapers for iPhone. There are four total, including one designed for iPhone Duo. more…",
+      "body": "Apple is celebrating the 30th anniversary of Pokémon with a collection of original wallpapers for iPhone. There are four total, including one designed for iPhone Duo. more — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Iphone. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Ryan Christoffel",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Iphone"
+      ],
+      "featured": false,
+      "xpReward": 34,
+      "url": "https://9to5mac.com/2026/11/16/apple-releases-beautiful-new-iphone-wallpapers-featuring-pokemon-download-here/",
+      "image": "/images/feed/feed-1d537f91c2cd.jpg",
+      "source": "9to5Mac",
+      "isLive": true
+    },
+    {
+      "id": "feed-9cf1ce021144",
+      "title": "Barracuda links cloud breach to ARTEX AI-powered cyberattack",
+      "excerpt": "Hackers who breached the cloud environment of network and email security company Barracuda earlier this month used a stolen cloud access key and the ARTEX AI penetration testing framework. [...]",
+      "body": "Hackers who breached the cloud environment of network and email security company Barracuda earlier this month used a stolen cloud access key and the ARTEX AI penetration testing framework. [...]\n\nThis report, published by BleepingComputer, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Breach. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to BleepingComputer using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Bill Toulas",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "cybersecurity",
+      "tags": [
+        "Breach"
+      ],
+      "featured": false,
+      "xpReward": 46,
+      "url": "https://www.bleepingcomputer.com/news/security/barracuda-links-cloud-breach-to-artex-ai-powered-cyberattack/",
+      "image": "/images/feed/feed-9cf1ce021144.jpg",
+      "source": "BleepingComputer",
+      "isLive": true
+    },
+    {
+      "id": "feed-5cc174a98b82",
+      "title": "Uber says hackers stole information on close to 150,000 driver’s licenses during data breach",
+      "excerpt": "The ridesharing giant said drivers' license information stored by AI cloud company Fireworks AI was stolen during a security incident.",
+      "body": "The ridesharing giant said drivers' license information stored by AI cloud company Fireworks AI was stolen during a security incident.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Data Breach, Hacker, Breach. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Zack Whittaker",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "cybersecurity",
+      "tags": [
+        "Data Breach",
+        "Hacker",
+        "Breach"
+      ],
+      "featured": false,
+      "xpReward": 40,
+      "url": "https://techcrunch.com/2026/11/16/uber-confirms-hackers-stole-thousands-of-drivers-license-information-in-data-breach/",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/11/uber-breach-2288234319.jpg?resize=1200,820",
+      "source": "TechCrunch",
+      "isLive": true
+    },
+    {
+      "id": "feed-cf3339e6d825",
+      "title": "California sues OpenAI after that Hugging Face rogue hacking incident",
+      "excerpt": "State AG Rob Bonta has accused the company of making AI agents \"without the safeguards and monitoring necessary to adequately protect\" users.",
+      "body": "State AG Rob Bonta has accused the company of making AI agents \"without the safeguards and monitoring necessary to adequately protect\" users.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "staff@engadget.com (Lawrence Bonk)",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 37,
+      "url": "https://www.engadget.com/2318268/california-sues-openai-after-hugging-face-rogue-hacking-incident/",
+      "image": "/images/feed/feed-cf3339e6d825.jpg",
+      "source": "Engadget",
+      "isLive": true
+    },
+    {
+      "id": "feed-9e3688ef8ab0",
+      "title": "The Apple Watch Series 12 is cheaper than ever ahead of Black Friday",
+      "excerpt": "The Apple Watch Series 12 is on sale in multiple configurations. | Photo: Amelia Holowaty Krales / The Verge If you’re still sporting an Apple Watch that launched five or so years ago, now is a good t…",
+      "body": "The Apple Watch Series 12 is on sale in multiple configurations. | Photo: Amelia Holowaty Krales / The Verge If you’re still sporting an Apple Watch that launched five or so years ago, now is a good time to upgrade. Apple’s latest smartwatch, the 42mm Apple Watch Series 12 with Wi-Fi and GPS connectivity, has dropped to a new all-time low of $329 at Amazon , Best Buy , and Walmart , beating the October Prime Day price by $20. If you prefer a larger size, the 46mm model is on sale for $379 ($70 off) at Amazon , Best Buy , and Walmart , which is also $20 lower than the previous best price.",
+      "author": "Sheena Vasani",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Apple Watch"
+      ],
+      "featured": false,
+      "xpReward": 54,
+      "url": "https://www.theverge.com/gadgets/1034512/apple-watch-series-12-black-friday-deal-sale",
+      "image": "/images/feed/feed-9e3688ef8ab0.jpg",
+      "source": "The Verge",
+      "isLive": true
+    },
+    {
+      "id": "feed-85463dafb69b",
+      "title": "Samsung’s working on new international SIM tools for One UI 9.5",
+      "excerpt": "One UI 9.5 code shows travel SIM usage tracking by trip and day.",
+      "body": "TL;DR Samsung appears to be building new SIM tracking and reporting tools for One UI 9.5. The system would differentiate between home SIMs and those intended primarily for international travel. Users will be able to track daily usage, as well as access historical reports. Working with multiple SIMs can provide a lot of flexibility in terms of how you access data when traveling, and with its upcoming One UI 9.5 release, Samsung looks like it’s getting ready to introduce some helpful new tools for tracking usage and managing SIMs. APK teardown: This reporting is based on work-in-progress code. These features may not ship. While dual-SIM phones have been around for ages, it’s the recent rise of eSIM support that has really empowered travelers to easily swap providers at a moment’s notice.",
+      "author": "Stephen Schenck",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 38,
+      "url": "https://www.androidauthority.com/samsung-travel-sim-tool-3735617/",
+      "image": "/images/feed/feed-85463dafb69b.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-b73a77d85f50",
+      "title": "MagSafe Monday: MOFT’s Trackable Field Wallet holds eight cards, cash, and supports Find My",
+      "excerpt": "The one thing Apple’s own MagSafe wallet does that a few third-party wallets have is Find My. If you misplace your wallet, your iPhone tells you where it is. Most MagSafe wallets either skip tracking…",
+      "body": "The one thing Apple’s own MagSafe wallet does that a few third-party wallets have is Find My. If you misplace your wallet, your iPhone tells you where it is. Most MagSafe wallets either skip tracking entirely or have a pocket for an AirTag, which adds thickness and it’s another thing to buy. The MOFT Trackable Field Wallet builds the tracker into the wallet itself, so it shows up in the Find My app. more…",
+      "author": "Bradley C",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 44,
+      "url": "https://9to5mac.com/2026/11/16/moft-trackable-field-wallet/",
+      "image": "/images/feed/feed-b73a77d85f50.jpg",
+      "source": "9to5Mac",
+      "isLive": true
+    },
+    {
+      "id": "feed-45bff1e0f4a5",
+      "title": "Which Google Pixel phone is most similar to the Galaxy S26+?",
+      "excerpt": "Trying to choose between the Google Pixel 11 Pro and Samsung Galaxy S26+? We break down the specs, cameras and prices to help find the best one for you.",
+      "body": "Trying to choose between the Google Pixel 11 Pro and Samsung Galaxy S26+? We break down the specs, cameras and prices to help find the best one for you.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Pixel Phone, Galaxy S. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "staff@engadget.com (Calvin Wankhede)",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Pixel Phone",
+        "Galaxy S"
+      ],
+      "featured": false,
+      "xpReward": 30,
+      "url": "https://www.engadget.com/2314824/google-pixel-phone-most-similar-to-galaxy-s26-plus/",
+      "image": "/images/feed/feed-45bff1e0f4a5.jpg",
+      "source": "Engadget",
+      "isLive": true
+    },
+    {
+      "id": "feed-49da5c4768e6",
+      "title": "Marvel’s Newest Superhero Was Created to Solve a Major Magic: The Gathering Problem",
+      "excerpt": "Magic: The Gathering designer Aaron Forsythe explains why Marvel’s new hero was created to fix an ongoing problem with Universes Beyond.",
+      "body": "In an interview with Polygon at MagicCon: Atlanta, Magic vice president of design Aaron Forsythe talked about the unique approach that Marvel and Wizards of the Coast are taking for the game’s third crossover set, specifically about the development of a unique character that will feature prominently in Darkhold Destiny and the accompanying Marvel Comics.",
+      "author": "Corey Plante",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 41,
+      "url": "https://www.polygon.com/mtg-marvel-darkhold-destiny-fraxi-scion-of-yggdrasil-spoilers/",
+      "image": "/images/feed/feed-49da5c4768e6.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-365f3b142fa5",
+      "title": "OpenAI wants to stop deepfakes from overwhelming child abuse tiplines",
+      "excerpt": "OpenAI is announcing a tool that it says will help child sexual abuse investigators cut through the noise to find harmful material they can act on quickly. At a Monday press briefing in Washington, DC…",
+      "body": "OpenAI is announcing a tool that it says will help child sexual abuse investigators cut through the noise to find harmful material they can act on quickly. At a Monday press briefing in Washington, DC, OpenAI announced a classifier it says can better detect abusive imagery of kids, including whether it's AI-generated. It's also offering free access to vetted organizations, giving developers more guidance on how to detect this type of content, and helping to train law enforcement on how AI can aid their investigations. The news comes as policymakers and others are pushing for more safety restrictions on AI tools, accusing OpenAI and other co … Read the full story at The Verge.",
+      "author": "Lauren Feiner",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "ai",
+      "tags": [
+        "Openai"
+      ],
+      "featured": false,
+      "xpReward": 35,
+      "url": "https://www.theverge.com/policy/1034527/openai-csam-classifier",
+      "image": "/images/feed/feed-365f3b142fa5.jpg",
+      "source": "The Verge",
+      "isLive": true
+    },
+    {
+      "id": "feed-469541757ee6",
+      "title": "Nintendo Fans Blast New Switch 2 Release as ‘Paid Downgrade’",
+      "excerpt": "Pikmin 4 fans are not impressed with the game’s Switch 2 upgrade, Dandori Academy.",
+      "body": "So far, the Nintendo Switch 2 upgraded editions of games originally released on the Switch have been a bit of a mixed bag. While games like Kirby and the Forgotten Land received significant new content and noticeable performance upgrades, others such as Xenoblade Chronicles X weren’t quite as well received. According to many Pikmin fans, the recently released Switch 2 version of Pikmin 4 falls into the latter camp.",
+      "author": "Elijah Gonzalez",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Nintendo"
+      ],
+      "featured": false,
+      "xpReward": 33,
+      "url": "https://www.polygon.com/pikmin-4-nintendo-switch-2-release-controversy/",
+      "image": "/images/feed/feed-469541757ee6.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-761b56f193e1",
+      "title": "Trump says ex-Nvidia CEO Jensen Huang’s affair with an alleged Chinese spy did not threaten national security",
+      "excerpt": "Trump contradicted his own government's intelligence officials, who reportedly concluded that Alice Huang is a Chinese spy.",
+      "body": "Trump contradicted his own government's intelligence officials, who reportedly concluded that Alice Huang is a Chinese spy.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Security. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Amanda Silberling",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "cybersecurity",
+      "tags": [
+        "Security"
+      ],
+      "featured": false,
+      "xpReward": 36,
+      "url": "https://techcrunch.com/2026/11/16/trump-says-ex-nvidia-ceo-jensen-huangs-affair-with-an-alleged-chinese-spy-did-not-threaten-national-security/",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/10/GettyImages-2297572109.jpg?w=1024",
+      "source": "TechCrunch",
       "isLive": true
     },
     {
@@ -89,8 +513,8 @@
       "tags": [
         "Gaming"
       ],
-      "featured": true,
-      "xpReward": 52,
+      "featured": false,
+      "xpReward": 49,
       "url": "https://www.polygon.com/obsession-director-curry-barker-anything-but-ghosts-matthew-lillard/",
       "image": "/images/feed/feed-72fdd63ac893.jpg",
       "source": "Polygon",
@@ -108,125 +532,11 @@
       "tags": [
         "Gaming"
       ],
-      "featured": true,
-      "xpReward": 50,
+      "featured": false,
+      "xpReward": 46,
       "url": "https://www.polygon.com/pokemon-pokopia-event-habitat-dex-pokedex-list-requirements-unlock/",
       "image": "/images/feed/feed-b062dff01e4a.jpg",
       "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-9918d661a808",
-      "title": "Feedback That Builds People, Teams, and Careers",
-      "excerpt": "Why fair, specific, timely feedback is one of the highest-leverage practices in a technology organization. In engineering organizations, feedback is often treated as a soft skill. That is a mistake. F…",
-      "body": "Why fair, specific, timely feedback is one of the highest-leverage practices in a technology organization. In engineering organizations, feedback is often treated as a soft skill. That is a mistake. Feedback is an operating mechanism. It helps people understand the gap between intent and impact, gives teams a chance to correct course, and makes career growth less dependent on guesswork. In the TalkingTech Leadership OS, this belongs to People &amp; Culture because healthy organizations do not rely on talent alone. They create the conditions in which talent can see reality, learn quickly, and take on more responsibility. The standard is simple: feedback should be fair, assertive, specific, and connected to improvement.",
-      "author": "Ricardo Vano",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 30,
-      "url": "https://dev.to/ricardo_vano_25ad2fa57d1f/feedback-that-builds-people-teams-and-careers-54bj",
-      "image": "/images/feed/feed-9918d661a808.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-d274b6a36729",
-      "title": "How to Make Claude Code Validate its work",
-      "excerpt": "Claude Code finishes a change. The project builds. The tests pass. You still do not know whether the screen works. That gap matters most when the change touches UI, navigation, or app state. The compi…",
-      "body": "Claude Code finishes a change. The project builds. The tests pass. You still do not know whether the screen works. That gap matters most when the change touches UI, navigation, or app state. The compiler cannot see a label that wraps or a name that gets cut off. Tests rarely cover layout. This article compares your options for solving this problem, lists what a good answer should provide, and shows what we saw when we tested some of them. What to expect Ways to validate agent-made changes. How to make the agent hand back evidence you can look at and read before you review the diff. Harnesses with built-in validation, such as Flowdeck. What a good validation approach should provide Before comparing options, it helps to know what you are asking validation to do.",
-      "author": "Amarildo Lucas",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 44,
-      "url": "https://dev.to/amarildo_lucas_fa0893c789/how-to-make-claude-code-validate-its-work-5hap",
-      "image": "/images/feed/feed-d274b6a36729.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-f442fa4e2b50",
-      "title": "Work Permit Expired? A Restoration of Status Checklist for Tech Workers in Canada",
-      "excerpt": "A missed work-permit deadline can turn an ordinary employment issue into an urgent immigration problem. If a Canadian work permit expires before a valid extension application is submitted, the worker…",
-      "body": "A missed work-permit deadline can turn an ordinary employment issue into an urgent immigration problem. If a Canadian work permit expires before a valid extension application is submitted, the worker may lose both temporary resident status and authorization to work. This checklist is for developers, engineers, product professionals and other technology workers. It provides general information, not individual legal advice. 1. Confirm the actual expiry date Read the permit itself. The expiry date is normally when the person must stop working. If the document contains a separate “Must leave Canada by” date, that date may control when temporary resident status expires. Do not rely only on an employer reminder, calendar entry, visa counterfoil or passport stamp.",
-      "author": "Titanium Law Professional Corporation",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 38,
-      "url": "https://dev.to/titaniumlaw/work-permit-expired-a-restoration-of-status-checklist-for-tech-workers-in-canada-1pbb",
-      "image": "/images/feed/feed-f442fa4e2b50.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-dd4837b87f79",
-      "title": "Christopher Nolan's The Odyssey Gives Percy Jackson a Massive Streaming Boost on Disney Plus",
-      "excerpt": "The Odyssey helped boost viewership of Disney’s Percy Jackson adaptation ahead of season 3 premiere",
-      "body": "Everybody and their mother became obsessed with Greek mythology this summer thanks to Christopher Nolan's latest box-office hit, The Odyssey . It turns out people were so hungry for more that they went out searching for it in other movies, books, and TV shows. One beneficiary of that was Disney Plus' Percy Jackson and the Olympians , which got a much-needed boost prior to the premiere of its third season .",
-      "author": "Willa Rowe",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 54,
-      "url": "https://www.polygon.com/disney-percy-jackson-odyssey-christoper-nolan-viewership-boost/",
-      "image": "/images/feed/feed-dd4837b87f79.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-a8b1ddd44ded",
-      "title": "Pokémon Pokopia 'Apples to Applin' event guide",
-      "excerpt": "Here's how to complete the \"Apples to Applin\" event in Pokémon Pokopia as well as all the rewards and habitats that come as part of the event.",
-      "body": "Pokémon Pokopia 's \"Apples to Applin\" event comes to make your islands sweeter with the help of Applin. The cute little apple Pokémon is excited about checking new places, but it wishes to acquire Syrupy Apples, which you'll only find on some unique islands. But once you collect some, you can exchange Applin's favorite fruits for beautiful apple-themed decorations.",
-      "author": "Paulo Kawanishi",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 50,
-      "url": "https://www.polygon.com/pokemon-pokopia-apples-to-applin-flapple-appletun-dipplin-hydrapple-habitats-items/",
-      "image": "/images/feed/feed-a8b1ddd44ded.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-435aec2a48cd",
-      "title": "Square Enix Is Making Final Fantasy 14 Free For 30 Days For A Ton More People",
-      "excerpt": "In preparation for Evercold, Square Enix is giving away 30 days of free game time to eligible players and has a new item for purchase that'll let you skip Dawntrail",
-      "body": "In preparation for Evercold, Square Enix is giving away 30 days of free game time to eligible players and has a new item for purchase that'll let you skip Dawntrail\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Ash Parrish",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 36,
-      "url": "https://kotaku.com/square-enix-is-making-final-fantasy-14-free-for-30-days-for-a-ton-more-people-2000757498",
-      "image": "/images/feed/feed-435aec2a48cd.jpg",
-      "source": "Kotaku",
       "isLive": true
     },
     {
@@ -242,29 +552,10 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 46,
       "url": "https://www.space.com/space-exploration/voyager/what-exactly-is-a-light-day-heres-what-voyager-1s-latest-milestone-means-for-the-interstellar-probe",
       "image": "/images/feed/feed-d11d273da539.jpg",
       "source": "Space.com",
-      "isLive": true
-    },
-    {
-      "id": "feed-b2119fe154a3",
-      "title": "Improve your Amazon Kindle experience by doing these simple things",
-      "excerpt": "If you love the convenience of a Kindle but miss the feel of having a physical book in your hands, we have some tips for you.",
-      "body": "If you love the convenience of a Kindle but miss the feel of having a physical book in your hands, we have some tips for you.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Maddie Fisher)",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 31,
-      "url": "https://www.engadget.com/2314792/improve-amazon-kindle-experience-doing-simple-things/",
-      "image": "/images/feed/feed-b2119fe154a3.jpg",
-      "source": "Engadget",
       "isLive": true
     },
     {
@@ -280,7 +571,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 41,
       "url": "https://electrek.co/2026/11/16/anker-solix-s5000-power-station-navee-st3-pro-e-scooter-lectric-e-bike-accessory-sale-more/",
       "image": "/images/feed/feed-24c1f2dee849.jpg",
       "source": "Electrek",
@@ -299,105 +590,29 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 53,
       "url": "https://www.zdnet.com/innovation/google-cloud-ciso-perspectives-2027-ai-security-defenses/",
       "image": "/images/feed/feed-fedaa2ea7a4d.jpg",
       "source": "ZDNet",
       "isLive": true
     },
     {
-      "id": "feed-657e205565df",
-      "title": "Island is a new screen-time app that turns staying off your phone into a game",
-      "excerpt": "YC-backed Island turns screen time goals into a farming game, rewarding users with new crops, animals, and more when they stick to their limits.",
-      "body": "YC-backed Island turns screen time goals into a farming game, rewarding users with new crops, animals, and more when they stick to their limits.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Game. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Sarah Perez",
+      "id": "feed-9a55de2e23ad",
+      "title": "Sentinel-6B in Orbit Around Earth",
+      "excerpt": "Description This artist’s concept shows the Sentinel-6B satellite, which will become the reference satellite for other missions studying sea surface height.",
+      "body": "1 Min Read Sentinel-6B in Orbit Around Earth PIA26803 Credits: NASA/JPL-Caltech Photojournal Navigation Science Photojournal Sentinel-6B in Orbit Around Earth Photojournal Home Photojournal Search Latest Content Galleries Feedback RSS About Downloads Sentinel-6B in Orbit Around Earth JPEG (1.00 MB) PIA26803 Figure A JPEG (1.03 MB) PIA26803 Figure B JPEG (772.48 KB) Description This artist’s concept shows the Sentinel-6B satellite, which will become the reference satellite for other missions studying sea surface height. Figure A Figure B Keep Exploring Discover More Topics From Photojournal Photojournal Search Photojournal Photojournal’s Latest Content Feedback",
+      "author": "NASA Breaking News",
       "date": "2026-11-16",
       "readTime": "2 min",
-      "section": "gaming",
+      "section": "space",
       "tags": [
-        "Game"
+        "Orbit"
       ],
       "featured": false,
-      "xpReward": 50,
-      "url": "https://techcrunch.com/2026/11/16/island-is-a-new-screen-time-app-that-turns-staying-off-your-phone-into-a-game/",
-      "image": "https://techcrunch.com/wp-content/uploads/2026/11/island-graphic.png?resize=1200,586",
-      "source": "TechCrunch",
-      "isLive": true
-    },
-    {
-      "id": "feed-c4d6121acde2",
-      "title": "iOS 27.3 gives Apple’s Calendar app new design updates",
-      "excerpt": "iOS 27.3 beta 2 arrived today, most notably giving the iPhone Duo a face unlock feature. The update also includes some design updates for Apple’s Calendar app. more…",
-      "body": "iOS 27.3 beta 2 arrived today, most notably giving the iPhone Duo a face unlock feature. The update also includes some design updates for Apple’s Calendar app. more — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Ryan Christoffel",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 51,
-      "url": "https://9to5mac.com/2026/11/16/ios-27-3-gives-apples-calendar-app-new-design-updates/",
-      "image": "/images/feed/feed-c4d6121acde2.jpg",
-      "source": "9to5Mac",
-      "isLive": true
-    },
-    {
-      "id": "feed-4c1afea0ff81",
-      "title": "Google expands Gemini’s voice options with 66 new regional accents",
-      "excerpt": "Google wants Gemini to sound more like the people you talk to every day.",
-      "body": "TL;DR Google is rolling out 66 new regional voices to the Gemini app on Android and iOS. The expansion covers seven language variants, including US English, with more than 10 voices available for UK English alone. Your chosen voice applies to both Gemini Live conversations and spoken responses in regular chats. When Amazon-owned Ring wanted its video doorbells to feel a little more familiar to customers in Scotland, it launched a nationwide search for someone to record greetings in a Scottish accent. The idea was simple: hearing a familiar voice when you interact with technology can make the experience feel more personal. Google is now bringing that same idea to Gemini , only this time, you’ll be able to hold an entire conversation with an AI that speaks with a local accent.",
-      "author": "Hillary Keverenge",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 31,
-      "url": "https://www.androidauthority.com/google-gemini-new-regional-voices-3735654/",
-      "image": "https://www.androidauthority.com/wp-content/uploads/2025/08/Google-Gemini-Live-Maps-extension.jpg",
-      "source": "Android Authority",
-      "isLive": true
-    },
-    {
-      "id": "feed-fc7c18c53ac6",
-      "title": "Apple is adding face unlock to the iPhone Duo — without new hardware",
-      "excerpt": "Apple is working on a face unlock feature for the iPhone Duo that uses the front-facing camera for authentication, and it's already testing it with the new iOS 27.3 beta released today, as reported by…",
-      "body": "Apple is working on a face unlock feature for the iPhone Duo that uses the front-facing camera for authentication, and it's already testing it with the new iOS 27.3 beta released today, as reported by MacRumors . Currently, the only way to unlock the iPhone Duo is by using Touch ID or entering a passcode, which might feel like a step back if you prefer face authentication using the Face ID feature available on other iPhones. The iPhone Duo's face unlock feature seemingly has a few caveats, however: it's only available for the lock screen, you can only use your face for an unlock if you have used Touch ID or input a passcode within 45 minutes … Read the full story at The Verge.",
-      "author": "Jay Peters",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Iphone"
-      ],
-      "featured": false,
-      "xpReward": 54,
-      "url": "https://www.theverge.com/tech/1034590/apple-iphone-duo-face-unlock-ios-27-3-beta",
-      "image": "/images/feed/feed-fc7c18c53ac6.jpg",
-      "source": "The Verge",
-      "isLive": true
-    },
-    {
-      "id": "feed-67dfac0151e5",
-      "title": "iPhone Duo 2 prototypes suggest FaceID, Action Button, other potential 2027 features",
-      "excerpt": "With manufacturing deadlines looming, it’s unclear which of several feature upgrades may have to wait until the foldable’s third generation.",
-      "body": "With manufacturing deadlines looming, it’s unclear which of several feature upgrades may have to wait until the foldable’s third generation.\n\nThis report, published by ZDNet, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Iphone. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to ZDNet using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Maria Diaz",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Iphone"
-      ],
-      "featured": false,
-      "xpReward": 47,
-      "url": "https://www.zdnet.com/tech/apple-iphone-duo-2-face-id-upgrades-2027/",
-      "image": "https://www.zdnet.com/wp-content/uploads/sites/3/DSC01196.jpeg",
-      "source": "ZDNet",
+      "xpReward": 46,
+      "url": "https://science.nasa.gov/photojournal/sentinel-6b-in-orbit-around-earth/",
+      "image": "/images/feed/feed-9a55de2e23ad.jpg",
+      "source": "NASA Breaking News",
       "isLive": true
     },
     {
@@ -413,7 +628,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 46,
       "url": "https://www.nasa.gov/image-article/thunderbirds-in-formation/",
       "image": "https://www.nasa.gov/wp-content/uploads/2026/11/11072026-ksc-max-power-airdotshow-2orig.jpg",
       "source": "NASA Breaking News",
@@ -432,86 +647,28 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 38,
       "url": "https://insideevs.com/news/815634/tesla-german-factory-expansion-cybercab/",
       "image": "/images/feed/feed-78ec324e7fb9.jpg",
       "source": "InsideEVs",
       "isLive": true
     },
     {
-      "id": "feed-c453af5b208b",
-      "title": "Samsung Galaxy Studio headphones leak reveals physical and touch controls",
-      "excerpt": "Feast your eyes on these newly leaked images.",
-      "body": "Credit: SoundGuys TL;DR Leaked assets of Samsung’s upcoming over-ear headphones show off the design. The leak reveals that the headphones will feature ANC and physical volume buttons. It’s reported that the headphones could come in two colors: Black and Red. For a few months now, there have been leaks and rumors suggesting Samsung is working on new over-ear headphones . This wouldn’t be the company’s first rodeo with the form factor, as it released the Samsung Level Over back in 2014. While we’ve previously seen illustrations showing off the general design, we haven’t yet seen a more detailed look. But that changes today, thanks to some newly leaked assets. The folks over at SamMobile have acquired a few graphics featuring Samsung’s rumored over-ear headphones.",
-      "author": "Ryan McNeal",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Galaxy S",
-        "Headphones"
-      ],
-      "featured": false,
-      "xpReward": 36,
-      "url": "https://www.androidauthority.com/samsung-headphones-physical-and-touch-controls-3735643/",
-      "image": "https://www.androidauthority.com/wp-content/uploads/2025/10/Sony-WH-CH720N-Headphones-SoundGuys.jpg",
-      "source": "Android Authority",
-      "isLive": true
-    },
-    {
-      "id": "feed-1af437898b46",
-      "title": "GTA 6 Hacker Pleads Guilty To Cybercrimes After Infamous 2022 Leak",
-      "excerpt": "The leak in 2022 was the first time the game was seen by the public before it was officially unveiled the following year",
-      "body": "The leak in 2022 was the first time the game was seen by the public before it was officially unveiled the following year\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Kenneth Shepard",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 48,
-      "url": "https://kotaku.com/grand-theft-auto-6-leak-gta6-hacker-pleads-guilty-2000757500",
-      "image": "/images/feed/feed-1af437898b46.jpg",
-      "source": "Kotaku",
-      "isLive": true
-    },
-    {
-      "id": "feed-c595bae92a97",
-      "title": "The iPhone Duo Is Getting a Limited Version of Face ID",
-      "excerpt": "Originally launching only with Touch ID, Apple’s folding phone now borrows a feature from the new HomeView and can recognize your mug, but it’s likely not as secure as Face ID.",
-      "body": "Originally launching only with Touch ID, Apple’s folding phone now borrows a feature from the new HomeView and can recognize your mug, but it’s likely not as secure as Face ID.\n\nThis report, published by Wired, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Iphone. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Wired using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Julian Chokkattu",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Iphone"
-      ],
-      "featured": false,
-      "xpReward": 42,
-      "url": "https://www.wired.com/story/iphone-duo-is-getting-a-limited-version-of-face-id/",
-      "image": "/images/feed/feed-c595bae92a97.jpg",
-      "source": "Wired",
-      "isLive": true
-    },
-    {
-      "id": "feed-10fde3797532",
-      "title": "OpenAI: Strengthening the fight against online child sexual abuse",
+      "id": "feed-8e371c25a440",
+      "title": "FBI says Artex AI open-source hacking tool used to breach networks",
       "excerpt": "",
-      "body": "This report, published by Hacker News, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Openai. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Hacker News using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "rossant",
+      "body": "This report, published by Hacker News, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Breach. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Hacker News using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "novateg",
       "date": "2026-11-16",
       "readTime": "2 min",
-      "section": "ai",
+      "section": "cybersecurity",
       "tags": [
-        "Openai"
+        "Breach"
       ],
       "featured": false,
-      "xpReward": 45,
-      "url": "https://openai.com/index/strengthening-online-child-safety/",
-      "image": "/images/topics/topic-ai-ml.png",
+      "xpReward": 39,
+      "url": "https://techcrunch.com/2026/11/16/fbi-says-artex-ai-open-source-hacking-tool-used-to-breach-networks-in-under-three-hours/",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/02/china-hacker-computer-flag.jpg?resize=1200,675",
       "source": "Hacker News",
       "isLive": true
     },
@@ -528,7 +685,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 46,
       "url": "https://techcrunch.com/2026/11/16/sam-altman-on-nvidia-without-jensen-huang-the-industry-will-be-fine/",
       "image": "https://techcrunch.com/wp-content/uploads/2026/11/GettyImages-2297209338.jpg?w=1024",
       "source": "TechCrunch",
@@ -547,7 +704,7 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 44,
       "url": "https://electrek.co/2026/11/16/tesla-autopilot-fsd-model-x-pole-rollover-naples/",
       "image": "/images/feed/feed-cc45518db2ae.jpg",
       "source": "Electrek",
@@ -567,7 +724,7 @@
         "Astronaut"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 51,
       "url": "https://www.space.com/space-exploration/artemis/maybe-the-scariest-thing-ive-heard-in-my-life-artemis-ii-astronaut-victor-glover-reveals-his-toughest-challenge-before-flying-to-the-moon",
       "image": "/images/feed/feed-9927813faa71.jpg",
       "source": "Space.com",
@@ -586,7 +743,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 43,
       "url": "https://electrek.co/2026/11/16/byd-bringing-10000-great-seagull-ev-overseas/",
       "image": "/images/feed/feed-a6fdf0790830.jpg",
       "source": "Electrek",
@@ -605,7 +762,7 @@
         "Breach"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 50,
       "url": "https://techcrunch.com/2026/11/16/fbi-says-artex-ai-open-source-hacking-tool-used-to-breach-networks-in-under-three-hours/",
       "image": "https://techcrunch.com/wp-content/uploads/2026/02/china-hacker-computer-flag.jpg?resize=1200,675",
       "source": "TechCrunch",
@@ -624,7 +781,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 47,
       "url": "https://www.zdnet.com/innovation/samsung-galaxy-claw-ai-cross-app-upgrade/",
       "image": "/images/feed/feed-2ded70297bb6.jpg",
       "source": "ZDNet",
@@ -643,7 +800,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 31,
       "url": "https://cleantechnica.com/2026/11/16/cop31-leaders-summit-spotlights-electrification-transition-away-from-fossil-fuels/",
       "image": "/images/feed/feed-440477fe4fa6.png",
       "source": "CleanTechnica",
@@ -662,7 +819,7 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 37,
       "url": "https://electrek.co/2026/11/16/tesla-cybercab-giga-berlin-3-billion-1-million/",
       "image": "/images/feed/feed-e2edbaedd59d.jpg",
       "source": "Electrek",
@@ -681,7 +838,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 38,
       "url": "https://techcrunch.com/2026/11/16/openai-will-embed-apollo-researchers-to-investigate-ai-subversion/",
       "image": "https://techcrunch.com/wp-content/uploads/2026/05/openai-logo-code-background.jpg?resize=1200,798",
       "source": "TechCrunch",
@@ -700,7 +857,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 36,
       "url": "https://openai.com/index/expanding-chatgpt-for-academic-researchers",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "OpenAI Blog",
@@ -719,7 +876,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 49,
       "url": "https://openai.com/index/strengthening-online-child-safety",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "OpenAI Blog",
@@ -738,30 +895,10 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 37,
       "url": "https://www.space.com/stargazing/meteor-showers/the-leonid-meteor-shower-peaks-nov-17-18-heres-what-you-need-to-know",
       "image": "/images/feed/feed-ad75a624b12d.jpg",
       "source": "Space.com",
-      "isLive": true
-    },
-    {
-      "id": "feed-c241de685325",
-      "title": "OpenAI releases a new image classifier and ChatGPT warnings to combat CSAM",
-      "excerpt": "ChatGPT will ban an account trying to access CSAM content for 24 hours as a warning",
-      "body": "ChatGPT will ban an account trying to access CSAM content for 24 hours as a warning\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Openai, Chatgpt. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Ivan Mehta",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "ai",
-      "tags": [
-        "Openai",
-        "Chatgpt"
-      ],
-      "featured": false,
-      "xpReward": 32,
-      "url": "https://techcrunch.com/2026/11/16/openai-releases-a-new-image-classifier-and-chatgpt-warnings-to-combat-csam/",
-      "image": "https://techcrunch.com/wp-content/uploads/2026/11/OpenAI-chatgpt-CSAM.jpeg?resize=1200,675",
-      "source": "TechCrunch",
       "isLive": true
     },
     {
@@ -777,7 +914,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 39,
       "url": "https://electrek.co/2026/11/16/trump-again-orders-broken-coal-plant-to-stay-open-even-after-court-said-its-illegal/",
       "image": "/images/feed/feed-a72907514637.jpg",
       "source": "Electrek",
@@ -796,160 +933,24 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 36,
       "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-says-months-old-bug-caused-global-microsoft-365-outage/",
       "image": "/images/feed/feed-81ef74f31b59.jpg",
       "source": "BleepingComputer",
       "isLive": true
-    },
-    {
-      "id": "feed-efe50a9f6daa",
-      "title": "Could there be an ancient alien satellite in Earth's orbit? How the 'Black Knight' conspiracy theory has survived for over 100 years",
-      "excerpt": "The legend of the Black Knight satellite offers an example of how a collection of unconnected events and speculative interpretations can accumulate into a single conspiracy theory over time.",
-      "body": "In the final days of 1998, as astronauts aboard NASA's Space Shuttle Endeavor were working during one of the early missions to assemble the International Space Station , crew members from the STS-88 mission captured photographs of a dark colored, unusually shaped object drifting through space. Despite its unusual appearance in the photographs, the object had a conventional explanation, and one that was known to the astronauts at that time: it was one of several thermal covers that had been wrapped around trunnion pins used in the space station's construction.",
-      "author": " Micah Hanks ",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Satellite",
-        "Orbit"
-      ],
-      "featured": false,
-      "xpReward": 50,
-      "url": "https://www.space.com/space-exploration/satellites/could-there-be-an-ancient-alien-satellite-in-earths-orbit-how-the-black-knight-conspiracy-theory-has-survived-for-over-100-years",
-      "image": "/images/feed/feed-efe50a9f6daa.jpg",
-      "source": "Space.com",
-      "isLive": true
-    },
-    {
-      "id": "feed-827737e4a56e",
-      "title": "Fandango says hackers stole payment card details from checkout pages",
-      "excerpt": "Ticket seller Fandango Media is notifying customers about a data breach that exposed payment card details entered on its checkout pages. [...]",
-      "body": "Ticket seller Fandango Media is notifying customers about a data breach that exposed payment card details entered on its checkout pages. [...]\n\nThis report, published by BleepingComputer, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Hacker. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to BleepingComputer using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Bill Toulas",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "cybersecurity",
-      "tags": [
-        "Hacker"
-      ],
-      "featured": false,
-      "xpReward": 48,
-      "url": "https://www.bleepingcomputer.com/news/security/fandango-says-hackers-stole-payment-card-details-from-checkout-pages/",
-      "image": "/images/feed/feed-827737e4a56e.jpg",
-      "source": "BleepingComputer",
-      "isLive": true
-    },
-    {
-      "id": "feed-32ee3b716215",
-      "title": "Contractor to Civil Servant: NASA Welcomes Jim Mirandy",
-      "excerpt": "The rumble of a rocket engine might be considered a soundtrack for Jim Mirandy’s life. Mirandy has grown up with NASA as a constant presence, and his path to becoming a civil servant at NASA’s Stennis…",
-      "body": "3 min read Preparations for Next Moonwalk Simulations Underway (and Underwater) Jim Mirandy, quality assurance specialist at NASA’s Stennis Space Center near Bay St. Louis, Mississippi, poses for a photograph at the High Pressure Gas Facility on Nov. 10, 2026. Mirandy is now a NASA civil servant at Stennis as part of the administrator’s directive to strengthen technical core competencies within the civil service workforce. NASA/Danny Nowlin The rumble of a rocket engine might be considered a soundtrack for Jim Mirandy’s life. Mirandy has grown up with NASA as a constant presence, and his path to becoming a civil servant at NASA’s Stennis Space Center near Bay St. Louis, Mississippi, has been decades in the making.",
-      "author": "LaToya Dean",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Nasa"
-      ],
-      "featured": false,
-      "xpReward": 53,
-      "url": "https://www.nasa.gov/centers-and-facilities/stennis/contractor-to-civil-servant-jim-mirandy/",
-      "image": "/images/feed/feed-32ee3b716215.jpg",
-      "source": "NASA Breaking News",
-      "isLive": true
-    },
-    {
-      "id": "feed-09921bd51601",
-      "title": "7 Tips For Complying with CJIS Password and MFA Requirements",
-      "excerpt": "The FBI's latest CJIS Security Policy requires law enforcement agencies to strengthen password protections and enforce MFA across privileged and non-privileged accounts. Specops Software outlines seve…",
-      "body": "The FBI's latest CJIS Security Policy requires law enforcement agencies to strengthen password protections and enforce MFA across privileged and non-privileged accounts. Specops Software outlines seven practical steps to meet these requirements, block compromised passwords, and maintain compliance. [...]",
-      "author": "Sponsored by Specops Software",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "cybersecurity",
-      "tags": [
-        "Cybersecurity"
-      ],
-      "featured": false,
-      "xpReward": 42,
-      "url": "https://www.bleepingcomputer.com/news/security/7-tips-for-complying-with-cjis-password-and-mfa-requirements/",
-      "image": "/images/feed/feed-09921bd51601.jpg",
-      "source": "BleepingComputer",
-      "isLive": true
-    },
-    {
-      "id": "feed-3ce1095172fa",
-      "title": "Euclid space telescope discovers its 1st comet | Space photo of the day for Nov. 16, 2026",
-      "excerpt": "The new observatory managed to catch this comet whirling between the orbits of Jupiter and Saturn.",
-      "body": "The comet C/2026 S1 (Euclid) discovered by the Euclid mission. (Image credit: ESA/Euclid/Euclid Consortium/NASA, M. Pöntinen et al. 2026) The Euclid space telescope has discovered its first comet, called comet C/2026 S1, or comet Euclid for short. What is it? (Image credit: ESA/Euclid) The Euclid mission, a European Space Agency mission that launched in 2023 with contributions from NASA, spotted this previously undetected comet approximately 807 million miles (1.3 billion kilometers) away in observations captured between Sept. 16 and 24. \"I was excited to see my software flag a 'streak' smeared across several images – the result of a fast-moving object. By predicting its position I could identify it in other images, in total finding it in five image sets.",
-      "author": " Chelsea Gohd ",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Telescope",
-        "Space"
-      ],
-      "featured": false,
-      "xpReward": 30,
-      "url": "https://www.space.com/astronomy/comets/euclid-discovers-its-1st-comet-space-photo-of-the-day-for-nov-16-2026",
-      "image": "/images/feed/feed-3ce1095172fa.jpg",
-      "source": "Space.com",
-      "isLive": true
-    },
-    {
-      "id": "feed-061dde622496",
-      "title": "Google warns that fully-automated AI attacks are coming soon",
-      "excerpt": "Threat actors are now relying on agentic workflows powered by AI-based offensive frameworks to automate vulnerability discovery and exploitation, accelerating attacks to machine speed. [...]",
-      "body": "Threat actors are now relying on agentic workflows powered by AI-based offensive frameworks to automate vulnerability discovery and exploitation, accelerating attacks to machine speed. [...]\n\nThis report, published by BleepingComputer, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cybersecurity. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to BleepingComputer using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Bill Toulas",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "cybersecurity",
-      "tags": [
-        "Cybersecurity"
-      ],
-      "featured": false,
-      "xpReward": 32,
-      "url": "https://www.bleepingcomputer.com/news/security/google-warns-that-fully-automated-ai-attacks-are-coming-soon/",
-      "image": "/images/feed/feed-061dde622496.jpg",
-      "source": "BleepingComputer",
-      "isLive": true
-    },
-    {
-      "id": "feed-a848b6775e4e",
-      "title": "Google Finds Hackers Using AI Agents to Build and Run Exploits From Software Patches",
-      "excerpt": "Google on Monday revealed that adversarial use of artificial intelligence (AI) by threat actors has gone beyond manual prompting to deploying autonomous multi-agent offensive frameworks like ARTEX, CA…",
-      "body": "Google on Monday revealed that adversarial use of artificial intelligence (AI) by threat actors has gone beyond manual prompting to deploying autonomous multi-agent offensive frameworks like ARTEX, CAIRN, CyberStrikeAI, and PentAGI to execute multi-stage intrusions at greater operational velocity. In tandem, threat actors are leveraging the power and capabilities of large language models (LLMs)",
-      "author": "info@thehackernews.com (The Hacker News)",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "cybersecurity",
-      "tags": [
-        "Exploit",
-        "Hacker"
-      ],
-      "featured": false,
-      "xpReward": 54,
-      "url": "https://thehackernews.com/2026/11/google-finds-hackers-using-ai-agents-to.html",
-      "image": "/images/feed/feed-a848b6775e4e.jpg",
-      "source": "The Hacker News",
-      "isLive": true
     }
   ],
   "breakingNews": [
-    "DEV.TO: Designing a Mobile-Friendly Contact Flow for a Small-Business Website",
-    "DEV.TO: Guardrail independente de modelo",
-    "DEV.TO: Enhancing FastAPI Request Parameters with Pydantic Validation Options",
-    "DEV.TO: Building an AI phone caller that has to admit it's an AI: what 26 real calls broke",
-    "POLYGON: Obsession Director Officially Casts Horror Icon in Next Film",
-    "POLYGON: Event Habitat Dex and Pokédex list in Pokémon Pokopia",
-    "DEV.TO: Feedback That Builds People, Teams, and Careers",
-    "DEV.TO: How to Make Claude Code Validate its work",
-    "DEV.TO: Work Permit Expired? A Restoration of Status Checklist for Tech Workers in Canada",
-    "POLYGON: Christopher Nolan's The Odyssey Gives Percy Jackson a Massive Streaming Boost on Disney Plus"
+    "DEV.TO: Weekly Digest Recovery Using FIFO Queue Webhook Deduplication and Idempotency Keys",
+    "DEV.TO: Node.js Media Renewal Jobs: At-Least-Once Replay Governance for Duplicate Processing",
+    "DEV.TO: Showing license expiry in the right time zone",
+    "DEV.TO: Exact VRAM & Memory Bandwidth Math for Running DeepSeek-R1, Qwen-2.5-Coder-32B & Llama-3.3-70B Locally",
+    "DEV.TO: Reklam Formundan CRM'e Kapalı Döngü: UTM, Webhook ve Conversions API ile Lead Veri Akışı Tasarlamak",
+    "TECHCRUNCH: California state AG sues OpenAI over rogue agent incidents",
+    "DEV.TO: How source-generated P/Invoke decompiles",
+    "DEV.TO: Orchestrating Agents: What Strands Teaches About Workflow Determinism vs. LLM Freedom",
+    "SPACE.COM: Elon Musk says SpaceX’s Starship, already the largest rocket on Earth, will get even bigger with next-gen V4 model",
+    "POLYGON: What Makes The Legend of Zelda: Ocarina of Time So Great Anyway?"
   ],
   "sectionVideos": {}
 }
