@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-11-16T22:15:34.237Z",
+  "fetchedAt": "2026-11-16T23:11:52.740Z",
   "articles": [
     {
-      "id": "feed-cc7300c41fe3",
-      "title": "Your First Windows Game on Linux: A Practical Steam Proton Setup",
-      "excerpt": "One of the most surprising parts of modern Linux gaming is that a Windows-only Steam game may launch without a Windows installation. Steam’s compatibility tool, Proton, makes that possible for many ti…",
-      "body": "One of the most surprising parts of modern Linux gaming is that a Windows-only Steam game may launch without a Windows installation. Steam’s compatibility tool, Proton, makes that possible for many titles. The basic setup is often simple, but a few good habits can save you from confusing troubleshooting later. This guide walks through a cautious first run: install Steam from a trusted source, use the default compatibility setting, test one game, and only then investigate alternatives. Menu names can move between Steam versions and distributions, so treat the instructions as a route rather than an exact screenshot-by-screenshot promise.",
-      "author": "Rouwel Ngacha",
+      "id": "feed-636cd1fe259d",
+      "title": "如何改造scrapy-redis的TLS指纹和HTTP2指纹？",
+      "excerpt": "先说结论:scrapy-redis 本身不决定指纹。 它只接管调度器、去重和队列,TLS/HTTP2 指纹是 Scrapy 下载器(Twisted + pyOpenSSL + h2)发出的。所以要改的是下载层,scrapy-redis 部分基本不用动。 DOWNLOADER_CLIENT_TLS_CIPHERS = \"ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-…",
+      "body": "先说结论:scrapy-redis 本身不决定指纹。 它只接管调度器、去重和队列,TLS/HTTP2 指纹是 Scrapy 下载器(Twisted + pyOpenSSL + h2)发出的。所以要改的是下载层,scrapy-redis 部分基本不用动。 方案一:只调 Scrapy 原生参数(效果有限) DOWNLOADER_CLIENT_TLS_CIPHERS = \"ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:...\" DOWNLOADER_CLIENT_TLS_METHOD = \"TLSv1.2\" 这只能改 cipher 列表,JA3 会变,但扩展顺序、GREASE、ALPS、签名算法等控制不了。HTTP/2 的 SETTINGS 帧、WINDOW_UPDATE、伪头顺序也写死在 h2 库里。结果是指纹\"不像 Scrapy\",但也不像任何真实浏览器,对 Akamai、Cloudflare 这类检测基本无效。 方案二:把下载器换成 curl_cffi(推荐) curl_cffi 基于 curl-impersonate,能同时模拟浏览器的 TLS 指纹(JA3/JA4)和 HTTP/2 指纹(Akamai fingerprint)。最省事的是用 scrapy-impersonate : # settings.py DOWNLOAD_HANDLERS = { \"http\" : \"scrapy_impersonate.ImpersonateDownloadHandler\" , \"https\" : \"scrapy_impersonate.ImpersonateDownloadHandler\" , } TWISTED_REACTOR = \"twisted.internet.asyncioreactor.Async…",
+      "author": "drake",
       "date": "2026-11-16",
       "readTime": "2 min",
       "section": "software",
@@ -14,10 +14,276 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 44,
-      "url": "https://dev.to/rrouwelng/your-first-windows-game-on-linux-a-practical-steam-proton-setup-55eo",
-      "image": "/images/feed/feed-cc7300c41fe3.webp",
+      "xpReward": 49,
+      "url": "https://dev.to/dragon72463399/ru-he-gai-zao-scrapy-redisde-tlszhi-wen-he-http2zhi-wen--54co",
+      "image": "/images/feed/feed-636cd1fe259d.webp",
       "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-6c93e76b7372",
+      "title": "De Zeus à l'IA",
+      "excerpt": "Quand j'étais jeune, j'ai toujours été surpris en lisant l'histoire humaine de voir comment les gens d'autrefois attribuaient les phénomènes naturels, comme la foudre, à la colère de Zeus, ou expliqua…",
+      "body": "De Zeus à l'IA: Pourquoi nous continuons à créer des mythes modernes dans la Tech Quand j'étais jeune, j'ai toujours été surpris en lisant l'histoire humaine de voir comment les gens d'autrefois attribuaient les phénomènes naturels, comme la foudre, à la colère de Zeus, ou expliquaient les maladies par des causes mystiques avant le développement de la science. Mais en voyant aujourd'hui comment certains interagissent avec l'intelligence artificielle, en la considérant comme une solution magique à tous les défis, cette surprise d'enfance a totalement disparu. La tentation de la mystification À une époque où les bases de la technologie sont accessibles même aux enfants, on s'attendrait à ne pas voir de recul dans la prise de conscience de la communauté tech.",
+      "author": "Mohamad Hassoun",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 35,
+      "url": "https://dev.to/mohassoun/de-zeus-a-lia-4a1i",
+      "image": "/images/feed/feed-6c93e76b7372.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-186d4afc54c2",
+      "title": "Postgres Training Backups: Node.js pg_dump Gzip Streams for 2026 Object Retention",
+      "excerpt": "The reliable default for an edtech backup is a streamed pg_dump compressed with gzip, uploaded as a private object, and retained by a policy that can be replayed from metadata. Large-file throughput i…",
+      "body": "The reliable default for an edtech backup is a streamed pg_dump compressed with gzip, uploaded as a private object, and retained by a policy that can be replayed from metadata. Large-file throughput is the deciding constraint: keep the web process out of the byte path, make each archive addressable, and test restore rather than treating an upload receipt as proof. Short answer: run the dump in a worker, stream compression into multipart object storage, write an immutable manifest beside it, and issue a signed restore URL only after a successful integrity check. A retention rule should be data, not a cron comment.",
+      "author": "SladeBarrett9642",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 33,
+      "url": "https://dev.to/sladebarrett9642/postgres-training-backups-nodejs-pgdump-gzip-streams-for-2026-object-retention-19ah",
+      "image": "/images/feed/feed-186d4afc54c2.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-8c5eb50ac9f6",
+      "title": "Consistency checks, with real output: missing attributes and title/description contradictions",
+      "excerpt": "Consistency checks, with real output: missing attributes and title/description contradictions Part 3 of 6 in CatalogSentry's launch series. Part 2 listed what CatalogSentry checks today. actor_input/d…",
+      "body": "Consistency checks, with real output: missing attributes and title/description contradictions Part 3 of 6 in CatalogSentry's launch series. Part 2 listed what CatalogSentry checks today. This post shows two of those checks running, with real findings — not paraphrased, not invented. Every evidence string below was produced by running CatalogSentry's actual check code against its own demo fixture ( actor_input/demo--input.json , shipped in the repo), with this call: from utils . feed_loader import products_from_inline from utils . checks import CHECKS import json data = json .",
+      "author": "Peter Tomko",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 43,
+      "url": "https://dev.to/tomkess/consistency-checks-with-real-output-missing-attributes-and-titledescription-contradictions-2638",
+      "image": "/images/feed/feed-8c5eb50ac9f6.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-80b3f5346af1",
+      "title": "A download archive needs a restart policy",
+      "excerpt": "A folder can exist and still be an unfinished download, so I want an archive job to tell me what happened when it finds that folder again. My own job had a gap there. It skipped the existing folder wi…",
+      "body": "A folder can exist and still be an unfinished download, so I want an archive job to tell me what happened when it finds that folder again. My own job had a gap there. It skipped the existing folder without checking its contents, recorded the status as existing , and returned a failed batch at the end. That kept it from claiming success, but it also meant a rerun couldn't certify a completed download. I found that by reading the script after a successful model archive, where all seven repositories were marked verified and the recorded checksum checks passed for each one. The original run hadn't shown me an interruption. I tested the restart branch separately with a fake existing directory and mocked download commands.",
+      "author": "prodbymarcu",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 51,
+      "url": "https://dev.to/prodbymarcu/a-download-archive-needs-a-restart-policy-4e5g",
+      "image": "/images/feed/feed-80b3f5346af1.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-68a84c4638d2",
+      "title": "The Shift Handoff: Turning Chat Queues into Executable Summaries",
+      "excerpt": "The worst five minutes of any support shift are the first ones. The night team goes home, the day team opens the queue, and the only bridge between them is a paragraph of prose in a group chat — if th…",
+      "body": "The worst five minutes of any support shift are the first ones. The night team goes home, the day team opens the queue, and the only bridge between them is a paragraph of prose in a group chat — if the night team remembered to write it. Everything that actually matters is scattered across threads: a promise made to a customer at 2am, a buyer typing in short angry bursts, a promo rule that changed at midnight. Prose is a lossy serialization format for all of that. The fix is not nicer prose. It is treating the shift handoff as an executable summary: structured data with owners, states, and next actions — written so a person can act on it in minutes, and so a machine can read it at all. Why Prose Handoffs Fail Free-text handoffs fail in predictable ways.",
+      "author": "Dingdang CS",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 40,
+      "url": "https://dev.to/dingdangcs/the-shift-handoff-turning-chat-queues-into-executable-summaries-2ndi",
+      "image": "/images/feed/feed-68a84c4638d2.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-01aad9c86be8",
+      "title": "How to Compress an Image to a Specific KB Size Without Obvious Quality Loss",
+      "excerpt": "A website, application, or email form may reject a photo that is larger than its file-size limit. If the limit is 100 KB, the practical goal is to create a clear image that comes in at or below 100 KB…",
+      "body": "A website, application, or email form may reject a photo that is larger than its file-size limit. If the limit is 100 KB, the practical goal is to create a clear image that comes in at or below 100 KB—and then check that the destination accepts it. A target-size setting is a useful starting point, but image compression has trade-offs. A detailed photograph can need more data than a simple graphic, and the same settings may produce different file sizes for different images. The reliable workflow is to set a maximum, inspect the result, and adjust dimensions or format if needed. What does “compress to 100 KB” mean? In most upload tasks, “compress to 100 KB” means make the file no larger than 100 KB. It does not mean the file must be exactly 100 KB.",
+      "author": "daily box",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 33,
+      "url": "https://dev.to/daily_box_be2aaec98f8148e/how-to-compress-an-image-to-a-specific-kb-size-without-obvious-quality-loss-47n6",
+      "image": "/images/feed/feed-01aad9c86be8.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-446805b12145",
+      "title": "How 2026's Best Video Games Were Made",
+      "excerpt": "Ahead of The Game Awards Game of the Year nominees, creatives behind Resident Evil, Control, Star Wars, and Pragmata pull back the curtain",
+      "body": "Ahead of The Game Awards Game of the Year nominees, creatives behind Resident Evil, Control, Star Wars, and Pragmata pull back the curtain\n\nThis report, published by Polygon, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Video Game. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Polygon using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Matt Patches",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Video Game"
+      ],
+      "featured": false,
+      "xpReward": 49,
+      "url": "https://www.polygon.com/2026-games-of-the-year-how-were-made/",
+      "image": "/images/feed/feed-446805b12145.png",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-085eabba0dbb",
+      "title": "The charging mistakes that could ruin your Nintendo Switch's battery",
+      "excerpt": "To avoid turning your Nintendo Switch into just another stationary console, there are a few common and easy-to-overlook charging mistakes you'll want to avoid",
+      "body": "To avoid turning your Nintendo Switch into just another stationary console, there are a few common and easy-to-overlook charging mistakes you'll want to avoid\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "staff@engadget.com (Roger Fingas)",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 51,
+      "url": "https://www.engadget.com/2314944/nintendo-switch-charging-mistakes-ruin-battery/",
+      "image": "/images/feed/feed-085eabba0dbb.jpg",
+      "source": "Engadget",
+      "isLive": true
+    },
+    {
+      "id": "feed-f680c3550601",
+      "title": "Gemini AI agents repeatedly bypassed safeguards to attack real website",
+      "excerpt": "Google's Gemini AI agents repeatedly attempted to hack a real organization's website during AI model safety testing, finding ways to circumvent increasingly restrictive security controls designed to p…",
+      "body": "Google's Gemini AI agents repeatedly attempted to hack a real organization's website during AI model safety testing, finding ways to circumvent increasingly restrictive security controls designed to p — a development drawing significant attention in the cybersecurity and digital privacy space.\n\nThis report, published by BleepingComputer, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cybersecurity. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to BleepingComputer using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Lawrence Abrams",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "cybersecurity",
+      "tags": [
+        "Cybersecurity"
+      ],
+      "featured": false,
+      "xpReward": 53,
+      "url": "https://www.bleepingcomputer.com/news/security/gemini-ai-agents-repeatedly-bypassed-safeguards-to-attack-real-website/",
+      "image": "/images/feed/feed-f680c3550601.jpg",
+      "source": "BleepingComputer",
+      "isLive": true
+    },
+    {
+      "id": "feed-379bf305a230",
+      "title": "Here’s how Google Messages’ in-chat mini games will work",
+      "excerpt": "Google Messages is preparing to add built-in games to rival iMessage.",
+      "body": "Credit: Edgar Cervantes / Android Authority TL;DR Strings of code shed new light on Google’s effort to bring games to the Messages app. You’ll be able to play games, like pool and chess, without leaving the conversation. The feature will support multiplayer gameplay. Notifications will inform users when it’s their turn to play or if they won, lost, or tied. Apple often borrows ideas from Android, but the same is true the other way around. For example, Android Authority recently reported that Google has been working on bringing games to the Messages app , similar to the gaming experience in iMessage . At the time, there were no clues on how this feature would work. Now, we can answer some of those questions, thanks to some newly discovered information.",
+      "author": "Ryan McNeal",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 32,
+      "url": "https://www.androidauthority.com/google-messages-in-app-gaming-3735732/",
+      "image": "/images/feed/feed-379bf305a230.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-df73327ab82e",
+      "title": "United Airlines is experiencing a 'widespread system outage'",
+      "excerpt": "United is apparently experiencing a major outage just days after a nationwide ground stop halted thousands of flights.",
+      "body": "United is apparently experiencing a major outage just days after a nationwide ground stop halted thousands of flights.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "staff@engadget.com (Anna Washenko)",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 40,
+      "url": "https://www.engadget.com/2318613/united-airlines-is-experiencing-a-widespread-system-outage/",
+      "image": "/images/feed/feed-df73327ab82e.jpg",
+      "source": "Engadget",
+      "isLive": true
+    },
+    {
+      "id": "feed-62a563c9051b",
+      "title": "JBL Tune 730BT headphones drop to $49.95 with 44% off",
+      "excerpt": "JBL Tune 730BT headphones are 44% off on Amazon, hitting a record low of $49.95 with up to 76 hours of battery life.",
+      "body": "JBL has packed a lot into its latest budget over-ears, and the 2026 JBL Tune 730BT headphones are now down to $49.95 on Amazon . That is $40 (44%) off the $89.95 list price and the lowest price they have ever sold for. See the deal at Amazon",
+      "author": "Matt Horne",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Headphones"
+      ],
+      "featured": false,
+      "xpReward": 33,
+      "url": "https://www.androidauthority.com/jbl-tune-730bt-deal-3735758/",
+      "image": "/images/feed/feed-62a563c9051b.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-b95a00f33fcf",
+      "title": "‘Schmigadoon!’ and ‘Widow’s Bay’ land Apple TV two Grammy nominations",
+      "excerpt": "Apple TV today celebrated two Grammy nominations, one of which further establishes a canceled show as an unlikely awards success story. Here are the details. more…",
+      "body": "Apple TV today celebrated two Grammy nominations, one of which further establishes a canceled show as an unlikely awards success story. Here are the details. more — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Marcus Mendes",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 32,
+      "url": "https://9to5mac.com/2026/11/16/schmigadoon-and-widows-bay-land-apple-tv-two-grammy-nominations/",
+      "image": "/images/feed/feed-b95a00f33fcf.jpg",
+      "source": "9to5Mac",
+      "isLive": true
+    },
+    {
+      "id": "feed-0aa68b46aac6",
+      "title": "Save $120 on the Skullcandy Crusher ANC 2 noise canceling headphones",
+      "excerpt": "The headphones are $120 off on Amazon, its lowest price in a year, with adjustable haptic bass and noise canceling.",
+      "body": "Bass lovers, this one is for you. The Skullcandy Crusher ANC 2 noise canceling headphones are down to $119.99 on Amazon , which is $120 (50%) off their $239.99 list price and the lowest price they have been in a year. See the deal at Amazon",
+      "author": "Matt Horne",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Headphones"
+      ],
+      "featured": false,
+      "xpReward": 52,
+      "url": "https://www.androidauthority.com/skullcandy-crusher-anc-2-deal-amazon-3735757/",
+      "image": "/images/feed/feed-0aa68b46aac6.jpg",
+      "source": "Android Authority",
       "isLive": true
     },
     {
@@ -32,8 +298,8 @@
       "tags": [
         "Gaming"
       ],
-      "featured": true,
-      "xpReward": 31,
+      "featured": false,
+      "xpReward": 42,
       "url": "https://kotaku.com/a-ton-of-big-blockbuster-games-are-already-on-sale-for-black-friday-2026-2000757513",
       "image": "/images/feed/feed-7e736ed704fc.jpg",
       "source": "Kotaku",
@@ -51,30 +317,11 @@
       "tags": [
         "Gadgets"
       ],
-      "featured": true,
-      "xpReward": 48,
+      "featured": false,
+      "xpReward": 30,
       "url": "https://www.androidauthority.com/samsung-galaxy-tab-a11-plus-kids-edition-deal-3735756/",
       "image": "/images/feed/feed-21c94c4f4c42.jpg",
       "source": "Android Authority",
-      "isLive": true
-    },
-    {
-      "id": "feed-58b856c895e8",
-      "title": "AI Without the Weeds (Part 1): Core Concepts for Tech Leadership",
-      "excerpt": "Artificial intelligence is everywhere. If you work in tech, you probably hear the word “AI” a million times a day, and honestly, that’s not an exaggeration. You might even be using it to streamline yo…",
-      "body": "Artificial intelligence is everywhere. If you work in tech, you probably hear the word “AI” a million times a day, and honestly, that’s not an exaggeration. You might even be using it to streamline your daily workflows. But have you ever stopped to wonder how things actually work behind the scenes? If you are in technical leadership, you’ve likely tried to learn the core concepts of AI, only to find yourself immediately lost in the weeds. The truth is, if you’re driving high-stakes architecture or product decisions, you don’t need to know the mathematical ins and outs of a transformer model… that is a Machine Learning Engineer’s job. But you do need to understand the fundamental mechanics to make the right calls. If this sounds familiar, I’ve got you covered.",
-      "author": "Shruti Singh",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 42,
-      "url": "https://dev.to/shruti_singh_f036bbdad3b9/ai-without-the-weeds-part-1-core-concepts-for-tech-leadership-12ek",
-      "image": "/images/feed/feed-58b856c895e8.webp",
-      "source": "Dev.to",
       "isLive": true
     },
     {
@@ -90,106 +337,30 @@
         "Hacker",
         "Security"
       ],
-      "featured": true,
-      "xpReward": 50,
+      "featured": false,
+      "xpReward": 48,
       "url": "https://techcrunch.com/2026/11/16/cyber-giant-infoblox-confirms-security-incident-after-hackers-access-company-information/",
       "image": "https://techcrunch.com/wp-content/uploads/2024/02/connectwise-flaw-huntress-security.jpg?resize=1200,800",
       "source": "TechCrunch",
       "isLive": true
     },
     {
-      "id": "feed-982d23cbc19d",
-      "title": "How to build a Hyperliquid trading bot without keeping the private key on your server",
-      "excerpt": "To run a Hyperliquid trading bot without keeping a private key on your server, have a Lit Action sign the bot's orders with a Lit wallet. The wallet's key is created inside a secure enclave and stays…",
-      "body": "To run a Hyperliquid trading bot without keeping a private key on your server, have a Lit Action sign the bot's orders with a Lit wallet. The wallet's key is created inside a secure enclave and stays there. Your main Hyperliquid account approves the wallet's address as an API wallet. A Lit Action, which is a JavaScript function that runs in the same enclave, checks every order against limits written into its code before it signs. Your server holds a Lit usage key that can only run that action with that wallet. Why an API wallet Hyperliquid lets your main account approve a separate API wallet to sign on its behalf. The API wallet holds no funds of its own, but it can trade the funds in your main account.",
-      "author": "Lit Protocol",
+      "id": "feed-aa6d43d5b56e",
+      "title": "A Collage Showing 49 Drill Holes Made by NASA’s Curiosity Mars Rover",
+      "excerpt": "Description This collage shows 49 drill holes captured by NASA’s Curiosity Mars rover as of November 2026. Each hole represents a sample collected from rocks on the Martian surface; Curiosity’s drill,…",
+      "body": "1 Min Read A Collage Showing 49 Drill Holes Made by NASA’s Curiosity Mars Rover PIA26802 Credits: NASA/JPL-Caltech/MSSS Photojournal Navigation Science Photojournal A Collage Showing 49 Drill… Photojournal Home Photojournal Search Latest Content Galleries Feedback RSS About Downloads A Collage Showing 49 Drill Holes Made by NASA’s Curiosity Mars Rover JPEG (13.80 MB) Description This collage shows 49 drill holes captured by NASA’s Curiosity Mars rover as of November 2026. Each hole represents a sample collected from rocks on the Martian surface; Curiosity’s drill, located on the end of its robotic arm, drops pulverized rock samples into instruments in its belly that analyze their composition.",
+      "author": "NASA Breaking News",
       "date": "2026-11-16",
       "readTime": "2 min",
-      "section": "software",
+      "section": "space",
       "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 49,
-      "url": "https://dev.to/litprotocol/how-to-build-a-hyperliquid-trading-bot-without-keeping-the-private-key-on-your-server-10d7",
-      "image": "/images/feed/feed-982d23cbc19d.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-0393d90b316a",
-      "title": "AI Daily Digest November 17, 2026: Claude Onboards AMD GPUs in 3 Days, Vera Rubin Sweeps MLPerf, Defense AI Hits $1B in 3 Months",
-      "excerpt": "Monday's digest leads with the number that will be argued about all week: three days. Anthropic told IPO investors that its model did the software work to run on AMD GPUs in three days instead of six…",
-      "body": "Monday's digest leads with the number that will be argued about all week: three days. Anthropic told IPO investors that its model did the software work to run on AMD GPUs in three days instead of six to 12 months. NVIDIA's next platform swept every MLPerf training benchmark in its debut and posted a tenfold gain in agentic tokens per watt. Google made a plain-language coder generally available inside Apps Script, Microsoft shipped a 138-billion-parameter coding model that runs on a local GPU, and three funding rounds in one day mapped where capital thinks the next moat sits: defense, self-improvement, and European deep tech. 1.",
-      "author": "HIROKI II",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
+        "Nasa"
       ],
       "featured": false,
-      "xpReward": 33,
-      "url": "https://dev.to/hiroki-ii-ai/ai-daily-digest-november-17-2026-claude-onboards-amd-gpus-in-3-days-vera-rubin-sweeps-mlperf-482n",
-      "image": "/images/feed/feed-0393d90b316a.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-a0b5b2a7ed8c",
-      "title": "How do I get ChatGPT responses programmatically without using the OpenAI API?",
-      "excerpt": "Drive ChatGPT's web app with a browser automation library such as Playwright, or call a scraping API that runs that browser for you. Both give you what ChatGPT shows a visitor, and that is a different…",
-      "body": "Drive ChatGPT's web app with a browser automation library such as Playwright, or call a scraping API that runs that browser for you. Both give you what ChatGPT shows a visitor, and that is a different result from what the OpenAI API returns for the same prompt. A short Playwright script works, with one condition. On 16 November 2026 a headed Chromium got ChatGPT's logged-out page and a full answer with its links. A headless Chromium got Cloudflare's \"Just a moment...\" page with HTTP 403. The page has few stable hooks. The answer's elements carry generated class names such as x78zum5 . The fixed hooks we found were a form field name and two aria-label values. The API and the web app cite different pages.",
-      "author": "Ricardo Batista",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Api"
-      ],
-      "featured": false,
-      "xpReward": 47,
-      "url": "https://dev.to/cloro/how-do-i-get-chatgpt-responses-programmatically-without-using-the-openai-api-250l",
-      "image": "/images/feed/feed-a0b5b2a7ed8c.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-69e10cab7dd5",
-      "title": "One memory for Claude and ChatGPT",
-      "excerpt": "If you use Claude and ChatGPT for work, you know the routine: every new chat starts blank, and you explain who you are, how you work and what the project is about. Again. Alter Ego is a small connecto…",
-      "body": "If you use Claude and ChatGPT for work, you know the routine: every new chat starts blank, and you explain who you are, how you work and what the project is about. Again. Alter Ego is a small connector that gives all your AI chats one shared memory. What you tell one assistant about yourself and your work, the others remember too. What it does Keeps your rules, your profile and a log of your work in one place. Stores everything as plain files in your own OneDrive, Google Drive, Dropbox, GitHub or Azure DevOps, so you can read, edit or delete it yourself. Is not tied to one AI vendor: your memory stays yours. Where it works It works in Claude and ChatGPT today. You add it as a custom connector (ChatGPT asks for the server URL and OAuth, Claude has its own connector screen).",
-      "author": "Sebastiaan Boon",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 40,
-      "url": "https://dev.to/sebastiaan_boon_9c1fdc4f3/one-memory-for-claude-and-chatgpt-4n4m",
-      "image": "/images/feed/feed-69e10cab7dd5.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-c2da306ad302",
-      "title": "I Read the JSON-LD on Shopify's Own Dawn Demo Store. Here's What It Leaves Out.",
-      "excerpt": "If you build Shopify stores, you've probably seen a client forward this Search Console email: \"Missing field shippingDetails\", usually with \"Missing field hasMerchantReturnPolicy\" right behind it. I w…",
-      "body": "If you build Shopify stores, you've probably seen a client forward this Search Console email: \"Missing field shippingDetails\" , usually with \"Missing field hasMerchantReturnPolicy\" right behind it. I wanted to see where that comes from, so I opened a product page on Shopify's official Dawn theme demo and read every application/ld+json block on it (checked 17 November 2026). The good part Dawn outputs a proper ProductGroup , with each variant as its own Product and Offer .",
-      "author": "Hannan Shoukat",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 37,
-      "url": "https://dev.to/8bitenterprise/i-read-the-json-ld-on-shopifys-own-dawn-demo-store-heres-what-it-leaves-out-3kn2",
-      "image": "/images/feed/feed-c2da306ad302.webp",
-      "source": "Dev.to",
+      "xpReward": 48,
+      "url": "https://science.nasa.gov/photojournal/a-collage-showing-49-drill-holes-made-by-nasas-curiosity-mars-rover/",
+      "image": "/images/feed/feed-aa6d43d5b56e.jpg",
+      "source": "NASA Breaking News",
       "isLive": true
     },
     {
@@ -205,7 +376,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 47,
       "url": "https://electrek.co/2026/11/16/adding-wind-cuts-solar-battery-storage-power-costs-nearly-20-percent/",
       "image": "/images/feed/feed-f612ab191d07.jpg",
       "source": "Electrek",
@@ -224,48 +395,10 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 35,
       "url": "https://electrek.co/2026/11/16/tesla-cybercab-crashes-speed-problem/",
       "image": "/images/feed/feed-165397cfb252.jpg",
       "source": "Electrek",
-      "isLive": true
-    },
-    {
-      "id": "feed-a4501e29234d",
-      "title": "Apple expands Apple Intelligence beta testing in China to iPads and Macs",
-      "excerpt": "Following the arrival of Apple Intelligence on iPhones in China with iOS 27.3 beta 1, Apple is now expanding support to iPads and Macs ahead of the public release of its 27.3 updates. Here are the det…",
-      "body": "Following the arrival of Apple Intelligence on iPhones in China with iOS 27.3 beta 1, Apple is now expanding support to iPads and Macs ahead of the public release of its 27.3 updates. Here are the det — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Marcus Mendes",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 50,
-      "url": "https://9to5mac.com/2026/11/16/apple-expands-apple-intelligence-beta-testing-in-china-to-ipads-and-macs/",
-      "image": "/images/feed/feed-a4501e29234d.jpg",
-      "source": "9to5Mac",
-      "isLive": true
-    },
-    {
-      "id": "feed-33398ff5e658",
-      "title": "Android Fast Switch looks like Google’s answer to iPhone Handoff",
-      "excerpt": "Google's prepping an automatic SIM-sharing tool of its own.",
-      "body": "TL;DR Apple included iPhone Handoff in iOS 27, supporting sharing one phone number across two phones. Google now appears to be working on its own version: Android Fast Switch. Sharing would require you to be logged in to the same Google account on both phones. Apple introduced iPhone Handoff with iOS 27, allowing users to users to effectively share a single phone line across multiple devices, and now it looks like Google is already building its own Android version, called Fast Switch. APK teardown: This reporting is based on work-in-progress code. These features may not ship.",
-      "author": "Stephen Schenck",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Iphone"
-      ],
-      "featured": false,
-      "xpReward": 45,
-      "url": "https://www.androidauthority.com/android-fast-switch-handoff-3735737/",
-      "image": "/images/feed/feed-33398ff5e658.jpg",
-      "source": "Android Authority",
       "isLive": true
     },
     {
@@ -281,7 +414,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 46,
       "url": "https://insideevs.com/news/815648/land-rover-baby-defender-production/",
       "image": "/images/feed/feed-b9f57d761d73.jpg",
       "source": "InsideEVs",
@@ -300,7 +433,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 44,
       "url": "https://www.space.com/space-exploration/on-this-day-in-space-november-16-2026",
       "image": "/images/feed/feed-021b5c9dc3ce.jpg",
       "source": "Space.com",
@@ -319,29 +452,10 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 48,
       "url": "https://www.bleepingcomputer.com/news/security/google-project-zero-cuts-bug-disclosure-deadline-to-30-days-amid-ai-threats/",
       "image": "/images/feed/feed-6a0c75840373.jpg",
       "source": "BleepingComputer",
-      "isLive": true
-    },
-    {
-      "id": "feed-b1e230b400a7",
-      "title": "New iPhone Duo orders now deliver a month earlier than before",
-      "excerpt": "Interested in getting an iPhone Duo before Christmas? You might be in luck, as Apple’s online store delivery estimates just got pulled forward by a full month, with December delivery now expected. mor…",
-      "body": "Interested in getting an iPhone Duo before Christmas? You might be in luck, as Apple’s online store delivery estimates just got pulled forward by a full month, with December delivery now expected. mor — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Iphone. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Ryan Christoffel",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Iphone"
-      ],
-      "featured": false,
-      "xpReward": 33,
-      "url": "https://9to5mac.com/2026/11/16/new-iphone-duo-orders-now-deliver-a-month-earlier-than-before/",
-      "image": "/images/feed/feed-b1e230b400a7.jpg",
-      "source": "9to5Mac",
       "isLive": true
     },
     {
@@ -357,29 +471,10 @@
         "Starship"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 42,
       "url": "https://www.space.com/space-exploration/launches-spacecraft/relive-starships-historic-flight-15-with-our-best-photos-from-launch-and-mechazilla-tower-catch",
       "image": "/images/feed/feed-5d5380fc582a.jpg",
       "source": "Space.com",
-      "isLive": true
-    },
-    {
-      "id": "feed-de6276b27d23",
-      "title": "The iPhone Duo gets face unlock with the latest iOS 27 beta.",
-      "excerpt": "You won't need to wait for TouchID on your $2,000 foldable.",
-      "body": "You won't need to wait for TouchID on your $2,000 foldable.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Iphone. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Filipe Espósito)",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Iphone"
-      ],
-      "featured": false,
-      "xpReward": 34,
-      "url": "https://www.engadget.com/2318489/iphone-duo-gets-face-unlock-with-the-latest-ios-27-beta/",
-      "image": "/images/feed/feed-de6276b27d23.jpg",
-      "source": "Engadget",
       "isLive": true
     },
     {
@@ -395,7 +490,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 47,
       "url": "https://www.ign.com/articles/austin-creed-goes-viral-after-pulling-off-explosive-real-life-shoryuken-in-aew-full-gear-match",
       "image": "/images/feed/feed-5fe41730779f.jpg",
       "source": "IGN",
@@ -414,7 +509,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 49,
       "url": "https://www.ign.com/articles/alienware-aw3926qw-39-5k-oled-gaming-monitor-deal-november-2026",
       "image": "/images/feed/feed-0fd85c48c305.jpg",
       "source": "IGN",
@@ -433,29 +528,10 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 48,
       "url": "https://www.ign.com/articles/nvidia-reportedly-uninterested-in-bringing-jensen-huang-back-as-ceo",
       "image": "/images/feed/feed-7cba220cb8a5.png",
       "source": "IGN",
-      "isLive": true
-    },
-    {
-      "id": "feed-828722fa96e2",
-      "title": "Apple’s leadership overhaul continues with new Apple Pay and Wallet chief",
-      "excerpt": "Bloomberg reports that Apple lifer Corey Fugman will replace Jennifer Bailey as the head of the Apple Pay and Wallet division. Here are the details. more…",
-      "body": "Bloomberg reports that Apple lifer Corey Fugman will replace Jennifer Bailey as the head of the Apple Pay and Wallet division. Here are the details. more — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Marcus Mendes",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 53,
-      "url": "https://9to5mac.com/2026/11/16/apples-leadership-overhaul-continues-with-new-apple-pay-and-wallet-chief/",
-      "image": "/images/feed/feed-828722fa96e2.jpg",
-      "source": "9to5Mac",
       "isLive": true
     },
     {
@@ -472,7 +548,7 @@
         "Game"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 30,
       "url": "https://ben3d.ca/blog/building-the-aaa-lighting-pipeline-in-threejs",
       "image": "/images/feed/feed-8eba0cd01a09.jpg",
       "source": "Hacker News",
@@ -491,29 +567,10 @@
         "Security"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 30,
       "url": "https://techcrunch.com/2026/11/16/apple-reveals-new-mac-security-controls-as-ai-agents-raise-privacy-risks/",
       "image": "https://techcrunch.com/wp-content/uploads/2024/11/CMC_8152.jpg?resize=1200,800",
       "source": "TechCrunch",
-      "isLive": true
-    },
-    {
-      "id": "feed-39a4e79de54f",
-      "title": "Every Xbox console generation sorted by release date",
-      "excerpt": "Microsoft debuted the Xbox in 2001, and there's quite a lot to look back on from the quarter-century since the company got into gaming.",
-      "body": "Microsoft debuted the Xbox in 2001, and there's quite a lot to look back on from the quarter-century since the company got into gaming.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Yoni Yardeni)",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 50,
-      "url": "https://www.engadget.com/2314891/every-xbox-console-generation-sorted-release-date/",
-      "image": "/images/feed/feed-39a4e79de54f.jpg",
-      "source": "Engadget",
       "isLive": true
     },
     {
@@ -529,7 +586,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 49,
       "url": "https://electrek.co/2026/11/16/ausom-black-friday-sale-right-scooter-right-job-at-right-price/",
       "image": "/images/feed/feed-3cded92c41f0.jpg",
       "source": "Electrek",
@@ -548,7 +605,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 38,
       "url": "https://www.bleepingcomputer.com/news/security/california-sues-openai-over-ai-agents-escaping-sandboxes-hacking-firms/",
       "image": "/images/feed/feed-0f561af81c8b.jpg",
       "source": "BleepingComputer",
@@ -567,36 +624,17 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 40,
       "url": "https://www.polygon.com/end-of-oak-street-streaming-hbo-max-november-2026/",
       "image": "/images/feed/feed-089c891447a7.jpg",
       "source": "Polygon",
       "isLive": true
     },
     {
-      "id": "feed-c407ce599ca2",
-      "title": "Netflix Officially Confirms 3 Body Problem Returns in 2027",
-      "excerpt": "Season 2 of 3 Body Problem finally has a release date, nearly three years after the Netflix hard sci-fi thriller series debuted.",
-      "body": "Netflix's long-awaited second season of 3 Body Problem finally has a release date. The streamer announced Monday that season 2 of the sci-fi series, an adaptation of author Cixin Liu's Remembrance of Earth's Past trilogy, will arrive on Jan. 14, 2027. That's nearly three years after the first season of 3 Body Problem debuted on Netflix.",
-      "author": "Michael McWhertor",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 32,
-      "url": "https://www.polygon.com/netflix-3-body-problem-season-2-release-date-2027/",
-      "image": "/images/feed/feed-c407ce599ca2.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
       "id": "feed-6bf85be6fa63",
       "title": "California sues OpenAI over rogue AI hacking incidents",
-      "excerpt": "California is suing OpenAI after its AI agents broke out of their testing environment and hacked other companies, including Hugging Face. In a lawsuit on Monday, Attorney General Rob Bonta accuses Ope…",
-      "body": "California is suing OpenAI after its AI agents broke out of their testing environment and hacked other companies, including Hugging Face. In a lawsuit on Monday , Attorney General Rob Bonta accuses OpenAI of violating consumer safety law by knowingly developing a \"dangerous product without proper oversight,\" as reported earlier by Reuters . The lawsuit claims the cyberattack on Hugging Face \"was the predictable result of an internal culture at OpenAI that prioritizes growth and rapid model development over safety and accountability.\" It alleges that OpenAI recently told the attorney general's office that it \"lost control\" of its AI agents mor … Read the full story at The Verge.",
+      "excerpt": "California is suing OpenAI after its AI agents broke out of their testing environment and hacked other companies, including Hugging Face. In a lawsuit filed Monday, Attorney General Rob Bonta accuses…",
+      "body": "California is suing OpenAI after its AI agents broke out of their testing environment and hacked other companies, including Hugging Face. In a lawsuit filed Monday , Attorney General Rob Bonta accuses OpenAI of violating consumer safety law by knowingly developing a \"dangerous product without proper oversight,\" as reported earlier by Reuters . The lawsuit claims the cyberattack on Hugging Face \"was the predictable result of an internal culture at OpenAI that prioritizes growth and rapid model development over safety and accountability.\" It alleges that OpenAI recently told the attorney general's office that it \"lost control\" of its AI agents … Read the full story at The Verge.",
       "author": "Emma Roth",
       "date": "2026-11-16",
       "readTime": "2 min",
@@ -605,7 +643,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 50,
       "url": "https://www.theverge.com/ai-artificial-intelligence/1034815/california-openai-hugging-face-lawsuit",
       "image": "/images/feed/feed-6bf85be6fa63.png",
       "source": "The Verge",
@@ -614,8 +652,8 @@
     {
       "id": "feed-a948d125471e",
       "title": "Sam Altman says he wants everyone ‘to have a lot of RAM’",
-      "excerpt": "Sam…thank you. | Image: Getty Images OpenAI CEO Sam Altman is once again addressing his controversial comments on PC RAM purchases. \"I want to be clear, I want people to have a lot of RAM, I think eve…",
-      "body": "Sam…thank you. | Image: Getty Images OpenAI CEO Sam Altman is once again addressing his controversial comments on PC RAM purchases. \"I want to be clear, I want people to have a lot of RAM, I think everybody should be able to buy a lot of RAM for their own computer,\" Altman said today. \"I think the home tinkering is great.\" The comments were made on stage at Semafor's Silicon Valley &amp; The World summit on Monday. Altman's remarks on RAM stirred up controversy last month. In an appearance on the Cheeky Pint podcast , Altman said that it's \"quite terrible\" for everyone to have RAM in personal computers rather than in data centers. He later followed up on those comments in posts on … Read the full story at The Verge.",
+      "excerpt": "Sam… thank you. | Image: Getty Images OpenAI CEO Sam Altman is once again addressing his controversial comments on PC RAM purchases. \"I want to be clear, I want people to have a lot of RAM, I think ev…",
+      "body": "Sam… thank you. | Image: Getty Images OpenAI CEO Sam Altman is once again addressing his controversial comments on PC RAM purchases. \"I want to be clear, I want people to have a lot of RAM, I think everybody should be able to buy a lot of RAM for their own computer,\" Altman said today. \"I think the home tinkering is great.\" The comments were made onstage at Semafor's Silicon Valley &amp; The World summit on Monday. Altman's remarks on RAM stirred up controversy last month. In an appearance on the Cheeky Pint podcast , Altman said that it's \"quite terrible\" for everyone to have RAM in personal computers rather than in data centers. He later followed up on those comments in posts on … Read the full story at The Verge.",
       "author": "Stevie Bonifield",
       "date": "2026-11-16",
       "readTime": "2 min",
@@ -624,7 +662,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 39,
       "url": "https://www.theverge.com/ai-artificial-intelligence/1034787/sam-altman-ram-shortage-semafor",
       "image": "/images/feed/feed-a948d125471e.jpg",
       "source": "The Verge",
@@ -662,7 +700,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 46,
       "url": "https://www.nasa.gov/news-release/nasa-receives-16th-consecutive-clean-financial-audit-opinion/",
       "image": "/images/feed/feed-e67baf6df70e.jpg",
       "source": "NASA Breaking News",
@@ -681,7 +719,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 49,
       "url": "https://electrek.co/2026/11/16/volkswagens-cheapest-ev-buyers-waiting-nearly-2-years/",
       "image": "/images/feed/feed-c30e39f97e0e.jpg",
       "source": "Electrek",
@@ -700,7 +738,7 @@
         "Electric Motor"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 30,
       "url": "https://electrek.co/2026/11/16/motorcycles-are-notoriously-dangerous-could-electric-motorcycles-actually-change-that/",
       "image": "/images/feed/feed-f78ce9bac712.jpg",
       "source": "Electrek",
@@ -719,7 +757,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 40,
       "url": "https://techcrunch.com/2026/11/16/california-state-ag-sues-openai-over-rogue-agent-incidents/",
       "image": "https://techcrunch.com/wp-content/uploads/2026/11/1920px-Rob_Bonta_at_Central_Bay_Operations_and_Maintenance_Facility_opening_December_2018.jpeg?resize=1200,981",
       "source": "TechCrunch",
@@ -739,7 +777,7 @@
         "Starship"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 50,
       "url": "https://www.space.com/space-exploration/launches-spacecraft/elon-musk-says-spacexs-starship-already-the-largest-rocket-on-earth-will-get-even-bigger-with-next-gen-v4-model",
       "image": "/images/feed/feed-dacf34caa652.jpg",
       "source": "Space.com",
@@ -758,7 +796,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 41,
       "url": "https://spacenews.com/spacenukes-opens-los-alamos-manufacture-and-materials-facility-to-build-its-next-generation-space-reactor/",
       "image": "/images/feed/feed-95ad65274d5a.png",
       "source": "SpaceNews",
@@ -777,7 +815,7 @@
         "Breach"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 40,
       "url": "https://www.bleepingcomputer.com/news/security/barracuda-links-cloud-breach-to-artex-ai-powered-cyberattack/",
       "image": "/images/feed/feed-9cf1ce021144.jpg",
       "source": "BleepingComputer",
@@ -786,8 +824,8 @@
     {
       "id": "feed-5cc174a98b82",
       "title": "Uber says hackers stole information on close to 150,000 driver’s licenses during data breach",
-      "excerpt": "The ridesharing giant said drivers' license information stored by AI cloud company Fireworks AI was stolen during a security incident.",
-      "body": "The ridesharing giant said drivers' license information stored by AI cloud company Fireworks AI was stolen during a security incident.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Data Breach, Hacker, Breach. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "excerpt": "The ride-sharing giant said driver's license information stored by AI cloud company Fireworks AI was stolen during a security incident.",
+      "body": "The ride-sharing giant said driver's license information stored by AI cloud company Fireworks AI was stolen during a security incident.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Data Breach, Hacker, Breach. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
       "author": "Zack Whittaker",
       "date": "2026-11-16",
       "readTime": "2 min",
@@ -798,47 +836,9 @@
         "Breach"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 52,
       "url": "https://techcrunch.com/2026/11/16/uber-confirms-hackers-stole-thousands-of-drivers-license-information-in-data-breach/",
       "image": "https://techcrunch.com/wp-content/uploads/2026/11/uber-breach-2288234319.jpg?resize=1200,820",
-      "source": "TechCrunch",
-      "isLive": true
-    },
-    {
-      "id": "feed-365f3b142fa5",
-      "title": "OpenAI wants to stop deepfakes from overwhelming child abuse tiplines",
-      "excerpt": "OpenAI is announcing a tool that it says will help child sexual abuse investigators cut through the noise to find harmful material they can act on quickly. At a Monday press briefing in Washington, DC…",
-      "body": "OpenAI is announcing a tool that it says will help child sexual abuse investigators cut through the noise to find harmful material they can act on quickly. At a Monday press briefing in Washington, DC, OpenAI announced a classifier it says can better detect abusive imagery of kids, including whether it's AI-generated. It's also offering free access to vetted organizations, giving developers more guidance on how to detect this type of content, and helping to train law enforcement on how AI can aid their investigations. The news comes as policymakers and others are pushing for more safety restrictions on AI tools, accusing OpenAI and other co … Read the full story at The Verge.",
-      "author": "Lauren Feiner",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "ai",
-      "tags": [
-        "Openai"
-      ],
-      "featured": false,
-      "xpReward": 53,
-      "url": "https://www.theverge.com/policy/1034527/openai-csam-classifier",
-      "image": "/images/feed/feed-365f3b142fa5.jpg",
-      "source": "The Verge",
-      "isLive": true
-    },
-    {
-      "id": "feed-761b56f193e1",
-      "title": "Trump says ex-Nvidia CEO Jensen Huang’s affair with an alleged Chinese spy did not threaten national security",
-      "excerpt": "Trump contradicted his own government's intelligence officials, who reportedly concluded that Alice Huang is a Chinese spy.",
-      "body": "Trump contradicted his own government's intelligence officials, who reportedly concluded that Alice Huang is a Chinese spy.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Security. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Amanda Silberling",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "cybersecurity",
-      "tags": [
-        "Security"
-      ],
-      "featured": false,
-      "xpReward": 44,
-      "url": "https://techcrunch.com/2026/11/16/trump-says-ex-nvidia-ceo-jensen-huangs-affair-with-an-alleged-chinese-spy-did-not-threaten-national-security/",
-      "image": "https://techcrunch.com/wp-content/uploads/2026/10/GettyImages-2297572109.jpg?w=1024",
       "source": "TechCrunch",
       "isLive": true
     },
@@ -855,29 +855,10 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 40,
       "url": "https://www.space.com/space-exploration/voyager/what-exactly-is-a-light-day-heres-what-voyager-1s-latest-milestone-means-for-the-interstellar-probe",
       "image": "/images/feed/feed-d11d273da539.jpg",
       "source": "Space.com",
-      "isLive": true
-    },
-    {
-      "id": "feed-9a55de2e23ad",
-      "title": "Sentinel-6B in Orbit Around Earth",
-      "excerpt": "Description This artist’s concept shows the Sentinel-6B satellite, which will become the reference satellite for other missions studying sea surface height.",
-      "body": "1 Min Read Sentinel-6B in Orbit Around Earth PIA26803 Credits: NASA/JPL-Caltech Photojournal Navigation Science Photojournal Sentinel-6B in Orbit Around Earth Photojournal Home Photojournal Search Latest Content Galleries Feedback RSS About Downloads Sentinel-6B in Orbit Around Earth JPEG (1.00 MB) PIA26803 Figure A JPEG (1.03 MB) PIA26803 Figure B JPEG (772.48 KB) Description This artist’s concept shows the Sentinel-6B satellite, which will become the reference satellite for other missions studying sea surface height. Figure A Figure B Keep Exploring Discover More Topics From Photojournal Photojournal Search Photojournal Photojournal’s Latest Content Feedback",
-      "author": "NASA Breaking News",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Orbit"
-      ],
-      "featured": false,
-      "xpReward": 38,
-      "url": "https://science.nasa.gov/photojournal/sentinel-6b-in-orbit-around-earth/",
-      "image": "/images/feed/feed-9a55de2e23ad.jpg",
-      "source": "NASA Breaking News",
       "isLive": true
     },
     {
@@ -893,7 +874,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 33,
       "url": "https://openai.com/index/strengthening-online-child-safety/",
       "image": "/images/topics/topic-ai-ml.png",
       "source": "Hacker News",
@@ -901,7 +882,7 @@
     },
     {
       "id": "feed-7dc80a7ed2c8",
-      "title": "Sam Altman on Nvidia without Jensen Huang: the industry will be ‘fine’",
+      "title": "Sam Altman on Nvidia without Jensen Huang: The industry will be ‘fine’",
       "excerpt": "OpenAI CEO Sam Altman acknowledged the special role Nvidia CEO Jensen Huang has played in the AI boom, but ultimately thinks the industry will be “fine” without him at the helm.",
       "body": "OpenAI CEO Sam Altman acknowledged the special role Nvidia CEO Jensen Huang has played in the AI boom, but ultimately thinks the industry will be “fine” without him at the helm.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Ai. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
       "author": "Rebecca Bellan",
@@ -912,7 +893,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 37,
       "url": "https://techcrunch.com/2026/11/16/sam-altman-on-nvidia-without-jensen-huang-the-industry-will-be-fine/",
       "image": "https://techcrunch.com/wp-content/uploads/2026/11/GettyImages-2297209338.jpg?w=1024",
       "source": "TechCrunch",
@@ -931,24 +912,43 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 33,
       "url": "https://www.zdnet.com/innovation/samsung-galaxy-claw-ai-cross-app-upgrade/",
       "image": "/images/feed/feed-2ded70297bb6.jpg",
       "source": "ZDNet",
       "isLive": true
+    },
+    {
+      "id": "feed-f2c3c92b0ac1",
+      "title": "OpenAI will embed safety researchers to investigate AI subversion",
+      "excerpt": "OpenAI will embed six Apollo Research evaluators to investigate whether its AI models engage in subversive behavior, but restrictions on access and disclosure raise questions about their independence.",
+      "body": "OpenAI will embed six Apollo Research evaluators to investigate whether its AI models engage in subversive behavior, but restrictions on access and disclosure raise questions about their independence.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Openai. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Rebecca Bellan",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "ai",
+      "tags": [
+        "Openai"
+      ],
+      "featured": false,
+      "xpReward": 47,
+      "url": "https://techcrunch.com/2026/11/16/openai-will-embed-apollo-researchers-to-investigate-ai-subversion/",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/05/openai-logo-code-background.jpg?resize=1200,798",
+      "source": "TechCrunch",
+      "isLive": true
     }
   ],
   "breakingNews": [
-    "DEV.TO: Your First Windows Game on Linux: A Practical Steam Proton Setup",
-    "KOTAKU: A Ton Of Big Blockbuster Games Are Already On Sale For Black Friday 2026",
-    "ANDROID AUTHORITY: Galaxy Tab A11 Plus Kids Edition hits a record low",
-    "DEV.TO: AI Without the Weeds (Part 1): Core Concepts for Tech Leadership",
-    "TECHCRUNCH: Cyber giant Infoblox confirms security incident after hackers access ‘company information’",
-    "DEV.TO: How to build a Hyperliquid trading bot without keeping the private key on your server",
-    "DEV.TO: AI Daily Digest November 17, 2026: Claude Onboards AMD GPUs in 3 Days, Vera Rubin Sweeps MLPerf, Defense AI Hits $1B in 3 Months",
-    "DEV.TO: How do I get ChatGPT responses programmatically without using the OpenAI API?",
-    "DEV.TO: One memory for Claude and ChatGPT",
-    "DEV.TO: I Read the JSON-LD on Shopify's Own Dawn Demo Store. Here's What It Leaves Out."
+    "DEV.TO: 如何改造scrapy-redis的TLS指纹和HTTP2指纹？",
+    "DEV.TO: De Zeus à l'IA",
+    "DEV.TO: Postgres Training Backups: Node.js pg_dump Gzip Streams for 2026 Object Retention",
+    "DEV.TO: Consistency checks, with real output: missing attributes and title/description contradictions",
+    "DEV.TO: A download archive needs a restart policy",
+    "DEV.TO: The Shift Handoff: Turning Chat Queues into Executable Summaries",
+    "DEV.TO: How to Compress an Image to a Specific KB Size Without Obvious Quality Loss",
+    "POLYGON: How 2026's Best Video Games Were Made",
+    "ENGADGET: The charging mistakes that could ruin your Nintendo Switch's battery",
+    "BLEEPINGCOMPUTER: Gemini AI agents repeatedly bypassed safeguards to attack real website"
   ],
   "sectionVideos": {}
 }
