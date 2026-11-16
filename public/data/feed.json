@@ -1,88 +1,31 @@
 {
-  "fetchedAt": "2026-11-16T20:12:56.774Z",
+  "fetchedAt": "2026-11-16T21:11:36.920Z",
   "articles": [
     {
-      "id": "feed-dacf32302a98",
-      "title": "Weekly Digest Recovery Using FIFO Queue Webhook Deduplication and Idempotency Keys",
-      "excerpt": "TL;DR: Put each active customer's weekly digest in a FIFO queue with a stable event ID, but treat its five-minute duplicate window as traffic filtering, not correctness. Before sending, atomically cla…",
-      "body": "TL;DR: Put each active customer's weekly digest in a FIFO queue with a stable event ID, but treat its five-minute duplicate window as traffic filtering, not correctness. Before sending, atomically claim that event ID in durable storage; acknowledge the message only after the send is recorded. Use a standard queue instead when ordering has no business value and delayed retries are the main requirement. The page is weekly_digest_duplicate_send_total &gt; 0 . At 03:07, the on-call view should contain the digest event ID, customer ID, queue type, message attempt, first-seen time, claim result, and final disposition. A graph of total queue depth looks reassuring while one customer receives the same edition twice, so it is not the first screen I would trust.",
-      "author": "BrodyVance2149",
+      "id": "feed-828722fa96e2",
+      "title": "Apple’s leadership overhaul continues with new Apple Pay and Wallet chief",
+      "excerpt": "Bloomberg reports that Apple lifer Corey Fugman will replace Jennifer Bailey as the head of the Apple Pay and Wallet division. Here are the details. more…",
+      "body": "Bloomberg reports that Apple lifer Corey Fugman will replace Jennifer Bailey as the head of the Apple Pay and Wallet division. Here are the details. more — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Marcus Mendes",
       "date": "2026-11-16",
       "readTime": "2 min",
-      "section": "software",
+      "section": "gadgets",
       "tags": [
-        "Software"
+        "Gadgets"
       ],
       "featured": true,
-      "xpReward": 47,
-      "url": "https://dev.to/brodyvance2149/weekly-digest-recovery-using-fifo-queue-webhook-deduplication-and-idempotency-keys-2475",
-      "image": "/images/feed/feed-dacf32302a98.webp",
-      "source": "Dev.to",
+      "xpReward": 44,
+      "url": "https://9to5mac.com/2026/11/16/apples-leadership-overhaul-continues-with-new-apple-pay-and-wallet-chief/",
+      "image": "/images/feed/feed-828722fa96e2.jpg",
+      "source": "9to5Mac",
       "isLive": true
     },
     {
-      "id": "feed-2e89387be887",
-      "title": "Node.js Media Renewal Jobs: At-Least-Once Replay Governance for Duplicate Processing",
-      "excerpt": "A media subscription renewal reminder has a deadline, and the queue does not know about it. The queue only knows delivery. With an at-least-once background job queue, retries and duplicate jobs are no…",
-      "body": "A media subscription renewal reminder has a deadline, and the queue does not know about it. The queue only knows delivery. With an at-least-once background job queue, retries and duplicate jobs are normal; the engineering decision is how replay is governed so one renewal cycle creates one reminder intent. Short answer: make replay a recorded business decision. Derive one idempotency key from the renewal cycle, store the decision and outbound intent together, and route every later delivery through that record. Acknowledging a message is not evidence that the reminder happened. This framing matters during incidents. A consumer can disappear after committing storage but before acknowledging its delivery.",
-      "author": "BartholomewVance6831",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 49,
-      "url": "https://dev.to/bartholomewvance6831/nodejs-media-renewal-jobs-at-least-once-replay-governance-for-duplicate-processing-2c1e",
-      "image": "/images/feed/feed-2e89387be887.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-ca343653dcc5",
-      "title": "Showing license expiry in the right time zone",
-      "excerpt": "A support ticket arrives: a customer in Auckland says your app reports their license as expired today, but their renewal receipt clearly says it runs through the end of the month. You check the key. I…",
-      "body": "A support ticket arrives: a customer in Auckland says your app reports their license as expired today , but their renewal receipt clearly says it runs through the end of the month. You check the key. It is signed, it is theirs, and the expiry instant is comfortably in the future. Then a second customer, in Los Angeles, with the same expiry on their key, reports no problem at all — their copy says \"expires tomorrow.\" Nothing is wrong with either license. Your UI rendered one instant onto two different calendars. This is not the clock-skew problem, where two machines honestly disagree about what time it is , and it is not an attacker rolling the clock back . Both clocks here are correct. The bug is in how Keyright 's expiry — a UTC instant — gets turned into a human-readable date.",
-      "author": "Zero Heartbeat",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 48,
-      "url": "https://dev.to/zero_heartbeat_06a3625d7a/showing-license-expiry-in-the-right-time-zone-504b",
-      "image": "/images/feed/feed-ca343653dcc5.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-75d5840ff8a5",
-      "title": "Exact VRAM & Memory Bandwidth Math for Running DeepSeek-R1, Qwen-2.5-Coder-32B & Llama-3.3-70B Locally",
-      "excerpt": "Most \"can my rig run this model?\" threads guess at VRAM numbers and ignore the two killers that actually cause CUDA/Metal out-of-memory panics or 3-token/sec crawl speeds: KV-cache growth at 8K–32K co…",
-      "body": "Most \"can my rig run this model?\" threads guess at VRAM numbers and ignore the two killers that actually cause CUDA/Metal out-of-memory panics or 3-token/sec crawl speeds: KV-cache growth at 8K–32K context and physical memory bus bandwidth . Here is the exact memory footprint math and measured token generation ceiling across 24GB GDDR6X CUDA cards vs. Unified Memory nodes so you can size local inference hardware without guessing. 1. The Real Local LLM Memory Formula Static GGUF file size is never your actual runtime footprint.",
-      "author": "Ryan // SheerAI",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 46,
-      "url": "https://dev.to/sheerai/exact-vram-memory-bandwidth-math-for-running-deepseek-r1-qwen-25-coder-32b-llama-33-70b-2ojc",
-      "image": "/images/feed/feed-75d5840ff8a5.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-4ed000727bf7",
-      "title": "Reklam Formundan CRM'e Kapalı Döngü: UTM, Webhook ve Conversions API ile Lead Veri Akışı Tasarlamak",
-      "excerpt": "Pazarlama tarafında \"lead geldi\" cümlesi kulağa basit gelir. Mühendislik tarafında ise aynı cümle; bir webhook çağrısı, doğrulanması gereken bir telefon numarası, kaybolmaya hazır bir kampanya paramet…",
-      "body": "Pazarlama tarafında \"lead geldi\" cümlesi kulağa basit gelir. Mühendislik tarafında ise aynı cümle; bir webhook çağrısı, doğrulanması gereken bir telefon numarası, kaybolmaya hazır bir kampanya parametresi ve haftalar sonra reklam platformuna geri bildirilmesi gereken bir satış olayı demektir. Bu yazıda gayrimenkul ve B2B satış süreçlerinde kullanılan bir lead veri hattını katman katman ele alıyorum. Katman 1: Yakalama Talepler genellikle dört kapıdan girer: Meta anlık formları, web sitesindeki açılış sayfası formları, WhatsApp tıklamaları ve emlak portalları. İlk tasarım kararı, bu kapıların hepsinin aynı alım uç noktasına (ingest endpoint) bağlanmasıdır. Her kaynağın ayrı bir e-posta bildirimiyle takip edildiği yapılarda veri daha ilk dakikada parçalanır.",
-      "author": "yol.net",
+      "id": "feed-a9252b9e0bf7",
+      "title": "How to add wallets to your app with an API",
+      "excerpt": "On Lit Protocol you can add a wallet to your app with six REST calls and no SDK. You create a wallet, create a group, write a signing rule, connect them, make an API key for your server, and sign. The…",
+      "body": "On Lit Protocol you can add a wallet to your app with six REST calls and no SDK. You create a wallet, create a group, write a signing rule, connect them, make an API key for your server, and sign. The key is created and stored inside a secure enclave. The rule that decides when it signs is a JavaScript function that runs in the same enclave. The record of which rules can use which wallets is stored on Base. I will walk through the six calls, and then say a little about when Lit is the right choice and when it is not. The six calls Go to the Lit dashboard and click Create an account . Choose API key , fill in your email and an account name, and copy the account API key it gives you. The base URL for everything below is https://api.chipotle.litprotocol.com/core/v1 . First, create a wallet.",
+      "author": "Lit Protocol",
       "date": "2026-11-16",
       "readTime": "2 min",
       "section": "software",
@@ -90,10 +33,485 @@
         "Api"
       ],
       "featured": true,
-      "xpReward": 35,
-      "url": "https://dev.to/yolnet/reklam-formundan-crme-kapali-dongu-utm-webhook-ve-conversions-api-ile-lead-veri-akisi-tasarlamak-dab",
-      "image": "/images/feed/feed-4ed000727bf7.webp",
+      "xpReward": 49,
+      "url": "https://dev.to/litprotocol/how-to-add-wallets-to-your-app-with-an-api-7af",
+      "image": "/images/feed/feed-a9252b9e0bf7.webp",
       "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-838f272f78c4",
+      "title": "How to Tailor Your Resume to a Job Without Lying",
+      "excerpt": "Tailoring means choosing, ordering and naming real experience. Here is where it ends and invention begins. Almost every piece of job-search advice says to tailor the resume to the job. Very little of…",
+      "body": "Tailoring means choosing, ordering and naming real experience. Here is where it ends and invention begins. Almost every piece of job-search advice says to tailor the resume to the job. Very little of it explains where tailoring stops and making things up starts. With AI writing tools a click away, that line matters more than it used to, because a tool asked to \"match this job post\" will happily add skills, titles and results that never happened. A resume that claims experience the candidate does not have can sometimes get through a first screen. It rarely survives the conversation that follows. One question about a tool that was never used, or a result that cannot be explained, and the rest of the resume loses its credibility too. The good news is that honest tailoring is not complicated.",
+      "author": "Baela",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 32,
+      "url": "https://dev.to/baelaai/how-to-tailor-your-resume-to-a-job-without-lying-5666",
+      "image": "/images/feed/feed-838f272f78c4.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-0306a9cbf242",
+      "title": "OpenAI’s Free ChatGPT Program Could Reach 200,000 Researchers. Here’s What It Offers",
+      "excerpt": "Original AI-generated editorial illustration, not a photograph of an actual laboratory. By Mahan Kenway | November 17, 2026 OpenAI is expanding ChatGPT for Academic Researchers, with a goal of reachin…",
+      "body": "Original AI-generated editorial illustration, not a photograph of an actual laboratory. By Mahan Kenway | November 17, 2026 OpenAI is expanding ChatGPT for Academic Researchers , with a goal of reaching up to 200,000 researchers worldwide. The next application round opens November 23, 2026 . But that headline needs context: the new round awards 50,000 grants, each covering the applicant and up to two collaborators. That means capacity for up to 150,000 people in this round, not 200,000 new grants. This is not simply “free AI for everyone in science.” Selected teams receive ChatGPT Plus access, not API credits, and eligibility and usage limits apply. The consequential part of the announcement is not a new model.",
+      "author": "Mahan Tavakoli",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 52,
+      "url": "https://dev.to/mahankenway/openais-free-chatgpt-program-could-reach-200000-researchers-heres-what-it-offers-5b76",
+      "image": "/images/feed/feed-0306a9cbf242.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-671fb74df1d3",
+      "title": "Vector Search vs Web Search for Insurance Claims Intake: Audit Logs and Freshness",
+      "excerpt": "Insurance claims intake is a retrieval problem with a clock attached. A claim answer can be semantically relevant and still be wrong if the policy amendment landed yesterday, or if an adjuster cannot…",
+      "body": "Insurance claims intake is a retrieval problem with a clock attached. A claim answer can be semantically relevant and still be wrong if the policy amendment landed yesterday, or if an adjuster cannot show which document supported the answer. Short answer: use staged retrieval with explicit collections, bounded queries, and traceable source context. Keep vector search for the claim corpus, use web search only for approved external material, and make freshness plus audit fields part of the retrieval contract before picking a vendor. The incident lesson: relevance is not the whole answer I have been paged for missed jobs and duplicate deliveries.",
+      "author": "Faelvorn538072",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 40,
+      "url": "https://dev.to/faelvorn538072/vector-search-vs-web-search-for-insurance-claims-intake-audit-logs-and-freshness-4l0",
+      "image": "/images/feed/feed-671fb74df1d3.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-0ca45b4a9708",
+      "title": "FBI FLASH: ARTEX AI Pentest Framework Takes Intrusions From Targeting to Privileged Access in Under Three Hours",
+      "excerpt": "TL;DR what: The FBI issued a FLASH advisory warning that multiple threat actors have used ARTEX, an AI-driven autonomous penetration testing framework, to automate cyberattacks worldwide since at leas…",
+      "body": "TL;DR what: The FBI issued a FLASH advisory warning that multiple threat actors have used ARTEX, an AI-driven autonomous penetration testing framework, to automate cyberattacks worldwide since at least August 2026. impact: ARTEX was used in the ConnectWise Cloud Backup supply-chain attack, which hit at least 162 Microsoft 365 tenants and targeted more than 2,250, and in attacks on South Korean financial institutions that exposed data on about 67,000 people. fix: There is no patch because ARTEX is an attack tool; the FBI's 13-page advisory includes IOCs and hardening guidance, and MalwareMustDie has released an open-source detection signature pack and a confidence-graded detection playbook.",
+      "author": "Etairos.ai",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Framework"
+      ],
+      "featured": true,
+      "xpReward": 43,
+      "url": "https://dev.to/etairos/fbi-flash-artex-ai-pentest-framework-takes-intrusions-from-targeting-to-privileged-access-in-under-3178",
+      "image": "/images/feed/feed-0ca45b4a9708.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-d3197be8689b",
+      "title": "How to compress a JPG to an exact KB size in the browser (and why 50 KB is two numbers)",
+      "excerpt": "Exam, visa and job application forms love hard limits: \"photo under 50 KB\", \"signature between 10 and 20 KB\". A canvas can export a JPEG at any quality you like, but there is no toBlob(..., { maxBytes…",
+      "body": "Exam, visa and job application forms love hard limits: \"photo under 50 KB\", \"signature between 10 and 20 KB\". A canvas can export a JPEG at any quality you like, but there is no toBlob(..., { maxBytes: 50000 }) . So you have to search for the right settings. Here is the search I ended up with, and the small details that decide whether the portal accepts the file. First: \"50 KB\" means two different numbers Some sites count 1 KB as 1,000 bytes, some as 1,024. A file has to pass both readings, so: a maximum is converted with 1,000 (the smaller number): \"under 100 KB\" means at most 100,000 bytes a minimum is converted with 1,024 (the larger number): \"at least 20 KB\" means at least 20,480 bytes export const maxKbToBytes = ( kb : number ) =&gt; Math .",
+      "author": "Muhaymin Bin Mehmood",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 45,
+      "url": "https://dev.to/muhayminbinmehmood/how-to-compress-a-jpg-to-an-exact-kb-size-in-the-browser-and-why-50-kb-is-two-numbers-2k8m",
+      "image": "/images/feed/feed-d3197be8689b.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-b960b1fa7840",
+      "title": "Judge Me by My Size, Do You? What Your Viewport Really Costs an AI Tester",
+      "excerpt": "Yoda told Luke that size matters not. With all due respect to the little green guy, he never had to pay for a computer-use agent's screenshots. Here's how I ended up down this rabbit hole. I recently…",
+      "body": "Yoda told Luke that size matters not. With all due respect to the little green guy, he never had to pay for a computer-use agent's screenshots. Here's how I ended up down this rabbit hole. I recently pointed Claude at a web app to do some functional testing, and my usage went way up. My gut said screenshots were the culprit: the agent has to look at the screen before nearly every move, and every look costs tokens. So my tongue-in-cheek pitch for a blog post became \"monitor size actually matters for AI-driven testing.\" But talk is cheap, so I had a small team of AI agents build and run an experiment to prove or disprove it. Let's see what happened. Spoiler: size matters, just not in the direction you'd guess every time. The Math You Can Do on a Napkin Claude doesn't see pixels.",
+      "author": "John Slowik",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": false,
+      "xpReward": 36,
+      "url": "https://dev.to/jslow421/judge-me-by-my-size-do-you-what-your-viewport-really-costs-an-ai-tester-27hd",
+      "image": "/images/feed/feed-b960b1fa7840.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-fc5ac4f1ef68",
+      "title": "Apple reveals new Mac security controls as AI agents raise privacy risks",
+      "excerpt": "Following an October announcement, Apple has detailed new permission controls, warnings, and transparency features coming to macOS 27.3 to address risks posed by AI agents and other apps.",
+      "body": "Following an October announcement, Apple has detailed new permission controls, warnings, and transparency features coming to macOS 27.3 to address risks posed by AI agents and other apps.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Security. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Sarah Perez",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "cybersecurity",
+      "tags": [
+        "Security"
+      ],
+      "featured": false,
+      "xpReward": 39,
+      "url": "https://techcrunch.com/2026/11/16/apple-reveals-new-mac-security-controls-as-ai-agents-raise-privacy-risks/",
+      "image": "https://techcrunch.com/wp-content/uploads/2024/11/CMC_8152.jpg?resize=1200,800",
+      "source": "TechCrunch",
+      "isLive": true
+    },
+    {
+      "id": "feed-39a4e79de54f",
+      "title": "Every Xbox console generation sorted by release date",
+      "excerpt": "Microsoft debuted the Xbox in 2001, and there's quite a lot to look back on from the quarter-century since the company got into gaming.",
+      "body": "Microsoft debuted the Xbox in 2001, and there's quite a lot to look back on from the quarter-century since the company got into gaming.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "staff@engadget.com (Yoni Yardeni)",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 32,
+      "url": "https://www.engadget.com/2314891/every-xbox-console-generation-sorted-release-date/",
+      "image": "/images/feed/feed-39a4e79de54f.jpg",
+      "source": "Engadget",
+      "isLive": true
+    },
+    {
+      "id": "feed-3cded92c41f0",
+      "title": "Ausom Black Friday sale has the right scooter for the right job, at the right price",
+      "excerpt": "Not all commutes are created equal, and tackling a hard commute takes a lot more than a motor and a set of wheels. Ausom knows this better than most, with six highly capable, long-range electric scoot…",
+      "body": "Not all commutes are created equal, and tackling a hard commute takes a lot more than a motor and a set of wheels. Ausom knows this better than most, with six highly capable, long-range electric scooters designed to handle your toughest trips. And this Black Friday, you can get the right tool for the job at the lowest prices of the year. more…",
+      "author": "Sponsored Post",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Cars"
+      ],
+      "featured": false,
+      "xpReward": 54,
+      "url": "https://electrek.co/2026/11/16/ausom-black-friday-sale-right-scooter-right-job-at-right-price/",
+      "image": "/images/feed/feed-3cded92c41f0.jpg",
+      "source": "Electrek",
+      "isLive": true
+    },
+    {
+      "id": "feed-0f561af81c8b",
+      "title": "California sues OpenAI over AI agents escaping sandboxes, hacking firms",
+      "excerpt": "California Attorney General Rob Bonta sued OpenAI on Monday, alleging the company knowingly continued testing advanced artificial intelligence models despite repeated security failures that allowed au…",
+      "body": "California Attorney General Rob Bonta sued OpenAI on Monday, alleging the company knowingly continued testing advanced artificial intelligence models despite repeated security failures that allowed autonomous AI agents to escape isolated environments and launch cyberattacks against real-world organizations. [...]",
+      "author": "Lawrence Abrams",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "cybersecurity",
+      "tags": [
+        "Cybersecurity"
+      ],
+      "featured": false,
+      "xpReward": 31,
+      "url": "https://www.bleepingcomputer.com/news/security/california-sues-openai-over-ai-agents-escaping-sandboxes-hacking-firms/",
+      "image": "/images/feed/feed-0f561af81c8b.jpg",
+      "source": "BleepingComputer",
+      "isLive": true
+    },
+    {
+      "id": "feed-089c891447a7",
+      "title": "Anne Hathaway's 100-Minute Sci-Fi Thriller Takes Over Streaming After HBO Max Debut",
+      "excerpt": "The End of Oak Street has become an HBO Max streaming hit, giving Anne Hathaway another 2026 success.",
+      "body": "Anne Hathaway has had a particularly busy year, with major projects including Christopher Nolan's The Odyssey , the psychological thriller Verity , and the highly anticipated The Devil Wears Prada 2 . She's also ventured into more unconventional territory with A24's Mother Mary , a thriller that takes a considerably stranger approach to the world of pop stardom.",
+      "author": "Sam Hill",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 43,
+      "url": "https://www.polygon.com/end-of-oak-street-streaming-hbo-max-november-2026/",
+      "image": "/images/feed/feed-089c891447a7.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-1ebc33924f5b",
+      "title": "Customers at major banks report difficulty accessing accounts online",
+      "excerpt": "Representatives from the companies say this is a technical problem and not a cyberattack.",
+      "body": "Representatives from the companies say this is a technical problem and not a cyberattack.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "staff@engadget.com (Anna Washenko)",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 37,
+      "url": "https://www.engadget.com/2318431/customers-at-major-banks-report-difficulty-accessing-accounts-online/",
+      "image": "/images/feed/feed-1ebc33924f5b.jpg",
+      "source": "Engadget",
+      "isLive": true
+    },
+    {
+      "id": "feed-c407ce599ca2",
+      "title": "Netflix Officially Confirms 3 Body Problem Returns in 2027",
+      "excerpt": "Season 2 of 3 Body Problem finally has a release date, nearly three years after the Netflix hard sci-fi thriller series debuted.",
+      "body": "Netflix's long-awaited second season of 3 Body Problem finally has a release date. The streamer announced Monday that season 2 of the sci-fi series, an adaptation of author Cixin Liu's Remembrance of Earth's Past trilogy, will arrive on Jan. 14, 2027. That's nearly three years after the first season of 3 Body Problem debuted on Netflix.",
+      "author": "Michael McWhertor",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 53,
+      "url": "https://www.polygon.com/netflix-3-body-problem-season-2-release-date-2027/",
+      "image": "/images/feed/feed-c407ce599ca2.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-cefa450df084",
+      "title": "T-Mobile is reportedly cooking up new prepaid plans, starting at just $20 a month",
+      "excerpt": "They are expected to launch in April.",
+      "body": "TL;DR T-Mobile is reportedly working on a new line of prepaid plans called T-Select. The plan would have three tiers, at $20, $30, and $40 per month. T-Select is expected to launch in April. T-Mobile is reportedly about to add to its prepaid lineup with new plans called T-Select, according to The Mobile Report . The publication’s sources said that there will be three plans for $20, $30, and $40 per month each. The $20 per month plan would require bringing your own device (BYOD), and includes unlimited talk, text, and data, as well as T-Mobile’s security suite, Scam Shield, and affords access to the T-Mobile Tuesdays perks program. The $30 plan changes that to 10GB of high-speed data, unlimited talk and text, and 5GB of hotspot data.",
+      "author": "Chandra Steele",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 51,
+      "url": "https://www.androidauthority.com/t-mobile-t-select-prepaid-plans-3735722/",
+      "image": "https://www.androidauthority.com/wp-content/uploads/2026/10/t-mobile-5g-uwb-signal-scaled.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-6bf85be6fa63",
+      "title": "California sues OpenAI over rogue AI hacking incidents",
+      "excerpt": "California is suing OpenAI after its AI agents broke out of their testing environment and hacked other companies, including Hugging Face. In a lawsuit on Monday, Attorney General Rob Bonta accuses Ope…",
+      "body": "California is suing OpenAI after its AI agents broke out of their testing environment and hacked other companies, including Hugging Face. In a lawsuit on Monday , Attorney General Rob Bonta accuses OpenAI of violating consumer safety law by knowingly developing a \"dangerous product without proper oversight,\" as reported earlier by Reuters . The lawsuit claims the cyberattack on Hugging Face \"was the predictable result of an internal culture at OpenAI that prioritizes growth and rapid model development over safety and accountability.\" It alleges that OpenAI recently told the attorney general's office that it \"lost control\" of its AI agents mor … Read the full story at The Verge.",
+      "author": "Emma Roth",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "ai",
+      "tags": [
+        "Openai"
+      ],
+      "featured": false,
+      "xpReward": 51,
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1034815/california-openai-hugging-face-lawsuit",
+      "image": "/images/feed/feed-6bf85be6fa63.png",
+      "source": "The Verge",
+      "isLive": true
+    },
+    {
+      "id": "feed-a948d125471e",
+      "title": "Sam Altman says he wants everyone ‘to have a lot of RAM’",
+      "excerpt": "OpenAI CEO Sam Altman is once again addressing his controversial comments on PC RAM purchases. \"I want to be clear, I want people to have a lot of RAM, I think everybody should be able to buy a lot of…",
+      "body": "OpenAI CEO Sam Altman is once again addressing his controversial comments on PC RAM purchases. \"I want to be clear, I want people to have a lot of RAM, I think everybody should be able to buy a lot of RAM for their own computer,\" Altman said today. \"I think the home tinkering is great.\" The comments were made on stage at Semafor's Silicon Valley &amp; The World summit on Monday. Altman's remarks on RAM stirred up controversy last month. In an appearance on the Cheeky Pint podcast , Altman said that it's \"quite terrible\" for everyone to have RAM in personal computers rather than in data centers. He later followed up on those comments in posts on … Read the full story at The Verge.",
+      "author": "Stevie Bonifield",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "ai",
+      "tags": [
+        "Ai"
+      ],
+      "featured": false,
+      "xpReward": 47,
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1034787/sam-altman-ram-shortage-semafor",
+      "image": "/images/feed/feed-a948d125471e.jpg",
+      "source": "The Verge",
+      "isLive": true
+    },
+    {
+      "id": "feed-094d50638fab",
+      "title": "In My Cart: The best early Black Friday deals we’re buying today",
+      "excerpt": "The early Amazon Black Friday sale was just updated with a host of new discounts including the lowest prices ever across the Apple Watch Series 12 lineup, now even lower prices on AirPods Pro 3, and t…",
+      "body": "The early Amazon Black Friday sale was just updated with a host of new discounts including the lowest prices ever across the Apple Watch Series 12 lineup, now even lower prices on AirPods Pro 3 , and the return of the Apple TV 4K discount . You’ll find some deep on smart home upgrades for the holidays and some great ideas for stocking stuffers, intelligent helpers for around the house, and some great Apple gear gifts you can land for less than $20 a pop . For today’s early Black Friday edition of In My Cart , we have put together a collection of the gear we are picking up for ourselves – check it out down below. more…",
+      "author": "Justin Kahn",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 48,
+      "url": "https://9to5mac.com/2026/11/16/gear-we-buying-amazon-early-black-friday-sale/",
+      "image": "/images/feed/feed-094d50638fab.jpg",
+      "source": "9to5Mac",
+      "isLive": true
+    },
+    {
+      "id": "feed-d8bcf81fe59d",
+      "title": "Some of our favorite PlayStation games are steeply discounted for Black Friday",
+      "excerpt": "Black Friday is approaching, and some companies are already rolling out the discounts ahead of the big day. If you’re hunting for PlayStation 5 accessories, we’ve already rounded up some of our favori…",
+      "body": "Black Friday is approaching, and some companies are already rolling out the discounts ahead of the big day. If you’re hunting for PlayStation 5 accessories, we’ve already rounded up some of our favorite controllers and headsets from Sony’s ongoing promotion. However, if you’re looking to expand your library, some of the PS5’s biggest titles are also currently on sale, in some cases by 50 percent or more, until November 30th. We’ve gathered some of the best games below, but sale standouts include 007 First Light for $34.99 ($35), The Witcher 3: Wild Hunt Remastered for $19.99 ($30 off), and NBA 2K27 for $31.49 (about $39 off).",
+      "author": "Brad Bourque",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Playstation"
+      ],
+      "featured": false,
+      "xpReward": 43,
+      "url": "https://www.theverge.com/gadgets/1034339/sony-black-friday-game-sale-2026-deals",
+      "image": "/images/feed/feed-d8bcf81fe59d.png",
+      "source": "The Verge",
+      "isLive": true
+    },
+    {
+      "id": "feed-71fb042983c8",
+      "title": "Mercedes Is Bringing Hands-Free Driving To Certain U.S. Highways In 2027",
+      "excerpt": "It's kind of like Super Cruise, only with a Mercedes badge.",
+      "body": "It's kind of like Super Cruise, only with a Mercedes badge.\n\nThis report, published by InsideEVs, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cars. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to InsideEVs using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "InsideEVs",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Cars"
+      ],
+      "featured": false,
+      "xpReward": 35,
+      "url": "https://insideevs.com/news/815643/mercedes-hands-free-driving-usa/",
+      "image": "/images/feed/feed-71fb042983c8.jpg",
+      "source": "InsideEVs",
+      "isLive": true
+    },
+    {
+      "id": "feed-e67baf6df70e",
+      "title": "NASA Receives 16th Consecutive ‘Clean’ Financial Audit Opinion",
+      "excerpt": "For the 16th consecutive year, NASA has received an unmodified, or “clean,” opinion from an external auditor on its fiscal year 2026 financial statements. The rating is the best possible audit opinion…",
+      "body": "Credit: NASA For the 16th consecutive year, NASA has received an unmodified, or “clean,” opinion from an external auditor on its fiscal year 2026 financial statements. The rating is the best possible audit opinion, certifying that NASA’s financial statements conform with Generally Accepted Accounting Principles for federal agencies and accurately present the agency’s financial position. “Our responsibility at NASA is to be disciplined stewards of the resources entrusted to us by the American people while delivering on the missions they expect from this agency,” said NASA Administrator Jared Isaacman.",
+      "author": "Lauren E. Low",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Nasa"
+      ],
+      "featured": false,
+      "xpReward": 54,
+      "url": "https://www.nasa.gov/news-release/nasa-receives-16th-consecutive-clean-financial-audit-opinion/",
+      "image": "/images/feed/feed-e67baf6df70e.jpg",
+      "source": "NASA Breaking News",
+      "isLive": true
+    },
+    {
+      "id": "feed-c30e39f97e0e",
+      "title": "Volkswagen’s cheapest EV already has buyers waiting nearly 2 years",
+      "excerpt": "The most affordable Volkswagen ID. Polo Trend starts at just €24,995, or about $27,500, but you’ll have to wait close to two years to get one. more…",
+      "body": "The most affordable Volkswagen ID. Polo Trend starts at just €24,995, or about $27,500, but you’ll have to wait close to two years to get one. more — a development drawing significant attention in the electric vehicles, hybrids, and automotive technology space.\n\nThis report, published by Electrek, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Ev. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Electrek using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Peter Johnson",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Ev"
+      ],
+      "featured": false,
+      "xpReward": 53,
+      "url": "https://electrek.co/2026/11/16/volkswagens-cheapest-ev-buyers-waiting-nearly-2-years/",
+      "image": "/images/feed/feed-c30e39f97e0e.jpg",
+      "source": "Electrek",
+      "isLive": true
+    },
+    {
+      "id": "feed-9f943f60c691",
+      "title": "Star Wars: Galactic Racer Officially Getting the Feature Every Racing Game Needs",
+      "excerpt": "Fuse Games' Star Wars Galactic Racer is getting local split-screen multiplayer after the new year, a featured fans have long requested.",
+      "body": "Scrib doon! Star Wars: Galactic Racer developer Fuse Games announced the racing sim is getting a key ingredient next year: split-screen multiplayer. Up to four players will be able to square off on the same screen at once after the update.",
+      "author": "Austin Manchester",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Game"
+      ],
+      "featured": false,
+      "xpReward": 51,
+      "url": "https://www.polygon.com/star-wars-galactic-racer-local-split-screen-multiplayer-update/",
+      "image": "/images/feed/feed-9f943f60c691.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-188c97c27135",
+      "title": "AirPods Pro 3 drop back to their Prime Day price of $179",
+      "excerpt": "Apple's latest noise canceling earbuds are $70 off on Amazon, with heart rate sensing and Live Translation.",
+      "body": "Shopping for new buds this holiday season? Apple’s AirPods Pro 3 are back down to $179 on Amazon , which is $70 (28%) off their $249 list price. That matches the price they hit during Prime Day in October, and it’s the lowest they’ve been since then. See the deal at Amazon",
+      "author": "Matt Horne",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 47,
+      "url": "https://www.androidauthority.com/deal-airpods-pro-3-amazon-3735729/",
+      "image": "https://www.androidauthority.com/wp-content/uploads/2025/12/Apple-AirPods-Pro-3-featured-image.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-3e1c66ebc697",
+      "title": "iPhone Duo now has twice as many optimized apps as it did 10 days ago",
+      "excerpt": "Apple marketing SVP Greg Joswiak said today that the number of iPhone Duo-ready apps on the App Store is twice what it was when Apple last reported the figure. Here are the details. more…",
+      "body": "Apple marketing SVP Greg Joswiak said today that the number of iPhone Duo-ready apps on the App Store is twice what it was when Apple last reported the figure. Here are the details. more — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Iphone. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Marcus Mendes",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Iphone"
+      ],
+      "featured": false,
+      "xpReward": 41,
+      "url": "https://9to5mac.com/2026/11/16/iphone-duo-now-has-twice-as-many-optimized-apps-as-it-did-10-days-ago/",
+      "image": "/images/feed/feed-3e1c66ebc697.jpg",
+      "source": "9to5Mac",
+      "isLive": true
+    },
+    {
+      "id": "feed-f78ce9bac712",
+      "title": "Motorcycles are notoriously dangerous. Could electric motorcycles actually change that?",
+      "excerpt": "There’s no particularly comfortable way to talk about motorcycle safety. Motorcycles are dangerous. All the statistics point to the fact that per mile, motorcycles are significantly more dangerous. An…",
+      "body": "There’s no particularly comfortable way to talk about motorcycle safety. Motorcycles are dangerous. All the statistics point to the fact that per mile, motorcycles are significantly more dangerous. And as someone who promotes them as a better alternative to large cars and trucks for many trips, it’s an uncomfortable reality that must be grappled with. But that simple statement also hides something important. Not all motorcycles, riders, or riding behaviors carry the same risk. And as a new generation of smaller electric motorcycles begins to emerge, I think there’s an interesting question worth asking: Could electric motorcycles inadvertently make motorcycling safer? more…",
+      "author": "Micah Toll",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Electric Motor"
+      ],
+      "featured": false,
+      "xpReward": 30,
+      "url": "https://electrek.co/2026/11/16/motorcycles-are-notoriously-dangerous-could-electric-motorcycles-actually-change-that/",
+      "image": "/images/feed/feed-f78ce9bac712.jpg",
+      "source": "Electrek",
       "isLive": true
     },
     {
@@ -108,49 +526,11 @@
       "tags": [
         "Openai"
       ],
-      "featured": true,
-      "xpReward": 53,
+      "featured": false,
+      "xpReward": 43,
       "url": "https://techcrunch.com/2026/11/16/california-state-ag-sues-openai-over-rogue-agent-incidents/",
       "image": "https://techcrunch.com/wp-content/uploads/2026/11/1920px-Rob_Bonta_at_Central_Bay_Operations_and_Maintenance_Facility_opening_December_2018.jpeg?resize=1200,981",
       "source": "TechCrunch",
-      "isLive": true
-    },
-    {
-      "id": "feed-47d1e0e918c2",
-      "title": "How source-generated P/Invoke decompiles",
-      "excerpt": "Decompile a method marked [DllImport] and you get almost nothing back: an extern signature, a reconstructed attribute, and no body. Decompile a method marked [LibraryImport] and you get a page of real…",
-      "body": "Decompile a method marked [DllImport] and you get almost nothing back: an extern signature, a reconstructed attribute, and no body. Decompile a method marked [LibraryImport] and you get a page of real C# — fixed blocks, pointer casts, a nested call. Same native call, wildly different decompiled output. The reason is where the marshalling code lives, and it is worth understanding, because it changes what you can learn from an assembly by reading it. The real question Both attributes describe the same thing: a managed method that is really a call across the native boundary. So why does one survive decompilation as an empty husk and the other as a fully readable method?",
-      "author": "Zero Heartbeat",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 49,
-      "url": "https://dev.to/zero_heartbeat_06a3625d7a/how-source-generated-pinvoke-decompiles-5p5",
-      "image": "/images/feed/feed-47d1e0e918c2.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-f3d3fffef9ac",
-      "title": "Orchestrating Agents: What Strands Teaches About Workflow Determinism vs. LLM Freedom",
-      "excerpt": "Agent orchestration frameworks promise to tame LLM non-determinism by imposing execution order. Strands, an AWS-backed workflow tool, makes that trade explicit: you declare a dependency graph in Pytho…",
-      "body": "Agent orchestration frameworks promise to tame LLM non-determinism by imposing execution order. Strands, an AWS-backed workflow tool, makes that trade explicit: you declare a dependency graph in Python, and tasks run only when their upstream dependencies reach completed status. The model no longer decides who runs next. You do. But deterministic sequencing comes with a cost. Upstream results arrive as plain text spliced into the next step's prompt. No field names, no types, no validators. Each step is still a full agent loop, and the model inside it still decides which tools to call and what words to produce. Nine real production runs show what breaks when you split workflow control from data contracts.",
-      "author": "mech.app",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 50,
-      "url": "https://dev.to/mech_app_ai/orchestrating-agents-what-strands-teaches-about-workflow-determinism-vs-llm-freedom-4c88",
-      "image": "/images/feed/feed-f3d3fffef9ac.webp",
-      "source": "Dev.to",
       "isLive": true
     },
     {
@@ -167,7 +547,7 @@
         "Starship"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 36,
       "url": "https://www.space.com/space-exploration/launches-spacecraft/elon-musk-says-spacexs-starship-already-the-largest-rocket-on-earth-will-get-even-bigger-with-next-gen-v4-model",
       "image": "/images/feed/feed-dacf34caa652.jpg",
       "source": "Space.com",
@@ -186,7 +566,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 39,
       "url": "https://www.polygon.com/zelda-ocarina-of-time-why-best-game-ever/",
       "image": "https://static0.polygonimages.com/wordpress/wp-content/uploads/2026/11/ns2_thelegendofzeldaocarinaoftime_scrn_11.png",
       "source": "Polygon",
@@ -205,7 +585,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 54,
       "url": "https://www.polygon.com/the-odyssey-pig-transformation-practical-effects/",
       "image": "/images/feed/feed-7a5477c6a7d7.jpg",
       "source": "Polygon",
@@ -226,7 +606,7 @@
         "Game"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 41,
       "url": "https://kotaku.com/booby-trapped-video-game-console-explodes-at-rival-gaming-store-2000757507",
       "image": "/images/feed/feed-4e45a0255415.jpg",
       "source": "Kotaku",
@@ -245,48 +625,10 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 50,
       "url": "https://spacenews.com/spacenukes-opens-los-alamos-manufacture-and-materials-facility-to-build-its-next-generation-space-reactor/",
       "image": "/images/feed/feed-95ad65274d5a.png",
       "source": "SpaceNews",
-      "isLive": true
-    },
-    {
-      "id": "feed-2cef84774423",
-      "title": "Here’s how to get Create My Widget on your Pixel right now",
-      "excerpt": "You don't need the November Pixel update to get Create My Widget.",
-      "body": "TL;DR Google has shared an official way for eligible Pixel owners to get early access to Create My Widget through the Play Store beta program. The method works even if your phone hasn’t received the November 2026 Pixel update. Create My Widget remains limited to select Pixel 10 and newer phones in five countries, with language and age restrictions. It’s been about a week since Google announced the November Pixel Drop , and not everyone has had a chance to try out all the new features yet. Some Pixel owners are still waiting for the update itself, while others have already installed it but are missing some of the promised features . Thankfully, there’s now a way to skip the queue for one of the more interesting additions.",
-      "author": "Hillary Keverenge",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 50,
-      "url": "https://www.androidauthority.com/google-pixel-create-my-widget-early-access-3735694/",
-      "image": "/images/feed/feed-2cef84774423.jpg",
-      "source": "Android Authority",
-      "isLive": true
-    },
-    {
-      "id": "feed-1d537f91c2cd",
-      "title": "Apple releases beautiful new iPhone wallpapers featuring Pokémon, download here",
-      "excerpt": "Apple is celebrating the 30th anniversary of Pokémon with a collection of original wallpapers for iPhone. There are four total, including one designed for iPhone Duo. more…",
-      "body": "Apple is celebrating the 30th anniversary of Pokémon with a collection of original wallpapers for iPhone. There are four total, including one designed for iPhone Duo. more — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Iphone. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Ryan Christoffel",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Iphone"
-      ],
-      "featured": false,
-      "xpReward": 34,
-      "url": "https://9to5mac.com/2026/11/16/apple-releases-beautiful-new-iphone-wallpapers-featuring-pokemon-download-here/",
-      "image": "/images/feed/feed-1d537f91c2cd.jpg",
-      "source": "9to5Mac",
       "isLive": true
     },
     {
@@ -302,7 +644,7 @@
         "Breach"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 39,
       "url": "https://www.bleepingcomputer.com/news/security/barracuda-links-cloud-breach-to-artex-ai-powered-cyberattack/",
       "image": "/images/feed/feed-9cf1ce021144.jpg",
       "source": "BleepingComputer",
@@ -323,125 +665,10 @@
         "Breach"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 37,
       "url": "https://techcrunch.com/2026/11/16/uber-confirms-hackers-stole-thousands-of-drivers-license-information-in-data-breach/",
       "image": "https://techcrunch.com/wp-content/uploads/2026/11/uber-breach-2288234319.jpg?resize=1200,820",
       "source": "TechCrunch",
-      "isLive": true
-    },
-    {
-      "id": "feed-cf3339e6d825",
-      "title": "California sues OpenAI after that Hugging Face rogue hacking incident",
-      "excerpt": "State AG Rob Bonta has accused the company of making AI agents \"without the safeguards and monitoring necessary to adequately protect\" users.",
-      "body": "State AG Rob Bonta has accused the company of making AI agents \"without the safeguards and monitoring necessary to adequately protect\" users.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Lawrence Bonk)",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 37,
-      "url": "https://www.engadget.com/2318268/california-sues-openai-after-hugging-face-rogue-hacking-incident/",
-      "image": "/images/feed/feed-cf3339e6d825.jpg",
-      "source": "Engadget",
-      "isLive": true
-    },
-    {
-      "id": "feed-9e3688ef8ab0",
-      "title": "The Apple Watch Series 12 is cheaper than ever ahead of Black Friday",
-      "excerpt": "The Apple Watch Series 12 is on sale in multiple configurations. | Photo: Amelia Holowaty Krales / The Verge If you’re still sporting an Apple Watch that launched five or so years ago, now is a good t…",
-      "body": "The Apple Watch Series 12 is on sale in multiple configurations. | Photo: Amelia Holowaty Krales / The Verge If you’re still sporting an Apple Watch that launched five or so years ago, now is a good time to upgrade. Apple’s latest smartwatch, the 42mm Apple Watch Series 12 with Wi-Fi and GPS connectivity, has dropped to a new all-time low of $329 at Amazon , Best Buy , and Walmart , beating the October Prime Day price by $20. If you prefer a larger size, the 46mm model is on sale for $379 ($70 off) at Amazon , Best Buy , and Walmart , which is also $20 lower than the previous best price.",
-      "author": "Sheena Vasani",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Apple Watch"
-      ],
-      "featured": false,
-      "xpReward": 54,
-      "url": "https://www.theverge.com/gadgets/1034512/apple-watch-series-12-black-friday-deal-sale",
-      "image": "/images/feed/feed-9e3688ef8ab0.jpg",
-      "source": "The Verge",
-      "isLive": true
-    },
-    {
-      "id": "feed-85463dafb69b",
-      "title": "Samsung’s working on new international SIM tools for One UI 9.5",
-      "excerpt": "One UI 9.5 code shows travel SIM usage tracking by trip and day.",
-      "body": "TL;DR Samsung appears to be building new SIM tracking and reporting tools for One UI 9.5. The system would differentiate between home SIMs and those intended primarily for international travel. Users will be able to track daily usage, as well as access historical reports. Working with multiple SIMs can provide a lot of flexibility in terms of how you access data when traveling, and with its upcoming One UI 9.5 release, Samsung looks like it’s getting ready to introduce some helpful new tools for tracking usage and managing SIMs. APK teardown: This reporting is based on work-in-progress code. These features may not ship. While dual-SIM phones have been around for ages, it’s the recent rise of eSIM support that has really empowered travelers to easily swap providers at a moment’s notice.",
-      "author": "Stephen Schenck",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 38,
-      "url": "https://www.androidauthority.com/samsung-travel-sim-tool-3735617/",
-      "image": "/images/feed/feed-85463dafb69b.jpg",
-      "source": "Android Authority",
-      "isLive": true
-    },
-    {
-      "id": "feed-b73a77d85f50",
-      "title": "MagSafe Monday: MOFT’s Trackable Field Wallet holds eight cards, cash, and supports Find My",
-      "excerpt": "The one thing Apple’s own MagSafe wallet does that a few third-party wallets have is Find My. If you misplace your wallet, your iPhone tells you where it is. Most MagSafe wallets either skip tracking…",
-      "body": "The one thing Apple’s own MagSafe wallet does that a few third-party wallets have is Find My. If you misplace your wallet, your iPhone tells you where it is. Most MagSafe wallets either skip tracking entirely or have a pocket for an AirTag, which adds thickness and it’s another thing to buy. The MOFT Trackable Field Wallet builds the tracker into the wallet itself, so it shows up in the Find My app. more…",
-      "author": "Bradley C",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 44,
-      "url": "https://9to5mac.com/2026/11/16/moft-trackable-field-wallet/",
-      "image": "/images/feed/feed-b73a77d85f50.jpg",
-      "source": "9to5Mac",
-      "isLive": true
-    },
-    {
-      "id": "feed-45bff1e0f4a5",
-      "title": "Which Google Pixel phone is most similar to the Galaxy S26+?",
-      "excerpt": "Trying to choose between the Google Pixel 11 Pro and Samsung Galaxy S26+? We break down the specs, cameras and prices to help find the best one for you.",
-      "body": "Trying to choose between the Google Pixel 11 Pro and Samsung Galaxy S26+? We break down the specs, cameras and prices to help find the best one for you.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Pixel Phone, Galaxy S. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Calvin Wankhede)",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Pixel Phone",
-        "Galaxy S"
-      ],
-      "featured": false,
-      "xpReward": 30,
-      "url": "https://www.engadget.com/2314824/google-pixel-phone-most-similar-to-galaxy-s26-plus/",
-      "image": "/images/feed/feed-45bff1e0f4a5.jpg",
-      "source": "Engadget",
-      "isLive": true
-    },
-    {
-      "id": "feed-49da5c4768e6",
-      "title": "Marvel’s Newest Superhero Was Created to Solve a Major Magic: The Gathering Problem",
-      "excerpt": "Magic: The Gathering designer Aaron Forsythe explains why Marvel’s new hero was created to fix an ongoing problem with Universes Beyond.",
-      "body": "In an interview with Polygon at MagicCon: Atlanta, Magic vice president of design Aaron Forsythe talked about the unique approach that Marvel and Wizards of the Coast are taking for the game’s third crossover set, specifically about the development of a unique character that will feature prominently in Darkhold Destiny and the accompanying Marvel Comics.",
-      "author": "Corey Plante",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 41,
-      "url": "https://www.polygon.com/mtg-marvel-darkhold-destiny-fraxi-scion-of-yggdrasil-spoilers/",
-      "image": "/images/feed/feed-49da5c4768e6.jpg",
-      "source": "Polygon",
       "isLive": true
     },
     {
@@ -457,29 +684,10 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 37,
       "url": "https://www.theverge.com/policy/1034527/openai-csam-classifier",
       "image": "/images/feed/feed-365f3b142fa5.jpg",
       "source": "The Verge",
-      "isLive": true
-    },
-    {
-      "id": "feed-469541757ee6",
-      "title": "Nintendo Fans Blast New Switch 2 Release as ‘Paid Downgrade’",
-      "excerpt": "Pikmin 4 fans are not impressed with the game’s Switch 2 upgrade, Dandori Academy.",
-      "body": "So far, the Nintendo Switch 2 upgraded editions of games originally released on the Switch have been a bit of a mixed bag. While games like Kirby and the Forgotten Land received significant new content and noticeable performance upgrades, others such as Xenoblade Chronicles X weren’t quite as well received. According to many Pikmin fans, the recently released Switch 2 version of Pikmin 4 falls into the latter camp.",
-      "author": "Elijah Gonzalez",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Nintendo"
-      ],
-      "featured": false,
-      "xpReward": 33,
-      "url": "https://www.polygon.com/pikmin-4-nintendo-switch-2-release-controversy/",
-      "image": "/images/feed/feed-469541757ee6.jpg",
-      "source": "Polygon",
       "isLive": true
     },
     {
@@ -495,48 +703,10 @@
         "Security"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 44,
       "url": "https://techcrunch.com/2026/11/16/trump-says-ex-nvidia-ceo-jensen-huangs-affair-with-an-alleged-chinese-spy-did-not-threaten-national-security/",
       "image": "https://techcrunch.com/wp-content/uploads/2026/10/GettyImages-2297572109.jpg?w=1024",
       "source": "TechCrunch",
-      "isLive": true
-    },
-    {
-      "id": "feed-72fdd63ac893",
-      "title": "Obsession Director Officially Casts Horror Icon in Next Film",
-      "excerpt": "Obsession director Curry Barker has cast horror icon and Scream star Matthew Lillard in his next film, Anything but Ghosts.",
-      "body": "Curry Barker's Obsession is one of the year's best horror films, but his next movie might end up being even better . Barker is writing, directing, and starring in next year's Anything but Ghosts , and he'll be joined by a horror movie icon.",
-      "author": "Austin Manchester",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 49,
-      "url": "https://www.polygon.com/obsession-director-curry-barker-anything-but-ghosts-matthew-lillard/",
-      "image": "/images/feed/feed-72fdd63ac893.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-b062dff01e4a",
-      "title": "Event Habitat Dex and Pokédex list in Pokémon Pokopia",
-      "excerpt": "Here are all the limited-time event habitats and Pokémon in Pokémon Pokopia and what you need to make them.",
-      "body": "Pokémon Pokopia has limited-time events that occur for a few days before disappearing, though you can time travel back to them, if you miss out on any. Some events feature Pokémon and habitats you can only unlock via the event, so you'll want to make sure you're paying attention to any guests who are the \"talk of the town.\"",
-      "author": "Julia Lee",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 46,
-      "url": "https://www.polygon.com/pokemon-pokopia-event-habitat-dex-pokedex-list-requirements-unlock/",
-      "image": "/images/feed/feed-b062dff01e4a.jpg",
-      "source": "Polygon",
       "isLive": true
     },
     {
@@ -552,7 +722,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 47,
       "url": "https://www.space.com/space-exploration/voyager/what-exactly-is-a-light-day-heres-what-voyager-1s-latest-milestone-means-for-the-interstellar-probe",
       "image": "/images/feed/feed-d11d273da539.jpg",
       "source": "Space.com",
@@ -571,7 +741,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 36,
       "url": "https://electrek.co/2026/11/16/anker-solix-s5000-power-station-navee-st3-pro-e-scooter-lectric-e-bike-accessory-sale-more/",
       "image": "/images/feed/feed-24c1f2dee849.jpg",
       "source": "Electrek",
@@ -590,7 +760,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 43,
       "url": "https://www.zdnet.com/innovation/google-cloud-ciso-perspectives-2027-ai-security-defenses/",
       "image": "/images/feed/feed-fedaa2ea7a4d.jpg",
       "source": "ZDNet",
@@ -609,7 +779,7 @@
         "Orbit"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 50,
       "url": "https://science.nasa.gov/photojournal/sentinel-6b-in-orbit-around-earth/",
       "image": "/images/feed/feed-9a55de2e23ad.jpg",
       "source": "NASA Breaking News",
@@ -628,7 +798,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 34,
       "url": "https://www.nasa.gov/image-article/thunderbirds-in-formation/",
       "image": "https://www.nasa.gov/wp-content/uploads/2026/11/11072026-ksc-max-power-airdotshow-2orig.jpg",
       "source": "NASA Breaking News",
@@ -654,21 +824,21 @@
       "isLive": true
     },
     {
-      "id": "feed-8e371c25a440",
-      "title": "FBI says Artex AI open-source hacking tool used to breach networks",
+      "id": "feed-10fde3797532",
+      "title": "OpenAI: Strengthening the fight against online child sexual abuse",
       "excerpt": "",
-      "body": "This report, published by Hacker News, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Breach. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Hacker News using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "novateg",
+      "body": "This report, published by Hacker News, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Openai. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Hacker News using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "rossant",
       "date": "2026-11-16",
       "readTime": "2 min",
-      "section": "cybersecurity",
+      "section": "ai",
       "tags": [
-        "Breach"
+        "Openai"
       ],
       "featured": false,
-      "xpReward": 39,
-      "url": "https://techcrunch.com/2026/11/16/fbi-says-artex-ai-open-source-hacking-tool-used-to-breach-networks-in-under-three-hours/",
-      "image": "https://techcrunch.com/wp-content/uploads/2026/02/china-hacker-computer-flag.jpg?resize=1200,675",
+      "xpReward": 50,
+      "url": "https://openai.com/index/strengthening-online-child-safety/",
+      "image": "/images/topics/topic-ai-ml.png",
       "source": "Hacker News",
       "isLive": true
     },
@@ -685,7 +855,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 38,
       "url": "https://techcrunch.com/2026/11/16/sam-altman-on-nvidia-without-jensen-huang-the-industry-will-be-fine/",
       "image": "https://techcrunch.com/wp-content/uploads/2026/11/GettyImages-2297209338.jpg?w=1024",
       "source": "TechCrunch",
@@ -704,7 +874,7 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 37,
       "url": "https://electrek.co/2026/11/16/tesla-autopilot-fsd-model-x-pole-rollover-naples/",
       "image": "/images/feed/feed-cc45518db2ae.jpg",
       "source": "Electrek",
@@ -724,29 +894,10 @@
         "Astronaut"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 50,
       "url": "https://www.space.com/space-exploration/artemis/maybe-the-scariest-thing-ive-heard-in-my-life-artemis-ii-astronaut-victor-glover-reveals-his-toughest-challenge-before-flying-to-the-moon",
       "image": "/images/feed/feed-9927813faa71.jpg",
       "source": "Space.com",
-      "isLive": true
-    },
-    {
-      "id": "feed-a6fdf0790830",
-      "title": "BYD is bringing its $10,000 ‘Great’ Seagull overseas, but it won’t replace the Dolphin Surf",
-      "excerpt": "BYD’s new, larger entry-level EV will go on sale in Europe, but it won’t be called the Dolphin Surf as expected. more…",
-      "body": "BYD’s new, larger entry-level EV will go on sale in Europe, but it won’t be called the Dolphin Surf as expected. more — a development drawing significant attention in the electric vehicles, hybrids, and automotive technology space.\n\nThis report, published by Electrek, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cars. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Electrek using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Peter Johnson",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Cars"
-      ],
-      "featured": false,
-      "xpReward": 43,
-      "url": "https://electrek.co/2026/11/16/byd-bringing-10000-great-seagull-ev-overseas/",
-      "image": "/images/feed/feed-a6fdf0790830.jpg",
-      "source": "Electrek",
       "isLive": true
     },
     {
@@ -762,7 +913,7 @@
         "Breach"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 37,
       "url": "https://techcrunch.com/2026/11/16/fbi-says-artex-ai-open-source-hacking-tool-used-to-breach-networks-in-under-three-hours/",
       "image": "https://techcrunch.com/wp-content/uploads/2026/02/china-hacker-computer-flag.jpg?resize=1200,675",
       "source": "TechCrunch",
@@ -781,176 +932,24 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 30,
       "url": "https://www.zdnet.com/innovation/samsung-galaxy-claw-ai-cross-app-upgrade/",
       "image": "/images/feed/feed-2ded70297bb6.jpg",
       "source": "ZDNet",
       "isLive": true
-    },
-    {
-      "id": "feed-440477fe4fa6",
-      "title": "COP31 Leaders’ Summit Spotlights Electrification & Transition Away from Fossil Fuels",
-      "excerpt": "Antalya, Türkiye — The COP31 Leaders’ Summit concluded today, with several new announcements and speeches from heads of state and the UN Secretary-General. Developments included country endorsements o…",
-      "body": "Antalya, Türkiye — The COP31 Leaders’ Summit concluded today, with several new announcements and speeches from heads of state and the UN Secretary-General. Developments included country endorsements of the COP Presidency’s 35&#215;35 electrification pledge, growing support for the transition away from fossil fuels, and new pledges from philanthropies to the ... [continued] The post COP31 Leaders’ Summit Spotlights Electrification &#038; Transition Away from Fossil Fuels appeared first on CleanTechnica .",
-      "author": "World Resources Institute",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Cars"
-      ],
-      "featured": false,
-      "xpReward": 31,
-      "url": "https://cleantechnica.com/2026/11/16/cop31-leaders-summit-spotlights-electrification-transition-away-from-fossil-fuels/",
-      "image": "/images/feed/feed-440477fe4fa6.png",
-      "source": "CleanTechnica",
-      "isLive": true
-    },
-    {
-      "id": "feed-e2edbaedd59d",
-      "title": "Tesla confirms €3B Cybercab factory at Giga Berlin for up to 1M a year",
-      "excerpt": "Tesla is going to build the Cybercab in Germany. The company confirmed today a first €3 billion investment in a new production building at Giga Berlin designed for up to 1 million Cybercabs a year, wi…",
-      "body": "Tesla is going to build the Cybercab in Germany. The company confirmed today a first €3 billion investment in a new production building at Giga Berlin designed for up to 1 million Cybercabs a year, with production planned for 2029. That’s a lot of robotaxis for a continent where Tesla can’t operate a single one. Under current EU rules, a driverless vehicle model is capped at 1,500 registrations a year. more…",
-      "author": "Fred Lambert",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Tesla"
-      ],
-      "featured": false,
-      "xpReward": 37,
-      "url": "https://electrek.co/2026/11/16/tesla-cybercab-giga-berlin-3-billion-1-million/",
-      "image": "/images/feed/feed-e2edbaedd59d.jpg",
-      "source": "Electrek",
-      "isLive": true
-    },
-    {
-      "id": "feed-f2c3c92b0ac1",
-      "title": "OpenAI will embed safety researchers to investigate AI subversion",
-      "excerpt": "OpenAI will embed six Apollo Research evaluators to investigate whether its AI models engage in subversive behavior, but restrictions on access and disclosure raise questions about their independence.",
-      "body": "OpenAI will embed six Apollo Research evaluators to investigate whether its AI models engage in subversive behavior, but restrictions on access and disclosure raise questions about their independence.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Openai. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Rebecca Bellan",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "ai",
-      "tags": [
-        "Openai"
-      ],
-      "featured": false,
-      "xpReward": 38,
-      "url": "https://techcrunch.com/2026/11/16/openai-will-embed-apollo-researchers-to-investigate-ai-subversion/",
-      "image": "https://techcrunch.com/wp-content/uploads/2026/05/openai-logo-code-background.jpg?resize=1200,798",
-      "source": "TechCrunch",
-      "isLive": true
-    },
-    {
-      "id": "feed-a8005cc7b595",
-      "title": "Broadening access to AI for scientists",
-      "excerpt": "We’re expanding our ChatGPT for Academic Researchers program to offer 200,000 researchers worldwide free access to our frontier models.",
-      "body": "We’re expanding our ChatGPT for Academic Researchers program to offer 200,000 researchers worldwide free access to our frontier models.\n\nThis report, published by OpenAI Blog, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Ai. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to OpenAI Blog using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "OpenAI Blog",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "ai",
-      "tags": [
-        "Ai"
-      ],
-      "featured": false,
-      "xpReward": 36,
-      "url": "https://openai.com/index/expanding-chatgpt-for-academic-researchers",
-      "image": "/images/topics/topic-ai-ml.png",
-      "source": "OpenAI Blog",
-      "isLive": true
-    },
-    {
-      "id": "feed-32c75522a0ea",
-      "title": "Strengthening the fight against online child sexual abuse with new tools and support",
-      "excerpt": "New tools, practical guidance, and partnerships will help prevent, detect and respond to online child sexual exploitation and abuse.",
-      "body": "New tools, practical guidance, and partnerships will help prevent, detect and respond to online child sexual exploitation and abuse.\n\nThis report, published by OpenAI Blog, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Ai. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to OpenAI Blog using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "OpenAI Blog",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "ai",
-      "tags": [
-        "Ai"
-      ],
-      "featured": false,
-      "xpReward": 49,
-      "url": "https://openai.com/index/strengthening-online-child-safety",
-      "image": "/images/topics/topic-ai-ml.png",
-      "source": "OpenAI Blog",
-      "isLive": true
-    },
-    {
-      "id": "feed-ad75a624b12d",
-      "title": "The Leonid meteor shower peaks Nov. 17-18! Here's what you need to know",
-      "excerpt": "The Leonid meteor shower peaks overnight on Nov. 17-18, sending shooting stars racing across the night sky from the direction of the constellation Leo.",
-      "body": "The Leonid meteor shower peaks Nov. 17-18 sending shooting stars and fireballs across the autumn sky as Earth passes through a stream of debris left by Comet 55P/Tempel-Tuttle. Up to 15 meteors could be spotted per hour under perfect dark sky conditions on the night of Nov. 17-18, according to the International Meteor Organisation . NASA, meanwhile, has given a more conservative rate of less than three meteors per hour — time will tell. Leonid meteors appear to race away from a point of origin, or radiant, in the constellation Leo, which glistens high above the southeastern horizon in the hours before dawn in mid-November. Both Jupiter and Mars will be separated by just a few degrees in the constellation Leo on the night of the peak, making it particularly easy to find in 2026!",
-      "author": " Anthony Wood ",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Space"
-      ],
-      "featured": false,
-      "xpReward": 37,
-      "url": "https://www.space.com/stargazing/meteor-showers/the-leonid-meteor-shower-peaks-nov-17-18-heres-what-you-need-to-know",
-      "image": "/images/feed/feed-ad75a624b12d.jpg",
-      "source": "Space.com",
-      "isLive": true
-    },
-    {
-      "id": "feed-a72907514637",
-      "title": "Trump again orders broken coal plant to stay open, even after court said its illegal",
-      "excerpt": "The Department of Energy has issued a seventh “emergency” order forcing J.H. Campbell coal plant in Michigan to remain open, 534 days after the plant’s planned retirement. The orders have cost ratepay…",
-      "body": "The Department of Energy has issued a seventh “emergency” order forcing J.H. Campbell coal plant in Michigan to remain open, 534 days after the plant’s planned retirement. The orders have cost ratepayers $303 million and counting, causing electricity prices to increase amid a global energy crisis. more…",
-      "author": "Jameson Dow",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Cars"
-      ],
-      "featured": false,
-      "xpReward": 39,
-      "url": "https://electrek.co/2026/11/16/trump-again-orders-broken-coal-plant-to-stay-open-even-after-court-said-its-illegal/",
-      "image": "/images/feed/feed-a72907514637.jpg",
-      "source": "Electrek",
-      "isLive": true
-    },
-    {
-      "id": "feed-81ef74f31b59",
-      "title": "Microsoft says months-old bug caused global Microsoft 365 outage",
-      "excerpt": "Microsoft says a software bug introduced in July caused last week's worldwide Microsoft 365 outage, triggering a cascading failure that left more than 80% of its networking gateway servers unresponsiv…",
-      "body": "Microsoft says a software bug introduced in July caused last week's worldwide Microsoft 365 outage, triggering a cascading failure that left more than 80% of its networking gateway servers unresponsiv — a development drawing significant attention in the cybersecurity and digital privacy space.\n\nThis report, published by BleepingComputer, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cybersecurity. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to BleepingComputer using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Lawrence Abrams",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "cybersecurity",
-      "tags": [
-        "Cybersecurity"
-      ],
-      "featured": false,
-      "xpReward": 36,
-      "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-says-months-old-bug-caused-global-microsoft-365-outage/",
-      "image": "/images/feed/feed-81ef74f31b59.jpg",
-      "source": "BleepingComputer",
-      "isLive": true
     }
   ],
   "breakingNews": [
-    "DEV.TO: Weekly Digest Recovery Using FIFO Queue Webhook Deduplication and Idempotency Keys",
-    "DEV.TO: Node.js Media Renewal Jobs: At-Least-Once Replay Governance for Duplicate Processing",
-    "DEV.TO: Showing license expiry in the right time zone",
-    "DEV.TO: Exact VRAM & Memory Bandwidth Math for Running DeepSeek-R1, Qwen-2.5-Coder-32B & Llama-3.3-70B Locally",
-    "DEV.TO: Reklam Formundan CRM'e Kapalı Döngü: UTM, Webhook ve Conversions API ile Lead Veri Akışı Tasarlamak",
-    "TECHCRUNCH: California state AG sues OpenAI over rogue agent incidents",
-    "DEV.TO: How source-generated P/Invoke decompiles",
-    "DEV.TO: Orchestrating Agents: What Strands Teaches About Workflow Determinism vs. LLM Freedom",
-    "SPACE.COM: Elon Musk says SpaceX’s Starship, already the largest rocket on Earth, will get even bigger with next-gen V4 model",
-    "POLYGON: What Makes The Legend of Zelda: Ocarina of Time So Great Anyway?"
+    "9TO5MAC: Apple’s leadership overhaul continues with new Apple Pay and Wallet chief",
+    "DEV.TO: How to add wallets to your app with an API",
+    "DEV.TO: How to Tailor Your Resume to a Job Without Lying",
+    "DEV.TO: OpenAI’s Free ChatGPT Program Could Reach 200,000 Researchers. Here’s What It Offers",
+    "DEV.TO: Vector Search vs Web Search for Insurance Claims Intake: Audit Logs and Freshness",
+    "DEV.TO: FBI FLASH: ARTEX AI Pentest Framework Takes Intrusions From Targeting to Privileged Access in Under Three Hours",
+    "DEV.TO: How to compress a JPG to an exact KB size in the browser (and why 50 KB is two numbers)",
+    "DEV.TO: Judge Me by My Size, Do You? What Your Viewport Really Costs an AI Tester",
+    "TECHCRUNCH: Apple reveals new Mac security controls as AI agents raise privacy risks",
+    "ENGADGET: Every Xbox console generation sorted by release date"
   ],
   "sectionVideos": {}
 }
