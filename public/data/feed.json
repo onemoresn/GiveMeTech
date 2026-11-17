@@ -1,51 +1,32 @@
 {
-  "fetchedAt": "2026-11-16T23:11:52.740Z",
+  "fetchedAt": "2026-11-17T00:25:23.134Z",
   "articles": [
     {
-      "id": "feed-636cd1fe259d",
-      "title": "如何改造scrapy-redis的TLS指纹和HTTP2指纹？",
-      "excerpt": "先说结论:scrapy-redis 本身不决定指纹。 它只接管调度器、去重和队列,TLS/HTTP2 指纹是 Scrapy 下载器(Twisted + pyOpenSSL + h2)发出的。所以要改的是下载层,scrapy-redis 部分基本不用动。 DOWNLOADER_CLIENT_TLS_CIPHERS = \"ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-…",
-      "body": "先说结论:scrapy-redis 本身不决定指纹。 它只接管调度器、去重和队列,TLS/HTTP2 指纹是 Scrapy 下载器(Twisted + pyOpenSSL + h2)发出的。所以要改的是下载层,scrapy-redis 部分基本不用动。 方案一:只调 Scrapy 原生参数(效果有限) DOWNLOADER_CLIENT_TLS_CIPHERS = \"ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:...\" DOWNLOADER_CLIENT_TLS_METHOD = \"TLSv1.2\" 这只能改 cipher 列表,JA3 会变,但扩展顺序、GREASE、ALPS、签名算法等控制不了。HTTP/2 的 SETTINGS 帧、WINDOW_UPDATE、伪头顺序也写死在 h2 库里。结果是指纹\"不像 Scrapy\",但也不像任何真实浏览器,对 Akamai、Cloudflare 这类检测基本无效。 方案二:把下载器换成 curl_cffi(推荐) curl_cffi 基于 curl-impersonate,能同时模拟浏览器的 TLS 指纹(JA3/JA4)和 HTTP/2 指纹(Akamai fingerprint)。最省事的是用 scrapy-impersonate : # settings.py DOWNLOAD_HANDLERS = { \"http\" : \"scrapy_impersonate.ImpersonateDownloadHandler\" , \"https\" : \"scrapy_impersonate.ImpersonateDownloadHandler\" , } TWISTED_REACTOR = \"twisted.internet.asyncioreactor.Async…",
-      "author": "drake",
-      "date": "2026-11-16",
+      "id": "feed-b9718ea26c35",
+      "title": "Docker Mailserver has 22 title matches because mail services do not advertise a dashboard name",
+      "excerpt": "Docker Mailserver has 22 title matches because mail services do not advertise a dashboard name Docker Mailserver is a containerized mail server, not a web application with one branded login page. A Zo…",
+      "body": "Docker Mailserver has 22 title matches because mail services do not advertise a dashboard name Docker Mailserver is a containerized mail server, not a web application with one branded login page. A ZoomEye title query for the project name will miss most deployments because the mail ports produce SMTP, IMAP, POP3, or TLS banners rather than the software name. The low title count is a signature limitation, not a measure of the mail footprint. On 2026-11-17, title=\"Docker Mailserver\" returned 22 total matches at 07:47:09 +08:00. http.body=\"Docker Mailserver\" returned 528 at 07:47:11 +08:00. Both used sub_type=all , page 1, and pagesize=1 . The body matches may include documentation, repositories, and project pages, so neither number should be treated as a server population.",
+      "author": "andreagomez",
+      "date": "2026-11-17",
       "readTime": "2 min",
       "section": "software",
       "tags": [
         "Software"
       ],
       "featured": true,
-      "xpReward": 49,
-      "url": "https://dev.to/dragon72463399/ru-he-gai-zao-scrapy-redisde-tlszhi-wen-he-http2zhi-wen--54co",
-      "image": "/images/feed/feed-636cd1fe259d.webp",
+      "xpReward": 34,
+      "url": "https://dev.to/andreagomez/docker-mailserver-has-22-title-matches-because-mail-services-do-not-advertise-a-dashboard-name-o46",
+      "image": "/images/feed/feed-b9718ea26c35.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-6c93e76b7372",
-      "title": "De Zeus à l'IA",
-      "excerpt": "Quand j'étais jeune, j'ai toujours été surpris en lisant l'histoire humaine de voir comment les gens d'autrefois attribuaient les phénomènes naturels, comme la foudre, à la colère de Zeus, ou expliqua…",
-      "body": "De Zeus à l'IA: Pourquoi nous continuons à créer des mythes modernes dans la Tech Quand j'étais jeune, j'ai toujours été surpris en lisant l'histoire humaine de voir comment les gens d'autrefois attribuaient les phénomènes naturels, comme la foudre, à la colère de Zeus, ou expliquaient les maladies par des causes mystiques avant le développement de la science. Mais en voyant aujourd'hui comment certains interagissent avec l'intelligence artificielle, en la considérant comme une solution magique à tous les défis, cette surprise d'enfance a totalement disparu. La tentation de la mystification À une époque où les bases de la technologie sont accessibles même aux enfants, on s'attendrait à ne pas voir de recul dans la prise de conscience de la communauté tech.",
-      "author": "Mohamad Hassoun",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 35,
-      "url": "https://dev.to/mohassoun/de-zeus-a-lia-4a1i",
-      "image": "/images/feed/feed-6c93e76b7372.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-186d4afc54c2",
-      "title": "Postgres Training Backups: Node.js pg_dump Gzip Streams for 2026 Object Retention",
-      "excerpt": "The reliable default for an edtech backup is a streamed pg_dump compressed with gzip, uploaded as a private object, and retained by a policy that can be replayed from metadata. Large-file throughput i…",
-      "body": "The reliable default for an edtech backup is a streamed pg_dump compressed with gzip, uploaded as a private object, and retained by a policy that can be replayed from metadata. Large-file throughput is the deciding constraint: keep the web process out of the byte path, make each archive addressable, and test restore rather than treating an upload receipt as proof. Short answer: run the dump in a worker, stream compression into multipart object storage, write an immutable manifest beside it, and issue a signed restore URL only after a successful integrity check. A retention rule should be data, not a cron comment.",
-      "author": "SladeBarrett9642",
-      "date": "2026-11-16",
+      "id": "feed-8093e9fa7077",
+      "title": "Hot experts, cold RAM: running a big MoE on a machine with more memory than VRAM",
+      "excerpt": "Two budgets, and only one of them is expensive Every local deployment spends against two budgets at once: the size of That is what Strata is for. It is forked from llama.cpp and built for llama.cpp is…",
+      "body": "Two budgets, and only one of them is expensive Every local deployment spends against two budgets at once: the size of the model and the price of the memory holding it. VRAM is the one people reach for first, and it is the one that costs the most per gigabyte. System DDR is fast, vast and cheap; GPU memory is fast, small and expensive. An inference engine that can put weights in the second place changes the bill. That is what Strata is for. It is forked from llama.cpp and built for memory efficiency: it keeps resident only the experts that are hot – the ones actually in use – and leaves the rest parked. That is how big MoE models run on small RAM.",
+      "author": "Private Local AI",
+      "date": "2026-11-17",
       "readTime": "2 min",
       "section": "software",
       "tags": [
@@ -53,85 +34,313 @@
       ],
       "featured": true,
       "xpReward": 33,
-      "url": "https://dev.to/sladebarrett9642/postgres-training-backups-nodejs-pgdump-gzip-streams-for-2026-object-retention-19ah",
-      "image": "/images/feed/feed-186d4afc54c2.webp",
+      "url": "https://dev.to/private_localai/hot-experts-cold-ram-running-a-big-moe-on-a-machine-with-more-memory-than-vram-c8n",
+      "image": "/images/feed/feed-8093e9fa7077.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-8c5eb50ac9f6",
-      "title": "Consistency checks, with real output: missing attributes and title/description contradictions",
-      "excerpt": "Consistency checks, with real output: missing attributes and title/description contradictions Part 3 of 6 in CatalogSentry's launch series. Part 2 listed what CatalogSentry checks today. actor_input/d…",
-      "body": "Consistency checks, with real output: missing attributes and title/description contradictions Part 3 of 6 in CatalogSentry's launch series. Part 2 listed what CatalogSentry checks today. This post shows two of those checks running, with real findings — not paraphrased, not invented. Every evidence string below was produced by running CatalogSentry's actual check code against its own demo fixture ( actor_input/demo--input.json , shipped in the repo), with this call: from utils . feed_loader import products_from_inline from utils . checks import CHECKS import json data = json .",
-      "author": "Peter Tomko",
-      "date": "2026-11-16",
+      "id": "feed-68285b3b3319",
+      "title": "Logs Aren't an Audit Trail: Debugging Business Data in Spring Boot",
+      "excerpt": "A production support ticket comes in: \"Why was this account deactivated?\" You check the database: id = 1042 status = DEACTIVATED Then you search the application logs: 2026-10-12T09:42:18Z INFO Account…",
+      "body": "A production support ticket comes in: \"Why was this account deactivated?\" You check the database: id = 1042 status = DEACTIVATED Then you search the application logs: 2026-10-12T09:42:18Z INFO AccountService Account 1042 updated successfully The application processed an update. But that doesn't answer the question. What was the previous status? Who initiated the change? Did the transaction actually commit? Was this the first transition, or had the account changed several times? This is a distinction that becomes important when supporting production applications: Application logs describe execution. Audit trails describe changes to business data. They are related, but they aren't interchangeable. 1.",
+      "author": "Ed Legaspi",
+      "date": "2026-11-17",
       "readTime": "2 min",
       "section": "software",
       "tags": [
         "Software"
       ],
       "featured": true,
-      "xpReward": 43,
-      "url": "https://dev.to/tomkess/consistency-checks-with-real-output-missing-attributes-and-titledescription-contradictions-2638",
-      "image": "/images/feed/feed-8c5eb50ac9f6.webp",
+      "xpReward": 45,
+      "url": "https://dev.to/czetsuya/logs-arent-an-audit-trail-debugging-business-data-in-spring-boot-18p",
+      "image": "/images/feed/feed-68285b3b3319.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-80b3f5346af1",
-      "title": "A download archive needs a restart policy",
-      "excerpt": "A folder can exist and still be an unfinished download, so I want an archive job to tell me what happened when it finds that folder again. My own job had a gap there. It skipped the existing folder wi…",
-      "body": "A folder can exist and still be an unfinished download, so I want an archive job to tell me what happened when it finds that folder again. My own job had a gap there. It skipped the existing folder without checking its contents, recorded the status as existing , and returned a failed batch at the end. That kept it from claiming success, but it also meant a rerun couldn't certify a completed download. I found that by reading the script after a successful model archive, where all seven repositories were marked verified and the recorded checksum checks passed for each one. The original run hadn't shown me an interruption. I tested the restart branch separately with a fake existing directory and mocked download commands.",
-      "author": "prodbymarcu",
-      "date": "2026-11-16",
+      "id": "feed-e62867d452c5",
+      "title": "Expo Exact: un framework sin React. ¿Se acaba React Native?",
+      "excerpt": "Expo Exact es un framework de apps escrito en Rust, sin React, que Charlie Cheever, cofundador de Expo, presentó en pre-alpha el 9 de noviembre de 2026. Su interfaz se escribe en un lenguaje nuevo lla…",
+      "body": "Expo Exact es un framework de apps escrito en Rust, sin React, que Charlie Cheever, cofundador de Expo, presentó en pre-alpha el 9 de noviembre de 2026. Su interfaz se escribe en un lenguaje nuevo llamado Contract y Cheever lo describe como \"agent native\": pensado para que un agente de IA lo construya, lo ejecute, lo vea y lo pruebe. Que el cofundador de Expo presente un framework sin React plantea una pregunta directa para quienes tenemos apps en React Native: ¿se acaba React Native? Leí el anuncio y el README del repositorio. No construí ninguna app con Exact; lo que sigue es una lectura de lo que Expo publicó, desde alguien que entrega apps con React Native y Expo para clientes, escribe Swift nativo y construye agentes.",
+      "author": "Ramón Chancay 👨🏻‍💻",
+      "date": "2026-11-17",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Framework"
+      ],
+      "featured": true,
+      "xpReward": 31,
+      "url": "https://dev.to/devrchancay/expo-exact-un-framework-sin-react-se-acaba-react-native-33f7",
+      "image": "/images/feed/feed-e62867d452c5.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-9d532434d794",
+      "title": "Expo Exact: a React-free framework. Is React Native dead?",
+      "excerpt": "Expo Exact is an app framework written in Rust, without React, that Charlie Cheever, co-founder of Expo, previewed as a pre-alpha on November 9, 2026. Its interface is written in a new language called…",
+      "body": "Expo Exact is an app framework written in Rust, without React, that Charlie Cheever, co-founder of Expo, previewed as a pre-alpha on November 9, 2026. Its interface is written in a new language called Contract, and Cheever describes it as \"agent native\": designed so that an AI agent can build, run, see and test the app. When Expo's co-founder ships a React-free framework, those of us who maintain React Native apps are left with one question: is React Native dead? I read the announcement and the repository's README. I did not build an app with Exact; what follows is a reading of what Expo published, from someone who ships React Native and Expo apps for clients, writes native Swift and builds agents.",
+      "author": "Ramón Chancay 👨🏻‍💻",
+      "date": "2026-11-17",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Framework"
+      ],
+      "featured": true,
+      "xpReward": 35,
+      "url": "https://dev.to/devrchancay/expo-exact-a-react-free-framework-is-react-native-dead-4d0a",
+      "image": "/images/feed/feed-9d532434d794.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-c859b5658137",
+      "title": "在本機執行的最佳小型 LLM：完整指南",
+      "excerpt": "依實際工作需求選擇小型模型 先選擇支援你所需輸入類型的模型。可以試用 Qwen3 4B 作為小型文字基準模型；如果也需要圖片輸入，可以試用 Gemma 3 4B；若要測試數學或結構化任務，可以把 Phi-4-mini 當作第二個文字基準模型。這些都是適合在自己的電腦上測試的候選模型。它們的相對品質取決於你的提示詞、語言和驗收標準。 40 億個參數，每個精確使用 4 位元，光儲存原始權重就需要約 2…",
+      "body": "依實際工作需求選擇小型模型 先選擇支援你所需輸入類型的模型。可以試用 Qwen3 4B 作為小型文字基準模型；如果也需要圖片輸入，可以試用 Gemma 3 4B ；若要測試數學或結構化任務，可以把 Phi-4-mini 當作第二個文字基準模型。這些都是適合在自己的電腦上測試的候選模型。它們的相對品質取決於你的提示詞、語言和驗收標準。 估算可用記憶體 40 億個參數，每個精確使用 4 位元，光儲存原始權重就需要約 2 GB。檔案可能更大，而載入後的模型還需要空間供執行時緩衝區及鍵值快取使用。請為作業系統和推論期間同時執行的其他工作保留記憶體。即使下載的權重不變，更長的上下文仍需要更多記憶體。 Ollama 上下文長度文件 為了讓比較可以重現，先用相同提示詞搭配較短的上下文測試，例如 2,048 個 token，接著再使用工作實際需要的上下文長度。除了延遲，也要記錄是否使用交換空間或將部分運算轉移至 CPU。模型在第一種設定下能放進記憶體，並不表示在第二種設定下也能放得下。 使用 Ollama 進行初次比較 ollama run qwen3:4b ollama run gemma3:4b ollama run phi4-mini ollama ps 一次執行一個模型指令，開始下一個之前先退出前一個聊天。模型載入時，使用 ollama ps 查看分配的上下文及 CPU／GPU 分配比例。比較記憶體和執行時間時，請保持上下文與提示詞設定相同。圖片輸入則應另行針對實際支援圖片的模型測試。 保留通過測試的最小模型 準備一小組固定的代表性提示詞與預期結果。例如，摘要一段短文並保留指定事實，或產生能通過你所使用 schema 驗證的 JSON。在同一台電腦上測量首個 token 的等待時間及輸出速度。記錄失敗的輸出與記憶體使用峰值，不要讓平均值掩蓋它們。保存精確的模型標籤、可取得時的量化設…",
+      "author": "Ailoot",
+      "date": "2026-11-17",
       "readTime": "2 min",
       "section": "software",
       "tags": [
         "Software"
       ],
       "featured": true,
-      "xpReward": 51,
-      "url": "https://dev.to/prodbymarcu/a-download-archive-needs-a-restart-policy-4e5g",
-      "image": "/images/feed/feed-80b3f5346af1.webp",
+      "xpReward": 54,
+      "url": "https://dev.to/ailoot-ai/zai-ben-ji-zhi-xing-de-zui-jia-xiao-xing-llmwan-zheng-zhi-nan-45pf",
+      "image": "/images/feed/feed-c859b5658137.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-68a84c4638d2",
-      "title": "The Shift Handoff: Turning Chat Queues into Executable Summaries",
-      "excerpt": "The worst five minutes of any support shift are the first ones. The night team goes home, the day team opens the queue, and the only bridge between them is a paragraph of prose in a group chat — if th…",
-      "body": "The worst five minutes of any support shift are the first ones. The night team goes home, the day team opens the queue, and the only bridge between them is a paragraph of prose in a group chat — if the night team remembered to write it. Everything that actually matters is scattered across threads: a promise made to a customer at 2am, a buyer typing in short angry bursts, a promo rule that changed at midnight. Prose is a lossy serialization format for all of that. The fix is not nicer prose. It is treating the shift handoff as an executable summary: structured data with owners, states, and next actions — written so a person can act on it in minutes, and so a machine can read it at all. Why Prose Handoffs Fail Free-text handoffs fail in predictable ways.",
-      "author": "Dingdang CS",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 40,
-      "url": "https://dev.to/dingdangcs/the-shift-handoff-turning-chat-queues-into-executable-summaries-2ndi",
-      "image": "/images/feed/feed-68a84c4638d2.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-01aad9c86be8",
-      "title": "How to Compress an Image to a Specific KB Size Without Obvious Quality Loss",
-      "excerpt": "A website, application, or email form may reject a photo that is larger than its file-size limit. If the limit is 100 KB, the practical goal is to create a clear image that comes in at or below 100 KB…",
-      "body": "A website, application, or email form may reject a photo that is larger than its file-size limit. If the limit is 100 KB, the practical goal is to create a clear image that comes in at or below 100 KB—and then check that the destination accepts it. A target-size setting is a useful starting point, but image compression has trade-offs. A detailed photograph can need more data than a simple graphic, and the same settings may produce different file sizes for different images. The reliable workflow is to set a maximum, inspect the result, and adjust dimensions or format if needed. What does “compress to 100 KB” mean? In most upload tasks, “compress to 100 KB” means make the file no larger than 100 KB. It does not mean the file must be exactly 100 KB.",
-      "author": "daily box",
-      "date": "2026-11-16",
+      "id": "feed-7e9327e72a4e",
+      "title": "Các mô hình LLM nhỏ tốt nhất để chạy cục bộ: Hướng dẫn toàn diện",
+      "excerpt": "Chọn mô hình nhỏ phù hợp với tác vụ thực tế Bắt đầu bằng một mô hình hỗ trợ loại dữ liệu đầu vào của bạn. Hãy thử Qwen3 4B làm mô hình cơ sở nhỏ cho văn bản, Gemma 3 4B nếu bạn cũng cần đầu vào hình ả…",
+      "body": "Chọn mô hình nhỏ phù hợp với tác vụ thực tế Bắt đầu bằng một mô hình hỗ trợ loại dữ liệu đầu vào của bạn. Hãy thử Qwen3 4B làm mô hình cơ sở nhỏ cho văn bản, Gemma 3 4B nếu bạn cũng cần đầu vào hình ảnh, hoặc Phi-4-mini làm mô hình cơ sở thứ hai cho các tác vụ toán học hoặc có cấu trúc. Đây là những phương án để thử trên máy của bạn. Chất lượng tương đối của chúng phụ thuộc vào prompt, ngôn ngữ và tiêu chí chấp nhận của bạn. Ước tính bộ nhớ có thể sử dụng Bốn tỷ tham số, mỗi tham số đúng bốn bit, sẽ cần khoảng 2 GB để lưu riêng các trọng số thô. Tệp có thể lớn hơn và các mô hình đã tải còn cần chỗ cho bộ đệm khi chạy và bộ nhớ đệm khóa–giá trị. Hãy dành bộ nhớ cho hệ điều hành và những công việc khác chạy cùng lúc với quá trình suy luận.",
+      "author": "Ailoot",
+      "date": "2026-11-17",
       "readTime": "2 min",
       "section": "software",
       "tags": [
         "Software"
       ],
       "featured": false,
-      "xpReward": 33,
-      "url": "https://dev.to/daily_box_be2aaec98f8148e/how-to-compress-an-image-to-a-specific-kb-size-without-obvious-quality-loss-47n6",
-      "image": "/images/feed/feed-01aad9c86be8.webp",
+      "xpReward": 34,
+      "url": "https://dev.to/ailoot-ai/cac-mo-hinh-llm-nho-tot-nhat-de-chay-cuc-bo-huong-dan-toan-dien-284f",
+      "image": "/images/feed/feed-7e9327e72a4e.webp",
       "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-940f736e5cf7",
+      "title": "9to5Mac Daily: November 16, 2026 – Apple glasses rumors, more",
+      "excerpt": "Listen to a recap of the top stories of the day from 9to5Mac. 9to5Mac Daily is available on iTunes and Apple’s Podcasts app, Stitcher, TuneIn, Google Play, or through our dedicated RSS feed for Overca…",
+      "body": "Listen to a recap of the top stories of the day from 9to5Mac . 9to5Mac Daily is available on iTunes and Apple’s Podcasts app , Stitcher , TuneIn , Google Play , or through our dedicated RSS feed for Overcast and other podcast players. Sponsored by Backblaze : Backup you can rely on. Save 20% with code 9to5daily . more…",
+      "author": "Seth Kurkowski",
+      "date": "2026-11-17",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 44,
+      "url": "https://9to5mac.com/2026/11/16/daily-november-16-2026/",
+      "image": "/images/feed/feed-940f736e5cf7.jpg",
+      "source": "9to5Mac",
+      "isLive": true
+    },
+    {
+      "id": "feed-f5c344496695",
+      "title": "'Avengers: Doomsday' Star Says He Was Lied to About His Next Big Role",
+      "excerpt": "\"I would have never taken this job\"",
+      "body": "Anthony Mackie’s Sam Wilson/Captain America will be leading the Avengers in Avengers: Doomsday , guiding Thor (Chris Hemsworth), Ant-Man (Paul Rudd), Shang-Chi (Simu Liu), and Falcon (Danny Ramirez) in the fight against Doctor Doom . But while Sam is getting a big promotion, Mackie said he was lied to about his next starring role.",
+      "author": "Sam Nelson",
+      "date": "2026-11-17",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 42,
+      "url": "https://www.polygon.com/anthony-mackie-jamie-dornan-interview-12-12-12/",
+      "image": "/images/feed/feed-f5c344496695.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-bf574177559d",
+      "title": "Whether it's Black Friday or a CEO scandal, NVIDIA GPUs just don't get deep discounts",
+      "excerpt": "Hoping the Jensen Huang fallout means cheap RTX cards this Black Friday? Here's what's really driving GPU prices and why deals may be hard to find.",
+      "body": "Hoping the Jensen Huang fallout means cheap RTX cards this Black Friday? Here's what's really driving GPU prices and why deals may be hard to find.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "staff@engadget.com (Luke James)",
+      "date": "2026-11-17",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 37,
+      "url": "https://www.engadget.com/2318262/nvidia-gou-dont-get-deep-discounts-black-friend-ceo-scandal/",
+      "image": "/images/feed/feed-bf574177559d.jpg",
+      "source": "Engadget",
+      "isLive": true
+    },
+    {
+      "id": "feed-1f6d08485bd2",
+      "title": "Sihoo’s ergonomic office chair gives all-year comfort at lowest price for holidays",
+      "excerpt": "The holiday season brings the best deals of the year, and for anyone looking to upgrade to an ergonomic office chair, Sihoo’s Doro C300 Pro V2 is now available at its lowest price of the year. more…",
+      "body": "The holiday season brings the best deals of the year, and for anyone looking to upgrade to an ergonomic office chair, Sihoo’s Doro C300 Pro V2 is now available at its lowest price of the year. more — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Sponsored Post",
+      "date": "2026-11-17",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 33,
+      "url": "https://9to5mac.com/2026/11/16/sihoos-ergonomic-office-chair-gives-all-year-comfort-at-lowest-price-for-holidays/",
+      "image": "/images/feed/feed-1f6d08485bd2.jpg",
+      "source": "9to5Mac",
+      "isLive": true
+    },
+    {
+      "id": "feed-9449082eb22b",
+      "title": "Google Messages is working on personalized Smart Replies that match better with your conversation",
+      "excerpt": "The system would help automated responses fit in better with a conversation's overall vibe.",
+      "body": "TL;DR Smart Replies offer a quick way to respond to texts, but aren’t very personal. Messages appears to be working on a new option for personalized Smart Replies. The system would apparently look at your chat in order to offer responses that feel less generic. Not every text you get requires a super hands-on reply, and that’s exactly why automated Smart Replies can be so handy — but for those circumstances where you’d still prefer a bit more of a personal touch, Google looks like’s it’s now preparing a useful Smart Reply upgrade. APK teardown: This reporting is based on work-in-progress code. These features may not ship.",
+      "author": "Stephen Schenck",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 32,
+      "url": "https://www.androidauthority.com/personalized-smart-replies-3735772/",
+      "image": "/images/feed/feed-9449082eb22b.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-820d0f026a5e",
+      "title": "Hacker behind 2022 GTA VI leaks pleads guilty",
+      "excerpt": "Arion Kurtaj, a member of the Lapsus$ cybercrime group who leaked 90 videos of Grand Theft Auto VI in 2022 and hacked other big companies, pleaded guilty on Monday, according to the UK's Crown Prosecu…",
+      "body": "Arion Kurtaj, a member of the Lapsus$ cybercrime group who leaked 90 videos of Grand Theft Auto VI in 2022 and hacked other big companies, pleaded guilty on Monday, according to the UK's Crown Prosecution Service (CPS). Kurtaj, who is now 21, hacked BT/EE sometime between August and November 2021, and starting in early November of that year, the company \"noted a marked increase in unauthorised SIM swaps of their customers mobile phones.\" He was charged for those offenses and moved to a hotel for his \"own protection\" in September 2022, but \"breached his bail conditions to carry out further hacks on major companies using a mobile phone, the h … Read the full story at The Verge.",
+      "author": "Jay Peters",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "cybersecurity",
+      "tags": [
+        "Hacker"
+      ],
+      "featured": false,
+      "xpReward": 52,
+      "url": "https://www.theverge.com/games/1035087/gta-vi-leaks-2022-hacker-pleads-guilty-arion-kurtaj",
+      "image": "/images/feed/feed-820d0f026a5e.jpg",
+      "source": "The Verge",
+      "isLive": true
+    },
+    {
+      "id": "feed-7517b8cd010a",
+      "title": "Cybersecurity AI startup Corma reaches $1B valuation in about 3 months",
+      "excerpt": "Three months since introducing its product, AI cybersecurity startup Corba has raised a $125 million Series A at a $1 billion valuation led by NEA.",
+      "body": "Three months since introducing its product, AI cybersecurity startup Corba has raised a $125 million Series A at a $1 billion valuation led by NEA.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cybersecurity. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Julie Bort",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "cybersecurity",
+      "tags": [
+        "Cybersecurity"
+      ],
+      "featured": false,
+      "xpReward": 31,
+      "url": "https://techcrunch.com/2026/11/16/cybersecurity-ai-startup-corma-reaches-1b-valuation-in-about-3-months/",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/10/Networked-AI-swarm-with-glowing-nodes.png?resize=1200,600",
+      "source": "TechCrunch",
+      "isLive": true
+    },
+    {
+      "id": "feed-c0a86b563899",
+      "title": "How to put your iPad in recovery mode (with and without a home button)",
+      "excerpt": "A failed update or too many wrong passcodes can leave your iPad unusable. Find out how recovery mode works and when it's worth trying as a last resort.",
+      "body": "A failed update or too many wrong passcodes can leave your iPad unusable. Find out how recovery mode works and when it's worth trying as a last resort.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "staff@engadget.com (Robin Bea)",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 40,
+      "url": "https://www.engadget.com/2315100/how-to-put-ipad-in-recovery-mode/",
+      "image": "/images/feed/feed-c0a86b563899.jpg",
+      "source": "Engadget",
+      "isLive": true
+    },
+    {
+      "id": "feed-93609db80040",
+      "title": "Perseverance Update: The Ghostly Rocks of ‘Idubi’ — Bright Remnants of Aqueous Systems from Long Ago",
+      "excerpt": "Written by Candice Bedford, Research Scientist at Purdue University Date: Nov. 16, 2026 During the Perseverance rover’s investigation of “Idubi” — an area of ancient Martian crust exposed in the “Lac…",
+      "body": "Explore This Section Perseverance Home Mission Overview Rover Components Mars Rock Samples Where is Perseverance? Ingenuity Mars Helicopter Mission Updates Science Overview Objectives Instruments Highlights Exploration Goals News and Features Multimedia Perseverance Raw Images Images Videos Audio More Resources Mars Missions Mars Perseverance Rover Mars Curiosity Rover Mars Reconnaissance Orbiter Mars Odyssey More Mars Missions Mars Home 2 min read Perseverance Update: The Ghostly Rocks of ‘Idubi’ — Bright Remnants of Aqueous Systems from Long Ago NASA’s Perseverance rover captured this image of a bright, silica-rich rock in the “Idubi” area using its left Mastcam-Z camera on Oct. 29, 2026 (Sol 2023) at the local mean solar time of 13:03:53.",
+      "author": "NASA Breaking News",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Space"
+      ],
+      "featured": false,
+      "xpReward": 37,
+      "url": "https://science.nasa.gov/blog/perseverance-update-the-ghostly-rocks-of-idubi-bright-remnants-of-aqueous-systems-from-long-ago/",
+      "image": "/images/feed/feed-93609db80040.jpg",
+      "source": "NASA Breaking News",
+      "isLive": true
+    },
+    {
+      "id": "feed-2615da65f8db",
+      "title": "Cummins Told Electrolyser Customers to Stop. Who Keeps the Hydrogen Plants Running?",
+      "excerpt": "A stop-use recommendation, a shrinking OEM workforce and mixed customer markets reveal the overlooked economics of hydrogen equipment after sales end. The post Cummins Told Electrolyser Customers to S…",
+      "body": "A stop-use recommendation, a shrinking OEM workforce and mixed customer markets reveal the overlooked economics of hydrogen equipment after sales end. The post Cummins Told Electrolyser Customers to S — a development drawing significant attention in the electric vehicles, hybrids, and automotive technology space.\n\nThis report, published by CleanTechnica, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cars. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to CleanTechnica using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Michael Barnard",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Cars"
+      ],
+      "featured": false,
+      "xpReward": 53,
+      "url": "https://cleantechnica.com/2026/11/16/cummins-hylyzer-stop-use-hydrogen-equipment-support/",
+      "image": "/images/feed/feed-2615da65f8db.png",
+      "source": "CleanTechnica",
+      "isLive": true
+    },
+    {
+      "id": "feed-50390f4cd796",
+      "title": "Optimizely Compromised, Served Malware on Zoom, GitLab",
+      "excerpt": "",
+      "body": "This report, published by Hacker News, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Malware. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Hacker News using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "kristjansson",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "cybersecurity",
+      "tags": [
+        "Malware"
+      ],
+      "featured": false,
+      "xpReward": 47,
+      "url": "https://blog.report-uri.com/worlds-largest-brands-infected-with-malware-via-optimizely/",
+      "image": "/images/feed/feed-50390f4cd796.png",
+      "source": "Hacker News",
       "isLive": true
     },
     {
@@ -147,7 +356,7 @@
         "Video Game"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 51,
       "url": "https://www.polygon.com/2026-games-of-the-year-how-were-made/",
       "image": "/images/feed/feed-446805b12145.png",
       "source": "Polygon",
@@ -166,7 +375,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 30,
       "url": "https://www.engadget.com/2314944/nintendo-switch-charging-mistakes-ruin-battery/",
       "image": "/images/feed/feed-085eabba0dbb.jpg",
       "source": "Engadget",
@@ -185,7 +394,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 47,
       "url": "https://www.bleepingcomputer.com/news/security/gemini-ai-agents-repeatedly-bypassed-safeguards-to-attack-real-website/",
       "image": "/images/feed/feed-f680c3550601.jpg",
       "source": "BleepingComputer",
@@ -204,85 +413,9 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 34,
       "url": "https://www.androidauthority.com/google-messages-in-app-gaming-3735732/",
       "image": "/images/feed/feed-379bf305a230.jpg",
-      "source": "Android Authority",
-      "isLive": true
-    },
-    {
-      "id": "feed-df73327ab82e",
-      "title": "United Airlines is experiencing a 'widespread system outage'",
-      "excerpt": "United is apparently experiencing a major outage just days after a nationwide ground stop halted thousands of flights.",
-      "body": "United is apparently experiencing a major outage just days after a nationwide ground stop halted thousands of flights.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Anna Washenko)",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 40,
-      "url": "https://www.engadget.com/2318613/united-airlines-is-experiencing-a-widespread-system-outage/",
-      "image": "/images/feed/feed-df73327ab82e.jpg",
-      "source": "Engadget",
-      "isLive": true
-    },
-    {
-      "id": "feed-62a563c9051b",
-      "title": "JBL Tune 730BT headphones drop to $49.95 with 44% off",
-      "excerpt": "JBL Tune 730BT headphones are 44% off on Amazon, hitting a record low of $49.95 with up to 76 hours of battery life.",
-      "body": "JBL has packed a lot into its latest budget over-ears, and the 2026 JBL Tune 730BT headphones are now down to $49.95 on Amazon . That is $40 (44%) off the $89.95 list price and the lowest price they have ever sold for. See the deal at Amazon",
-      "author": "Matt Horne",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Headphones"
-      ],
-      "featured": false,
-      "xpReward": 33,
-      "url": "https://www.androidauthority.com/jbl-tune-730bt-deal-3735758/",
-      "image": "/images/feed/feed-62a563c9051b.jpg",
-      "source": "Android Authority",
-      "isLive": true
-    },
-    {
-      "id": "feed-b95a00f33fcf",
-      "title": "‘Schmigadoon!’ and ‘Widow’s Bay’ land Apple TV two Grammy nominations",
-      "excerpt": "Apple TV today celebrated two Grammy nominations, one of which further establishes a canceled show as an unlikely awards success story. Here are the details. more…",
-      "body": "Apple TV today celebrated two Grammy nominations, one of which further establishes a canceled show as an unlikely awards success story. Here are the details. more — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Marcus Mendes",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 32,
-      "url": "https://9to5mac.com/2026/11/16/schmigadoon-and-widows-bay-land-apple-tv-two-grammy-nominations/",
-      "image": "/images/feed/feed-b95a00f33fcf.jpg",
-      "source": "9to5Mac",
-      "isLive": true
-    },
-    {
-      "id": "feed-0aa68b46aac6",
-      "title": "Save $120 on the Skullcandy Crusher ANC 2 noise canceling headphones",
-      "excerpt": "The headphones are $120 off on Amazon, its lowest price in a year, with adjustable haptic bass and noise canceling.",
-      "body": "Bass lovers, this one is for you. The Skullcandy Crusher ANC 2 noise canceling headphones are down to $119.99 on Amazon , which is $120 (50%) off their $239.99 list price and the lowest price they have been in a year. See the deal at Amazon",
-      "author": "Matt Horne",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Headphones"
-      ],
-      "featured": false,
-      "xpReward": 52,
-      "url": "https://www.androidauthority.com/skullcandy-crusher-anc-2-deal-amazon-3735757/",
-      "image": "/images/feed/feed-0aa68b46aac6.jpg",
       "source": "Android Authority",
       "isLive": true
     },
@@ -306,25 +439,6 @@
       "isLive": true
     },
     {
-      "id": "feed-21c94c4f4c42",
-      "title": "Galaxy Tab A11 Plus Kids Edition hits a record low",
-      "excerpt": "The Galaxy Tab A11 Plus Kids Edition is $100 off on Amazon, bringing the kid-proof tablet to a record low of $249.99.",
-      "body": "Looking for a tablet the kids can call their own this holiday season? The Samsung Galaxy Tab A11 Plus Kids Edition is down to $249.99 on Amazon , which is $100 (29%) off its $349.99 list price and the lowest price it has ever sold for. See the deal at Amazon",
-      "author": "Matt Horne",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 30,
-      "url": "https://www.androidauthority.com/samsung-galaxy-tab-a11-plus-kids-edition-deal-3735756/",
-      "image": "/images/feed/feed-21c94c4f4c42.jpg",
-      "source": "Android Authority",
-      "isLive": true
-    },
-    {
       "id": "feed-e16af48faffa",
       "title": "Cyber giant Infoblox confirms security incident after hackers access ‘company information’",
       "excerpt": "The cybersecurity and automation giant said it's working with outside investigators to understand the scale of the breach.",
@@ -338,7 +452,7 @@
         "Security"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 32,
       "url": "https://techcrunch.com/2026/11/16/cyber-giant-infoblox-confirms-security-incident-after-hackers-access-company-information/",
       "image": "https://techcrunch.com/wp-content/uploads/2024/02/connectwise-flaw-huntress-security.jpg?resize=1200,800",
       "source": "TechCrunch",
@@ -357,7 +471,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 42,
       "url": "https://science.nasa.gov/photojournal/a-collage-showing-49-drill-holes-made-by-nasas-curiosity-mars-rover/",
       "image": "/images/feed/feed-aa6d43d5b56e.jpg",
       "source": "NASA Breaking News",
@@ -376,7 +490,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 50,
       "url": "https://electrek.co/2026/11/16/adding-wind-cuts-solar-battery-storage-power-costs-nearly-20-percent/",
       "image": "/images/feed/feed-f612ab191d07.jpg",
       "source": "Electrek",
@@ -395,7 +509,7 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 30,
       "url": "https://electrek.co/2026/11/16/tesla-cybercab-crashes-speed-problem/",
       "image": "/images/feed/feed-165397cfb252.jpg",
       "source": "Electrek",
@@ -414,7 +528,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 33,
       "url": "https://insideevs.com/news/815648/land-rover-baby-defender-production/",
       "image": "/images/feed/feed-b9f57d761d73.jpg",
       "source": "InsideEVs",
@@ -433,7 +547,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 36,
       "url": "https://www.space.com/space-exploration/on-this-day-in-space-november-16-2026",
       "image": "/images/feed/feed-021b5c9dc3ce.jpg",
       "source": "Space.com",
@@ -452,7 +566,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 31,
       "url": "https://www.bleepingcomputer.com/news/security/google-project-zero-cuts-bug-disclosure-deadline-to-30-days-amid-ai-threats/",
       "image": "/images/feed/feed-6a0c75840373.jpg",
       "source": "BleepingComputer",
@@ -471,7 +585,7 @@
         "Starship"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 53,
       "url": "https://www.space.com/space-exploration/launches-spacecraft/relive-starships-historic-flight-15-with-our-best-photos-from-launch-and-mechazilla-tower-catch",
       "image": "/images/feed/feed-5d5380fc582a.jpg",
       "source": "Space.com",
@@ -490,7 +604,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 51,
       "url": "https://www.ign.com/articles/austin-creed-goes-viral-after-pulling-off-explosive-real-life-shoryuken-in-aew-full-gear-match",
       "image": "/images/feed/feed-5fe41730779f.jpg",
       "source": "IGN",
@@ -509,7 +623,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 37,
       "url": "https://www.ign.com/articles/alienware-aw3926qw-39-5k-oled-gaming-monitor-deal-november-2026",
       "image": "/images/feed/feed-0fd85c48c305.jpg",
       "source": "IGN",
@@ -528,10 +642,29 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 34,
       "url": "https://www.ign.com/articles/nvidia-reportedly-uninterested-in-bringing-jensen-huang-back-as-ceo",
       "image": "/images/feed/feed-7cba220cb8a5.png",
       "source": "IGN",
+      "isLive": true
+    },
+    {
+      "id": "feed-50390f4cd796",
+      "title": "World's Largest Brands Infected With Malware Via Optimizely",
+      "excerpt": "",
+      "body": "This report, published by Hacker News, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Malware. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Hacker News using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "martinald",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "cybersecurity",
+      "tags": [
+        "Malware"
+      ],
+      "featured": false,
+      "xpReward": 44,
+      "url": "https://blog.report-uri.com/worlds-largest-brands-infected-with-malware-via-optimizely/",
+      "image": "/images/feed/feed-50390f4cd796.png",
+      "source": "Hacker News",
       "isLive": true
     },
     {
@@ -548,29 +681,10 @@
         "Game"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 37,
       "url": "https://ben3d.ca/blog/building-the-aaa-lighting-pipeline-in-threejs",
       "image": "/images/feed/feed-8eba0cd01a09.jpg",
       "source": "Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-fc5ac4f1ef68",
-      "title": "Apple reveals new Mac security controls as AI agents raise privacy risks",
-      "excerpt": "Following an October announcement, Apple has detailed new permission controls, warnings, and transparency features coming to macOS 27.3 to address risks posed by AI agents and other apps.",
-      "body": "Following an October announcement, Apple has detailed new permission controls, warnings, and transparency features coming to macOS 27.3 to address risks posed by AI agents and other apps.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Security. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Sarah Perez",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "cybersecurity",
-      "tags": [
-        "Security"
-      ],
-      "featured": false,
-      "xpReward": 30,
-      "url": "https://techcrunch.com/2026/11/16/apple-reveals-new-mac-security-controls-as-ai-agents-raise-privacy-risks/",
-      "image": "https://techcrunch.com/wp-content/uploads/2024/11/CMC_8152.jpg?resize=1200,800",
-      "source": "TechCrunch",
       "isLive": true
     },
     {
@@ -586,48 +700,10 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 34,
       "url": "https://electrek.co/2026/11/16/ausom-black-friday-sale-right-scooter-right-job-at-right-price/",
       "image": "/images/feed/feed-3cded92c41f0.jpg",
       "source": "Electrek",
-      "isLive": true
-    },
-    {
-      "id": "feed-0f561af81c8b",
-      "title": "California sues OpenAI over AI agents escaping sandboxes, hacking firms",
-      "excerpt": "California Attorney General Rob Bonta sued OpenAI on Monday, alleging the company knowingly continued testing advanced artificial intelligence models despite repeated security failures that allowed au…",
-      "body": "California Attorney General Rob Bonta sued OpenAI on Monday, alleging the company knowingly continued testing advanced artificial intelligence models despite repeated security failures that allowed autonomous AI agents to escape isolated environments and launch cyberattacks against real-world organizations. [...]",
-      "author": "Lawrence Abrams",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "cybersecurity",
-      "tags": [
-        "Cybersecurity"
-      ],
-      "featured": false,
-      "xpReward": 38,
-      "url": "https://www.bleepingcomputer.com/news/security/california-sues-openai-over-ai-agents-escaping-sandboxes-hacking-firms/",
-      "image": "/images/feed/feed-0f561af81c8b.jpg",
-      "source": "BleepingComputer",
-      "isLive": true
-    },
-    {
-      "id": "feed-089c891447a7",
-      "title": "Anne Hathaway's 100-Minute Sci-Fi Thriller Takes Over Streaming After HBO Max Debut",
-      "excerpt": "The End of Oak Street has become an HBO Max streaming hit, giving Anne Hathaway another 2026 success.",
-      "body": "Anne Hathaway has had a particularly busy year, with major projects including Christopher Nolan's The Odyssey , the psychological thriller Verity , and the highly anticipated The Devil Wears Prada 2 . She's also ventured into more unconventional territory with A24's Mother Mary , a thriller that takes a considerably stranger approach to the world of pop stardom.",
-      "author": "Sam Hill",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 40,
-      "url": "https://www.polygon.com/end-of-oak-street-streaming-hbo-max-november-2026/",
-      "image": "/images/feed/feed-089c891447a7.jpg",
-      "source": "Polygon",
       "isLive": true
     },
     {
@@ -643,7 +719,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 35,
       "url": "https://www.theverge.com/ai-artificial-intelligence/1034815/california-openai-hugging-face-lawsuit",
       "image": "/images/feed/feed-6bf85be6fa63.png",
       "source": "The Verge",
@@ -681,7 +757,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 36,
       "url": "https://insideevs.com/news/815643/mercedes-hands-free-driving-usa/",
       "image": "/images/feed/feed-71fb042983c8.jpg",
       "source": "InsideEVs",
@@ -700,9 +776,9 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 48,
       "url": "https://www.nasa.gov/news-release/nasa-receives-16th-consecutive-clean-financial-audit-opinion/",
-      "image": "/images/feed/feed-e67baf6df70e.jpg",
+      "image": "https://www.nasa.gov/wp-content/uploads/2026/04/nasa-meatball-1.webp",
       "source": "NASA Breaking News",
       "isLive": true
     },
@@ -719,36 +795,17 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 30,
       "url": "https://electrek.co/2026/11/16/volkswagens-cheapest-ev-buyers-waiting-nearly-2-years/",
       "image": "/images/feed/feed-c30e39f97e0e.jpg",
       "source": "Electrek",
       "isLive": true
     },
     {
-      "id": "feed-f78ce9bac712",
-      "title": "Motorcycles are notoriously dangerous. Could electric motorcycles actually change that?",
-      "excerpt": "There’s no particularly comfortable way to talk about motorcycle safety. Motorcycles are dangerous. All the statistics point to the fact that per mile, motorcycles are significantly more dangerous. An…",
-      "body": "There’s no particularly comfortable way to talk about motorcycle safety. Motorcycles are dangerous. All the statistics point to the fact that per mile, motorcycles are significantly more dangerous. And as someone who promotes them as a better alternative to large cars and trucks for many trips, it’s an uncomfortable reality that must be grappled with. But that simple statement also hides something important. Not all motorcycles, riders, or riding behaviors carry the same risk. And as a new generation of smaller electric motorcycles begins to emerge, I think there’s an interesting question worth asking: Could electric motorcycles inadvertently make motorcycling safer? more…",
-      "author": "Micah Toll",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Electric Motor"
-      ],
-      "featured": false,
-      "xpReward": 30,
-      "url": "https://electrek.co/2026/11/16/motorcycles-are-notoriously-dangerous-could-electric-motorcycles-actually-change-that/",
-      "image": "/images/feed/feed-f78ce9bac712.jpg",
-      "source": "Electrek",
-      "isLive": true
-    },
-    {
       "id": "feed-6e394d6d04ab",
       "title": "California state AG sues OpenAI over rogue agent incidents",
-      "excerpt": "The California lawsuit represents one of the first attempts to hold an AI lab legally accountable for a rogue agent incident",
-      "body": "The California lawsuit represents one of the first attempts to hold an AI lab legally accountable for a rogue agent incident\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Openai. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "excerpt": "The California lawsuit represents one of the first attempts to hold an AI lab legally accountable for a rogue agent incident.",
+      "body": "The California lawsuit represents one of the first attempts to hold an AI lab legally accountable for a rogue agent incident.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Openai. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
       "author": "Russell Brandom",
       "date": "2026-11-16",
       "readTime": "2 min",
@@ -757,7 +814,7 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 51,
       "url": "https://techcrunch.com/2026/11/16/california-state-ag-sues-openai-over-rogue-agent-incidents/",
       "image": "https://techcrunch.com/wp-content/uploads/2026/11/1920px-Rob_Bonta_at_Central_Bay_Operations_and_Maintenance_Facility_opening_December_2018.jpeg?resize=1200,981",
       "source": "TechCrunch",
@@ -777,7 +834,7 @@
         "Starship"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 52,
       "url": "https://www.space.com/space-exploration/launches-spacecraft/elon-musk-says-spacexs-starship-already-the-largest-rocket-on-earth-will-get-even-bigger-with-next-gen-v4-model",
       "image": "/images/feed/feed-dacf34caa652.jpg",
       "source": "Space.com",
@@ -796,88 +853,10 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 53,
       "url": "https://spacenews.com/spacenukes-opens-los-alamos-manufacture-and-materials-facility-to-build-its-next-generation-space-reactor/",
       "image": "/images/feed/feed-95ad65274d5a.png",
       "source": "SpaceNews",
-      "isLive": true
-    },
-    {
-      "id": "feed-9cf1ce021144",
-      "title": "Barracuda links cloud breach to ARTEX AI-powered cyberattack",
-      "excerpt": "Hackers who breached the cloud environment of network and email security company Barracuda earlier this month used a stolen cloud access key and the ARTEX AI penetration testing framework. [...]",
-      "body": "Hackers who breached the cloud environment of network and email security company Barracuda earlier this month used a stolen cloud access key and the ARTEX AI penetration testing framework. [...]\n\nThis report, published by BleepingComputer, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Breach. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to BleepingComputer using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Bill Toulas",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "cybersecurity",
-      "tags": [
-        "Breach"
-      ],
-      "featured": false,
-      "xpReward": 40,
-      "url": "https://www.bleepingcomputer.com/news/security/barracuda-links-cloud-breach-to-artex-ai-powered-cyberattack/",
-      "image": "/images/feed/feed-9cf1ce021144.jpg",
-      "source": "BleepingComputer",
-      "isLive": true
-    },
-    {
-      "id": "feed-5cc174a98b82",
-      "title": "Uber says hackers stole information on close to 150,000 driver’s licenses during data breach",
-      "excerpt": "The ride-sharing giant said driver's license information stored by AI cloud company Fireworks AI was stolen during a security incident.",
-      "body": "The ride-sharing giant said driver's license information stored by AI cloud company Fireworks AI was stolen during a security incident.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Data Breach, Hacker, Breach. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Zack Whittaker",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "cybersecurity",
-      "tags": [
-        "Data Breach",
-        "Hacker",
-        "Breach"
-      ],
-      "featured": false,
-      "xpReward": 52,
-      "url": "https://techcrunch.com/2026/11/16/uber-confirms-hackers-stole-thousands-of-drivers-license-information-in-data-breach/",
-      "image": "https://techcrunch.com/wp-content/uploads/2026/11/uber-breach-2288234319.jpg?resize=1200,820",
-      "source": "TechCrunch",
-      "isLive": true
-    },
-    {
-      "id": "feed-d11d273da539",
-      "title": "What exactly is a light-day? Here's what Voyager 1's latest milestone means for the interstellar probe",
-      "excerpt": "Voyager 1 is approaching a distance of one light-day from Earth, a milestone that highlights the enormous distances involved in deep-space exploration.",
-      "body": "After nearly 50 years traveling through space, NASA's Voyager 1 spacecraft is approaching a milestone no human-made object has reached before: a distance of one light-day from Earth. This milestone — which Voyager 1 is expected to reach on Wednesday, Nov. 18, 2026, at 5:16:07 a.m. EST (1016:07 GMT) — highlights the immense distances Voyager 1 has traveled and the challenges of communicating with spacecraft operating in the outer reaches of the solar system and beyond. Astronomers use a measurement known as a light-day to describe how far light travels in 24 hours. Light moves at approximately 186,000 miles (300,000 kilometers) per second, meaning one light-day is roughly 16 billion miles (about 26 billion kilometers), according to a statement from NASA.",
-      "author": " Samantha Mathewson ",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Space"
-      ],
-      "featured": false,
-      "xpReward": 40,
-      "url": "https://www.space.com/space-exploration/voyager/what-exactly-is-a-light-day-heres-what-voyager-1s-latest-milestone-means-for-the-interstellar-probe",
-      "image": "/images/feed/feed-d11d273da539.jpg",
-      "source": "Space.com",
-      "isLive": true
-    },
-    {
-      "id": "feed-10fde3797532",
-      "title": "OpenAI: Strengthening the fight against online child sexual abuse",
-      "excerpt": "",
-      "body": "This report, published by Hacker News, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Openai. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Hacker News using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "rossant",
-      "date": "2026-11-16",
-      "readTime": "2 min",
-      "section": "ai",
-      "tags": [
-        "Openai"
-      ],
-      "featured": false,
-      "xpReward": 33,
-      "url": "https://openai.com/index/strengthening-online-child-safety/",
-      "image": "/images/topics/topic-ai-ml.png",
-      "source": "Hacker News",
       "isLive": true
     },
     {
@@ -893,7 +872,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 43,
       "url": "https://techcrunch.com/2026/11/16/sam-altman-on-nvidia-without-jensen-huang-the-industry-will-be-fine/",
       "image": "https://techcrunch.com/wp-content/uploads/2026/11/GettyImages-2297209338.jpg?w=1024",
       "source": "TechCrunch",
@@ -912,7 +891,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 42,
       "url": "https://www.zdnet.com/innovation/samsung-galaxy-claw-ai-cross-app-upgrade/",
       "image": "/images/feed/feed-2ded70297bb6.jpg",
       "source": "ZDNet",
@@ -931,24 +910,43 @@
         "Openai"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 34,
       "url": "https://techcrunch.com/2026/11/16/openai-will-embed-apollo-researchers-to-investigate-ai-subversion/",
       "image": "https://techcrunch.com/wp-content/uploads/2026/05/openai-logo-code-background.jpg?resize=1200,798",
       "source": "TechCrunch",
       "isLive": true
+    },
+    {
+      "id": "feed-a8005cc7b595",
+      "title": "Broadening access to AI for scientists",
+      "excerpt": "We’re expanding our ChatGPT for Academic Researchers program to offer 200,000 researchers worldwide free access to our frontier models.",
+      "body": "We’re expanding our ChatGPT for Academic Researchers program to offer 200,000 researchers worldwide free access to our frontier models.\n\nThis report, published by OpenAI Blog, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Ai. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to OpenAI Blog using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "OpenAI Blog",
+      "date": "2026-11-16",
+      "readTime": "2 min",
+      "section": "ai",
+      "tags": [
+        "Ai"
+      ],
+      "featured": false,
+      "xpReward": 54,
+      "url": "https://openai.com/index/expanding-chatgpt-for-academic-researchers",
+      "image": "/images/topics/topic-ai-ml.png",
+      "source": "OpenAI Blog",
+      "isLive": true
     }
   ],
   "breakingNews": [
-    "DEV.TO: 如何改造scrapy-redis的TLS指纹和HTTP2指纹？",
-    "DEV.TO: De Zeus à l'IA",
-    "DEV.TO: Postgres Training Backups: Node.js pg_dump Gzip Streams for 2026 Object Retention",
-    "DEV.TO: Consistency checks, with real output: missing attributes and title/description contradictions",
-    "DEV.TO: A download archive needs a restart policy",
-    "DEV.TO: The Shift Handoff: Turning Chat Queues into Executable Summaries",
-    "DEV.TO: How to Compress an Image to a Specific KB Size Without Obvious Quality Loss",
-    "POLYGON: How 2026's Best Video Games Were Made",
-    "ENGADGET: The charging mistakes that could ruin your Nintendo Switch's battery",
-    "BLEEPINGCOMPUTER: Gemini AI agents repeatedly bypassed safeguards to attack real website"
+    "DEV.TO: Docker Mailserver has 22 title matches because mail services do not advertise a dashboard name",
+    "DEV.TO: Hot experts, cold RAM: running a big MoE on a machine with more memory than VRAM",
+    "DEV.TO: Logs Aren't an Audit Trail: Debugging Business Data in Spring Boot",
+    "DEV.TO: Expo Exact: un framework sin React. ¿Se acaba React Native?",
+    "DEV.TO: Expo Exact: a React-free framework. Is React Native dead?",
+    "DEV.TO: 在本機執行的最佳小型 LLM：完整指南",
+    "DEV.TO: Các mô hình LLM nhỏ tốt nhất để chạy cục bộ: Hướng dẫn toàn diện",
+    "9TO5MAC: 9to5Mac Daily: November 16, 2026 – Apple glasses rumors, more",
+    "POLYGON: 'Avengers: Doomsday' Star Says He Was Lied to About His Next Big Role",
+    "ENGADGET: Whether it's Black Friday or a CEO scandal, NVIDIA GPUs just don't get deep discounts"
   ],
   "sectionVideos": {}
 }
