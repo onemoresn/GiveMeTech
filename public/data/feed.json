@@ -1,89 +1,32 @@
 {
-  "fetchedAt": "2026-11-17T23:12:25.384Z",
+  "fetchedAt": "2026-11-18T00:22:16.739Z",
   "articles": [
     {
-      "id": "feed-20cac6942b74",
-      "title": "Three Booleans Is Not a State Machine: Modelling UI Logic That Can't Be in Two States at Once",
-      "excerpt": "I review a lot of component code. The most common bug pattern I see is not a typo. It is this: const [isLoading, setIsLoading] = useState(false); const [isError, setIsError] = useState(false); const […",
-      "body": "I review a lot of component code. The most common bug pattern I see is not a typo. It is this: const [ isLoading , setIsLoading ] = useState ( false ) ; const [ isError , setIsError ] = useState ( false ) ; const [ isSuccess , setIsSuccess ] = useState ( false ) ; Three booleans, eight combinations, three of which are legal. The other five are bugs waiting for a slow network. Why the bug is structural, not careless Everyone knows not to set isLoading and isSuccess at the same time. Nobody sets them deliberately. They happen because the flags are set in different places, on different async paths, sometimes in an await that resolves after the component re-rendered. Add a quantity and a retryCount and the handshake gets worse.",
-      "author": "shinoj cm",
-      "date": "2026-11-17",
+      "id": "feed-8326c6154a56",
+      "title": "5 .cursorrules Constraints That Instantly Stop AI Spaghetti Code in Cursor & Claude",
+      "excerpt": "When using AI coding assistants like Cursor or Claude Code on real production projects, generic prompts quickly lead to silent try/catch blocks, any type casts, and monolithic 300-line functions. Addi…",
+      "body": "When using AI coding assistants like Cursor or Claude Code on real production projects, generic prompts quickly lead to silent try/catch blocks, any type casts, and monolithic 300-line functions. Adding a strict .cursorrules file to your repository root turns the LLM from an unpredictable junior assistant into a disciplined senior engineer. 1. Ban Silent Catch Blocks LLMs love writing catch (err) { console.log(err); } so code compiles without crashing locally—which causes invisible data loss in production. - Never swallow exceptions silently. Always propagate typed errors or return explicit Result objects with actionable context. 2. Enforce Early Returns (Max Nesting: 2) Deep if/else pyramids make code brittle when AI edits a single branch. - Keep functions small and single-purpose.",
+      "author": "AutoLab Systems",
+      "date": "2026-11-18",
       "readTime": "2 min",
       "section": "software",
       "tags": [
         "Software"
       ],
       "featured": true,
-      "xpReward": 32,
-      "url": "https://dev.to/shinoj_cm_6b559b3ab51bf47/three-booleans-is-not-a-state-machine-modelling-ui-logic-that-cant-be-in-two-states-at-once-a9l",
-      "image": "/images/feed/feed-20cac6942b74.webp",
+      "xpReward": 50,
+      "url": "https://dev.to/autolabsystem/5-cursorrules-constraints-that-instantly-stop-ai-spaghetti-code-in-cursor-claude-2ao9",
+      "image": "/images/feed/feed-8326c6154a56.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-19736fa6daaa",
-      "title": "SecurityException Kills HDMI-CEC Power Control on Sideloads",
-      "excerpt": "Conclusion Android's HdmiControlManager exposes HDMI-CEC control APIs (standby, wakeup, etc.) that require signature|privileged permission, so calling them from a sideloaded app throws SecurityExcepti…",
-      "body": "Conclusion Android's HdmiControlManager exposes HDMI-CEC control APIs (standby, wakeup, etc.) that require signature|privileged permission, so calling them from a sideloaded app throws SecurityException on most devices, making the call an effective no-op. A fleet of signage devices (Google TVs locked down as Device Owner kiosks) wanted to turn the screen fully off at night via a genuine HDMI-CEC standby, but this constraint forced the real mechanism away from CEC and onto DevicePolicyManager.lockNow() instead. Symptom The signage devices are Google TVs mounted as hallway displays, locked into kiosk mode via Device Owner, with the screen meant to turn off at night and back on in the morning. The first approach considered was dropping the TV itself into a genuine HDMI-CEC standby.",
-      "author": "cometa-kaito",
-      "date": "2026-11-17",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 46,
-      "url": "https://dev.to/cometakaito/securityexception-kills-hdmi-cec-power-control-on-sideloads-gcn",
-      "image": "/images/feed/feed-19736fa6daaa.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-492222184b84",
-      "title": "B18TimeBank Exploit: Signed Vouchers Drain 404,540 USDC",
-      "excerpt": "Originally published at B18TimeBank Exploit: Signed Vouchers Drain 404,540 USDC On 17 November 2026 at 18:50:59 UTC, an address on Base called withdrawLevelReward on B18TimeBank's settlement contract…",
-      "body": "Originally published at B18TimeBank Exploit: Signed Vouchers Drain 404,540 USDC On 17 November 2026 at 18:50:59 UTC , an address on Base called withdrawLevelReward on B18TimeBank 's settlement contract and received 404,540.468304 USDC in the same transaction. Blockaid disclosed the incident at 19:51:29 UTC , said an attacker had redeemed signed level-reward vouchers and withdrawn the USDC from that contract, and reported about $404,540 drained across one transaction . Independently, we checked the same Base transaction and the settlement contract's USDC balance: it fell from 511,325.678867 USDC to 106,785.210563 USDC , a drop of exactly 404,540.468304 USDC . B18TimeBank has not published an official loss figure or a public statement.",
-      "author": "PandaSecurity",
-      "date": "2026-11-17",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 36,
-      "url": "https://dev.to/pandasecurity/b18timebank-exploit-signed-vouchers-drain-404540-usdc-2mdl",
-      "image": "/images/feed/feed-492222184b84.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-ba0bc163ee24",
-      "title": "An inference speedup has to beat its own error bar",
-      "excerpt": "Every local-inference thread I have read this year ends with someone claiming a percentage. Nobody shows the spread, and half of those claims are measuring noise, that is what an afternoon of tuning o…",
-      "body": "Every local-inference thread I have read this year ends with someone claiming a percentage. Nobody shows the spread, and half of those claims are measuring noise, that is what an afternoon of tuning on my own hardware proved. A tuning win needs four things before the number means anything: a median, an error bar wide enough to see, proof the changed flag actually loaded into the running process, and a stability gate where a crash at load is a discard. I got all four working on a live coding lane of my dual-3090 Arch box on November 17, 2026, and shipped nothing to production. The ledger came back empty of wins, and that empty result is more useful than a 3% headline would have been.",
-      "author": "prodbymarcu",
-      "date": "2026-11-17",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 54,
-      "url": "https://dev.to/prodbymarcu/an-inference-speedup-has-to-beat-its-own-error-bar-1ecm",
-      "image": "/images/feed/feed-ba0bc163ee24.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-9fa9e5773417",
-      "title": "Unified vs Direct Email APIs — 3 Practices for a Seller Welcome Feature",
-      "excerpt": "Implementing a welcome email feature using email APIs in a healthtech marketplace starts with a constraint: where seller and order data may travel. The Node.js application needs to welcome a seller an…",
-      "body": "Implementing a welcome email feature using email APIs in a healthtech marketplace starts with a constraint: where seller and order data may travel. The Node.js application needs to welcome a seller and, later, notify that seller about a new order. A convenient email client becomes expensive to integrate if the team discovers afterward that its message bodies, delivery records, or support logs cross an unapproved processor boundary. TL;DR: For a Node.js welcome email feature, separate application events, template management, and delivery adapters. Prefer a unified API when its processing arrangement passes the same region, retention, and deletion review as a direct provider. Choose a direct specialist when the approval depends on that provider's specific contractual boundary.",
-      "author": "SladeBarrett9642",
-      "date": "2026-11-17",
+      "id": "feed-83743d3ca601",
+      "title": "I Tried AMD AI Academy: Free, Hands-On AI Courses from AMD (and What to Watch Out For)",
+      "excerpt": "I Tried AMD AI Academy: Free, Hands-On AI Courses from AMD (and What to Watch Out For) When I signed up for the AMD AI Developer Program, I found something I didn't expect: AMD AI Academy, a set of fr…",
+      "body": "I Tried AMD AI Academy: Free, Hands-On AI Courses from AMD (and What to Watch Out For) When I signed up for the AMD AI Developer Program, I found something I didn't expect: AMD AI Academy, a set of free self-learning AI courses — hands-on Jupyter notebook labs included, GPU environment and all. I'm currently working through \"Introduction To AI Agents\" myself. Here's what the Academy offers, how it works, why it's free, and the rough edges I ran into. What You Can Learn AMD AI Academy is a collection of self-paced courses built for AI developers. The official page lists three benefits: free access to cutting-edge knowledge, hands-on labs with real-world use cases, and course completion certificates.",
+      "author": "SeaOtter ( Kentaro Mori )",
+      "date": "2026-11-18",
       "readTime": "2 min",
       "section": "software",
       "tags": [
@@ -91,18 +34,18 @@
       ],
       "featured": true,
       "xpReward": 40,
-      "url": "https://dev.to/sladebarrett9642/unified-vs-direct-email-apis-3-practices-for-a-seller-welcome-feature-2kkb",
-      "image": "/images/feed/feed-9fa9e5773417.webp",
+      "url": "https://dev.to/moruku36/i-tried-amd-ai-academy-free-hands-on-ai-courses-from-amd-and-what-to-watch-out-for-4go4",
+      "image": "/images/feed/feed-83743d3ca601.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-145dbb3548a5",
-      "title": "Website analytics report explained: how to read it in 5 steps",
-      "excerpt": "We build Opti-Behavior, a WordPress analytics plugin, and this is how we read its site report. Most people stop at the traffic chart. The useful order is: what changed, what to fix first, and where it…",
-      "body": "We build Opti-Behavior, a WordPress analytics plugin, and this is how we read its site report. Most people stop at the traffic chart. The useful order is: what changed, what to fix first, and where it happens. The example below is one of our test WooCommerce shops with simulated visits, not a customer. The website analytics report example used in this guide This guide walks through every block of the Opti-Behavior site report (version 1.11.0), in the order the report prints them. The example is one of our test WordPress shops with simulated visits (its pages are named \"QA Sim\"), over 30 days (12 October to 10 November 2026): test data, not a customer. A block with no data is left out of the report, and the numbers of the next blocks follow.",
-      "author": "Hamdi Bk",
-      "date": "2026-11-17",
+      "id": "feed-e6cad920f481",
+      "title": "Switches in an EMC Test Setup: What Actually Breaks the Measurement",
+      "excerpt": "An EMC test setup is a measurement instrument built by hand. Antennas, cables, amplifiers, a receiver and — usually — one or more switches that let a single receiver look at several antennas or severa…",
+      "body": "An EMC test setup is a measurement instrument built by hand. Antennas, cables, amplifiers, a receiver and — usually — one or more switches that let a single receiver look at several antennas or several paths. The switch is the part of that instrument nobody calibrates properly, which is odd because it is the only part whose loss changes every time a relay closes. This note is about the specific ways switches degrade an EMC measurement, and what to specify so they do not. The path loss you calibrated is not the path loss you have Radiated emissions measurements are made by subtracting a substitution loss from a receiver reading. That loss is the sum of antenna factor, cable loss, amplifier gain and switch loss. The first three are stable.",
+      "author": "Yang Fei",
+      "date": "2026-11-18",
       "readTime": "2 min",
       "section": "software",
       "tags": [
@@ -110,27 +53,217 @@
       ],
       "featured": true,
       "xpReward": 43,
-      "url": "https://dev.to/opti-behavior/website-analytics-report-explained-how-to-read-it-in-5-steps-2o50",
-      "image": "/images/feed/feed-145dbb3548a5.webp",
+      "url": "https://dev.to/dbdesignmw/switches-in-an-emc-test-setup-what-actually-breaks-the-measurement-53jc",
+      "image": "/images/feed/feed-e6cad920f481.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-cb99d497de36",
-      "title": "Microsoft wants to put a dollar value on AI’s work – but can you trust the math?",
-      "excerpt": "With Agent 365 Business Analytics, Microsoft could reshape enterprise spending, but there’s a critical difference between estimated value and money saved.",
-      "body": "With Agent 365 Business Analytics, Microsoft could reshape enterprise spending, but there’s a critical difference between estimated value and money saved.\n\nThis report, published by ZDNet, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Software. As the situation continues to evolve, professionals and enthusiasts in the software development and engineering field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to ZDNet using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "David Gewirtz",
-      "date": "2026-11-17",
+      "id": "feed-4cc4fe0e0462",
+      "title": "Consultas OLAP sobre ocupación de estacionamientos con ClickHouse",
+      "excerpt": "Para analizar ocupación vehicular necesito mirar las mismas lecturas desde varios ángulos: cámara, período y hora. ClickHouse permite guardar el detalle y obtener esos resúmenes con consultas SQL. El…",
+      "body": "Para analizar ocupación vehicular necesito mirar las mismas lecturas desde varios ángulos: cámara, período y hora. ClickHouse permite guardar el detalle y obtener esos resúmenes con consultas SQL. El proyecto sigue el esquema de visualdetection.csv , el archivo del laboratorio. El repositorio incluye una muestra sintética para que la demo se pueda reproducir sin redistribuir el CSV original. El análisis usa camera , year , month , day , hour , minute , slot_id y occupancy . Conservo weather como código; su interpretación requiere consultar la documentación del conjunto de datos.",
+      "author": "Fátima Yupa",
+      "date": "2026-11-18",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 51,
+      "url": "https://dev.to/sofxx7/consultas-olap-sobre-ocupacion-de-estacionamientos-con-clickhouse-5c06",
+      "image": "/images/feed/feed-4cc4fe0e0462.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-ade77a8a9635",
+      "title": "MinIO vs Cloud Object Storage for App Backups: Setup, Restores, and Signed URLs",
+      "excerpt": "Short answer: pick cloud object storage for a beginner backup system; choose self-hosted MinIO only when you already run redundant servers and accept the operational work. The word “cheapest” hides th…",
+      "body": "Short answer: pick cloud object storage for a beginner backup system; choose self-hosted MinIO only when you already run redundant servers and accept the operational work. The word “cheapest” hides the real bill. A backup that needs a weekend of disk layout, monitoring, and restore testing is not cheap for a small marketplace team. I would compare setup time, disk redundancy, offsite durability, and restore-script complexity before comparing storage rates.",
+      "author": "RainerBarrett4745",
+      "date": "2026-11-18",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 35,
+      "url": "https://dev.to/rainerbarrett4745/minio-vs-cloud-object-storage-for-app-backups-setup-restores-and-signed-urls-5bai",
+      "image": "/images/feed/feed-ade77a8a9635.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-69b00f1f542e",
+      "title": "Antenna Switching: The dB You Lose Before the LNA",
+      "excerpt": "Every dB of loss placed between an antenna and a low-noise amplifier costs the same as a dB of noise figure, except you cannot buy your way out of it later with a better LNA. That single sentence expl…",
+      "body": "Every dB of loss placed between an antenna and a low-noise amplifier costs the same as a dB of noise figure, except you cannot buy your way out of it later with a better LNA. That single sentence explains most of the bad antenna-switching designs I have seen reviewed: the switch gets treated as plumbing, sized on power handling and connector type, and then the link budget quietly loses half a dB that nobody accounts for. Antenna switching is where receiver design is decided, not where it is implemented. The arithmetic that decides the part Cascaded noise figure for two stages is: F_total = F1 + (F2 - 1) / G1 A 0.5 dB insertion loss is F1 = 1.122 , G1 = 0.891 .",
+      "author": "Yang Fei",
+      "date": "2026-11-18",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 35,
+      "url": "https://dev.to/dbdesignmw/antenna-switching-the-db-you-lose-before-the-lna-1io5",
+      "image": "/images/feed/feed-69b00f1f542e.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-1bbe22dae05f",
+      "title": "Nvidia promises that revenue will keep soaring — for now",
+      "excerpt": "Despite the turmoil Nvidia is in after the departure of its disgraced founder and CEO Jensen Huang, the company projected that its streak of record-breaking revenue isn't about to stop.",
+      "body": "Despite the turmoil Nvidia is in after the departure of its disgraced founder and CEO Jensen Huang, the company projected that its streak of record-breaking revenue isn't about to stop.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Software. As the situation continues to evolve, professionals and enthusiasts in the software development and engineering field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Julie Bort",
+      "date": "2026-11-18",
       "readTime": "2 min",
       "section": "software",
       "tags": [
         "Software"
       ],
       "featured": false,
-      "xpReward": 42,
-      "url": "https://www.zdnet.com/innovation/microsoft-agent-365-business-analytics-ignite/",
-      "image": "/images/feed/feed-cb99d497de36.png",
+      "xpReward": 43,
+      "url": "https://techcrunch.com/2026/11/17/nvidia-promises-that-revenue-will-keep-soaring-for-now/",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/02/GettyImages-157503102.jpg?resize=1200,776",
+      "source": "TechCrunch",
+      "isLive": true
+    },
+    {
+      "id": "feed-63e1d5e2a447",
+      "title": "BYD E6Y Odyssey",
+      "excerpt": "A couple of friends embark on a road trip to pick their EV purchase, and it turns into an Odyssey. The BYD E6 is a BEV classic. Globe-trotting friends have ridden in them as taxis in Singapore. Majell…",
+      "body": "A couple of friends embark on a road trip to pick their EV purchase, and it turns into an Odyssey. The BYD E6 is a BEV classic. Globe-trotting friends have ridden in them as taxis in Singapore. Majella and I even took one for a test drive (it reminded me ... [continued] The post BYD E6Y Odyssey appeared first on CleanTechnica .",
+      "author": "David Waterworth",
+      "date": "2026-11-18",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Cars"
+      ],
+      "featured": false,
+      "xpReward": 40,
+      "url": "https://cleantechnica.com/2026/11/17/byd-e6y-odyssey/",
+      "image": "/images/feed/feed-63e1d5e2a447.jpg",
+      "source": "CleanTechnica",
+      "isLive": true
+    },
+    {
+      "id": "feed-335728f50f97",
+      "title": "5 Big Takeaways From the 2026 Game Awards Nominations",
+      "excerpt": "From GTA 6 to Control and Crimson Desert, these are the conclusions for the GOTY Race and TGA 2026",
+      "body": "Despite the dramatic timing — before Grand Theft Auto 6 's release, even before reviews for Rockstar's game have been published — nominations for The Game Awards 2026 weren't very surprising. This was always going to be GTA 6 's year.",
+      "author": "Oli Welsh",
+      "date": "2026-11-18",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Game"
+      ],
+      "featured": false,
+      "xpReward": 31,
+      "url": "https://www.polygon.com/2026-game-awards-nominations-goty-gta-analysis/",
+      "image": "/images/feed/feed-335728f50f97.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-cd5102e924e4",
+      "title": "You can now see and edit what Google Gemini remembers about you",
+      "excerpt": "Editing the AI's memory is one way you can shape its responses.",
+      "body": "Editing the AI's memory is one way you can shape its responses.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "staff@engadget.com (Ian Carlos Campbell)",
+      "date": "2026-11-18",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 50,
+      "url": "https://www.engadget.com/2315475/google-gemini-memory-summary-see-what-remembers-about-you/",
+      "image": "/images/feed/feed-cd5102e924e4.jpg",
+      "source": "Engadget",
+      "isLive": true
+    },
+    {
+      "id": "feed-4e71c345ccba",
+      "title": "Oregon is the latest state to sue OpenAI over child safety",
+      "excerpt": "Oregon's Attorney General filed a lawsuit against the maker of ChatGPT over alleged child safety issues.",
+      "body": "Oregon's Attorney General filed a lawsuit against the maker of ChatGPT over alleged child safety issues.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "staff@engadget.com (Ian Carlos Campbell)",
+      "date": "2026-11-17",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 41,
+      "url": "https://www.engadget.com/2320041/oregon-is-the-latest-state-to-sue-openai-over-child-safety/",
+      "image": "/images/feed/feed-4e71c345ccba.jpg",
+      "source": "Engadget",
+      "isLive": true
+    },
+    {
+      "id": "feed-ae972218f129",
+      "title": "iFixit tears down Apple HomeView, finds lots of glue and endless frustration",
+      "excerpt": "iFixit’s teardown of the new Apple HomeView is now up, revealing a device that seems nearly impossible to take apart and repair. Watch it below. more…",
+      "body": "iFixit’s teardown of the new Apple HomeView is now up, revealing a device that seems nearly impossible to take apart and repair. Watch it below. more — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Marcus Mendes",
+      "date": "2026-11-17",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 41,
+      "url": "https://9to5mac.com/2026/11/17/ifixit-tears-down-apple-homeview-finds-lots-of-glue-and-endless-frustration/",
+      "image": "/images/feed/feed-ae972218f129.jpg",
+      "source": "9to5Mac",
+      "isLive": true
+    },
+    {
+      "id": "feed-e3031fca35f2",
+      "title": "5 old-school charging ports you probably forgot phones had before USB-C",
+      "excerpt": "While USB-C is the standard today, we saw a lot of phone charging ports before the days of Micro-USB and Mini-USB.",
+      "body": "While USB-C is the standard today, we saw a lot of phone charging ports before the days of Micro-USB and Mini-USB.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "staff@engadget.com (Antony Terence)",
+      "date": "2026-11-17",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 34,
+      "url": "https://www.engadget.com/2315473/old-school-charging-ports-phones-used-before-usb-c/",
+      "image": "/images/feed/feed-e3031fca35f2.jpg",
+      "source": "Engadget",
+      "isLive": true
+    },
+    {
+      "id": "feed-c67fa1d974fe",
+      "title": "Microsoft unveiled Copilot Workspaces at Ignite 2026, plus more AI workplace updates",
+      "excerpt": "The company also released new ROI tracking tools for companies monitoring their AI spend.",
+      "body": "The company also released new ROI tracking tools for companies monitoring their AI spend.\n\nThis report, published by ZDNet, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Copilot. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to ZDNet using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Radhika Rajkumar",
+      "date": "2026-11-17",
+      "readTime": "2 min",
+      "section": "ai",
+      "tags": [
+        "Copilot"
+      ],
+      "featured": false,
+      "xpReward": 47,
+      "url": "https://www.zdnet.com/innovation/microsoft-copilot-workspaces-ignite-2026/",
+      "image": "/images/feed/feed-c67fa1d974fe.png",
       "source": "ZDNet",
       "isLive": true
     },
@@ -147,7 +280,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 54,
       "url": "https://www.bleepingcomputer.com/news/security/critical-java4shell-flaw-allows-rce-attacks-on-major-java-applications/",
       "image": "/images/feed/feed-8cb38fbbbb09.jpg",
       "source": "BleepingComputer",
@@ -166,7 +299,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 37,
       "url": "https://electrek.co/2026/11/17/solarcycle-pedalpoint-recycling-merge-to-feed-a-7-4b-us-metals-refinery/",
       "image": "/images/feed/feed-66fc33fccff6.jpg",
       "source": "Electrek",
@@ -185,7 +318,7 @@
         "Game"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 45,
       "url": "https://www.polygon.com/resident-evil-requiem-grace-angela-santalbano-actor-game-awards-nomination-2026/",
       "image": "/images/feed/feed-32eebe82eb24.png",
       "source": "Polygon",
@@ -204,7 +337,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 42,
       "url": "https://www.engadget.com/2320023/kalshi-ordered-to-stop-letting-people-bet-on-trump-speeches/",
       "image": "/images/feed/feed-338243fc6b1e.jpg",
       "source": "Engadget",
@@ -223,7 +356,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 50,
       "url": "https://www.engadget.com/2315411/risks-using-old-damaged-charging-cables/",
       "image": "/images/feed/feed-bd0685071d95.jpg",
       "source": "Engadget",
@@ -242,7 +375,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 51,
       "url": "https://9to5mac.com/2026/11/17/whatsapps-first-party-chat-history-backup-service-moves-ahead/",
       "image": "/images/feed/feed-651ba2d8a4eb.jpg",
       "source": "9to5Mac",
@@ -261,7 +394,7 @@
         "Claude"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 52,
       "url": "https://www.zdnet.com/innovation/microsoft-ai-coding-model-rivals-claude-opus-5-5-ignite/",
       "image": "/images/feed/feed-5772accce063.jpg",
       "source": "ZDNet",
@@ -280,7 +413,7 @@
         "Malware"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 48,
       "url": "https://arstechnica.com/security/2026/11/malicious-code-delivered-through-optimizely-hits-visitors-to-hundreds-of-sites/",
       "image": "/images/feed/feed-5ea469280783.jpg",
       "source": "Ars Technica",
@@ -299,7 +432,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 43,
       "url": "https://kotaku.com/does-jesus-christ-exist-in-world-of-warcraft-2000757801",
       "image": "/images/feed/feed-9cf77a5bab16.jpg",
       "source": "Kotaku",
@@ -318,48 +451,10 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 34,
       "url": "https://techcrunch.com/2026/11/17/amazon-and-google-will-together-own-nearly-30-of-anthropic-after-its-ipo/",
       "image": "https://techcrunch.com/wp-content/uploads/2022/09/GettyImages-1415078085.jpg?resize=1200,721",
       "source": "TechCrunch",
-      "isLive": true
-    },
-    {
-      "id": "feed-89d219e3614d",
-      "title": "iFixit’s Apple HomeView teardown reveals a device that will be difficult to repair",
-      "excerpt": "After finding recent versions of Apple's iPads and HomePods much easier to disassemble for battery replacements or other repairs, iFixit assumed it would be the same story for Apple's new HomeView hub…",
-      "body": "After finding recent versions of Apple's iPads and HomePods much easier to disassemble for battery replacements or other repairs, iFixit assumed it would be the same story for Apple's new HomeView hub that looks like a seven-inch tablet stuck to a smart speaker. The reality was much different and by the time they got the HomeView apart iFixit's skilled techs had \"ripped a connector, snapped a speaker in two, and put more force on the poor logic board than any of us were comfortable with.\" The tablet section of the HomeView proved to be the bigger challenge to disassemble as a result of some questionable decisions with Apple's design. The … Read the full story at The Verge.",
-      "author": "Andrew Liszewski",
-      "date": "2026-11-17",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Device"
-      ],
-      "featured": false,
-      "xpReward": 54,
-      "url": "https://www.theverge.com/tech/1036045/ifixit-teardown-apple-homeview-smart-home-hub",
-      "image": "/images/feed/feed-89d219e3614d.jpg",
-      "source": "The Verge",
-      "isLive": true
-    },
-    {
-      "id": "feed-a3edec687f85",
-      "title": "NVIDIA's board chair says the company is not considering reinstating Jensen Huang as CEO",
-      "excerpt": "NVIDIA's board chair said it doesn't want Jensen Huang back in the CEO role during the company's first earnings call since his resignation.",
-      "body": "NVIDIA's board chair said it doesn't want Jensen Huang back in the CEO role during the company's first earnings call since his resignation.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Igor Bonifacic)",
-      "date": "2026-11-17",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 51,
-      "url": "https://www.engadget.com/2319982/nvidias-board-chair-says-the-company-is-not-considering-reinstating-jensen-huang-as-ceo/",
-      "image": "/images/feed/feed-a3edec687f85.jpg",
-      "source": "Engadget",
       "isLive": true
     },
     {
@@ -375,29 +470,10 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 43,
       "url": "https://electrek.co/2026/11/17/iceland-first-wind-farm-gives-its-hydropower-a-winter-boost/",
       "image": "/images/feed/feed-430aedf844ad.jpg",
       "source": "Electrek",
-      "isLive": true
-    },
-    {
-      "id": "feed-e8bbfe4a5037",
-      "title": "Report: iPhone set to gain market share in 2027 amid industry-wide slump",
-      "excerpt": "Apple could see iPhone shipments rise 7% next year, giving it a 26% share of global smartphone shipments, according to a new report. Here are the details. more…",
-      "body": "Apple could see iPhone shipments rise 7% next year, giving it a 26% share of global smartphone shipments, according to a new report. Here are the details. more — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Iphone. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Marcus Mendes",
-      "date": "2026-11-17",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Iphone"
-      ],
-      "featured": false,
-      "xpReward": 40,
-      "url": "https://9to5mac.com/2026/11/17/report-iphone-set-to-gain-market-share-in-2027-amid-industry-wide-slump/",
-      "image": "/images/feed/feed-e8bbfe4a5037.jpg",
-      "source": "9to5Mac",
       "isLive": true
     },
     {
@@ -414,7 +490,7 @@
         "Game"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 53,
       "url": "https://www.cnet.com/tech/gaming/xbox-game-pass-november-pt-2/",
       "image": "/images/feed/feed-33e6d0c80971.jpg",
       "source": "CNET",
@@ -433,7 +509,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 35,
       "url": "https://cleantechnica.com/2026/11/17/distributed-energy-resources-solar-storage-batteries-compute/",
       "image": "/images/feed/feed-a25e0c8f1500.png",
       "source": "CleanTechnica",
@@ -452,7 +528,7 @@
         "Rivian"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 31,
       "url": "https://insideevs.com/news/815761/rivian-autonomy-beta-test-closed/",
       "image": "/images/feed/feed-8be6f03e1260.jpg",
       "source": "InsideEVs",
@@ -471,7 +547,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 48,
       "url": "https://kotaku.com/we-got-before-gta6-memes-jokes-grand-theft-auto-6-2000757813",
       "image": "/images/feed/feed-0cdda179a62f.jpg",
       "source": "Kotaku",
@@ -490,7 +566,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 52,
       "url": "https://science.nasa.gov/centers-and-facilities/glenn/nasa-launches-nuclear-power-systems-student-contest/",
       "image": "/images/feed/feed-08e8d6893e3c.jpg",
       "source": "NASA Breaking News",
@@ -516,25 +592,6 @@
       "isLive": true
     },
     {
-      "id": "feed-7334e3ce25af",
-      "title": "Google now lets Gemini users opt out of AI training while keeping their chat history",
-      "excerpt": "You can now keep your Gemini chat history while opting out of data training.",
-      "body": "Credit: Megan Ellis / Android Authority TL;DR The Gemini app is getting new settings that allow you to keep your chat history while opting out of AI training. If history is turned off, your chats will now be saved for around two months. This will be a global update that arrives in the coming weeks. While not always the case, when you use AI, it’s fairly safe to assume that companies are using your data to train their models. It’s the trade-off you often have to be comfortable with if you want to use these products. However, Google is now updating the Gemini app to give users a new option. In a brief blog post , Google announced it is giving you more control over when your Gemini chat history is used for generative AI training.",
-      "author": "Ryan McNeal",
-      "date": "2026-11-17",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 52,
-      "url": "https://www.androidauthority.com/gemini-new-chat-history-settings-3736303/",
-      "image": "/images/feed/feed-7334e3ce25af.jpg",
-      "source": "Android Authority",
-      "isLive": true
-    },
-    {
       "id": "feed-af429c7d051d",
       "title": "NASA's Voyager 1 launched second, so how did it beat Voyager 2 to a light-day by nearly a decade?",
       "excerpt": "Voyager 1 just reached a light-day in space, but Voyager 2 won't do the same until 2035, due to speed choices made throughout their 50-year missions.",
@@ -547,7 +604,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 32,
       "url": "https://www.space.com/space-exploration/voyager/nasas-voyager-1-launched-second-so-how-did-it-beat-voyager-2-to-a-light-day-by-nearly-a-decade",
       "image": "/images/feed/feed-af429c7d051d.jpg",
       "source": "Space.com",
@@ -566,7 +623,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 41,
       "url": "https://www.ign.com/articles/amazon-early-black-friday-audible-deal-2026",
       "image": "/images/feed/feed-e001a2070b9b.jpg",
       "source": "IGN",
@@ -586,7 +643,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 38,
       "url": "https://science.nasa.gov/open-science/nasa-space-apps-challenge-breaks-global-hackathon-records/",
       "image": "/images/feed/feed-cab2f98c5466.jpg",
       "source": "NASA Breaking News",
@@ -605,7 +662,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 45,
       "url": "https://www.ign.com/articles/gabe-newell-praised-by-fans-for-special-way-he-treats-the-crew-on-his-500-million-superyacht",
       "image": "/images/feed/feed-e3a1817150ce.jpg",
       "source": "IGN",
@@ -624,7 +681,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 39,
       "url": "https://www.bleepingcomputer.com/news/security/cloud-keys-leaked-in-docker-hub-images-are-stolen-within-seconds/",
       "image": "/images/feed/feed-5e7a90d912db.jpg",
       "source": "BleepingComputer",
@@ -643,47 +700,9 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 49,
       "url": "https://electrek.co/2026/11/17/waymo-halts-highway-operation-nationwide-after-ca-dmv-pause/",
       "image": "/images/feed/feed-57431f95eec9.jpg",
-      "source": "Electrek",
-      "isLive": true
-    },
-    {
-      "id": "feed-c5f495ff0e56",
-      "title": "When Are The Game Awards 2026: Date, Time, and How to Watch",
-      "excerpt": "Everything you need to know about where and when to watch The Game Awards 2026, including date, start time, and how long The Game Awards are.",
-      "body": "Everything you need to know about where and when to watch The Game Awards 2026, including date, start time, and how long The Game Awards are.\n\nThis report, published by Polygon, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Game. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Polygon using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Elijah Gonzalez",
-      "date": "2026-11-17",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Game"
-      ],
-      "featured": false,
-      "xpReward": 30,
-      "url": "https://www.polygon.com/game-awards-2026-how-to-watch-when-date-time/",
-      "image": "/images/feed/feed-c5f495ff0e56.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-d125c070b914",
-      "title": "Scout Motors starts validation builds at $2B SC plant, deliveries in 2028",
-      "excerpt": "Volkswagen’s revived Scout brand finally has vehicles coming off the line in South Carolina, but they’re validation units, not customer cars. Scout confirms the first deliveries of the Traveler SUV an…",
-      "body": "Volkswagen’s revived Scout brand finally has vehicles coming off the line in South Carolina, but they’re validation units, not customer cars. Scout confirms the first deliveries of the Traveler SUV and Terra pickup won’t happen until 2028. That’s two years later than the 2026 production start the company was talking about before it even broke ground on its $2 billion factory. more…",
-      "author": "Fred Lambert",
-      "date": "2026-11-17",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Cars"
-      ],
-      "featured": false,
-      "xpReward": 36,
-      "url": "https://electrek.co/2026/11/17/scout-motors-validation-builds-south-carolina-deliveries-2028/",
-      "image": "/images/feed/feed-d125c070b914.jpg",
       "source": "Electrek",
       "isLive": true
     },
@@ -700,7 +719,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 49,
       "url": "https://www.space.com/space-exploration/satellites/space-is-filling-up-with-junk-could-laser-reflecting-mirrors-help-humanity-clean-things-up",
       "image": "/images/feed/feed-b819cdd41adb.jpg",
       "source": "Space.com",
@@ -719,7 +738,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 31,
       "url": "https://www.bleepingcomputer.com/news/security/japan-takes-fugaku-supercomputer-offlline-after-cyberattack/",
       "image": "/images/feed/feed-95f82a75f736.jpg",
       "source": "BleepingComputer",
@@ -738,7 +757,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 48,
       "url": "https://www.nasa.gov/directorates/stmd/prizes-challenges-crowdsourcing-program/center-of-excellence-for-collaborative-innovation-coeci/bps-digital-avatar-challenge/",
       "image": "/images/feed/feed-93aeb3e40c70.jpg",
       "source": "NASA Breaking News",
@@ -757,7 +776,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 39,
       "url": "https://science.nasa.gov/missions/chandra/new-album-of-baby-star-sounds-shared-by-nasas-chandra/",
       "image": "/images/feed/feed-076a25a994b8.jpg",
       "source": "NASA Breaking News",
@@ -776,7 +795,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 32,
       "url": "https://www.cnet.com/tech/services-and-software/optimizely-cyberattack-visitors-to-websites/",
       "image": "/images/feed/feed-37455c6e6b68.jpg",
       "source": "CNET",
@@ -795,7 +814,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 45,
       "url": "https://www.space.com/entertainment/space-movies-shows/neuromancer-release-date-cast-and-everything-we-know-about-apple-tvs-new-cyberpunk-series",
       "image": "/images/feed/feed-d0cbd54c9017.jpg",
       "source": "Space.com",
@@ -814,7 +833,7 @@
         "Gemini"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 34,
       "url": "https://www.zdnet.com/business/gemini-gems-google-skills-transition/",
       "image": "https://www.zdnet.com/wp-content/uploads/sites/3/GettyImages-2295330247.jpg",
       "source": "ZDNet",
@@ -833,7 +852,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 46,
       "url": "https://www.wired.com/story/how-to-tell-if-its-a-cyberattack-or-just-an-outage/",
       "image": "/images/feed/feed-cffc041473a6.jpg",
       "source": "Wired",
@@ -852,7 +871,7 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 42,
       "url": "https://thehackernews.com/2026/11/researchers-claim-two-rce-exploits-that.html",
       "image": "/images/feed/feed-2041eca737d3.jpg",
       "source": "The Hacker News",
@@ -871,7 +890,7 @@
         "Gemini"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 30,
       "url": "https://techcrunch.com/2026/11/17/google-expands-access-to-gemini-tasks-which-can-help-with-calls-purchases/",
       "image": "https://techcrunch.com/wp-content/uploads/2026/06/gemini-app-GettyImages-2276204472-1.jpg?w=1024",
       "source": "TechCrunch",
@@ -890,7 +909,7 @@
         "Gemini"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 32,
       "url": "https://techcrunch.com/2026/11/17/google-to-keep-gemini-chats-for-two-months-up-from-72-hours-even-with-history-off/",
       "image": "https://techcrunch.com/wp-content/uploads/2026/11/google-gemini-app.jpg?resize=1200,800",
       "source": "TechCrunch",
@@ -909,43 +928,24 @@
         "Llm"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 38,
       "url": "https://newsletter.posthog.com/p/decision-models",
       "image": "/images/feed/feed-c223c3413d0c.jpg",
       "source": "Hacker News",
       "isLive": true
-    },
-    {
-      "id": "feed-9e7a1c7a38ca",
-      "title": "Google is making it easier to opt out of Gemini AI model training – here’s how",
-      "excerpt": "You’ll soon be able to turn off Gemini model training but still retain access to your previous chats with Google’s AI.",
-      "body": "You’ll soon be able to turn off Gemini model training but still retain access to your previous chats with Google’s AI.\n\nThis report, published by ZDNet, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gemini. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to ZDNet using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Lance Whitney",
-      "date": "2026-11-17",
-      "readTime": "2 min",
-      "section": "ai",
-      "tags": [
-        "Gemini"
-      ],
-      "featured": false,
-      "xpReward": 45,
-      "url": "https://www.zdnet.com/innovation/google-gemini-ai-model-training-opt-out-how/",
-      "image": "/images/feed/feed-9e7a1c7a38ca.jpg",
-      "source": "ZDNet",
-      "isLive": true
     }
   ],
   "breakingNews": [
-    "DEV.TO: Three Booleans Is Not a State Machine: Modelling UI Logic That Can't Be in Two States at Once",
-    "DEV.TO: SecurityException Kills HDMI-CEC Power Control on Sideloads",
-    "DEV.TO: B18TimeBank Exploit: Signed Vouchers Drain 404,540 USDC",
-    "DEV.TO: An inference speedup has to beat its own error bar",
-    "DEV.TO: Unified vs Direct Email APIs — 3 Practices for a Seller Welcome Feature",
-    "DEV.TO: Website analytics report explained: how to read it in 5 steps",
-    "ZDNET: Microsoft wants to put a dollar value on AI’s work – but can you trust the math?",
-    "BLEEPINGCOMPUTER: Critical Java4Shell flaw allows RCE attacks on major Java applications",
-    "ELECTREK: Solarcycle, PedalPoint Recycling merge to feed a $7.4B US metals refinery",
-    "POLYGON: Resident Evil Requiem’s Game Awards Nominee Is Ready for Resident Evil 10"
+    "DEV.TO: 5 .cursorrules Constraints That Instantly Stop AI Spaghetti Code in Cursor & Claude",
+    "DEV.TO: I Tried AMD AI Academy: Free, Hands-On AI Courses from AMD (and What to Watch Out For)",
+    "DEV.TO: Switches in an EMC Test Setup: What Actually Breaks the Measurement",
+    "DEV.TO: Consultas OLAP sobre ocupación de estacionamientos con ClickHouse",
+    "DEV.TO: MinIO vs Cloud Object Storage for App Backups: Setup, Restores, and Signed URLs",
+    "DEV.TO: Antenna Switching: The dB You Lose Before the LNA",
+    "TECHCRUNCH: Nvidia promises that revenue will keep soaring — for now",
+    "CLEANTECHNICA: BYD E6Y Odyssey",
+    "POLYGON: 5 Big Takeaways From the 2026 Game Awards Nominations",
+    "ENGADGET: You can now see and edit what Google Gemini remembers about you"
   ],
   "sectionVideos": {}
 }
