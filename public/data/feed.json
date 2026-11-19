@@ -1,31 +1,12 @@
 {
-  "fetchedAt": "2026-11-19T13:10:55.634Z",
+  "fetchedAt": "2026-11-19T14:10:41.649Z",
   "articles": [
     {
-      "id": "feed-196b6f79200c",
-      "title": "Feltbeat: count your own heartbeats while a webcam keeps the real number to itself",
-      "excerpt": "This is a submission for the Presage SmartSpectra SDK Challenge Status on Nov 19. The SDK measurements in this post were taken on my real webcam. The game itself has so far run end to end only on its…",
-      "body": "This is a submission for the Presage SmartSpectra SDK Challenge Status on Nov 19. The SDK measurements in this post were taken on my real webcam. The game itself has so far run end to end only on its simulator. My first real session and the demo video go in here before the deadline. Until then every picture below is from the simulator, and its banner says so. What I Built Feltbeat is a game with one instruction: sit still and count the heartbeats you can actually feel. No finger on your wrist. A webcam reads your pulse through the SmartSpectra SDK and keeps the real count to itself until you have typed yours. Then it shows you both. Your tally marks in ink, the camera's in red underneath. From the simulator. No number in this picture is a real reading.",
-      "author": "Soumyadeep Dey ",
-      "date": "2026-11-19",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 42,
-      "url": "https://dev.to/soumyadeepdey/feltbeat-count-your-own-heartbeats-while-a-webcam-keeps-the-real-number-to-itself-553b",
-      "image": "/images/feed/feed-196b6f79200c.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-2f6adc495927",
-      "title": "Kubernetes 1.33: What Really Breaks During an Upgrade and How to Anticipate It",
-      "excerpt": "Every cluster operator remembers Kubernetes 1.16 and 1.22: whole API groups disappeared overnight, Helm charts exploded, and kubectl apply started returning no matches for kind. Since then, teams buil…",
-      "body": "Every cluster operator remembers Kubernetes 1.16 and 1.22: whole API groups disappeared overnight, Helm charts exploded, and kubectl apply started returning no matches for kind . Since then, teams built reflexes around deprecated API scanning, and that is good. The problem with Kubernetes 1.33 is that those reflexes are no longer sufficient. 1.33 removes no major GA API. If your upgrade plan is \"run pluto , see zero removed APIs, click upgrade\", you will pass the audit and still break the cluster — because in 1.33 the breakage moved to three other places: feature gates that no longer exist , kubelet default behaviour changes , and aggregated APIService endpoints that silently rot .",
-      "author": "Florient DOGBE",
+      "id": "feed-2e42ae4444ff",
+      "title": "An empty CA field turned off TLS in our Kubernetes app",
+      "excerpt": "Our Kubernetes desktop app had a bug I'm not proud of. If you added a remote cluster with a bearer token (or a client cert, exec plugin, OIDC) and left the CA field empty, the app wrote insecure-skip-…",
+      "body": "Our Kubernetes desktop app had a bug I'm not proud of. If you added a remote cluster with a bearer token (or a client cert, exec plugin, OIDC) and left the CA field empty, the app wrote insecure-skip-tls-verify: true into the generated kubeconfig. No warning anywhere. So the token went to a server whose identity nobody checked. The CA field looked optional. That was the whole problem. Empty felt like \"use defaults\", and the default was \"trust anything\". Worse part: a check with the right policy already existed in the code. Nothing called it. Four forms built their kubeconfig on their own and none of them went through it.",
+      "author": "Rozoom News Editor",
       "date": "2026-11-19",
       "readTime": "2 min",
       "section": "software",
@@ -33,37 +14,18 @@
         "Kubernetes"
       ],
       "featured": true,
-      "xpReward": 35,
-      "url": "https://dev.to/florient_4262fab5463a691/kubernetes-133-what-really-breaks-during-an-upgrade-and-how-to-anticipate-it-2301",
-      "image": "/images/feed/feed-2f6adc495927.webp",
+      "xpReward": 33,
+      "url": "https://dev.to/rozoomnews/an-empty-ca-field-turned-off-tls-in-our-kubernetes-app-42g7",
+      "image": "/images/feed/feed-2e42ae4444ff.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-01eb511acd91",
-      "title": "The Myth of the Page Fault: Minor vs Major Faults in Linux",
-      "excerpt": "The Myth of the Page Fault: Minor vs Major Faults in Linux Ask most software engineers what happens during a Page Fault, and the textbook answer is immediate: \"The requested memory address is missing…",
-      "body": "The Myth of the Page Fault: Minor vs Major Faults in Linux Ask most software engineers what happens during a Page Fault , and the textbook answer is immediate: \"The requested memory address is missing from RAM, so the operating system suspends the process and reads the page from the hard drive or swap partition.\" While this describes a Major (Hard) Page Fault , it represents a tiny minority of real-world events. In production Linux systems, over 95% of all page faults involve zero disk I/O . They are Minor (Soft) Page Faults . 1. The Hardware Definition of a Page Fault A Page Fault is not a storage subsystem command. It is a CPU architectural interrupt (Interrupt 14 on x86-64).",
-      "author": "Binary Dose",
-      "date": "2026-11-19",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 48,
-      "url": "https://dev.to/binarydose/the-myth-of-the-page-fault-minor-vs-major-faults-in-linux-4k16",
-      "image": "/images/feed/feed-01eb511acd91.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-8b262a33b8e1",
-      "title": "Your SVG optimizer silently broke your icon. Here's the one-line check.",
-      "excerpt": "Your SVG optimizer silently broke your icon. Here's the one-line check. I spent an afternoon comparing SVG optimizers on a set of 28 real icons from Simple Icons. The sizes looked fine. Two files made…",
-      "body": "Your SVG optimizer silently broke your icon. Here's the one-line check. I spent an afternoon comparing SVG optimizers on a set of 28 real icons from Simple Icons. The sizes looked fine. Two files made the batch tool crash. Three of them produced a file that opened without complaint, rendered as a blank square, and reported a smaller byte count than the original. The reason: the optimizer had replaced path coordinates with the literal string NaN . This post is what I learned about the failure, how to detect it in one command, and why a preview can show you a perfect icon while the file you download is broken. What NaN in a path means A &lt;path d=\"...\"&gt; is a list of drawing commands followed by numbers.",
-      "author": "啦啦啦种太阳",
+      "id": "feed-a41d66bc3a24",
+      "title": "The Test Guarding My List of Deliberate Bugs Made Every Bug Look Caught for a Month",
+      "excerpt": "A field note from the autonomous Claude Code agent I run every day on one Windows PC. The numbers come from its own ledgers, not from memory. Free to read first: a PDF sample of the book behind this s…",
+      "body": "A field note from the autonomous Claude Code agent I run every day on one Windows PC. The numbers come from its own ledgers, not from memory. Free to read first: a PDF sample of the book behind this setup — its first 3 chapters: https://dbsoul.gumroad.com/l/autonomous-ai-agents-claude-code-free-sample My agent checks its own test suite by breaking its code on purpose. A list holds each break: a file, an exact piece of text from that file, and what to put in its place. The piece is often one line, sometimes part of a line or several lines. For each entry, a tool swaps the replacement in and runs the suite, stopping at the first failure. If something fails, the break counts as caught. If everything passes, the break survived, and the guard in that spot has no test behind it.",
+      "author": "Sungsoo Youn",
       "date": "2026-11-19",
       "readTime": "2 min",
       "section": "software",
@@ -72,17 +34,17 @@
       ],
       "featured": true,
       "xpReward": 34,
-      "url": "https://dev.to/createsun/your-svg-optimizer-silently-broke-your-icon-heres-the-one-line-check-3053",
-      "image": "/images/feed/feed-8b262a33b8e1.webp",
+      "url": "https://dev.to/dbsoul/the-test-guarding-my-list-of-deliberate-bugs-made-every-bug-look-caught-for-a-month-287j",
+      "image": "/images/feed/feed-a41d66bc3a24.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-c780821d16dc",
-      "title": "StatefulSet and CSI: Resizing a Production Volume Without Losing a Single Byte",
-      "excerpt": "Every StatefulSet eventually hits the same wall: the 50 Gi volume you provisioned eighteen months ago for a PostgreSQL replica is at 92 %, the WAL is growing, and the on-call rotation is getting alert…",
-      "body": "Every StatefulSet eventually hits the same wall: the 50 Gi volume you provisioned eighteen months ago for a PostgreSQL replica is at 92 %, the WAL is growing, and the on-call rotation is getting alerts at 03:00. The good news is that the CSI spec has supported online volume expansion for years. The bad news is that StatefulSet.spec.volumeClaimTemplates is immutable, so the obvious kubectl edit fails with a validation error and people start improvising — which is how data gets lost. This article walks through the real procedure: what actually happens under the hood when you grow a PVC, how to work around the immutable volumeClaimTemplates field with an orchestrated recreation, and — the part most runbooks skip — how to prove that the filesystem inside the pod actually grew.",
-      "author": "Florient DOGBE",
+      "id": "feed-693abe456626",
+      "title": "I did my own _ — a home for people who rebuilt a famous app",
+      "excerpt": "A lot of good software starts with one thought: \"I could build my own version of that.\" Somebody looks at Photoshop, or AirDrop, or Docker Desktop, and instead of only subscribing, they open a repo an…",
+      "body": "A lot of good software starts with one thought: \"I could build my own version of that.\" Somebody looks at Photoshop, or AirDrop, or Docker Desktop, and instead of only subscribing, they open a repo and start building. Not a clone for the sake of a clone. Their own version. Open source, on GitHub, with a real licence. I got tired of finding those projects one at a time, so I made a place to put them together. It's called I Did My Own (idmo.app). Full disclosure up front: I run the site. The header even plays with the idea. It reads i did my own _ . The word \"did\" glitches into \"developed\" and back. Why it exists There are plenty of \"alternatives to X\" lists. They are useful, and they are also usually a flat pile of names.",
+      "author": "Sam NotAltman",
       "date": "2026-11-19",
       "readTime": "2 min",
       "section": "software",
@@ -90,18 +52,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 53,
-      "url": "https://dev.to/florient_4262fab5463a691/statefulset-and-csi-resizing-a-production-volume-without-losing-a-single-byte-1l30",
-      "image": "/images/feed/feed-c780821d16dc.webp",
+      "xpReward": 38,
+      "url": "https://dev.to/sam_notaltman/i-did-my-own-a-home-for-people-who-rebuilt-a-famous-app-1pi1",
+      "image": "/images/feed/feed-693abe456626.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-2a1aecef3679",
-      "title": "Coroutines first: notes on nRouter's Kotlin SDK",
-      "excerpt": "A Kotlin client for an API gateway can be a thin wrapper around blocking HTTP calls, with a coroutine adapter bolted on. The nRouter Kotlin guide goes the other way: the SDK is coroutines-first from t…",
-      "body": "A Kotlin client for an API gateway can be a thin wrapper around blocking HTTP calls, with a coroutine adapter bolted on. The nRouter Kotlin guide goes the other way: the SDK is coroutines-first from the start — suspend functions for calls, a cold Flow for streaming, and typed error subclasses you can branch on. Full guide: https://nrouter.ai/docs/sdks/kotlin Setup The guide publishes the artifact to your local Maven cache ( ./gradlew clean check publishToMavenLocal ), then it's a normal Gradle dependency: dependencies { implementation ( \"ai.nrouter:nrouter-sdk-kotlin:3.1.2\" ) } NRouter() reads NROUTER_API_KEY from the environment, targets https://api.nrouter.ai/v1 , and dispatches on Dispatchers.IO , so calls don't block your caller's context.",
-      "author": "nRouter",
+      "id": "feed-9519404120b7",
+      "title": "How powerful is modern \"low-end\" hardware?",
+      "excerpt": "It is my belief that people have neglected optimizing their software since around 2020 and beyond. I am here to prove that what we consider \"low-end\" and \"entry-level\" is actually very powerful hardwa…",
+      "body": "It is my belief that people have neglected optimizing their software since around 2020 and beyond. I am here to prove that what we consider \"low-end\" and \"entry-level\" is actually very powerful hardware. Testing device specs: CPU: 10th-gen (Ice Lake) Intel Core i3-1005G1 @ 3.30 GHz, 2 cores, 4 threads GPU: 10th-gen (Ice Lake) Intel UHD Graphics G1; OpenGL 4.6, Vulkan 1.3.215, DirectX 12 (FL 12_1) RAM: 1x 4 GB DDR4-2666 SSD: SATA/RAID (Intel RST) 128 GB solid-state drive The Logical Side I don't have to test anything yet, because there is already an obvious logical conclusion to make: today's low-end hardware is 3-5x more powerful than what we had a decade ago, and a decade ago we had a booming video game industry!",
+      "author": "Gabriel Jemail",
       "date": "2026-11-19",
       "readTime": "2 min",
       "section": "software",
@@ -109,18 +71,56 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 52,
-      "url": "https://dev.to/nrouterai/coroutines-first-notes-on-nrouters-kotlin-sdk-559n",
-      "image": "/images/feed/feed-2a1aecef3679.webp",
+      "xpReward": 39,
+      "url": "https://dev.to/gabrieljemail/how-powerful-is-modern-low-end-hardware-432m",
+      "image": "/images/feed/feed-9519404120b7.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-6a37f5ac390b",
-      "title": "I Need Your Help Choosing a Final Year Project",
-      "excerpt": "For my master's degree, I have to build a final year project with one partner and publish a research paper on it. The project has to be real, not a demo. And the paper needs something that hasn't been…",
-      "body": "For my master's degree, I have to build a final year project with one partner and publish a research paper on it. The project has to be real, not a demo. And the paper needs something that hasn't been done already, a research gap. I'm asking the DEV community because I'm stuck, and I'd rather hear from people who've built things than keep scrolling through generic idea lists. Our Situation My partner and I both work in companies right now. We're both busy, and our last semester is short. The college gave us two options: Use a project from our workplace Build our own project around a real world problem Our work is covered by client confidentiality, so we chose the second option. We'd rather have something we can put on GitHub and talk about openly.",
-      "author": "Anushka Quietly Building",
+      "id": "feed-a0aa4d479237",
+      "title": "My templated pages were near-duplicates. A small Python check proved it, and now it runs in CI",
+      "excerpt": "I run a small static site of browser-based tools: image compressors, PDF converters, translators. The pages are generated by a Python script. That's convenient, until you notice Google has crawled mos…",
+      "body": "I run a small static site of browser-based tools: image compressors, PDF converters, translators. The pages are generated by a Python script. That's convenient, until you notice Google has crawled most of them and decided not to index them. Search Console's verdict for 38 pages was \"Crawled – currently not indexed\". The site is new, so part of that is just age. But when I looked at my own generator, part of it was clearly my fault: templates. How templated pages quietly become duplicates Each \"compress image to N KB\" page came from one function. So did each \"X to Y converter\" and each \"language A to language B translator\".",
+      "author": "Sikandar Bro",
+      "date": "2026-11-19",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Python"
+      ],
+      "featured": true,
+      "xpReward": 48,
+      "url": "https://dev.to/sikandar_bro_0db8c99c4a7c/my-templated-pages-were-near-duplicates-a-small-python-check-proved-it-and-now-it-runs-in-ci-1pd6",
+      "image": "/images/feed/feed-a0aa4d479237.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-6e9a74dffbda",
+      "title": "How Do You Design a Mobile App to Work Reliably Offline?",
+      "excerpt": "Building a mobile app that works reliably without a connection means inverting the usual cloud architecture. Instead of treating the remote server as the target for every user action and network calls…",
+      "body": "Building a mobile app that works reliably without a connection means inverting the usual cloud architecture. Instead of treating the remote server as the target for every user action and network calls as a gate, the local device database becomes the single source of truth for the user interface. Network calls turn into background processes that sync changes whenever connectivity allows. With this local first approach, user actions succeed instantly with no network latency, battery drain drops, and spotty connections no longer crash or stall the app. Getting there takes discipline around data modeling, conflict resolution, sync queues, and schema lifecycle management.",
+      "author": "Ben Johnson",
+      "date": "2026-11-19",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 43,
+      "url": "https://dev.to/benjohnson77/how-do-you-design-a-mobile-app-to-work-reliably-offline-4pgj",
+      "image": "/images/feed/feed-6e9a74dffbda.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-6ad9b267949c",
+      "title": "Let Claude Code operate remote computers as if they were local (Codex and Gemini CLI too)",
+      "excerpt": "Disclosure: this post is from the RockDesk team. RockDesk is the tool the setup below uses. Claude Code, Codex and Gemini CLI work well on the machine they run on. This guide lets them operate your ot…",
+      "body": "Disclosure: this post is from the RockDesk team. RockDesk is the tool the setup below uses. Claude Code, Codex and Gemini CLI work well on the machine they run on. This guide lets them operate your other computers and devices the same way: run shell scripts on them across networks mount a remote project and edit it in place see the screen through screenshots forward ports It works by machine ID, with nothing to open on the router, and takes about five minutes to set up. The other machine can be a Windows PC, a Mac, a Linux server without a screen, a robot or dev board running Linux, or an Android phone (screen, taps and typing). 1. Run shell scripts across networks The other machine can sit behind a home router, on the office network or on a mobile connection.",
+      "author": "RockDesk",
       "date": "2026-11-19",
       "readTime": "2 min",
       "section": "software",
@@ -128,37 +128,95 @@
         "Software"
       ],
       "featured": false,
-      "xpReward": 32,
-      "url": "https://dev.to/anushka_shinde_99/i-need-your-help-choosing-a-final-year-project-37ki",
-      "image": "/images/feed/feed-6a37f5ac390b.webp",
+      "xpReward": 51,
+      "url": "https://dev.to/rockdeskio/let-claude-code-operate-remote-computers-as-if-they-were-local-codex-and-gemini-cli-too-2chc",
+      "image": "/images/feed/feed-6ad9b267949c.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-5dba3516f77f",
-      "title": "iPhone Duo, One Month Later: I’m Not Ready to End the Love Affair",
-      "excerpt": "After making Apple’s foldable my daily companion, I’ve made peace with some shortcomings while resigning myself to others. Mostly, though, there’s been a lot to admire.",
-      "body": "After making Apple’s foldable my daily companion, I’ve made peace with some shortcomings while resigning myself to others. Mostly, though, there’s been a lot to admire.\n\nThis report, published by CNET, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Iphone. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to CNET using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Abrar Al-Heeti",
+      "id": "feed-440a0a8ee681",
+      "title": "Xbox Hardware Sales Finally Saw A Major Surge Ahead Of GTA In The U.S.",
+      "excerpt": "'Gears and GTA may have provided at least a temporary reprieve'",
+      "body": "'Gears and GTA may have provided at least a temporary reprieve'\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Xbox. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Rebekah Valentine",
+      "date": "2026-11-19",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Xbox"
+      ],
+      "featured": false,
+      "xpReward": 54,
+      "url": "https://kotaku.com/xbox-hardware-finally-saw-major-surge-gta-us-2000758382",
+      "image": "/images/feed/feed-440a0a8ee681.jpg",
+      "source": "Kotaku",
+      "isLive": true
+    },
+    {
+      "id": "feed-4e1a83f04cb7",
+      "title": "RISION Magic Series Black Friday sale: Get up to 45% off one of our favorite phone thermal cameras",
+      "excerpt": "Make household maintenance easier and more accessible with the RISION Magic series.",
+      "body": "Credit: RISION A thermal camera reveals heat that’s invisible to the naked eye, and you may find it more useful than you’d expect. It can help you spot a damp patch behind drywall, an overheating charger, or a 3D printer bed that isn’t heating properly. The RISION Magic series makes it easy to use your phone as a thermal camera. Just plug the RISION Magic or RISION Magic Pro into the USB-C port on your Android phone, iPhone, or Windows PC, and the free app will instantly show you a live heat map. There’s no battery to charge and no account to create. And both models get big discounts during RISION’s Black Friday sale . Here’s what you need to know.",
+      "author": "Ankit Banerjee",
       "date": "2026-11-19",
       "readTime": "2 min",
       "section": "gadgets",
       "tags": [
-        "Iphone"
+        "Gadgets"
       ],
       "featured": false,
-      "xpReward": 44,
-      "url": "https://www.cnet.com/tech/mobile/iphone-duo-one-month-review/",
-      "image": "https://www.cnet.com/wp-content/uploads/sites/2/IMG_0708.jpeg",
-      "source": "CNET",
+      "xpReward": 37,
+      "url": "https://www.androidauthority.com/rision-magic-series-black-friday-3736689/",
+      "image": "https://www.androidauthority.com/wp-content/uploads/2026/11/RISION-BF-featured.jpg",
+      "source": "Android Authority",
       "isLive": true
     },
     {
-      "id": "feed-12445a9e0e86",
-      "title": "Pixel 10 deal: Save $200 on Google’s first base phone with telephoto",
-      "excerpt": "Last year's Pixel is 25% off on Amazon, a solid price for a phone with years of updates ahead.",
-      "body": "The Pixel 10 was the first standard Pixel to get a telephoto camera, and it’s now a much easier buy at $599 on Amazon , down from $799. That’s a $200 (25%) saving on a phone that still has plenty of life left. See the deal at Amazon",
-      "author": "Matt Horne",
+      "id": "feed-19806210670b",
+      "title": "Elon Musk announces another Tesla vehicle no one asked for",
+      "excerpt": "Elon Musk says Tesla plans to build a version of the Model Y with no steering wheel and no pedals, a driverless people-mover he describes as “good for transporting groups of 6 or 7 people.” It’s yet a…",
+      "body": "Elon Musk says Tesla plans to build a version of the Model Y with no steering wheel and no pedals, a driverless people-mover he describes as “good for transporting groups of 6 or 7 people.” It’s yet another vehicle nobody asked for, from a company that ended Model S and Model X production this year and is about to end the Cybertruck. And the data says very few car buyers want a car they can’t drive. more…",
+      "author": "Fred Lambert",
+      "date": "2026-11-19",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Tesla",
+        "Vehicle"
+      ],
+      "featured": false,
+      "xpReward": 47,
+      "url": "https://electrek.co/2026/11/19/musk-tesla-model-y-no-steering-wheel-7-seat/",
+      "image": "/images/feed/feed-19806210670b.jpg",
+      "source": "Electrek",
+      "isLive": true
+    },
+    {
+      "id": "feed-9c08d4b91435",
+      "title": "Leonid meteor shower thrills stargazers worldwide with colorful sky show (photos/video)",
+      "excerpt": "From colorful meteors to lingering trails, the Leonids put on a great show this year.",
+      "body": "The Leonid meteor shower put on quite the show this week, with bright, colorful meteors thrilling stargazers worldwide and we've got the photos to prove it. The annual meteor shower peaked overnight on Nov. 17-18, with photographers braving chilly temperatures, clouds and even fog in hopes of catching the perfect shot. And for some, their patience certainly paid off. Leonids occur when Earth passes through debris left behind by comet 55P/Tempel-Tuttle, which orbits the sun approximately every 33 years. As tiny pieces of comet debris enter Earth's atmosphere at speeds of up to 44 miles (71 kilometers) per second, they burn up, producing bright streaks of light. The meteor shower is also famous for producing some of the most spectacular meteor storms in history.",
+      "author": " Daisy Dobrijevic ",
+      "date": "2026-11-19",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Space"
+      ],
+      "featured": false,
+      "xpReward": 47,
+      "url": "https://www.space.com/stargazing/meteor-showers/leonid-meteor-shower-thrills-stargazers-worldwide-with-colorful-sky-show-photos-video",
+      "image": "/images/feed/feed-9c08d4b91435.jpg",
+      "source": "Space.com",
+      "isLive": true
+    },
+    {
+      "id": "feed-b851567d26f0",
+      "title": "Aurzen Black Friday projector deals: Up to 40% off Roku TV and Google TV models",
+      "excerpt": "Whether for family movie night or to catch the game with friends, Aurzen has you covered.",
+      "body": "Credit: Aurzen Good home projectors ensure you aren’t wasting a lot of time setting things up. Features like automatic focus and keystone correction adjust the picture for you, and built-in streaming apps let you watch everything with one remote. Brightness affects how dark your room needs to be, and the built-in speakers help you decide if you need a soundbar. If you’re looking for the perfect fit for your room this holiday season, Aurzen has you covered. Aurzen’s Black Friday deals on Amazon include projectors from the EAZZE and BOOM lines, with some of the models handling focus, keystone correction, and streaming on their own. You’ll find different sizes, brightness, and sound quality, from portable options to brighter models with stronger audio for your living room.",
+      "author": "Ankit Banerjee",
       "date": "2026-11-19",
       "readTime": "2 min",
       "section": "gadgets",
@@ -167,9 +225,163 @@
       ],
       "featured": false,
       "xpReward": 32,
-      "url": "https://www.androidauthority.com/google-pixel-10-deal-black-friday-3736288/",
-      "image": "/images/feed/feed-12445a9e0e86.jpg",
+      "url": "https://www.androidauthority.com/aurzen-black-friday-deals-2026-3735647/",
+      "image": "https://www.androidauthority.com/wp-content/uploads/2026/11/aurzen-featured.jpg",
       "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-f3b7cdfbe932",
+      "title": "MacBook Pro PROLED, MacBook Neo, more: The best Amazon Black Friday deals on Macs",
+      "excerpt": "The official 2026 Amazon Black Friday sale is now live with a solid $70 off AirPods Pro 3 and the lowest prices ever on Apple Watch Series 12, among many other Apple deals, but we are now tracking som…",
+      "body": "The official 2026 Amazon Black Friday sale is now live with a solid $70 off AirPods Pro 3 and the lowest prices ever on Apple Watch Series 12 , among many other Apple deals, but we are now tracking some of the very best MacBook deals of the year. We are catching a surprising and super rare $50 price drop on MacBook Neo from $649 as well as $250 discounts across the entire M5 MacBook Air lineup (including the best price in months on the most affordable model), and the very first deals on the brand new M6 MacBook Pro and Apple’s new touchscreen PROLED MacBook Pro at up to $250 off . more…",
+      "author": "Justin Kahn",
+      "date": "2026-11-19",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Macbook"
+      ],
+      "featured": false,
+      "xpReward": 38,
+      "url": "https://9to5mac.com/2026/11/19/macbook-pro-proled-macbook-neo-more-the-best-amazon-black-friday-deals-on-macs/",
+      "image": "/images/feed/feed-f3b7cdfbe932.jpg",
+      "source": "9to5Mac",
+      "isLive": true
+    },
+    {
+      "id": "feed-ccdd401259e4",
+      "title": "Blue Origin will launch Google&#8217;s AI server satellites in 2029",
+      "excerpt": "Google is teaming up with Jeff Bezos' Blue Origin to launch its AI server satellites. The companies announced on Thursday that Blue Origin's New Glenn rocket will shuttle satellites equipped with Goog…",
+      "body": "Google is teaming up with Jeff Bezos' Blue Origin to launch its AI server satellites. The companies announced on Thursday that Blue Origin's New Glenn rocket will shuttle satellites equipped with Google's Tensor Processing Units (TPUs) into space in the first quarter of 2029. The partnership is part of Google's Project Suncatcher, a moonshot plan that could eventually put AI data centers in space. Google deployed its first AI server satellite in October, successfully booting up its TPUs and using the on-board Gemma 4 model to transmit an AI-generated haiku to Earth . The Blue Origin launch will be the \"first dedicated heavy lift launch\" f … Read the full story at The Verge.",
+      "author": "Emma Roth",
+      "date": "2026-11-19",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Satellite"
+      ],
+      "featured": false,
+      "xpReward": 39,
+      "url": "https://www.theverge.com/tech/1037535/google-blue-origin-project-suncatcher-2029",
+      "image": "/images/feed/feed-ccdd401259e4.png",
+      "source": "The Verge",
+      "isLive": true
+    },
+    {
+      "id": "feed-93a83e0162b8",
+      "title": "One UI 9.5 code reveals Samsung’s dedicated Android laptop interface with Circle to Search",
+      "excerpt": "Samsung’s Origin laptops could get their own taskbar, lid controls, and haptic touchpad settings, separate from DeX.",
+      "body": "Credit: Mishaal Rahman / Android Authority TL;DR Code in Samsung’s One UI 9.5 Beta 1 reveals a dedicated interface for its upcoming Android laptops (codenamed origin14 and origin16) that hides Samsung DeX and tablet taskbar settings in favor of a separate laptop UI. The new laptop taskbar will likely include built-in Circle to Search, an AI select button, a phone apps shortcut, auto-hide functionality, and left- or right-aligned navigation buttons. Additional strings across apps point to automatic keyboard backlighting, haptic touchpads, lid-open startup, and laptop-specific power and lock screen prompts. Samsung’s upcoming Android laptops will likely have a One UI taskbar with Circle to Search built in, according to code in the One UI 9.5 Beta 1 release.",
+      "author": "Aamir Siddiqui",
+      "date": "2026-11-19",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Laptop"
+      ],
+      "featured": false,
+      "xpReward": 45,
+      "url": "https://www.androidauthority.com/samsung-one-ui-9-5-android-laptop-dedicated-interface-apk-teardown-3737196/",
+      "image": "https://www.androidauthority.com/wp-content/uploads/2025/07/Samsung-DeX-in-One-UI-8-on-the-Galaxy-Z-Flip-7-scaled.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-bed584c43bc5",
+      "title": "OpenAI’s first smartphone could launch in 2027 with help from iPhone manufacturer",
+      "excerpt": "The ChatGPT maker is reportedly tapping into Apple's supply chain.",
+      "body": "TL;DR Foxconn subsidiary FIH Mobile has reportedly secured an order to assemble OpenAI’s first smartphone. Several other Apple suppliers are reportedly involved, with the phone potentially launching in late 2027 or 2028. The device is expected to feature a custom MediaTek chip and an AI-first user experience, but its operating system remains unknown. For a company whose most recognizable product lives inside an app on your phone, OpenAI appears increasingly interested in making the phone itself. We first heard about its smartphone ambitions in April , and a new report from China suggests the project is making headway with familiar names from Apple’s supply chain.",
+      "author": "Hillary Keverenge",
+      "date": "2026-11-19",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Smartphone",
+        "Iphone"
+      ],
+      "featured": false,
+      "xpReward": 45,
+      "url": "https://www.androidauthority.com/openai-phone-foxconn-assembly-3737193/",
+      "image": "https://www.androidauthority.com/wp-content/uploads/2023/09/OpenAI-on-website-on-smartphone-stock-photo-3.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-406801d22964",
+      "title": "Best Black Friday deals: Big discounts on phones, smartwatches, and more",
+      "excerpt": "The biggest sale of the year is underway, and prices are plunging already. Here are the best tech deals you can grab now.",
+      "body": "Black Friday 2026 is almost here, and the early deals are already rolling in. From Android phones and tablets to headphones and smart home gear, we’ve rounded up the best Black Friday deals we’ve found so far. The offers will change, and new ones will launch, so we’ll keep updating this page regularly. Bookmark it to check back on what Black Friday deals are available.",
+      "author": "Matt Horne",
+      "date": "2026-11-19",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Smartwatch"
+      ],
+      "featured": false,
+      "xpReward": 41,
+      "url": "https://www.androidauthority.com/best-black-friday-2026-deals-3733655/",
+      "image": "https://www.androidauthority.com/wp-content/uploads/2026/11/Best-Black-Friday-Deals-Feature-2026.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-4306ae033116",
+      "title": "Rockstar says that GTA 6's map has room to expand for future storylines",
+      "excerpt": "Rockstar's VP of design Stephen Donkin told 'Kotaku' that GTA VI's map 'has been built for the long term.'",
+      "body": "Rockstar's VP of design Stephen Donkin told 'Kotaku' that GTA VI's map 'has been built for the long term.'\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "staff@engadget.com (Mariella Moon)",
+      "date": "2026-11-19",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 38,
+      "url": "https://www.engadget.com/2321545/rockstar-says-that-gta-6s-map-has-room-to-expand-for-future-storylines/",
+      "image": "/images/feed/feed-4306ae033116.jpg",
+      "source": "Engadget",
+      "isLive": true
+    },
+    {
+      "id": "feed-b3599afdc502",
+      "title": "Nonprofit Common Space will launch 1st 'humanitarian satellite' in 2027",
+      "excerpt": "The nonprofit Common Space plans to assemble a constellation of Earth-observing satellites for humanitarian use, the first of which is scheduled to lift off next year.",
+      "body": "The first satellite in a constellation designed for humanitarian use will lift off next year, if all goes according to plan. The nonprofit Common Space plans to assemble a six-spacecraft constellation of Earth-observing satellites , whose high-resolution imagery will aid first responders, journalists, scientists and human-rights investigators around the world. That plan firmed up a bit today (Nov. 19), as Common Space announced the builder of the first of those satellites : Satellogic, an Argentine-U.S. geospatial intelligence company. There are more than 1,000 Earth-observing satellites circling our planet at the moment. But much of the data they gather is proprietary or too expensive to serve the common good, according to Common Space.",
+      "author": " Mike Wall ",
+      "date": "2026-11-19",
+      "readTime": "2 min",
+      "section": "space",
+      "tags": [
+        "Satellite",
+        "Space"
+      ],
+      "featured": false,
+      "xpReward": 42,
+      "url": "https://www.space.com/space-exploration/satellites/nonprofit-common-space-will-launch-1st-humanitarian-satellite-in-2027",
+      "image": "/images/feed/feed-b3599afdc502.jpg",
+      "source": "Space.com",
+      "isLive": true
+    },
+    {
+      "id": "feed-589942e72f19",
+      "title": "Drupal patches critical RCE flaw, warns exploits may surface quickly",
+      "excerpt": "The Drupal Security Team has patched a critical remote code execution vulnerability that can let attackers take over vulnerable sites. [...]",
+      "body": "The Drupal Security Team has patched a critical remote code execution vulnerability that can let attackers take over vulnerable sites. [...]\n\nThis report, published by BleepingComputer, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Exploit. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to BleepingComputer using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Sergiu Gatlan",
+      "date": "2026-11-19",
+      "readTime": "2 min",
+      "section": "cybersecurity",
+      "tags": [
+        "Exploit"
+      ],
+      "featured": false,
+      "xpReward": 49,
+      "url": "https://www.bleepingcomputer.com/news/security/drupal-patches-critical-rce-flaw-warns-exploits-may-surface-quickly/",
+      "image": "/images/feed/feed-589942e72f19.jpg",
+      "source": "BleepingComputer",
       "isLive": true
     },
     {
@@ -185,48 +397,29 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 39,
       "url": "https://insideevs.com/news/816103/october-us-used-ev-sales/",
       "image": "/images/feed/feed-1b3a6ea1a8c4.jpg",
       "source": "InsideEVs",
       "isLive": true
     },
     {
-      "id": "feed-3493765ef91d",
-      "title": "Save 20% on Twelve South’s tiny Airfly Drive wireless CarPlay dongle",
-      "excerpt": "Update November 19: Twelve South’s Airfly Drive dongle is now 20% off as part of Amazon’s early Black Friday festivities. That drops the price from $39.99 to $31.99 Buy Twelve South Airfly Drive in wh…",
-      "body": "Update November 19: Twelve South’s Airfly Drive dongle is now 20% off as part of Amazon’s early Black Friday festivities . That drops the price from $39.99 to $31.99 Buy Twelve South Airfly Drive in white Buy Twelve South Airfly Drive in black Original launch coverage below. Twelve South, the company behind a range of premium Apple accessories, has launched a notable expansion of its Airfly brand. The company today unveiled Airfly Drive, a dongle that turns wired CarPlay into wireless CarPlay. It’s available to order starting now. Here’s how it works. more…",
-      "author": "Chance Miller",
+      "id": "feed-fb6e8f528aaf",
+      "title": "As GTA 6 Skips Discs, GameStop CEO Says Digital-Only 'Has Hurt Consumers' and Retailers",
+      "excerpt": "As GTA 6 launches without a physical disc, GameStop CEO Ryan Cohen warns that the industry's shift to digital-only games has hurt both consumers and retail.",
+      "body": "As GTA 6 launches without a physical disc, GameStop&#39;s CEO has warned that the industry&#39;s shift to digital-only games has hurt both consumers and retail. In a well-timed shot across GTA 6&#39;s bow, GameStop boss Ryan Cohen blasted the decision to abandon physical discs as a bad move for players and his own business, as it removes a layer of ownership and the ability to re-sell games via the trade-in market — something that has historically fueled GameStop&#39;s revenue. &quot;When you buy a game, you should be able to sell it, trade it or lend it to a friend,&quot; Cohen told Bloomberg .",
+      "author": "Tom Phillips",
       "date": "2026-11-19",
       "readTime": "2 min",
-      "section": "gadgets",
+      "section": "gaming",
       "tags": [
-        "Gadgets"
+        "Gaming"
       ],
       "featured": false,
-      "xpReward": 39,
-      "url": "https://9to5mac.com/2026/11/19/twelve-south-launches-tiny-new-airfly-drive-wireless-carplay-adapter/",
-      "image": "/images/feed/feed-3493765ef91d.jpg",
-      "source": "9to5Mac",
-      "isLive": true
-    },
-    {
-      "id": "feed-ea32d15ac9a8",
-      "title": "OLED iMac plans may be cancelled by Apple for two reasons",
-      "excerpt": "Apple is considering abandoning plans to launch an OLED iMac, according to a new supply chain report. The news comes just weeks after the first OLED Mac was launched in the form of the new touchscreen…",
-      "body": "Apple is considering abandoning plans to launch an OLED iMac , according to a new supply chain report. The news comes just weeks after the first OLED Mac was launched in the form of the new touchscreen MacBook Pro . The company is said to be holding discussions with display partner Samsung about either delaying the planned launch or abandoning it altogether, with two reasons cited … more…",
-      "author": "Ben Lovejoy",
-      "date": "2026-11-19",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 34,
-      "url": "https://9to5mac.com/2026/11/19/oled-imac-plans-may-be-cancelled-by-apple-for-two-reasons/",
-      "image": "/images/feed/feed-ea32d15ac9a8.jpg",
-      "source": "9to5Mac",
+      "xpReward": 43,
+      "url": "https://www.ign.com/articles/gamestop-ceo-blasts-digital-only-gta-6-no-disc",
+      "image": "https://assets-prd.ignimgs.com/2026/11/19/gettyimages-2304782431-1795091095449.jpg",
+      "source": "IGN",
       "isLive": true
     },
     {
@@ -242,55 +435,17 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 51,
       "url": "https://kotaku.com/zelda-ocarina-of-time-speedun-awesome-games-done-quick-2027-2000758355",
       "image": "/images/feed/feed-a887035714ad.jpg",
       "source": "Kotaku",
       "isLive": true
     },
     {
-      "id": "feed-5e06c8ed4003",
-      "title": "Canva will let users switch off most generative AI",
-      "excerpt": "Canva is rolling out new settings to purge most generative AI from its app.",
-      "body": "Canva is rolling out new settings to purge most generative AI from its app.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Anna Washenko)",
-      "date": "2026-11-19",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 34,
-      "url": "https://www.engadget.com/2321318/canva-will-let-users-switch-off-most-generative-ai/",
-      "image": "/images/feed/feed-5e06c8ed4003.jpg",
-      "source": "Engadget",
-      "isLive": true
-    },
-    {
-      "id": "feed-d69f04f38529",
-      "title": "Canva introduces new controls to hide generative AI features",
-      "excerpt": "In light of growing pushback from users who want more control over how AI is integrated into their apps (if at all), Canva is introducing new settings that let them hide generative AI features and see…",
-      "body": "In light of growing pushback from users who want more control over how AI is integrated into their apps (if at all), Canva is introducing new settings that let them hide generative AI features and see — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Marcus Mendes",
-      "date": "2026-11-19",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 41,
-      "url": "https://9to5mac.com/2026/11/19/canva-introduces-new-controls-to-hide-generative-ai-features/",
-      "image": "/images/feed/feed-d69f04f38529.jpg",
-      "source": "9to5Mac",
-      "isLive": true
-    },
-    {
       "id": "feed-708518498c68",
       "title": "Canva adds an AI ‘off’ button",
       "excerpt": "Canva will now allow you to turn off its generative AI features. With this change, you can disable the graphic design platform's array of AI tools, such as its AI photo-extending Magic Expand feature,…",
-      "body": "Canva will now allow you to turn off its generative AI features. With this change, you can disable the graphic design platform's array of AI tools, such as its AI photo-extending Magic Expand feature, as well as turn off the ability to generate images with its Canva chatbot . This toggle doesn't turn off every AI-powered feature on Canva, however. That includes Canva's background remover and its Magic Grab tool, which lets you select an object in an image and move it somewhere else. \"Both remain available when the generative AI switch is off, because they work only with what's already in a design,\" Canva says. The toggle still turns off ma … Read the full story at The Verge.",
+      "body": "Canva will now allow you to turn off its generative AI features. With this change , you can disable the graphic design platform's array of AI tools, such as its AI photo-extending Magic Expand feature, as well as turn off the ability to generate images with its Canva chatbot . This toggle doesn't turn off every AI-powered feature on Canva, however. That includes Canva's background remover and its Magic Grab tool, which lets you select an object in an image and move it somewhere else. Canva says these tools will stay on because they \"make everyday tasks faster without generating anything new.\" The toggle still turns off many of Canva's other … Read the full story at The Verge.",
       "author": "Emma Roth",
       "date": "2026-11-19",
       "readTime": "2 min",
@@ -299,29 +454,10 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 39,
       "url": "https://www.theverge.com/ai-artificial-intelligence/1037126/canva-ai-features-off-button",
       "image": "/images/feed/feed-708518498c68.png",
       "source": "The Verge",
-      "isLive": true
-    },
-    {
-      "id": "feed-831123bd1280",
-      "title": "Major privacy breaches reported in Muse AI, including bank balances",
-      "excerpt": "Meta employees have expressed concerns about what appear to be major privacy breaches when using Muse, currently the second most popular free iPhone app in the App Store with over 10 million downloads…",
-      "body": "Meta employees have expressed concerns about what appear to be major privacy breaches when using Muse , currently the second most popular free iPhone app in the App Store with over 10 million downloads. This includes again accessing end-to-end encrypted messaging without permission, and sharing what may be the bank balances of another Muse user … more…",
-      "author": "Ben Lovejoy",
-      "date": "2026-11-19",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 42,
-      "url": "https://9to5mac.com/2026/11/19/major-privacy-breaches-reported-in-muse-ai-including-bank-balances/",
-      "image": "/images/feed/feed-831123bd1280.jpg",
-      "source": "9to5Mac",
       "isLive": true
     },
     {
@@ -337,10 +473,48 @@
         "Fortnite"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 48,
       "url": "https://www.polygon.com/fortnite-pirate-shop-access-token-respawn-rumble/",
       "image": "/images/feed/feed-bceb383005ab.jpg",
       "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-1d4468dc1dc4",
+      "title": "Could This Be the Start of GTA 6's Version of the Mount Chiliad Mystery?",
+      "excerpt": "GTA 6 player spots what they think may be the start of the next Mount Chiliad mystery.",
+      "body": "GTA 5’s most enduring mystery had players stumped for years. This long-running puzzle and Easter egg hunt revolved around a cryptic mural found inside the summit cable car station, and surrounding clues at the highest point of San Andreas. The cable car station at the top of Mount Chiliad featured a cave drawing of a mountain topped by an Illuminati eye, with lines coming off the mountain connected to ancient alien-style carvings of a UFO, a cracked egg, and a jetpack. This mystery would later pay off in GTA Online, when The Doomsday Heist introduced an underground facility beneath Mount Chiliad, along with a flyable jetpack. Now, fans exploring Leonida in GTA 6 have discovered some more strange markings, and some think it could be the start of the new game’s biggest mystery.",
+      "author": "Kirk McKeand",
+      "date": "2026-11-19",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 37,
+      "url": "https://www.ign.com/articles/gta-6-mount-chiliad-mystery",
+      "image": "/images/feed/feed-1d4468dc1dc4.jpg",
+      "source": "IGN",
+      "isLive": true
+    },
+    {
+      "id": "feed-820534ab8153",
+      "title": "Get Both Prime Video's Fallout 4K SteelBooks for Only $30 Each During Amazon's Black Friday Sale",
+      "excerpt": "Get Both Prime Video's Fallout 4K SteelBooks for Only $30 Each During Amazon's Black Friday Sale",
+      "body": "The Amazon Black Friday deals officially kick off today, offering dozens of great TV shows and movies to browse through at discounted prices. For Fallout fans, you can find limited edition 4K steelbooks of Prime Video&#39;s Fallout series each at $29.99, down from their original sticker prices of $43. Fallout Season 1 Limited Edition 4K Steelbook The season 1 steelbook comes on three discs and compiles the entire first season in 4K. The steelbook itself features a Power Armor helmet on the cover, and the spine is stylized in traditional Fallout font. Inside the case are miniature character posters featuring the show&#39;s main cast.",
+      "author": "Myles Obenza",
+      "date": "2026-11-19",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 30,
+      "url": "https://www.ign.com/articles/get-both-prime-videos-fallout-4k-steelbooks-for-30-each-for-black-friday-2026",
+      "image": "/images/feed/feed-820534ab8153.jpg",
+      "source": "IGN",
       "isLive": true
     },
     {
@@ -356,67 +530,10 @@
         "Nintendo"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 37,
       "url": "https://www.polygon.com/nintendo-wii-20th-anniversary/",
       "image": "/images/feed/feed-2e67047a3335.jpg",
       "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-51eefed5f4f5",
-      "title": "RayNeo Built Modern Warfare 4 Its Own AR Glasses - And Put Call Of Duty Inside The Lens",
-      "excerpt": "The RayNeo GT Max Call of Duty®: Modern Warfare 4® Limited Edition lands November 19 at $449 - a 307-inch screen and an interface built for the game.",
-      "body": "The RayNeo GT Max Call of Duty®: Modern Warfare 4® Limited Edition lands November 19 at $449 - a 307-inch screen and an interface built for the game.\n\nThis report, published by Polygon, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Polygon using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Polygon Advertiser Content",
-      "date": "2026-11-19",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 50,
-      "url": "https://www.polygon.com/rayneo-gt-max-call-of-duty-modern-warfare-4-limited-edition/",
-      "image": "/images/feed/feed-51eefed5f4f5.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-45161d79b244",
-      "title": "LiberNovo Is Cutting The Prices Of Its Best Chairs By Up To 42% For Black Friday And Cyber Monday",
-      "excerpt": "Omni and Maxis models are both included in a sale that will save you hundreds of dollars on some of the best ergonomic chairs on the market.",
-      "body": "Omni and Maxis models are both included in a sale that will save you hundreds of dollars on some of the best ergonomic chairs on the market.\n\nThis report, published by Polygon, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Polygon using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Polygon Advertiser Content",
-      "date": "2026-11-19",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 31,
-      "url": "https://www.polygon.com/libernovo-black-friday-cyber-monday-sale-omni-maxis-chairs/",
-      "image": "/images/feed/feed-45161d79b244.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-90ad9b20596e",
-      "title": "The Most Popular Game From Epic Games’ AI MegaJam Contest Is Pure Human-Made Slop",
-      "excerpt": "LSD: FIH is a big fish in a small, AI-slop filled pond",
-      "body": "LSD: FIH is a big fish in a small, AI-slop filled pond\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Game. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Lewis Parker",
-      "date": "2026-11-19",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Game"
-      ],
-      "featured": false,
-      "xpReward": 53,
-      "url": "https://kotaku.com/epic-ai-megajam-game-jam-slop-lsd-fih-aura-farming-tim-sweeney-2000758352",
-      "image": "/images/feed/feed-90ad9b20596e.jpg",
-      "source": "Kotaku",
       "isLive": true
     },
     {
@@ -432,7 +549,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 32,
       "url": "https://www.wired.com/story/anthropics-record-breaking-ipo-highlights-the-ai-giants-worst-enemy-itself/",
       "image": "/images/feed/feed-144a3faf63d5.jpg",
       "source": "Wired",
@@ -451,7 +568,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 30,
       "url": "https://www.wired.com/story/voyager-light-day-away-how-far-that-really-is/",
       "image": "/images/feed/feed-7889671f9cf0.jpg",
       "source": "Wired",
@@ -470,7 +587,7 @@
         "Firewall"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 33,
       "url": "https://thehackernews.com/2026/11/everything-is-web-application-including.html",
       "image": "/images/feed/feed-790246065cf7.jpg",
       "source": "The Hacker News",
@@ -489,7 +606,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 49,
       "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-tests-new-edge-lockdown-mode-that-disables-gpu-apis/",
       "image": "/images/feed/feed-51d1fbddbc09.jpg",
       "source": "BleepingComputer",
@@ -508,29 +625,10 @@
         "Electric Car"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 30,
       "url": "https://electrek.co/2026/11/19/porsches-newest-electric-car-is-a-tiny-50-mph-replica-of-a-legendary-racer/",
       "image": "/images/feed/feed-8c17950d3494.jpg",
       "source": "Electrek",
-      "isLive": true
-    },
-    {
-      "id": "feed-2d3d42b4ae39",
-      "title": "GameStop CEO Criticizes Digital-Only Games As GTA 6 Releases Without A Disc",
-      "excerpt": "'Unquestionably, the decision to move to all digital has hurt consumers, and it’s also hurt GameStop.'",
-      "body": "'Unquestionably, the decision to move to all digital has hurt consumers, and it’s also hurt GameStop.'\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Alicia Haddick",
-      "date": "2026-11-19",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 30,
-      "url": "https://kotaku.com/gamestop-ceo-criticizes-digital-only-games-gta-6-releases-without-a-disc-2000758233",
-      "image": "/images/feed/feed-2d3d42b4ae39.jpg",
-      "source": "Kotaku",
       "isLive": true
     },
     {
@@ -546,7 +644,7 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 45,
       "url": "https://insideevs.com/news/816066/tesla-model-y-tuv-inspection/",
       "image": "/images/feed/feed-f379632250cc.jpg",
       "source": "InsideEVs",
@@ -565,7 +663,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 38,
       "url": "https://www.space.com/space-exploration/voyager/whats-next-for-nasa-interstellar-voyager-1-probe-after-passing-1-light-day-from-earth",
       "image": "/images/feed/feed-de7c440b232f.jpg",
       "source": "Space.com",
@@ -584,7 +682,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 33,
       "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-confirms-app-installation-launch-issues-after-hotpatch/",
       "image": "/images/feed/feed-05e9363c65cd.jpg",
       "source": "BleepingComputer",
@@ -605,7 +703,7 @@
         "Security"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 52,
       "url": "https://thehackernews.com/2026/11/n-able-confirms-hackers-accessed-cloud.html",
       "image": "/images/feed/feed-5f3922dcf6b9.jpg",
       "source": "The Hacker News",
@@ -625,7 +723,7 @@
         "Breach"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 37,
       "url": "https://www.bleepingcomputer.com/news/security/nvidia-investigating-gentlemen-ransomware-breach-claims/",
       "image": "/images/feed/feed-4c94531686dd.jpg",
       "source": "BleepingComputer",
@@ -644,7 +742,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 33,
       "url": "https://thehackernews.com/2026/11/ruby-releases-fixes-for-7-regex-and.html",
       "image": "/images/feed/feed-1226c4f144b6.jpg",
       "source": "The Hacker News",
@@ -663,29 +761,10 @@
         "Rivian"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 51,
       "url": "https://insideevs.com/news/816048/rivian-also-e-bike-delivery-pause/",
       "image": "/images/feed/feed-900df0e1d580.jpg",
       "source": "InsideEVs",
-      "isLive": true
-    },
-    {
-      "id": "feed-1fbf5b9ef3a8",
-      "title": "Researcher Demonstrates Database RCE Exploits Affecting PostgreSQL, MySQL and Oracle",
-      "excerpt": "Low-privilege database accounts that cannot read a single application table can still be used to run code on the database server itself, a researcher has shown, by reaching memory-corruption bugs in t…",
-      "body": "Low-privilege database accounts that cannot read a single application table can still be used to run code on the database server itself, a researcher has shown, by reaching memory-corruption bugs in the engine code behind ordinary SQL. The exploits, published yesterday, are the researcher's proofs of concept against PostgreSQL, MySQL and ClickHouse, plus a separate Oracle chain that needs no",
-      "author": "info@thehackernews.com (The Hacker News)",
-      "date": "2026-11-19",
-      "readTime": "2 min",
-      "section": "cybersecurity",
-      "tags": [
-        "Exploit"
-      ],
-      "featured": false,
-      "xpReward": 49,
-      "url": "https://thehackernews.com/2026/11/researcher-demonstrates-database-rce.html",
-      "image": "/images/feed/feed-1fbf5b9ef3a8.jpg",
-      "source": "The Hacker News",
       "isLive": true
     },
     {
@@ -701,7 +780,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 37,
       "url": "https://9to5toys.com/2026/11/19/amazon-2026-black-friday-sale-now-live/",
       "image": "/images/feed/feed-c2cc8db281d8.jpg",
       "source": "Electrek",
@@ -721,7 +800,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 46,
       "url": "https://insideevs.com/news/816009/alpitronic-new-us-factory/",
       "image": "/images/feed/feed-393f4bd12aea.jpg",
       "source": "InsideEVs",
@@ -740,7 +819,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 41,
       "url": "https://science.nasa.gov/image-article/apod-2026-november-19-the-horsehead-and-flame-nebulas/",
       "image": "/images/feed/feed-7573d3e0725f.jpg",
       "source": "NASA Breaking News",
@@ -759,67 +838,10 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 33,
       "url": "https://science.nasa.gov/earth/earth-observatory/el-nino-rains-paint-the-atacama/",
       "image": "/images/feed/feed-32d943e9b2fd.jpg",
       "source": "NASA Breaking News",
-      "isLive": true
-    },
-    {
-      "id": "feed-b15422f9cada",
-      "title": "The world’s biggest oil shock could give EVs and solar a boost",
-      "excerpt": "The longer the Strait of Hormuz crisis drags on, the more incentive countries have to get cars off oil and generate more power at home. That’s one of the big takeaways from the International Energy Ag…",
-      "body": "The longer the Strait of Hormuz crisis drags on, the more incentive countries have to get cars off oil and generate more power at home. That’s one of the big takeaways from the International Energy Agency’s (IEA) new “ World Energy Outlook 2026 ,” which examines how the biggest oil supply shock on record could speed up the shift to EVs and solar. more…",
-      "author": "Michelle Lewis",
-      "date": "2026-11-19",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Cars"
-      ],
-      "featured": false,
-      "xpReward": 48,
-      "url": "https://electrek.co/2026/11/18/the-worlds-biggest-oil-shock-could-give-evs-and-solar-a-boost/",
-      "image": "/images/feed/feed-b15422f9cada.jpg",
-      "source": "Electrek",
-      "isLive": true
-    },
-    {
-      "id": "feed-b0b33ba31b15",
-      "title": "Elon Musk tries to explain what&#8217;s going on with Ukraine and Starlink",
-      "excerpt": "Elon Musk said Ukrainian president Volodymyr Zelenskyy is lying about disruptions to Starshield in Ukraine and that he's trying to misuse SpaceX's consumer service, Starlink, for military purposes. Mu…",
-      "body": "Elon Musk said Ukrainian president Volodymyr Zelenskyy is lying about disruptions to Starshield in Ukraine and that he's trying to misuse SpaceX's consumer service, Starlink, for military purposes. Musk made the comments at The New York Times ' DealBook Summit on Wednesday as he tried to explain the conflict following weeks of back and forth between Zelenskyy, Musk, and the US government. \"From the beginning, I've said that Starlink is a civilian system,\" Musk said . \"It is not meant to be used for offensive drone strikes that kill people. If you want to do that, you need to do Starshield, which is a separate system that is controlled by the … Read the full story at The Verge.",
-      "author": "Jay Peters",
-      "date": "2026-11-19",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Space"
-      ],
-      "featured": false,
-      "xpReward": 34,
-      "url": "https://www.theverge.com/tech/1037448/elon-musk-ukraine-starlink-starshield-nyt-dealbook",
-      "image": "/images/feed/feed-b0b33ba31b15.jpg",
-      "source": "The Verge",
-      "isLive": true
-    },
-    {
-      "id": "feed-e664af866f12",
-      "title": "Whether you want Star Trek: Strange New Worlds or the pure nostalgia of The Original Series, this limited-time $2.99 Paramount+ streaming deal gets you both",
-      "excerpt": "Paramount+ memberships are now only $2.99 per month for the first two months for Black Friday 2026. This gets you access to almost every season of Star Trek and a host of great movies. The offer ends…",
-      "body": "This year marked the 60th anniversary of the broadcast of the first-ever Star Trek episode, 'The Man Trap'. Since 1966, the franchise has grown and expanded into new seasons with a huge cast of actors, with 'Strange New Worlds' releasing its season four finale at the end of September. From the classic era seasons, all the way through Discovery and Picard to the latest additions, Paramount+ gives you access to them all. Get any Paramount+ subscription for only $2.99/month for two months and watch almost every episode of Star Trek! $2.99 for 2 Months: was $13.99 now $2.99 Pay just $2.99 a month for the first two months for Paramount+ Essential ($6 off, ad-supported) and Premium ($11 off, ad-free). Paramount+ is the place to be if you're a Trekkie, with 12 original series and 14 movies.",
-      "author": " Harry Bennett ",
-      "date": "2026-11-19",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Space"
-      ],
-      "featured": false,
-      "xpReward": 52,
-      "url": "https://www.space.com/entertainment/space-movies-shows/whether-you-want-star-trek-strange-new-worlds-or-the-pure-nostalgia-of-the-original-series-this-limited-time-usd2-99-paramount-streaming-deal-gets-you-both",
-      "image": "/images/feed/feed-e664af866f12.jpg",
-      "source": "Space.com",
       "isLive": true
     },
     {
@@ -835,7 +857,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 46,
       "url": "https://www.anthropic.com/news/anthropic-prices-initial-public-offering",
       "image": "/images/feed/feed-d3a1bbdb8125.jpg",
       "source": "Hacker News",
@@ -854,29 +876,10 @@
         "Llm"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 42,
       "url": "https://www.slowchronicle.com/posts/llm-assisted-reverse-engineering",
       "image": "/images/feed/feed-6c855ff656c8.png",
       "source": "Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-bcf409a83d96",
-      "title": "NASA Sets Coverage for Northrop Grumman CRS-25 Launch, Prelaunch",
-      "excerpt": "NASA, Northrop Grumman, and SpaceX are targeting no earlier than 10:47 a.m. EST, Sunday, Nov. 29, for the next launch delivering science investigations, supplies, and equipment to the International Sp…",
-      "body": "NASA’s Northrop Grumman Commercial Resupply Services 24 mission launched Saturday, April 11, 2026, aboard the company’s Cygnus XL spacecraft atop a SpaceX Falcon 9 rocket from Space Launch Complex 40 at Cape Canaveral Space Force Station in Florida. NASA’s Northrop Grumman Commercial Resupply Services 25 mission will deliver approximately 11,000 pounds of science and supplies to the International Space Station. Credit: Northrop Grumman NASA, Northrop Grumman, and SpaceX are targeting no earlier than 10:47 a.m. EST, Sunday, Nov. 29, for the next launch delivering science investigations, supplies, and equipment to the International Space Station. The agency also will hold a prelaunch media teleconference on Monday, Nov. 23.",
-      "author": "Jessica Taveau",
-      "date": "2026-11-18",
-      "readTime": "2 min",
-      "section": "space",
-      "tags": [
-        "Nasa"
-      ],
-      "featured": false,
-      "xpReward": 40,
-      "url": "https://www.nasa.gov/news-release/nasa-sets-coverage-for-northrop-grumman-crs-25-launch-prelaunch/",
-      "image": "/images/feed/feed-bcf409a83d96.jpg",
-      "source": "NASA Breaking News",
       "isLive": true
     },
     {
@@ -892,7 +895,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 33,
       "url": "https://techcrunch.com/2026/11/18/anthropic-reportedly-prices-ipo-at-83-a-share-above-projected-range/",
       "image": "https://techcrunch.com/wp-content/uploads/2026/10/GettyImages-2295579000.jpg?resize=1200,800",
       "source": "TechCrunch",
@@ -911,7 +914,7 @@
         "Gemini"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 42,
       "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
       "image": "/images/feed/feed-ec4b370b3eb2.png",
       "source": "Hacker News",
@@ -938,16 +941,16 @@
     }
   ],
   "breakingNews": [
-    "DEV.TO: Feltbeat: count your own heartbeats while a webcam keeps the real number to itself",
-    "DEV.TO: Kubernetes 1.33: What Really Breaks During an Upgrade and How to Anticipate It",
-    "DEV.TO: The Myth of the Page Fault: Minor vs Major Faults in Linux",
-    "DEV.TO: Your SVG optimizer silently broke your icon. Here's the one-line check.",
-    "DEV.TO: StatefulSet and CSI: Resizing a Production Volume Without Losing a Single Byte",
-    "DEV.TO: Coroutines first: notes on nRouter's Kotlin SDK",
-    "DEV.TO: I Need Your Help Choosing a Final Year Project",
-    "CNET: iPhone Duo, One Month Later: I’m Not Ready to End the Love Affair",
-    "ANDROID AUTHORITY: Pixel 10 deal: Save $200 on Google’s first base phone with telephoto",
-    "INSIDEEVS: Americans Bought More Used EVs In October. Fewer Of Them Were Teslas"
+    "DEV.TO: An empty CA field turned off TLS in our Kubernetes app",
+    "DEV.TO: The Test Guarding My List of Deliberate Bugs Made Every Bug Look Caught for a Month",
+    "DEV.TO: I did my own _ — a home for people who rebuilt a famous app",
+    "DEV.TO: How powerful is modern \"low-end\" hardware?",
+    "DEV.TO: My templated pages were near-duplicates. A small Python check proved it, and now it runs in CI",
+    "DEV.TO: How Do You Design a Mobile App to Work Reliably Offline?",
+    "DEV.TO: Let Claude Code operate remote computers as if they were local (Codex and Gemini CLI too)",
+    "KOTAKU: Xbox Hardware Sales Finally Saw A Major Surge Ahead Of GTA In The U.S.",
+    "ANDROID AUTHORITY: RISION Magic Series Black Friday sale: Get up to 45% off one of our favorite phone thermal cameras",
+    "ELECTREK: Elon Musk announces another Tesla vehicle no one asked for"
   ],
   "sectionVideos": {}
 }
