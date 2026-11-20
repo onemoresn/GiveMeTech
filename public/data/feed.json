@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-11-20T07:13:35.436Z",
+  "fetchedAt": "2026-11-20T08:13:40.840Z",
   "articles": [
     {
-      "id": "feed-c59fb0c7376f",
-      "title": "Offline reverse geocoding on iPhone with one memory-mapped file",
-      "excerpt": "Disclosure: I work on ClearWhirl, an iPhone app that works out what is in your photo library on the device, with no upload. Places is one of its features. Every photo with a location carries a latitud…",
-      "body": "Disclosure: I work on ClearWhirl, an iPhone app that works out what is in your photo library on the device, with no upload. Places is one of its features. Every photo with a location carries a latitude and longitude. Turning that into \"Lisbon, Portugal\" normally means CLGeocoder , which sends the coordinates to Apple's servers and is rate limited. For an app whose promise is that your library never leaves the phone, and which has to do it for thousands of photos, that was a non-starter. We replaced it with one bundled binary file, memory-mapped, and plain geometry. This is how it works. What reading the location costs you PHAsset.location is metadata. No new permission is needed beyond the photo library access you already have, and no pixel is read.",
-      "author": "appi korn",
+      "id": "feed-8112831161f6",
+      "title": "What a PDF xref table actually is, read through qpdf --show-xref before and after object streams",
+      "excerpt": "Run qpdf --show-xref on a plain text-only PDF and every line looks like 2/0: uncompressed; offset = 131. Rewrite the file with --object-streams=generate, run it again, and the second line reads 2/0: c…",
+      "body": "Run qpdf --show-xref on a plain text-only PDF and every line looks like 2/0: uncompressed; offset = 131 . Rewrite the file with --object-streams=generate , run it again, and the second line reads 2/0: compressed; stream = 1, index = 0 . In this test the file went from 137,782 to 132,065 bytes, 4.15% smaller, same 10 pages, same text. I knew the words \"xref table\" and \"object stream\" but couldn't have explained that one-line change, so here is the beginner's model that made it readable, plus the part I didn't expect: 4% is close to the ceiling for this file. The test file is a 10-page text-only report with fictional content and an embedded Chinese font subset, run once on one Apple-silicon Mac with qpdf 12.4.0, so every number means \"this file, this run\".",
+      "author": "yue xing",
       "date": "2026-11-20",
       "readTime": "2 min",
       "section": "software",
@@ -14,18 +14,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 52,
-      "url": "https://dev.to/appi_korn_de75d4374fc5d52/offline-reverse-geocoding-on-iphone-with-one-memory-mapped-file-26ik",
-      "image": "/images/feed/feed-c59fb0c7376f.webp",
+      "xpReward": 36,
+      "url": "https://dev.to/token111/what-a-pdf-xref-table-actually-is-read-through-qpdf-show-xref-before-and-after-object-streams-4m97",
+      "image": "/images/feed/feed-8112831161f6.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-ddbb7c3e487b",
-      "title": "The Hopper Trap: When the Optimal Tile Size Wastes Half Your Register File",
-      "excerpt": "TL;DR On NVIDIA Hopper, a larger tile can create enough register pressure to make a \"smaller\" configuration ~30% faster. In a December 2023 Colfax Research case study implementing FlashAttention-2, th…",
-      "body": "TL;DR On NVIDIA Hopper, a larger tile can create enough register pressure to make a \"smaller\" configuration ~30% faster. In a December 2023 Colfax Research case study implementing FlashAttention-2, the supposedly optimal 128×128 tile hit 208.7 TFLOPs/s, while 128×64 hit 295.7 TFLOPs/s. The fix was counterintuitive: deliberately leave register capacity unused. This post walks through why. The performance paradox When optimizing GPU kernels, bigger tiles seem like the obvious choice: more data per tile, better reuse, fewer iterations, higher throughput. A December 2023 Colfax Research case study implementing FlashAttention-2 on Hopper benchmarked different tile configurations.",
-      "author": "Dikhyant Krishna Dalai",
+      "id": "feed-e7ed8cfb4885",
+      "title": "Our portal releases went out without the new index.html whenever it kept the same size",
+      "excerpt": "Our depot portal is a single page app served from an S3 bucket. A build job produces the static files, and a deploy job puts them in the bucket with aws s3 sync. The JavaScript bundles have a content…",
+      "body": "Our depot portal is a single page app served from an S3 bucket. A build job produces the static files, and a deploy job puts them in the bucket with aws s3 sync. The JavaScript bundles have a content hash in their file names, so a new build gets new bundle files and a new index.html that points at them. Old bundles stay in the bucket for a few releases, so pages already open keep working. In September we made our build artifacts reproducible. The build job now packs the output with GNU tar using --sort=name, fixed owners and --mtime set to the first of January 1980, so the same commit always gives a tarball with the same checksum. The deploy job extracts it, and tar restores the stored modification times, as it does by default.",
+      "author": "Sergey Shinder",
       "date": "2026-11-20",
       "readTime": "2 min",
       "section": "software",
@@ -33,77 +33,37 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 42,
-      "url": "https://dev.to/dikhyantkrishna/the-hopper-trap-when-the-optimal-tile-size-wastes-half-your-register-file-1pjf",
-      "image": "/images/feed/feed-ddbb7c3e487b.webp",
+      "xpReward": 44,
+      "url": "https://dev.to/sergey_shinder_ab2d943365/our-portal-releases-went-out-without-the-new-indexhtml-whenever-it-kept-the-same-size-9gb",
+      "image": "/images/feed/feed-e7ed8cfb4885.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-e426b90ac6a4",
-      "title": "NestJS for ASP.NET Core developers: a TypeScript backend that will feel familiar",
-      "excerpt": "If your team writes ASP.NET Core and is about to build something in TypeScript (a service next to a frontend that's already in TypeScript, a backend for a product that's leaving .NET, or just a team t…",
-      "body": "If your team writes ASP.NET Core and is about to build something in TypeScript (a service next to a frontend that's already in TypeScript, a backend for a product that's leaving .NET, or just a team that wants one language), the Node.js world can look like a pile of small libraries you're expected to assemble yourself. Express, a validation library, a DI container someone picked, a folder structure someone invented. Coming from a framework where dotnet new webapi gives you DI, configuration, logging, validation and a request pipeline out of the box, that's a step back, and it's a fair objection. Nest is the framework that takes those decisions for you.",
-      "author": "Kamil Mysliwiec",
+      "id": "feed-1a569b34052e",
+      "title": "Why I Built an Ad-Free, 4K Video Downloader in Next.js 14 & Python (And Killed Popups Forever)",
+      "excerpt": "Have you ever tried downloading a public video from Reddit or an educational lecture from YouTube recently? You type \"video downloader\" into Google, click on one of the top results, and within 3 secon…",
+      "body": "Have you ever tried downloading a public video from Reddit or an educational lecture from YouTube recently? You type \"video downloader\" into Google, click on one of the top results, and within 3 seconds: Three sketchy popups open in background tabs. You see 4 blinking green \"DOWNLOAD NOW\" buttons (3 of which are adware installers). You finally download the Reddit video, only to discover it has no sound because Reddit serves video and audio on separate streams. As a full-stack engineer, I got sick of this hostile user experience. The web shouldn't feel like navigating a minefield just to grab an offline copy of a creative commons video, a transcript, or a TikTok tutorial without a giant watermark plastered over it.",
+      "author": "Moneeb Ahmed Dhariwal",
       "date": "2026-11-20",
       "readTime": "2 min",
       "section": "software",
       "tags": [
-        "Typescript",
-        "Developer"
+        "Python"
       ],
       "featured": true,
-      "xpReward": 53,
-      "url": "https://dev.to/nestjs/nestjs-for-aspnet-core-developers-a-typescript-backend-that-will-feel-familiar-mo7",
-      "image": "/images/feed/feed-e426b90ac6a4.webp",
+      "xpReward": 51,
+      "url": "https://dev.to/madhariwal/why-i-built-an-ad-free-4k-video-downloader-in-nextjs-14-python-and-killed-popups-forever-2hg0",
+      "image": "/images/feed/feed-1a569b34052e.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-ebeae56af5ee",
-      "title": "Argo CD vs Flux: choosing a GitOps tool for AWS EKS",
-      "excerpt": "Both Argo CD and Flux are CNCF-graduated GitOps controllers that pull the desired state of your Kubernetes clusters from Git and keep the clusters in line with it. They solve the same problem and both…",
-      "body": "Both Argo CD and Flux are CNCF-graduated GitOps controllers that pull the desired state of your Kubernetes clusters from Git and keep the clusters in line with it. They solve the same problem and both are production-grade; the difference is in how they model applications, how much they put in front of your developers, and how they fit a multi-team platform. Short version: Argo CD gives you an application-centric model with a first-party UI, SSO and RBAC out of the box — the better default when many teams will deploy through it and need to see what is happening. Flux is a set of composable controllers that feel like native Kubernetes resources — the better default for platform teams that want GitOps as infrastructure plumbing, with image automation built in and no UI to run.",
-      "author": "Unified Techs",
-      "date": "2026-11-20",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 53,
-      "url": "https://dev.to/unifiedtechs/argo-cd-vs-flux-choosing-a-gitops-tool-for-aws-eks-4gfj",
-      "image": "/images/feed/feed-ebeae56af5ee.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-5d60924383d0",
-      "title": "NestJS for Spring Boot developers: a TypeScript backend that will feel familiar",
-      "excerpt": "If your team writes Spring Boot and is about to build something in TypeScript (a new service next to a frontend that's already in TypeScript, a backend for a product that's moving off the JVM, or just…",
-      "body": "If your team writes Spring Boot and is about to build something in TypeScript (a new service next to a frontend that's already in TypeScript, a backend for a product that's moving off the JVM, or just a team that wants one language), the Node.js world can look like a pile of small libraries you're expected to assemble yourself. Express, a validation library, a DI container someone picked, a folder structure someone invented. That's the part that usually puts Spring developers off, and it's fair. Nest is the framework that takes that decision away.",
-      "author": "Kamil Mysliwiec",
-      "date": "2026-11-20",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Typescript",
-        "Developer"
-      ],
-      "featured": true,
-      "xpReward": 41,
-      "url": "https://dev.to/nestjs/nestjs-for-spring-boot-developers-a-typescript-backend-that-will-feel-familiar-1208",
-      "image": "/images/feed/feed-5d60924383d0.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-92410a0c3e07",
-      "title": "Reading project health off a download page — faster than star count",
-      "excerpt": "Reading project health off a download page — faster than star count I triage tools by scanning the download page first: digest, version date, architecture. Three seconds, and I know whether distributi…",
-      "body": "Reading project health off a download page — faster than star count I triage tools by scanning the download page first: digest, version date, architecture. Three seconds, and I know whether distribution is an afterthought. Commands below assume a typical desktop setup; substitute paths as needed. The eight fields Version (patch precision preferred) Release date Platform / architecture (win x64, arm64, glibc floor, …) File size SHA-256 or vendor signature Link to the official upstream source Changelog or release-notes link License Missing 5 and 6 means I go find a second source and cross-check before downloading anything. Health signals that beat star count Does the digest update with the version? Link updated, hash stale = half-broken automation. Is the previous version still reachable?",
-      "author": "street food Chinese",
+      "id": "feed-e91a17085a2d",
+      "title": "Shipping an LLM feature to production: a 6-step checklist from real client projects",
+      "excerpt": "Most LLM prototypes look great in a demo and fall apart the first week real users touch them. Over the last two years our team has taken a number of these prototypes into production for clients in log…",
+      "body": "Most LLM prototypes look great in a demo and fall apart the first week real users touch them. Over the last two years our team has taken a number of these prototypes into production for clients in logistics, healthcare and retail. The failures were rarely about the model. They were about everything around it. Here is the checklist we now run before any LLM feature ships. 1. Define what \"correct\" means before writing a prompt Write 30-50 real example inputs with the answer a domain expert would accept. This becomes your evaluation set. Without it, every prompt change is a guess. 2. Put retrieval quality ahead of model choice For most business use cases, the answer is already in the company's documents.",
+      "author": "Mpiric Software",
       "date": "2026-11-20",
       "readTime": "2 min",
       "section": "software",
@@ -111,18 +71,56 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 49,
-      "url": "https://dev.to/street_foodchinese_57726/reading-project-health-off-a-download-page-faster-than-star-count-561n",
-      "image": "/images/feed/feed-92410a0c3e07.webp",
+      "xpReward": 44,
+      "url": "https://dev.to/mpiricsoftware/shipping-an-llm-feature-to-production-a-6-step-checklist-from-real-client-projects-3k6e",
+      "image": "/images/feed/feed-e91a17085a2d.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-2955fa124fc4",
-      "title": "One flood-fill for both the preview and the turn in a browser puzzle",
-      "excerpt": "When a grid puzzle previews a move, players use that preview to make a decision. If a shelter looks dry after placing a barrier, it should stay dry when the turn runs. Jade Canal, a 5×5 puzzle from Hu…",
-      "body": "When a grid puzzle previews a move, players use that preview to make a decision. If a shelter looks dry after placing a barrier, it should stay dry when the turn runs. Jade Canal, a 5×5 puzzle from Hundred-Realm Tower Defense, uses a single bounded flood-fill for both jobs. Model the tide as a distance limit Each surge supplies several inlets and a maximum reach. Start a breadth-first traversal with all the inlets at distance zero. From each cell, visit its orthogonal land neighbors and skip rocks, barriers, and cells already visited. Stop expanding a cell once it reaches the distance limit. Mark each cell as visited when you enqueue it so two inlets can converge without queuing the same cell twice.",
-      "author": "David",
+      "id": "feed-96b21b883a44",
+      "title": "More of the AI in Your Product May Run on the User's Own Device",
+      "excerpt": "For the past few years, adding AI to a product has usually meant sending the user's text or images to a large model in a data centre and waiting for the answer. That is starting to change. More and mo…",
+      "body": "For the past few years, adding AI to a product has usually meant sending the user's text or images to a large model in a data centre and waiting for the answer. That is starting to change. More and more of it can now run on the phone or laptop in front of the user. The hardware is arriving quietly. Many new phones and laptops include a chip designed for machine learning, often called a neural processing unit. Microsoft's Copilot+ PCs, introduced in 2024, require one capable of at least forty trillion operations per second. Apple's own AI features use a model of around three billion parameters that runs on the device, sending only harder requests to its servers.",
+      "author": "Asael Shinder",
+      "date": "2026-11-20",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 36,
+      "url": "https://dev.to/asael_shinder_9f53bdca840/more-of-the-ai-in-your-product-may-run-on-the-users-own-device-3mh2",
+      "image": "/images/feed/feed-96b21b883a44.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-6d6c3a3e5c4f",
+      "title": "Bar, blots and the larger-die rule: how I coded backgammon in JavaScript",
+      "excerpt": "A player once told me my backgammon was broken because it wouldn't let them play their 2. They were right that it wouldn't. They were wrong that it was broken. With that roll, the only way to use both…",
+      "body": "A player once told me my backgammon was broken because it wouldn't let them play their 2. They were right that it wouldn't. They were wrong that it was broken. With that roll, the only way to use both dice was 6 first, and the rules say you have to use both dice if you can. That rule, and a few like it, made backgammon take longer than games that look far harder. Here's how I coded the rules for the backgammon on mympgames , my free multiplayer browser arcade. Everything lives in one plain file, backgammon-rules.js . The server uses it to judge legality, and the browser loads the same file in a Web Worker for the bot. Excerpts are real code, lightly trimmed.",
+      "author": "My MP Games",
+      "date": "2026-11-20",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Javascript"
+      ],
+      "featured": true,
+      "xpReward": 48,
+      "url": "https://dev.to/mympgames/bar-blots-and-the-larger-die-rule-how-i-coded-backgammon-in-javascript-3g64",
+      "image": "/images/feed/feed-6d6c3a3e5c4f.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-ef79a733bb92",
+      "title": "How we made 78 jewelry products indexable by moving off hash routing to Next.js",
+      "excerpt": "A client came to us with a beautiful fine-jewelry storefront that had one fatal none of its products could The site was an older single-page app that used hash routing. Every product /jewelry#product/…",
+      "body": "A client came to us with a beautiful fine-jewelry storefront that had one fatal flaw for a business that lives on organic search: none of its products could rank on Google. The site was an older single-page app that used hash routing. Every product lived at a URL like: /jewelry#product/210-104 It looked fine to a human. To a search engine, it was a problem. Why hash URLs kill SEO Everything after the # in a URL is a fragment — it's handled entirely in the browser and is never sent to the server . Googlebot sees one page ( /jewelry ) and all 78 products collapse into it. There are no distinct, crawlable URLs to index, no per-product titles, no per-product metadata. So the catalogue was effectively invisible.",
+      "author": "Cloveode Technologies",
       "date": "2026-11-20",
       "readTime": "2 min",
       "section": "software",
@@ -130,10 +128,105 @@
         "Software"
       ],
       "featured": false,
-      "xpReward": 49,
-      "url": "https://dev.to/shllm/one-flood-fill-for-both-the-preview-and-the-turn-in-a-browser-puzzle-mgj",
-      "image": "/images/feed/feed-2955fa124fc4.webp",
+      "xpReward": 47,
+      "url": "https://dev.to/cloveode_technologies_e77/how-we-made-78-jewelry-products-indexable-by-moving-off-hash-routing-to-nextjs-43om",
+      "image": "/images/feed/feed-ef79a733bb92.webp",
       "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-54f9350bb43e",
+      "title": "Google Fi gives its Android app a fresh look and smarter customer support",
+      "excerpt": "Google Fi's biggest visual refresh in years puts AI front and center.",
+      "body": "TL;DR Google Fi is rolling out a visual refresh of its Android app, its most notable redesign since 2023. The app features a floating navigation bar alongside a dedicated button for the new Ask Fi chatbot. Ask Fi offers personalized account assistance and troubleshooting, with the ability to transfer conversations to human support. It’s been more than three years since Google Fi rebranded to Google Fi Wireless and redesigned its companion app to simplify family plan management. Along the way, Google has made the app smarter, including adding AI-powered billing summaries to help customers make sense of their monthly charges. Now, Google is giving the app a fresh look while expanding AI assistance beyond the billing tab.",
+      "author": "Hillary Keverenge",
+      "date": "2026-11-20",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 35,
+      "url": "https://www.androidauthority.com/google-fi-app-redesign-3737549/",
+      "image": "/images/feed/feed-54f9350bb43e.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-aeab520ca0c0",
+      "title": "OpenAI is testing Dots personal agents on its $20 per month Plus tier",
+      "excerpt": "OpenAI is expanding access to Dots, the proactive AI agents that can work for you without any supervision or assistance.",
+      "body": "OpenAI is expanding access to Dots, the proactive AI agents that can work for you without any supervision or assistance.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "staff@engadget.com (Steve Dent)",
+      "date": "2026-11-20",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 36,
+      "url": "https://www.engadget.com/2322656/openai-is-testing-dots-personal-agents-on-its-20-per-month-plus-tier/",
+      "image": "/images/feed/feed-aeab520ca0c0.jpg",
+      "source": "Engadget",
+      "isLive": true
+    },
+    {
+      "id": "feed-8a6499c51cfb",
+      "title": "GrapheneOS claims Google is now waging war against it, could lock Pixel bootloader",
+      "excerpt": "GrapheneOS leadership claims Google is trying to wipe it out and is even threatening OEMs.",
+      "body": "Credit: Calvin Wankhede / Android Authority TL;DR The GrapheneOS team has claimed that Google was trying to harm the project and wipe it out. Google was allegedly contacting Android OEMs to ask whether they were working with GrapheneOS, and was purportedly threatening these brands. The team also suggested that Google could start locking the bootloader on Pixels and taking other actions to make Android forks unviable. GrapheneOS is the leading Android fork if you want a secure and private smartphone experience. Pixels were the only officially supported platform, but the team is also working with Motorola to launch a Motorola Signature 27 phone with GrapheneOS . However, the developers of this software have now made some interesting claims against Google.",
+      "author": "Hadlee Simons",
+      "date": "2026-11-20",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 52,
+      "url": "https://www.androidauthority.com/grapheneos-team-google-pressure-3737525/",
+      "image": "/images/feed/feed-8a6499c51cfb.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-6a335187b8a9",
+      "title": "Samsung’s Driving Report in One UI 9.5 could tell you when you’re too tired to be driving",
+      "excerpt": "It could also remember the floor where you parkerd your vehicle in a multi-level parking.",
+      "body": "Credit: Pankil Shah / Android Authority TL;DR Samsung could upgrade Driving Report in One UI 9.5, giving you more personalized insights about your driving habits. It could check the weather and your sleep quality ahead of the drive. It could also remember the exact parking spot along with the floor level. Samsung introduced the Driving Report feature in One UI 9. It automatically logs your driving habits while your phone is connected to the car’s head unit and breaks them down by counting instances of sudden acceleration or braking, phone use, or sharp turns. At the end of every week, you get a summary through Now Brief.",
+      "author": "Tushar Mehta",
+      "date": "2026-11-20",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 49,
+      "url": "https://www.androidauthority.com/one-ui-9-5-driving-report-weather-sleep-before-trip-3737538/",
+      "image": "/images/feed/feed-6a335187b8a9.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-a2af5d67b2b2",
+      "title": "ROMULUS ClickFix Attacks Deliver RAT That Can Spy on Users and Control PCs",
+      "excerpt": "Threat actors have been observed using the ROMULUS ClickFix malware delivery platform to deliver a previously undocumented remote access trojan (RAT) that shares similarities with CNCMachineRMS. \"ROMU…",
+      "body": "Threat actors have been observed using the ROMULUS ClickFix malware delivery platform to deliver a previously undocumented remote access trojan (RAT) that shares similarities with CNCMachineRMS. \"ROMULUS likely operates as a delivery service, distributing CNCMachineRMS and Legion Loader through separate chains while retaining ClickFix and signed binary sideloading techniques,\" Blackpoint",
+      "author": "info@thehackernews.com (The Hacker News)",
+      "date": "2026-11-20",
+      "readTime": "2 min",
+      "section": "cybersecurity",
+      "tags": [
+        "Cybersecurity"
+      ],
+      "featured": false,
+      "xpReward": 30,
+      "url": "https://thehackernews.com/2026/11/romulus-clickfix-attacks-deliver-rat.html",
+      "image": "/images/feed/feed-a2af5d67b2b2.jpg",
+      "source": "The Hacker News",
       "isLive": true
     },
     {
@@ -149,7 +242,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 31,
       "url": "https://www.polygon.com/best-far-side-comics-about-the-devil-hell/",
       "image": "https://static0.polygonimages.com/wordpress/wp-content/uploads/2026/10/jerry.jpg",
       "source": "Polygon",
@@ -170,7 +263,7 @@
         "Hacker"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 45,
       "url": "https://thehackernews.com/2026/11/china-linked-hackers-exploit-critical.html",
       "image": "/images/feed/feed-c179de6fc560.jpg",
       "source": "The Hacker News",
@@ -189,7 +282,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 37,
       "url": "https://www.engadget.com/2322650/uber-kids-rides-children-aged-10-to-12-years-old/",
       "image": "/images/feed/feed-1237a8257d13.jpg",
       "source": "Engadget",
@@ -208,9 +301,9 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 49,
       "url": "https://www.androidauthority.com/android-native-app-lock-older-versions-3737530/",
-      "image": "https://www.androidauthority.com/wp-content/uploads/2026/11/Samsung-phone-showing-App-Lock-menu-in-One-UI-9.5-scaled.jpg",
+      "image": "/images/feed/feed-422a6fb9b426.jpg",
       "source": "Android Authority",
       "isLive": true
     },
@@ -227,7 +320,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 37,
       "url": "https://www.polygon.com/best-scifi-book-closing-line-roadside-picnic/",
       "image": "/images/feed/feed-0147903eacd4.jpg",
       "source": "Polygon",
@@ -246,7 +339,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 46,
       "url": "https://www.wired.com/story/castlery-promo-code/",
       "image": "/images/feed/feed-4bae9221d703.png",
       "source": "Wired",
@@ -265,7 +358,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 35,
       "url": "https://www.engadget.com/2322647/google-latest-home-page-redesign-makes-gemini-even-more-prominent/",
       "image": "/images/feed/feed-293eb5d49105.jpg",
       "source": "Engadget",
@@ -303,29 +396,10 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 41,
       "url": "https://www.ign.com/articles/the-piranha-plant-nintendo-switch-2-dock-black-friday-2026",
       "image": "/images/feed/feed-8c53b5e2dd61.jpg",
       "source": "IGN",
-      "isLive": true
-    },
-    {
-      "id": "feed-d3f671dc245d",
-      "title": "Motorola details its Android 17 rollout plans for 29 phones",
-      "excerpt": "Nine phones are getting Android 17, with 20 more in line.",
-      "body": "TL;DR Motorola has confirmed that nine existing smartphones are already receiving the stable Android 17 update. 20 additional Edge, Razr, and Moto G phones are slated to receive the update over the coming months. The updated list includes several phones missing from Motorola’s earlier Android 17 announcement. Keeping up with Motorola’s Android 17 rollout hasn’t been as simple as checking how old or expensive your phone is. A two-year-old Razr Plus 2024 beat the nearly $2,000 Razr Fold to the update, while several phones with active software update commitments were curiously missing from Motorola’s original Android 17 eligibility list. Thankfully, Motorola has provided some much-needed clarity on both fronts.",
-      "author": "Hillary Keverenge",
-      "date": "2026-11-20",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 44,
-      "url": "https://www.androidauthority.com/motorola-android-17-update-rollout-status-3737510/",
-      "image": "https://www.androidauthority.com/wp-content/uploads/2026/07/Motorola-Razr-2026-folded-in-hand-scaled.jpg",
-      "source": "Android Authority",
       "isLive": true
     },
     {
@@ -341,7 +415,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 35,
       "url": "https://science.nasa.gov/image-article/apod-2026-november-20-v-g-r/",
       "image": "/images/feed/feed-eb6a9e0ae310.jpg",
       "source": "NASA Breaking News",
@@ -360,7 +434,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 51,
       "url": "https://science.nasa.gov/earth/earth-observatory/the-stormy-southwest-pacific/",
       "image": "/images/feed/feed-1abfeec1620d.jpg",
       "source": "NASA Breaking News",
@@ -379,7 +453,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 46,
       "url": "https://www.polygon.com/10-funniest-far-side-comics-starring-cavemen-and-early-inventions/",
       "image": "/images/feed/feed-bc2ce07acf12.jpg",
       "source": "Polygon",
@@ -398,7 +472,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 49,
       "url": "https://cleantechnica.com/2026/11/19/agco-celebrates-construction-milestone-at-olmedo-solar-project-in-spain/",
       "image": "/images/feed/feed-576f2062d3b7.jpg",
       "source": "CleanTechnica",
@@ -417,29 +491,10 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 53,
       "url": "https://cleantechnica.com/2026/11/19/inspiring-hearts-minds-on-solar/",
       "image": "/images/feed/feed-3e92e67f5a39.jpg",
       "source": "CleanTechnica",
-      "isLive": true
-    },
-    {
-      "id": "feed-393211dcf6ff",
-      "title": "How to use App Lock in One UI 9.5 (and when Secure Folder is still better)",
-      "excerpt": "Finally, app privacy without the extra steps.",
-      "body": "Credit: Pankil Shah / Android Authority App Lock has to be one of the most highly requested One UI features of all time. It’s something so basic, and yet Samsung hasn’t offered it for all these years. That’s finally changing. Samsung recently released the first beta of One UI 9.5 for the Galaxy S26 series, and it brings native app locking. Here’s how it works, and why it’s still not a replacement for Secure Folder. One UI 9.5 brings native app locking to Samsung phones",
-      "author": "Pankil Shah",
-      "date": "2026-11-20",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 41,
-      "url": "https://www.androidauthority.com/app-lock-samsung-how-to-use-3737328/",
-      "image": "https://www.androidauthority.com/wp-content/uploads/2026/11/Samsung-phone-showing-Gallery-app-locked-scaled.jpg",
-      "source": "Android Authority",
       "isLive": true
     },
     {
@@ -455,7 +510,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 49,
       "url": "https://cleantechnica.com/2026/11/19/leapmotor-produces-its-2-millionth-ev/",
       "image": "/images/feed/feed-b6187779b1b8.jpg",
       "source": "CleanTechnica",
@@ -474,7 +529,7 @@
         "Game"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 46,
       "url": "https://kotaku.com/gta-6-has-a-surprising-late-game-cameo-that-knocked-me-on-my-ass-2000758623",
       "image": "/images/feed/feed-8ae8ef3b64e7.jpg",
       "source": "Kotaku",
@@ -512,7 +567,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 38,
       "url": "https://cleantechnica.com/2026/11/19/volkswagen-id-buzz-made-for-sleeping-in/",
       "image": "/images/feed/feed-bdf95325fcb0.jpg",
       "source": "CleanTechnica",
@@ -531,29 +586,10 @@
         "Cve-"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 52,
       "url": "https://github.com/openssl/openssl/pull/33652",
       "image": "/images/feed/feed-083c1eec1622.png",
       "source": "Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-ee7a94680a89",
-      "title": "WhatsApp is raising group chat limit to 1,500 participants",
-      "excerpt": "WhatsApp is gradually rolling out an increase to its group chat limit, allowing up to 1,500 participants to join in, instead of the previous 1,024 cap. Here are the details. more…",
-      "body": "WhatsApp is gradually rolling out an increase to its group chat limit, allowing up to 1,500 participants to join in, instead of the previous 1,024 cap. Here are the details. more — a development drawing significant attention in the consumer technology and devices space.\n\nThis report, published by 9to5Mac, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to 9to5Mac using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Marcus Mendes",
-      "date": "2026-11-20",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 37,
-      "url": "https://9to5mac.com/2026/11/19/whatsapp-is-raising-group-chat-limit-to-1500-participants/",
-      "image": "/images/feed/feed-ee7a94680a89.jpg",
-      "source": "9to5Mac",
       "isLive": true
     },
     {
@@ -569,7 +605,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 48,
       "url": "https://www.polygon.com/gta-6-physical-disc-spoof-game/",
       "image": "/images/feed/feed-561227a81881.jpg",
       "source": "Polygon",
@@ -588,7 +624,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 40,
       "url": "https://techcrunch.com/2026/11/19/apple-may-be-developing-its-own-ai-agent-that-runs-your-mac/",
       "image": "https://techcrunch.com/wp-content/uploads/2026/06/iphone-usb-cable.jpg?resize=1200,800",
       "source": "TechCrunch",
@@ -607,7 +643,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 45,
       "url": "https://techcrunch.com/2026/11/19/anthropics-7-founders-cashed-out-nearly-2b-in-record-breaking-ipo/",
       "image": "https://techcrunch.com/wp-content/uploads/2026/11/antrhopic-openingday-getty.jpg?resize=1200,801",
       "source": "TechCrunch",
@@ -626,7 +662,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 39,
       "url": "https://electrek.co/2026/11/19/gms-v2g-pilot-wants-to-pay-california-drivers-for-power-from-parked-evs/",
       "image": "/images/feed/feed-360e6761a52a.jpg",
       "source": "Electrek",
@@ -645,7 +681,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 47,
       "url": "https://cleantechnica.com/2026/11/19/pacific-power-begins-new-customer-protections-against-data-centers/",
       "image": "/images/feed/feed-58d38791be5c.jpg",
       "source": "CleanTechnica",
@@ -664,7 +700,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 49,
       "url": "https://electrek.co/2026/11/19/nssl-keeps-growing-its-electric-terminal-truck-fleet-with-no-plans-to-stop/",
       "image": "/images/feed/feed-99738b2b7ce1.jpg",
       "source": "Electrek",
@@ -684,7 +720,7 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 33,
       "url": "https://www.bleepingcomputer.com/news/security/vmware-patches-vcenter-zero-day-exploited-in-attacks-since-september/",
       "image": "/images/feed/feed-21f62923abce.jpg",
       "source": "BleepingComputer",
@@ -703,7 +739,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 41,
       "url": "https://techcrunch.com/2026/11/19/anthropic-rival-says-companies-can-mostly-skip-the-pricey-models/",
       "image": "https://techcrunch.com/wp-content/uploads/2026/11/Screenshot-2026-11-20-at-12.43.24-AM.png?resize=1200,601",
       "source": "TechCrunch",
@@ -722,29 +758,10 @@
         "Chatgpt"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 32,
       "url": "https://www.bxfoundry.com/chatgpt_snes/",
       "image": "/images/feed/feed-d618f6a8db57.png",
       "source": "Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-67b1d90f4db2",
-      "title": "Job posting seemingly confirms Apple is working on its own AI agent for coding and other tasks",
-      "excerpt": "Apple is is hiring a senior engineering manager to build \"capable, reliable and safe\" agentic tools.",
-      "body": "Apple is is hiring a senior engineering manager to build \"capable, reliable and safe\" agentic tools.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Anna Washenko)",
-      "date": "2026-11-20",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 35,
-      "url": "https://www.engadget.com/2322586/job-posting-seemingly-confirms-apple-is-working-on-its-own-ai-agent-for-coding-and-other-tasks/",
-      "image": "/images/feed/feed-67b1d90f4db2.jpg",
-      "source": "Engadget",
       "isLive": true
     },
     {
@@ -760,7 +777,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 50,
       "url": "https://www.space.com/space-exploration/voyager/voyager-1-team-unbowed-by-communications-glitch-celebrates-epic-1-light-day-distance-milestone",
       "image": "/images/feed/feed-86f5eb892885.jpg",
       "source": "Space.com",
@@ -779,7 +796,7 @@
         "Spacex"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 53,
       "url": "https://techcrunch.com/2026/11/19/elon-musk-says-spacex-has-a-plan-to-eliminate-cell-phone-dead-zones/",
       "image": "https://techcrunch.com/wp-content/uploads/2026/10/starlink.jpg?resize=1200,800",
       "source": "TechCrunch",
@@ -799,7 +816,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 41,
       "url": "https://www.space.com/space-exploration/on-this-day-in-space-november-19-2005",
       "image": "/images/feed/feed-6c7adb50c08d.jpg",
       "source": "Space.com",
@@ -818,7 +835,7 @@
         "Hacker"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 49,
       "url": "https://www.bleepingcomputer.com/news/security/hackers-steal-data-of-16-million-sbc-medical-group-customers/",
       "image": "/images/feed/feed-d34a04be557c.jpg",
       "source": "BleepingComputer",
@@ -837,7 +854,7 @@
         "Starship"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 41,
       "url": "https://www.space.com/space-exploration/launches-spacecraft/the-view-from-the-tower-watch-starship-come-in-for-chopsticks-catch-in-epic-slo-mo-video",
       "image": "/images/feed/feed-850a294776cd.jpg",
       "source": "Space.com",
@@ -856,7 +873,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 50,
       "url": "https://www.wired.com/story/uncanny-valley-podcast-whats-with-all-these-outages/",
       "image": "/images/feed/feed-59959673c5cf.jpg",
       "source": "Wired",
@@ -875,7 +892,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 38,
       "url": "https://techcrunch.com/2026/11/19/these-tech-outages-are-giving-y2k-ai-agent-style/",
       "image": "https://techcrunch.com/wp-content/uploads/2026/11/Muharrem-huner.jpg?resize=1200,800",
       "source": "TechCrunch",
@@ -895,29 +912,10 @@
         "Gpt"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 53,
       "url": "https://www.cnet.com/tech/openais-gpt-6-2-sol-backlash-early-testers/",
       "image": "/images/feed/feed-ebab9672cbd9.jpg",
       "source": "CNET",
-      "isLive": true
-    },
-    {
-      "id": "feed-b40523b9208d",
-      "title": "ASUS warns of critical hard-coded key flaw in Control Center Express",
-      "excerpt": "ASUS released Control Center Express v1.7.29 to fix three critical vulnerabilities that could let remote attackers gain administrative control of the management console and the devices it manages. [..…",
-      "body": "ASUS released Control Center Express v1.7.29 to fix three critical vulnerabilities that could let remote attackers gain administrative control of the management console and the devices it manages. [ — a development drawing significant attention in the cybersecurity and digital privacy space.\n\nThis report, published by BleepingComputer, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cybersecurity. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to BleepingComputer using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Bill Toulas",
-      "date": "2026-11-19",
-      "readTime": "2 min",
-      "section": "cybersecurity",
-      "tags": [
-        "Cybersecurity"
-      ],
-      "featured": false,
-      "xpReward": 32,
-      "url": "https://www.bleepingcomputer.com/news/security/asus-warns-of-critical-hard-coded-key-flaw-in-control-center-express/",
-      "image": "/images/feed/feed-b40523b9208d.jpg",
-      "source": "BleepingComputer",
       "isLive": true
     },
     {
@@ -941,16 +939,16 @@
     }
   ],
   "breakingNews": [
-    "DEV.TO: Offline reverse geocoding on iPhone with one memory-mapped file",
-    "DEV.TO: The Hopper Trap: When the Optimal Tile Size Wastes Half Your Register File",
-    "DEV.TO: NestJS for ASP.NET Core developers: a TypeScript backend that will feel familiar",
-    "DEV.TO: Argo CD vs Flux: choosing a GitOps tool for AWS EKS",
-    "DEV.TO: NestJS for Spring Boot developers: a TypeScript backend that will feel familiar",
-    "DEV.TO: Reading project health off a download page — faster than star count",
-    "DEV.TO: One flood-fill for both the preview and the turn in a browser puzzle",
-    "POLYGON: 6 Funniest Far Side Comics Starring the Devil",
-    "THE HACKER NEWS: China-Linked Hackers Exploit Critical VMware vCenter Zero-Day to Gain Admin Access and Steal Data",
-    "ENGADGET: Uber Kids will let parents book trips for their children aged 10 to 12 years old"
+    "DEV.TO: What a PDF xref table actually is, read through qpdf --show-xref before and after object streams",
+    "DEV.TO: Our portal releases went out without the new index.html whenever it kept the same size",
+    "DEV.TO: Why I Built an Ad-Free, 4K Video Downloader in Next.js 14 & Python (And Killed Popups Forever)",
+    "DEV.TO: Shipping an LLM feature to production: a 6-step checklist from real client projects",
+    "DEV.TO: More of the AI in Your Product May Run on the User's Own Device",
+    "DEV.TO: Bar, blots and the larger-die rule: how I coded backgammon in JavaScript",
+    "DEV.TO: How we made 78 jewelry products indexable by moving off hash routing to Next.js",
+    "ANDROID AUTHORITY: Google Fi gives its Android app a fresh look and smarter customer support",
+    "ENGADGET: OpenAI is testing Dots personal agents on its $20 per month Plus tier",
+    "ANDROID AUTHORITY: GrapheneOS claims Google is now waging war against it, could lock Pixel bootloader"
   ],
   "sectionVideos": {}
 }
