@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-11-20T08:13:40.840Z",
+  "fetchedAt": "2026-11-20T09:12:17.612Z",
   "articles": [
     {
-      "id": "feed-8112831161f6",
-      "title": "What a PDF xref table actually is, read through qpdf --show-xref before and after object streams",
-      "excerpt": "Run qpdf --show-xref on a plain text-only PDF and every line looks like 2/0: uncompressed; offset = 131. Rewrite the file with --object-streams=generate, run it again, and the second line reads 2/0: c…",
-      "body": "Run qpdf --show-xref on a plain text-only PDF and every line looks like 2/0: uncompressed; offset = 131 . Rewrite the file with --object-streams=generate , run it again, and the second line reads 2/0: compressed; stream = 1, index = 0 . In this test the file went from 137,782 to 132,065 bytes, 4.15% smaller, same 10 pages, same text. I knew the words \"xref table\" and \"object stream\" but couldn't have explained that one-line change, so here is the beginner's model that made it readable, plus the part I didn't expect: 4% is close to the ceiling for this file. The test file is a 10-page text-only report with fictional content and an embedded Chinese font subset, run once on one Apple-silicon Mac with qpdf 12.4.0, so every number means \"this file, this run\".",
-      "author": "yue xing",
+      "id": "feed-17d30628a2da",
+      "title": "Before Automating Everything, Ask This: Is Your Business Process Actually Ready for AI?",
+      "excerpt": "Before Automating Everything, Ask This: Is Your Business Process Actually Ready for AI? Artificial intelligence is changing how businesses approach everyday operations. From responding to customer inq…",
+      "body": "Before Automating Everything, Ask This: Is Your Business Process Actually Ready for AI? Artificial intelligence is changing how businesses approach everyday operations. From responding to customer inquiries to managing internal tasks, processing documents, and updating business systems, AI-powered automation is becoming increasingly accessible. Many companies are now exploring AI agents and workflow automation tools to reduce manual work and improve productivity. But there is an important question that businesses should ask before implementing any automation: Is the process actually ready to be automated? Because automating an unclear or poorly structured process does not necessarily make it better. Sometimes, it simply makes existing problems happen faster.",
+      "author": "Syed Ali",
       "date": "2026-11-20",
       "readTime": "2 min",
       "section": "software",
@@ -14,18 +14,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 36,
-      "url": "https://dev.to/token111/what-a-pdf-xref-table-actually-is-read-through-qpdf-show-xref-before-and-after-object-streams-4m97",
-      "image": "/images/feed/feed-8112831161f6.webp",
+      "xpReward": 38,
+      "url": "https://dev.to/syed_ali_automation/before-automating-everything-ask-this-is-your-business-process-actually-ready-for-ai-26j8",
+      "image": "/images/feed/feed-17d30628a2da.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-e7ed8cfb4885",
-      "title": "Our portal releases went out without the new index.html whenever it kept the same size",
-      "excerpt": "Our depot portal is a single page app served from an S3 bucket. A build job produces the static files, and a deploy job puts them in the bucket with aws s3 sync. The JavaScript bundles have a content…",
-      "body": "Our depot portal is a single page app served from an S3 bucket. A build job produces the static files, and a deploy job puts them in the bucket with aws s3 sync. The JavaScript bundles have a content hash in their file names, so a new build gets new bundle files and a new index.html that points at them. Old bundles stay in the bucket for a few releases, so pages already open keep working. In September we made our build artifacts reproducible. The build job now packs the output with GNU tar using --sort=name, fixed owners and --mtime set to the first of January 1980, so the same commit always gives a tarball with the same checksum. The deploy job extracts it, and tar restores the stored modification times, as it does by default.",
-      "author": "Sergey Shinder",
+      "id": "feed-a26080357401",
+      "title": "Stop Deploying to ECS Just to See If Your Code Works",
+      "excerpt": "Originally published on metalbear.com. On ECS, the usual way to find out whether a change works is to deploy it. You build the image, push it, register a new task definition revision, wait for the rol…",
+      "body": "Originally published on metalbear.com . On ECS, the usual way to find out whether a change works is to deploy it. You build the image, push it, register a new task definition revision, wait for the rollout and look at what happened, then do it all again if it's wrong. A loop like that might have been tenable for humans, but a coding agent writes a change in seconds, then waits for a full rollout to learn whether it worked, and it rarely gets there on the first try. Most of the speed you got from the agent ends up spent on waiting for rollouts. Today we're launching mirrord for ECS. Your code can now run on your laptop, in your CI runner or in your coding agent's sandbox as if it were a live task in your staging environment, with the task's network, environment variables and IAM task role.",
+      "author": "Eyal Bukchin",
       "date": "2026-11-20",
       "readTime": "2 min",
       "section": "software",
@@ -33,37 +33,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 44,
-      "url": "https://dev.to/sergey_shinder_ab2d943365/our-portal-releases-went-out-without-the-new-indexhtml-whenever-it-kept-the-same-size-9gb",
-      "image": "/images/feed/feed-e7ed8cfb4885.webp",
+      "xpReward": 46,
+      "url": "https://dev.to/metalbear/stop-deploying-to-ecs-just-to-see-if-your-code-works-3fc4",
+      "image": "/images/feed/feed-a26080357401.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-1a569b34052e",
-      "title": "Why I Built an Ad-Free, 4K Video Downloader in Next.js 14 & Python (And Killed Popups Forever)",
-      "excerpt": "Have you ever tried downloading a public video from Reddit or an educational lecture from YouTube recently? You type \"video downloader\" into Google, click on one of the top results, and within 3 secon…",
-      "body": "Have you ever tried downloading a public video from Reddit or an educational lecture from YouTube recently? You type \"video downloader\" into Google, click on one of the top results, and within 3 seconds: Three sketchy popups open in background tabs. You see 4 blinking green \"DOWNLOAD NOW\" buttons (3 of which are adware installers). You finally download the Reddit video, only to discover it has no sound because Reddit serves video and audio on separate streams. As a full-stack engineer, I got sick of this hostile user experience. The web shouldn't feel like navigating a minefield just to grab an offline copy of a creative commons video, a transcript, or a TikTok tutorial without a giant watermark plastered over it.",
-      "author": "Moneeb Ahmed Dhariwal",
-      "date": "2026-11-20",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Python"
-      ],
-      "featured": true,
-      "xpReward": 51,
-      "url": "https://dev.to/madhariwal/why-i-built-an-ad-free-4k-video-downloader-in-nextjs-14-python-and-killed-popups-forever-2hg0",
-      "image": "/images/feed/feed-1a569b34052e.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-e91a17085a2d",
-      "title": "Shipping an LLM feature to production: a 6-step checklist from real client projects",
-      "excerpt": "Most LLM prototypes look great in a demo and fall apart the first week real users touch them. Over the last two years our team has taken a number of these prototypes into production for clients in log…",
-      "body": "Most LLM prototypes look great in a demo and fall apart the first week real users touch them. Over the last two years our team has taken a number of these prototypes into production for clients in logistics, healthcare and retail. The failures were rarely about the model. They were about everything around it. Here is the checklist we now run before any LLM feature ships. 1. Define what \"correct\" means before writing a prompt Write 30-50 real example inputs with the answer a domain expert would accept. This becomes your evaluation set. Without it, every prompt change is a guess. 2. Put retrieval quality ahead of model choice For most business use cases, the answer is already in the company's documents.",
-      "author": "Mpiric Software",
+      "id": "feed-ee12c7fcc60b",
+      "title": "Why has it become harder and harder to type one-handed on smartphones these days?",
+      "excerpt": "Phones keep getting bigger, but our hands stay the same size. Phone3box. Its interface is almost starkly plain — just a large table listing over three thousand phone models, with height, width, thickn…",
+      "body": "Phones keep getting bigger, but our hands stay the same size. I’m not sure when it started, but every product launch now seems to compete over who has the larger screen, and reviewers keep talking about “immersive experience.” Yet a phone is, after all, something you hold in your hand. Spec sheets grow longer and longer, while hardly anyone talks about how comfortable it is to grip. It dawned on me later that the problem lies in the way we measure screens: inches refer to diagonal length, which barely tells you anything about how a phone feels in hand. What truly decides whether you can type one-handed is the body width. Two phones can both have a 6.7-inch display, yet one may be 75 millimetres wide and the other 78.",
+      "author": "cheng qian",
       "date": "2026-11-20",
       "readTime": "2 min",
       "section": "software",
@@ -71,18 +52,37 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 44,
-      "url": "https://dev.to/mpiricsoftware/shipping-an-llm-feature-to-production-a-6-step-checklist-from-real-client-projects-3k6e",
-      "image": "/images/feed/feed-e91a17085a2d.webp",
+      "xpReward": 53,
+      "url": "https://dev.to/qlittleboy/why-has-it-become-harder-and-harder-to-type-one-handed-on-smartphones-these-days-neg",
+      "image": "/images/feed/feed-ee12c7fcc60b.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-96b21b883a44",
-      "title": "More of the AI in Your Product May Run on the User's Own Device",
-      "excerpt": "For the past few years, adding AI to a product has usually meant sending the user's text or images to a large model in a data centre and waiting for the answer. That is starting to change. More and mo…",
-      "body": "For the past few years, adding AI to a product has usually meant sending the user's text or images to a large model in a data centre and waiting for the answer. That is starting to change. More and more of it can now run on the phone or laptop in front of the user. The hardware is arriving quietly. Many new phones and laptops include a chip designed for machine learning, often called a neural processing unit. Microsoft's Copilot+ PCs, introduced in 2024, require one capable of at least forty trillion operations per second. Apple's own AI features use a model of around three billion parameters that runs on the device, sending only harder requests to its servers.",
-      "author": "Asael Shinder",
+      "id": "feed-1acb1376b45c",
+      "title": "Semantic Cache with Redis to Cut AI API Costs",
+      "excerpt": "A semantic cache in Redis is the cheapest way to cut AI API costs in production, and it is also the easiest way to serve a confidently wrong answer to a customer who asked something slightly different…",
+      "body": "A semantic cache in Redis is the cheapest way to cut AI API costs in production, and it is also the easiest way to serve a confidently wrong answer to a customer who asked something slightly different. I have built both versions: the one that saved a company five figures a year, and the one that answered \"how do I downgrade\" with the enterprise upgrade instructions for three weeks before anyone noticed. The difference was not the vector index or the embedding model. It was whether the cache had a measured threshold, a versioned key, and a stated error budget.",
+      "author": "Veduis",
+      "date": "2026-11-20",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Api"
+      ],
+      "featured": true,
+      "xpReward": 41,
+      "url": "https://dev.to/veduis/semantic-cache-with-redis-to-cut-ai-api-costs-5bef",
+      "image": "/images/feed/feed-1acb1376b45c.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-477d70ab5088",
+      "title": "랩트 모네로 붕괴: 익숙한 신뢰 배신 이야기",
+      "excerpt": "지난 30년간 지켜본 암호화폐 시장은 참으로 가혹한 스승이다. 날카롭고 고통스러운 조정장을 통해 우리에게 뼈아픈 교훈을 안겨주곤 했다. 2026년 11월 20일 금요일, 우리는 랩트 모네로(wXMR)의 처참한 붕괴로 또 하나의 교훈을 목격했다. 발행자 연결 지갑이 1,350만 달러어치를 매도하면서 wXMR의 가치는 무려 99%나 증발해버렸다. 이는 단순한…",
+      "body": "지난 30년간 지켜본 암호화폐 시장은 참으로 가혹한 스승이다. 날카롭고 고통스러운 조정장을 통해 우리에게 뼈아픈 교훈을 안겨주곤 했다. 2026년 11월 20일 금요일, 우리는 랩트 모네로(wXMR)의 처참한 붕괴로 또 하나의 교훈을 목격했다. 발행자 연결 지갑이 1,350만 달러어치를 매도하면서 wXMR의 가치는 무려 99%나 증발해버렸다. 이는 단순한 시장 하락이 아니다. 구조적인 실패이며, 중앙화된 랩트 자산, 특히 기저 자산이 프라이버시를 위해 설계된 경우에 내재된 거래 상대방 위험을 생생하게 일깨워주는 사건이었다. 서론 지난 30년간 지켜본 암호화폐 시장은 참으로 가혹한 스승이다. 날카롭고 고통스러운 조정장을 통해 우리에게 뼈아픈 교훈을 안겨주곤 했다. 2026년 11월 20일 금요일, 우리는 랩트 모네로(wXMR)의 처참한 붕괴로 또 하나의 교훈을 목격했다. 발행자 연결 지갑이 1,350만 달러어치를 매도하면서 wXMR의 가치는 무려 99%나 증발해버렸다. 이는 단순한 시장 하락이 아니다. 구조적인 실패이며, 중앙화된 랩트 자산, 특히 기저 자산이 프라이버시를 위해 설계된 경우에 내재된 거래 상대방 위험을 생생하게 일깨워주는 사건이었다. 배경 도대체 무슨 일이 벌어진 걸까? 랩트 모네로는 랩트 비트코인(wBTC)과 같은 다른 '랩트' 토큰처럼, 특정 블록체인(이 경우 모네로)의 고유 자산을 이더리움과 같은 스마트 컨트랙트 지원 체인으로 가져와 탈중앙화 금융(DeFi) 생태계에 참여할 수 있도록 설계됐다. 그 메커니즘은 보통 간단하다.",
+      "author": "Record0x",
       "date": "2026-11-20",
       "readTime": "2 min",
       "section": "software",
@@ -90,37 +90,37 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 36,
-      "url": "https://dev.to/asael_shinder_9f53bdca840/more-of-the-ai-in-your-product-may-run-on-the-users-own-device-3mh2",
-      "image": "/images/feed/feed-96b21b883a44.webp",
+      "xpReward": 34,
+      "url": "https://dev.to/record0x/raebteu-monero-bunggoe-igsughan-sinroe-baesin-iyagi-4j8",
+      "image": "/images/feed/feed-477d70ab5088.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-6d6c3a3e5c4f",
-      "title": "Bar, blots and the larger-die rule: how I coded backgammon in JavaScript",
-      "excerpt": "A player once told me my backgammon was broken because it wouldn't let them play their 2. They were right that it wouldn't. They were wrong that it was broken. With that roll, the only way to use both…",
-      "body": "A player once told me my backgammon was broken because it wouldn't let them play their 2. They were right that it wouldn't. They were wrong that it was broken. With that roll, the only way to use both dice was 6 first, and the rules say you have to use both dice if you can. That rule, and a few like it, made backgammon take longer than games that look far harder. Here's how I coded the rules for the backgammon on mympgames , my free multiplayer browser arcade. Everything lives in one plain file, backgammon-rules.js . The server uses it to judge legality, and the browser loads the same file in a Web Worker for the bot. Excerpts are real code, lightly trimmed.",
-      "author": "My MP Games",
+      "id": "feed-360641c8fd9f",
+      "title": "I Let AI Agents Rebrand My Entire OSS Ecosystem in One Night. Two Pipelines Were Silently Dead.",
+      "excerpt": "Two of my five repositories had delivery pipelines that were silently dead. Not failing loudly — dead. One site had served a two-week-old build while every deploy \"ran\". One repo had merged four PRs w…",
+      "body": "Two of my five repositories had delivery pipelines that were silently dead. Not failing loudly — dead . One site had served a two-week-old build while every deploy \"ran\". One repo had merged four PRs with zero CI checks since May. I found out because of a rebrand. In one night, AI agents and I merged 13 pull requests across those five repos and repainted it from Tailwind violet to burnt orange. Nothing surfaces a dead pipeline like finally shipping something you care about seeing. Merged is a feeling. Live is a measurement. Pipeline one. The ESLint docs site had a deploy workflow that had failed on every run for two weeks . The rebrand merged — 1,580 tests green — and production kept serving the violet build from mid-July.",
+      "author": "Ofri Peretz",
       "date": "2026-11-20",
       "readTime": "2 min",
       "section": "software",
       "tags": [
-        "Javascript"
+        "Software"
       ],
       "featured": true,
-      "xpReward": 48,
-      "url": "https://dev.to/mympgames/bar-blots-and-the-larger-die-rule-how-i-coded-backgammon-in-javascript-3g64",
-      "image": "/images/feed/feed-6d6c3a3e5c4f.webp",
+      "xpReward": 34,
+      "url": "https://dev.to/ofri-peretz/i-let-ai-agents-rebrand-my-entire-oss-ecosystem-in-one-night-two-pipelines-were-silently-dead-49i6",
+      "image": "/images/feed/feed-360641c8fd9f.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-ef79a733bb92",
-      "title": "How we made 78 jewelry products indexable by moving off hash routing to Next.js",
-      "excerpt": "A client came to us with a beautiful fine-jewelry storefront that had one fatal none of its products could The site was an older single-page app that used hash routing. Every product /jewelry#product/…",
-      "body": "A client came to us with a beautiful fine-jewelry storefront that had one fatal flaw for a business that lives on organic search: none of its products could rank on Google. The site was an older single-page app that used hash routing. Every product lived at a URL like: /jewelry#product/210-104 It looked fine to a human. To a search engine, it was a problem. Why hash URLs kill SEO Everything after the # in a URL is a fragment — it's handled entirely in the browser and is never sent to the server . Googlebot sees one page ( /jewelry ) and all 78 products collapse into it. There are no distinct, crawlable URLs to index, no per-product titles, no per-product metadata. So the catalogue was effectively invisible.",
-      "author": "Cloveode Technologies",
+      "id": "feed-4dad533faa82",
+      "title": "npm ERESOLVE: --legacy-peer-deps vs --force (What Each Really Does)",
+      "excerpt": "npm has two messages with \"ERESOLVE\" in them, and they're easy to mix up. One is an error and the install stops. The other is a warning and the install carries on. The usual advice for both is \"add --…",
+      "body": "npm has two messages with \"ERESOLVE\" in them, and they're easy to mix up. One is an error and the install stops. The other is a warning and the install carries on. The usual advice for both is \"add --legacy-peer-deps \" or \"add --force \", but the two flags don't do the same thing, and neither one fixes the conflict. I wanted to see exactly what each option does, so on 20 November 2026 I built a tiny conflict out of three local packages and installed it with npm 10.9.2, offline, so nothing came from the registry. A plugin wants kmg-lib@^1.0.0 as a peer dependency, and the project uses kmg-lib@2.0.0 . That's the same shape as a React 18 plugin in a React 19 app. Every output below is copied from that test. Where I couldn't observe something, I say so.",
+      "author": "Kausar Raza",
       "date": "2026-11-20",
       "readTime": "2 min",
       "section": "software",
@@ -128,10 +128,67 @@
         "Software"
       ],
       "featured": false,
-      "xpReward": 47,
-      "url": "https://dev.to/cloveode_technologies_e77/how-we-made-78-jewelry-products-indexable-by-moving-off-hash-routing-to-nextjs-43om",
-      "image": "/images/feed/feed-ef79a733bb92.webp",
+      "xpReward": 48,
+      "url": "https://dev.to/kausarraza/npm-eresolve-legacy-peer-deps-vs-force-what-each-really-does-1n3p",
+      "image": "/images/feed/feed-4dad533faa82.webp",
       "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-19a2f8332f3c",
+      "title": "Samsung just made the Galaxy S26 camera better with these One UI 9.5 upgrades",
+      "excerpt": "One UI 9.5's new Pro camera presets make the Galaxy S26 more versatile. Here's what you need to know.",
+      "body": "Credit: Robert Triggs / Android Authority The One UI 9.5 beta is here, bundled with new goodies for Samsung fans; well, at least if you own a Galaxy S26 , for now. One new feature that particularly caught my eye is the raft of improvements to Samsung’s default camera app. The enhanced Pro and Pro Video modes now offer customizable controls and presets to help you better tailor your shots to tricky shooting conditions. Sounds promising. Getting started with these new features is simple. Just open the camera app and switch to either Pro mode for photos or Pro Video for footage . Both modes share the same general layout and customization options, although there are a few differences worth exploring.",
+      "author": "Robert Triggs",
+      "date": "2026-11-20",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Galaxy S"
+      ],
+      "featured": false,
+      "xpReward": 53,
+      "url": "https://www.androidauthority.com/one-ui-9-5-pro-presets-3736710/",
+      "image": "/images/feed/feed-19a2f8332f3c.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-40b6aa7fb084",
+      "title": "72 Years Later, Lord of the Rings Officially Reveals Why Sauron Is So Evil",
+      "excerpt": "The Dark Lord has “but one true joy”",
+      "body": "Sauron is one of the most famous villains of all time, but The Lord of the Rings doesn’t really explore why the Dark Lord is so obsessed with conquering all of Middle-earth. The prequel series The Lord of the Rings: The Rings of Power has been working to make Sauron (Charlie Vickers) more complex — which isn’t hard since he gets to have conversations with other characters rather than solely appear as an ominous eye. He’s a master of deception who has appeared in multiple guises to further his schemes, but in one of the latest episodes released Wednesday, Sauron gets honest and reveals his true motivations.",
+      "author": "Sam Nelson",
+      "date": "2026-11-20",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 35,
+      "url": "https://www.polygon.com/rings-of-power-sauron-celeborn-explainer/",
+      "image": "/images/feed/feed-40b6aa7fb084.png",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-aa3dbae2e3b8",
+      "title": "Samsung’s Auto Blocker won’t switch off during calls in One UI 9.5",
+      "excerpt": "Auto Blocker is getting stricter with One UI 9.5 and scammers won't like it.",
+      "body": "Credit: Ryan Haines / Android Authority TL;DR With One UI 9.5, users won’t be able to change Auto Blocker settings during a call. This is to thwart scammers trying to get people to disable security features. The feature is already live in the first One UI 9.5 beta on the Galaxy S26. Samsung’s One UI comes with Auto Blocker , which warns you before sideloading APKs and protects your Galaxy phone or tablet from malicious execution over USB or from harmful files received via messaging apps. With One UI 9.5 beta that rolled out to the Galaxy S26 series earlier this week, Auto Blocker appears to be getting additional anti-scam features that prevent hackers from misguiding users during calls.",
+      "author": "Tushar Mehta",
+      "date": "2026-11-20",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 49,
+      "url": "https://www.androidauthority.com/one-ui-9-5-auto-blocker-anti-scam-3737564/",
+      "image": "/images/feed/feed-aa3dbae2e3b8.jpg",
+      "source": "Android Authority",
       "isLive": true
     },
     {
@@ -147,10 +204,29 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 48,
       "url": "https://www.androidauthority.com/google-fi-app-redesign-3737549/",
       "image": "/images/feed/feed-54f9350bb43e.jpg",
       "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-3aaa9f3e0d13",
+      "title": "Yellowjackets Season 4, Episode 1 Review",
+      "excerpt": "Review: As Yellowjackets enters Season 4, the end can’t come soon enough.",
+      "body": "Spoilers follow for Yellowjackets Season 4, Episode 1 – “Hivemind,” which is streaming now on Paramount+. New episodes drop weekly on Fridays. In 2012, Showtime delivered Yellowjackets , its best original horror drama since Dexter . Featuring a female-led cast of middle-aged legends (Melanie Lynskey, Tawny Cypress, Christina Ricci, etc.) and mostly unknowns playing their younger selves, Yellowjackets earned instant buzz for its scary mix of survival horror, social hierarchy commentary and trauma manifestations.",
+      "author": "Scott Collura",
+      "date": "2026-11-20",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 48,
+      "url": "https://www.ign.com/articles/yellowjackets-season-4-episode-1-premiere-review",
+      "image": "/images/feed/feed-3aaa9f3e0d13.jpg",
+      "source": "IGN",
       "isLive": true
     },
     {
@@ -166,7 +242,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 34,
       "url": "https://www.engadget.com/2322656/openai-is-testing-dots-personal-agents-on-its-20-per-month-plus-tier/",
       "image": "/images/feed/feed-aeab520ca0c0.jpg",
       "source": "Engadget",
@@ -185,7 +261,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 33,
       "url": "https://www.androidauthority.com/grapheneos-team-google-pressure-3737525/",
       "image": "/images/feed/feed-8a6499c51cfb.jpg",
       "source": "Android Authority",
@@ -204,7 +280,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 33,
       "url": "https://www.androidauthority.com/one-ui-9-5-driving-report-weather-sleep-before-trip-3737538/",
       "image": "/images/feed/feed-6a335187b8a9.jpg",
       "source": "Android Authority",
@@ -223,7 +299,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 52,
       "url": "https://thehackernews.com/2026/11/romulus-clickfix-attacks-deliver-rat.html",
       "image": "/images/feed/feed-a2af5d67b2b2.jpg",
       "source": "The Hacker News",
@@ -242,10 +318,29 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 36,
       "url": "https://www.polygon.com/best-far-side-comics-about-the-devil-hell/",
       "image": "https://static0.polygonimages.com/wordpress/wp-content/uploads/2026/10/jerry.jpg",
       "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-f08eb2d13b3e",
+      "title": "The LEGO Exclusive Eeyore Set Is Getting Discounted Ahead of Retirement",
+      "excerpt": "The LEGO Exclusive Eeyore Set Is Getting Discounted Ahead of Retirement",
+      "body": "LEGO revealed a new lineup of Winnie the Pooh sets back in March in anticipation of the bear&#39;s 100th anniversary. What you may not know, however, is that LEGO had already released an Eeyore set back in 2025 as part of the BrickHeadz theme. Now that it&#39;s been on the market for a while, LEGO has officially marked it for retirement at the end of the year. Before that day comes, LEGO is currently offering a discount on the set ahead of its own Black Friday sale . You can get 20% off the set, which drops the price down to just $10.30 for as long as stock remains. LEGO Eeyore is made up of only 156-pieces and is fairly easy to put together. The BrickHeadz line is essentially a Funko Pop competitor, so this set is entirely meant to be displayed on a desk or a shelf somewhere.",
+      "author": "Jacob Kienlen",
+      "date": "2026-11-20",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 37,
+      "url": "https://www.ign.com/articles/the-lego-exclusive-eeyore-set-is-getting-discounted-ahead-of-retirement-black-friday-2026",
+      "image": "/images/feed/feed-f08eb2d13b3e.jpg",
+      "source": "IGN",
       "isLive": true
     },
     {
@@ -263,7 +358,7 @@
         "Hacker"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 48,
       "url": "https://thehackernews.com/2026/11/china-linked-hackers-exploit-critical.html",
       "image": "/images/feed/feed-c179de6fc560.jpg",
       "source": "The Hacker News",
@@ -282,29 +377,10 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 45,
       "url": "https://www.engadget.com/2322650/uber-kids-rides-children-aged-10-to-12-years-old/",
       "image": "/images/feed/feed-1237a8257d13.jpg",
       "source": "Engadget",
-      "isLive": true
-    },
-    {
-      "id": "feed-422a6fb9b426",
-      "title": "Google confirms native app lock won’t come to older Android versions",
-      "excerpt": "App lock needs more than a Play system update.",
-      "body": "TL;DR Google has confirmed that Android’s native app lock cannot be backported to older Android versions via Play System updates. The current implementation depends on new APIs in the core Android platform. Users will need an Android OS update, not a Google Play System update, to get Google’s current implementation of App Lock. Between Samsung introducing native app lock in One UI 9.5 this week and Google restoring the feature in Android 17 QPR3 Beta 3 last month, it’s been a good few weeks for Android users who value their privacy. And with Google increasingly delivering Android features outside of major OS updates , some users are wondering whether their phones could get native app locking without upgrading to the latest version of Android.",
-      "author": "Hillary Keverenge",
-      "date": "2026-11-20",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 49,
-      "url": "https://www.androidauthority.com/android-native-app-lock-older-versions-3737530/",
-      "image": "/images/feed/feed-422a6fb9b426.jpg",
-      "source": "Android Authority",
       "isLive": true
     },
     {
@@ -320,7 +396,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 34,
       "url": "https://www.polygon.com/best-scifi-book-closing-line-roadside-picnic/",
       "image": "/images/feed/feed-0147903eacd4.jpg",
       "source": "Polygon",
@@ -339,29 +415,10 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 39,
       "url": "https://www.wired.com/story/castlery-promo-code/",
       "image": "/images/feed/feed-4bae9221d703.png",
       "source": "Wired",
-      "isLive": true
-    },
-    {
-      "id": "feed-293eb5d49105",
-      "title": "Google's latest home page redesign makes Gemini even more prominent",
-      "excerpt": "Google is doubling down on Gemini AI in its desktop search, despite complaints from users and employees alike.",
-      "body": "Google is doubling down on Gemini AI in its desktop search, despite complaints from users and employees alike.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Steve Dent)",
-      "date": "2026-11-20",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 35,
-      "url": "https://www.engadget.com/2322647/google-latest-home-page-redesign-makes-gemini-even-more-prominent/",
-      "image": "/images/feed/feed-293eb5d49105.jpg",
-      "source": "Engadget",
       "isLive": true
     },
     {
@@ -377,7 +434,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 40,
       "url": "https://thehackernews.com/2026/11/new-unpatched-windows-0-day-fastunlock.html",
       "image": "/images/feed/feed-4f259a98db3f.jpg",
       "source": "The Hacker News",
@@ -396,7 +453,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 49,
       "url": "https://www.ign.com/articles/the-piranha-plant-nintendo-switch-2-dock-black-friday-2026",
       "image": "/images/feed/feed-8c53b5e2dd61.jpg",
       "source": "IGN",
@@ -415,7 +472,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 42,
       "url": "https://science.nasa.gov/image-article/apod-2026-november-20-v-g-r/",
       "image": "/images/feed/feed-eb6a9e0ae310.jpg",
       "source": "NASA Breaking News",
@@ -434,7 +491,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 40,
       "url": "https://science.nasa.gov/earth/earth-observatory/the-stormy-southwest-pacific/",
       "image": "/images/feed/feed-1abfeec1620d.jpg",
       "source": "NASA Breaking News",
@@ -453,7 +510,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 41,
       "url": "https://www.polygon.com/10-funniest-far-side-comics-starring-cavemen-and-early-inventions/",
       "image": "/images/feed/feed-bc2ce07acf12.jpg",
       "source": "Polygon",
@@ -472,7 +529,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 37,
       "url": "https://cleantechnica.com/2026/11/19/agco-celebrates-construction-milestone-at-olmedo-solar-project-in-spain/",
       "image": "/images/feed/feed-576f2062d3b7.jpg",
       "source": "CleanTechnica",
@@ -491,7 +548,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 37,
       "url": "https://cleantechnica.com/2026/11/19/inspiring-hearts-minds-on-solar/",
       "image": "/images/feed/feed-3e92e67f5a39.jpg",
       "source": "CleanTechnica",
@@ -510,48 +567,10 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 36,
       "url": "https://cleantechnica.com/2026/11/19/leapmotor-produces-its-2-millionth-ev/",
       "image": "/images/feed/feed-b6187779b1b8.jpg",
       "source": "CleanTechnica",
-      "isLive": true
-    },
-    {
-      "id": "feed-8ae8ef3b64e7",
-      "title": "GTA 6 Has A Surprising Late Game Cameo That Knocked Me On My Ass",
-      "excerpt": "I'm shocked people are already seeing this moment as it is hidden near the very end of the story",
-      "body": "I'm shocked people are already seeing this moment as it is hidden near the very end of the story\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Game. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Zack Zwiezen",
-      "date": "2026-11-20",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Game"
-      ],
-      "featured": false,
-      "xpReward": 46,
-      "url": "https://kotaku.com/gta-6-has-a-surprising-late-game-cameo-that-knocked-me-on-my-ass-2000758623",
-      "image": "/images/feed/feed-8ae8ef3b64e7.jpg",
-      "source": "Kotaku",
-      "isLive": true
-    },
-    {
-      "id": "feed-6bc94deb7f61",
-      "title": "AU Deals: Huge Savings on Gigabyte Gaming Laptops for Black Friday",
-      "excerpt": "AU Deals: Huge Savings on Gigabyte Gaming Laptops for Black Friday",
-      "body": "Black Friday sales are finally upon us, and while we don’t celebrate the turkey-related holiday origins of the sales event here in Aus, Black Friday / Cyber Monday is increasingly the best time of the year to get our hands on powerful tech at tidy discounts. Adding to the festivities, Gigabyte are offering up to $602 off the GAMING A16 Laptop range, along with a host of other deals across Australian retailers. Here are our picks for the sale that you can pick up right now at Officeworks. GIGABYTE GAMING A16 The i7 model offers both the largest dollar reduction and arguably the best value of these three laptops (purely for gaming performance bang-for-buck).",
-      "author": "Sam Caldwell",
-      "date": "2026-11-20",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 30,
-      "url": "https://www.ign.com/articles/au-deals-huge-savings-on-gigabyte-gaming-laptops-for-black-friday",
-      "image": "/images/feed/feed-6bc94deb7f61.jpg",
-      "source": "IGN",
       "isLive": true
     },
     {
@@ -567,7 +586,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 47,
       "url": "https://cleantechnica.com/2026/11/19/volkswagen-id-buzz-made-for-sleeping-in/",
       "image": "/images/feed/feed-bdf95325fcb0.jpg",
       "source": "CleanTechnica",
@@ -586,29 +605,10 @@
         "Cve-"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 38,
       "url": "https://github.com/openssl/openssl/pull/33652",
       "image": "/images/feed/feed-083c1eec1622.png",
       "source": "Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-561227a81881",
-      "title": "Controversial GTA 6 Easter Egg Will Annoy Millions of Gamers",
-      "excerpt": "GTA 6 has an early moment when Jason and his friend play a physical video game. Ironically enough, that's impossible to do with GTA 6 itself.",
-      "body": "Grand Theft Auto 6 is now out everywhere, and players are discovering just how much this game is filled to the brim with an overwhelming amount of things to do. In the game’s opening hours, you’ll land a place on the water, steal a car from a police impound, get into a car chase, and more. There are a million little things to do, like playing video games inside GTA 6 itself.",
-      "author": "Austin Manchester",
-      "date": "2026-11-20",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 48,
-      "url": "https://www.polygon.com/gta-6-physical-disc-spoof-game/",
-      "image": "/images/feed/feed-561227a81881.jpg",
-      "source": "Polygon",
       "isLive": true
     },
     {
@@ -624,7 +624,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 31,
       "url": "https://techcrunch.com/2026/11/19/apple-may-be-developing-its-own-ai-agent-that-runs-your-mac/",
       "image": "https://techcrunch.com/wp-content/uploads/2026/06/iphone-usb-cable.jpg?resize=1200,800",
       "source": "TechCrunch",
@@ -643,7 +643,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 47,
       "url": "https://techcrunch.com/2026/11/19/anthropics-7-founders-cashed-out-nearly-2b-in-record-breaking-ipo/",
       "image": "https://techcrunch.com/wp-content/uploads/2026/11/antrhopic-openingday-getty.jpg?resize=1200,801",
       "source": "TechCrunch",
@@ -662,7 +662,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 42,
       "url": "https://electrek.co/2026/11/19/gms-v2g-pilot-wants-to-pay-california-drivers-for-power-from-parked-evs/",
       "image": "/images/feed/feed-360e6761a52a.jpg",
       "source": "Electrek",
@@ -681,7 +681,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 51,
       "url": "https://cleantechnica.com/2026/11/19/pacific-power-begins-new-customer-protections-against-data-centers/",
       "image": "/images/feed/feed-58d38791be5c.jpg",
       "source": "CleanTechnica",
@@ -700,7 +700,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 50,
       "url": "https://electrek.co/2026/11/19/nssl-keeps-growing-its-electric-terminal-truck-fleet-with-no-plans-to-stop/",
       "image": "/images/feed/feed-99738b2b7ce1.jpg",
       "source": "Electrek",
@@ -720,7 +720,7 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 49,
       "url": "https://www.bleepingcomputer.com/news/security/vmware-patches-vcenter-zero-day-exploited-in-attacks-since-september/",
       "image": "/images/feed/feed-21f62923abce.jpg",
       "source": "BleepingComputer",
@@ -739,7 +739,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 44,
       "url": "https://techcrunch.com/2026/11/19/anthropic-rival-says-companies-can-mostly-skip-the-pricey-models/",
       "image": "https://techcrunch.com/wp-content/uploads/2026/11/Screenshot-2026-11-20-at-12.43.24-AM.png?resize=1200,601",
       "source": "TechCrunch",
@@ -758,7 +758,7 @@
         "Chatgpt"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 53,
       "url": "https://www.bxfoundry.com/chatgpt_snes/",
       "image": "/images/feed/feed-d618f6a8db57.png",
       "source": "Hacker News",
@@ -777,7 +777,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 31,
       "url": "https://www.space.com/space-exploration/voyager/voyager-1-team-unbowed-by-communications-glitch-celebrates-epic-1-light-day-distance-milestone",
       "image": "/images/feed/feed-86f5eb892885.jpg",
       "source": "Space.com",
@@ -796,7 +796,7 @@
         "Spacex"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 42,
       "url": "https://techcrunch.com/2026/11/19/elon-musk-says-spacex-has-a-plan-to-eliminate-cell-phone-dead-zones/",
       "image": "https://techcrunch.com/wp-content/uploads/2026/10/starlink.jpg?resize=1200,800",
       "source": "TechCrunch",
@@ -816,7 +816,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 53,
       "url": "https://www.space.com/space-exploration/on-this-day-in-space-november-19-2005",
       "image": "/images/feed/feed-6c7adb50c08d.jpg",
       "source": "Space.com",
@@ -835,7 +835,7 @@
         "Hacker"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 40,
       "url": "https://www.bleepingcomputer.com/news/security/hackers-steal-data-of-16-million-sbc-medical-group-customers/",
       "image": "/images/feed/feed-d34a04be557c.jpg",
       "source": "BleepingComputer",
@@ -854,7 +854,7 @@
         "Starship"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 50,
       "url": "https://www.space.com/space-exploration/launches-spacecraft/the-view-from-the-tower-watch-starship-come-in-for-chopsticks-catch-in-epic-slo-mo-video",
       "image": "/images/feed/feed-850a294776cd.jpg",
       "source": "Space.com",
@@ -873,7 +873,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 47,
       "url": "https://www.wired.com/story/uncanny-valley-podcast-whats-with-all-these-outages/",
       "image": "/images/feed/feed-59959673c5cf.jpg",
       "source": "Wired",
@@ -892,7 +892,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 48,
       "url": "https://techcrunch.com/2026/11/19/these-tech-outages-are-giving-y2k-ai-agent-style/",
       "image": "https://techcrunch.com/wp-content/uploads/2026/11/Muharrem-huner.jpg?resize=1200,800",
       "source": "TechCrunch",
@@ -912,7 +912,7 @@
         "Gpt"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 51,
       "url": "https://www.cnet.com/tech/openais-gpt-6-2-sol-backlash-early-testers/",
       "image": "/images/feed/feed-ebab9672cbd9.jpg",
       "source": "CNET",
@@ -931,7 +931,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 36,
       "url": "https://techcrunch.com/2026/11/19/anthropics-ipo-could-deliver-156-billion-to-charity/",
       "image": "https://techcrunch.com/wp-content/uploads/2026/01/GettyImages-2256664479.jpg?resize=1200,800",
       "source": "TechCrunch",
@@ -939,16 +939,16 @@
     }
   ],
   "breakingNews": [
-    "DEV.TO: What a PDF xref table actually is, read through qpdf --show-xref before and after object streams",
-    "DEV.TO: Our portal releases went out without the new index.html whenever it kept the same size",
-    "DEV.TO: Why I Built an Ad-Free, 4K Video Downloader in Next.js 14 & Python (And Killed Popups Forever)",
-    "DEV.TO: Shipping an LLM feature to production: a 6-step checklist from real client projects",
-    "DEV.TO: More of the AI in Your Product May Run on the User's Own Device",
-    "DEV.TO: Bar, blots and the larger-die rule: how I coded backgammon in JavaScript",
-    "DEV.TO: How we made 78 jewelry products indexable by moving off hash routing to Next.js",
-    "ANDROID AUTHORITY: Google Fi gives its Android app a fresh look and smarter customer support",
-    "ENGADGET: OpenAI is testing Dots personal agents on its $20 per month Plus tier",
-    "ANDROID AUTHORITY: GrapheneOS claims Google is now waging war against it, could lock Pixel bootloader"
+    "DEV.TO: Before Automating Everything, Ask This: Is Your Business Process Actually Ready for AI?",
+    "DEV.TO: Stop Deploying to ECS Just to See If Your Code Works",
+    "DEV.TO: Why has it become harder and harder to type one-handed on smartphones these days?",
+    "DEV.TO: Semantic Cache with Redis to Cut AI API Costs",
+    "DEV.TO: 랩트 모네로 붕괴: 익숙한 신뢰 배신 이야기",
+    "DEV.TO: I Let AI Agents Rebrand My Entire OSS Ecosystem in One Night. Two Pipelines Were Silently Dead.",
+    "DEV.TO: npm ERESOLVE: --legacy-peer-deps vs --force (What Each Really Does)",
+    "ANDROID AUTHORITY: Samsung just made the Galaxy S26 camera better with these One UI 9.5 upgrades",
+    "POLYGON: 72 Years Later, Lord of the Rings Officially Reveals Why Sauron Is So Evil",
+    "ANDROID AUTHORITY: Samsung’s Auto Blocker won’t switch off during calls in One UI 9.5"
   ],
   "sectionVideos": {}
 }
