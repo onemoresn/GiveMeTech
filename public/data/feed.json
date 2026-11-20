@@ -1,12 +1,31 @@
 {
-  "fetchedAt": "2026-11-20T13:11:27.583Z",
+  "fetchedAt": "2026-11-20T14:13:39.368Z",
   "articles": [
     {
-      "id": "feed-33c9e9cf7e50",
-      "title": "Cluster Autoscaler not scaling down nodes: finding the reason in its logs",
-      "excerpt": "To cut node costs, you lowered the requests on your Pods and deployed. Requests are the amount of CPU and memory reserved for each container in a Pod. Allocatable is the amount of a node's CPU and mem…",
-      "body": "To cut node costs, you lowered the requests on your Pods and deployed. Requests are the amount of CPU and memory reserved for each container in a Pod. Allocatable is the amount of a node's CPU and memory that can be assigned to Pods. When you check it yourself, for the resource you lowered, the sum of requests on every node is below half of allocatable. Cluster Autoscaler (CA) removes a node when the sum of requests on it falls below half of allocatable. 1 Yet an hour later the node count hasn't changed, and the CA logs have no error lines (lines starting with E ). The bill doesn't go down until nodes are removed. CA logs, for each node, the reason it decided not to remove it. The line it prints tells you the reason and where to fix it.",
-      "author": "Kazu",
+      "id": "feed-19d896bb604a",
+      "title": "UPDF Review - Can an AI PDF Editor Replace Adobe Acrobat in a Developer's Workflow?",
+      "excerpt": "Sponsored: This post is sponsored by UPDF. The testing, opinions and screenshots are my own. I write code for a living, yet a surprising amount of my week happens inside PDFs. Client contracts, invoic…",
+      "body": "Sponsored: This post is sponsored by UPDF. The testing, opinions and screenshots are my own. Why PDFs still matter in my workflow I write code for a living, yet a surprising amount of my week happens inside PDFs. Client contracts, invoices, API specs, research papers and technical documentation that only ships as a download all land in my inbox as PDFs. For years the default tool for this has been Adobe Acrobat, and for years it has felt like more software, and more subscription, than someone running a small development business really needs. When UPDF got in touch about reviewing their AI PDF editor, I wanted to answer two questions. Can it handle the PDF jobs I actually do every week? And are the AI features genuinely useful, or just another item on a feature list?",
+      "author": "Andrew Baisden",
+      "date": "2026-11-20",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Developer"
+      ],
+      "featured": true,
+      "xpReward": 43,
+      "url": "https://dev.to/andrewbaisden/updf-review-can-an-ai-pdf-editor-replace-adobe-acrobat-in-a-developers-workflow-2976",
+      "image": "/images/feed/feed-19d896bb604a.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-2b06912c6528",
+      "title": "Why your OCR sees ID photos sideways: EXIF orientation, and fixing it with Pillow",
+      "excerpt": "A phone held upright doesn't rotate the pixels it saves. It stores the image in the camera sensor's orientation, often landscape, and adds an EXIF Orientation tag (value 6, for example, means \"rotate…",
+      "body": "A phone held upright doesn't rotate the pixels it saves. It stores the image in the camera sensor's orientation , often landscape, and adds an EXIF Orientation tag (value 6, for example, means \"rotate 90° clockwise to display\"). Photo viewers and browsers apply the tag, so the user sees an upright document. OCR and face detection read the raw pixels , so they get the document sideways : text lines run vertically and recognition quality collapses. The fix is one line with Pillow, ImageOps.exif_transpose(img) , applied before anything else touches the image. It has to come first, because re-encoding or stripping metadata before applying it loses the orientation permanently . Tested Python below.",
+      "author": "Ali Ahmed",
       "date": "2026-11-20",
       "readTime": "2 min",
       "section": "software",
@@ -14,18 +33,37 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 47,
-      "url": "https://dev.to/shinagawa-web/cluster-autoscaler-not-scaling-down-nodes-finding-the-reason-in-its-logs-1742",
-      "image": "/images/feed/feed-33c9e9cf7e50.webp",
+      "xpReward": 44,
+      "url": "https://dev.to/quantumbreakz/why-your-ocr-sees-id-photos-sideways-exif-orientation-and-fixing-it-with-pillow-4a4e",
+      "image": "/images/feed/feed-2b06912c6528.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-d40a7affbaab",
-      "title": "How I Built a Marketplace Review Site on WordPress — Lessons on Speed, Structure, and Trust",
-      "excerpt": "I run a small review site about online marketplaces. Not a SaaS, not a startup pitch — just a WordPress site that answers one question people actually google: 'is this store worth ordering from?' The…",
-      "body": "I run a small review site about online marketplaces. Not a SaaS, not a startup pitch — just a WordPress site that answers one question people actually google: 'is this store worth ordering from?' The live result is Magazin Best — https://magazinbest.com — a Russian-language site covering Ozon, Wildberries, MTS Shop and Flowwow. Building it taught me more about practical webdev than a dozen tutorial projects. Here is what stuck. 1. Content structure beats design. Each review answers the same five questions in the same order: what the store sells, delivery, payment, returns, and the catch. Same headings, same comparison logic. That sounds boring. It is the whole point.",
-      "author": "Magazin Best",
+      "id": "feed-aa265fed3c27",
+      "title": "Limiting concurrency in Python asyncio with a semaphore and per-task timeouts, in the right order",
+      "excerpt": "asyncio.gather(*(call(x) for x in items)) starts every call at once: with a thousand prompts, that's a thousand simultaneous requests to an LLM API, and an immediate wall of 429s. Cap it with asyncio.…",
+      "body": "asyncio.gather(*(call(x) for x in items)) starts every call at once : with a thousand prompts, that's a thousand simultaneous requests to an LLM API, and an immediate wall of 429s. Cap it with asyncio.Semaphore(n) : each task waits for a slot before it starts. Give each call a timeout with asyncio.timeout() , and pass return_exceptions=True so one failure doesn't cancel the rest. The order matters: the timeout must go inside the semaphore. Put it outside, and the clock starts while the task is still queueing, so tasks time out without ever running ; in my test, 8 of 10 did. Here's the correct version in a dozen lines, tested on Python 3.11 and later.",
+      "author": "Ali Ahmed",
+      "date": "2026-11-20",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Python"
+      ],
+      "featured": true,
+      "xpReward": 40,
+      "url": "https://dev.to/quantumbreakz/limiting-concurrency-in-python-asyncio-with-a-semaphore-and-per-task-timeouts-in-the-right-order-2hc0",
+      "image": "/images/feed/feed-aa265fed3c27.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-38bf97edfc21",
+      "title": "P6 - Secretos en OKE: de Terraform al pod con OCI Vault y External Secrets, sin pasar por git",
+      "excerpt": "Serie «Kubernetes en OCI al menor costo» — parte 6. En la parte 5 Soy Matías Galiano, arquitecto de plataforma: llevo 18 años escribiendo software y 7 mgaliano.tech. Todo lo que corre en el cluster se…",
+      "body": "Serie «Kubernetes en OCI al menor costo» — parte 6. En la parte 5 vimos cómo lo que corre en el cluster consigue permisos en OCI. Acá va el uso más importante de esos permisos: leer los secretos. Soy Matías Galiano , arquitecto de plataforma: llevo 18 años escribiendo software y 7 diseñando y operando sistemas distribuidos sobre Kubernetes, con Terraform y GitOps. La serie completa se publica primero en mi web, mgaliano.tech . Todo lo que corre en el cluster se declara en git y lo aplica ArgoCD. Eso funciona muy bien para los Deployments y los Services, pero choca con una pregunta: ¿dónde van las contraseñas? Un Secret de Kubernetes en git es base64, que no es cifrado: cualquiera con acceso al repo lo lee. Lo que armé es un camino donde el valor de un secreto nunca toca git .",
+      "author": "Matías Galiano",
       "date": "2026-11-20",
       "readTime": "2 min",
       "section": "software",
@@ -33,37 +71,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 42,
-      "url": "https://dev.to/magazinbest/how-i-built-a-marketplace-review-site-on-wordpress-lessons-on-speed-structure-and-trust-3llm",
-      "image": "/images/feed/feed-d40a7affbaab.jpg",
+      "xpReward": 45,
+      "url": "https://dev.to/matugg18/p6-secretos-en-oke-de-terraform-al-pod-con-oci-vault-y-external-secrets-sin-pasar-por-git-4dci",
+      "image": "/images/feed/feed-38bf97edfc21.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-7fa78d680e5b",
-      "title": "AWS Setup Checklist for Startups: Account Ownership, IAM, MFA, Budgets and Cleanup (With Configs)",
-      "excerpt": "By Jonathan Knight, Head of DevOps & Technical Manager at Utah Tech Labs. Originally published on utahtechlabs.com. TL;DR: a production-ready AWS baseline for a startup comes down to seven controls: c…",
-      "body": "By Jonathan Knight, Head of DevOps &amp; Technical Manager at Utah Tech Labs. Originally published on utahtechlabs.com . TL;DR: a production-ready AWS baseline for a startup comes down to seven controls: company-owned account, vaulted root with hardware MFA, one IAM identity per engineer with least privilege, MFA enforced by policy, AWS Budgets with tiered alerts, environment tagging, and scheduled cleanup of idle resources. This post walks through each one with the commands and configs we use. Why rushed AWS setups become technical debt Most early-stage AWS accounts are built through the console in a weekend: one region, one shared admin login, a couple of EC2 instances and an RDS database. It ships.",
-      "author": "Utah Tech Labs",
-      "date": "2026-11-20",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Startup"
-      ],
-      "featured": true,
-      "xpReward": 51,
-      "url": "https://dev.to/utl/aws-setup-checklist-for-startups-account-ownership-iam-mfa-budgets-and-cleanup-with-configs-3l21",
-      "image": "/images/feed/feed-7fa78d680e5b.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-17ec706f22fd",
-      "title": "When I say a ticket is fully tested, how sure am I?",
-      "excerpt": "Even after 6 years in the field, I ask myself this question all the time. Once I tested something that worked like a shared document with a version history. A specific action would create a new versio…",
-      "body": "Even after 6 years in the field, I ask myself this question all the time. Once I tested something that worked like a shared document with a version history. A specific action would create a new version of it. The original must never change. I created different documents and tried to change them in different ways, and it was all working pretty well. I was checking on all the obvious places, but the bugs are usually not there. I know that it isn’t realistic to verify that there are no bugs in the software. There are always the obvious ones, but it takes real critical thinking and understanding of the software to find the ones lurking in the shadows. I like to hold myself to high standards, and over the years I’ve learned where to look for them.",
-      "author": "Lenzz920",
+      "id": "feed-ee7d0bfd9494",
+      "title": "How ApplyOS keeps AI feedback tied to the right resume version",
+      "excerpt": "Originally published on the ApplyOS blog by Najib Oladosu, a software engineer based in Nigeria. An AI response can read well and still be attached to the wrong input. Imagine uploading a resume, chec…",
+      "body": "Originally published on the ApplyOS blog by Najib Oladosu, a software engineer based in Nigeria. An AI response can read well and still be attached to the wrong input. Imagine uploading a resume, checking it against a job description, then saving an edited version. When you return to the feedback screen, which version does that feedback describe? That question shaped how I built Job Fit in ApplyOS . The feature compares a saved resume with an application's job description. To make the feedback useful, I need to keep the result connected to the exact resume that went into the request. This article walks through the current implementation in Next.js, TypeScript and Supabase PostgreSQL. The screenshots use demonstration records. Their scores are examples, not hiring predictions.",
+      "author": "NAJIB OLADOSU",
       "date": "2026-11-20",
       "readTime": "2 min",
       "section": "software",
@@ -71,18 +90,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 31,
-      "url": "https://dev.to/lenzz920/when-i-say-a-ticket-is-fully-tested-how-sure-am-i-2644",
-      "image": "/images/feed/feed-17ec706f22fd.jpg",
+      "xpReward": 48,
+      "url": "https://dev.to/najiboladosu/how-applyos-keeps-ai-feedback-tied-to-the-right-resume-version-93f",
+      "image": "/images/feed/feed-ee7d0bfd9494.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-7f63c509172a",
-      "title": "André Dias Moreira Prol explica: Ethereum ou Stellar para tokenizar ativos",
-      "excerpt": "Quando um gestor de fundos imobiliários me pergunta onde tokenizar seus ativos, percebo que a dúvida raramente é técnica — é estratégica. A escolha entre Ethereum e Stellar define custos, velocidade,…",
-      "body": "Quando um gestor de fundos imobiliários me pergunta onde tokenizar seus ativos, percebo que a dúvida raramente é técnica — é estratégica. A escolha entre Ethereum e Stellar define custos, velocidade, compliance e, principalmente, a viabilidade de um projeto no mercado brasileiro. Depois de duas décadas implementando infraestrutura de TI e os últimos anos imerso em Web3, construí uma visão prática sobre quando cada rede faz sentido. Vou compartilhar isso de forma direta. O peso do custo e da velocidade na operação brasileira O Brasil é um mercado sensível a taxas. Tokenizar um recebível de R$ 50 mil não pode custar R$ 80 em gas fees — e é exatamente aqui que Ethereum frequentemente tropeça.",
-      "author": "André Dias Moreira Prol",
+      "id": "feed-8499fb393d87",
+      "title": "Split a PDF in the browser with pdf-lib: page ranges, no server, about 40 lines",
+      "excerpt": "\"Upload only the result page.\" \"Attach pages 2–4 of your bank statement.\" Online forms ask for this all the time, and people end up installing an app or uploading private documents to some random serv…",
+      "body": "\"Upload only the result page.\" \"Attach pages 2–4 of your bank statement.\" Online forms ask for this all the time, and people end up installing an app or uploading private documents to some random server just to cut a PDF in two. You don't need a server for this. pdf-lib can do it in the browser, and the whole feature is about 40 lines. Here's how the Split PDF tool on my site works. 1. Load the file and count pages const buf = await file . arrayBuffer ( ) ; let src ; try { src = await PDFLib . PDFDocument . load ( buf , { ignoreEncryption : true } ) ; } catch ( e ) { showError ( 'This PDF could not be opened (maybe password-protected).' ) ; return ; } const count = src . getPageCount ( ) ; Wrap load in a try/catch.",
+      "author": "Sikandar Bro",
       "date": "2026-11-20",
       "readTime": "2 min",
       "section": "software",
@@ -90,37 +109,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 36,
-      "url": "https://dev.to/andr_diasmoreiraprol_b/andre-dias-moreira-prol-explica-ethereum-ou-stellar-para-tokenizar-ativos-8lp",
-      "image": "/images/feed/feed-7f63c509172a.jpg",
+      "xpReward": 44,
+      "url": "https://dev.to/sikandar_bro_0db8c99c4a7c/split-a-pdf-in-the-browser-with-pdf-lib-page-ranges-no-server-about-40-lines-2ahd",
+      "image": "/images/feed/feed-8499fb393d87.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-dbb964f18aca",
-      "title": "Give the agent the existing form-library pattern, don’t invent a new useState form",
-      "excerpt": "The agent adds an “edit display name” form with four useState hooks, a hand-rolled errors object, and a disabled={loading} flag that does not match the existing submit button. The repo already uses Re…",
-      "body": "The agent adds an “edit display name” form with four useState hooks, a hand-rolled errors object, and a disabled={loading} flag that does not match the existing submit button. The repo already uses React Hook Form (or Formik, or the design-system useForm ) with a shared validation helper and a standard error message component. The new form ignores all of it, so the field chrome, the error announcement, and the submit policy look different from every other settings row. I’ve started treating a from-scratch useState form in a repo that already has a form library as a rewrite , not as a small UI addition. The library is there so validation, touched state, and submit errors stay consistent. Why the hand-rolled form shows up Tutorials start with useState .",
-      "author": "Sherotree",
-      "date": "2026-11-20",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 47,
-      "url": "https://dev.to/sherotree/give-the-agent-the-existing-form-library-pattern-dont-invent-a-new-usestate-form-54kn",
-      "image": "/images/feed/feed-dbb964f18aca.jpg",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-616389cbc715",
-      "title": "How to reduce AI costs: 9 ways that work in 2026",
-      "excerpt": "TL;DR. The fastest way to reduce AI costs is to stop paying top-model prices for every step. Turn the effort level down first. In Anthropic's own test, one model solved 87.4% of coding tasks at low ef…",
-      "body": "TL;DR. The fastest way to reduce AI costs is to stop paying top-model prices for every step. Turn the effort level down first. In Anthropic's own test , one model solved 87.4% of coding tasks at low effort for USD 0.11 each against 95.3% at high for USD 0.29. Running low then retrying only the failures at high reached about 97% for about USD 0.17. Then cache repeated prompts, batch work that can wait ( 50% off ), give simple steps to free or cheap models, and keep the strong model as the one that decides. I'm Denys, a Forward Deployed Engineer. I build AI agents and automations for small firms. This list is the one I use. It's for the owner who sees an AI line on the invoice growing and wants to know which levers move it.",
-      "author": "Denys Zaichenko",
+      "id": "feed-c08f821dd6eb",
+      "title": "nginx2root (CVE-2026-123007): what it is, who is exposed, and what to do today",
+      "excerpt": "This article was first published on the Rokkhe blog on Hashnode. It was drafted with AI assistance and reviewed and edited by the Rokkhe team; all facts were checked against the linked public sources…",
+      "body": "This article was first published on the Rokkhe blog on Hashnode . It was drafted with AI assistance and reviewed and edited by the Rokkhe team; all facts were checked against the linked public sources as of 20 Nov 2026. What is known about nginx2root (CVE-2026-123007 and four related nginx bugs) as of 20 Nov 2026, from 40+ public sources. By the Rokkhe research team. On 18 November 2026, nginx.org released nginx 1.31.9 (mainline) and 1.30.7 (stable) with fixes for ten security bugs ( nginx news , nginx advisories ). Five of them are memory corruption bugs that an unauthenticated attacker can use to crash an nginx worker and, in researchers' tests, run code on the server. Xint, one of the teams that found them, calls the set nginx2root ( Xint ).",
+      "author": "Rokkhe",
       "date": "2026-11-20",
       "readTime": "2 min",
       "section": "software",
@@ -128,10 +128,201 @@
         "Software"
       ],
       "featured": false,
-      "xpReward": 47,
-      "url": "https://dev.to/zaichenko/how-to-reduce-ai-costs-9-ways-that-work-in-2026-29a2",
-      "image": "/images/feed/feed-616389cbc715.webp",
+      "xpReward": 42,
+      "url": "https://dev.to/rokkhe/nginx2root-cve-2026-123007-what-it-is-who-is-exposed-and-what-to-do-today-3f6",
+      "image": "/images/feed/feed-c08f821dd6eb.webp",
       "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-37511467c2b9",
+      "title": "Nothing schedules next AI hardware announcement for December 8",
+      "excerpt": "A cryptic X teaser shows a metallic circular component alongside the tagline, \"Be present. It's noted.\"",
+      "body": "Credit: Ryan Haines / Android Authority TL;DR Nothing has scheduled its next AI hardware announcement for December 8, sharing a new teaser image on X. The teaser shows a brushed metallic casing and a circular button alongside the tagline, “Be present. It’s noted.” Combined with earlier teasers and leaks, the clues point to a compact, screenless AI voice recorder and note-taking device. Nothing has been heavily teasing its push into AI hardware over the past few months, and the company has now officially locked in a launch date for its next announcement. In a cryptic social media post, Nothing has confirmed that it has something planned for December 8, accompanied by a close-up teaser image of a metallic, circular hardware component.",
+      "author": "Aamir Siddiqui",
+      "date": "2026-11-20",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 41,
+      "url": "https://www.androidauthority.com/nothing-ai-hardware-december-8-teaser-3737727/",
+      "image": "/images/feed/feed-37511467c2b9.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-88c0ae0b7d38",
+      "title": "GTA 6 Learned All the Right Lessons From Zelda: Breath of the Wild",
+      "excerpt": "Grand Theft Auto 6 nails one thing The Legend of Zelda: Breath of the Wild got right in 2017: the perfect introduction.",
+      "body": "Throwing players into an open-world game can be challenging. When your game has an enormous map, you risk giving players almost too much freedom up front. There’s a very careful art in helping players get acclimated to how exploration works in a game without totally restricting any sense of exploration. The Legend of Zelda: Breath of the Wild famously nailed the art of an open-world introduction in 2017 with its meticulously crafted starting area, the Great Plateau. Now, nearly a decade later, Grand Theft Auto 6 has pulled off the same trick.",
+      "author": "Giovanni Colantonio",
+      "date": "2026-11-20",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 51,
+      "url": "https://www.polygon.com/gta-6leonida-keys-breath-of-the-wild/",
+      "image": "/images/feed/feed-88c0ae0b7d38.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-a2263c052fc4",
+      "title": "Six AI-powered gadgets that could make your home office smarter",
+      "excerpt": "From notetakers to webcams, here are six AI-powered gadgets to upgrade your workspace.",
+      "body": "From notetakers to webcams, here are six AI-powered gadgets to upgrade your workspace.\n\nThis report, published by TechCrunch, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadget. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to TechCrunch using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Lauren Forristal",
+      "date": "2026-11-20",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadget"
+      ],
+      "featured": false,
+      "xpReward": 50,
+      "url": "https://techcrunch.com/2026/11/20/6-ai-powered-gadgets-that-could-make-your-home-office-smarter/",
+      "image": "https://techcrunch.com/wp-content/uploads/2023/08/GettyImages-1348850409.jpg?resize=1200,800",
+      "source": "TechCrunch",
+      "isLive": true
+    },
+    {
+      "id": "feed-bcd983004f0e",
+      "title": "iOS 27.3: New features, release date, more",
+      "excerpt": "iOS 27.3 is currently in beta testing with developers and public beta users. The update includes multiple new features for iPhone users, including the redesigned Health app, iPhone Duo updates, and mu…",
+      "body": "iOS 27.3 is currently in beta testing with developers and public beta users. The update includes multiple new features for iPhone users, including the redesigned Health app, iPhone Duo updates, and much more. Here’s everything you need to know about what’s new in iOS 27.3 … 9to5Mac is supported by Sony : Score Sony’s ULT Field 1 Bluetooth speaker for 51% off . Powerful bass, room-filling sound, up to 12 hours of battery life, IP67 durability, stereo pairing support, and much more. more…",
+      "author": "Chance Miller",
+      "date": "2026-11-20",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 53,
+      "url": "https://9to5mac.com/2026/11/20/ios-27-3-new-features-release-date-more/",
+      "image": "/images/feed/feed-bcd983004f0e.jpg",
+      "source": "9to5Mac",
+      "isLive": true
+    },
+    {
+      "id": "feed-6e4976918776",
+      "title": "The Remnants Of The Electric Saab That Never Was Are Going Up For Auction",
+      "excerpt": "Developed by ex-Saab engineers in complete secrecy, the entire NEVS Emily GT project is up for grabs.",
+      "body": "Developed by ex-Saab engineers in complete secrecy, the entire NEVS Emily GT project is up for grabs.\n\nThis report, published by InsideEVs, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cars. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to InsideEVs using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "InsideEVs",
+      "date": "2026-11-20",
+      "readTime": "2 min",
+      "section": "cars",
+      "tags": [
+        "Cars"
+      ],
+      "featured": false,
+      "xpReward": 50,
+      "url": "https://insideevs.com/news/816245/nevs-emily-gt-ex-saab-ev-project-auction/",
+      "image": "/images/feed/feed-6e4976918776.jpg",
+      "source": "InsideEVs",
+      "isLive": true
+    },
+    {
+      "id": "feed-b4020aaff0e3",
+      "title": "Beats Pill speaker drops to a record low under $95",
+      "excerpt": "Save $55 on Apple's portable speaker with 24-hour battery and IP67 protection.",
+      "body": "The Beats Pill just hit its lowest price yet. Apple’s portable speaker is down to $94.95 on Amazon , $55 off its $149.95 list price, or 37%. That’s $5 less than the $99.95 deals we’ve seen over the past year. See the deal at Amazon",
+      "author": "Matt Horne",
+      "date": "2026-11-20",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 35,
+      "url": "https://www.androidauthority.com/beats-pill-black-friday-deal-3737475/",
+      "image": "/images/feed/feed-b4020aaff0e3.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-c3ea3b3953f1",
+      "title": "Anker’s Nano 67W travel power strip is 15% off on Amazon",
+      "excerpt": "Anker's slim 6-in-1 power strip with two outlets and four USB ports drops to $33.99.",
+      "body": "Hotel rooms and airport gates never seem to have enough outlets, which is where Anker’s compact Nano power strip comes in. The Anker Nano 67W 6-in-1 power strip is down to $33.99 on Amazon , $6 off its $39.99 list price, or 15%. See the deal at Amazon",
+      "author": "Matt Horne",
+      "date": "2026-11-20",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 40,
+      "url": "https://www.androidauthority.com/anker-nano-67w-travel-power-strip-deal-3737457/",
+      "image": "/images/feed/feed-c3ea3b3953f1.jpg",
+      "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-46c642528abf",
+      "title": "Everything Is Falling Apart, and AI’s Fingerprints Are All Over It",
+      "excerpt": "AI is rewriting the web in its own imperfect image, making software flaws easier to find and easier to exploit, while introducing plenty of its own imperfections.",
+      "body": "AI is rewriting the web in its own imperfect image, making software flaws easier to find and easier to exploit, while introducing plenty of its own imperfections.\n\nThis report, published by CNET, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cybersecurity. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to CNET using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Jon Reed",
+      "date": "2026-11-20",
+      "readTime": "2 min",
+      "section": "cybersecurity",
+      "tags": [
+        "Cybersecurity"
+      ],
+      "featured": false,
+      "xpReward": 45,
+      "url": "https://www.cnet.com/tech/services-and-software/outages-and-cyberattacks-everything-is-breaking-is-it-ai/",
+      "image": "/images/feed/feed-46c642528abf.jpg",
+      "source": "CNET",
+      "isLive": true
+    },
+    {
+      "id": "feed-ced8fb9dc519",
+      "title": "N-able says recent security breach led to major service outage",
+      "excerpt": "N-able says attackers who breached one of its servers have caused a major outage affecting Mail Assure and SpamExperts Hosted Cloud services worldwide. [...]",
+      "body": "N-able says attackers who breached one of its servers have caused a major outage affecting Mail Assure and SpamExperts Hosted Cloud services worldwide. [...]\n\nThis report, published by BleepingComputer, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Breach, Security. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to BleepingComputer using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Sergiu Gatlan",
+      "date": "2026-11-20",
+      "readTime": "2 min",
+      "section": "cybersecurity",
+      "tags": [
+        "Breach",
+        "Security"
+      ],
+      "featured": false,
+      "xpReward": 34,
+      "url": "https://www.bleepingcomputer.com/news/microsoft/n-able-says-recent-security-breach-led-to-major-service-outage/",
+      "image": "/images/feed/feed-ced8fb9dc519.jpg",
+      "source": "BleepingComputer",
+      "isLive": true
+    },
+    {
+      "id": "feed-2dfd9b8642ca",
+      "title": "Some GTA 6 Players Think Max Weight Jason and Lucia Aren't Big Enough",
+      "excerpt": "Some GTA 6 players really want Jason and Lucia to be able to get as fat as CJ from GTA: San Andreas.",
+      "body": "Given all of the intricate details that have gone into GTA 6 , it came as no surprise whatsoever to see body transformations return. This means that Jason and Lucia&#39;s bodies will change based on how much exercise you&#39;re giving them and what you&#39;re feeding them. Like in Red Dead Redemption 2, this impacts your stats in combat, so it&#39;s well worth keeping an eye on your health app. (Check out IGN&#39;s guide, Fitness and Wellness Explained in GTA 6 , for more.) However, also much like with Red Dead Redemption 2, a lot of players were looking forward to getting Jason and Lucia as big as possible, purely for aesthetic reasons. More than a few of us had Jason dual-wielding cheeseburgers in Chapter 1 (yes, you can do that), to bulk him up as quickly as we can.",
+      "author": "Rhiannon Bevan",
+      "date": "2026-11-20",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 51,
+      "url": "https://www.ign.com/articles/some-gta-6-players-think-max-weight-jason-and-lucia-arent-big-enough",
+      "image": "/images/feed/feed-2dfd9b8642ca.jpg",
+      "source": "IGN",
       "isLive": true
     },
     {
@@ -147,7 +338,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 52,
       "url": "https://www.polygon.com/the-odyssey-matt-damon-final-fight-stunt-team/",
       "image": "/images/feed/feed-9962576c71a8.jpg",
       "source": "Polygon",
@@ -166,7 +357,7 @@
         "Spacex"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 51,
       "url": "https://www.space.com/space-exploration/private-spaceflight/i-got-to-tour-spacexs-starfactory-facility-in-starbase-texas-and-what-i-saw-blew-my-mind",
       "image": "/images/feed/feed-3fcd619ffc83.jpg",
       "source": "Space.com",
@@ -185,7 +376,7 @@
         "Iphone"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 43,
       "url": "https://9to5mac.com/2026/11/20/iphone-air-2-dual-camera-system/",
       "image": "/images/feed/feed-163d0ff336b1.jpg",
       "source": "9to5Mac",
@@ -204,10 +395,48 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 38,
       "url": "https://www.androidauthority.com/razer-orochi-v2-black-friday-deal-3737459/",
       "image": "/images/feed/feed-c36df74ff1cc.jpg",
       "source": "Android Authority",
+      "isLive": true
+    },
+    {
+      "id": "feed-4acd3e6e3f2a",
+      "title": "'Cousin! We Should Hang Out!' GTA Secret Quests Referencing Roman Bellic Added to Fortnite",
+      "excerpt": "Fortnite has added a series of secret GTA quests referencing GTA 4's Roman Bellic and the game's memorable \"Cousin! We should hang out!\" meme.",
+      "body": "Fortnite has added a series of secret GTA quests referencing GTA 4&#39;s Roman Bellic and his memorable &quot;Cousin! We should hang out!&quot; meme. Epic Games&#39; battle royale flipped the switch to activate the six secret quests yesterday, the official day of GTA 6&#39;s release, allowing players to receive a series of fresh tasks from Peely the banana in exchange for a whopping 120,000 XP. These quests all reference GTA 4 — and Roman Bellic&#39;s frequent harassment of his cousin, protagonist Nico Bellic — by having Fortnite players pick up the phone to Peely, who requests they complete a nearby task. Fittingly, one of Peely&#39;s quests involves knocking over a set of bowling pins — a nod to how Roman would call to invite Nico to go bowling with him. &quot;Cousin!",
+      "author": "Tom Phillips",
+      "date": "2026-11-20",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Fortnite"
+      ],
+      "featured": false,
+      "xpReward": 53,
+      "url": "https://www.ign.com/articles/fortnite-secret-gta-quests-roman-bellic",
+      "image": "/images/feed/feed-4acd3e6e3f2a.jpg",
+      "source": "IGN",
+      "isLive": true
+    },
+    {
+      "id": "feed-ef57320af3a7",
+      "title": "Can Jason and Lucia Get Naked in GTA 6?",
+      "excerpt": "Let’s settle this once and for all. Can Jason and Lucia get naked in GTA 6?",
+      "body": "Let’s settle this once and for all. Can Jason and Lucia get naked in GTA 6 ? Ever since the couple were revealed as the co-protagonists of GTA 6, it feels like that one question has been asked more than any other. Not, “How will the robbery gameplay systems work?” or, “Does the driving feel as exquisitely dangerous as it did in GTA 4?,” but instead, people just want to know how much skin will be on show. Who am I to judge? Upon booting up GTA 6 for the first time, within its opening hours I’d already located one nudist bar and spent a little too long examining the variety of appendages on show. There’s no shortage of NPC nudity out there in Leonida. People walk along beaches, run out into the street, and sit by pools with no clothes covering their decency. But, how about Jason and Lucia?",
+      "author": "Wesley Yin-Poole",
+      "date": "2026-11-20",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 44,
+      "url": "https://www.ign.com/articles/can-jason-and-lucia-get-naked-in-gta-6",
+      "image": "/images/feed/feed-ef57320af3a7.jpg",
+      "source": "IGN",
       "isLive": true
     },
     {
@@ -223,7 +452,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 53,
       "url": "https://www.polygon.com/gta-6-grand-theft-auto-new-zealand-trick-stats/",
       "image": "/images/feed/feed-817372b9c498.jpg",
       "source": "Polygon",
@@ -242,67 +471,10 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 33,
       "url": "https://electrek.co/2026/11/20/black-friday-2026-green-deals-hub-e-bikes-evs-power-stations-tools-appliances-and-more/",
       "image": "/images/feed/feed-cca766b8c3f5.jpg",
       "source": "Electrek",
-      "isLive": true
-    },
-    {
-      "id": "feed-91009fe94371",
-      "title": "Bose’s QuietComfort Ultra Headphones (2nd Gen) drop to $369",
-      "excerpt": "Save $80 on Bose's flagship noise canceling headphones with lossless USB-C audio.",
-      "body": "Bose’s best noise canceling headphones are on sale again. The QuietComfort Ultra Headphones (2nd Gen) are down to $369 on Amazon , $80 off their $449 list price, or 18%. See the deal at Amazon",
-      "author": "Matt Horne",
-      "date": "2026-11-20",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Headphones"
-      ],
-      "featured": false,
-      "xpReward": 53,
-      "url": "https://www.androidauthority.com/bose-qc-ultra-headphones-2nd-gen-deal-3737401/",
-      "image": "/images/feed/feed-91009fe94371.jpg",
-      "source": "Android Authority",
-      "isLive": true
-    },
-    {
-      "id": "feed-fff292672918",
-      "title": "Google boosts Gemini's ability to do 'repetitive tasks' on its Mac app",
-      "excerpt": "Google's Gemini app for Mac can now use your computer to list items on eBay, speed up creative tasks and fill out forms for you.",
-      "body": "Google's Gemini app for Mac can now use your computer to list items on eBay, speed up creative tasks and fill out forms for you.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Mariella Moon)",
-      "date": "2026-11-20",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 48,
-      "url": "https://www.engadget.com/2322728/google-boosts-geminis-ability-to-do-repetitive-tasks-on-its-mac-app/",
-      "image": "/images/feed/feed-fff292672918.jpg",
-      "source": "Engadget",
-      "isLive": true
-    },
-    {
-      "id": "feed-3afdd6066632",
-      "title": "Signal is blocking screenshots to prevent Gemini and Siri AI from scanning your chats",
-      "excerpt": "Signal wants AI assistants to stay out of your private conversations.",
-      "body": "TL;DR Signal is introducing protections to prevent Gemini and Siri AI from scanning private conversations on Android and iOS 27. The protections also block users from taking screenshots inside Signal, but they can be disabled. Signal is calling on Google, Apple, and Microsoft to give app developers better tools to restrict AI access without compromising app functionality. AI assistants are increasingly doing things on our phones that would previously require us to open an app ourselves. Gemini can already order food and book rides using third-party Android apps , and just yesterday, Google started rolling out similar computer-use capabilities on Macs . Meanwhile, Apple’s Siri AI can understand what’s on your iPhone’s screen.",
-      "author": "Hillary Keverenge",
-      "date": "2026-11-20",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 47,
-      "url": "https://www.androidauthority.com/signal-blocks-gemini-siri-ai-private-messages-3737647/",
-      "image": "/images/feed/feed-3afdd6066632.jpg",
-      "source": "Android Authority",
       "isLive": true
     },
     {
@@ -318,48 +490,29 @@
         "Gemini"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 34,
       "url": "https://www.theverge.com/ai-artificial-intelligence/1038390/signal-blocking-ai-agent-screenshots-mobile-app",
       "image": "/images/feed/feed-da5d0e942173.jpg",
       "source": "The Verge",
       "isLive": true
     },
     {
-      "id": "feed-a93b82596597",
-      "title": "Bose Smart Ultra Soundbar matches its record low with $350 off",
-      "excerpt": "Bose's Dolby Atmos soundbar is 35% off on Amazon this Black Friday season.",
-      "body": "If you’ve been waiting for a big discount on Bose’s flagship-class soundbar, this is it. The Bose Smart Ultra Soundbar is down to $649 on Amazon , $350 off its $999 list price, or 35%. That matches the lowest price we’ve seen, and it’s $20 below the record low we covered in October. See the deal at Amazon",
-      "author": "Matt Horne",
+      "id": "feed-e2d9aa8131e8",
+      "title": "Surprise PS5 Console Black Friday Deals Means You Can Buy a GTA 6-Ready Console for Less Than £430",
+      "excerpt": "PlayStation has unexpectedly cut PS5 console prices for Black Friday, with refurbished models from £427.49 and up to £30.50 off brand-new consoles",
+      "body": "Anyone keen on buying a PS5 to play GTA 6 (you may have heard of it) and other hit games during Black Friday can unexpectedly get up to £30.50 off their new console when buying from PlayStation. With the new GTA sequel finally out, Amazon and other retailers have already rolled out plenty of early Black Friday discounts, including being able to grab a new PS5 DualSense controller for £42.99 at Amazon , or being able to buy Grand Theft Auto VI for as little as £60.85 over at ShopTo . However, the biggest surprise of all is over at PlayStation itself; in a huge early Black Friday sale with lots of targeted price cuts of its own, the console manufacturer has inadvertently made it the cheapest store around to grab a PS5 .",
+      "author": "Ben Williams",
       "date": "2026-11-20",
       "readTime": "2 min",
-      "section": "gadgets",
+      "section": "gaming",
       "tags": [
-        "Gadgets"
+        "Gaming"
       ],
       "featured": false,
-      "xpReward": 38,
-      "url": "https://www.androidauthority.com/bose-smart-ultra-soundbar-black-friday-deal-3737402/",
-      "image": "/images/feed/feed-a93b82596597.jpg",
-      "source": "Android Authority",
-      "isLive": true
-    },
-    {
-      "id": "feed-fb9e02ec26dd",
-      "title": "Kindle Paperwhite falls to $129.99 for Black Friday",
-      "excerpt": "Save $70 on Amazon's waterproof Kindle with a 7-inch glare-free screen.",
-      "body": "Long flights, beach days, and quiet nights in are all better with a good book, and Amazon’s Kindle Paperwhite makes it easy to carry a whole library. It’s down to $129.99 on Amazon , $70 off its $199.99 list price, or 35%. That’s also $20 less than its October sale price. See the deal at Amazon",
-      "author": "Matt Horne",
-      "date": "2026-11-20",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 35,
-      "url": "https://www.androidauthority.com/kindle-paperwhite-black-friday-deal-3737400/",
-      "image": "/images/feed/feed-fb9e02ec26dd.jpg",
-      "source": "Android Authority",
+      "xpReward": 44,
+      "url": "https://www.ign.com/articles/ps5-console-black-friday-discounts-playstation-store",
+      "image": "/images/feed/feed-e2d9aa8131e8.png",
+      "source": "IGN",
       "isLive": true
     },
     {
@@ -376,7 +529,7 @@
         "Rivian"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 47,
       "url": "https://insideevs.com/news/816234/rivian-r2-2-inch-lift-kit-sema/",
       "image": "/images/feed/feed-ba2a4a5a5507.jpg",
       "source": "InsideEVs",
@@ -395,7 +548,7 @@
         "Cve-"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 54,
       "url": "https://thehackernews.com/2026/11/new-linux-kvm-flaw-cve-2026-99312-lets.html",
       "image": "/images/feed/feed-bf49fa089ac3.jpg",
       "source": "The Hacker News",
@@ -414,48 +567,10 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 43,
       "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-now-automatically-installs-windows-11-26h2-on-personal-and-unmanaged-pcs/",
       "image": "/images/feed/feed-591bae003587.jpg",
       "source": "BleepingComputer",
-      "isLive": true
-    },
-    {
-      "id": "feed-076b7bbe3133",
-      "title": "Critics Aren’t Happy With David Fincher’s ‘Blatant And Egregious AI Use’ In Tarrantino Sequel",
-      "excerpt": "Fincher and Tarantino's The Further Mis-Adventures of Cliff Booth gen-AI use has been labelled as 'nothing but an eyesore'",
-      "body": "Fincher and Tarantino's The Further Mis-Adventures of Cliff Booth gen-AI use has been labelled as 'nothing but an eyesore'\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Lewis Parker",
-      "date": "2026-11-20",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 48,
-      "url": "https://kotaku.com/critics-arent-happy-with-david-fincher-generative-ai-tarantino-cliff-booth-sequel-2000758811",
-      "image": "/images/feed/feed-076b7bbe3133.jpg",
-      "source": "Kotaku",
-      "isLive": true
-    },
-    {
-      "id": "feed-d0989b29663e",
-      "title": "GTA 6 Actor Says Rockstar Made Their Non-Binary Character Unkillable",
-      "excerpt": "Jesse James Rose, who played the first non-binary character in Grand Theft Auto, shares their positive experience on the GTA 6 set.",
-      "body": "The state of Leonida has thousands of inhabitants, each one with their own story. One of them is Cygnus, not only Vice City's museum curator, but also the first non-binary character in Grand Theft Auto history. In a detailed Instagram post , actor Jesse James Rose revealed that they played Cygnus and shared their experience working with Rockstar Games on the set of GTA 6 .",
-      "author": "Ashely Claudino",
-      "date": "2026-11-20",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 40,
-      "url": "https://www.polygon.com/gta-6-grand-theft-auto-cygnus-non-binary-character-actor/",
-      "image": "/images/feed/feed-d0989b29663e.jpg",
-      "source": "Polygon",
       "isLive": true
     },
     {
@@ -471,7 +586,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 54,
       "url": "https://thehackernews.com/2026/11/the-path-to-ai-autonomy-in-soc.html",
       "image": "/images/feed/feed-fb4a18f34f81.png",
       "source": "The Hacker News",
@@ -490,67 +605,10 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 39,
       "url": "https://electrek.co/2026/11/20/double-guns-ultra-class-haul-truck-packs-dual-gun-mcs-charging-4-mwh-battery/",
       "image": "/images/feed/feed-f3a2bd278dfd.png",
       "source": "Electrek",
-      "isLive": true
-    },
-    {
-      "id": "feed-204be68c17a7",
-      "title": "Japan’s Players Are Appreciating Rockstar’s Clever Parody Of America’s Bad Japanese Restaurants",
-      "excerpt": "An ode to the poorly-named Japanese restaurants all across America",
-      "body": "An ode to the poorly-named Japanese restaurants all across America\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Alicia Haddick",
-      "date": "2026-11-20",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 53,
-      "url": "https://kotaku.com/grand-theft-auto-vi-gta6-rockstar-japanese-restaurant-puns-2000758644",
-      "image": "/images/feed/feed-204be68c17a7.jpg",
-      "source": "Kotaku",
-      "isLive": true
-    },
-    {
-      "id": "feed-958e73318eaa",
-      "title": "Every Future Driving Game Needs to Steal This GTA 6 Feature",
-      "excerpt": "In Grand Theft Auto 6, Rockstar makes it easier to cruise at the speed limit using the PS5 DualSense adaptive triggers",
-      "body": "I've written numerous times about my love for open-world driving games. I love racing, but I also love cruising, taking in the landscape, setting out on road trips. My heart belongs to Test Drive Unlimited . I've written a tourist guide for the Forza Horizon series . One of my games of the year is the Road Trip DLC for American Truck Simulator .",
-      "author": "Oli Welsh",
-      "date": "2026-11-20",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Game"
-      ],
-      "featured": false,
-      "xpReward": 53,
-      "url": "https://www.polygon.com/gta-6-ps5-dualsense-driving-cruising/",
-      "image": "/images/feed/feed-958e73318eaa.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-802c9a68c822",
-      "title": "The Lord of the Rings scene they were all waiting for",
-      "excerpt": "This emotional scene between Míriel and Elrond was powerful for the cast of The Lord of the Rings: The Rings of Power.",
-      "body": "This emotional scene between Míriel and Elrond was powerful for the cast of The Lord of the Rings: The Rings of Power.\n\nThis report, published by Polygon, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Polygon using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Corey Plante",
-      "date": "2026-11-20",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 41,
-      "url": "https://www.polygon.com/video/the-lord-of-the-rings-scene-they-were-all-waiting-for/",
-      "image": "/images/feed/feed-802c9a68c822.png",
-      "source": "Polygon",
       "isLive": true
     },
     {
@@ -585,7 +643,7 @@
         "Spacex"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 52,
       "url": "https://www.space.com/space-exploration/launches-spacecraft/spacex-crs-35-dragon-iss-cargo-mission-return-to-earth",
       "image": "/images/feed/feed-1297fdc39202.jpg",
       "source": "Space.com",
@@ -604,7 +662,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 30,
       "url": "https://www.space.com/astronomy/black-holes/einstein-was-right-scientists-verify-1st-image-of-a-black-hole-ever-captured",
       "image": "/images/feed/feed-969852f60313.png",
       "source": "Space.com",
@@ -623,7 +681,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 39,
       "url": "https://insideevs.com/news/815684/vw-id-polo-gti-clubsport-concept-specs-power-charging/",
       "image": "/images/feed/feed-b710d3d520eb.jpg",
       "source": "InsideEVs",
@@ -642,7 +700,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 45,
       "url": "https://www.bleepingcomputer.com/news/security/f5-releases-emergency-patches-for-critical-big-ip-rce-flaws/",
       "image": "/images/feed/feed-020cc9161686.jpg",
       "source": "BleepingComputer",
@@ -662,30 +720,9 @@
         "Security"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 37,
       "url": "https://thehackernews.com/2026/11/sonicwall-warns-gen-6-firewalls-wont.html",
       "image": "/images/feed/feed-ad718c0cc3d8.jpg",
-      "source": "The Hacker News",
-      "isLive": true
-    },
-    {
-      "id": "feed-2c70ac04df1b",
-      "title": "Hackers Exploit Critical Cisco Expressway Flaw, Breach Four Devices and Reach Internal Network",
-      "excerpt": "Threat actors have been observed exploiting a recently disclosed critical security flaw in Cisco Expressway to breach a Russian organization shortly after the public release of a proof-of-concept (PoC…",
-      "body": "Threat actors have been observed exploiting a recently disclosed critical security flaw in Cisco Expressway to breach a Russian organization shortly after the public release of a proof-of-concept (PoC) exploit. The activity involves the exploitation of CVE-2026-76466 (CVSS score: 9.8), a vulnerability that could allow an unauthenticated, remote attacker with network access to a Cisco Expressway",
-      "author": "info@thehackernews.com (The Hacker News)",
-      "date": "2026-11-20",
-      "readTime": "2 min",
-      "section": "cybersecurity",
-      "tags": [
-        "Exploit",
-        "Hacker",
-        "Breach"
-      ],
-      "featured": false,
-      "xpReward": 36,
-      "url": "https://thehackernews.com/2026/11/hackers-exploit-critical-cisco.html",
-      "image": "/images/feed/feed-2c70ac04df1b.jpg",
       "source": "The Hacker News",
       "isLive": true
     },
@@ -702,29 +739,10 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 53,
       "url": "https://insideevs.com/news/816205/lucid-15000-usd-discount-black-friday/",
       "image": "/images/feed/feed-154d6d974536.jpg",
       "source": "InsideEVs",
-      "isLive": true
-    },
-    {
-      "id": "feed-dd211daa92ed",
-      "title": "UK fridges secured from hackers",
-      "excerpt": "https://www.pentestpartners.com/security-blog/the-fridge-hac...",
-      "body": "https://www.pentestpartners.com/security-blog/the-fridge-hac — a development drawing significant attention in the cybersecurity and digital privacy space.\n\nThis report, published by Hacker News, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Hacker. As the situation continues to evolve, professionals and enthusiasts in the cybersecurity and digital privacy field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Hacker News using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "tomnext",
-      "date": "2026-11-20",
-      "readTime": "2 min",
-      "section": "cybersecurity",
-      "tags": [
-        "Hacker"
-      ],
-      "featured": false,
-      "xpReward": 36,
-      "url": "https://www.bbc.co.uk/news/articles/c6eq49zyx7p4o",
-      "image": "/images/feed/feed-dd211daa92ed.jpg",
-      "source": "Hacker News",
       "isLive": true
     },
     {
@@ -740,7 +758,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 45,
       "url": "https://www.wired.com/story/castlery-promo-code/",
       "image": "/images/feed/feed-4bae9221d703.png",
       "source": "Wired",
@@ -759,7 +777,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 47,
       "url": "https://science.nasa.gov/image-article/apod-2026-november-20-v-g-r/",
       "image": "/images/feed/feed-eb6a9e0ae310.jpg",
       "source": "NASA Breaking News",
@@ -778,7 +796,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 43,
       "url": "https://science.nasa.gov/earth/earth-observatory/the-stormy-southwest-pacific/",
       "image": "/images/feed/feed-1abfeec1620d.jpg",
       "source": "NASA Breaking News",
@@ -797,28 +815,9 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 36,
       "url": "https://cleantechnica.com/2026/11/19/agco-celebrates-construction-milestone-at-olmedo-solar-project-in-spain/",
       "image": "/images/feed/feed-576f2062d3b7.jpg",
-      "source": "CleanTechnica",
-      "isLive": true
-    },
-    {
-      "id": "feed-3e92e67f5a39",
-      "title": "Inspiring Hearts & Minds on Solar",
-      "excerpt": "Since the invention of the solar cell seven decades ago, the story of American solar has seen its fair share of twists and turns on its journey to becoming the country’s most affordable and fastest-gr…",
-      "body": "Since the invention of the solar cell seven decades ago, the story of American solar has seen its fair share of twists and turns on its journey to becoming the country’s most affordable and fastest-growing energy source. While the market continues demanding more solar and energy storage at a rapid ... [continued] The post Inspiring Hearts &#038; Minds on Solar appeared first on CleanTechnica .",
-      "author": "Guest Contributor",
-      "date": "2026-11-20",
-      "readTime": "2 min",
-      "section": "cars",
-      "tags": [
-        "Cars"
-      ],
-      "featured": false,
-      "xpReward": 30,
-      "url": "https://cleantechnica.com/2026/11/19/inspiring-hearts-minds-on-solar/",
-      "image": "/images/feed/feed-3e92e67f5a39.jpg",
       "source": "CleanTechnica",
       "isLive": true
     },
@@ -835,7 +834,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 46,
       "url": "https://techcrunch.com/2026/11/19/apple-may-be-developing-its-own-ai-agent-that-runs-your-mac/",
       "image": "https://techcrunch.com/wp-content/uploads/2026/06/iphone-usb-cable.jpg?resize=1200,800",
       "source": "TechCrunch",
@@ -854,7 +853,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 49,
       "url": "https://techcrunch.com/2026/11/19/anthropics-7-founders-cashed-out-nearly-2b-in-record-breaking-ipo/",
       "image": "https://techcrunch.com/wp-content/uploads/2026/11/antrhopic-openingday-getty.jpg?resize=1200,801",
       "source": "TechCrunch",
@@ -873,7 +872,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 53,
       "url": "https://techcrunch.com/2026/11/19/anthropic-rival-says-companies-can-mostly-skip-the-pricey-models/",
       "image": "https://techcrunch.com/wp-content/uploads/2026/11/Chenyu-Zhao.jpg?resize=1200,800",
       "source": "TechCrunch",
@@ -892,7 +891,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 48,
       "url": "https://www.wired.com/story/uncanny-valley-podcast-whats-with-all-these-outages/",
       "image": "/images/feed/feed-59959673c5cf.jpg",
       "source": "Wired",
@@ -912,7 +911,7 @@
         "Gpt"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 50,
       "url": "https://www.cnet.com/tech/openais-gpt-6-2-sol-backlash-early-testers/",
       "image": "/images/feed/feed-ebab9672cbd9.jpg",
       "source": "CNET",
@@ -931,7 +930,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 51,
       "url": "https://techcrunch.com/2026/11/19/anthropics-ipo-could-deliver-156-billion-to-charity/",
       "image": "https://techcrunch.com/wp-content/uploads/2026/01/GettyImages-2256664479.jpg?resize=1200,800",
       "source": "TechCrunch",
@@ -939,16 +938,16 @@
     }
   ],
   "breakingNews": [
-    "DEV.TO: Cluster Autoscaler not scaling down nodes: finding the reason in its logs",
-    "DEV.TO: How I Built a Marketplace Review Site on WordPress — Lessons on Speed, Structure, and Trust",
-    "DEV.TO: AWS Setup Checklist for Startups: Account Ownership, IAM, MFA, Budgets and Cleanup (With Configs)",
-    "DEV.TO: When I say a ticket is fully tested, how sure am I?",
-    "DEV.TO: André Dias Moreira Prol explica: Ethereum ou Stellar para tokenizar ativos",
-    "DEV.TO: Give the agent the existing form-library pattern, don’t invent a new useState form",
-    "DEV.TO: How to reduce AI costs: 9 ways that work in 2026",
-    "POLYGON: Matt Damon Reveals the Surprising Secret Behind 'The Odyssey's Epic Final Battle",
-    "SPACE.COM: I got to tour SpaceX's Starfactory facility in Starbase, Texas, and what I saw blew my mind",
-    "9TO5MAC: iPhone Air 2 dummy unit shows off new dual-camera design"
+    "DEV.TO: UPDF Review - Can an AI PDF Editor Replace Adobe Acrobat in a Developer's Workflow?",
+    "DEV.TO: Why your OCR sees ID photos sideways: EXIF orientation, and fixing it with Pillow",
+    "DEV.TO: Limiting concurrency in Python asyncio with a semaphore and per-task timeouts, in the right order",
+    "DEV.TO: P6 - Secretos en OKE: de Terraform al pod con OCI Vault y External Secrets, sin pasar por git",
+    "DEV.TO: How ApplyOS keeps AI feedback tied to the right resume version",
+    "DEV.TO: Split a PDF in the browser with pdf-lib: page ranges, no server, about 40 lines",
+    "DEV.TO: nginx2root (CVE-2026-123007): what it is, who is exposed, and what to do today",
+    "ANDROID AUTHORITY: Nothing schedules next AI hardware announcement for December 8",
+    "POLYGON: GTA 6 Learned All the Right Lessons From Zelda: Breath of the Wild",
+    "TECHCRUNCH: Six AI-powered gadgets that could make your home office smarter"
   ],
   "sectionVideos": {}
 }
