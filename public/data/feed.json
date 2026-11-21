@@ -1,6 +1,310 @@
 {
-  "fetchedAt": "2026-11-20T23:10:41.057Z",
+  "fetchedAt": "2026-11-21T00:22:42.372Z",
   "articles": [
+    {
+      "id": "feed-6e74295fa675",
+      "title": "Node.js PNG Retention: Verifying AI Image Buffers in S3-Compatible Tenant Storage",
+      "excerpt": "The operational constraint is tenant isolation: a valid PNG in the wrong tenant prefix is a security incident, not a successful upload. Short answer: keep the generated image as a Node.js Buffer, writ…",
+      "body": "The operational constraint is tenant isolation: a valid PNG in the wrong tenant prefix is a security incident, not a successful upload. Short answer: keep the generated image as a Node.js Buffer , write it once under a deterministic tenant-and-job key, confirm its length and media type with HEAD, and save the database record only after that check passes. Deliver the object through a presigned link rather than a permanent public URL. For a gaming service retaining PNG renders of signed player documents, the deletion deadline belongs in the application database beside the tenant ID and object key. Object storage holds the bytes. It should not become the authority for who owns them, when they expire, or whether a regeneration may overwrite them.",
+      "author": "nilsberg2187",
+      "date": "2026-11-21",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 38,
+      "url": "https://dev.to/nilsberg2187/nodejs-png-retention-verifying-ai-image-buffers-in-s3-compatible-tenant-storage-2gip",
+      "image": "/images/feed/feed-6e74295fa675.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-66d7ae4dc3c1",
+      "title": "Invoice Template Ownership With Uploaded Scan OCR and Extracted Text Validation",
+      "excerpt": "A healthtech invoice service has two distinct inputs: order data that should determine the invoice, and uploaded scans that may help reconcile it. Template ownership decides where those inputs meet. I…",
+      "body": "A healthtech invoice service has two distinct inputs: order data that should determine the invoice, and uploaded scans that may help reconcile it. Template ownership decides where those inputs meet. If a recognition result can silently change a billing template, an OCR confidence problem becomes a rendering problem. The separation needs to be explicit. Short answer: Accept and validate the upload, retain the original scan, queue OCR, and store extracted text against the document ID. Validate candidate billing values before admitting them into order data. Generate the invoice PDF through an explicitly owned template. Keep operational telemetry small enough to explain this sequence without copying the medical document into the logs.",
+      "author": "WindwhisperBoren33",
+      "date": "2026-11-21",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 51,
+      "url": "https://dev.to/windwhisperboren33/invoice-template-ownership-with-uploaded-scan-ocr-and-extracted-text-validation-1i8m",
+      "image": "/images/feed/feed-66d7ae4dc3c1.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-a124320ab199",
+      "title": "Schema-First Practices for Debugging Malformed JSON Responses in Notification Failure Workflows",
+      "excerpt": "Schema-First Practices for Debugging Malformed JSON Responses in Notification Failure Workflows Treat malformed JSON as a delivery event with a quarantine path, not as an alerting problem to hide insi…",
+      "body": "Schema-First Practices for Debugging Malformed JSON Responses in Notification Failure Workflows Treat malformed JSON as a delivery event with a quarantine path, not as an alerting problem to hide inside a retry loop. Validate the response against a strict schema before recording delivery cost, preserve the request and trace context, and make every retry idempotent. That gives a notification service two useful answers: what failed, and which delivery attempt should own the cost. For this workflow, I would use structured logs plus error capture as the evidence layer, then build polling around it if an alert is required.",
+      "author": "JerichoRhodes5847",
+      "date": "2026-11-21",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 30,
+      "url": "https://dev.to/jerichorhodes5847/schema-first-practices-for-debugging-malformed-json-responses-in-notification-failure-workflows-59d6",
+      "image": "/images/feed/feed-a124320ab199.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-4bb36e0d1635",
+      "title": "4 Intense Product Manager Interview Questions and how to ace them.",
+      "excerpt": "Even the most experienced product managers think interviews are an edgy exercise. You are suddenly asked a question and your mind blanks out. I see this happens often and again. It’s tough and you do…",
+      "body": "Even the most experienced product managers think interviews are an edgy exercise. You are suddenly asked a question and your mind blanks out. I see this happens often and again. It’s tough and you do not get the job. So it is important to cultivate the efficient habit of question-and-answer interview prepping. Ensure you are never caught off guard by an unexpected question and i want to help some PMs out here. I have condensed in this slide, all 4 questions and a high level simplistic approach to help you shine through. What matters most is how you structure your answers, demonstrate your problem solving skills and influence. Good Luck! 1. How will you manage a new product launch? How to Answer Articulate your GTM strategy.",
+      "author": "Salem Evbogbai",
+      "date": "2026-11-21",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 30,
+      "url": "https://dev.to/salemevb/4-intense-product-manager-interview-questions-and-how-to-ace-them-3kd0",
+      "image": "/images/feed/feed-4bb36e0d1635.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-a8125cd3a28a",
+      "title": "Thoughts on “Bias Towards Action”",
+      "excerpt": "As long as one can remember and especially in tech spaces, the term “Bias for action” has become the default setting in a lot of modern settings. Speed matters. Markets move. Customers don’t wait. But…",
+      "body": "As long as one can remember and especially in tech spaces, the term “Bias for action” has become the default setting in a lot of modern settings. Speed matters. Markets move. Customers don’t wait. But when everything becomes “go, go, go,” that bias can quietly create a few unhealthy patterns: 1. Solutions Looking for Problems When we move too fast, we jump to answers before we fully understand the question. It’s human nature: the more experience we have, the more likely we are to reach for familiar playbooks — a new process, a favorite framework, another tool. The risk: we spend cycles polishing solutions that were never pointed at the real problem. 2. Motion Without Direction In action-heavy cultures, “What are the next steps?” becomes the default ending to every meeting.",
+      "author": "Salem Evbogbai",
+      "date": "2026-11-21",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 34,
+      "url": "https://dev.to/salemevb/thoughts-on-bias-towards-action-192g",
+      "image": "/images/feed/feed-a8125cd3a28a.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-1b44968f0779",
+      "title": "Stop Returning Bare Linter Error Codes to Coding Agents: Opaque Error Codes vs. Actionable Fix-Hint Linters (-69.6% Input Tokens)",
+      "excerpt": "💡 AI Labo Benchmark Series — Experiment E17 (Feedback Sensors & Self-Correction) This post is part of our empirical benchmark series testing AI coding agent harness patterns inside network-isolated P…",
+      "body": "💡 AI Labo Benchmark Series — Experiment E17 (Feedback Sensors &amp; Self-Correction) This post is part of our empirical benchmark series testing AI coding agent harness patterns inside network-isolated Proxmox VMs against a hidden 20-case grading suite. 🚀 View All 41 Benchmark Results &amp; Master Ranking 🛡️ Read How Our Proxmox &amp; systemd Anti-Cheating Sandbox Works Metadata &amp; Experiment Identity Experiment ID: E17 (Backlog Candidate C013 ) Run ID: e17-vm221-20261028-01-03 Sandbox Environment: Proxmox Isolated VM VM221 ( ai-e17-221 , 0 NICs, PrivateNetwork=yes , ProtectSystem=strict , UID split labexp17 / labjudge17 ) Model: gemini-3.8-flash Pattern Under Test: \"Human-Oriented vs.",
+      "author": "tappers",
+      "date": "2026-11-21",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 33,
+      "url": "https://dev.to/tappers_/stop-returning-bare-linter-error-codes-to-coding-agents-opaque-error-codes-vs-actionable-fix-hint-1h2b",
+      "image": "/images/feed/feed-1b44968f0779.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-2f170b490250",
+      "title": "Incorporating a startup from Codex: connecting Corply's MCP server",
+      "excerpt": "Codex can incorporate a Delaware C-corp once it's connected to a formation service. Codex has no formation tools built in, so you add one through MCP. This post walks through Corply, the service we bu…",
+      "body": "Codex can incorporate a Delaware C-corp once it's connected to a formation service. Codex has no formation tools built in, so you add one through MCP. This post walks through Corply, the service we build. One setup command connects it and installs a Corply skill, so Codex knows how to run the formation. Is there a Codex plugin? You don't need one. Corply connects to Codex as a standard MCP server at https://corply.dev/mcp . The setup script adds that connection and a skill that tells Codex how to use it. The cross-agent plugin source, including a Codex manifest, is on GitHub . 1. Connect macOS or Linux, with Node.js 18+ and the Codex CLI: curl -fsSL https://corply.dev/setup/codex.sh | sh Windows PowerShell: download https://corply.dev/setup/codex-setup.mjs and run: node codex - setup .",
+      "author": "Corply",
+      "date": "2026-11-21",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Startup"
+      ],
+      "featured": false,
+      "xpReward": 37,
+      "url": "https://dev.to/corply/incorporating-a-startup-from-codex-connecting-corplys-mcp-server-59fc",
+      "image": "/images/feed/feed-2f170b490250.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-0c2b60286d41",
+      "title": "So Is The $100 GTA 6 Ultimate Edition Actually Worth It?",
+      "excerpt": "It really comes down to how many extra shirts, tattoo designs, and car options you want",
+      "body": "It really comes down to how many extra shirts, tattoo designs, and car options you want\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Zack Zwiezen",
+      "date": "2026-11-21",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 38,
+      "url": "https://kotaku.com/so-is-the-100-gta-6-ultimate-edition-actually-worth-it-2000758998",
+      "image": "/images/feed/feed-0c2b60286d41.jpg",
+      "source": "Kotaku",
+      "isLive": true
+    },
+    {
+      "id": "feed-053a2a6d532d",
+      "title": "Everything We Know About GTA 7",
+      "excerpt": "GTA 7 is not much more than a hypothetical at this point, with GTA 6 having just been released, but there are some hints about GTA's future.",
+      "body": "Grand Theft Auto 6 has only just been released, so it might seem a bit early to start thinking about Grand Theft Auto 7 . I swear I’m not just writing an “Everything we know about GTA 7” article just so I can stuff a post with the “Everything we know about GTA 7” keyword and have Polygon own “Everything we know about GTA 7” search queries. That would be quite a gambit.",
+      "author": "Ari Notis",
+      "date": "2026-11-21",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 49,
+      "url": "https://www.polygon.com/gta-7-release-setting/",
+      "image": "/images/feed/feed-053a2a6d532d.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-588cbcb588ed",
+      "title": "8 Near-Perfect Fantasy Miniseries That Hook You in the First Episode",
+      "excerpt": "From gothic castles to hidden London underworlds, these essential fantasy miniseries cast an instant spell on viewers from episode one.",
+      "body": "Fantasy television has given us some of the most imaginative stories ever told, transporting viewers to magical kingdoms, mysterious alternate realities, and worlds filled with creatures that shouldn't exist. Shows like Game of Thrones and Rings of Power dominate the conversation, pushing some of the genre's best storytelling to the forefront, but there’s something to be said of the smaller productions and shorter stories.",
+      "author": "Ryan Epps",
+      "date": "2026-11-21",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 36,
+      "url": "https://www.polygon.com/8-near-perfect-fantasy-miniseries-that-hook-you-in-the-first-episode/",
+      "image": "/images/feed/feed-588cbcb588ed.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-2cfaf4ce76bb",
+      "title": "'Steps' Ending Explained: Director Reveals the True Meaning Behind Cinderella Adaptation",
+      "excerpt": "The inclusive ending of Netflix's hottest animated hit 'Steps' is perfectly explained by its directors.",
+      "body": "Netflix’s newest animated sensation, directed by Alyce Tzue ( Soar ) and John Ripa ( Raya and the Last Dragon ), dares to ask: what if Cinderella’s ugly stepsisters weren’t so ugly and bad after all, but were instead besieged by a Western world that reacted to their East Asian heritage with distrust and unease?",
+      "author": "Aimee Hart",
+      "date": "2026-11-21",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 47,
+      "url": "https://www.polygon.com/netflix-steps-ending-explained/",
+      "image": "/images/feed/feed-2cfaf4ce76bb.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-c0c7dca693dc",
+      "title": "Why you shouldn't depend on GTA 6 to auto-save",
+      "excerpt": "We explain how GTA 6's auto-save system works, so you don't accidentally lose progress in the massive game.",
+      "body": "We explain how GTA 6's auto-save system works, so you don't accidentally lose progress in the massive game.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "staff@engadget.com (Maddie Fisher)",
+      "date": "2026-11-20",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 49,
+      "url": "https://www.engadget.com/2323929/why-you-shouldnt-rely-on-gta-6-auto-save/",
+      "image": "/images/feed/feed-c0c7dca693dc.jpg",
+      "source": "Engadget",
+      "isLive": true
+    },
+    {
+      "id": "feed-4bb0c619ef8c",
+      "title": "9to5Mac Daily: November 20, 2026 – Siri AI limits, HomeView update",
+      "excerpt": "Listen to a recap of the top stories of the day from 9to5Mac. 9to5Mac Daily is available on iTunes and Apple’s Podcasts app, Stitcher, TuneIn, Google Play, or through our dedicated RSS feed for Overca…",
+      "body": "Listen to a recap of the top stories of the day from 9to5Mac . 9to5Mac Daily is available on iTunes and Apple’s Podcasts app , Stitcher , TuneIn , Google Play , or through our dedicated RSS feed for Overcast and other podcast players. Sponsored by Backblaze : Backup you can rely on. Save 20% with code 9to5daily . more…",
+      "author": "Seth Kurkowski",
+      "date": "2026-11-20",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 35,
+      "url": "https://9to5mac.com/2026/11/20/daily-november-20-2026/",
+      "image": "/images/feed/feed-4bb0c619ef8c.jpg",
+      "source": "9to5Mac",
+      "isLive": true
+    },
+    {
+      "id": "feed-5aed955b7d17",
+      "title": "YouTube could pay $3 billion to settle social media addiction lawsuits with school districts",
+      "excerpt": "YouTube is facing a growing number of lawsuits alleging that its platform is designed to be addictive and that it has harmed teens.",
+      "body": "YouTube is facing a growing number of lawsuits alleging that its platform is designed to be addictive and that it has harmed teens.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gadgets. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "staff@engadget.com (Ian Carlos Campbell)",
+      "date": "2026-11-20",
+      "readTime": "2 min",
+      "section": "gadgets",
+      "tags": [
+        "Gadgets"
+      ],
+      "featured": false,
+      "xpReward": 33,
+      "url": "https://www.engadget.com/2323927/youtube-could-pay-3-billion-to-settle-social-media-addiction-lawsuits-with-school-districts/",
+      "image": "/images/feed/feed-5aed955b7d17.jpg",
+      "source": "Engadget",
+      "isLive": true
+    },
+    {
+      "id": "feed-240dec25350f",
+      "title": "How To Solve All Main Puzzles In GTA 6′s Tenebrae Lux",
+      "excerpt": "Hope you like sea shanties!",
+      "body": "Hope you like sea shanties!\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Rebekah Valentine",
+      "date": "2026-11-20",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 52,
+      "url": "https://kotaku.com/how-to-solve-all-main-puzzles-in-gta-6s-tenebrae-lux-2000758940",
+      "image": "/images/feed/feed-240dec25350f.jpg",
+      "source": "Kotaku",
+      "isLive": true
+    },
+    {
+      "id": "feed-8685c65c5c02",
+      "title": "Cops Are Pushing Extremely Corny ‘Grand Theft Auto 6’ Slop",
+      "excerpt": "The blockbuster game makes no secret of its contempt for law enforcement. Real police departments using it to recruit new members and scold the public apparently didn’t get the memo.",
+      "body": "The blockbuster game makes no secret of its contempt for law enforcement. Real police departments using it to recruit new members and scold the public apparently didn’t get the memo.\n\nThis report, published by Wired, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Wired using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "author": "Miles Klee",
+      "date": "2026-11-20",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 43,
+      "url": "https://www.wired.com/story/cops-are-being-extremely-corny-about-gta-vi/",
+      "image": "/images/feed/feed-8685c65c5c02.jpg",
+      "source": "Wired",
+      "isLive": true
+    },
     {
       "id": "feed-62a67ac5387d",
       "title": "iOS 27 lets you use two iPhones with the same phone number",
@@ -13,8 +317,8 @@
       "tags": [
         "Iphone"
       ],
-      "featured": true,
-      "xpReward": 44,
+      "featured": false,
+      "xpReward": 41,
       "url": "https://9to5mac.com/2026/11/20/ios-27-lets-you-use-two-iphones-with-the-same-phone-number/",
       "image": "/images/feed/feed-62a67ac5387d.jpg",
       "source": "9to5Mac",
@@ -32,162 +336,10 @@
       "tags": [
         "Gaming"
       ],
-      "featured": true,
-      "xpReward": 52,
+      "featured": false,
+      "xpReward": 43,
       "url": "https://kotaku.com/8-amazing-indie-games-we-think-you-should-go-play-2000758862",
       "image": "/images/feed/feed-705d1e05f248.jpg",
-      "source": "Kotaku",
-      "isLive": true
-    },
-    {
-      "id": "feed-8aac179346ee",
-      "title": "Secure OTP Generation and Validation — External SMS Evidence for Support Queues",
-      "excerpt": "Gate support-queue admission on a short-lived, single-use SMS OTP, and keep the verification decision separate from the routing decision. For a custom Node.js service, the deciding constraint is wheth…",
-      "body": "Gate support-queue admission on a short-lived, single-use SMS OTP, and keep the verification decision separate from the routing decision. For a custom Node.js service, the deciding constraint is whether you can explain why a contact-form submission entered a particular support queue, without treating a delivered text message as proof of identity or authorization. TL;DR: Generate the OTP with Node.js crypto, store a temporary challenge with expiration metadata, send through an external SMS API, and validate against that challenge before admitting the submission. Bind the challenge to the form submission and the intended action. Record the policy that selected the queue.",
-      "author": "magnusberg2958",
-      "date": "2026-11-20",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 52,
-      "url": "https://dev.to/magnusberg2958/secure-otp-generation-and-validation-external-sms-evidence-for-support-queues-cnd",
-      "image": "/images/feed/feed-8aac179346ee.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-4a9c3671004e",
-      "title": "JavaScript's \\b Is ASCII-Only: How It Silently Broke Our Rules in Six Languages",
-      "excerpt": "We run a chat application used in nine languages, and a surprising amount of its behaviour depends on regular expressions: recognising that a user said \"yes\", detecting that a message asks for a photo…",
-      "body": "We run a chat application used in nine languages, and a surprising amount of its behaviour depends on regular expressions: recognising that a user said \"yes\", detecting that a message asks for a photo, catching a stated age in the safety layer. In one month we found the same defect three times, in three places, each time without an error, a log line or a failing test. A rule simply never fired. The cause: in JavaScript, \\b does not know about Unicode. The behaviour A word boundary \\b is a position between a character in [A-Za-z0-9_] and one that is not. That definition is fixed: the u and v flags do not change it. Every accented Latin letter, and every letter of every other script, counts as a non-word character. / \\ b ( si | s ì ) \\ b / i .",
-      "author": "Lovora",
-      "date": "2026-11-20",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Javascript"
-      ],
-      "featured": true,
-      "xpReward": 47,
-      "url": "https://dev.to/lovora/javascripts-b-is-ascii-only-how-it-silently-broke-our-rules-in-six-languages-5bk5",
-      "image": "/images/feed/feed-4a9c3671004e.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-fef78e2193c2",
-      "title": "Long-term memory for an AI companion without a vector database: 40 messages verbatim + 15 distilled facts",
-      "excerpt": "I run Lovora, an AI companion service for adults in nine languages. The number one thing people ask an AI companion is \"will she remember me?\", and \"memory\" turns out to mean two different things. Her…",
-      "body": "I run Lovora , an AI companion service for adults in nine languages. The number one thing people ask an AI companion is \"will she remember me?\", and \"memory\" turns out to mean two different things. Here is the design we use, and why. Two layers, two jobs 1. The recent conversation, word for word. On every reply the model receives the last 40 messages of the chat, both sides, exactly as written. In voice calls it is the last 24, because spoken turns need to be answered faster and the prompt has to stay small. This layer is what keeps a scene or an argument coherent. A summary would lose the exact wording, the jokes and the thing she promised two messages ago, which is exactly what people notice in a conversation. 2. Long-term facts about the user.",
-      "author": "Lovora",
-      "date": "2026-11-20",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Database"
-      ],
-      "featured": true,
-      "xpReward": 43,
-      "url": "https://dev.to/lovora/long-term-memory-for-an-ai-companion-without-a-vector-database-40-messages-verbatim-15-distilled-11gf",
-      "image": "/images/feed/feed-fef78e2193c2.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-417788b70d93",
-      "title": "Looking for feedback on my new website!",
-      "excerpt": "I made a new social media called Biosphere, and I would love for you to give it a try. It is a healthier social media with no algorithm or flashy content to get you hooked on a dopamine cycle. Also, i…",
-      "body": "I made a new social media called Biosphere, and I would love for you to give it a try. It is a healthier social media with no algorithm or flashy content to get you hooked on a dopamine cycle. Also, it works like a hybrid between a forum and social media, so it still has the same features as social media, but your post gets seen on a global feed with everyone else's posts. Everything is a win on Biosphere. Want to see for yourself? Try it here: https://biosphere-sm.pages.dev/ Biosphere is still in development, so I hope you can give me honest feedback!",
-      "author": "Epic",
-      "date": "2026-11-20",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": true,
-      "xpReward": 33,
-      "url": "https://dev.to/epicpro7662/looking-for-feedback-on-my-new-website-a32",
-      "image": "/images/feed/feed-417788b70d93.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-dd25bf20acc7",
-      "title": "How to Run Long-Running AI Agents in Production (2026): Runtime Limits, Durable State, and Surviving Restarts and Outages",
-      "excerpt": "Long-running AI agents need three things that serverless request handlers do not give them: a process with no short execution cap, state checkpointed outside the process so a restart resumes from the…",
-      "body": "Long-running AI agents need three things that serverless request handlers do not give them: a process with no short execution cap, state checkpointed outside the process so a restart resumes from the last step, and presence in more than one location so a provider outage does not stop the agent. Most teams find these gaps after a prototype works in development. In production it dies mid-run when a function times out at 15 minutes, a deploy kills the container, or a zone goes offline. Disclosure: Control Plane publishes this guide. TL;DR Long-running AI agents fail in production when the infrastructure treats them like short-lived request handlers. Common serverless functions cap a single invocation or request at 5 to 60 minutes, which ends agents mid-task.",
-      "author": "Noah Grinstein",
-      "date": "2026-11-20",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 49,
-      "url": "https://dev.to/noahcontrolplane/how-to-run-long-running-ai-agents-in-production-2026-runtime-limits-durable-state-and-ahp",
-      "image": "/images/feed/feed-dd25bf20acc7.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-cf1ce20d1fd0",
-      "title": "The Build Passed. He Still Owes the Explanation.",
-      "excerpt": "A finished check means the argument typechecks. It does not mean you understand it. Levent Alpöge says he and Claude formalized a proof of the Generalized Riemann Hypothesis, without assumptions. He a…",
-      "body": "A finished check means the argument typechecks. It does not mean you understand it. Levent Alpöge says he and Claude formalized a proof of the Generalized Riemann Hypothesis, without assumptions. He also says he has not mastered the mathematics sitting around that argument. He says the formalization is finished. Turning it into a huge document with sufficient detail is, in his account, routine. He amused himself and got past 250,000 pages. Claude called the pile a book. Theorem 1 opens by noting that the real numbers are totally ordered. If a number is not one half, it is bigger, or it is smaller. A checker will spend a page saying so. That is how you know a human never edited it for a reader. He did not post the pile. He says posting that unreadable dump would be inappropriate.",
-      "author": "Puneet Nanda",
-      "date": "2026-11-20",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 38,
-      "url": "https://dev.to/puneet_nanda_dc25d8b489ad/the-build-passed-he-still-owes-the-explanation-4ee7",
-      "image": "/images/feed/feed-cf1ce20d1fd0.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-968e6902fb68",
-      "title": "How to fix \"MCP: Unsupported protocol version\"",
-      "excerpt": "Originally published at runheed.com. Returned with HTTP 400 (code -32000) by HTTP MCP servers built on @modelcontextprotocol/sdk 1.x when a request's MCP-Protocol-Version header names a version the SD…",
-      "body": "Originally published at runheed.com . Returned with HTTP 400 (code -32000) by HTTP MCP servers built on @modelcontextprotocol/sdk 1.x when a request's MCP-Protocol-Version header names a version the SDK does not know. SDK 1.32.2, the last 1.x release, supports 2025-11-25, 2025-06-18, 2025-03-26, 2024-11-05 and 2024-10-07. MCP 2026-07-28 is the first stateless revision: it drops the initialize handshake, so a client speaking it sends the version on every request, and the Python SDK 2.x lists it as its latest version.",
-      "author": "Great Work",
-      "date": "2026-11-20",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Software"
-      ],
-      "featured": false,
-      "xpReward": 39,
-      "url": "https://dev.to/greatworkco/how-to-fix-mcp-unsupported-protocol-version-3390",
-      "image": "/images/feed/feed-968e6902fb68.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-ea406343d688",
-      "title": "Three Games You Can Play For Free This Weekend On PC",
-      "excerpt": "Crusader Kings 3 is one of them",
-      "body": "Crusader Kings 3 is one of them\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Ethan Gach",
-      "date": "2026-11-20",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 36,
-      "url": "https://kotaku.com/three-games-you-can-play-for-free-this-weekend-on-pc-2000759063",
-      "image": "/images/feed/feed-ea406343d688.jpg",
       "source": "Kotaku",
       "isLive": true
     },
@@ -204,7 +356,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 45,
       "url": "https://science.nasa.gov/photojournal/curiosity-spots-drifting-twilight-clouds/",
       "image": "/images/feed/feed-9c4d73493b67.jpg",
       "source": "NASA Breaking News",
@@ -223,67 +375,10 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 51,
       "url": "https://www.engadget.com/2323828/the-internet-archives-workers-are-unionizing/",
       "image": "/images/feed/feed-bba7fd0562f4.jpg",
       "source": "Engadget",
-      "isLive": true
-    },
-    {
-      "id": "feed-a2032a4269f2",
-      "title": "Even Grand Theft Auto 6 Can’t Escape The Anti-Woke Culture War As It Gets Review-Bombed On Metacritic",
-      "excerpt": "Fellas, is it gay to love your beautiful girlfriend?",
-      "body": "Fellas, is it gay to love your beautiful girlfriend?\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Kenneth Shepard",
-      "date": "2026-11-20",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 47,
-      "url": "https://kotaku.com/grand-theft-auto-6-gta6-review-bomb-woke-misinformation-campaign-2000759045",
-      "image": "/images/feed/feed-a2032a4269f2.jpg",
-      "source": "Kotaku",
-      "isLive": true
-    },
-    {
-      "id": "feed-282b288c9e95",
-      "title": "Who is Johannes Zuch supposed to be in GTA 6?",
-      "excerpt": "Grand Theft Auto 6 includes an arthouse game parody called Tenebrae Lux that lampoons The Witness creator Jonathan Blow.",
-      "body": "Grand Theft Auto 6 includes an arthouse game parody called Tenebrae Lux that lampoons The Witness creator Jonathan Blow.\n\nThis report, published by Polygon, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Polygon using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Giovanni Colantonio",
-      "date": "2026-11-20",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 50,
-      "url": "https://www.polygon.com/gta-6-tenebrae-lux-jonathan-blow/",
-      "image": "/images/feed/feed-282b288c9e95.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-5db802f964b7",
-      "title": "10 New Movies to Watch This Weekend on Netflix, Prime Video, and HBO Max (November 20 - 22)",
-      "excerpt": "On this weekend's movie streaming and VOD column, there's the biggest movie of the year, Netflix's new animated movie, and more",
-      "body": "On this weekend's movie streaming and VOD column, there's the biggest movie of the year, Netflix's new animated movie, and more\n\nThis report, published by Polygon, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Polygon using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Maria Loreto",
-      "date": "2026-11-20",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 38,
-      "url": "https://www.polygon.com/new-movies-streaming-this-weekend-netflix-november-20-22/",
-      "image": "/images/feed/feed-5db802f964b7.jpg",
-      "source": "Polygon",
       "isLive": true
     },
     {
@@ -299,7 +394,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 38,
       "url": "https://www.androidauthority.com/unihertz-teases-new-titan-2-elite-colorway-3737949/",
       "image": "/images/feed/feed-e80eb9179d6d.jpg",
       "source": "Android Authority",
@@ -318,29 +413,10 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 32,
       "url": "https://9to5mac.com/2026/11/20/9to5mac-overtime-091-kicking-the-tires-and-seeing-what-works/",
       "image": "/images/feed/feed-e3e9bf9a9be6.jpg",
       "source": "9to5Mac",
-      "isLive": true
-    },
-    {
-      "id": "feed-80ea1a2860d7",
-      "title": "How to stream GTA 6 on your iPhone, iPad or Mac",
-      "excerpt": "If you're excited about GTA 6, chances are you'll want to keep playing it when you're away from your console.",
-      "body": "If you're excited about GTA 6, chances are you'll want to keep playing it when you're away from your console.\n\nThis report, published by Engadget, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Iphone. As the situation continues to evolve, professionals and enthusiasts in the consumer technology and devices field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Engadget using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "staff@engadget.com (Adnan Ahmed)",
-      "date": "2026-11-20",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Iphone"
-      ],
-      "featured": false,
-      "xpReward": 52,
-      "url": "https://www.engadget.com/2323793/how-to-stream-gta-6-iphone-ipad-mac/",
-      "image": "/images/feed/feed-80ea1a2860d7.jpg",
-      "source": "Engadget",
       "isLive": true
     },
     {
@@ -356,67 +432,10 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 31,
       "url": "https://electrek.co/2026/11/20/byd-first-look-new-flagship-people-mover/",
       "image": "/images/feed/feed-86e467d759ee.jpg",
       "source": "Electrek",
-      "isLive": true
-    },
-    {
-      "id": "feed-75e85e31628e",
-      "title": "Grand Theft Auto 6 Gave One Of The Best Pop Songs Of The Century Its Due",
-      "excerpt": "‘Cause you make me feel like I could be drivin’ you all night’",
-      "body": "‘Cause you make me feel like I could be drivin’ you all night’\n\nThis report, published by Kotaku, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Kotaku using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Kenneth Shepard",
-      "date": "2026-11-20",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 31,
-      "url": "https://kotaku.com/grand-theft-auto-gta-6-run-away-with-me-carly-rae-jepsen-soundtrack-song-2000758993",
-      "image": "/images/feed/feed-75e85e31628e.jpg",
-      "source": "Kotaku",
-      "isLive": true
-    },
-    {
-      "id": "feed-0f0cc9775eb3",
-      "title": "GTA 6 Players Are Officially Spending an ‘Absolutely Bonkers’ Amount of Time with the Game",
-      "excerpt": "Grand Theft Auto 6 players enjoyed GTA 6 for an average of eight hours on its launch day, an \"absolutely bonkers\" number.",
-      "body": "Grand Theft Auto 6 players weren't kidding about wanting to spend the game's entire launch day in Leonida. Much hullabaloo was made about people requesting time off from work or faking sick to spend the entire day playing GTA 6 , and plenty of companies tried to capitalize on that conversation with marketing stunts .",
-      "author": "Austin Manchester",
-      "date": "2026-11-20",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Game"
-      ],
-      "featured": false,
-      "xpReward": 36,
-      "url": "https://www.polygon.com/gta-6-playtime-stats-launch-day-ps5-xbox-series-x/",
-      "image": "/images/feed/feed-0f0cc9775eb3.jpg",
-      "source": "Polygon",
-      "isLive": true
-    },
-    {
-      "id": "feed-659bce67c89f",
-      "title": "Google Health 5.13 update makes tracking workouts and meals easier",
-      "excerpt": "There's some good news for iPhone users too.",
-      "body": "TL;DR Google Health version 5.13 is rolling out to Android and iOS users, with wider availability expected over the next week. The update brings improved workout tracking, new swimming controls, better food search, and more inclusive profile settings. Google has also fixed an Apple Health syncing issue and confirmed that third-party app support for select Fitbit watches ends November 28. It’s been less than a fortnight since the Google Health app received its last major update , and Google is already rolling out the next one — the tech giant just began rolling out Google Health version 5.13, and the update brings several quality-of-life changes to workout tracking, nutrition updates, health profiles, and more.",
-      "author": "Karandeep Singh Oberoi",
-      "date": "2026-11-20",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 44,
-      "url": "https://www.androidauthority.com/google-health-5-13-update-fitness-features-3737916/",
-      "image": "/images/feed/feed-659bce67c89f.jpg",
-      "source": "Android Authority",
       "isLive": true
     },
     {
@@ -434,29 +453,10 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 42,
       "url": "https://www.space.com/space-exploration/on-this-day-in-space-november-20-2026",
       "image": "/images/feed/feed-dc3e81286a95.jpg",
       "source": "Space.com",
-      "isLive": true
-    },
-    {
-      "id": "feed-bd53f3526ae0",
-      "title": "OpenAI’s ChatGPT app redesign adds a dedicated Dots tab",
-      "excerpt": "Take a look at the new mobile experience.",
-      "body": "Credit: Edgar Cervantes / Android Authority TL;DR OpenAI is rolling out a new mobile experience for the ChatGPT app. The redesign is meant to make it easier to reach your favorite features and discover what you can do. ChatGPT Pro users who have Dots or are eligible to create them will be the first to see the new experience. If you’ve grown comfortable with the layout of the ChatGPT app, get ready for a shake-up. Soon, it will look a little different from how you remember. OpenAI is giving the ChatGPT mobile experience a redesign. A preview of the app’s new look was shared by Thibault Sottiaux, head of Codex and ChatGPT at OpenAI. As the executive explains , the redesign aims to make it easier to reach your favorite features and discover what you can do.",
-      "author": "Ryan McNeal",
-      "date": "2026-11-20",
-      "readTime": "2 min",
-      "section": "gadgets",
-      "tags": [
-        "Gadgets"
-      ],
-      "featured": false,
-      "xpReward": 37,
-      "url": "https://www.androidauthority.com/chatgpt-app-redesign-rollout-3737931/",
-      "image": "/images/feed/feed-bd53f3526ae0.jpg",
-      "source": "Android Authority",
       "isLive": true
     },
     {
@@ -472,7 +472,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 30,
       "url": "https://electrek.co/2026/11/20/this-500-kwh-energy-storage-system-runs-on-retired-ev-batteries/",
       "image": "/images/feed/feed-76f910d04920.jpg",
       "source": "Electrek",
@@ -491,7 +491,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 44,
       "url": "https://www.space.com/astronomy/moon/dont-turn-the-moon-into-the-wild-west-scientists-warn",
       "image": "/images/feed/feed-c5141f616571.jpg",
       "source": "Space.com",
@@ -510,7 +510,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 45,
       "url": "https://techcrunch.com/2026/11/20/experts-warn-nearly-everyone-in-ai-is-susceptible-to-a-honey-trap-scheme-right-now/",
       "image": "https://techcrunch.com/wp-content/uploads/2026/11/Moor-Studio.jpg?resize=1200,705",
       "source": "TechCrunch",
@@ -529,7 +529,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 47,
       "url": "https://www.nasa.gov/directorates/rtmd/new-nasa-seed-funding-primes-small-businesses-for-innovation/",
       "image": "/images/feed/feed-4d5a0be027ca.png",
       "source": "NASA Breaking News",
@@ -548,7 +548,7 @@
         "Nasa"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 46,
       "url": "https://www.cnet.com/science/space/nasa-escapade-mars-gravity-assist/",
       "image": "/images/feed/feed-45fd14814727.jpg",
       "source": "CNET",
@@ -586,7 +586,7 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 30,
       "url": "https://electrek.co/2026/11/20/podcast-teslas-personal-cybercab-fords-lfp-for-fathom-aptera-delivers-and-more/",
       "image": "/images/feed/feed-3895243c8029.jpg",
       "source": "Electrek",
@@ -606,7 +606,7 @@
         "Orbit"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 48,
       "url": "https://www.space.com/astronomy/mars/trouble-at-mars-nasas-perseverance-rover-odyssey-orbiter-halt-science-work-due-to-glitches",
       "image": "/images/feed/feed-bd6d0f73487e.jpg",
       "source": "Space.com",
@@ -625,7 +625,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 50,
       "url": "https://www.cnet.com/tech/services-and-software/signal-text-message-screenshots/",
       "image": "/images/feed/feed-3e186dfc3598.jpg",
       "source": "CNET",
@@ -644,7 +644,7 @@
         "Claude"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 51,
       "url": "https://www.cnet.com/tech/claude-ai-privacy-settings-guide/",
       "image": "/images/feed/feed-c23ef5c11676.jpg",
       "source": "CNET",
@@ -663,7 +663,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 52,
       "url": "https://electrek.co/2026/11/20/anker-s5000-5kwh-power-station-segway-max-g3-plus-e-scooter-more/",
       "image": "/images/feed/feed-d1a6b3df647e.jpg",
       "source": "Electrek",
@@ -682,7 +682,7 @@
         "Hacker"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 33,
       "url": "https://www.bleepingcomputer.com/news/security/bell-canada-says-agentic-hacker-stole-enterprise-customer-data/",
       "image": "/images/feed/feed-247a71d62489.jpg",
       "source": "BleepingComputer",
@@ -701,7 +701,7 @@
         "Security"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 41,
       "url": "https://thehackernews.com/2026/11/whatsapp-patches-3-security-flaws.html",
       "image": "/images/feed/feed-58eefaa33e7e.jpg",
       "source": "The Hacker News",
@@ -720,7 +720,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 41,
       "url": "https://electrek.co/2026/11/20/renault-undercuts-byd-new-ev-costs-less-than-20000/",
       "image": "/images/feed/feed-3edcb9d95080.jpg",
       "source": "Electrek",
@@ -740,7 +740,7 @@
         "Hacker"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 30,
       "url": "https://www.bleepingcomputer.com/news/security/hackers-use-autonomous-ai-tool-cairn-to-find-zero-day-take-over-server/",
       "image": "/images/feed/feed-bbf2c3f2ae6a.jpg",
       "source": "BleepingComputer",
@@ -759,7 +759,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 34,
       "url": "https://cleantechnica.com/2026/11/20/electric-vans-are-they-the-final-ev-frontier-kia-pv5/",
       "image": "/images/feed/feed-b8c37326a6de.jpg",
       "source": "CleanTechnica",
@@ -778,7 +778,7 @@
         "Gemini"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 48,
       "url": "https://www.cnet.com/tech/services-and-software/google-gemini-clears-firefighter-radio-static/",
       "image": "/images/feed/feed-37112e0686e5.jpg",
       "source": "CNET",
@@ -797,7 +797,7 @@
         "Malware"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 51,
       "url": "https://thehackernews.com/2026/11/bazuka-android-malware-uses-fake-screen.html",
       "image": "/images/feed/feed-9ab8a41daf1f.jpg",
       "source": "The Hacker News",
@@ -817,7 +817,7 @@
         "Claude"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 31,
       "url": "https://www.theverge.com/ai-artificial-intelligence/1010051/anthropic-riemann-hypothesis-millennium-prize-problem",
       "image": "/images/feed/feed-e7bc21e40b78.jpg",
       "source": "The Verge",
@@ -836,7 +836,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 47,
       "url": "https://cleantechnica.com/2026/11/20/the-metals-company-has-a-seabed-mining-production-gap-that-its-pilot-has-not-closed/",
       "image": "/images/feed/feed-4dad05c1729e.png",
       "source": "CleanTechnica",
@@ -856,7 +856,7 @@
         "Breach"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 43,
       "url": "https://www.bleepingcomputer.com/news/security/vendor-data-breach-exposes-chase-visa-mastercard-customer-info/",
       "image": "/images/feed/feed-eab77a63bf1e.jpg",
       "source": "BleepingComputer",
@@ -875,7 +875,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 42,
       "url": "https://openai.com/index/combatting-adversarial-distillation",
       "image": "/images/feed/feed-7121ba7c9173.png",
       "source": "OpenAI Blog",
@@ -894,7 +894,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 38,
       "url": "https://techcrunch.com/2026/11/19/apple-may-be-developing-its-own-ai-agent-that-runs-your-mac/",
       "image": "https://techcrunch.com/wp-content/uploads/2026/06/iphone-usb-cable.jpg?resize=1200,800",
       "source": "TechCrunch",
@@ -913,7 +913,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 35,
       "url": "https://techcrunch.com/2026/11/19/anthropics-7-founders-cashed-out-nearly-2b-in-record-breaking-ipo/",
       "image": "https://techcrunch.com/wp-content/uploads/2026/11/antrhopic-openingday-getty.jpg?resize=1200,801",
       "source": "TechCrunch",
@@ -932,7 +932,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 54,
       "url": "https://techcrunch.com/2026/11/19/anthropic-rival-says-companies-can-mostly-skip-the-pricey-models/",
       "image": "https://techcrunch.com/wp-content/uploads/2026/11/Chenyu-Zhao.jpg?resize=1200,800",
       "source": "TechCrunch",
@@ -940,16 +940,16 @@
     }
   ],
   "breakingNews": [
-    "9TO5MAC: iOS 27 lets you use two iPhones with the same phone number",
-    "KOTAKU: 8 Amazing Indie Games We Think You Should Go Play",
-    "DEV.TO: Secure OTP Generation and Validation — External SMS Evidence for Support Queues",
-    "DEV.TO: JavaScript's \\b Is ASCII-Only: How It Silently Broke Our Rules in Six Languages",
-    "DEV.TO: Long-term memory for an AI companion without a vector database: 40 messages verbatim + 15 distilled facts",
-    "DEV.TO: Looking for feedback on my new website!",
-    "DEV.TO: How to Run Long-Running AI Agents in Production (2026): Runtime Limits, Durable State, and Surviving Restarts and Outages",
-    "DEV.TO: The Build Passed. He Still Owes the Explanation.",
-    "DEV.TO: How to fix \"MCP: Unsupported protocol version\"",
-    "KOTAKU: Three Games You Can Play For Free This Weekend On PC"
+    "DEV.TO: Node.js PNG Retention: Verifying AI Image Buffers in S3-Compatible Tenant Storage",
+    "DEV.TO: Invoice Template Ownership With Uploaded Scan OCR and Extracted Text Validation",
+    "DEV.TO: Schema-First Practices for Debugging Malformed JSON Responses in Notification Failure Workflows",
+    "DEV.TO: 4 Intense Product Manager Interview Questions and how to ace them.",
+    "DEV.TO: Thoughts on “Bias Towards Action”",
+    "DEV.TO: Stop Returning Bare Linter Error Codes to Coding Agents: Opaque Error Codes vs. Actionable Fix-Hint Linters (-69.6% Input Tokens)",
+    "DEV.TO: Incorporating a startup from Codex: connecting Corply's MCP server",
+    "KOTAKU: So Is The $100 GTA 6 Ultimate Edition Actually Worth It?",
+    "POLYGON: Everything We Know About GTA 7",
+    "POLYGON: 8 Near-Perfect Fantasy Miniseries That Hook You in the First Episode"
   ],
   "sectionVideos": {}
 }
