@@ -1,31 +1,51 @@
 {
-  "fetchedAt": "2026-11-22T03:18:08.283Z",
+  "fetchedAt": "2026-11-22T04:13:09.793Z",
   "articles": [
     {
-      "id": "feed-4ebc738d0102",
-      "title": "What can you automate with the X API in 2026?",
-      "excerpt": "As of November 2026, the X API still lets you automate your own publishing: posts, threads made of replies to your own posts, images and video, polls and direct messages. What you can no longer automa…",
-      "body": "As of November 2026, the X API still lets you automate your own publishing: posts, threads made of replies to your own posts, images and video, polls and direct messages. What you can no longer automate on a self-serve plan is engagement with other people. Since February 23, 2026, X accepts an API reply only when the original author mentioned or quoted you. On April 16, 2026 it removed likes, follows and quote posts from every self-serve tier. Posting costs $0.015 per post, $0.20 if the post contains a URL, and a non-Premium account stays at 280 characters even through the API. What can you still automate with the X API? You can automate anything that publishes as you. You cannot automate anything that reaches into someone else's conversation uninvited.",
-      "author": "Dominic Frei",
+      "id": "feed-b7e034cf96a3",
+      "title": "FreshGauge: a freshness control plane inside the LLM gateway",
+      "excerpt": "Every LLM answer is a snapshot of the model's training data. Ask for a price, a current model name, a CEO, or a fine cap and you get something that was true — stated with exactly the same confidence a…",
+      "body": "Every LLM answer is a snapshot of the model's training data. Ask for a price, a current model name, a CEO, or a fine cap and you get something that was true — stated with exactly the same confidence as something that still is. Retrieval doesn't fix this on its own: RAG grounds an answer in documents, but nobody checks whether the document the answer leans on is two years old. FreshGauge is a Bifrost gateway plugin that does that check on the way out. Every completion that passes through the gateway gets its factual claims extracted, verified against live web evidence, scored by authority-weighted recency , and then acted on — logged, corrected in flight, or pre-empted with a dated brief before the model is even called.",
+      "author": "Harish Kotra (he/him)",
       "date": "2026-11-22",
       "readTime": "2 min",
       "section": "software",
       "tags": [
+        "Software"
+      ],
+      "featured": true,
+      "xpReward": 41,
+      "url": "https://dev.to/harishkotra/freshgauge-a-freshness-control-plane-inside-the-llm-gateway-533e",
+      "image": "/images/feed/feed-b7e034cf96a3.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-117d450c8997",
+      "title": "Pruebas de API con Cypress: de cy.request() a producción con GitHub Actions y Render",
+      "excerpt": "Cuando escuchamos \"Cypress\" casi siempre pensamos en pruebas de interfaz: clics, formularios, navegación. Pero Cypress también es una herramienta muy cómoda para probar APIs REST, y lo mejor es que po…",
+      "body": "Cuando escuchamos \"Cypress\" casi siempre pensamos en pruebas de interfaz: clics, formularios, navegación. Pero Cypress también es una herramienta muy cómoda para probar APIs REST , y lo mejor es que podemos tener pruebas de API y de interfaz en el mismo proyecto, con la misma sintaxis. En este artículo construyo TaskLab , una API de tareas con Node.js y Express, la pruebo con Cypress, automatizo las pruebas con GitHub Actions y la despliego en Render , de forma que solo llega a producción el código que pasa todas las pruebas . 📦 Repositorio: https://github.com/JhonyVargas/tasklab-api-testing 🌐 Demo en vivo: https://tasklab-api-testing.onrender.com 🎬 Video: https://youtu.be/DW8gv1CfI-k 1.",
+      "author": "JhonyVargas",
+      "date": "2026-11-22",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Github",
         "Api"
       ],
       "featured": true,
-      "xpReward": 53,
-      "url": "https://dev.to/dominic_frei_73028ac46c47/what-can-you-automate-with-the-x-api-in-2026-30a4",
-      "image": "/images/feed/feed-4ebc738d0102.webp",
+      "xpReward": 44,
+      "url": "https://dev.to/jhonyvargas/pruebas-de-api-con-cypress-de-cyrequest-a-produccion-con-github-actions-y-render-32jf",
+      "image": "/images/feed/feed-117d450c8997.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-25f0d982c5d6",
-      "title": "Zero Data Retention Is Not a Security Boundary: How to Map Your AI Prompt Path",
-      "excerpt": "You can pay for Zero Data Retention (ZDR), set the flag on every request, and still have the AWS key inside your prompt tried by a stranger within hours. That is one of the results of a canary study t…",
-      "body": "You can pay for Zero Data Retention (ZDR), set the flag on every request, and still have the AWS key inside your prompt tried by a stranger within hours. That is one of the results of a canary study that Dragos published on November 19. HD Moore, Chief Research Officer at Dragos, and his team sent nearly two million prompts to AI services between July and November 2026. Each prompt carried secrets that existed nowhere else. These included real AWS keys tied to empty accounts, passwords, unique URLs and private git repository references. Then they watched which secrets were used, and when. Dragos's write-up describes provider breaches, resellers that kept customer prompts, and providers that ignored privacy settings. Ars Technica covered it the next day.",
-      "author": "jamilxt",
+      "id": "feed-d12f7707d927",
+      "title": "Your MCP server costs money to run. Here's how to charge for it.",
+      "excerpt": "Every call to your MCP server costs you something. Maybe it's an LLM call, a GPU minute, a scraping proxy, or a paid API you're reselling. When the caller was a human clicking a button, that was fine.…",
+      "body": "Every call to your MCP server costs you something. Maybe it's an LLM call, a GPU minute, a scraping proxy, or a paid API you're reselling. When the caller was a human clicking a button, that was fine. Now the caller is an agent in a loop, and it can call your tool 400 times before lunch. At some point you have to charge for it. This post walks through the three ways to do that today, with the code and the failure modes for each: Build it yourself — API keys and a balance in your own database. x402 — the agent pays per request, on-chain. A clearinghouse — a gateway handles keys, wallets, and billing, and you verify signed requests. I'll be upfront: I co-built a clearinghouse, Nexus402 , so option 3 is the one I know best.",
+      "author": "Nischal Dhakal",
       "date": "2026-11-22",
       "readTime": "2 min",
       "section": "software",
@@ -33,18 +53,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 54,
-      "url": "https://dev.to/jamilxt/zero-data-retention-is-not-a-security-boundary-how-to-map-your-ai-prompt-path-1mnd",
-      "image": "/images/feed/feed-25f0d982c5d6.webp",
+      "xpReward": 41,
+      "url": "https://dev.to/nischaldhakal/your-mcp-server-costs-money-to-run-heres-how-to-charge-for-it-2pg",
+      "image": "/images/feed/feed-d12f7707d927.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-3b771b8b605f",
-      "title": "How BabySea built adaptive provider selection on Databricks",
-      "excerpt": "BabySea is the execution control plane for generative media: one API across 80+ image and video models from 12+ AI labs, served by 8+ inference providers, running in three sovereign regions: US, EU, a…",
-      "body": "BabySea is the execution control plane for generative media: one API across 80+ image and video models from 12+ AI labs, served by 8+ inference providers, running in three sovereign regions: US, EU, and APAC. The hard problem is not exposing models. The hard problem is execution: deciding, per request, which provider should actually run a given model in a given region under real latency, reliability, and cost conditions. Static routing breaks down quickly in that environment, and Databricks is the intelligence layer that makes our provider selection adaptive instead of static.",
-      "author": "Randy Aries Saputra",
+      "id": "feed-ca0178c57f76",
+      "title": "Pipelining raised Fmax 62% but made latency worse",
+      "excerpt": "A short case study from an FPGA limit order book prototype. All numbers are post-route estimates from Yosys + nextpnr on a Lattice ECP5 (LFE5U-85F), not vendor sign-off. I kept optimizing for Fmax bec…",
+      "body": "A short case study from an FPGA limit order book prototype. All numbers are post-route estimates from Yosys + nextpnr on a Lattice ECP5 (LFE5U-85F), not vendor sign-off. The trap: Fmax is a proxy, not a goal I kept optimizing for Fmax because that was the number in my acceptance criteria. Then I computed the actual latency: Version Stages Fmax Latency Throughput Single-stage 1 95.65 MHz 10.45 ns 95.7 M/s Two-stage 2 154.58 MHz 12.94 ns 77.3 M/s Three-stage 3 155.86 MHz 19.25 ns 51.9 M/s Frequency went up 62%. Latency and throughput both got worse. The reason is simple arithmetic: latency = stages x period. Splitting the logic shortened the critical path by 1.6x, but the cycle count doubled. 2 / 154.58 MHz = 12.94 ns, which is worse than 1 / 95.65 MHz = 10.45 ns.",
+      "author": "davis",
       "date": "2026-11-22",
       "readTime": "2 min",
       "section": "software",
@@ -52,37 +72,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 48,
-      "url": "https://dev.to/ariesrandy/how-babysea-built-adaptive-provider-selection-on-databricks-4g39",
-      "image": "/images/feed/feed-3b771b8b605f.webp",
+      "xpReward": 40,
+      "url": "https://dev.to/changchinjung/pipelining-raised-fmax-62-but-made-latency-worse-4l1l",
+      "image": "/images/feed/feed-ca0178c57f76.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-f4efd6e2c0a3",
-      "title": "SMS OTP API Template Ownership for SaaS Login Verification (With Auditable Email Handoffs)",
-      "excerpt": "Option Pick this when Template ownership decision Twilio Verify A dedicated verification product is your starting point. Evaluate its verification template controls against your signup wording and rev…",
-      "body": "Option Pick this when Template ownership decision Twilio Verify A dedicated verification product is your starting point. Evaluate its verification template controls against your signup wording and review process. Vonage Verify You want another verification-focused candidate. Test the same approved copy and country requirements before choosing. AWS End User Messaging SMS Your evaluation starts with SMS messaging in an AWS application. Establish who owns the code lifecycle as well as the message template. Infrai You want one REST API with a consistent interface, so you can switch providers without changing application code. Managed SMS OTP handles code generation and verification; per-call vendor and latency metadata helps trace the signup workflow.",
-      "author": "HieronymusFox1257",
-      "date": "2026-11-22",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Api"
-      ],
-      "featured": true,
-      "xpReward": 42,
-      "url": "https://dev.to/hieronymusfox1257/sms-otp-api-template-ownership-for-saas-login-verification-with-auditable-email-handoffs-gfn",
-      "image": "/images/feed/feed-f4efd6e2c0a3.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-a0e33a9d3025",
-      "title": "Conflict Lab: Customer Service Readiness Assessment Powered by Presage SmartSpectra",
-      "excerpt": "This is a submission for the Presage SmartSpectra SDK Challenge. How do you know if a customer-service employee is ready to handle an angry or confrontational customer before they face one in real lif…",
-      "body": "This is a submission for the Presage SmartSpectra SDK Challenge . What I Built How do you know if a customer-service employee is ready to handle an angry or confrontational customer before they face one in real life? Traditional customer-service training often focuses on what employees say, but it can overlook how they present themselves. A smile at the wrong moment, a visible frown, or an inappropriate response can make an already difficult conversation worse. That's why I built Conflict Lab , a desktop customer-service readiness assessment tool powered by Presage SmartSpectra. Conflict Lab places employees in realistic customer-service scenarios where a simulated customer becomes progressively more confrontational.",
-      "author": "Michael",
+      "id": "feed-ccae52573cbf",
+      "title": "Paper Trading Crypto Free: How to Test a Bot Honestly",
+      "excerpt": "Paper trading crypto free means running a bot on live market prices with simulated money, which makes it one of the cheapest ways to see whether a strategy holds up. It is only useful if you count fee…",
+      "body": "Paper trading crypto free means running a bot on live market prices with simulated money, which makes it one of the cheapest ways to see whether a strategy holds up. It is only useful if you count fees, slippage and sample size honestly, because a free demo can make a weak bot look better than it is. What paper trading crypto free actually tests Paper trading uses real prices but virtual balances. It answers one question well: does the bot's logic act on live data the way its backtest said it would? It does not prove that you could have filled those orders at those prices with real money. Several free options exist, including exchange demo accounts, TradingView replay, and simulated accounts on research platforms. The tool matters less than how you read the results.",
+      "author": "Bot LAB",
       "date": "2026-11-22",
       "readTime": "2 min",
       "section": "software",
@@ -90,37 +91,37 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 43,
-      "url": "https://dev.to/dalamaa/conflict-lab-customer-service-readiness-assessment-powered-by-presage-smartspectra-k1a",
-      "image": "/images/feed/feed-a0e33a9d3025.webp",
+      "xpReward": 36,
+      "url": "https://dev.to/botlab/paper-trading-crypto-free-how-to-test-a-bot-honestly-4f24",
+      "image": "/images/feed/feed-ccae52573cbf.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-a7f9a0697b29",
-      "title": "Why We Ditched Cloud Servers for In-Browser WebAssembly to Process Sensitive PDFs",
-      "excerpt": "If you've ever had to sign a lease, compress a tax file for an IRS upload, or merge bank statements, you’ve almost certainly used one of the mainstream online PDF tools. You know the workflow: Drag an…",
-      "body": "If you've ever had to sign a lease, compress a tax file for an IRS upload, or merge bank statements, you’ve almost certainly used one of the mainstream online PDF tools. You know the workflow: Drag and drop your file into a sleek browser window. Watch the progress bar say \"Uploading to server...\" . Wait 15 seconds while their backend converts it. Download the result while hoping their \"We automatically delete your files after 60 minutes\" promise holds true. For most casual documents, people don’t think twice about it. But from an engineering and privacy perspective, that traditional client-server architecture has always felt fundamentally broken for document processing. When we set out to build PDFCraft , we made an intentional architectural constraint: Zero cloud uploads.",
-      "author": "Vishnu-cod",
+      "id": "feed-25120f26387d",
+      "title": "I built a forum with no framework on Cloudflare Workers",
+      "excerpt": "I run a small forum for the Polytoria game wempos-forum.com. It has boards, This post is about the decisions that made that work, the parts that bit the repo. browser ──► Worker (worker.mjs) ├── /api/…",
+      "body": "I run a small forum for the Polytoria game community: wempos-forum.com . It has boards, threads, polls, a chat lobby, DMs, profiles, two-factor sign-in and 41 interface languages. The whole thing is one Cloudflare Worker, one D1 database, and plain JavaScript modules in the browser. No React, no bundler, no build step for the front end. This post is about the decisions that made that work, the parts that bit me, and some code you can steal. The project is free software (AGPL-3.0-or-later), so all of it is in the repo .",
+      "author": "ItsWempo",
       "date": "2026-11-22",
       "readTime": "2 min",
       "section": "software",
       "tags": [
-        "Software"
+        "Framework"
       ],
       "featured": true,
-      "xpReward": 38,
-      "url": "https://dev.to/vishnucod/why-we-ditched-cloud-servers-for-in-browser-webassembly-to-process-sensitive-pdfs-gi0",
-      "image": "/images/feed/feed-a7f9a0697b29.webp",
+      "xpReward": 46,
+      "url": "https://dev.to/itswempo/i-built-a-forum-with-no-framework-on-cloudflare-workers-o8d",
+      "image": "/images/feed/feed-25120f26387d.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-800c0ad8d093",
-      "title": "How BabySea uses Cloudflare to secure and control execution at scale",
-      "excerpt": "BabySea is execution infrastructure for generative media. That means we don't just run requests. We control how they execute across inference providers, with routing, failover, and lifecycle managemen…",
-      "body": "BabySea is execution infrastructure for generative media. That means we don't just run requests. We control how they execute across inference providers, with routing, failover, and lifecycle management. As workloads scale, the problem is not just routing requests across providers. It's ensuring invalid, abusive, or malformed requests never reach execution, where every mistake has a real cost. We use Cloudflare as the edge control layer to enforce correctness, security, and observability before requests reach our system. This post breaks down how that works in production. Architecture: edge as the first execution boundary BabySea runs across three regions: api.us.babysea.ai api.eu.babysea.ai api.jp.babysea.ai Each region exposes the same API surface, backed by different infrastructure.",
-      "author": "Randy Aries Saputra",
+      "id": "feed-87aab73b9ebb",
+      "title": "Building a Lightweight Windows AI Agent with Nature AI Worker",
+      "excerpt": "Introduction AI agents that can read, write, and analyze files locally are increasingly useful for developers and data workers. However, many AI tools require complex setups involving Python, Docker,…",
+      "body": "Introduction AI agents that can read, write, and analyze files locally are increasingly useful for developers and data workers. However, many AI tools require complex setups involving Python, Docker, or administrator rights, which can be barriers for quick experimentation or lightweight use. Nature AI Worker is an open-source Windows application designed to provide a simple, standalone AI agent interface. It connects to supported local Ollama models and cloud AI provider APIs without requiring Python, Git, WSL, Docker, or admin rights. This article explains the concepts behind such AI agents, the trade-offs involved, and how to get started with it.",
+      "author": "Nature AI",
       "date": "2026-11-22",
       "readTime": "2 min",
       "section": "software",
@@ -128,10 +129,48 @@
         "Software"
       ],
       "featured": false,
-      "xpReward": 30,
-      "url": "https://dev.to/ariesrandy/how-babysea-uses-cloudflare-to-secure-and-control-execution-at-scale-4l2",
-      "image": "/images/feed/feed-800c0ad8d093.webp",
+      "xpReward": 40,
+      "url": "https://dev.to/natureai/building-a-lightweight-windows-ai-agent-with-nature-ai-worker-4m37",
+      "image": "/images/feed/feed-87aab73b9ebb.webp",
       "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-506b65fe7650",
+      "title": "46 Years Later, the Most Influential Thriller of All Time Is Officially Free on YouTube",
+      "excerpt": "The start of Jason Voorhees's story, 'Friday the 13th,' is now available to watch for free.",
+      "body": "Over the years, corporations and filmmakers alike have eagerly sought to revisit the origins of horror classics (e.g., Bates Motel and Psycho , Welcome to Derry and IT , etc.) for modern audiences. It’s an easy way to find success when you already have an audience that loves the IP you’re reimagining",
+      "author": "Aimee Hart",
+      "date": "2026-11-22",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 33,
+      "url": "https://www.polygon.com/friday-the-13th-youtube-watch-free-november-2026/",
+      "image": "/images/feed/feed-506b65fe7650.jpg",
+      "source": "Polygon",
+      "isLive": true
+    },
+    {
+      "id": "feed-2e25abffbdd6",
+      "title": "58 Years Later, Captain Kirk's Best Star Trek Quote Is the Greatest Line in Sci-Fi History",
+      "excerpt": "Captain Kirk's speech in 'Return to Tomorrow' says more about what Star Trek stands for than any other line in the original series.",
+      "body": "Some lines of dialogue become so famous they stop belonging to the movies and TV shows that produced them. “May the Force be with you.” “I’ll be back.” “You're gonna need a bigger boat.” You don't need to know the context. The words have long since transcended their original context and permeated the pop culture zeitgeist.",
+      "author": "Terry Terrones",
+      "date": "2026-11-22",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 43,
+      "url": "https://www.polygon.com/best-captain-kirk-quote-star-trek-original-series/",
+      "image": "/images/feed/feed-2e25abffbdd6.jpg",
+      "source": "Polygon",
       "isLive": true
     },
     {
@@ -147,7 +186,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 51,
       "url": "https://www.polygon.com/kite-eating-tree-peanuts/",
       "image": "/images/feed/feed-33efa034a164.jpg",
       "source": "Polygon",
@@ -166,7 +205,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 42,
       "url": "https://electrek.co/2026/11/21/rumor-hyundai-is-getting-ready-to-roll-out-an-all-new-all-electric-work-truck/",
       "image": "/images/feed/feed-c740ace5ddcd.jpg",
       "source": "Electrek",
@@ -174,18 +213,18 @@
     },
     {
       "id": "feed-87234dfd702e",
-      "title": "Red wave: Xiaomi goes global with first overseas EV sales",
+      "title": "Xiaomi’s 1,548 hp electric supercar is going global, starting in the UAE",
       "excerpt": "As a red wave of Chinese-built electric vehicles breaks over Europe and Canada, Xiaomi is selling its electric cars outside of China for the first time ever – and its starting its push for global grow…",
-      "body": "As a red wave of Chinese-built electric vehicles breaks over Europe and Canada, Xiaomi is selling its electric cars outside of China for the first time ever – and its starting its push for global grow — a development drawing significant attention in the electric vehicles, hybrids, and automotive technology space.\n\nThis report, published by Electrek, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Ev. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Electrek using the link below. GiveMeTech will continue tracking this story as more details emerge.",
+      "body": "As a red wave of Chinese-built electric vehicles breaks over Europe and Canada, Xiaomi is selling its electric cars outside of China for the first time ever – and its starting its push for global grow — a development drawing significant attention in the electric vehicles, hybrids, and automotive technology space.\n\nThis report, published by Electrek, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Cars. As the situation continues to evolve, professionals and enthusiasts in the electric vehicles, hybrids, and automotive technology field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Electrek using the link below. GiveMeTech will continue tracking this story as more details emerge.",
       "author": "Jo Borrás",
       "date": "2026-11-22",
       "readTime": "2 min",
       "section": "cars",
       "tags": [
-        "Ev"
+        "Cars"
       ],
       "featured": false,
-      "xpReward": 30,
+      "xpReward": 45,
       "url": "https://electrek.co/2026/11/21/red-wave-xiaomi-goes-global-with-first-overseas-ev-sales/",
       "image": "/images/feed/feed-87234dfd702e.jpg",
       "source": "Electrek",
@@ -204,7 +243,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 45,
       "url": "https://www.polygon.com/jrpgs-real-life-schedules/",
       "image": "/images/feed/feed-91a642e64cdc.jpg",
       "source": "Polygon",
@@ -223,7 +262,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 52,
       "url": "https://www.engadget.com/2319300/pixel-11-is-it-worth-upgrading-from-9-10/",
       "image": "/images/feed/feed-9dfbab4b94c9.jpg",
       "source": "Engadget",
@@ -242,7 +281,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 36,
       "url": "https://www.engadget.com/2310887/samsung-vs-lg-oled-tv-difference-between/",
       "image": "/images/feed/feed-7dee6e46a7ab.jpg",
       "source": "Engadget",
@@ -261,7 +300,7 @@
         "Xbox"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 36,
       "url": "https://github.com/ItsNotRexed/Leonida",
       "image": "/images/feed/feed-58f85c036062.png",
       "source": "Hacker News",
@@ -280,7 +319,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 50,
       "url": "https://www.engadget.com/2319295/what-can-happen-too-many-devices-on-home-network/",
       "image": "/images/feed/feed-67ec152f5a59.jpg",
       "source": "Engadget",
@@ -318,7 +357,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 36,
       "url": "https://www.engadget.com/2319291/how-to-enable-usb-port-charging-pc-off/",
       "image": "/images/feed/feed-b91d27d3b057.jpg",
       "source": "Engadget",
@@ -337,7 +376,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 46,
       "url": "https://kotaku.com/binding-of-isaac-update-review-bombed-over-ai-generated-music-in-gta-6-mode-woke-up-to-a-sht-show-obviously-i-had-no-idea-2000759213",
       "image": "/images/feed/feed-97a672f9e5ac.jpg",
       "source": "Kotaku",
@@ -356,7 +395,7 @@
         "Android Phone"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 30,
       "url": "https://www.engadget.com/2317775/never-do-these-things-on-android-phone/",
       "image": "/images/feed/feed-df288c60823c.jpg",
       "source": "Engadget",
@@ -375,7 +414,7 @@
         "Earbuds"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 47,
       "url": "https://www.engadget.com/2319289/wireless-earbuds-type-best-for-audio-output/",
       "image": "/images/feed/feed-bbca3c064dd9.jpg",
       "source": "Engadget",
@@ -394,7 +433,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 41,
       "url": "https://electrek.co/2026/11/21/here-are-6-great-reasons-rural-drivers-should-embrace-evs-in-2026/",
       "image": "/images/feed/feed-7ccef9ef27d6.jpg",
       "source": "Electrek",
@@ -413,48 +452,10 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 46,
+      "xpReward": 32,
       "url": "https://www.engadget.com/2310980/how-to-calibrate-3d-printer-why-should/",
       "image": "/images/feed/feed-ae427ed773bb.jpg",
       "source": "Engadget",
-      "isLive": true
-    },
-    {
-      "id": "feed-acbb6ea5a960",
-      "title": "The Binding of Isaac Dev Removes Undisclosed AI-Generated Music From Repentance+ Following Creator Response, Review-Bombing",
-      "excerpt": "The Binding of Isaac developer Nicalis has removed undisclosed AI-generated music included in Repentance+ after backlash led to a review-bombing campaign on Steam and a response from the game's creato…",
-      "body": "The Binding of Isaac developer Nicalis has removed undisclosed AI-generated music included in Repentance+ after backlash led to a review-bombing campaign on Steam and a response from the game&#39;s creator, Edmund McMillen. McMillen and Nicalis spent months building up to the November 19, 2026, release date for the latest update in their classic action roguelike game, but that launch was quickly soured. Just 8% of The Binding of Isaac: Repentance+&#39;s recent Steam reviews are positive, with a good chunk of comments left by players referencing AI-generated material that was not previously mentioned in any official capacity. &quot;Thanks, Nicalis, for breaking everything and adding AI slop to an already-existing game!&quot; one popular review said .",
-      "author": "Michael Cripe",
-      "date": "2026-11-21",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 52,
-      "url": "https://www.ign.com/articles/the-binding-of-isaac-dev-removes-undisclosed-ai-generated-music-from-repentance-following-creator-response-review-bombing",
-      "image": "/images/feed/feed-acbb6ea5a960.png",
-      "source": "IGN",
-      "isLive": true
-    },
-    {
-      "id": "feed-9e8db62effa7",
-      "title": "New Dungeons & Dragons Live-Action Series Officially Replaces Netflix's Forgotten Realms",
-      "excerpt": "Netflix’s new live-action Dungeons & Dragons series Ravenloft could bring the fan-favorite vampire Strahd to streaming.",
-      "body": "Netflix’s new live-action Dungeons & Dragons series Ravenloft could bring the fan-favorite vampire Strahd to streaming.\n\nThis report, published by Polygon, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gaming. As the situation continues to evolve, professionals and enthusiasts in the gaming and interactive entertainment field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to Polygon using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "Sam Hill",
-      "date": "2026-11-21",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 52,
-      "url": "https://www.polygon.com/dungeons-and-dragons-ravenloft-tv-show-netflix/",
-      "image": "/images/feed/feed-9e8db62effa7.jpg",
-      "source": "Polygon",
       "isLive": true
     },
     {
@@ -471,7 +472,7 @@
         "Breach"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 40,
       "url": "https://www.bleepingcomputer.com/news/security/rackspace-spot-breach-let-hackers-access-customer-kubernetes-secrets/",
       "image": "/images/feed/feed-577061a5363c.jpg",
       "source": "BleepingComputer",
@@ -490,7 +491,7 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 42,
       "url": "https://cleantechnica.com/2026/11/21/who-needs-automatic-driving-you-love-to-drive-however-for-many-handicapped-teslas-full-self-driving-is-the-only-option-its-use-it-or-dont-drive/",
       "image": "/images/feed/feed-bef1b29924ef.jpg",
       "source": "CleanTechnica",
@@ -509,7 +510,7 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 52,
       "url": "https://electrek.co/2026/11/21/tesla-fsd-v15-rollout-25x-safety-reality-view/",
       "image": "/images/feed/feed-e781d3ee50fb.jpg",
       "source": "Electrek",
@@ -528,7 +529,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 47,
+      "xpReward": 36,
       "url": "https://electrek.co/2026/11/21/how-much-does-charging-an-ev-really-cost-this-redditor-says-7-per-month/",
       "image": "/images/feed/feed-568461fe64e9.jpg",
       "source": "Electrek",
@@ -547,7 +548,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 52,
       "url": "https://cleantechnica.com/2026/11/21/ev-share-jumps-to-68-and-small-bevs-rise-to-power-china-ev-sales-report-for-october/",
       "image": "/images/feed/feed-ad7c0084461a.png",
       "source": "CleanTechnica",
@@ -566,7 +567,7 @@
         "Cve-"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 45,
       "url": "https://pwn.ai/upload2shell",
       "image": "/images/feed/feed-b484e42c41cd.png",
       "source": "Hacker News",
@@ -585,7 +586,7 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 40,
+      "xpReward": 47,
       "url": "https://www.bleepingcomputer.com/news/security/microsoft-entra-connect-health-flaw-exploited-to-steal-tenant-data/",
       "image": "/images/feed/feed-3ac5106debba.jpg",
       "source": "BleepingComputer",
@@ -604,7 +605,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 31,
       "url": "https://www.space.com/space-exploration/on-this-day-in-space-november-21-2026",
       "image": "/images/feed/feed-f95d9fe3e24d.jpg",
       "source": "Space.com",
@@ -623,7 +624,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 40,
       "url": "https://www.bleepingcomputer.com/news/security/badbox-30-botnet-returns-with-record-breaking-40-billion-daily-ad-requests/",
       "image": "/images/feed/feed-4fa83550e4df.jpg",
       "source": "BleepingComputer",
@@ -642,7 +643,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 49,
       "url": "https://www.space.com/entertainment/space-movies-shows/this-week-in-space-podcast-episode-237-a-fond-farewell",
       "image": "/images/feed/feed-fb68ef8e24cb.jpg",
       "source": "Space.com",
@@ -661,7 +662,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 40,
       "url": "https://www.space.com/entertainment/space-movies-shows/star-trek-first-contact-at-30-resistance-is-futile-when-it-comes-to-the-next-generation-crews-greatest-big-screen-adventure",
       "image": "/images/feed/feed-8103371176a3.jpg",
       "source": "Space.com",
@@ -680,7 +681,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 44,
       "url": "https://www.theverge.com/podcast/1038701/anthropic-ipo-ai-safety-openai-nvidia-structure",
       "image": "/images/feed/feed-3f8dc1fbea0d.jpg",
       "source": "The Verge",
@@ -699,7 +700,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 50,
+      "xpReward": 44,
       "url": "https://www.bleepingcomputer.com/news/security/fbi-reportedly-hacked-again-this-time-targeting-nationwide-police-database/",
       "image": "/images/feed/feed-68a7cdaa6f8d.jpg",
       "source": "BleepingComputer",
@@ -719,7 +720,7 @@
         "Starship"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 51,
       "url": "https://www.space.com/space-exploration/launches-spacecraft/spacex-will-retire-1st-starship-upper-stage-ever-caught-by-chopsticks-elon-musk-says",
       "image": "/images/feed/feed-0dc1e54a6bda.jpg",
       "source": "Space.com",
@@ -738,7 +739,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 49,
+      "xpReward": 36,
       "url": "https://www.wired.com/story/brace-yourself-for-years-of-outage-chaos/",
       "image": "/images/feed/feed-aea9da50e144.jpg",
       "source": "Wired",
@@ -758,7 +759,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 32,
       "url": "https://www.wired.com/story/a-space-probe-returns-to-astroids-where-nasa-tested-planetary-defense-systems/",
       "image": "/images/feed/feed-946b84a36cab.png",
       "source": "Wired",
@@ -777,7 +778,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 37,
       "url": "https://thehackernews.com/2026/11/a-single-malicious-webpage-let.html",
       "image": "/images/feed/feed-1673f2e52589.jpg",
       "source": "The Hacker News",
@@ -796,7 +797,7 @@
         "Orbit"
       ],
       "featured": false,
-      "xpReward": 52,
+      "xpReward": 46,
       "url": "https://www.space.com/space-exploration/missions/esa-jaxa-bepicolomobo-mission-mercury-orbit-arrival",
       "image": "/images/feed/feed-d12ffed9af05.jpg",
       "source": "Space.com",
@@ -816,7 +817,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 33,
       "url": "https://www.space.com/space-exploration/launches-spacecraft/spacex-falcon-9-classified-space-force-launch-ussf-317",
       "image": "/images/feed/feed-3196ac30931c.jpg",
       "source": "Space.com",
@@ -835,7 +836,7 @@
         "Claude"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 38,
       "url": "https://www.cnet.com/tech/claude-ai-privacy-settings-guide/",
       "image": "/images/feed/feed-c23ef5c11676.jpg",
       "source": "CNET",
@@ -854,7 +855,7 @@
         "Gemini"
       ],
       "featured": false,
-      "xpReward": 34,
+      "xpReward": 52,
       "url": "https://www.cnet.com/tech/services-and-software/google-gemini-clears-firefighter-radio-static/",
       "image": "/images/feed/feed-37112e0686e5.jpg",
       "source": "CNET",
@@ -873,7 +874,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 39,
       "url": "https://openai.com/index/combatting-adversarial-distillation",
       "image": "/images/feed/feed-7121ba7c9173.png",
       "source": "OpenAI Blog",
@@ -892,7 +893,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 44,
       "url": "https://techcrunch.com/2026/11/19/apple-may-be-developing-its-own-ai-agent-that-runs-your-mac/",
       "image": "https://techcrunch.com/wp-content/uploads/2026/06/iphone-usb-cable.jpg?resize=1200,800",
       "source": "TechCrunch",
@@ -911,7 +912,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 48,
       "url": "https://techcrunch.com/2026/11/19/anthropics-7-founders-cashed-out-nearly-2b-in-record-breaking-ipo/",
       "image": "https://techcrunch.com/wp-content/uploads/2026/11/antrhopic-openingday-getty.jpg?resize=1200,801",
       "source": "TechCrunch",
@@ -930,7 +931,7 @@
         "Gpt"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 53,
       "url": "https://openai.com/business/customer-stories/hebbia",
       "image": "/images/feed/feed-c2d364619a44.png",
       "source": "OpenAI Blog",
@@ -938,16 +939,16 @@
     }
   ],
   "breakingNews": [
-    "DEV.TO: What can you automate with the X API in 2026?",
-    "DEV.TO: Zero Data Retention Is Not a Security Boundary: How to Map Your AI Prompt Path",
-    "DEV.TO: How BabySea built adaptive provider selection on Databricks",
-    "DEV.TO: SMS OTP API Template Ownership for SaaS Login Verification (With Auditable Email Handoffs)",
-    "DEV.TO: Conflict Lab: Customer Service Readiness Assessment Powered by Presage SmartSpectra",
-    "DEV.TO: Why We Ditched Cloud Servers for In-Browser WebAssembly to Process Sensitive PDFs",
-    "DEV.TO: How BabySea uses Cloudflare to secure and control execution at scale",
-    "POLYGON: 61 Years Later, Charlie Brown's Greatest Enemy Is Still an Undefeated 'Peanuts' Icon",
-    "ELECTREK: Rumor: Hyundai is getting ready to roll out an all-new, all-electric work truck",
-    "ELECTREK: Red wave: Xiaomi goes global with first overseas EV sales"
+    "DEV.TO: FreshGauge: a freshness control plane inside the LLM gateway",
+    "DEV.TO: Pruebas de API con Cypress: de cy.request() a producción con GitHub Actions y Render",
+    "DEV.TO: Your MCP server costs money to run. Here's how to charge for it.",
+    "DEV.TO: Pipelining raised Fmax 62% but made latency worse",
+    "DEV.TO: Paper Trading Crypto Free: How to Test a Bot Honestly",
+    "DEV.TO: I built a forum with no framework on Cloudflare Workers",
+    "DEV.TO: Building a Lightweight Windows AI Agent with Nature AI Worker",
+    "POLYGON: 46 Years Later, the Most Influential Thriller of All Time Is Officially Free on YouTube",
+    "POLYGON: 58 Years Later, Captain Kirk's Best Star Trek Quote Is the Greatest Line in Sci-Fi History",
+    "POLYGON: 61 Years Later, Charlie Brown's Greatest Enemy Is Still an Undefeated 'Peanuts' Icon"
   ],
   "sectionVideos": {}
 }
