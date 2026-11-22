@@ -1,31 +1,12 @@
 {
-  "fetchedAt": "2026-11-22T07:11:40.734Z",
+  "fetchedAt": "2026-11-22T08:13:06.632Z",
   "articles": [
     {
-      "id": "feed-1a9f8b324b34",
-      "title": "Modeling 64-Hexagram Jingfang Najia & True Solar Time in TypeScript: Deterministic Calendar Engineering",
-      "excerpt": "Traditional East Asian calendar systems—such as the 60-term Sexagenary Cycle (Ganzhi), 24 Solar Terms, and 64-hexagram Jingfang Najia (Six-Line I Ching)—are often treated as fuzzy folklore, yet undern…",
-      "body": "Traditional East Asian calendar systems—such as the 60-term Sexagenary Cycle (Ganzhi), 24 Solar Terms, and 64-hexagram Jingfang Najia (Six-Line I Ching)—are often treated as fuzzy folklore, yet underneath they are pure deterministic state machines rooted in spherical astronomy and binary combinatorics. When building a zero-registration, edge-delivered charting workspace, we ran into four subtle engineering problems that cause web calculators to disagree on edge cases. Here is how we modeled them cleanly in TypeScript. 1. Solar Longitude vs. Civil Calendar Boundaries In the classical Four Pillars (BaZi) calendar, months do not switch on the 1st of a Gregorian or Lunar month.",
-      "author": "Poon ",
-      "date": "2026-11-22",
-      "readTime": "2 min",
-      "section": "software",
-      "tags": [
-        "Typescript"
-      ],
-      "featured": true,
-      "xpReward": 47,
-      "url": "https://dev.to/suanmingku/modeling-64-hexagram-jingfang-najia-true-solar-time-in-typescript-deterministic-calendar-3l7",
-      "image": "/images/feed/feed-1a9f8b324b34.webp",
-      "source": "Dev.to",
-      "isLive": true
-    },
-    {
-      "id": "feed-050e60063b70",
-      "title": "A small test fixture for Chinese SRT subtitle imports",
-      "excerpt": "A subtitle import problem is easier to isolate with a tiny fixture than with a full video transcript. This example separates three checks: whether the editor can decode Chinese characters, parse cue t…",
-      "body": "A subtitle import problem is easier to isolate with a tiny fixture than with a full video transcript. This example separates three checks: whether the editor can decode Chinese characters, parse cue timing, and keep line breaks. It is a proposed diagnostic fixture, not a report of tests across editing applications. Start with two cues Save the following as a UTF-8 text file with an .srt extension: 1 00:00:01,000 --&gt; 00:00:04,000 简体中文测试：你好，世界。 2 00:00:05,000 --&gt; 00:00:08,000 繁體中文測試：你好，世界。 第二行字幕。 The wording is deliberately simple. It is sample text for testing display, not a translation of any real recording. Diagnose one thing at a time Garbled characters: reopen the file in a text editor and check its encoding.",
-      "author": "haotian zhou",
+      "id": "feed-7989cda47e3b",
+      "title": "Tile padding for 4x upscaling: six lines of output, max difference 149 down to 0",
+      "excerpt": "If you run a 4x upscaler in tiles, you have probably seen the seam: a faint grid where the blocks meet. The usual fix is \"add some overlap\", with no number attached. This post reads one real run of a…",
+      "body": "If you run a 4x upscaler in tiles, you have probably seen the seam: a faint grid where the blocks meet. The usual fix is \"add some overlap\", with no number attached. This post reads one real run of a pad-and-crop loop line by line, so you can get that number for your own model. The setup: Python with onnxruntime on CPU, Real-ESRGAN General x4v3, a 480×480 crop of a CC0 landscape photo from Wikimedia Commons (author Bonnie Moreland) in, a 1920×1920 image out. Tile size 96. For each tile, the loop sends the tile plus N extra pixels on every side into the model, crops the extra ring off the output and pastes only the middle back. N is the padding. The reference is the same model fed the whole image at once.",
+      "author": "hao jia",
       "date": "2026-11-22",
       "readTime": "2 min",
       "section": "software",
@@ -34,17 +15,36 @@
       ],
       "featured": true,
       "xpReward": 40,
-      "url": "https://dev.to/haotian_zhou_e119a9da7469/a-small-test-fixture-for-chinese-srt-subtitle-imports-15lb",
-      "image": "/images/feed/feed-050e60063b70.webp",
+      "url": "https://dev.to/iterandum/tile-padding-for-4x-upscaling-six-lines-of-output-max-difference-149-down-to-0-380g",
+      "image": "/images/feed/feed-7989cda47e3b.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-486312cda39c",
-      "title": "Building Sentinel: Uptime Monitoring with Signed Reports and Quorum",
-      "excerpt": "The problem with a single uptime checker Most uptime monitors are one process making one HTTP request from one location. That is enough to catch most outages, but it has two blind spots: the checker i…",
-      "body": "The problem with a single uptime checker Most uptime monitors are one process making one HTTP request from one location. That is enough to catch most outages, but it has two blind spots: the checker itself can go down, and regional network problems look like global outages. If my checker is in us-east and an ISP there has a routing issue, I could page my team at 3 AM for a problem that only a small share of users can see. I built Sentinel to explore whether a small network of independent validator nodes, each checking the same target from a different region and each signing its report, could reach a verdict by majority agreement and avoid false alarms from single-region noise. Here is what I learned.",
-      "author": "Shiven Ahuja",
+      "id": "feed-55ddf3b88ef7",
+      "title": "Green receipts taught me that energy budgets are API design — what agents shipping compute-heavy tools should learn",
+      "excerpt": "I started logging a \"green receipt\" on every document conversion call — not for optics, but because I needed to know what one markdown conversion actually cost in watts before I could price or optimiz…",
+      "body": "I started logging a \"green receipt\" on every document conversion call — not for optics, but because I needed to know what one markdown conversion actually cost in watts before I could price or optimize anything. The first measurement embarrassed me. My URL-to-Markdown path was pulling full pages, running the extractor on everything, and only then trimming to the requested length. The energy was spent on content the caller never read. Moving the length limit upstream of the heavy parse cut the average cost per call by roughly a third, and the output quality didn't change at all. The second lesson: idle dominates. Spinning up a fresh container per request looked clean on paper but the boot energy dwarfed the actual work on small files.",
+      "author": "InApp",
+      "date": "2026-11-22",
+      "readTime": "2 min",
+      "section": "software",
+      "tags": [
+        "Api"
+      ],
+      "featured": true,
+      "xpReward": 54,
+      "url": "https://dev.to/imapphelp/green-receipts-taught-me-that-energy-budgets-are-api-design-what-agents-shipping-compute-heavy-5e4d",
+      "image": "/images/feed/feed-55ddf3b88ef7.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-fcbe0820575f",
+      "title": "Two cron expressions that don't do what they look like",
+      "excerpt": "Cron syntax is short, which makes mistakes easy to write and slow to notice. Two classic ones: * 9 * * * is not \"once at 9am\" The first field is minutes, and * means every minute. So this runs 60 time…",
+      "body": "Cron syntax is short, which makes mistakes easy to write and slow to notice. Two classic ones: 1. * 9 * * * is not \"once at 9am\" The first field is minutes, and * means every minute. So this runs 60 times , from 09:00 to 09:59. If you want once a day at nine, you need 0 9 * * * . 2. 0 9 1 * 1 is not \"Mondays that fall on the 1st\" When both day-of-month and day-of-week are restricted, standard cron treats them as OR , not AND. This runs at 09:00 on the 1st of every month and on every Monday. If you really want \"the 1st, only if it's a Monday\", the usual trick is to schedule on Mondays and test the date inside the command, e.g. 0 9 * * 1 [ \"$(date +\\%d)\" = \"01\" ] &amp;&amp; ./job.sh (note the escaped % — crontab treats a bare % as a newline).",
+      "author": "GoToolsOnline",
       "date": "2026-11-22",
       "readTime": "2 min",
       "section": "software",
@@ -52,18 +52,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 37,
-      "url": "https://dev.to/shiven_ahuja_dfd581734dbf/building-sentinel-uptime-monitoring-with-signed-reports-and-quorum-36om",
-      "image": "/images/feed/feed-486312cda39c.webp",
+      "xpReward": 47,
+      "url": "https://dev.to/gotoolsonline/two-cron-expressions-that-dont-do-what-they-look-like-3dbh",
+      "image": "/images/feed/feed-fcbe0820575f.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-125ce0be9554",
-      "title": "AI Scientist Automates Idea Generation, Coding and Paper Writing",
-      "excerpt": "Researchers present The AI Scientist, a framework enabling frontier language models to generate research ideas, write and run code, execute experiments, and draft papers without human intervention. It…",
-      "body": "Researchers present The AI Scientist, a framework enabling frontier language models to generate research ideas, write and run code, execute experiments, and draft papers without human intervention. It aims for fully automated, open-ended scientific discovery. Why it matters If reliable, it could accelerate research cycles and lower costs, but also raises questions about quality, reproducibility and peer review. Analysis The paper claims end-to-end automation from idea to manuscript, a notable step beyond assisted coding or literature review. Its significance depends on whether generated work is novel, correct and reproducible, not merely fluent. Main uncertainty: evaluation scope, failure rates and whether peer reviewers accept such papers.",
-      "author": "Paragon",
+      "id": "feed-35b607254f82",
+      "title": "Webflow vs Framer in 2026: $15 against $10 at the door, and $25 against $30 one tier up",
+      "excerpt": "Webflow vs Framer in 2026: $15 against $10 at the door, and $25 against $30 one tier up Two website builders, both pages opened on 22 November 2026. Framer is the cheaper way in: $10 a month against W…",
+      "body": "Webflow vs Framer in 2026: $15 against $10 at the door, and $25 against $30 one tier up Two website builders, both pages opened on 22 November 2026. Framer is the cheaper way in: $10 a month against Webflow's $15 . One tier up the order flips: Webflow Premium $25 against Framer Pro $30 . That crossover is the whole article in one line, and it is also where most buyers make their mistake — they compare the first price, pick the cheaper door, and then hit the tier where the other one was cheaper and included eight times the CMS allowance. The two ladders as printed Both pages opened with yearly billing selected, so these are annual-commitment rates before tax.",
+      "author": "ai-saasradar",
       "date": "2026-11-22",
       "readTime": "2 min",
       "section": "software",
@@ -71,18 +71,18 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 50,
-      "url": "https://dev.to/paragonaimag/ai-scientist-automates-idea-generation-coding-and-paper-writing-3jki",
-      "image": "/images/feed/feed-125ce0be9554.webp",
+      "xpReward": 41,
+      "url": "https://dev.to/saasradarai/webflow-vs-framer-in-2026-15-against-10-at-the-door-and-25-against-30-one-tier-up-16fn",
+      "image": "/images/feed/feed-35b607254f82.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-71d28f4fb028",
-      "title": "Fix: iOS Codex Shows 'No Tasks Yet' Bug",
-      "excerpt": "Originally published on DebugRadar. Problem: Codex on the ChatGPT iOS app shows \"No tasks yet\" / \"Start a task to see it here\" while the host still shows connected (green). Your sessions are not gone…",
-      "body": "Originally published on DebugRadar . Quick Fix Summary Problem: Codex on the ChatGPT iOS app shows \"No tasks yet\" / \"Start a task to see it here\" while the host still shows connected (green). Your sessions are not gone — they are reachable only through search. Fix: Use search to find and open your sessions, or open them from notification links. Deleting and reinstalling the iOS app fixed it for one user — single-user, not guaranteed. Force-quit and reopen does not help. What happened: First reported November 11, 2026 (GitHub issue openai/codex#60778, 18 comments — the most active thread in this batch). Still open as of November 15, 02:40 UTC. The list spontaneously reappeared on November 14, then regressed again on November 15 — the recovery was not durable.",
-      "author": "DebugRadar",
+      "id": "feed-f01a98de54fe",
+      "title": "k9s incident debugging: shortcuts and plugins that save minutes",
+      "excerpt": "Originally published on kuryzhev.cloud The scenario A deploy finishes and the checkout API starts returning 5xx. The on-call engineer types kubectl get pods -n shop, then kubectl describe, then kubect…",
+      "body": "Originally published on kuryzhev.cloud The scenario A deploy finishes and the checkout API starts returning 5xx. The on-call engineer types kubectl get pods -n shop , then kubectl describe , then kubectl logs --previous , each with a pod name copied by hand. Every command is fine. The copy-paste between them is where the minutes go. k9s incident debugging removes that loop. You get one terminal view where you filter, drill into the failing pod, read logs and events, and open a shell without retyping names. Short answer: start k9s read-only against the right context and namespace, then filter to unhealthy pods with /!Running . Read previous logs with p on the pod. Finally, add two small plugins (pod events and an ephemeral debug container) in plugins.yaml .",
+      "author": "Oleksandr Kuryzhev",
       "date": "2026-11-22",
       "readTime": "2 min",
       "section": "software",
@@ -90,37 +90,37 @@
         "Software"
       ],
       "featured": true,
-      "xpReward": 31,
-      "url": "https://dev.to/debugradar/fix-ios-codex-shows-no-tasks-yet-bug-4io3",
-      "image": "/images/feed/feed-71d28f4fb028.webp",
+      "xpReward": 51,
+      "url": "https://dev.to/oleksandr_kuryzhev_42873f/k9s-incident-debugging-shortcuts-and-plugins-that-save-minutes-1gk",
+      "image": "/images/feed/feed-f01a98de54fe.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-00924cdd156d",
-      "title": "Fix: ChatGPT Download File Not Found (404 Error)",
-      "excerpt": "Originally published on DebugRadar. Problem: Generated files in ChatGPT fail to download with HTTP 404 {\"detail\":\"Library file not found\"} (or \"Failed to download file. Please try again later.\"). The…",
-      "body": "Originally published on DebugRadar . Quick Fix Summary Problem: Generated files in ChatGPT fail to download with HTTP 404 {\"detail\":\"Library file not found\"} (or \"Failed to download file. Please try again later.\"). The file itself is fine — the same file downloads normally from Space/Library. Fix: Download the file from Space/Library instead of the chat download link. Do not regenerate repeatedly, and do not rely on a hard reload — neither helps. What happened: Observed November 9–11, 2026 (GitHub issue openai/codex#60370, 9 comments). Still open as of November 11, 17:17 UTC — no staff reply. Re-checked November 15: no new activity in 4 days, so it could have been silently resolved; the workaround below is what users verified while it was broken.",
-      "author": "DebugRadar",
+      "id": "feed-6cf67250b8b5",
+      "title": "Cursor vs GitHub Copilot in 2026: a $2 gap at the door and a $100 gap at the top",
+      "excerpt": "Cursor vs GitHub Copilot in 2026: a $2 gap at the door and a $100 gap at the top Two coding subscriptions, read off both vendors' own pricing pages on 22 November 2026. At the first paid tier they are…",
+      "body": "Cursor vs GitHub Copilot in 2026: a $2 gap at the door and a $100 gap at the top Two coding subscriptions, read off both vendors' own pricing pages on 22 November 2026. At the first paid tier they are $2 apart — Cursor $8, GitHub Copilot $10. At the top they are $100 apart : Copilot Max is $100 a month, Cursor Ultra is $200. The number that matters is not either price. It is that the two pages measure completely different things for the money they charge, and once you see that, the $2 gap stops being the decision.",
+      "author": "ai-saasradar",
       "date": "2026-11-22",
       "readTime": "2 min",
       "section": "software",
       "tags": [
-        "Software"
+        "Github"
       ],
       "featured": true,
-      "xpReward": 38,
-      "url": "https://dev.to/debugradar/fix-chatgpt-download-file-not-found-404-error-2ib",
-      "image": "/images/feed/feed-00924cdd156d.webp",
+      "xpReward": 30,
+      "url": "https://dev.to/saasradarai/cursor-vs-github-copilot-in-2026-a-2-gap-at-the-door-and-a-100-gap-at-the-top-clm",
+      "image": "/images/feed/feed-6cf67250b8b5.webp",
       "source": "Dev.to",
       "isLive": true
     },
     {
-      "id": "feed-43e05f813cd4",
-      "title": "The MCP Inspector proxy trusted a redirect and inherited command execution",
-      "excerpt": "The MCP Inspector proxy trusted a redirect and inherited command execution Local developer tools sit in a useful but dangerous position. They run on a developer workstation, can often launch processes…",
-      "body": "The MCP Inspector proxy trusted a redirect and inherited command execution Local developer tools sit in a useful but dangerous position. They run on a developer workstation, can often launch processes, and connect to servers supplied by the same user. MCP Inspector was built to test those servers, so a hostile server was always part of its threat model. The advisory GHSA-g9hg-qhmf-q45m describes CVE-2025-58444 in @modelcontextprotocol/inspector before 0.16.6. A malicious redirect URI returned by an untrusted remote MCP server could inject script into the Inspector interface. The Inspector's proxy then provided a path from that script execution to arbitrary commands on the developer machine. The advisory rates it high at 8.6 under CVSS v4.",
-      "author": "StarkMan",
+      "id": "feed-ba4a38174dc3",
+      "title": "Tiled upscaling matched whole-image inference bit for bit at 34 px of context, not 33",
+      "excerpt": "Split a 480×480 image into 96-pixel tiles, hand every tile 33 extra pixels of real image on each side, upscale each one 4× with Real-ESRGAN General x4v3, cut the extra ring off and paste the tiles tog…",
+      "body": "Split a 480×480 image into 96-pixel tiles, hand every tile 33 extra pixels of real image on each side, upscale each one 4× with Real-ESRGAN General x4v3, cut the extra ring off and paste the tiles together. Then push the whole image through the same model in one pass and compare. Of the 11,059,200 output values (1920×1920, three channels), 3 are different, each by one gray level. With 34 pixels the count is 0. These figures come from Python with onnxruntime on the CPU of an Apple-silicon Mac, limited to 4 threads, on a 480×480 crop of a CC0 landscape photo from Wikimedia Commons by Bonnie Moreland. Image comparisons gave identical results across three runs; timings are the median of five. One model, one image.",
+      "author": "Lank_M",
       "date": "2026-11-22",
       "readTime": "2 min",
       "section": "software",
@@ -128,10 +128,49 @@
         "Software"
       ],
       "featured": false,
-      "xpReward": 43,
-      "url": "https://dev.to/stark_zhuang_df5076f35c68/the-mcp-inspector-proxy-trusted-a-redirect-and-inherited-command-execution-53f9",
-      "image": "/images/feed/feed-43e05f813cd4.webp",
+      "xpReward": 34,
+      "url": "https://dev.to/pm_cheng_3f36acecfb9c59f5/tiled-upscaling-matched-whole-image-inference-bit-for-bit-at-34-px-of-context-not-33-5e1o",
+      "image": "/images/feed/feed-ba4a38174dc3.webp",
       "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-292b70ccf82f",
+      "title": "ChatGPT vs Gemini in 2026: both charge ₩29,000 a month, and one of them throws in 5 TB of storage",
+      "excerpt": "ChatGPT vs Gemini in 2026: both charge ₩29,000 a month, and one of them throws in 5 TB of storage Two pricing pages, opened from Korea within a few minutes of each other on 22 November 2026. OpenAI se…",
+      "body": "ChatGPT vs Gemini in 2026: both charge ₩29,000 a month, and one of them throws in 5 TB of storage Two pricing pages, opened from Korea within a few minutes of each other on 22 November 2026. OpenAI served me won; Google served me won too. Both ladders pass through ₩29,000 per month , and what you get at that price is not the same purchase at all. This is the third piece in a series read straight off vendor pages. The point is not which assistant is smarter — it is what the pricing page commits to, what it leaves out, and which number you can plan a month with.",
+      "author": "ai-saasradar",
+      "date": "2026-11-22",
+      "readTime": "2 min",
+      "section": "ai",
+      "tags": [
+        "Chatgpt",
+        "Gemini"
+      ],
+      "featured": false,
+      "xpReward": 30,
+      "url": "https://dev.to/saasradarai/chatgpt-vs-gemini-in-2026-both-charge-w29000-a-month-and-one-of-them-throws-in-5-tb-of-storage-2jg8",
+      "image": "/images/feed/feed-292b70ccf82f.webp",
+      "source": "Dev.to",
+      "isLive": true
+    },
+    {
+      "id": "feed-adca59b71d93",
+      "title": "'Calvin and Hobbes' Best Bully Quote Is Still Among the Wisest in Comic Strip History",
+      "excerpt": "Moe was Calvin’s big dumb bully in Calvin and Hobbes. Here is his best quote from the beloved comic strip.",
+      "body": "In the comic strip Calvin and Hobbes , Calvin often defines his babysitter Rosalyn as his arch-nemesis. He regularly plots against her and tries to sabotage her relationship with her boyfriend. He even locked her out of the house once while she was babysitting him, which got him into big trouble with his parents.",
+      "author": "Brian VanHooker",
+      "date": "2026-11-22",
+      "readTime": "2 min",
+      "section": "gaming",
+      "tags": [
+        "Gaming"
+      ],
+      "featured": false,
+      "xpReward": 31,
+      "url": "https://www.polygon.com/calvin-and-hobbes-moe-best-quote/",
+      "image": "/images/feed/feed-adca59b71d93.jpg",
+      "source": "Polygon",
       "isLive": true
     },
     {
@@ -147,7 +186,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 39,
       "url": "https://www.ign.com/articles/piranha-plant-slippers-amazon-black-friday-deal-2026",
       "image": "/images/feed/feed-4af8389be2a1.jpg",
       "source": "IGN",
@@ -166,7 +205,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 44,
       "url": "https://thehackernews.com/2026/11/openrouter-drops-3-providers-after.html",
       "image": "/images/feed/feed-ae6e92c39a9e.png",
       "source": "The Hacker News",
@@ -185,7 +224,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 45,
+      "xpReward": 40,
       "url": "https://science.nasa.gov/image-article/apod-2026-november-22-swirls-and-colors-on-jupiter-from-juno/",
       "image": "/images/feed/feed-ee859941f624.jpg",
       "source": "NASA Breaking News",
@@ -204,7 +243,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 45,
       "url": "https://thehackernews.com/2026/11/researchers-demonstrate-ghostscript.html",
       "image": "/images/feed/feed-52d1eca4da7f.jpg",
       "source": "The Hacker News",
@@ -223,7 +262,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 46,
       "url": "https://cleantechnica.com/2026/11/21/ford-begins-producing-its-own-lfp-batteries/",
       "image": "/images/feed/feed-b316f7324afb.webp",
       "source": "CleanTechnica",
@@ -242,7 +281,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 45,
       "url": "https://www.polygon.com/friday-the-13th-youtube-watch-free-november-2026/",
       "image": "/images/feed/feed-506b65fe7650.jpg",
       "source": "Polygon",
@@ -261,7 +300,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 45,
       "url": "https://www.polygon.com/best-captain-kirk-quote-star-trek-original-series/",
       "image": "/images/feed/feed-2e25abffbdd6.jpg",
       "source": "Polygon",
@@ -280,7 +319,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 44,
       "url": "https://www.polygon.com/kite-eating-tree-peanuts/",
       "image": "/images/feed/feed-33efa034a164.jpg",
       "source": "Polygon",
@@ -299,7 +338,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 54,
       "url": "https://electrek.co/2026/11/21/rumor-hyundai-is-getting-ready-to-roll-out-an-all-new-all-electric-work-truck/",
       "image": "/images/feed/feed-c740ace5ddcd.jpg",
       "source": "Electrek",
@@ -318,7 +357,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 42,
       "url": "https://electrek.co/2026/11/21/red-wave-xiaomi-goes-global-with-first-overseas-ev-sales/",
       "image": "/images/feed/feed-87234dfd702e.jpg",
       "source": "Electrek",
@@ -337,7 +376,7 @@
         "Gaming"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 30,
       "url": "https://www.polygon.com/jrpgs-real-life-schedules/",
       "image": "/images/feed/feed-91a642e64cdc.jpg",
       "source": "Polygon",
@@ -356,7 +395,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 37,
+      "xpReward": 41,
       "url": "https://www.engadget.com/2319300/pixel-11-is-it-worth-upgrading-from-9-10/",
       "image": "/images/feed/feed-9dfbab4b94c9.jpg",
       "source": "Engadget",
@@ -375,7 +414,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 45,
       "url": "https://www.engadget.com/2310887/samsung-vs-lg-oled-tv-difference-between/",
       "image": "/images/feed/feed-7dee6e46a7ab.jpg",
       "source": "Engadget",
@@ -394,7 +433,7 @@
         "Xbox"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 50,
       "url": "https://github.com/ItsNotRexed/Leonida",
       "image": "/images/feed/feed-58f85c036062.png",
       "source": "Hacker News",
@@ -413,29 +452,10 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 41,
       "url": "https://www.engadget.com/2319295/what-can-happen-too-many-devices-on-home-network/",
       "image": "/images/feed/feed-67ec152f5a59.jpg",
       "source": "Engadget",
-      "isLive": true
-    },
-    {
-      "id": "feed-e53867abecf4",
-      "title": "Star Trek Reboot Officially Teased as Crimson Tide Meets Training Day Sci-Fi Thriller",
-      "excerpt": "The next Star Trek movie has writers and a strong pitch: Crimson Tide meets Training Day meets Starfleet.",
-      "body": "After more than a decade of waiting, it seems we may finally get a new theatrically released Star Trek movie . While dedicated Trekkies have heard that before, the directors of the only known Star Trek movie in development recently shared details about their project. The pair helming the new Trek film , Jonathan Goldstein and John Francis Daley, broke down the movie's influences in an interview with Inverse .",
-      "author": "Elijah Gonzalez",
-      "date": "2026-11-22",
-      "readTime": "2 min",
-      "section": "gaming",
-      "tags": [
-        "Gaming"
-      ],
-      "featured": false,
-      "xpReward": 42,
-      "url": "https://www.polygon.com/star-trek-movie-reboot-crimson-tide-training-day/",
-      "image": "/images/feed/feed-e53867abecf4.jpg",
-      "source": "Polygon",
       "isLive": true
     },
     {
@@ -451,7 +471,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 52,
       "url": "https://www.engadget.com/2319291/how-to-enable-usb-port-charging-pc-off/",
       "image": "/images/feed/feed-b91d27d3b057.jpg",
       "source": "Engadget",
@@ -470,7 +490,7 @@
         "Android Phone"
       ],
       "featured": false,
-      "xpReward": 31,
+      "xpReward": 33,
       "url": "https://www.engadget.com/2317775/never-do-these-things-on-android-phone/",
       "image": "/images/feed/feed-df288c60823c.jpg",
       "source": "Engadget",
@@ -489,7 +509,7 @@
         "Earbuds"
       ],
       "featured": false,
-      "xpReward": 54,
+      "xpReward": 36,
       "url": "https://www.engadget.com/2319289/wireless-earbuds-type-best-for-audio-output/",
       "image": "/images/feed/feed-bbca3c064dd9.jpg",
       "source": "Engadget",
@@ -508,7 +528,7 @@
         "Cars"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 34,
       "url": "https://electrek.co/2026/11/21/here-are-6-great-reasons-rural-drivers-should-embrace-evs-in-2026/",
       "image": "/images/feed/feed-7ccef9ef27d6.jpg",
       "source": "Electrek",
@@ -527,7 +547,7 @@
         "Gadgets"
       ],
       "featured": false,
-      "xpReward": 51,
+      "xpReward": 54,
       "url": "https://www.engadget.com/2310980/how-to-calibrate-3d-printer-why-should/",
       "image": "/images/feed/feed-ae427ed773bb.jpg",
       "source": "Engadget",
@@ -547,7 +567,7 @@
         "Breach"
       ],
       "featured": false,
-      "xpReward": 44,
+      "xpReward": 50,
       "url": "https://www.bleepingcomputer.com/news/security/rackspace-spot-breach-let-hackers-access-customer-kubernetes-secrets/",
       "image": "/images/feed/feed-577061a5363c.jpg",
       "source": "BleepingComputer",
@@ -566,7 +586,7 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 32,
+      "xpReward": 34,
       "url": "https://cleantechnica.com/2026/11/21/who-needs-automatic-driving-you-love-to-drive-however-for-many-handicapped-teslas-full-self-driving-is-the-only-option-its-use-it-or-dont-drive/",
       "image": "/images/feed/feed-bef1b29924ef.jpg",
       "source": "CleanTechnica",
@@ -585,7 +605,7 @@
         "Tesla"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 41,
       "url": "https://electrek.co/2026/11/21/tesla-fsd-v15-rollout-25x-safety-reality-view/",
       "image": "/images/feed/feed-e781d3ee50fb.jpg",
       "source": "Electrek",
@@ -604,7 +624,7 @@
         "Ev"
       ],
       "featured": false,
-      "xpReward": 35,
+      "xpReward": 53,
       "url": "https://electrek.co/2026/11/21/how-much-does-charging-an-ev-really-cost-this-redditor-says-7-per-month/",
       "image": "/images/feed/feed-568461fe64e9.jpg",
       "source": "Electrek",
@@ -623,7 +643,7 @@
         "Cve-"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 48,
       "url": "https://pwn.ai/upload2shell",
       "image": "/images/feed/feed-b484e42c41cd.png",
       "source": "Hacker News",
@@ -642,7 +662,7 @@
         "Exploit"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 39,
       "url": "https://www.bleepingcomputer.com/news/security/microsoft-entra-connect-health-flaw-exploited-to-steal-tenant-data/",
       "image": "/images/feed/feed-3ac5106debba.jpg",
       "source": "BleepingComputer",
@@ -661,7 +681,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 45,
       "url": "https://www.space.com/space-exploration/on-this-day-in-space-november-21-2026",
       "image": "/images/feed/feed-f95d9fe3e24d.jpg",
       "source": "Space.com",
@@ -680,7 +700,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 45,
       "url": "https://www.bleepingcomputer.com/news/security/badbox-30-botnet-returns-with-record-breaking-40-billion-daily-ad-requests/",
       "image": "/images/feed/feed-4fa83550e4df.jpg",
       "source": "BleepingComputer",
@@ -699,7 +719,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 43,
+      "xpReward": 40,
       "url": "https://www.space.com/entertainment/space-movies-shows/this-week-in-space-podcast-episode-237-a-fond-farewell",
       "image": "/images/feed/feed-fb68ef8e24cb.jpg",
       "source": "Space.com",
@@ -718,7 +738,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 49,
       "url": "https://www.space.com/entertainment/space-movies-shows/star-trek-first-contact-at-30-resistance-is-futile-when-it-comes-to-the-next-generation-crews-greatest-big-screen-adventure",
       "image": "/images/feed/feed-8103371176a3.jpg",
       "source": "Space.com",
@@ -737,7 +757,7 @@
         "Anthropic"
       ],
       "featured": false,
-      "xpReward": 38,
+      "xpReward": 52,
       "url": "https://www.theverge.com/podcast/1038701/anthropic-ipo-ai-safety-openai-nvidia-structure",
       "image": "/images/feed/feed-3f8dc1fbea0d.jpg",
       "source": "The Verge",
@@ -756,7 +776,7 @@
         "Cybersecurity"
       ],
       "featured": false,
-      "xpReward": 42,
+      "xpReward": 34,
       "url": "https://www.bleepingcomputer.com/news/security/fbi-reportedly-hacked-again-this-time-targeting-nationwide-police-database/",
       "image": "/images/feed/feed-68a7cdaa6f8d.jpg",
       "source": "BleepingComputer",
@@ -776,7 +796,7 @@
         "Starship"
       ],
       "featured": false,
-      "xpReward": 41,
+      "xpReward": 53,
       "url": "https://www.space.com/space-exploration/launches-spacecraft/spacex-will-retire-1st-starship-upper-stage-ever-caught-by-chopsticks-elon-musk-says",
       "image": "/images/feed/feed-0dc1e54a6bda.jpg",
       "source": "Space.com",
@@ -796,7 +816,7 @@
         "Space"
       ],
       "featured": false,
-      "xpReward": 33,
+      "xpReward": 53,
       "url": "https://www.wired.com/story/a-space-probe-returns-to-astroids-where-nasa-tested-planetary-defense-systems/",
       "image": "/images/feed/feed-946b84a36cab.png",
       "source": "Wired",
@@ -815,7 +835,7 @@
         "Orbit"
       ],
       "featured": false,
-      "xpReward": 53,
+      "xpReward": 38,
       "url": "https://www.space.com/space-exploration/missions/esa-jaxa-bepicolomobo-mission-mercury-orbit-arrival",
       "image": "/images/feed/feed-d12ffed9af05.jpg",
       "source": "Space.com",
@@ -834,7 +854,7 @@
         "Claude"
       ],
       "featured": false,
-      "xpReward": 36,
+      "xpReward": 46,
       "url": "https://www.cnet.com/tech/claude-ai-privacy-settings-guide/",
       "image": "/images/feed/feed-c23ef5c11676.jpg",
       "source": "CNET",
@@ -853,7 +873,7 @@
         "Gemini"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 34,
       "url": "https://www.cnet.com/tech/services-and-software/google-gemini-clears-firefighter-radio-static/",
       "image": "/images/feed/feed-37112e0686e5.jpg",
       "source": "CNET",
@@ -872,7 +892,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 39,
+      "xpReward": 35,
       "url": "https://openai.com/index/combatting-adversarial-distillation",
       "image": "/images/feed/feed-7121ba7c9173.png",
       "source": "OpenAI Blog",
@@ -891,7 +911,7 @@
         "Ai"
       ],
       "featured": false,
-      "xpReward": 48,
+      "xpReward": 37,
       "url": "https://techcrunch.com/2026/11/19/apple-may-be-developing-its-own-ai-agent-that-runs-your-mac/",
       "image": "https://techcrunch.com/wp-content/uploads/2026/06/iphone-usb-cable.jpg?resize=1200,800",
       "source": "TechCrunch",
@@ -915,38 +935,19 @@
       "image": "https://techcrunch.com/wp-content/uploads/2026/11/antrhopic-openingday-getty.jpg?resize=1200,801",
       "source": "TechCrunch",
       "isLive": true
-    },
-    {
-      "id": "feed-c2d364619a44",
-      "title": "Hebbia sees improvements in financial research with GPT-6 Astra",
-      "excerpt": "Hebbia tested GPT-6 Astra for financial research. Its prerelease evaluations found gains in source coverage, citation relevance, and presentation quality.",
-      "body": "Hebbia tested GPT-6 Astra for financial research. Its prerelease evaluations found gains in source coverage, citation relevance, and presentation quality.\n\nThis report, published by OpenAI Blog, touches on a topic that has been gaining momentum across the industry. Key areas highlighted include Gpt. As the situation continues to evolve, professionals and enthusiasts in the artificial intelligence and machine learning field are closely watching for downstream effects.\n\nFor the full breakdown, analysis, and expert commentary, head to OpenAI Blog using the link below. GiveMeTech will continue tracking this story as more details emerge.",
-      "author": "OpenAI Blog",
-      "date": "2026-11-20",
-      "readTime": "2 min",
-      "section": "ai",
-      "tags": [
-        "Gpt"
-      ],
-      "featured": false,
-      "xpReward": 34,
-      "url": "https://openai.com/business/customer-stories/hebbia",
-      "image": "/images/feed/feed-c2d364619a44.png",
-      "source": "OpenAI Blog",
-      "isLive": true
     }
   ],
   "breakingNews": [
-    "DEV.TO: Modeling 64-Hexagram Jingfang Najia & True Solar Time in TypeScript: Deterministic Calendar Engineering",
-    "DEV.TO: A small test fixture for Chinese SRT subtitle imports",
-    "DEV.TO: Building Sentinel: Uptime Monitoring with Signed Reports and Quorum",
-    "DEV.TO: AI Scientist Automates Idea Generation, Coding and Paper Writing",
-    "DEV.TO: Fix: iOS Codex Shows 'No Tasks Yet' Bug",
-    "DEV.TO: Fix: ChatGPT Download File Not Found (404 Error)",
-    "DEV.TO: The MCP Inspector proxy trusted a redirect and inherited command execution",
-    "IGN: These Piranha Plant Slippers Double as Mario-themed Decor When You Put Them Away",
-    "THE HACKER NEWS: OpenRouter Drops 3 Providers After Researchers Catch Months of Prompt Theft at AI Hosting Firms",
-    "NASA BREAKING NEWS: APOD: 2026 November 22 – Swirls and Colors on Jupiter from Juno"
+    "DEV.TO: Tile padding for 4x upscaling: six lines of output, max difference 149 down to 0",
+    "DEV.TO: Green receipts taught me that energy budgets are API design — what agents shipping compute-heavy tools should learn",
+    "DEV.TO: Two cron expressions that don't do what they look like",
+    "DEV.TO: Webflow vs Framer in 2026: $15 against $10 at the door, and $25 against $30 one tier up",
+    "DEV.TO: k9s incident debugging: shortcuts and plugins that save minutes",
+    "DEV.TO: Cursor vs GitHub Copilot in 2026: a $2 gap at the door and a $100 gap at the top",
+    "DEV.TO: Tiled upscaling matched whole-image inference bit for bit at 34 px of context, not 33",
+    "DEV.TO: ChatGPT vs Gemini in 2026: both charge ₩29,000 a month, and one of them throws in 5 TB of storage",
+    "POLYGON: 'Calvin and Hobbes' Best Bully Quote Is Still Among the Wisest in Comic Strip History",
+    "IGN: These Piranha Plant Slippers Double as Mario-themed Decor When You Put Them Away"
   ],
   "sectionVideos": {}
 }
